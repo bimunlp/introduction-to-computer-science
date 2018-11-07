@@ -1,0 +1,9565 @@
+1
+00:00:00,000 --> 00:00:10,570
+[MUSIC PLAYING]
+
+2
+00:00:10,570 --> 00:00:13,030
+DAVID J. MALAN: All right,
+this is CS50 and this
+
+3
+00:00:13,030 --> 00:00:16,030
+is lecture 6 and as you
+may recall, today we
+
+4
+00:00:16,030 --> 00:00:19,340
+begin to transition away from
+this low-level world of C
+
+5
+00:00:19,340 --> 00:00:22,180
+and command line programming
+into to a domain that's probably
+
+6
+00:00:22,180 --> 00:00:24,190
+a little more familiar,
+that of the web, and yet
+
+7
+00:00:24,190 --> 00:00:27,610
+all the ideas that we've been exploring
+thus far like functions and loops
+
+8
+00:00:27,610 --> 00:00:31,250
+and conditions and so forth
+are still going to be relevant.
+
+9
+00:00:31,250 --> 00:00:34,420
+It's just we're going to start using
+slightly different syntax and the user
+
+10
+00:00:34,420 --> 00:00:37,750
+interface, or UI, is now going
+to be your browser instead
+
+11
+00:00:37,750 --> 00:00:41,920
+of a black and white terminal window
+with just a simple textual prompt,
+
+12
+00:00:41,920 --> 00:00:43,000
+but how did we get here?
+
+13
+00:00:43,000 --> 00:00:45,130
+Well, recall that we've
+looked recently at structs
+
+14
+00:00:45,130 --> 00:00:48,040
+and what was nice about structs
+in C was that we had the ability
+
+15
+00:00:48,040 --> 00:00:51,760
+to make our own custom data types
+and to kind of encapsulate together
+
+16
+00:00:51,760 --> 00:00:54,370
+related data, and that
+became pretty powerful
+
+17
+00:00:54,370 --> 00:00:58,330
+when it came time for forensics to
+actually manipulate bitmap files
+
+18
+00:00:58,330 --> 00:01:01,870
+or JPEGs, and even though this
+struct is way more complicated
+
+19
+00:01:01,870 --> 00:01:04,269
+than a student structure,
+at the end of the day
+
+20
+00:01:04,269 --> 00:01:07,780
+it's just individual data types
+that are all somehow interrelated,
+
+21
+00:01:07,780 --> 00:01:10,900
+and by putting them in a struct
+you can move them all around
+
+22
+00:01:10,900 --> 00:01:15,400
+and copy them and save them all
+together as you might have done as well,
+
+23
+00:01:15,400 --> 00:01:19,052
+but then most recently did we
+introduce a somewhat fancier structure,
+
+24
+00:01:19,052 --> 00:01:20,260
+which is still the same idea.
+
+25
+00:01:20,260 --> 00:01:22,330
+It's got like one or
+more things inside of it,
+
+26
+00:01:22,330 --> 00:01:24,820
+but now, more powerfully,
+one of those things
+
+27
+00:01:24,820 --> 00:01:29,240
+had this star or asterisk, which gave
+us, of course, a pointer or an address,
+
+28
+00:01:29,240 --> 00:01:32,650
+but what was so powerful about
+this simple idea and this seemingly
+
+29
+00:01:32,650 --> 00:01:36,670
+simple symbol is that now we can kind
+of stitch together in our computer's
+
+30
+00:01:36,670 --> 00:01:38,387
+memory any kind of structure we want.
+
+31
+00:01:38,387 --> 00:01:39,970
+It doesn't have to just be one entity.
+
+32
+00:01:39,970 --> 00:01:42,310
+It can somehow be linked
+to another and you
+
+33
+00:01:42,310 --> 00:01:47,410
+can keep linking these structures
+together as well, and this of course
+
+34
+00:01:47,410 --> 00:01:50,620
+was an improvement on perhaps our
+simplest of data structures early on,
+
+35
+00:01:50,620 --> 00:01:53,080
+an array or a list,
+but of course, as soon
+
+36
+00:01:53,080 --> 00:01:56,290
+as you have pointers can you
+begin to link things together
+
+37
+00:01:56,290 --> 00:02:00,040
+until we got something like this
+and perhaps now with the dictionary
+
+38
+00:02:00,040 --> 00:02:03,900
+implementation you yourself might be
+exploring a linked list, a hash table,
+
+39
+00:02:03,900 --> 00:02:06,790
+a [? try ?] or some variant in between.
+
+40
+00:02:06,790 --> 00:02:10,539
+And then lastly, there was this
+painting of a picture, whereby
+
+41
+00:02:10,539 --> 00:02:14,260
+this is your computer's memory
+put a little more descriptively,
+
+42
+00:02:14,260 --> 00:02:17,230
+and this is germane only
+insofar as your computer uses
+
+43
+00:02:17,230 --> 00:02:19,390
+different chunks of memory differently.
+
+44
+00:02:19,390 --> 00:02:21,970
+All of your function calls
+end up using the stack.
+
+45
+00:02:21,970 --> 00:02:24,070
+All of your users of
+malloc and its cousins
+
+46
+00:02:24,070 --> 00:02:27,640
+end up using the heap, and then
+of course there's this up here,
+
+47
+00:02:27,640 --> 00:02:31,840
+and what was the text segment,
+which we didn't really dwell on?
+
+48
+00:02:31,840 --> 00:02:35,340
+What was the text segment all about?
+
+49
+00:02:35,340 --> 00:02:38,460
+Text-- you're being volunteered.
+
+50
+00:02:38,460 --> 00:02:40,788
+Yes, what's the text segment?
+
+51
+00:02:40,788 --> 00:02:42,030
+AUDIENCE: Files information?
+
+52
+00:02:42,030 --> 00:02:43,100
+DAVID J. MALAN: Files information, yeah.
+
+53
+00:02:43,100 --> 00:02:45,820
+Specifically, the 0s and 1s
+that compose the actual program.
+
+54
+00:02:45,820 --> 00:02:49,890
+So when you compile your source
+code, like hello.c, into 0s and 1s,
+
+55
+00:02:49,890 --> 00:02:53,190
+those end up getting stored
+in this location in memory
+
+56
+00:02:53,190 --> 00:02:54,630
+while the program is running.
+
+57
+00:02:54,630 --> 00:02:57,870
+So long-term they're stored on disk or
+your hard drive or whatever's inside
+
+58
+00:02:57,870 --> 00:03:01,440
+of the computer or the server so that
+the files persist even when the power
+
+59
+00:03:01,440 --> 00:03:03,564
+goes off or you walk
+away from the keyboard,
+
+60
+00:03:03,564 --> 00:03:06,480
+but as soon as you double click a
+program on your Mac or PC or as soon
+
+61
+00:03:06,480 --> 00:03:09,570
+as you do ./hello or
+some command like that,
+
+62
+00:03:09,570 --> 00:03:12,720
+those same 0s and 1s get loaded
+into your computer's RAM,
+
+63
+00:03:12,720 --> 00:03:16,710
+the picture we keep showing, and that's
+where they live while they're in use
+
+64
+00:03:16,710 --> 00:03:19,440
+by your Mac or PC or the actual server,
+
+65
+00:03:19,440 --> 00:03:23,790
+but thus far we've been running all
+of these programs with something like
+
+66
+00:03:23,790 --> 00:03:27,360
+./hello or some similar command and
+running them just in the so-called
+
+67
+00:03:27,360 --> 00:03:28,590
+terminal window.
+
+68
+00:03:28,590 --> 00:03:31,200
+But you are probably
+most familiar, certainly
+
+69
+00:03:31,200 --> 00:03:33,510
+with more graphical apps
+on your phones these days
+
+70
+00:03:33,510 --> 00:03:36,030
+and any time you visit a
+web browser on your phone
+
+71
+00:03:36,030 --> 00:03:40,080
+or on your desktop or laptop, you're
+still interacting with a program.
+
+72
+00:03:40,080 --> 00:03:43,800
+It's just that program is not
+only running on your Mac or PC.
+
+73
+00:03:43,800 --> 00:03:47,397
+Your browser is, like Chrome
+or Edge or Firefox or Safari
+
+74
+00:03:47,397 --> 00:03:48,480
+or whatever it is you use.
+
+75
+00:03:48,480 --> 00:03:50,700
+That's running on your
+Mac or PC, but what
+
+76
+00:03:50,700 --> 00:03:53,700
+you're communicating with
+is a program elsewhere,
+
+77
+00:03:53,700 --> 00:03:56,805
+somewhere else on the internet and
+those programs are called web servers.
+
+78
+00:03:56,805 --> 00:04:01,080
+A web server is just a piece of
+software that some human or humans wrote
+
+79
+00:04:01,080 --> 00:04:03,540
+and their purpose in life
+is to serve web pages.
+
+80
+00:04:03,540 --> 00:04:05,910
+When you request the
+homepage of Facebook,
+
+81
+00:04:05,910 --> 00:04:08,190
+there is a server out there,
+a program someone wrote,
+
+82
+00:04:08,190 --> 00:04:13,350
+that essentially spits out the 0s and
+1s that compose Facebook's homepage,
+
+83
+00:04:13,350 --> 00:04:18,014
+but nicely enough, those 0s and
+1s are not written as 0s and 1s
+
+84
+00:04:18,014 --> 00:04:18,930
+by Facebook engineers.
+
+85
+00:04:18,930 --> 00:04:21,638
+They're actually written as
+something a little more English-like,
+
+86
+00:04:21,638 --> 00:04:24,450
+a little more familiar, and it's
+not even programming code, per se.
+
+87
+00:04:24,450 --> 00:04:28,902
+It's what's called markup language,
+and we'll soon see that and more today.
+
+88
+00:04:28,902 --> 00:04:31,110
+So we've gone from compiling
+your code and running it
+
+89
+00:04:31,110 --> 00:04:34,060
+like this to actually doing
+that in a web-based environment,
+
+90
+00:04:34,060 --> 00:04:38,180
+but of course, when you're running your
+own programs in CS50 IDE down here,
+
+91
+00:04:38,180 --> 00:04:40,770
+you're actually using
+another piece of software
+
+92
+00:04:40,770 --> 00:04:43,590
+that fills the screen, CS50IDE, a.k.a.
+
+93
+00:04:43,590 --> 00:04:48,249
+Cloud9, which is the program essentially
+running somewhere in the cloud.
+
+94
+00:04:48,249 --> 00:04:50,790
+And we'll start to make this
+distinction and through examples
+
+95
+00:04:50,790 --> 00:04:54,360
+will the distinction among these
+different types of software
+
+96
+00:04:54,360 --> 00:04:57,930
+begin to make sense, but where is
+something like CS50IDE running?
+
+97
+00:04:57,930 --> 00:04:59,370
+Where is Facebook running?
+
+98
+00:04:59,370 --> 00:05:00,830
+Where is Google.com running?
+
+99
+00:05:00,830 --> 00:05:05,370
+Well, back in 1998, Google.com
+was running on this.
+
+100
+00:05:05,370 --> 00:05:09,510
+This was Larry and Sergey, the founders
+of Google's, very first implementation,
+
+101
+00:05:09,510 --> 00:05:12,490
+apparently, of their
+first rack of servers.
+
+102
+00:05:12,490 --> 00:05:16,380
+So servers are generally stored
+literally in a rack like this.
+
+103
+00:05:16,380 --> 00:05:18,690
+It's usually like 19
+inches wide by convention
+
+104
+00:05:18,690 --> 00:05:21,690
+and you just stack computer on top
+of computer on top of computer,
+
+105
+00:05:21,690 --> 00:05:24,330
+but things were very bare
+bones back in the day of Google
+
+106
+00:05:24,330 --> 00:05:26,220
+and so there weren't
+even plastic or metal
+
+107
+00:05:26,220 --> 00:05:28,740
+cases around a lot of their computers.
+
+108
+00:05:28,740 --> 00:05:31,920
+They were trying to minimize cooling,
+minimize cost, presumably, and cram
+
+109
+00:05:31,920 --> 00:05:35,659
+as much hardware into that
+footprint as they could,
+
+110
+00:05:35,659 --> 00:05:37,950
+and so you actually see a
+lot of the wires and hardware
+
+111
+00:05:37,950 --> 00:05:41,280
+kind of sticking out, and this
+is on display now out west.
+
+112
+00:05:41,280 --> 00:05:44,160
+Of course these days, fast forward
+just a decade or two, and this
+
+113
+00:05:44,160 --> 00:05:48,000
+is one of Facebook's data centers
+where it's the exact same idea,
+
+114
+00:05:48,000 --> 00:05:50,910
+but much fancier, much prettier,
+much better lit servers,
+
+115
+00:05:50,910 --> 00:05:53,580
+but who serve, at the end of
+the day, the exact same role.
+
+116
+00:05:53,580 --> 00:05:56,190
+There are bunches of servers
+around the world that are just
+
+117
+00:05:56,190 --> 00:05:58,470
+sitting there waiting
+for you on the internet
+
+118
+00:05:58,470 --> 00:06:01,350
+to make a request for a
+homepage, for an email,
+
+119
+00:06:01,350 --> 00:06:04,260
+for any other type of
+information so that it ends up
+
+120
+00:06:04,260 --> 00:06:05,910
+getting sent from server to client.
+
+121
+00:06:05,910 --> 00:06:10,410
+And in fact, if you've ever thought
+about those words server and clients,
+
+122
+00:06:10,410 --> 00:06:12,300
+which is probably the
+lesser used of the two,
+
+123
+00:06:12,300 --> 00:06:15,030
+but a server-client relationship is what
+you have when you go into a restaurant,
+
+124
+00:06:15,030 --> 00:06:17,363
+and you ask the waiter or
+waitress for something to eat.
+
+125
+00:06:17,363 --> 00:06:19,890
+He or she brings something back
+to you, thereby serving you,
+
+126
+00:06:19,890 --> 00:06:23,610
+the client, and the relationship on
+the web is pretty much the same thing.
+
+127
+00:06:23,610 --> 00:06:24,630
+We are the clients.
+
+128
+00:06:24,630 --> 00:06:26,850
+Our browsers are the
+clients and out there
+
+129
+00:06:26,850 --> 00:06:31,530
+are servers like these who are
+serving up content and information,
+
+130
+00:06:31,530 --> 00:06:32,580
+such as on Facebook.
+
+131
+00:06:32,580 --> 00:06:35,070
+So let's consider how all
+this data even gets to us.
+
+132
+00:06:35,070 --> 00:06:39,030
+So odds are, these days, if you want
+to visit Facebook.com on your laptop
+
+133
+00:06:39,030 --> 00:06:42,570
+or desktop or phone without
+using the app, you probably just
+
+134
+00:06:42,570 --> 00:06:45,210
+type in Facebook.com and hit Enter.
+
+135
+00:06:45,210 --> 00:06:47,920
+If you're a little older
+school or literally older,
+
+136
+00:06:47,920 --> 00:06:52,230
+you might just actually type out
+the entirety of www.Facebook.com.
+
+137
+00:06:52,230 --> 00:06:56,700
+Both work and there are technical
+reasons for that related to the topic
+
+138
+00:06:56,700 --> 00:06:58,950
+we'll talk about today,
+but both of these work just
+
+139
+00:06:58,950 --> 00:07:00,825
+because Facebook has
+configured their website
+
+140
+00:07:00,825 --> 00:07:02,730
+to work in either of those addresses.
+
+141
+00:07:02,730 --> 00:07:09,126
+Now, as an aside, why are so many
+websites therefore prefixed with "www"
+
+142
+00:07:09,126 --> 00:07:11,040
+if both of them actually work?
+
+143
+00:07:11,040 --> 00:07:13,930
+
+
+144
+00:07:13,930 --> 00:07:15,090
+Like, why have both?
+
+145
+00:07:15,090 --> 00:07:17,700
+It seems just like
+redundant to type "www."
+
+146
+00:07:17,700 --> 00:07:21,690
+if it's implied by Facebook.com.
+
+147
+00:07:21,690 --> 00:07:22,764
+Yeah, what do you think?
+
+148
+00:07:22,764 --> 00:07:24,719
+AUDIENCE: Is the "www" required?
+
+149
+00:07:24,719 --> 00:07:26,010
+DAVID J. MALAN: Is it required?
+
+150
+00:07:26,010 --> 00:07:27,690
+Nope, not required.
+
+151
+00:07:27,690 --> 00:07:29,100
+Not required.
+
+152
+00:07:29,100 --> 00:07:29,600
+Yeah?
+
+153
+00:07:29,600 --> 00:07:31,680
+AUDIENCE: Is it to identify that
+it's part of the World Wide Web?
+
+154
+00:07:31,680 --> 00:07:32,215
+DAVID J. MALAN: Kind of, yeah.
+
+155
+00:07:32,215 --> 00:07:34,175
+It's to identify that it's
+part of the World Wide Web
+
+156
+00:07:34,175 --> 00:07:36,410
+and no one really says
+World Wide Web these days.
+
+157
+00:07:36,410 --> 00:07:40,440
+We of course just say web, but back in
+the day and back in my day, frankly,
+
+158
+00:07:40,440 --> 00:07:42,450
+it wasn't obvious to
+a lot of human beings
+
+159
+00:07:42,450 --> 00:07:48,900
+what Facebook.com might actually
+even mean, irrespective of the fact
+
+160
+00:07:48,900 --> 00:07:51,480
+that it didn't exist at some point.
+
+161
+00:07:51,480 --> 00:07:54,090
+And so there was this sort
+of signal to the world
+
+162
+00:07:54,090 --> 00:07:57,660
+whereby you just started prefixing
+domain names with "www" just
+
+163
+00:07:57,660 --> 00:08:00,240
+to make super clear to
+users, oh, this is a website!
+
+164
+00:08:00,240 --> 00:08:02,672
+This is one of those things
+on the internet or the like,
+
+165
+00:08:02,672 --> 00:08:04,380
+and also back in the
+day, there were also
+
+166
+00:08:04,380 --> 00:08:07,180
+different services that have
+fallen into disuse these days,
+
+167
+00:08:07,180 --> 00:08:10,020
+like FTP was quite popular
+and Gopher, we used it
+
+168
+00:08:10,020 --> 00:08:12,030
+when I was here and other such things.
+
+169
+00:08:12,030 --> 00:08:15,390
+And so "www" was just an arbitrary
+prefix that just kind of said what it
+
+170
+00:08:15,390 --> 00:08:20,760
+is, but these days we humans pretty much
+know what a .com is and .net and .edu,
+
+171
+00:08:20,760 --> 00:08:24,400
+but even that kind of road is
+changing again because there's dozens,
+
+172
+00:08:24,400 --> 00:08:26,700
+hundreds of top-level domains.
+
+173
+00:08:26,700 --> 00:08:29,690
+It's not just .com and
+.edu and others now.
+
+174
+00:08:29,690 --> 00:08:31,980
+I mean, there's hundreds
+of these things out there
+
+175
+00:08:31,980 --> 00:08:34,490
+and so it might even be
+non obvious to this day.
+
+176
+00:08:34,490 --> 00:08:39,713
+So some people, therefore, go really
+all the way in and type out http://
+
+177
+00:08:39,713 --> 00:08:43,230
+and then the address
+that they want to visit,
+
+178
+00:08:43,230 --> 00:08:46,470
+but odds are most of us don't do this
+because our browsers just help us out
+
+179
+00:08:46,470 --> 00:08:49,300
+and prefix that, but that's
+where our focus will be today.
+
+180
+00:08:49,300 --> 00:08:52,830
+Like, this actually has
+significance because it specifies
+
+181
+00:08:52,830 --> 00:08:57,780
+what protocol or language,
+what convention your computer,
+
+182
+00:08:57,780 --> 00:09:01,410
+your laptop should use when
+talking to that server's address,
+
+183
+00:09:01,410 --> 00:09:03,866
+and actually, if you want the
+communications to be secure,
+
+184
+00:09:03,866 --> 00:09:06,240
+odds are your typing or your
+browser is doing it for you.
+
+185
+00:09:06,240 --> 00:09:11,640
+Adding an s there, denoting secure
+or encrypted a la Caesar and Vigenere
+
+186
+00:09:11,640 --> 00:09:14,350
+from some weeks ago and
+technically your browser
+
+187
+00:09:14,350 --> 00:09:17,460
+is also probably adding
+a trailing slash even
+
+188
+00:09:17,460 --> 00:09:21,600
+if it's not shown to you, which denotes
+you want the root of the server,
+
+189
+00:09:21,600 --> 00:09:23,761
+like the default homepage
+or something else.
+
+190
+00:09:23,761 --> 00:09:25,510
+In fact, maybe you do
+want something else.
+
+191
+00:09:25,510 --> 00:09:28,730
+You don't want just Facebook's
+website, you want Mark's page,
+
+192
+00:09:28,730 --> 00:09:32,860
+and so you could specifically /zuck
+or whatever the username actually is.
+
+193
+00:09:32,860 --> 00:09:35,730
+So this is a very long way of
+saying all this kind of stuff
+
+194
+00:09:35,730 --> 00:09:39,480
+that we type or autocomplete and
+take for granted these days actually
+
+195
+00:09:39,480 --> 00:09:42,810
+has some very fundamental
+meanings, all of which
+
+196
+00:09:42,810 --> 00:09:44,970
+make possible the entirety of the web.
+
+197
+00:09:44,970 --> 00:09:49,210
+So what actually goes on with HTTP
+and what does that actually mean?
+
+198
+00:09:49,210 --> 00:09:51,600
+So HTTP is a protocol.
+
+199
+00:09:51,600 --> 00:09:54,180
+It is a set of conventions
+that dictate how a computer
+
+200
+00:09:54,180 --> 00:09:58,870
+client, like a browser on your
+Mac or PC, talks to a web server,
+
+201
+00:09:58,870 --> 00:10:01,857
+and it's a protocol in the sense
+that it's not a language, per se.
+
+202
+00:10:01,857 --> 00:10:03,690
+It's really just a set
+of conventions and so
+
+203
+00:10:03,690 --> 00:10:06,780
+like this is kind of an arbitrary
+and awkward human convention.
+
+204
+00:10:06,780 --> 00:10:08,290
+Hello, I'm David.
+
+205
+00:10:08,290 --> 00:10:09,082
+AUDIENCE: I'm Kara.
+
+206
+00:10:09,082 --> 00:10:11,665
+DAVID J. MALAN: Kara, so Kara
+and I just introduced ourselves.
+
+207
+00:10:11,665 --> 00:10:14,040
+I extended my hand and she
+kind of knew instinctively
+
+208
+00:10:14,040 --> 00:10:17,910
+that it would be awkward not to
+shake my hands or to shake my hand
+
+209
+00:10:17,910 --> 00:10:20,670
+and so we exchanged
+pleasantries and said hello.
+
+210
+00:10:20,670 --> 00:10:22,770
+So this is just kind of
+a silly human convention
+
+211
+00:10:22,770 --> 00:10:25,260
+whereby we've agreed sort
+of socially in advance
+
+212
+00:10:25,260 --> 00:10:27,270
+how to greet each other in that way.
+
+213
+00:10:27,270 --> 00:10:30,720
+So HTTP is pretty much the
+same thing, but in this case
+
+214
+00:10:30,720 --> 00:10:33,180
+you're not actually physically
+doing something like that.
+
+215
+00:10:33,180 --> 00:10:36,120
+You're kind of sending a
+message from client to server.
+
+216
+00:10:36,120 --> 00:10:39,960
+You're putting a sort of handwritten
+note into an envelope this,
+
+217
+00:10:39,960 --> 00:10:43,470
+addressing it somehow and then sending
+it off on the internet for Kara
+
+218
+00:10:43,470 --> 00:10:46,860
+or for Facebook.com or
+Google.com to actually receive,
+
+219
+00:10:46,860 --> 00:10:49,650
+and then when Google or Facebook
+or Kara receives that note,
+
+220
+00:10:49,650 --> 00:10:53,850
+reads and sees what I want,
+the server or the human
+
+221
+00:10:53,850 --> 00:10:57,030
+responds in some according way.
+
+222
+00:10:57,030 --> 00:11:00,010
+So what then goes
+inside of this envelope?
+
+223
+00:11:00,010 --> 00:11:02,400
+Well it turns out that
+when a web browser,
+
+224
+00:11:02,400 --> 00:11:05,820
+like Chrome or Edge or Firefox,
+Safari, make a request,
+
+225
+00:11:05,820 --> 00:11:09,480
+the message they put inside of one
+of those envelopes, albeit virtually,
+
+226
+00:11:09,480 --> 00:11:11,100
+is literally this text.
+
+227
+00:11:11,100 --> 00:11:14,460
+It's like if I had it written down on a
+piece of paper literally GET / HTTP/1.1
+
+228
+00:11:14,460 --> 00:11:19,800
+Host: www.facebook.com
+and then the "..."
+
+229
+00:11:19,800 --> 00:11:23,400
+just means there's other stuff in there,
+but it's less fundamentally interesting
+
+230
+00:11:23,400 --> 00:11:24,270
+right now.
+
+231
+00:11:24,270 --> 00:11:26,040
+So what's this all mean?
+
+232
+00:11:26,040 --> 00:11:28,260
+GET is just a verb and it
+kind of says what it means.
+
+233
+00:11:28,260 --> 00:11:30,000
+Go get something from the server.
+
+234
+00:11:30,000 --> 00:11:35,700
+HTTP/1.1 mentions the version of HTTP
+that I am using or the human convention
+
+235
+00:11:35,700 --> 00:11:38,640
+that Kara and I were
+actually implementing there,
+
+236
+00:11:38,640 --> 00:11:42,750
+and so 1.1 tends to be the one most
+in use these days, and then /, again,
+
+237
+00:11:42,750 --> 00:11:48,330
+it's just like the default identifier
+for the homepage of a website,
+
+238
+00:11:48,330 --> 00:11:51,610
+the default page that you see in
+the absence of typing something like
+
+239
+00:11:51,610 --> 00:11:54,330
+and /zuck or some other suffix.
+
+240
+00:11:54,330 --> 00:11:58,440
+Host: Is the same thing as whatever's
+on the outside of the envelope.
+
+241
+00:11:58,440 --> 00:12:00,780
+So if I'm sending a message
+to www.Facebook.com,
+
+242
+00:12:00,780 --> 00:12:06,750
+I'm just making super clear inside of
+the envelope which server should expect
+
+243
+00:12:06,750 --> 00:12:10,320
+this request just in case there
+are multiple websites running
+
+244
+00:12:10,320 --> 00:12:13,470
+on the same physical server, which is
+possible for economic and performance
+
+245
+00:12:13,470 --> 00:12:14,640
+reasons these days.
+
+246
+00:12:14,640 --> 00:12:18,210
+So alternatively, if I were trying
+to visit Mark Zuckerberg's homepage,
+
+247
+00:12:18,210 --> 00:12:20,790
+the request in that envelope's
+going to look almost the same,
+
+248
+00:12:20,790 --> 00:12:22,164
+but I'm going to be more precise.
+
+249
+00:12:22,164 --> 00:12:24,870
+/zuck instead of just /.
+
+250
+00:12:24,870 --> 00:12:27,599
+Meanwhile, if I'm requesting
+something from Yale's homepage,
+
+251
+00:12:27,599 --> 00:12:30,140
+the request would look like
+this, or from Harvard's web page,
+
+252
+00:12:30,140 --> 00:12:34,060
+the request would look
+like this and so forth.
+
+253
+00:12:34,060 --> 00:12:37,110
+So once Harvard or Yale
+or Facebook w actually
+
+254
+00:12:37,110 --> 00:12:40,350
+received the request in that
+envelope, opened it up, look at it,
+
+255
+00:12:40,350 --> 00:12:42,300
+how do they decide how to respond?
+
+256
+00:12:42,300 --> 00:12:44,610
+Well at the end of the
+day, I'm probably expecting
+
+257
+00:12:44,610 --> 00:12:47,870
+to get back from the web
+server some kind of, excuse me,
+
+258
+00:12:47,870 --> 00:12:51,780
+web page whereby I want to
+see my news feed on Facebook
+
+259
+00:12:51,780 --> 00:12:54,024
+or I want to see the
+search page on Google
+
+260
+00:12:54,024 --> 00:12:56,190
+or I want to see Harvard's
+homepage, Yale's homepage
+
+261
+00:12:56,190 --> 00:12:57,540
+or whatever it actually is.
+
+262
+00:12:57,540 --> 00:13:01,380
+So there's a lot of information
+probably packed into that envelope,
+
+263
+00:13:01,380 --> 00:13:04,350
+but there's also a
+conventional, a standard,
+
+264
+00:13:04,350 --> 00:13:07,180
+response that looks literally like this.
+
+265
+00:13:07,180 --> 00:13:10,980
+So at the very top, for instance, of
+the "letter" that comes back from Google
+
+266
+00:13:10,980 --> 00:13:13,000
+or Facebook is a message like this.
+
+267
+00:13:13,000 --> 00:13:13,500
+Got it.
+
+268
+00:13:13,500 --> 00:13:16,650
+I'm speaking HTTP version 1.1 also.
+
+269
+00:13:16,650 --> 00:13:19,010
+Everything is OK and 200.
+
+270
+00:13:19,010 --> 00:13:20,760
+We'll come back to
+that in second and then
+
+271
+00:13:20,760 --> 00:13:23,650
+the type of content
+inside of the envelope,
+
+272
+00:13:23,650 --> 00:13:25,830
+if I keep digging
+deeper into it, is going
+
+273
+00:13:25,830 --> 00:13:28,140
+to be text, but more
+specifically, HTML, and we're
+
+274
+00:13:28,140 --> 00:13:29,960
+going to focus on that today too.
+
+275
+00:13:29,960 --> 00:13:32,460
+HTML, Hypertext Markup Language.
+
+276
+00:13:32,460 --> 00:13:36,300
+This is going to be the language in
+which web pages themselves are written.
+
+277
+00:13:36,300 --> 00:13:38,640
+Then there's usually some
+other stuff and way down there
+
+278
+00:13:38,640 --> 00:13:42,297
+is the actual contents of Yale's or
+Harvard's or Facebook's homepage,
+
+279
+00:13:42,297 --> 00:13:44,130
+but let's zoom in on
+this for just a moment.
+
+280
+00:13:44,130 --> 00:13:48,870
+200, odds are you've never seen or
+cared to see this kind of number before,
+
+281
+00:13:48,870 --> 00:13:52,020
+but have you ever used the
+web and requested a web page
+
+282
+00:13:52,020 --> 00:13:55,087
+and seen some number that for some
+reason keeps popping up in your life?
+
+283
+00:13:55,087 --> 00:13:56,170
+AUDIENCE (IN UNSION): 404.
+
+284
+00:13:56,170 --> 00:13:57,370
+DAVID J. MALAN: Yeah, 404.
+
+285
+00:13:57,370 --> 00:14:00,330
+It's just kind of a weird thing
+that many of us in the room
+
+286
+00:14:00,330 --> 00:14:02,755
+know 404 even if we're not
+necessarily technophiles
+
+287
+00:14:02,755 --> 00:14:06,690
+and know what HTTP is, but it turns
+out that in these envelopes coming back
+
+288
+00:14:06,690 --> 00:14:11,500
+from servers sometimes are
+not just 200 OK, but instead--
+
+289
+00:14:11,500 --> 00:14:13,860
+dammit, typo.
+
+290
+00:14:13,860 --> 00:14:16,890
+This would be much more effective
+if I said it's not this.
+
+291
+00:14:16,890 --> 00:14:18,210
+It's not found.
+
+292
+00:14:18,210 --> 00:14:25,260
+So inside of the envelope is 404
+not found, which means exactly that.
+
+293
+00:14:25,260 --> 00:14:28,740
+The file was not found that
+you were actually seeking.
+
+294
+00:14:28,740 --> 00:14:31,740
+You mistyped the URL,
+the page was deleted.
+
+295
+00:14:31,740 --> 00:14:34,470
+Somewhere or other, there was
+some kind of typographical error
+
+296
+00:14:34,470 --> 00:14:37,605
+and it turns out there's a lot
+of the status codes in HTTP
+
+297
+00:14:37,605 --> 00:14:39,480
+and there are even more
+than these, but these
+
+298
+00:14:39,480 --> 00:14:41,313
+are the ones we might
+see the most commonly.
+
+299
+00:14:41,313 --> 00:14:43,500
+200 OK means all is indeed well.
+
+300
+00:14:43,500 --> 00:14:45,450
+404 means not found.
+
+301
+00:14:45,450 --> 00:14:48,090
+403 forbidden might be
+if you've not logged in
+
+302
+00:14:48,090 --> 00:14:51,510
+or don't have the right access
+in order to access some folder
+
+303
+00:14:51,510 --> 00:14:53,100
+or file on some website.
+
+304
+00:14:53,100 --> 00:14:56,190
+This is really bad and we'll get to
+know this over the coming weeks as we
+
+305
+00:14:56,190 --> 00:14:58,470
+ourselves start implementing
+code on a server.
+
+306
+00:14:58,470 --> 00:15:02,406
+500 internal server error, if you will,
+shall be our new segmentation fault,
+
+307
+00:15:02,406 --> 00:15:03,780
+but hopefully not too frequently.
+
+308
+00:15:03,780 --> 00:15:06,400
+It means something is wrong
+in the code on the server.
+
+309
+00:15:06,400 --> 00:15:10,870
+This was an April Fools' joke
+back in 1998 I believe, yeah.
+
+310
+00:15:10,870 --> 00:15:15,210
+So April Fools', some humans decide it
+would be funny to announce to the world
+
+311
+00:15:15,210 --> 00:15:17,940
+that there's yet another code,
+which is 418 I'm a Teapot,
+
+312
+00:15:17,940 --> 00:15:21,840
+which kind of comes up from time to time
+in actual code and then there's this
+
+313
+00:15:21,840 --> 00:15:23,010
+one--
+
+314
+00:15:23,010 --> 00:15:24,630
+301 Moved Permanently.
+
+315
+00:15:24,630 --> 00:15:27,210
+It's kind of a scary sounding
+thing, as though a website just
+
+316
+00:15:27,210 --> 00:15:31,890
+kind of up and left and went elsewhere,
+but it's a powerful mechanism
+
+317
+00:15:31,890 --> 00:15:32,980
+in the following way.
+
+318
+00:15:32,980 --> 00:15:35,100
+If a server inside of
+one of these envelopes
+
+319
+00:15:35,100 --> 00:15:38,550
+responds with a response
+like this, there
+
+320
+00:15:38,550 --> 00:15:41,110
+tends to be one other piece
+of information at least.
+
+321
+00:15:41,110 --> 00:15:47,230
+So if I visit a website
+like http://harvard.edu,
+
+322
+00:15:47,230 --> 00:15:51,300
+I might get back in the response
+from Harvard's web server
+
+323
+00:15:51,300 --> 00:15:54,000
+this answer, 301 Moved Permanently.
+
+324
+00:15:54,000 --> 00:15:55,590
+Like where the heck did Harvard go?
+
+325
+00:15:55,590 --> 00:15:58,345
+Well you can see the location
+based on this other line
+
+326
+00:15:58,345 --> 00:16:00,720
+and all of these things
+collectively moving forward we're
+
+327
+00:16:00,720 --> 00:16:03,180
+just going to call HTTP headers.
+
+328
+00:16:03,180 --> 00:16:06,060
+Anytime you see a word
+and a colon, that's
+
+329
+00:16:06,060 --> 00:16:08,549
+an HTTP header with a name
+and a value and the first one
+
+330
+00:16:08,549 --> 00:16:10,590
+ones a little anomalous
+in that there's no colon,
+
+331
+00:16:10,590 --> 00:16:12,810
+but that's the only
+one without the colon.
+
+332
+00:16:12,810 --> 00:16:19,070
+So location colon
+http://www.harvard.edu.
+
+333
+00:16:19,070 --> 00:16:20,070
+Well what's going on?
+
+334
+00:16:20,070 --> 00:16:24,100
+Well, if I actually visit Harvard's
+homepage exactly as follows,
+
+335
+00:16:24,100 --> 00:16:25,660
+let's take a look at what happens.
+
+336
+00:16:25,660 --> 00:16:31,290
+I'm going to go to
+http://harvard.edu, Enter.
+
+337
+00:16:31,290 --> 00:16:34,680
+And notice there's a whole bunch of more
+stuff happening on the screen thanks
+
+338
+00:16:34,680 --> 00:16:37,485
+to what's called autocomplete, which
+is a feature of Chrome or my browser.
+
+339
+00:16:37,485 --> 00:16:39,330
+It has nothing to do
+with the topic at hand.
+
+340
+00:16:39,330 --> 00:16:43,440
+This is just Chrome trying to be
+helpful today as on your computer too
+
+341
+00:16:43,440 --> 00:16:49,710
+and suddenly, even though I tried
+to go to http://hardvard.edu, ,
+
+342
+00:16:49,710 --> 00:16:52,500
+where did I clearly end up?
+
+343
+00:16:52,500 --> 00:16:56,340
+HTTPS, so they added the s somehow
+and what else has it added?
+
+344
+00:16:56,340 --> 00:16:58,140
+[VARIOUS ANSWERS FROM AUDIENCE]
+
+345
+00:16:58,140 --> 00:16:59,390
+DAVID J. MALAN: Yeah, the web.
+
+346
+00:16:59,390 --> 00:17:00,950
+The www prefix was added.
+
+347
+00:17:00,950 --> 00:17:04,260
+So this is not sort of all
+that important to the user
+
+348
+00:17:04,260 --> 00:17:09,040
+like I got to my destination somehow
+but the reason for that is as follows.
+
+349
+00:17:09,040 --> 00:17:12,980
+I'm going to go ahead and
+open up, in the IDE actually,
+
+350
+00:17:12,980 --> 00:17:16,609
+just a terminal window here and I'm
+going to use a new program called Curl
+
+351
+00:17:16,609 --> 00:17:22,520
+for connect to a URL
+://harvard.edu, Enter.
+
+352
+00:17:22,520 --> 00:17:25,411
+And I get back some cryptic looking
+things and that's actually HTML,
+
+353
+00:17:25,411 --> 00:17:27,619
+and we're going to come back
+to this in just a moment
+
+354
+00:17:27,619 --> 00:17:30,900
+because it turns out there's two
+parts to the messages coming back.
+
+355
+00:17:30,900 --> 00:17:34,640
+There's the headers and then there's the
+content, and we're seeing the content.
+
+356
+00:17:34,640 --> 00:17:35,750
+So more on that in a bit.
+
+357
+00:17:35,750 --> 00:17:38,937
+I want to look a little higher up in
+the response and literally just look
+
+358
+00:17:38,937 --> 00:17:42,020
+at the headers, and to do that-- and
+you would only know this from reading
+
+359
+00:17:42,020 --> 00:17:43,340
+the documentation--
+
+360
+00:17:43,340 --> 00:17:47,880
+-I means show me just the
+headers that are coming back.
+
+361
+00:17:47,880 --> 00:17:50,360
+So here now we see the
+headers coming back
+
+362
+00:17:50,360 --> 00:17:52,946
+and you'll see indeed we got
+back a 301 Moved Permanently,
+
+363
+00:17:52,946 --> 00:17:55,570
+and then there's some other stuff
+we haven't really focused on,
+
+364
+00:17:55,570 --> 00:17:57,740
+but at the bottom is something we have--
+
+365
+00:17:57,740 --> 00:18:01,452
+location, which says to the
+browser go to this URL instead.
+
+366
+00:18:01,452 --> 00:18:02,660
+All right, so let me do that.
+
+367
+00:18:02,660 --> 00:18:09,080
+Let me save time and just copy paste
+this and then do curl -I of this,
+
+368
+00:18:09,080 --> 00:18:13,280
+Enter, and pretend to be a browser
+requesting that page now, but now
+
+369
+00:18:13,280 --> 00:18:16,126
+where are they trying to send me?
+
+370
+00:18:16,126 --> 00:18:18,440
+HTTPS.
+
+371
+00:18:18,440 --> 00:18:21,890
+So this suggests via some
+mechanism, some human at Harvard
+
+372
+00:18:21,890 --> 00:18:23,450
+decided one, uh-uh.
+
+373
+00:18:23,450 --> 00:18:25,430
+We're not going to be
+called like harvard.edu.
+
+374
+00:18:25,430 --> 00:18:29,240
+We shall be www.hardvard.edu
+for whatever reason
+
+375
+00:18:29,240 --> 00:18:34,430
+and then they also decided that if a
+user visits us using HTTP, which is not
+
+376
+00:18:34,430 --> 00:18:39,020
+encrypted, not secure, we're going
+to forcibly tell them to come back
+
+377
+00:18:39,020 --> 00:18:43,460
+via secure channel, and we won't
+dwell today on how that's implemented,
+
+378
+00:18:43,460 --> 00:18:46,910
+but much like in Caesar or Vigenere
+where was a way to encrypt or scramble
+
+379
+00:18:46,910 --> 00:18:49,100
+information, browsers
+can do that too and it's
+
+380
+00:18:49,100 --> 00:18:53,600
+implied by using the HTTPS
+instead of just HTTP.
+
+381
+00:18:53,600 --> 00:18:56,730
+All right, so let's actually
+visit this one more time.
+
+382
+00:18:56,730 --> 00:18:59,560
+Let me go ahead and
+highlight that location.
+
+383
+00:18:59,560 --> 00:19:04,220
+curl -i of that address and now an
+overwhelming amount of information
+
+384
+00:19:04,220 --> 00:19:07,910
+coming back, and that's why I kept
+putting the ...'s, but the juicy stuff
+
+385
+00:19:07,910 --> 00:19:08,960
+is at the top.
+
+386
+00:19:08,960 --> 00:19:16,880
+Now everything is 200 OK and
+indeed, if I run it without -I
+
+387
+00:19:16,880 --> 00:19:18,920
+so I see the contents
+of the envelope, it's
+
+388
+00:19:18,920 --> 00:19:21,680
+like looking deeper
+inside of the envelope,
+
+389
+00:19:21,680 --> 00:19:25,190
+now I actually see a lot more
+content, which collectively
+
+390
+00:19:25,190 --> 00:19:29,240
+composes Harvard's
+homepage, and it turns out
+
+391
+00:19:29,240 --> 00:19:30,914
+we can see this even in Chrome.
+
+392
+00:19:30,914 --> 00:19:33,830
+Let me go over to my browser again
+and if you've not done this before,
+
+393
+00:19:33,830 --> 00:19:37,280
+it turns out that you can go
+to your View menu, Developer,
+
+394
+00:19:37,280 --> 00:19:40,490
+and go to Developer Tools-- and we'll
+do this in upcoming problem sets--
+
+395
+00:19:40,490 --> 00:19:43,280
+and I can go here and see a whole
+bunch of features, only a couple
+
+396
+00:19:43,280 --> 00:19:44,780
+of which we might look at today.
+
+397
+00:19:44,780 --> 00:19:47,120
+Specifically, I'm going to
+click on this Network tab.
+
+398
+00:19:47,120 --> 00:19:50,819
+So to be clear, Developer Tools in
+Chrome still shows me the homepage,
+
+399
+00:19:50,819 --> 00:19:52,610
+but it kind of dedicates
+part of the screen
+
+400
+00:19:52,610 --> 00:19:56,690
+to these special developer tools that
+make it easy to understand and actually
+
+401
+00:19:56,690 --> 00:19:57,976
+create websites.
+
+402
+00:19:57,976 --> 00:19:59,850
+So eventually we'll
+start using this ourself,
+
+403
+00:19:59,850 --> 00:20:04,130
+but what's nice about the Network
+tab is that you can sniff or monitor
+
+404
+00:20:04,130 --> 00:20:07,010
+all of the requests going
+back and forth between browser
+
+405
+00:20:07,010 --> 00:20:09,396
+and server in the so-called envelopes.
+
+406
+00:20:09,396 --> 00:20:11,770
+So I'm going to hit a little
+Clear symbol here first just
+
+407
+00:20:11,770 --> 00:20:13,580
+to get a clean slate.
+
+408
+00:20:13,580 --> 00:20:18,050
+I'm going to click preserve log so
+I can actually see what's happening
+
+409
+00:20:18,050 --> 00:20:19,757
+and now I'm going to go ahead--
+
+410
+00:20:19,757 --> 00:20:21,590
+actually, I'm going to
+go ahead and do this.
+
+411
+00:20:21,590 --> 00:20:27,380
+http://harvard.edu, so the sort of
+incorrect version that I'm going
+
+412
+00:20:27,380 --> 00:20:28,910
+expect the browser to fix for me.
+
+413
+00:20:28,910 --> 00:20:30,050
+I hit Enter.
+
+414
+00:20:30,050 --> 00:20:33,500
+A whole bunch of stuff is
+flying across the screen
+
+415
+00:20:33,500 --> 00:20:36,050
+and in fact if we zoom
+in on this, you can
+
+416
+00:20:36,050 --> 00:20:38,660
+see that just visiting
+Harvard's home page
+
+417
+00:20:38,660 --> 00:20:44,000
+requires 85 envelopes it would seem
+going back and forth with pieces
+
+418
+00:20:44,000 --> 00:20:46,790
+of the webpage and we'll see soon
+with some of those pieces are,
+
+419
+00:20:46,790 --> 00:20:48,710
+but it's not just one file coming back.
+
+420
+00:20:48,710 --> 00:20:49,730
+It's bunches of files.
+
+421
+00:20:49,730 --> 00:20:52,730
+Maybe images, maybe fonts,
+or some other things too,
+
+422
+00:20:52,730 --> 00:20:54,770
+but I'm going to scroll
+up in this output
+
+423
+00:20:54,770 --> 00:20:57,830
+and now notice the story
+that's been told here too.
+
+424
+00:20:57,830 --> 00:21:01,310
+So the very first request,
+which I can hover over and see,
+
+425
+00:21:01,310 --> 00:21:04,820
+came back with a 301, which we
+now know is Moved Permanently,
+
+426
+00:21:04,820 --> 00:21:06,140
+or it's a redirect.
+
+427
+00:21:06,140 --> 00:21:08,330
+Then if I hover over
+the second one, you'll
+
+428
+00:21:08,330 --> 00:21:12,980
+see that it's a slightly more precise
+URL, www, but still with HTTP.
+
+429
+00:21:12,980 --> 00:21:18,240
+So that got redirected and then lastly,
+if we look at the third line here,
+
+430
+00:21:18,240 --> 00:21:20,180
+this is the one we
+ultimately ended up at
+
+431
+00:21:20,180 --> 00:21:24,560
+and indeed it comes back 200, as do
+bunches of other results thereafter,
+
+432
+00:21:24,560 --> 00:21:27,860
+and we'll see what those
+200s actually mean.
+
+433
+00:21:27,860 --> 00:21:29,840
+Now, you can do a
+little better than this
+
+434
+00:21:29,840 --> 00:21:33,380
+and it's perhaps fitting that our
+friends down the road indeed did.
+
+435
+00:21:33,380 --> 00:21:35,250
+Let me go back to the IDE.
+
+436
+00:21:35,250 --> 00:21:38,960
+Let me go ahead and clear this and
+instead of curling harvard.edu,
+
+437
+00:21:38,960 --> 00:21:43,650
+let me do http://yale.edu
+and ask the question,
+
+438
+00:21:43,650 --> 00:21:47,570
+what would be a better approach--
+knowing these ingredients that we now
+
+439
+00:21:47,570 --> 00:21:49,880
+have of how redirects work.
+
+440
+00:21:49,880 --> 00:21:54,890
+How could Harvard do better in terms
+of getting the user to the address
+
+441
+00:21:54,890 --> 00:21:57,560
+that we intend them to be at?
+
+442
+00:21:57,560 --> 00:21:58,161
+Yeah.
+
+443
+00:21:58,161 --> 00:22:00,270
+AUDIENCE: By not forcing
+like, two redirects?
+
+444
+00:22:00,270 --> 00:22:02,210
+DAVID J. MALAN: Yeah, by not
+forcing two redirects, right?
+
+445
+00:22:02,210 --> 00:22:04,001
+Even if some of this
+material is new, we've
+
+446
+00:22:04,001 --> 00:22:06,284
+long talked now about
+correctness and design and style
+
+447
+00:22:06,284 --> 00:22:09,200
+and we've seen some messy style on
+the screen and that's fine for now.
+
+448
+00:22:09,200 --> 00:22:10,310
+More on that later.
+
+449
+00:22:10,310 --> 00:22:12,230
+It seems to be correct
+because it's working,
+
+450
+00:22:12,230 --> 00:22:14,150
+but it feels like it
+could be better designed
+
+451
+00:22:14,150 --> 00:22:17,920
+because why make one request
+then make another request just
+
+452
+00:22:17,920 --> 00:22:20,510
+to fix the first request then
+make a third request just
+
+453
+00:22:20,510 --> 00:22:22,370
+to fix the second request?
+
+454
+00:22:22,370 --> 00:22:23,630
+Why not combine them?
+
+455
+00:22:23,630 --> 00:22:26,480
+And, as it turns out, someone down
+the road had that same intuition
+
+456
+00:22:26,480 --> 00:22:31,610
+and so we visit yale.edu with
+just HTTP and without the www,
+
+457
+00:22:31,610 --> 00:22:34,820
+they, in one fell swoop,
+actually redirect us
+
+458
+00:22:34,820 --> 00:22:38,730
+to the right place in this case.
+
+459
+00:22:38,730 --> 00:22:42,950
+So, with that said, it's
+perhaps fitting that just
+
+460
+00:22:42,950 --> 00:22:45,980
+a few years, well,
+some years ago now, you
+
+461
+00:22:45,980 --> 00:22:49,400
+might have tried to visit
+this particular address,
+
+462
+00:22:49,400 --> 00:22:52,730
+and this is something I
+can only do in Cambridge.
+
+463
+00:22:52,730 --> 00:22:58,940
+If I go ahead and open a new browser
+and go to http:// shall we say
+
+464
+00:22:58,940 --> 00:23:05,240
+safetyschool.org and hit
+Enter if you've never been.
+
+465
+00:23:05,240 --> 00:23:06,350
+Oh, interesting!
+
+466
+00:23:06,350 --> 00:23:07,900
+[STUDENTS LAUGH]
+
+467
+00:23:07,900 --> 00:23:10,805
+
+
+468
+00:23:10,805 --> 00:23:13,430
+DAVID J. MALAN: And apologies
+for those of you tuning in online
+
+469
+00:23:13,430 --> 00:23:15,050
+live from New Haven.
+
+470
+00:23:15,050 --> 00:23:17,127
+So how is this possibly working?
+
+471
+00:23:17,127 --> 00:23:18,710
+It's actually a very simple heuristic.
+
+472
+00:23:18,710 --> 00:23:21,770
+If instead of selecting Yale or
+Harvard or any other address,
+
+473
+00:23:21,770 --> 00:23:25,520
+if I literally do like safetyschool.org,
+we can wrap our mind around
+
+474
+00:23:25,520 --> 00:23:29,150
+what's going on underneath the hood
+safetyschool.org has moved permanently
+
+475
+00:23:29,150 --> 00:23:33,980
+to New Haven it would seem, but it's via
+this very simple mechanism that someone
+
+476
+00:23:33,980 --> 00:23:36,079
+back in 2000 registered
+this domain name,
+
+477
+00:23:36,079 --> 00:23:38,870
+and so actually as I was looking
+this up in the history last night,
+
+478
+00:23:38,870 --> 00:23:42,620
+I was amused to find that whoever bought
+the domain has been paying for this
+
+479
+00:23:42,620 --> 00:23:48,389
+domain name now for 17 years for this
+joke annually, but it's well worth it,
+
+480
+00:23:48,389 --> 00:23:49,430
+but I think it would be--
+
+481
+00:23:49,430 --> 00:23:50,652
+[STUDENTS LAUGH]
+
+482
+00:23:50,652 --> 00:23:52,610
+DAVID J. MALAN: But I
+think it's only fair now,
+
+483
+00:23:52,610 --> 00:23:55,550
+it's only fair if we take
+a look at another one too.
+
+484
+00:23:55,550 --> 00:24:03,230
+It turns out that if you visit
+harvardsucks.org, that one has also
+
+485
+00:24:03,230 --> 00:24:05,100
+redirected, this time to www.
+
+486
+00:24:05,100 --> 00:24:09,770
+So let's follow this little
+breadcrumb. curl -I harvardsucks.org,
+
+487
+00:24:09,770 --> 00:24:11,240
+and this one's OK.
+
+488
+00:24:11,240 --> 00:24:14,450
+So that means something
+lives at harvardsucks.org
+
+489
+00:24:14,450 --> 00:24:18,660
+and it does not as cleverly
+redirect to harvard.edu,
+
+490
+00:24:18,660 --> 00:24:20,660
+but to introduce this,
+let me actually introduce
+
+491
+00:24:20,660 --> 00:24:23,090
+a friend of ours who's now very
+awkwardly visiting from New Haven
+
+492
+00:24:23,090 --> 00:24:23,420
+today.
+
+493
+00:24:23,420 --> 00:24:23,919
+Hi Natalie.
+
+494
+00:24:23,919 --> 00:24:26,420
+Do you want to come on up and
+say hello for just a moment?
+
+495
+00:24:26,420 --> 00:24:30,950
+So this is Natalie, who is our head
+of the class with Benedict Brown
+
+496
+00:24:30,950 --> 00:24:33,740
+and [? Anushri ?] and with
+[? Staleos ?] in New Haven.
+
+497
+00:24:33,740 --> 00:24:35,360
+If you'd like to say a quick hello?
+
+498
+00:24:35,360 --> 00:24:37,850
+Hi, Hi, everyone.
+
+499
+00:24:37,850 --> 00:24:40,540
+DAVID J. MALAN: So nice to have
+you here today and as you know--
+
+500
+00:24:40,540 --> 00:24:43,100
+do you want to make mention of
+what we're about to see here?
+
+501
+00:24:43,100 --> 00:24:48,470
+What happened back in 2004
+just a few years later?
+
+502
+00:24:48,470 --> 00:24:51,430
+AUDIENCE: We did a
+prank back, basically.
+
+503
+00:24:51,430 --> 00:24:53,090
+DAVID J. MALAN: OK, so perfect set-up.
+
+504
+00:24:53,090 --> 00:24:53,950
+Thank you very much.
+
+505
+00:24:53,950 --> 00:24:54,658
+Hello to Natalie.
+
+506
+00:24:54,658 --> 00:24:57,770
+Let me go ahead and hit
+play on three minutes
+
+507
+00:24:57,770 --> 00:25:00,020
+that are kind of hard
+to justify academically,
+
+508
+00:25:00,020 --> 00:25:02,990
+but it's perhaps one of the best
+pranks that's ever been played.
+
+509
+00:25:02,990 --> 00:25:05,720
+Long story short, our
+friends down the road
+
+510
+00:25:05,720 --> 00:25:08,840
+got together with a few of themselves
+just before Harvard Yale, which
+
+511
+00:25:08,840 --> 00:25:11,870
+was to be at Harvard
+that year and actually
+
+512
+00:25:11,870 --> 00:25:14,780
+mapped out using software,
+a sort of grid system
+
+513
+00:25:14,780 --> 00:25:18,260
+that lined up with all of the
+seats in the Harvard stadium,
+
+514
+00:25:18,260 --> 00:25:21,140
+whereby you assume that a human
+each takes up some amount of space,
+
+515
+00:25:21,140 --> 00:25:23,330
+and then they used special
+software to figure out
+
+516
+00:25:23,330 --> 00:25:27,080
+how they might spell something
+out in the audience in a way that
+
+517
+00:25:27,080 --> 00:25:30,416
+would be readable to the opponents,
+the Yalies, on the other side.
+
+518
+00:25:30,416 --> 00:25:32,415
+So if we could dim the
+lights for this look back
+
+519
+00:25:32,415 --> 00:25:37,106
+at yesteryear and a
+slight use of software.
+
+520
+00:25:37,106 --> 00:25:39,082
+[MUSIC PLAYING]
+
+521
+00:25:39,082 --> 00:26:04,223
+
+
+522
+00:26:04,223 --> 00:26:05,264
+- All the way at the top.
+
+523
+00:26:05,264 --> 00:26:08,280
+
+
+524
+00:26:08,280 --> 00:26:09,873
+- This is for you Yale.
+
+525
+00:26:09,873 --> 00:26:11,352
+We love you Yale.
+
+526
+00:26:11,352 --> 00:26:13,810
+- We're here to cheer for Harvard.
+
+527
+00:26:13,810 --> 00:26:14,310
+- Yeah!
+
+528
+00:26:14,310 --> 00:26:15,789
+Let's go Harvard!
+
+529
+00:26:15,789 --> 00:26:17,268
+- Yeah, Harvard!
+
+530
+00:26:17,268 --> 00:26:19,733
+- Take the top one and pass it down.
+
+531
+00:26:19,733 --> 00:26:23,184
+- It's not going to say
+something like Yale sucks is it?
+
+532
+00:26:23,184 --> 00:26:25,156
+- It says Go Harvard.
+
+533
+00:26:25,156 --> 00:26:26,635
+- We're nice.
+
+534
+00:26:26,635 --> 00:26:28,114
+- You see that shit?
+
+535
+00:26:28,114 --> 00:26:30,579
+Look at them, they have the paper!
+
+536
+00:26:30,579 --> 00:26:32,551
+It's gonna happen!
+
+537
+00:26:32,551 --> 00:26:35,190
+It's actually gonna happen!
+
+538
+00:26:35,190 --> 00:26:37,290
+I can't [BLEEP] believe this.
+
+539
+00:26:37,290 --> 00:26:38,456
+- What do you think of Yale?
+
+540
+00:26:38,456 --> 00:26:40,368
+- They don't think good!
+
+541
+00:26:40,368 --> 00:26:43,670
+- It may be a complete
+mess, I don't know.
+
+542
+00:26:43,670 --> 00:26:44,670
+- Does everyone have it?
+
+543
+00:26:44,670 --> 00:26:46,732
+Does everyone have their stuff?
+
+544
+00:26:46,732 --> 00:26:49,485
+- The probability that it's
+gonna be legible is very small.
+
+545
+00:26:49,485 --> 00:26:50,318
+- It's gonna happen!
+
+546
+00:26:50,318 --> 00:26:51,272
+It's gonna happen!
+
+547
+00:26:51,272 --> 00:26:52,230
+- It's too complicated.
+
+548
+00:26:52,230 --> 00:26:53,664
+- Look, look at all the signs.
+
+549
+00:26:53,664 --> 00:26:55,098
+- I know but it's too complicated.
+
+550
+00:26:55,098 --> 00:26:57,473
+- Uh, what houses are you guys in?
+
+551
+00:26:57,473 --> 00:26:59,375
+That's not a real house.
+
+552
+00:26:59,375 --> 00:27:01,800
+- Ho-fo?
+
+553
+00:27:01,800 --> 00:27:03,717
+- Yeah.
+
+554
+00:27:03,717 --> 00:27:05,545
+You guys aren't from Harvard are you?
+
+555
+00:27:05,545 --> 00:27:06,459
+- No, fo-ho.
+
+556
+00:27:06,459 --> 00:27:07,830
+Pforzheimer!
+
+557
+00:27:07,830 --> 00:27:08,967
+- Yeah, but he said ho-fo.
+
+558
+00:27:08,967 --> 00:27:10,592
+- Let's just make sure everyone has it.
+
+559
+00:27:10,592 --> 00:27:11,494
+- Well she's probably drunk.
+
+560
+00:27:11,494 --> 00:27:12,900
+- Are all the cards disributed?
+
+561
+00:27:12,900 --> 00:27:13,400
+- Almost!
+
+562
+00:27:13,400 --> 00:27:17,612
+
+
+563
+00:27:17,612 --> 00:27:22,076
+[APPLAUSE]
+
+564
+00:27:22,076 --> 00:27:27,036
+
+
+565
+00:27:27,036 --> 00:27:28,524
+[CHEERING]
+
+566
+00:27:28,524 --> 00:27:29,516
+
+
+567
+00:27:29,516 --> 00:27:31,004
+- Hold up your signs!
+
+568
+00:27:31,004 --> 00:27:32,988
+- They [BLEEP] did it!
+
+569
+00:27:32,988 --> 00:27:34,972
+[CROWD CHANTING "YOU SUCK!"]
+
+570
+00:27:34,972 --> 00:27:36,956
+
+
+571
+00:27:36,956 --> 00:27:38,940
+- They [BLEEP] did it!
+
+572
+00:27:38,940 --> 00:27:41,420
+They [BLEEP] did it!
+
+573
+00:27:41,420 --> 00:27:46,380
+[CROWD CHANTING "YOU SUCK!"]
+
+574
+00:27:46,380 --> 00:27:48,860
+- What do you think of Yale sir?
+
+575
+00:27:48,860 --> 00:27:50,844
+- They suck!
+
+576
+00:27:50,844 --> 00:27:52,332
+- One more time!
+
+577
+00:27:52,332 --> 00:27:53,820
+
+
+578
+00:27:53,820 --> 00:27:55,308
+- One more time!
+
+579
+00:27:55,308 --> 00:27:58,780
+
+
+580
+00:27:58,780 --> 00:28:02,028
+- Oh and there it goes again!
+
+581
+00:28:02,028 --> 00:28:18,654
+[CROWD CHANTING "HARVARD SUCKS!"]
+
+582
+00:28:18,654 --> 00:28:19,580
+[END PLAYBACK]
+
+583
+00:28:19,580 --> 00:28:21,455
+DAVID J. MALAN: All
+right, we've been talking
+
+584
+00:28:21,455 --> 00:28:23,620
+about what goes on
+inside of this envelope,
+
+585
+00:28:23,620 --> 00:28:26,062
+but what goes on on the outside?
+
+586
+00:28:26,062 --> 00:28:28,770
+So when you hand off this envelope
+from your laptop or your phone
+
+587
+00:28:28,770 --> 00:28:31,510
+to the internet, how does it
+actually get to its destination?
+
+588
+00:28:31,510 --> 00:28:34,600
+Well you've probably heard this
+acronym IP, or internet protocol,
+
+589
+00:28:34,600 --> 00:28:37,930
+and it turns out that every computer
+on the internet and every phone
+
+590
+00:28:37,930 --> 00:28:43,000
+in this room and any very laptop
+in this room has a unique address.
+
+591
+00:28:43,000 --> 00:28:46,810
+That unique address is known as an IP
+address and it's much like the address
+
+592
+00:28:46,810 --> 00:28:51,040
+of a building in the real world, like
+the Science Center might be a 1 Oxford
+
+593
+00:28:51,040 --> 00:28:53,860
+Street Cambridge, Mass 02138, USA.
+
+594
+00:28:53,860 --> 00:28:55,270
+Down the road is the CS building.
+
+595
+00:28:55,270 --> 00:28:58,600
+33 Oxford Street
+Cambridge, Mass 02138, USA.
+
+596
+00:28:58,600 --> 00:29:01,784
+So those long strings
+uniquely identify buildings
+
+597
+00:29:01,784 --> 00:29:03,700
+in the world for the
+mail service and the like
+
+598
+00:29:03,700 --> 00:29:08,470
+and similarly do IP addresses uniquely
+identify computers on the internet.
+
+599
+00:29:08,470 --> 00:29:10,570
+These addresses are much
+more succinct though.
+
+600
+00:29:10,570 --> 00:29:14,080
+They're not long strings they're instead
+just numbers that have four parts
+
+601
+00:29:14,080 --> 00:29:20,450
+and each of those numbers within the
+IP address are a value from 0 to 255.
+
+602
+00:29:20,450 --> 00:29:23,710
+So the lowest IP address is all
+zeros and the biggest IP address
+
+603
+00:29:23,710 --> 00:29:25,860
+is all 255s with some constraints.
+
+604
+00:29:25,860 --> 00:29:28,250
+You can't quite use
+all of those numbers.
+
+605
+00:29:28,250 --> 00:29:32,530
+So just as a sort of quick teaser,
+if the smallest number is 0
+
+606
+00:29:32,530 --> 00:29:37,450
+and the biggest number for each of
+these sections of the IP address is 255,
+
+607
+00:29:37,450 --> 00:29:40,570
+how many bits are being used
+for each of those four numbers?
+
+608
+00:29:40,570 --> 00:29:41,790
+AUDIENCE: 8.
+
+609
+00:29:41,790 --> 00:29:42,790
+DAVID J. MALAN: Yeah, 8.
+
+610
+00:29:42,790 --> 00:29:47,320
+So remember like 8 bits gives you 2
+times 2 times 2 times 2 times 2 times
+
+611
+00:29:47,320 --> 00:29:52,600
+2 times 2 times 2, which is 256, and
+indeed we have 256 total values from 0
+
+612
+00:29:52,600 --> 00:29:54,320
+on up to 255.
+
+613
+00:29:54,320 --> 00:29:59,180
+So an IP address is 8 plus 8
+plus 8 plus 8, or 32 bits total,
+
+614
+00:29:59,180 --> 00:30:03,250
+or, just come really full circle
+with week zero, if you have 32 bits,
+
+615
+00:30:03,250 --> 00:30:05,490
+roughly how high can you count?
+
+616
+00:30:05,490 --> 00:30:08,770
+Like what's 2 to the 32 power?
+
+617
+00:30:08,770 --> 00:30:10,630
+Yeah, it's roughly 4 billion.
+
+618
+00:30:10,630 --> 00:30:14,500
+So, long story short, the implication
+of this very simple definition
+
+619
+00:30:14,500 --> 00:30:19,730
+is that apparently there can only be,
+in this model, four billion computers,
+
+620
+00:30:19,730 --> 00:30:24,250
+phones, refrigerators, internet of
+things, devices on the internet at once
+
+621
+00:30:24,250 --> 00:30:27,064
+if they do all need an
+IP address that's unique.
+
+622
+00:30:27,064 --> 00:30:29,230
+So I've been telling a
+slight white lie in that they
+
+623
+00:30:29,230 --> 00:30:32,246
+don't have to all technically
+be unique because there's
+
+624
+00:30:32,246 --> 00:30:34,120
+ways we can share
+addresses, and it turns out
+
+625
+00:30:34,120 --> 00:30:37,545
+there's even bigger addresses these
+days that aren't just 32 bits but 128
+
+626
+00:30:37,545 --> 00:30:42,160
+bits, which is just massive and daresay
+unpronounceable how big that number is.
+
+627
+00:30:42,160 --> 00:30:45,580
+So we've gotten ahead of this issue, but
+you'll find that in a lot of locations,
+
+628
+00:30:45,580 --> 00:30:49,900
+companies and internet service providers
+like Comcast and Verizon and the like
+
+629
+00:30:49,900 --> 00:30:53,950
+and campuses like Harvard and Yale,
+you can notice that they tend to follow
+
+630
+00:30:53,950 --> 00:30:57,640
+patterns, like many of the IP
+addresses here at Harvard start with
+
+631
+00:30:57,640 --> 00:31:02,329
+140.247.something.something or 128.103.
+
+632
+00:31:02,329 --> 00:31:04,120
+Down the road in New
+Haven, a lot of the IP
+
+633
+00:31:04,120 --> 00:31:08,110
+addresses there start
+with 130.132 or 128.36,
+
+634
+00:31:08,110 --> 00:31:12,790
+which is not at all interesting to
+the humans who are using these IP
+
+635
+00:31:12,790 --> 00:31:16,570
+addresses, but it is useful to
+the servers or the devices that
+
+636
+00:31:16,570 --> 00:31:20,570
+are actually routing these
+envelopes from one place to another.
+
+637
+00:31:20,570 --> 00:31:24,040
+Meanwhile, in our homes and even
+sometimes on campus these days,
+
+638
+00:31:24,040 --> 00:31:26,620
+there are also what are called
+private IP addresses, which
+
+639
+00:31:26,620 --> 00:31:29,230
+are numbers within
+these ranges, and this
+
+640
+00:31:29,230 --> 00:31:33,430
+has been a solution so that when
+you sign up for Verizon or Comcast
+
+641
+00:31:33,430 --> 00:31:35,800
+back home or your parents
+do for internet service,
+
+642
+00:31:35,800 --> 00:31:39,194
+you technically only get one IP address
+from your internet service provider.
+
+643
+00:31:39,194 --> 00:31:41,860
+That's what you're paying for per
+month, but thanks to something
+
+644
+00:31:41,860 --> 00:31:44,920
+called network address translation
+and other technologies,
+
+645
+00:31:44,920 --> 00:31:47,980
+you can actually give all
+of your siblings and parents
+
+646
+00:31:47,980 --> 00:31:52,160
+and family members or roommates in the
+household their own unique address.
+
+647
+00:31:52,160 --> 00:31:55,270
+It's just private in the sense that
+no one else on the outside world
+
+648
+00:31:55,270 --> 00:31:59,360
+can access it unless you
+initiate the connection.
+
+649
+00:31:59,360 --> 00:32:01,510
+So this is generally why
+at home you can reach
+
+650
+00:32:01,510 --> 00:32:04,809
+any website you want any service
+on the internet that you want,
+
+651
+00:32:04,809 --> 00:32:06,850
+but you can't have like
+random people necessarily
+
+652
+00:32:06,850 --> 00:32:09,730
+trying to get into your
+laptop or your device at home
+
+653
+00:32:09,730 --> 00:32:14,440
+because there's a device, a home router,
+that translates these private addresses
+
+654
+00:32:14,440 --> 00:32:17,777
+into otherwise public addresses,
+but for now the takeaway really
+
+655
+00:32:17,777 --> 00:32:20,360
+is just that every computer on
+the internet has an IP address,
+
+656
+00:32:20,360 --> 00:32:23,530
+and if you've ever poked around your
+Mac, like under System Preferences,
+
+657
+00:32:23,530 --> 00:32:24,620
+you can actually see this.
+
+658
+00:32:24,620 --> 00:32:28,900
+So I've just pulled up a screenshot here
+of a network control panel on Mac OS
+
+659
+00:32:28,900 --> 00:32:31,120
+and if you look roughly
+there on your own Mac,
+
+660
+00:32:31,120 --> 00:32:33,670
+you should see that your
+IP address is something.
+
+661
+00:32:33,670 --> 00:32:36,430
+It will completely vary by
+person and by geography,
+
+662
+00:32:36,430 --> 00:32:38,170
+but you'll see your IP address there.
+
+663
+00:32:38,170 --> 00:32:41,110
+On Windows, at least Windows
+10, you can see your IP address
+
+664
+00:32:41,110 --> 00:32:43,340
+under Settings here as highlighted here.
+
+665
+00:32:43,340 --> 00:32:45,340
+So this has a very different
+address, but that's
+
+666
+00:32:45,340 --> 00:32:48,310
+just because this person was on
+a different network all together.
+
+667
+00:32:48,310 --> 00:32:50,797
+So, where did these IP
+addresses come from?
+
+668
+00:32:50,797 --> 00:32:52,630
+Well back in the day
+someone would literally
+
+669
+00:32:52,630 --> 00:32:56,680
+come to your home to set up your
+Comcast or your Verizon internet service
+
+670
+00:32:56,680 --> 00:33:00,640
+and he or she would like type in
+these numbers into your Mac or PC
+
+671
+00:33:00,640 --> 00:33:03,370
+and then leave, and you would
+have one computer on the internet.
+
+672
+00:33:03,370 --> 00:33:05,890
+These days it's a lot more dynamic.
+
+673
+00:33:05,890 --> 00:33:07,270
+You don't need someone coming by.
+
+674
+00:33:07,270 --> 00:33:10,570
+That certainly doesn't scale very
+well because there's other protocols.
+
+675
+00:33:10,570 --> 00:33:13,720
+HTTP is this protocol we talked
+about earlier about web pages,
+
+676
+00:33:13,720 --> 00:33:17,530
+but there's other protocols like Dynamic
+Host Configuration Protocol, which
+
+677
+00:33:17,530 --> 00:33:21,760
+is a mouthful but it just means that our
+Macs, our PCs, Android phones, iPhones
+
+678
+00:33:21,760 --> 00:33:24,940
+and the like, if they speak
+this protocol, when you first
+
+679
+00:33:24,940 --> 00:33:28,630
+turn on your phone or boot
+up your laptop it knows,
+
+680
+00:33:28,630 --> 00:33:32,260
+if it has support for this protocol,
+to just announce to the internet,
+
+681
+00:33:32,260 --> 00:33:32,890
+hello world.
+
+682
+00:33:32,890 --> 00:33:33,890
+I'm awake.
+
+683
+00:33:33,890 --> 00:33:35,350
+What should my IP address be?
+
+684
+00:33:35,350 --> 00:33:39,550
+This just kind of broadcast message
+and if Harvard or Yale or Comcast
+
+685
+00:33:39,550 --> 00:33:41,860
+or Verizon or wherever
+you are in the world
+
+686
+00:33:41,860 --> 00:33:46,720
+has a DHCP server whose purpose in life
+is just to listen for those hellos,
+
+687
+00:33:46,720 --> 00:33:51,490
+that server should respond using the
+same protocol with your actual IP
+
+688
+00:33:51,490 --> 00:33:55,660
+address, and it figures out which one
+to give you based on and available pool
+
+689
+00:33:55,660 --> 00:33:57,320
+of numbers typically.
+
+690
+00:33:57,320 --> 00:33:59,170
+So that's how you might
+get this but there's
+
+691
+00:33:59,170 --> 00:34:00,711
+other things in these control panels.
+
+692
+00:34:00,711 --> 00:34:03,950
+In fact, if we look a little lower
+on Windows, there's DNS servers too.
+
+693
+00:34:03,950 --> 00:34:05,110
+Domain Name System.
+
+694
+00:34:05,110 --> 00:34:10,906
+Another acronym and a bit of a mouthful,
+but you can also see this on Mac OS/2
+
+695
+00:34:10,906 --> 00:34:13,239
+if you actually click Advanced
+and actually take a look.
+
+696
+00:34:13,239 --> 00:34:17,690
+Here, for instance, there's mention of
+something else altogether, a router.
+
+697
+00:34:17,690 --> 00:34:20,080
+So there's lots of different
+addresses going on here
+
+698
+00:34:20,080 --> 00:34:21,730
+and lots of different servers.
+
+699
+00:34:21,730 --> 00:34:23,889
+So how do these all piece together?
+
+700
+00:34:23,889 --> 00:34:28,750
+Well, DNS is an interesting
+one in that it's
+
+701
+00:34:28,750 --> 00:34:34,280
+going to be the one that translates
+domain names to IP addresses, right?
+
+702
+00:34:34,280 --> 00:34:38,889
+None of us ever probably visits
+http:// and then a number, right?
+
+703
+00:34:38,889 --> 00:34:41,650
+Like, we visit facebook.com,
+google.com or the like,
+
+704
+00:34:41,650 --> 00:34:46,699
+but that's because our computers knows
+how to translate one to the other.
+
+705
+00:34:46,699 --> 00:34:51,040
+So in fact if I do this command,
+nslookup for name server look up
+
+706
+00:34:51,040 --> 00:34:55,840
+and then I type in something like
+google.com, I'm asking the computer,
+
+707
+00:34:55,840 --> 00:34:58,780
+in this case, the IDE, what is
+the IP address of google.com.
+
+708
+00:34:58,780 --> 00:35:02,470
+I know it as the human as
+google.com, but the internet knows it
+
+709
+00:35:02,470 --> 00:35:05,840
+by its numeric unique address, and
+it turns out Google has several,
+
+710
+00:35:05,840 --> 00:35:08,680
+and even this is a bit of a white
+lie because they have thousands,
+
+711
+00:35:08,680 --> 00:35:11,590
+but the ones that my
+computer is being told to use
+
+712
+00:35:11,590 --> 00:35:15,940
+is, for instance, this one or this
+one or any of these other addresses.
+
+713
+00:35:15,940 --> 00:35:17,990
+So let me see what
+actually happens here.
+
+714
+00:35:17,990 --> 00:35:24,430
+If I highlight that address and open up
+a browser and go to http:// and that IP
+
+715
+00:35:24,430 --> 00:35:29,950
+address and hit Enter, notice
+it actually seemed to work.
+
+716
+00:35:29,950 --> 00:35:30,730
+Well, why is that?
+
+717
+00:35:30,730 --> 00:35:32,980
+It's a little hard to see
+it in Chrome, but let's
+
+718
+00:35:32,980 --> 00:35:37,900
+go ahead and open up the Inspect tab
+and go to Network just like before.
+
+719
+00:35:37,900 --> 00:35:40,407
+Let me click Preserve Log so
+that it saves everything here,
+
+720
+00:35:40,407 --> 00:35:41,490
+and I could be using curl.
+
+721
+00:35:41,490 --> 00:35:43,198
+So the curl was just
+the simpler version.
+
+722
+00:35:43,198 --> 00:35:45,430
+Now I'm using the more
+familiar graphical version.
+
+723
+00:35:45,430 --> 00:35:51,100
+Let me go ahead and do that again and go
+to http:// and that IP address and hit
+
+724
+00:35:51,100 --> 00:35:52,270
+Enter.
+
+725
+00:35:52,270 --> 00:35:54,940
+A whole bunch of stuff flew by
+even just for Google's homepage,
+
+726
+00:35:54,940 --> 00:35:56,290
+but notice what happened.
+
+727
+00:35:56,290 --> 00:35:57,670
+On that very first-- whoops--
+
+728
+00:35:57,670 --> 00:36:03,580
+request, if I hover over it, I see
+http:// and then the number that I
+
+729
+00:36:03,580 --> 00:36:06,791
+typed in, but it's a 301
+because, what was the response?
+
+730
+00:36:06,791 --> 00:36:08,290
+We can actually see these responses.
+
+731
+00:36:08,290 --> 00:36:12,250
+Let me click on the status code
+here, or the row, go to Headers
+
+732
+00:36:12,250 --> 00:36:16,780
+and notice here, if we zoom
+in, we'll see that Google
+
+733
+00:36:16,780 --> 00:36:19,210
+responded with this location.
+
+734
+00:36:19,210 --> 00:36:21,580
+So someone at Google
+just decided, OK, fine.
+
+735
+00:36:21,580 --> 00:36:23,350
+You figured out one of our IP addresses.
+
+736
+00:36:23,350 --> 00:36:25,480
+That's great, but we don't want
+you to see that in the URL.
+
+737
+00:36:25,480 --> 00:36:26,397
+It's bad for branding.
+
+738
+00:36:26,397 --> 00:36:28,188
+We don't want you to
+bookmark an IP address
+
+739
+00:36:28,188 --> 00:36:29,660
+because it might change later on.
+
+740
+00:36:29,660 --> 00:36:31,899
+So we're using the same
+mechanisms as before,
+
+741
+00:36:31,899 --> 00:36:34,690
+but that's how we might do the
+lookup and we can see the same thing
+
+742
+00:36:34,690 --> 00:36:36,010
+for any number of websites.
+
+743
+00:36:36,010 --> 00:36:40,772
+Here we go nslookup of harvard.edu
+and we get back just a couple here.
+
+744
+00:36:40,772 --> 00:36:43,730
+If I do the same on Yale, I'm going
+to get back different IP addresses.
+
+745
+00:36:43,730 --> 00:36:45,880
+Yale has even more in
+this case and so this
+
+746
+00:36:45,880 --> 00:36:48,740
+is how the computer's figuring
+out to where to send the data.
+
+747
+00:36:48,740 --> 00:36:51,430
+So what goes on this
+envelope then, it's going
+
+748
+00:36:51,430 --> 00:36:55,780
+to be not facebook.com
+harvard.edu or yale.edu,
+
+749
+00:36:55,780 --> 00:37:01,300
+it's actually going to be
+the address like 1.2.3.4
+
+750
+00:37:01,300 --> 00:37:04,510
+or whatever the actual IP address is
+of the server I'm trying to send to.
+
+751
+00:37:04,510 --> 00:37:06,700
+Now, of course, I expect a
+response from the server.
+
+752
+00:37:06,700 --> 00:37:08,740
+I want to get back my
+news feed or I want
+
+753
+00:37:08,740 --> 00:37:10,670
+to get back Harvard or Yale's homepage.
+
+754
+00:37:10,670 --> 00:37:13,570
+So what more should I probably
+put on this virtual envelope,
+
+755
+00:37:13,570 --> 00:37:14,860
+just intuitively?
+
+756
+00:37:14,860 --> 00:37:15,360
+Yeah.
+
+757
+00:37:15,360 --> 00:37:16,800
+AUDIENCE: Your own IP address?
+
+758
+00:37:16,800 --> 00:37:17,536
+DAVID J. MALAN: What's that?
+
+759
+00:37:17,536 --> 00:37:17,920
+AUDIENCE: Your own IP address.
+
+760
+00:37:17,920 --> 00:37:19,250
+DAVID J. MALAN: My own IP address, yeah.
+
+761
+00:37:19,250 --> 00:37:21,541
+So just like in the human
+world, just in case something
+
+762
+00:37:21,541 --> 00:37:26,560
+goes wrong with the post office, I
+might put my own address, 5.6.7.8,
+
+763
+00:37:26,560 --> 00:37:30,790
+and actually put that on the envelope so
+that if something goes wrong or, better
+
+764
+00:37:30,790 --> 00:37:34,210
+yet, if something goes right and
+they're ready to give me a 200 OK,
+
+765
+00:37:34,210 --> 00:37:37,010
+it can actually come back to
+me because they know from which
+
+766
+00:37:37,010 --> 00:37:39,250
+address this thing actually came from.
+
+767
+00:37:39,250 --> 00:37:42,046
+So who is it or what is it
+that's doing all of this routing?
+
+768
+00:37:42,046 --> 00:37:44,920
+Well it turns out there's servers
+on the internet called quite simply
+
+769
+00:37:44,920 --> 00:37:48,100
+routers, otherwise known as
+gateways, which is just a synonym,
+
+770
+00:37:48,100 --> 00:37:50,620
+and they're kind of artistically
+pictured here as just dots
+
+771
+00:37:50,620 --> 00:37:54,070
+across the world, and there's
+hundreds, thousands, tens of thousands
+
+772
+00:37:54,070 --> 00:37:54,880
+of routers.
+
+773
+00:37:54,880 --> 00:37:57,820
+Odds are you yourself at home,
+if you had internet access,
+
+774
+00:37:57,820 --> 00:38:00,460
+have at least one such router
+and its purpose in life,
+
+775
+00:38:00,460 --> 00:38:03,930
+again, is to take data from inside your
+household and send it to the internet,
+
+776
+00:38:03,930 --> 00:38:05,680
+and then any responses
+you get, to send it
+
+777
+00:38:05,680 --> 00:38:08,560
+back to the appropriate
+laptop or desktop or phone
+
+778
+00:38:08,560 --> 00:38:13,010
+or smart device that happens
+to be in your own home.
+
+779
+00:38:13,010 --> 00:38:14,650
+And we can actually see this too.
+
+780
+00:38:14,650 --> 00:38:18,630
+Let me go ahead and in CS50
+IDE, try one other command.
+
+781
+00:38:18,630 --> 00:38:21,630
+I'm going to go ahead and
+type traceroute and I'm
+
+782
+00:38:21,630 --> 00:38:25,620
+going to trace the route,
+say, to yale.edu from here,
+
+783
+00:38:25,620 --> 00:38:27,570
+or technically from the IDE.
+
+784
+00:38:27,570 --> 00:38:30,872
+So if I hit Enter here, we're
+going to see a few lines of output,
+
+785
+00:38:30,872 --> 00:38:32,580
+and if you try this
+at home, just realize
+
+786
+00:38:32,580 --> 00:38:36,450
+I've configured my IDE a little
+differently to simplify the output.
+
+787
+00:38:36,450 --> 00:38:39,420
+So it looks like there's
+five steps between Cambridge
+
+788
+00:38:39,420 --> 00:38:41,935
+and New Haven or technically
+the IDE and New Haven,
+
+789
+00:38:41,935 --> 00:38:43,310
+but what are each of these steps?
+
+790
+00:38:43,310 --> 00:38:47,010
+Well between here and Yale, if we
+continue that version of the story,
+
+791
+00:38:47,010 --> 00:38:49,080
+there are, it seems, five routers.
+
+792
+00:38:49,080 --> 00:38:52,860
+There are five computers that
+have like lots of RAM, big CPUs
+
+793
+00:38:52,860 --> 00:38:54,780
+that can handle a lot
+of internet traffic
+
+794
+00:38:54,780 --> 00:38:58,620
+that are figuring out how to
+get my envelope from this origin
+
+795
+00:38:58,620 --> 00:39:02,840
+to this router, to this router, to
+this router, to this anonymous router,
+
+796
+00:39:02,840 --> 00:39:03,400
+to this one.
+
+797
+00:39:03,400 --> 00:39:06,150
+Sometimes the routers are configured
+not to answer these questions
+
+798
+00:39:06,150 --> 00:39:07,390
+from this program traceroute.
+
+799
+00:39:07,390 --> 00:39:10,530
+They sort of keep it
+to themselves, and you
+
+800
+00:39:10,530 --> 00:39:13,570
+can see on the right of each of
+these IP addresses some numbers.
+
+801
+00:39:13,570 --> 00:39:19,776
+So just take a guess, what do each
+of these numbers represent, perhaps?
+
+802
+00:39:19,776 --> 00:39:20,680
+Whats that?
+
+803
+00:39:20,680 --> 00:39:22,040
+No it's okay.
+
+804
+00:39:22,040 --> 00:39:23,200
+AUDIENCE: Milliseconds?
+
+805
+00:39:23,200 --> 00:39:24,616
+DAVID J. MALAN: Milliseconds, yep.
+
+806
+00:39:24,616 --> 00:39:27,390
+So milliseconds that are
+measuring what do you think?
+
+807
+00:39:27,390 --> 00:39:32,430
+Time to go, or time to
+reach that specific router.
+
+808
+00:39:32,430 --> 00:39:34,050
+So we can kind of infer--
+
+809
+00:39:34,050 --> 00:39:35,730
+and this is the kind of amazing thing.
+
+810
+00:39:35,730 --> 00:39:38,960
+To get me to New Haven
+takes like two plus hours,
+
+811
+00:39:38,960 --> 00:39:42,450
+but to get an email, to get
+an envelope with a message
+
+812
+00:39:42,450 --> 00:39:49,140
+takes like 10.597 milliseconds
+to get data from here to there,
+
+813
+00:39:49,140 --> 00:39:51,372
+and then hopefully back if
+it's a request for a page.
+
+814
+00:39:51,372 --> 00:39:53,080
+Let's do something a
+little farther away.
+
+815
+00:39:53,080 --> 00:39:56,940
+So let's do like stanford.edu,
+tracing the route here,
+
+816
+00:39:56,940 --> 00:40:00,419
+and already we can see that the
+numbers are a little bit higher,
+
+817
+00:40:00,419 --> 00:40:02,460
+and that makes intuitive
+sense in that Stanford's
+
+818
+00:40:02,460 --> 00:40:06,120
+a little farther away than New Haven
+and it takes as many 41 milliseconds
+
+819
+00:40:06,120 --> 00:40:06,960
+to reach that.
+
+820
+00:40:06,960 --> 00:40:10,590
+If I go even further and I
+read like a company's news
+
+821
+00:40:10,590 --> 00:40:16,330
+like cnn.co.jp, which is the top-level
+domain for a lot of servers in Japan,
+
+822
+00:40:16,330 --> 00:40:20,160
+you can see a real uptick in just
+how many milliseconds it takes,
+
+823
+00:40:20,160 --> 00:40:22,320
+and in fact, there's
+something curious here.
+
+824
+00:40:22,320 --> 00:40:26,850
+Why does it take so much more time
+to get from router number three
+
+825
+00:40:26,850 --> 00:40:30,756
+to router number four do you think?
+
+826
+00:40:30,756 --> 00:40:31,987
+AUDIENCE: The ocean.
+
+827
+00:40:31,987 --> 00:40:33,320
+DAVID J. MALAN: The ocean, yeah.
+
+828
+00:40:33,320 --> 00:40:38,790
+So there's a really big body of water in
+between the US's west coast and Japan's
+
+829
+00:40:38,790 --> 00:40:43,020
+coast, which probably explains why
+not just between three and four,
+
+830
+00:40:43,020 --> 00:40:47,416
+but really every router thereafter
+is that many milliseconds away.
+
+831
+00:40:47,416 --> 00:40:48,540
+So these aren't cumulative.
+
+832
+00:40:48,540 --> 00:40:50,559
+We're measuring constantly
+from here to there,
+
+833
+00:40:50,559 --> 00:40:53,100
+from here to slightly farther,
+from here to slightly farther.
+
+834
+00:40:53,100 --> 00:40:55,410
+So it makes sense that
+once you cross that ocean,
+
+835
+00:40:55,410 --> 00:40:58,920
+that's kind of the total value
+that you're actually going to see,
+
+836
+00:40:58,920 --> 00:41:00,150
+and it's fascinating really.
+
+837
+00:41:00,150 --> 00:41:01,858
+I mean, throughout
+the entire world there
+
+838
+00:41:01,858 --> 00:41:06,692
+are not only wireless technologies
+today, but very much wire technologies
+
+839
+00:41:06,692 --> 00:41:08,400
+and if we take just
+a few seconds, we can
+
+840
+00:41:08,400 --> 00:41:13,740
+see this visualization of so many of the
+transoceanic cables that have actually
+
+841
+00:41:13,740 --> 00:41:19,110
+been dropped by big ships that carry
+many, many, many, many bits from one
+
+842
+00:41:19,110 --> 00:41:21,090
+coast to another.
+
+843
+00:41:21,090 --> 00:41:22,575
+[VIDEO PLAYBACK]
+
+844
+00:41:22,575 --> 00:41:46,335
+
+
+845
+00:41:46,335 --> 00:41:48,315
+[MUSIC PLAYING]
+
+846
+00:41:48,315 --> 00:42:20,012
+
+
+847
+00:42:20,012 --> 00:42:21,530
+[END PLAYBACK]
+
+848
+00:42:21,530 --> 00:42:26,150
+So, with all of those cables capable of
+transmitting data all around the world,
+
+849
+00:42:26,150 --> 00:42:28,390
+it turns out there's
+still one more problem.
+
+850
+00:42:28,390 --> 00:42:30,370
+Even if we want to do
+something simple like
+
+851
+00:42:30,370 --> 00:42:33,490
+download an internet image
+of a cat because there's
+
+852
+00:42:33,490 --> 00:42:35,440
+different types of servers out there.
+
+853
+00:42:35,440 --> 00:42:37,660
+There's my computer here like my laptop.
+
+854
+00:42:37,660 --> 00:42:38,949
+I'm running Mac OS or windows.
+
+855
+00:42:38,949 --> 00:42:40,990
+There's all those servers
+in Google's data center
+
+856
+00:42:40,990 --> 00:42:43,310
+and in their racks and
+Facebook's and the like
+
+857
+00:42:43,310 --> 00:42:46,000
+and in between all of those
+servers there are lots of routers,
+
+858
+00:42:46,000 --> 00:42:49,240
+but it turns out that those
+servers in those racks at Google,
+
+859
+00:42:49,240 --> 00:42:51,700
+at Facebook, even at
+Harvard and Yale, there
+
+860
+00:42:51,700 --> 00:42:54,530
+are servers that can do multiple
+things because technically,
+
+861
+00:42:54,530 --> 00:42:58,360
+even though we humans tend to talk
+about servers as being physical devices,
+
+862
+00:42:58,360 --> 00:43:01,840
+a server is, as we started
+today, really just a program.
+
+863
+00:43:01,840 --> 00:43:06,370
+It is a piece of software that
+someone wrote that, when run,
+
+864
+00:43:06,370 --> 00:43:09,700
+listens for requests on the internet
+and responds to those requests,
+
+865
+00:43:09,700 --> 00:43:14,110
+generally by spitting out information,
+text or 0s and 1s or, in some cases,
+
+866
+00:43:14,110 --> 00:43:14,860
+cats.
+
+867
+00:43:14,860 --> 00:43:18,310
+So upon receiving an
+envelope, then, how is
+
+868
+00:43:18,310 --> 00:43:23,800
+it that a server knows whether it's a
+request for a web page or it's an email
+
+869
+00:43:23,800 --> 00:43:27,610
+or it's a chat message or a voice
+message or any number of other things?
+
+870
+00:43:27,610 --> 00:43:31,510
+It turns out we need one more piece of
+information at least on this envelope.
+
+871
+00:43:31,510 --> 00:43:33,700
+It turns out that the
+world has standardized
+
+872
+00:43:33,700 --> 00:43:37,900
+via another protocol called TCP,
+Transmission Control Protocol, that you
+
+873
+00:43:37,900 --> 00:43:40,270
+need at least one other
+number on these envelopes,
+
+874
+00:43:40,270 --> 00:43:42,590
+and that number corresponds
+to the type of service
+
+875
+00:43:42,590 --> 00:43:44,590
+that you're trying to
+access or the type of data
+
+876
+00:43:44,590 --> 00:43:46,570
+that you're trying to send or receive.
+
+877
+00:43:46,570 --> 00:43:50,052
+So, for instance, 22 is for
+something called SSH, Secure Shell.
+
+878
+00:43:50,052 --> 00:43:53,260
+This is something that most CS majors
+might use, but most people in the world
+
+879
+00:43:53,260 --> 00:43:55,430
+wouldn't use this because
+it's entirely command line
+
+880
+00:43:55,430 --> 00:43:57,970
+and it allows you to connect
+securely to some remote server
+
+881
+00:43:57,970 --> 00:44:02,440
+without using something like a browser,
+but all of us generally do use browsers
+
+882
+00:44:02,440 --> 00:44:07,330
+and HTTP, it turns out, all this time
+has had a unique number associated
+
+883
+00:44:07,330 --> 00:44:08,800
+with all of those requests.
+
+884
+00:44:08,800 --> 00:44:12,760
+80 is the number and if we visited
+any URL starting with https,
+
+885
+00:44:12,760 --> 00:44:15,380
+turns out there was a
+special number, 443,
+
+886
+00:44:15,380 --> 00:44:19,810
+that humans years ago decided just
+uniquely identify encrypted web
+
+887
+00:44:19,810 --> 00:44:21,730
+traffic requests and responses.
+
+888
+00:44:21,730 --> 00:44:26,900
+587 is used for Simple Mail Transfer
+Protocol, which is for email.
+
+889
+00:44:26,900 --> 00:44:29,270
+Excuse me, 53 itself is used for DNS.
+
+890
+00:44:29,270 --> 00:44:31,270
+So if you ever send a
+message to a server saying
+
+891
+00:44:31,270 --> 00:44:33,550
+what is the IP address
+of google.com, you're
+
+892
+00:44:33,550 --> 00:44:38,530
+using number 53 to identify
+whatever machine or software can
+
+893
+00:44:38,530 --> 00:44:42,130
+answer that type of question, and
+so we can actually see this too.
+
+894
+00:44:42,130 --> 00:44:53,980
+If I go back to my IDE and I actually
+do curl -I https://www.harvard.edu,
+
+895
+00:44:53,980 --> 00:44:56,950
+this of course, worked
+before and it was 200 OK,
+
+896
+00:44:56,950 --> 00:45:01,540
+but it also will work if I more
+precisely say specifically send this
+
+897
+00:45:01,540 --> 00:45:06,160
+request to TCP port, or number, 80 and--
+
+898
+00:45:06,160 --> 00:45:07,510
+damnit.
+
+899
+00:45:07,510 --> 00:45:12,170
+Oh, it's wrong because made a
+compelling pedagogical mistake.
+
+900
+00:45:12,170 --> 00:45:14,732
+So what did I do wrong?
+
+901
+00:45:14,732 --> 00:45:15,676
+AUDIENCE: Https.
+
+902
+00:45:15,676 --> 00:45:18,259
+DAVID J. MALAN: Yeah, so I kind
+of screwed up my numbers here.
+
+903
+00:45:18,259 --> 00:45:23,320
+So I said https, but I meant to
+say http if I'm using port 80
+
+904
+00:45:23,320 --> 00:45:27,790
+or, conversely, if I want to talk
+to the secure port which is known,
+
+905
+00:45:27,790 --> 00:45:31,390
+I actually want to say 443,
+and that one in fact works,
+
+906
+00:45:31,390 --> 00:45:33,250
+and I can do it again even in Chrome.
+
+907
+00:45:33,250 --> 00:45:41,020
+If I go up to my browser
+and go to http://yale.edu/80
+
+908
+00:45:41,020 --> 00:45:43,520
+and let the redirects
+happen, that too will work.
+
+909
+00:45:43,520 --> 00:45:46,900
+It's just browsers, to keep our minds
+focused on the website we're actually
+
+910
+00:45:46,900 --> 00:45:50,050
+trying to visit and not distracted
+by technical details like :80
+
+911
+00:45:50,050 --> 00:45:53,830
+or slashes or even
+sometimes http itself,
+
+912
+00:45:53,830 --> 00:45:55,450
+just hide that from the URL bar.
+
+913
+00:45:55,450 --> 00:45:56,180
+It's all there.
+
+914
+00:45:56,180 --> 00:45:58,690
+It's all happening, but we humans
+are getting a little more comfortable
+
+915
+00:45:58,690 --> 00:46:01,390
+with the internet over the years
+so Chrome and other browsers
+
+916
+00:46:01,390 --> 00:46:05,020
+are just starting to hide some of these
+lower-level implementation details.
+
+917
+00:46:05,020 --> 00:46:10,060
+So that really means, when I actually
+want to send a request to a web server,
+
+918
+00:46:10,060 --> 00:46:14,150
+I should really write
+:80 on the envelope
+
+919
+00:46:14,150 --> 00:46:16,660
+to make clear that that's
+going to a web server listening
+
+920
+00:46:16,660 --> 00:46:19,630
+on port 80 or maybe 443,
+and then, you know what?
+
+921
+00:46:19,630 --> 00:46:22,120
+It turns out, and we won't
+dwell too much on the details,
+
+922
+00:46:22,120 --> 00:46:26,850
+even my Mac or your PC also has its own
+port number for all of these requests,
+
+923
+00:46:26,850 --> 00:46:27,350
+right?
+
+924
+00:46:27,350 --> 00:46:31,330
+And it would be pretty annoying if you
+could only visit one website at a time
+
+925
+00:46:31,330 --> 00:46:34,360
+or you could use Gmail
+or Skype but not both
+
+926
+00:46:34,360 --> 00:46:37,840
+at the same time, or Facebook
+Messenger or Google Chat but only one
+
+927
+00:46:37,840 --> 00:46:38,624
+at the same time.
+
+928
+00:46:38,624 --> 00:46:40,540
+That would be pretty
+limiting, especially when
+
+929
+00:46:40,540 --> 00:46:42,260
+we have all this computing power.
+
+930
+00:46:42,260 --> 00:46:45,210
+So it's also the case
+that your own computer,
+
+931
+00:46:45,210 --> 00:46:47,350
+any time you send a
+request on the internet,
+
+932
+00:46:47,350 --> 00:46:51,940
+chooses a random or pseudo-random
+number to uniquely identify
+
+933
+00:46:51,940 --> 00:46:55,510
+the piece of software on your
+computer that's waiting for the reply.
+
+934
+00:46:55,510 --> 00:46:57,010
+So this might be not port 80.
+
+935
+00:46:57,010 --> 00:47:00,820
+This is going to be a
+bigger number like 1025,
+
+936
+00:47:00,820 --> 00:47:04,690
+or some large-ish value all
+the way up to 65,000, even,
+
+937
+00:47:04,690 --> 00:47:08,917
+or 32,000 that now uniquely
+identifies the port on my computer,
+
+938
+00:47:08,917 --> 00:47:11,500
+and that's how your computer can
+do multiple things at a time,
+
+939
+00:47:11,500 --> 00:47:15,010
+and when I get the response
+those values are just flipped,
+
+940
+00:47:15,010 --> 00:47:16,330
+but there's one more piece.
+
+941
+00:47:16,330 --> 00:47:20,380
+Like cats can be pretty high
+quality and videos certainly
+
+942
+00:47:20,380 --> 00:47:22,230
+take up a huge amount of data.
+
+943
+00:47:22,230 --> 00:47:24,550
+Netflix videos and any
+streaming videos are taking up
+
+944
+00:47:24,550 --> 00:47:26,350
+a huge amount of
+information and it would
+
+945
+00:47:26,350 --> 00:47:28,960
+be pretty annoying to your
+neighbors if any time you
+
+946
+00:47:28,960 --> 00:47:30,940
+were watching a movie
+on Netflix, you had
+
+947
+00:47:30,940 --> 00:47:33,970
+to be done watching the
+movie in order for a neighbor
+
+948
+00:47:33,970 --> 00:47:38,140
+to also watch a video on
+his or her computer as well.
+
+949
+00:47:38,140 --> 00:47:44,920
+So it turns out that what
+computers also do thanks to IP
+
+950
+00:47:44,920 --> 00:47:49,780
+and TCP is, when they're used together,
+they offer one more feature still.
+
+951
+00:47:49,780 --> 00:47:52,850
+It turns out that if I want to
+download a picture of a cat,
+
+952
+00:47:52,850 --> 00:47:55,510
+and we have a nice
+printed version here, I'm
+
+953
+00:47:55,510 --> 00:47:59,170
+not going to get the whole cat
+in the one envelope most likely.
+
+954
+00:47:59,170 --> 00:48:01,795
+This cat or this video
+file or whatever it is
+
+955
+00:48:01,795 --> 00:48:06,310
+is actually going to be divided
+up into a few different pieces.
+
+956
+00:48:06,310 --> 00:48:14,290
+So this message might get chopped
+or fragmented into four pieces.
+
+957
+00:48:14,290 --> 00:48:18,490
+Each of those four pieces now might
+go in each of one of these envelopes
+
+958
+00:48:18,490 --> 00:48:24,130
+here, here, and then here
+with the third and fourth,
+
+959
+00:48:24,130 --> 00:48:26,650
+and what's nice, though,
+about TCPIP is that it
+
+960
+00:48:26,650 --> 00:48:28,540
+provides at least two features for us.
+
+961
+00:48:28,540 --> 00:48:33,610
+One, IP ensures that every computer on
+the internet that speaks this protocol
+
+962
+00:48:33,610 --> 00:48:34,390
+has an address.
+
+963
+00:48:34,390 --> 00:48:38,120
+So IP handles the getting of
+the data to some destination.
+
+964
+00:48:38,120 --> 00:48:41,680
+TCP, the other half of
+this, ensures or guarantees
+
+965
+00:48:41,680 --> 00:48:45,370
+with high probability delivery--
+that the data actually gets there.
+
+966
+00:48:45,370 --> 00:48:48,287
+Because as you might have gleaned
+from even the animation of all
+
+967
+00:48:48,287 --> 00:48:51,370
+of the transatlantic cables and all
+of the interconnections among routers,
+
+968
+00:48:51,370 --> 00:48:52,810
+things can go wrong, right?
+
+969
+00:48:52,810 --> 00:48:54,650
+Routers, it turns out,
+can get overloaded.
+
+970
+00:48:54,650 --> 00:48:57,430
+Their buffers can
+overflow such that they
+
+971
+00:48:57,430 --> 00:49:00,280
+can't handle all of the traffic
+coming into them and in fact,
+
+972
+00:49:00,280 --> 00:49:03,190
+if you try to watch Game of
+Thrones, some episode on HBO
+
+973
+00:49:03,190 --> 00:49:06,490
+and you couldn't access it at some point
+or [INAUDIBLE] or some tool like that.
+
+974
+00:49:06,490 --> 00:49:08,450
+If they're overloaded,
+what does that mean?
+
+975
+00:49:08,450 --> 00:49:12,280
+It just means the server, or the
+routers between us and the server,
+
+976
+00:49:12,280 --> 00:49:15,160
+are getting so many darn envelopes
+that they just can't keep up
+
+977
+00:49:15,160 --> 00:49:19,120
+and can't hold onto them all at once,
+and so sometimes packets do get,
+
+978
+00:49:19,120 --> 00:49:22,810
+so to speak, dropped, both
+physically and also digitally,
+
+979
+00:49:22,810 --> 00:49:24,410
+and this means some packet is lost.
+
+980
+00:49:24,410 --> 00:49:27,820
+And so what's nice about the internet
+is that when my computer here
+
+981
+00:49:27,820 --> 00:49:31,240
+talks to the nearest Harvard router
+that may very well have antennas
+
+982
+00:49:31,240 --> 00:49:35,980
+in a room like this or an access point,
+I might send off a packet here and here
+
+983
+00:49:35,980 --> 00:49:38,710
+and let's send this all the
+way to the back if you could,
+
+984
+00:49:38,710 --> 00:49:41,566
+but these packets, as you
+can see, don't necessarily
+
+985
+00:49:41,566 --> 00:49:43,690
+need to travel the same
+[? path ?] because-- what's
+
+986
+00:49:43,690 --> 00:49:45,190
+your name in the second row?
+
+987
+00:49:45,190 --> 00:49:45,490
+AUDIENCE: Monsi.
+
+988
+00:49:45,490 --> 00:49:45,850
+DAVID J. MALAN: Monsi.
+
+989
+00:49:45,850 --> 00:49:47,266
+So Monsi is getting a little busy.
+
+990
+00:49:47,266 --> 00:49:49,914
+So Kara, if you could
+route to someone else.
+
+991
+00:49:49,914 --> 00:49:52,330
+This is literally the effect
+that happens on the internet.
+
+992
+00:49:52,330 --> 00:49:54,640
+If one router, like Monsi,
+gets a little bit busy
+
+993
+00:49:54,640 --> 00:49:57,790
+and her attention is elsewhere or just
+has too many packets to deal with,
+
+994
+00:49:57,790 --> 00:50:00,070
+she won't even necessarily
+drop it but maybe
+
+995
+00:50:00,070 --> 00:50:02,650
+their path will just
+be routed around her,
+
+996
+00:50:02,650 --> 00:50:06,299
+and that's what's nice about having
+this mesh network around the internet.
+
+997
+00:50:06,299 --> 00:50:08,590
+Now unfortunately, one of
+those packets can get dropped
+
+998
+00:50:08,590 --> 00:50:10,173
+and in fact this is a perfect example.
+
+999
+00:50:10,173 --> 00:50:12,900
+If you want to drop it, drop it.
+
+1000
+00:50:12,900 --> 00:50:14,760
+Uh-oh, a packet was dropped!
+
+1001
+00:50:14,760 --> 00:50:17,560
+What TCP does for us is the following.
+
+1002
+00:50:17,560 --> 00:50:22,592
+Once those envelopes reach
+hopefully one specific person--
+
+1003
+00:50:22,592 --> 00:50:23,800
+OK, you are the lucky winner.
+
+1004
+00:50:23,800 --> 00:50:26,200
+Whoever, wants to-- how many do we have?
+
+1005
+00:50:26,200 --> 00:50:26,730
+Two there?
+
+1006
+00:50:26,730 --> 00:50:28,300
+Where did the third go?
+
+1007
+00:50:28,300 --> 00:50:28,980
+That's OK.
+
+1008
+00:50:28,980 --> 00:50:31,600
+TCP can handle multiple
+packets being lost.
+
+1009
+00:50:31,600 --> 00:50:33,240
+AUDIENCE: It's over there.
+
+1010
+00:50:33,240 --> 00:50:36,490
+DAVID J. MALAN: Oh, and so packets also
+don't take the shortest path sometimes
+
+1011
+00:50:36,490 --> 00:50:37,730
+on the internet.
+
+1012
+00:50:37,730 --> 00:50:38,821
+So what might happen?
+
+1013
+00:50:38,821 --> 00:50:40,570
+So let's assume for
+the sake of discussion
+
+1014
+00:50:40,570 --> 00:50:44,320
+that those packets did make their way
+to at least one of our audience members
+
+1015
+00:50:44,320 --> 00:50:44,980
+here.
+
+1016
+00:50:44,980 --> 00:50:46,990
+He or she, upon receiving
+them, would also
+
+1017
+00:50:46,990 --> 00:50:50,620
+see not just the origin address
+and the destination address.
+
+1018
+00:50:50,620 --> 00:50:54,040
+There would also be some notation,
+like a memo line on the envelope saying
+
+1019
+00:50:54,040 --> 00:50:58,870
+1 of 4, 2 of 4, 3 of 4, 4 of 4,
+so that the recipient can infer
+
+1020
+00:50:58,870 --> 00:51:03,070
+from that little hint whether or
+not they received all 4 or just,
+
+1021
+00:51:03,070 --> 00:51:06,070
+as in this case, a subset
+thereof, and in that case,
+
+1022
+00:51:06,070 --> 00:51:09,440
+assuming the computer speaks
+TCP, it can simply say,
+
+1023
+00:51:09,440 --> 00:51:13,280
+hey David, resend me packet
+number 1 or packet number 3
+
+1024
+00:51:13,280 --> 00:51:16,480
+or whichever were actually lost.
+
+1025
+00:51:16,480 --> 00:51:19,330
+And so together all of this
+happens at blazing speeds.
+
+1026
+00:51:19,330 --> 00:51:22,780
+10 milliseconds to do all that
+back and forth to New Haven,
+
+1027
+00:51:22,780 --> 00:51:25,537
+let alone even faster here
+on campus, but those really
+
+1028
+00:51:25,537 --> 00:51:27,370
+are the basic principles
+and building blocks
+
+1029
+00:51:27,370 --> 00:51:29,845
+that are just getting our data
+from one place to another.
+
+1030
+00:51:29,845 --> 00:51:31,720
+Of course, the real
+interesting stuff happens
+
+1031
+00:51:31,720 --> 00:51:34,810
+when we dig deeper into this
+envelope and look at the contents.
+
+1032
+00:51:34,810 --> 00:51:38,770
+Not just the cat as in this case, but
+the language, HTML and something else
+
+1033
+00:51:38,770 --> 00:51:40,990
+called CSS which we'll
+do shortly, but I thought
+
+1034
+00:51:40,990 --> 00:51:43,739
+it might be fun, especially on the
+heels of our look at forensics,
+
+1035
+00:51:43,739 --> 00:51:47,320
+to take a look at just how
+sort of presumptuous Hollywood
+
+1036
+00:51:47,320 --> 00:51:50,080
+tends to be when presenting us
+humans with technical details
+
+1037
+00:51:50,080 --> 00:51:53,500
+that now you'll perhaps have an
+even better eye for in addition
+
+1038
+00:51:53,500 --> 00:51:56,514
+to the age-old "enhance" line.
+
+1039
+00:51:56,514 --> 00:51:57,430
+[VIDEO PLAYBACK]
+
+1040
+00:51:57,430 --> 00:52:00,337
+- It's a 32-bit IPP4 address.
+
+1041
+00:52:00,337 --> 00:52:01,170
+- IP as in internet?
+
+1042
+00:52:01,170 --> 00:52:02,160
+- Private network.
+
+1043
+00:52:02,160 --> 00:52:03,610
+[? Tamia's ?] private network.
+
+1044
+00:52:03,610 --> 00:52:09,993
+
+
+1045
+00:52:09,993 --> 00:52:11,466
+[STUDENTS LAUGHING]
+
+1046
+00:52:11,466 --> 00:52:16,376
+
+
+1047
+00:52:16,376 --> 00:52:19,140
+- She's so amazing.
+
+1048
+00:52:19,140 --> 00:52:20,960
+- Oh, Charlie.
+
+1049
+00:52:20,960 --> 00:52:22,130
+- It's a mirror IP address.
+
+1050
+00:52:22,130 --> 00:52:26,527
+She's letting us watch what
+she's doing in real time.
+
+1051
+00:52:26,527 --> 00:52:27,110
+[END PLAYBACK]
+
+1052
+00:52:27,110 --> 00:52:28,970
+DAVID J. MALAN: OK, so
+we'll hold it on this screen
+
+1053
+00:52:28,970 --> 00:52:31,790
+here because one, a few of you
+laughed when you saw the bogus IP
+
+1054
+00:52:31,790 --> 00:52:33,987
+address because the number was what?
+
+1055
+00:52:33,987 --> 00:52:34,570
+AUDIENCE: 275.
+
+1056
+00:52:34,570 --> 00:52:36,901
+DAVID J. MALAN: 275, which
+is too high and that one
+
+1057
+00:52:36,901 --> 00:52:39,650
+we could forgive because you don't
+want like random people pausing
+
+1058
+00:52:39,650 --> 00:52:42,441
+their videos on the internet then
+trying to hack into or get access
+
+1059
+00:52:42,441 --> 00:52:45,470
+to that URL, but even funnier is
+when the hacker is being described
+
+1060
+00:52:45,470 --> 00:52:47,769
+as doing this on the screen
+as part of their attack.
+
+1061
+00:52:47,769 --> 00:52:50,310
+This is like the source code in
+a language called Objective-C
+
+1062
+00:52:50,310 --> 00:52:52,820
+for some kind of drawing
+program, as suggested
+
+1063
+00:52:52,820 --> 00:52:56,332
+by the use of crayons in
+the code as a variable.
+
+1064
+00:52:56,332 --> 00:52:59,540
+So let's pause there and when we come
+back in five minutes, we'll take a look
+
+1065
+00:52:59,540 --> 00:53:03,486
+at HTML itself.
+
+1066
+00:53:03,486 --> 00:53:08,170
+All right, so we're back and we're
+about to learn a new language.
+
+1067
+00:53:08,170 --> 00:53:11,030
+Though this might feel like
+a lot to do in just an hour,
+
+1068
+00:53:11,030 --> 00:53:12,380
+this one's a markup language.
+
+1069
+00:53:12,380 --> 00:53:14,090
+So it's not a programming
+language, which
+
+1070
+00:53:14,090 --> 00:53:15,770
+means you're not going to see loops.
+
+1071
+00:53:15,770 --> 00:53:17,270
+You're not going to see functions.
+
+1072
+00:53:17,270 --> 00:53:20,240
+You're not going to see conditions
+or any of the kind of logic
+
+1073
+00:53:20,240 --> 00:53:22,910
+that we have built into C and
+into Scratch and eventually
+
+1074
+00:53:22,910 --> 00:53:24,230
+Python and JavaScript.
+
+1075
+00:53:24,230 --> 00:53:27,290
+You're instead going to see just
+what are called tags, pieces
+
+1076
+00:53:27,290 --> 00:53:30,950
+of English-like syntax that
+just tell the browser what to do
+
+1077
+00:53:30,950 --> 00:53:32,510
+and what to stop doing.
+
+1078
+00:53:32,510 --> 00:53:35,870
+So we're going to see tags that say
+start making this text centered.
+
+1079
+00:53:35,870 --> 00:53:37,370
+Stop making this text centered.
+
+1080
+00:53:37,370 --> 00:53:38,510
+Start making the text bold.
+
+1081
+00:53:38,510 --> 00:53:39,830
+Stop making the text bold.
+
+1082
+00:53:39,830 --> 00:53:41,750
+So these very deliberate
+kind of statements
+
+1083
+00:53:41,750 --> 00:53:44,300
+that we're going to express
+using something that's code-like,
+
+1084
+00:53:44,300 --> 00:53:46,640
+but it doesn't give you logical control.
+
+1085
+00:53:46,640 --> 00:53:49,430
+So as such, there's a pretty
+small language ahead of us
+
+1086
+00:53:49,430 --> 00:53:52,670
+and a lot of what you'll do
+when learning HTML is just
+
+1087
+00:53:52,670 --> 00:53:55,730
+check an online reference or an
+example online or look at the source
+
+1088
+00:53:55,730 --> 00:53:59,350
+code of actual web pages to just
+figure out how these things are done
+
+1089
+00:53:59,350 --> 00:54:01,940
+and today, we will focus
+on the fundamentals.
+
+1090
+00:54:01,940 --> 00:54:04,640
+So this is perhaps one of
+the simplest web pages you
+
+1091
+00:54:04,640 --> 00:54:06,680
+can write in a language called HTML.
+
+1092
+00:54:06,680 --> 00:54:08,120
+It's a text-based language.
+
+1093
+00:54:08,120 --> 00:54:10,400
+All of the tags resemble
+some English words
+
+1094
+00:54:10,400 --> 00:54:13,430
+and there's a pattern to the kinds
+of things that you might type.
+
+1095
+00:54:13,430 --> 00:54:16,280
+First of all, if you're using the
+very latest version of HTML, which
+
+1096
+00:54:16,280 --> 00:54:18,710
+happens to be version 5,
+it's been around for a while,
+
+1097
+00:54:18,710 --> 00:54:22,800
+you simply start every web page with
+this cryptic incantation at the top
+
+1098
+00:54:22,800 --> 00:54:23,300
+here.
+
+1099
+00:54:23,300 --> 00:54:27,485
+Open bracket, !doctype
+HTML female closed bracket,
+
+1100
+00:54:27,485 --> 00:54:28,610
+as those things are called.
+
+1101
+00:54:28,610 --> 00:54:31,485
+Angled brackets, which you've probably
+not had many occasions to type
+
+1102
+00:54:31,485 --> 00:54:33,490
+on your keyboard, but
+starting soon you will.
+
+1103
+00:54:33,490 --> 00:54:36,380
+Then after that, they start a pattern.
+
+1104
+00:54:36,380 --> 00:54:41,630
+So HTML > and then all the way at the
+bottom is what we'll call the opposite
+
+1105
+00:54:41,630 --> 00:54:42,350
+of that tag.
+
+1106
+00:54:42,350 --> 00:54:46,070
+If this is a start tag, this will be
+an end tag, or if this is an open tag,
+
+1107
+00:54:46,070 --> 00:54:50,690
+this will be a close tag, differing
+only with this forward slash that's
+
+1108
+00:54:50,690 --> 00:54:51,950
+inside of the tag.
+
+1109
+00:54:51,950 --> 00:54:54,620
+So this says, hey browser,
+here comes a web page.
+
+1110
+00:54:54,620 --> 00:54:57,110
+This says, hey browser,
+that's it for the web page.
+
+1111
+00:54:57,110 --> 00:54:59,810
+Again, this sort of starting
+and stopping mentality.
+
+1112
+00:54:59,810 --> 00:55:05,030
+Meanwhile, inside of the web
+page as denoted by the HTML tag,
+
+1113
+00:55:05,030 --> 00:55:07,910
+there are two parts, a head and a body.
+
+1114
+00:55:07,910 --> 00:55:10,300
+The head of a web page tends
+to contain very little.
+
+1115
+00:55:10,300 --> 00:55:12,530
+It's usually just like
+the title bar in the tab
+
+1116
+00:55:12,530 --> 00:55:14,540
+that we humans see when
+you visit a website,
+
+1117
+00:55:14,540 --> 00:55:17,720
+and the body is like 95%
+percent of the contents
+
+1118
+00:55:17,720 --> 00:55:20,570
+of the page, the actual viewport
+or the rectangular region
+
+1119
+00:55:20,570 --> 00:55:22,160
+that contains actual content.
+
+1120
+00:55:22,160 --> 00:55:23,330
+What is that content?
+
+1121
+00:55:23,330 --> 00:55:25,790
+Well here in the head
+we have a title that's
+
+1122
+00:55:25,790 --> 00:55:28,190
+going to be "hello, title"
+just because and then
+
+1123
+00:55:28,190 --> 00:55:30,380
+in the body of the web
+page, this web page,
+
+1124
+00:55:30,380 --> 00:55:32,550
+there's going to be "hello, body."
+
+1125
+00:55:32,550 --> 00:55:33,080
+That's it.
+
+1126
+00:55:33,080 --> 00:55:34,040
+That's HTML.
+
+1127
+00:55:34,040 --> 00:55:36,600
+If you save this text in a
+file, open it in a browser,
+
+1128
+00:55:36,600 --> 00:55:40,670
+you will see a really lame web page
+that says hello title and hello body,
+
+1129
+00:55:40,670 --> 00:55:44,210
+but that's a web page using
+HTML tags as they're called.
+
+1130
+00:55:44,210 --> 00:55:46,077
+Anything in these angled
+brackets are tags.
+
+1131
+00:55:46,077 --> 00:55:48,410
+So I can actually see this
+pretty clearly even on my Mac
+
+1132
+00:55:48,410 --> 00:55:50,090
+and you could do this
+on your PC as well.
+
+1133
+00:55:50,090 --> 00:55:52,730
+I've opened up TextEdit and I've
+configured it to be simpler than
+
+1134
+00:55:52,730 --> 00:55:55,410
+the default, so know that I've
+done a little something in advance,
+
+1135
+00:55:55,410 --> 00:55:58,535
+but you could use notepad on Windows
+or any other number of other programs,
+
+1136
+00:55:58,535 --> 00:56:01,730
+even Microsoft Word if you save it
+in the right way or Google Docs,
+
+1137
+00:56:01,730 --> 00:56:06,230
+but let me go ahead and just recreate
+this as !DOCTYPE html, open bracket,
+
+1138
+00:56:06,230 --> 00:56:08,335
+html, and just to kind
+of remember to do things,
+
+1139
+00:56:08,335 --> 00:56:11,210
+I'm going to tend to get ahead of
+myself and sort of start and finish
+
+1140
+00:56:11,210 --> 00:56:13,460
+the thought and then dive in inside.
+
+1141
+00:56:13,460 --> 00:56:17,750
+Let me go ahead and do head
+here, close head tag here,
+
+1142
+00:56:17,750 --> 00:56:20,720
+and I'm indenting, just for good
+measure, one, two, three, four tabs,
+
+1143
+00:56:20,720 --> 00:56:23,300
+though so long as you're
+consistent the browser will
+
+1144
+00:56:23,300 --> 00:56:25,760
+be perfectly content, as will we.
+
+1145
+00:56:25,760 --> 00:56:35,390
+hello, title, title, open bracket,
+open bracket body, closed bracket body,
+
+1146
+00:56:35,390 --> 00:56:38,479
+and then hello, body.
+
+1147
+00:56:38,479 --> 00:56:39,020
+So that's it.
+
+1148
+00:56:39,020 --> 00:56:41,145
+I've just typed out the
+exact same thing as before.
+
+1149
+00:56:41,145 --> 00:56:44,600
+Let me go ahead and save this
+as not hello.txt or certainly
+
+1150
+00:56:44,600 --> 00:56:48,200
+not hello.c but
+hello.html by convention.
+
+1151
+00:56:48,200 --> 00:56:49,160
+I'm going to hit Save.
+
+1152
+00:56:49,160 --> 00:56:52,760
+Mac OS is kind of warning me that this
+is text, not something called HTML,
+
+1153
+00:56:52,760 --> 00:56:55,490
+but I know what I'm doing and
+I'm going to say use HTML,
+
+1154
+00:56:55,490 --> 00:57:00,690
+and now I have a file called hello.html,
+and if I go to my desktop, here in fact
+
+1155
+00:57:00,690 --> 00:57:01,350
+it is.
+
+1156
+00:57:01,350 --> 00:57:05,340
+And if I double click on it, there, in
+fact, is that pretty simple web page
+
+1157
+00:57:05,340 --> 00:57:07,400
+and if I actually reveal
+the tab, there it is.
+
+1158
+00:57:07,400 --> 00:57:12,330
+Hello, title in the very top tab of
+the page and once I get rid of that
+
+1159
+00:57:12,330 --> 00:57:14,330
+do I see the body again.
+
+1160
+00:57:14,330 --> 00:57:17,420
+So that's it for HTML at least
+in terms of its basic structure,
+
+1161
+00:57:17,420 --> 00:57:21,030
+but there are some other features
+that we can take advantage of as well,
+
+1162
+00:57:21,030 --> 00:57:22,730
+and let's actually tease these apart.
+
+1163
+00:57:22,730 --> 00:57:25,490
+Notice, first of all, that
+there is indeed this symmetry.
+
+1164
+00:57:25,490 --> 00:57:29,510
+What is opened is almost always
+closed as well in the opposite order.
+
+1165
+00:57:29,510 --> 00:57:32,010
+Just as head here and
+title here, and then
+
+1166
+00:57:32,010 --> 00:57:34,722
+followed by body and then
+the contents therein,
+
+1167
+00:57:34,722 --> 00:57:36,930
+but because there is this
+structure, you can actually
+
+1168
+00:57:36,930 --> 00:57:40,350
+think about this in a relation
+to the past couple of weeks
+
+1169
+00:57:40,350 --> 00:57:42,180
+when we've talked about data structures.
+
+1170
+00:57:42,180 --> 00:57:45,420
+I would argue that this
+HTML on the left is
+
+1171
+00:57:45,420 --> 00:57:48,027
+kind of equivalent to
+this tree on the right,
+
+1172
+00:57:48,027 --> 00:57:50,610
+and we didn't spend a huge amount
+of time talking about trees,
+
+1173
+00:57:50,610 --> 00:57:52,984
+and even when we did we used
+them for algorithmic reasons
+
+1174
+00:57:52,984 --> 00:57:55,920
+like a binary search tree to
+search data pretty efficiently,
+
+1175
+00:57:55,920 --> 00:57:58,590
+but if you think about it, here
+is the document, which I'm just
+
+1176
+00:57:58,590 --> 00:58:01,050
+drawing with this shape
+here kind of arbitrarily
+
+1177
+00:58:01,050 --> 00:58:04,230
+and it has one child like the
+entire page as I'm drawing it,
+
+1178
+00:58:04,230 --> 00:58:05,820
+which is the HTML tag here.
+
+1179
+00:58:05,820 --> 00:58:09,345
+The HTML tag has two children,
+so to speak, to borrow
+
+1180
+00:58:09,345 --> 00:58:12,270
+our language from our data structures.
+
+1181
+00:58:12,270 --> 00:58:14,550
+So head and body from left to right.
+
+1182
+00:58:14,550 --> 00:58:17,729
+Head has a child called title and
+then title has a child of some sort,
+
+1183
+00:58:17,729 --> 00:58:19,020
+even though it's just raw text.
+
+1184
+00:58:19,020 --> 00:58:21,450
+It's not another tag
+with angled brackets,
+
+1185
+00:58:21,450 --> 00:58:25,260
+just as body has its own
+content there, just hello, body.
+
+1186
+00:58:25,260 --> 00:58:29,400
+So that hierarchy and the deliberate
+indentation, which is there just for us
+
+1187
+00:58:29,400 --> 00:58:32,220
+humans-- the browser does
+not care about whitespace--
+
+1188
+00:58:32,220 --> 00:58:34,950
+lends itself to an
+implementation in memory,
+
+1189
+00:58:34,950 --> 00:58:38,820
+and so long story short, when
+your browser receives an envelope,
+
+1190
+00:58:38,820 --> 00:58:42,270
+inside of which are not just those
+HTTP headers, outside of which
+
+1191
+00:58:42,270 --> 00:58:45,170
+are not just the IP
+address and TCP port,
+
+1192
+00:58:45,170 --> 00:58:49,920
+but inside of which is a text
+file containing HTML like that,
+
+1193
+00:58:49,920 --> 00:58:53,280
+all the browser does is
+load that file into memory,
+
+1194
+00:58:53,280 --> 00:58:56,610
+read it top to bottom, left
+to right and essentially build
+
+1195
+00:58:56,610 --> 00:59:00,630
+a tree structure in memory so
+that it knows how to represent it
+
+1196
+00:59:00,630 --> 00:59:02,820
+underneath the hood, so to speak.
+
+1197
+00:59:02,820 --> 00:59:06,060
+And in fact, you've
+seen HTML all around you
+
+1198
+00:59:06,060 --> 00:59:08,940
+even if you've just never looked
+underneath the hood, as we say.
+
+1199
+00:59:08,940 --> 00:59:11,340
+In fact, if I go to
+like harvard.edu and let
+
+1200
+00:59:11,340 --> 00:59:15,125
+the redirects happen in the usual way,
+let me go ahead and inspect the page.
+
+1201
+00:59:15,125 --> 00:59:17,250
+This is another way in
+Chrome and in other browsers
+
+1202
+00:59:17,250 --> 00:59:18,660
+to get at the developer tools.
+
+1203
+00:59:18,660 --> 00:59:22,710
+You can control click or right click
+on the web page and choose Inspect.
+
+1204
+00:59:22,710 --> 00:59:24,330
+That opens up the same tab.
+
+1205
+00:59:24,330 --> 00:59:29,130
+Previously, we used the network
+panel, but if I click on Elements
+
+1206
+00:59:29,130 --> 00:59:33,784
+you can actually see all of the
+HTML that composes Harvard's page,
+
+1207
+00:59:33,784 --> 00:59:34,950
+and it looks beautiful here.
+
+1208
+00:59:34,950 --> 00:59:36,240
+It's nicely color-coded.
+
+1209
+00:59:36,240 --> 00:59:37,360
+It's prettily indented.
+
+1210
+00:59:37,360 --> 00:59:40,380
+I can dive in deeper
+with all of these arrows,
+
+1211
+00:59:40,380 --> 00:59:42,330
+but that's probably not
+how the humans made it
+
+1212
+00:59:42,330 --> 00:59:46,480
+because if I also right click or control
+click and choose View Page Source,
+
+1213
+00:59:46,480 --> 00:59:48,480
+and you can do this in
+any browser as well,
+
+1214
+00:59:48,480 --> 00:59:52,170
+here is the mess that actually
+came back from Harvard's server.
+
+1215
+00:59:52,170 --> 00:59:54,810
+This is HTML and my
+god, like, it's a lot.
+
+1216
+00:59:54,810 --> 00:59:59,160
+I see no indentation, so
+style 0 here, but that's OK
+
+1217
+00:59:59,160 --> 01:00:00,630
+because it's a browser reading it.
+
+1218
+01:00:00,630 --> 01:00:03,660
+It's not a human in
+this case and similarly,
+
+1219
+01:00:03,660 --> 01:00:08,970
+if we visit something like yale.edu, and
+let's go ahead and open up their page
+
+1220
+01:00:08,970 --> 01:00:13,110
+source, it's similarly going to be
+kind of overwhelming and a lot of it,
+
+1221
+01:00:13,110 --> 01:00:15,979
+but rest assured that even though
+these web pages might look really,
+
+1222
+01:00:15,979 --> 01:00:19,020
+really sophisticated-- like, my god,
+we've never written a C program with
+
+1223
+01:00:19,020 --> 01:00:20,790
+500 plus lines of code--
+
+1224
+01:00:20,790 --> 01:00:22,840
+a lot of this stuff is
+generated, and in fact,
+
+1225
+01:00:22,840 --> 01:00:26,580
+one of the challenges of pset7 and
+pset8 when we explore web programming
+
+1226
+01:00:26,580 --> 01:00:30,600
+is going to be not to write hundreds
+of lines of HTML, which would just
+
+1227
+01:00:30,600 --> 01:00:34,470
+get mind numbing quickly, but
+to write a few lines of Python
+
+1228
+01:00:34,470 --> 01:00:38,760
+or a few lines of JavaScript that
+programmatically, like with loops,
+
+1229
+01:00:38,760 --> 01:00:41,650
+generates all of the
+structure of your web page.
+
+1230
+01:00:41,650 --> 01:00:44,640
+So if it's like a web page of
+photos like a Facebook photo album,
+
+1231
+01:00:44,640 --> 01:00:47,850
+Facebook doesn't have people writing
+out thousands of lines of HTML code
+
+1232
+01:00:47,850 --> 01:00:49,830
+every time you upload a photo.
+
+1233
+01:00:49,830 --> 01:00:52,980
+They have code in PHP
+or some other language
+
+1234
+01:00:52,980 --> 01:00:56,520
+that has a for loop that iterates
+over all of the photos you've uploaded
+
+1235
+01:00:56,520 --> 01:01:00,520
+and spits out the same HTML but
+different image for each of the photos
+
+1236
+01:01:00,520 --> 01:01:03,270
+you've uploaded, and that's where
+web programming comes into play.
+
+1237
+01:01:03,270 --> 01:01:06,780
+You're not writing the
+HTML, you're generating it
+
+1238
+01:01:06,780 --> 01:01:08,040
+by actually writing programs.
+
+1239
+01:01:08,040 --> 01:01:10,590
+So today we set the
+stage for that capability
+
+1240
+01:01:10,590 --> 01:01:13,270
+but first we just need a
+framework for actually doing this.
+
+1241
+01:01:13,270 --> 01:01:15,930
+So rather than use,
+now, my local Mac, which
+
+1242
+01:01:15,930 --> 01:01:19,140
+is kind of lame because I can open the
+web page but no one else in the world
+
+1243
+01:01:19,140 --> 01:01:21,900
+can access it, and in fact,
+if we do that again, you'll
+
+1244
+01:01:21,900 --> 01:01:28,860
+notice here, if I double click on
+hello.html and open the URL bar,
+
+1245
+01:01:28,860 --> 01:01:31,820
+it's curiously clearly
+not on the internet.
+
+1246
+01:01:31,820 --> 01:01:36,600
+Like, it's not http, it's not
+https, it's literally file://,
+
+1247
+01:01:36,600 --> 01:01:38,790
+which just means it's a
+file on my local computer.
+
+1248
+01:01:38,790 --> 01:01:41,730
+So none of you could reach
+that because of course
+
+1249
+01:01:41,730 --> 01:01:45,580
+this user jharvard on my laptop
+exists only on my local Mac.
+
+1250
+01:01:45,580 --> 01:01:49,860
+So fortunately we have a web-based
+IDE with which to put stuff
+
+1251
+01:01:49,860 --> 01:01:51,880
+on the internet, but there's a catch.
+
+1252
+01:01:51,880 --> 01:01:55,400
+The IDE itself, recall, is
+a web application, right?
+
+1253
+01:01:55,400 --> 01:01:59,370
+It's code that friends at Amazon
+wrote and that we added to that runs
+
+1254
+01:01:59,370 --> 01:02:03,780
+on a server somewhere and, as we'll
+see, somewhat in your browser too,
+
+1255
+01:02:03,780 --> 01:02:06,090
+but more on that when we
+talk about JavaScript,
+
+1256
+01:02:06,090 --> 01:02:14,640
+but CS50 IDE already has a URL like
+https://cs50.io or https://ide.cs50.io
+
+1257
+01:02:14,640 --> 01:02:17,190
+slash whatever your username is.
+
+1258
+01:02:17,190 --> 01:02:23,140
+So we're already using port 80
+or maybe 443 for the IDE itself.
+
+1259
+01:02:23,140 --> 01:02:28,680
+So how in the world could you
+write web pages in the IDE
+
+1260
+01:02:28,680 --> 01:02:31,710
+and then serve them on the
+internet if the IDE itself
+
+1261
+01:02:31,710 --> 01:02:34,020
+is already using the standard port?
+
+1262
+01:02:34,020 --> 01:02:37,500
+Well fortunately you can
+write on the envelopes,
+
+1263
+01:02:37,500 --> 01:02:41,064
+when trying to access your own web
+pages, a hardcoded TCP port number.
+
+1264
+01:02:41,064 --> 01:02:43,230
+It doesn't have to be 80,
+it doesn't have to be 443.
+
+1265
+01:02:43,230 --> 01:02:44,580
+Those are just the defaults.
+
+1266
+01:02:44,580 --> 01:02:47,340
+If I want to actually
+visit pages in my IDE,
+
+1267
+01:02:47,340 --> 01:02:51,240
+I can just run a web server
+on a different port number,
+
+1268
+01:02:51,240 --> 01:02:56,450
+like 8,080 by convention
+or 8,081, 8,082.
+
+1269
+01:02:56,450 --> 01:03:00,970
+Just a pretty big number that odds are
+no one else is using on some system.
+
+1270
+01:03:00,970 --> 01:03:02,350
+So let's see this as follows.
+
+1271
+01:03:02,350 --> 01:03:07,000
+Let me go ahead and in the
+IDE here create a new file.
+
+1272
+01:03:07,000 --> 01:03:10,020
+I'm going to call it
+hello.html and I'm just
+
+1273
+01:03:10,020 --> 01:03:15,180
+going to go into that text
+file, whoops, which I closed.
+
+1274
+01:03:15,180 --> 01:03:17,700
+Let me go ahead and just
+grab the code that we've
+
+1275
+01:03:17,700 --> 01:03:22,020
+been using here, which is
+right here, go back to the IDE,
+
+1276
+01:03:22,020 --> 01:03:26,460
+paste it into the text file here,
+click Save, and now I have in the IDE
+
+1277
+01:03:26,460 --> 01:03:29,970
+a file called hello.html, and
+indeed if I look at the file browser
+
+1278
+01:03:29,970 --> 01:03:33,090
+and I look on the left-hand side,
+there, in addition to the sample code,
+
+1279
+01:03:33,090 --> 01:03:37,110
+is hello.html, but if I double
+click this file it's not
+
+1280
+01:03:37,110 --> 01:03:39,660
+very useful because it's going
+to open the editor, which
+
+1281
+01:03:39,660 --> 01:03:40,930
+is not like a web page.
+
+1282
+01:03:40,930 --> 01:03:42,810
+It's the source code for my web page.
+
+1283
+01:03:42,810 --> 01:03:45,720
+So I actually now need
+to run a program that
+
+1284
+01:03:45,720 --> 01:03:49,800
+serves this file just like Facebook
+does, just like Google and Harvard
+
+1285
+01:03:49,800 --> 01:03:56,820
+and Yale do, and I'm going to do this
+literally by running http-server,
+
+1286
+01:03:56,820 --> 01:03:59,790
+and I'm going to say on port 8080.
+
+1287
+01:03:59,790 --> 01:04:02,670
+So -p in this particular
+program means port
+
+1288
+01:04:02,670 --> 01:04:07,260
+and I'm just going to say, hey CS50
+IDE, start a program called httpserver
+
+1289
+01:04:07,260 --> 01:04:10,110
+whose purpose in life is to listen
+for requests on the internet,
+
+1290
+01:04:10,110 --> 01:04:14,730
+but specifically on that port number,
+and serve up whatever requests come in.
+
+1291
+01:04:14,730 --> 01:04:16,410
+So I've gone ahead and hit Enter here.
+
+1292
+01:04:16,410 --> 01:04:17,730
+Starting up httpserver.
+
+1293
+01:04:17,730 --> 01:04:20,071
+It tells me the long URL
+that this is available at.
+
+1294
+01:04:20,071 --> 01:04:22,320
+Your URL will be a little
+different with your username
+
+1295
+01:04:22,320 --> 01:04:27,240
+and if I open this now in another tab,
+it's a little cryptic at first glance.
+
+1296
+01:04:27,240 --> 01:04:30,900
+I'm just seeing the index or contents
+of my directory and in there is like
+
+1297
+01:04:30,900 --> 01:04:33,210
+a secret .c9 for Cloud9 directory.
+
+1298
+01:04:33,210 --> 01:04:34,620
+Don't delete that or change that.
+
+1299
+01:04:34,620 --> 01:04:37,320
+That just has metadata
+related to the IDE.
+
+1300
+01:04:37,320 --> 01:04:41,100
+Source6 I downloaded earlier and you
+can too from the course's web site,
+
+1301
+01:04:41,100 --> 01:04:43,650
+but there's hello.html,
+and on the left-hand side
+
+1302
+01:04:43,650 --> 01:04:45,780
+here, you'll see some
+cryptic looking permissions.
+
+1303
+01:04:45,780 --> 01:04:48,480
+This has to do with who can read
+and who can write your files,
+
+1304
+01:04:48,480 --> 01:04:51,580
+but for today all I care
+about is that the file exists.
+
+1305
+01:04:51,580 --> 01:04:55,950
+So now, like a user on the internet,
+I'm going to go to here, click on it,
+
+1306
+01:04:55,950 --> 01:04:56,960
+and viola!
+
+1307
+01:04:56,960 --> 01:04:58,420
+There is my actual web page.
+
+1308
+01:04:58,420 --> 01:05:00,690
+So notice, the URLs are very similar.
+
+1309
+01:05:00,690 --> 01:05:06,090
+Here I am on cs50.io
+and here I am on cs50.io
+
+1310
+01:05:06,090 --> 01:05:08,460
+even though your user names
+will of course be different,
+
+1311
+01:05:08,460 --> 01:05:12,060
+but the IDE is running
+on the default port, 443.
+
+1312
+01:05:12,060 --> 01:05:15,180
+I'm now temporarily
+serving up my HTML files
+
+1313
+01:05:15,180 --> 01:05:17,550
+using port 8080 just
+because and so that's
+
+1314
+01:05:17,550 --> 01:05:20,550
+how a server can do multiple
+things and how you can do
+
+1315
+01:05:20,550 --> 01:05:22,590
+multiple things on the server at once.
+
+1316
+01:05:22,590 --> 01:05:24,720
+So let's do something else besides that.
+
+1317
+01:05:24,720 --> 01:05:27,120
+Let me actually introduce a
+few other fundamentals that
+
+1318
+01:05:27,120 --> 01:05:30,570
+might be handy when writing HTML
+and let's go ahead and do this.
+
+1319
+01:05:30,570 --> 01:05:36,010
+Let me go ahead and create a
+new file and we'll call this one
+
+1320
+01:05:36,010 --> 01:05:42,090
+paragraphs.html, and let me go ahead and
+just name this like paragraphs and down
+
+1321
+01:05:42,090 --> 01:05:44,430
+here I'm going to have
+some paragraphs of text,
+
+1322
+01:05:44,430 --> 01:05:47,610
+and I don't really know what I want
+to say so I'm going to Google some--
+
+1323
+01:05:47,610 --> 01:05:50,760
+so standard Latin-like text.
+
+1324
+01:05:50,760 --> 01:05:54,599
+Oh, I want like three paragraphs of
+Latin-like text and so here we go.
+
+1325
+01:05:54,599 --> 01:05:56,640
+Then there's a random
+website that just generates
+
+1326
+01:05:56,640 --> 01:05:59,160
+placeholder text in faux Latin.
+
+1327
+01:05:59,160 --> 01:06:00,450
+So, Paste.
+
+1328
+01:06:00,450 --> 01:06:01,830
+There are my three paragraphs.
+
+1329
+01:06:01,830 --> 01:06:05,820
+I'll be a little nice
+and tidy and indent them
+
+1330
+01:06:05,820 --> 01:06:08,730
+so it looks at least
+somewhat nicely styled.
+
+1331
+01:06:08,730 --> 01:06:13,240
+Save the file and now let me go back
+to the URL I was at a moment ago.
+
+1332
+01:06:13,240 --> 01:06:18,060
+Now notice I have two files being
+served by this HTTP server program.
+
+1333
+01:06:18,060 --> 01:06:19,460
+Click paragraph-- oh.
+
+1334
+01:06:19,460 --> 01:06:22,920
+OK, one, Chrome thinks
+the page is in Latin.
+
+1335
+01:06:22,920 --> 01:06:23,820
+[STUDENTS LAUGH]
+
+1336
+01:06:23,820 --> 01:06:32,920
+Actually, soccer inferior
+element estate planning time.
+
+1337
+01:06:32,920 --> 01:06:35,320
+Tomorrow soss quiver before as the--
+
+1338
+01:06:35,320 --> 01:06:37,730
+that does sound like the
+Latin I learned years ago.
+
+1339
+01:06:37,730 --> 01:06:40,631
+All right, so Show Original.
+
+1340
+01:06:40,631 --> 01:06:44,440
+So the point is not to focus on
+the Latin, but the apparent bug.
+
+1341
+01:06:44,440 --> 01:06:48,569
+Like, what's it not doing that maybe
+you thought it should a second ago?
+
+1342
+01:06:48,569 --> 01:06:49,610
+AUDIENCE: No indentation.
+
+1343
+01:06:49,610 --> 01:06:52,642
+DAVID J. MALAN: Yeah, there's no
+indentation and also there's no what?
+
+1344
+01:06:52,642 --> 01:06:53,350
+There's no break.
+
+1345
+01:06:53,350 --> 01:06:55,630
+I mean this is one big
+Latin-like paragraph.
+
+1346
+01:06:55,630 --> 01:06:56,800
+It's not three.
+
+1347
+01:06:56,800 --> 01:07:02,037
+Well this is simply because a browser
+only does what you tell it to do.
+
+1348
+01:07:02,037 --> 01:07:04,870
+Let me go ahead and shrink this
+window and, as an aside, what you're
+
+1349
+01:07:04,870 --> 01:07:07,810
+seeing here, all this mess in
+the bottom terminal window,
+
+1350
+01:07:07,810 --> 01:07:12,640
+as the httpserver program is running,
+it is logging all of the HTTP requests
+
+1351
+01:07:12,640 --> 01:07:15,979
+that come in from browsers just so
+you can kind of debug or diagnose,
+
+1352
+01:07:15,979 --> 01:07:17,770
+but we're going to just
+ignore that for now
+
+1353
+01:07:17,770 --> 01:07:21,350
+and let this thing run down
+here in the background.
+
+1354
+01:07:21,350 --> 01:07:24,280
+But if I want paragraphs I need
+to be a little more pedantic
+
+1355
+01:07:24,280 --> 01:07:29,044
+and actually say, hey browser, make a
+paragraph with what's called the p tag,
+
+1356
+01:07:29,044 --> 01:07:31,960
+and let me go ahead now and indent
+even though the indentation clearly
+
+1357
+01:07:31,960 --> 01:07:32,585
+doesn't matter.
+
+1358
+01:07:32,585 --> 01:07:34,580
+It's just to keep my code nice and tidy.
+
+1359
+01:07:34,580 --> 01:07:36,204
+So, hey browser, start a paragraph.
+
+1360
+01:07:36,204 --> 01:07:36,870
+Here's the text.
+
+1361
+01:07:36,870 --> 01:07:38,530
+Hey browser, stop the paragraph.
+
+1362
+01:07:38,530 --> 01:07:39,430
+Same thing here.
+
+1363
+01:07:39,430 --> 01:07:41,500
+Let me go ahead and start a paragraph.
+
+1364
+01:07:41,500 --> 01:07:43,490
+Then let me go ahead
+and stop the paragraph.
+
+1365
+01:07:43,490 --> 01:07:45,197
+Notice the IDE is trying to be helpful.
+
+1366
+01:07:45,197 --> 01:07:46,030
+This is not helpful.
+
+1367
+01:07:46,030 --> 01:07:48,910
+This is not a password, but it's
+trying to autocomplete my thoughts.
+
+1368
+01:07:48,910 --> 01:07:49,550
+That's fine.
+
+1369
+01:07:49,550 --> 01:07:50,800
+I'm just going to ignore it.
+
+1370
+01:07:50,800 --> 01:07:53,980
+Then let me go ahead and
+close the paragraph and save.
+
+1371
+01:07:53,980 --> 01:07:57,490
+So it's a little more verbose, but
+anything in the tags the human is not
+
+1372
+01:07:57,490 --> 01:08:01,030
+going to see, but when you reload the
+page, as with command or control+R,
+
+1373
+01:08:01,030 --> 01:08:03,580
+or if you go up here by
+clicking the reload icon,
+
+1374
+01:08:03,580 --> 01:08:05,300
+whatever it looks like in your browser.
+
+1375
+01:08:05,300 --> 01:08:09,947
+Now I have three Latin-like paragraphs.
+
+1376
+01:08:09,947 --> 01:08:11,530
+So it's a little more deliberate here.
+
+1377
+01:08:11,530 --> 01:08:14,363
+So that's all fine and good, but
+the web is kind of more interesting
+
+1378
+01:08:14,363 --> 01:08:16,204
+when you can actually link to things.
+
+1379
+01:08:16,204 --> 01:08:17,620
+So let's actually do that instead.
+
+1380
+01:08:17,620 --> 01:08:23,020
+Let me go ahead and create a new
+file called, let's say, link.html.
+
+1381
+01:08:23,020 --> 01:08:27,760
+Go ahead and paste this here and
+say we'll name the title link.
+
+1382
+01:08:27,760 --> 01:08:31,240
+Let me get rid of all of this
+just so I have some placeholder
+
+1383
+01:08:31,240 --> 01:08:33,460
+and I can say something
+like "Hello, world!
+
+1384
+01:08:33,460 --> 01:08:36,880
+My favorite school is..."
+
+1385
+01:08:36,880 --> 01:08:40,720
+and just to play it safe
+today, "stanford.edu."
+
+1386
+01:08:40,720 --> 01:08:48,069
+Save, reload, click
+link.html and nothing.
+
+1387
+01:08:48,069 --> 01:08:53,140
+So here too it looks like a domain
+name and it certainly is, and frankly,
+
+1388
+01:08:53,140 --> 01:08:56,859
+all of us now are probably conditioned
+in tools like Slack and Gmail and other
+
+1389
+01:08:56,859 --> 01:08:59,380
+tools and Facebook that just
+kind of figure out that, oh,
+
+1390
+01:08:59,380 --> 01:09:02,229
+if something looks like a
+domain name, make it a link,
+
+1391
+01:09:02,229 --> 01:09:06,100
+but that's because someone at Facebook,
+someone at Google knows HTML and knows
+
+1392
+01:09:06,100 --> 01:09:08,640
+how to use if conditions
+and elses and just says, oh,
+
+1393
+01:09:08,640 --> 01:09:11,740
+if a string that the human has typed
+in looks like a domain name ending
+
+1394
+01:09:11,740 --> 01:09:13,881
+in .edu, make it a link.
+
+1395
+01:09:13,881 --> 01:09:15,130
+But how do you make it a link?
+
+1396
+01:09:15,130 --> 01:09:16,689
+We can now do this manually.
+
+1397
+01:09:16,689 --> 01:09:20,300
+It turns out you need an
+anchor tag abbreviated as a
+
+1398
+01:09:20,300 --> 01:09:23,920
+and then I'm going to close the
+anchor tag at the end of the text
+
+1399
+01:09:23,920 --> 01:09:27,800
+that I want to anchor a link
+to, but this isn't enough.
+
+1400
+01:09:27,800 --> 01:09:31,729
+I need to be ever so explicit as
+to where I want this link to go,
+
+1401
+01:09:31,729 --> 01:09:35,580
+and so it turns out HTML also
+supports what are called attributes.
+
+1402
+01:09:35,580 --> 01:09:38,170
+So tags are the things
+in angled brackets.
+
+1403
+01:09:38,170 --> 01:09:40,359
+Attributes are also inside
+those angled brackets,
+
+1404
+01:09:40,359 --> 01:09:42,650
+but they come after the tag's
+name, and they just going
+
+1405
+01:09:42,650 --> 01:09:46,090
+to modify the behavior of the
+tag, and it makes sense here
+
+1406
+01:09:46,090 --> 01:09:48,190
+to need to modify the
+behavior because 20,
+
+1407
+01:09:48,190 --> 01:09:50,529
+30 years ago when HTML was
+invented, we didn't make up
+
+1408
+01:09:50,529 --> 01:09:52,640
+a tag that leads to stanford.edu.
+
+1409
+01:09:52,640 --> 01:09:56,830
+We made up a more generic tag
+that anchors to some destination,
+
+1410
+01:09:56,830 --> 01:10:02,681
+and so here I can now do
+www.stanford.edu, save the file,
+
+1411
+01:10:02,681 --> 01:10:05,180
+and notice, this is like saying
+to the browser, hey browser,
+
+1412
+01:10:05,180 --> 01:10:08,500
+here comes a link or hyperlink
+to Stanford's web site,
+
+1413
+01:10:08,500 --> 01:10:12,250
+and then the end here it says hey
+browser, that's it for the link,
+
+1414
+01:10:12,250 --> 01:10:14,290
+and thankfully it's not super verbose.
+
+1415
+01:10:14,290 --> 01:10:17,140
+You don't have to repeat
+the attribute at the end.
+
+1416
+01:10:17,140 --> 01:10:19,360
+You just repeat the
+tag's name, otherwise
+
+1417
+01:10:19,360 --> 01:10:21,460
+you'd be typing the same
+thing again and again.
+
+1418
+01:10:21,460 --> 01:10:26,590
+If I now go back here and reload the
+page as with command or control+R,
+
+1419
+01:10:26,590 --> 01:10:29,020
+now it becomes the familiar
+and blue underlined link,
+
+1420
+01:10:29,020 --> 01:10:32,890
+and if I click on that,
+notice first it's super small.
+
+1421
+01:10:32,890 --> 01:10:36,430
+You can see where the link
+is actually going to lead,
+
+1422
+01:10:36,430 --> 01:10:40,540
+and so if I click on this we'll
+see Stanford's website and voila.
+
+1423
+01:10:40,540 --> 01:10:43,990
+So now we've visited their page as well,
+but there's an interesting side note
+
+1424
+01:10:43,990 --> 01:10:47,200
+here, and if you want to kind of think
+about things called phishing attacks
+
+1425
+01:10:47,200 --> 01:10:49,510
+or frankly, Harvard once in a
+while and Yale once in awhile
+
+1426
+01:10:49,510 --> 01:10:52,093
+will email out warnings like
+"beware of this phishing attack."
+
+1427
+01:10:52,093 --> 01:10:54,356
+P-H-I-S-H-I-N-G.
+
+1428
+01:10:54,356 --> 01:10:56,230
+This is when people on
+the internet generally
+
+1429
+01:10:56,230 --> 01:10:59,320
+send you emails or some kind
+of spam trying to trick you
+
+1430
+01:10:59,320 --> 01:11:03,700
+into visiting a phony website to harvest
+your usernames, passwords, credit card
+
+1431
+01:11:03,700 --> 01:11:07,720
+numbers and whatnot, and honestly,
+most of those phishing attacks
+
+1432
+01:11:07,720 --> 01:11:12,850
+boil down to this
+10-line example of HTML
+
+1433
+01:11:12,850 --> 01:11:18,610
+because what's to stop me from
+saying something like "Hello, world!
+
+1434
+01:11:18,610 --> 01:11:21,880
+Confirm your password at..."
+
+1435
+01:11:21,880 --> 01:11:25,870
+and then we'll say like
+paypal.com and then
+
+1436
+01:11:25,870 --> 01:11:31,940
+over here, I can change this
+to like davidsphishingsite.com,
+
+1437
+01:11:31,940 --> 01:11:34,850
+which hopefully doesn't exist.
+
+1438
+01:11:34,850 --> 01:11:38,120
+One year I went to badplace.com and--
+
+1439
+01:11:38,120 --> 01:11:38,990
+anyhow, so--
+
+1440
+01:11:38,990 --> 01:11:40,230
+[STUDENTS LAUGHING]
+
+1441
+01:11:40,230 --> 01:11:40,730
+
+
+1442
+01:11:40,730 --> 01:11:45,620
+Here I've gone ahead and saved the file,
+reloaded, and the link is indeed blue,
+
+1443
+01:11:45,620 --> 01:11:50,600
+but before I click on it,
+only the most estute of users
+
+1444
+01:11:50,600 --> 01:11:52,850
+is going to even bother
+checking the bottom left hand
+
+1445
+01:11:52,850 --> 01:11:54,930
+corner to see where they're
+about to be whisked away to
+
+1446
+01:11:54,930 --> 01:11:57,180
+and even most of us in
+this room, myself included,
+
+1447
+01:11:57,180 --> 01:11:59,269
+are not so paranoid
+that we're constantly
+
+1448
+01:11:59,269 --> 01:12:00,560
+checking those kinds of things.
+
+1449
+01:12:00,560 --> 01:12:02,060
+Odds are, if I get an
+email like this, oh
+
+1450
+01:12:02,060 --> 01:12:03,260
+my god, my accounts been compromised.
+
+1451
+01:12:03,260 --> 01:12:06,260
+I've got to go confirm my password
+for PayPal to protect my money.
+
+1452
+01:12:06,260 --> 01:12:08,150
+You might very well
+just follow the link,
+
+1453
+01:12:08,150 --> 01:12:12,584
+but of course it can go anywhere you
+want just via this very basic building
+
+1454
+01:12:12,584 --> 01:12:14,750
+block, but this is just one
+way you can vet actually
+
+1455
+01:12:14,750 --> 01:12:17,375
+what's going on underneath the
+hood, but of course the internet
+
+1456
+01:12:17,375 --> 01:12:19,490
+is more interesting
+than just text alone.
+
+1457
+01:12:19,490 --> 01:12:21,980
+Let me go ahead and open up
+an example that I whipped up
+
+1458
+01:12:21,980 --> 01:12:28,790
+in advance here using image.html
+and we'll see another tag here.
+
+1459
+01:12:28,790 --> 01:12:32,600
+So here is another opportunity
+to use an attribute
+
+1460
+01:12:32,600 --> 01:12:36,570
+and one that's also not
+necessarily visible to the user.
+
+1461
+01:12:36,570 --> 01:12:38,030
+So here's an image tag.
+
+1462
+01:12:38,030 --> 01:12:39,740
+Humans years ago decided to be succint.
+
+1463
+01:12:39,740 --> 01:12:44,090
+It's img > for image, just
+like it's just a > for anchor.
+
+1464
+01:12:44,090 --> 01:12:48,080
+The source, src, of which is
+going to be that file, dan.jpeg,
+
+1465
+01:12:48,080 --> 01:12:50,900
+which I downloaded in advance
+from the URL up above,
+
+1466
+01:12:50,900 --> 01:12:55,310
+and in fact, this is gray in the cs50
+IDE because it's syntax highlighting it
+
+1467
+01:12:55,310 --> 01:12:58,400
+just like in C. This is
+what's a comment in HTML.
+
+1468
+01:12:58,400 --> 01:13:00,860
+So if you want to make notes
+to yourself or to viewers,
+
+1469
+01:13:00,860 --> 01:13:03,710
+some sentence or like
+a citation like this,
+
+1470
+01:13:03,710 --> 01:13:10,795
+you can use an HTML comment by doing
+! // // > and you can write anything
+
+1471
+01:13:10,795 --> 01:13:13,170
+between those things-- for
+the most part-- that you want.
+
+1472
+01:13:13,170 --> 01:13:15,380
+So just like in C do we have the //.
+
+1473
+01:13:15,380 --> 01:13:17,840
+So here's the source
+of this image and this
+
+1474
+01:13:17,840 --> 01:13:24,672
+is like an alternative explanation of
+it, alt. Why might this be compelling?
+
+1475
+01:13:24,672 --> 01:13:26,130
+I want to show the image to a user.
+
+1476
+01:13:26,130 --> 01:13:26,340
+Yeah?
+
+1477
+01:13:26,340 --> 01:13:27,954
+AUDIENCE: Is it for like if
+they hover their mouse over it,
+
+1478
+01:13:27,954 --> 01:13:28,930
+they can see what's happening.
+
+1479
+01:13:28,930 --> 01:13:30,390
+DAVID J. MALAN: Yeah,
+so a couple of reasons.
+
+1480
+01:13:30,390 --> 01:13:33,360
+If you hover over the image you can
+actually see some descriptive text.
+
+1481
+01:13:33,360 --> 01:13:36,060
+So like Handsome Dan
+here, like Yale's mascot.
+
+1482
+01:13:36,060 --> 01:13:39,210
+If the user has trouble
+seeing or is blind,
+
+1483
+01:13:39,210 --> 01:13:41,386
+you might need a screen
+reader to actually tell you
+
+1484
+01:13:41,386 --> 01:13:43,260
+what it is that's on
+the screen, and it's not
+
+1485
+01:13:43,260 --> 01:13:45,599
+obvious from dan.jpeg
+what that could be,
+
+1486
+01:13:45,599 --> 01:13:47,640
+but if you have this
+alternative text, a computer
+
+1487
+01:13:47,640 --> 01:13:50,445
+can recite verbally Handsome
+Dan, which might then
+
+1488
+01:13:50,445 --> 01:13:53,320
+jog the person's memory as to what
+it is that actually on the screen.
+
+1489
+01:13:53,320 --> 01:13:55,050
+Or if you have a really
+slow internet connection,
+
+1490
+01:13:55,050 --> 01:13:57,270
+sometimes you'll see a
+placeholder for an image
+
+1491
+01:13:57,270 --> 01:14:00,032
+that just says what it is before
+the image actually downloads.
+
+1492
+01:14:00,032 --> 01:14:01,740
+So being mindful of
+these kinds of things
+
+1493
+01:14:01,740 --> 01:14:04,380
+will just make, ultimately,
+your websites more accessible,
+
+1494
+01:14:04,380 --> 01:14:07,860
+and indeed if I go to this one now
+and go into my source6 directory
+
+1495
+01:14:07,860 --> 01:14:11,500
+where we have even more examples
+at our disposal and go to Image 6,
+
+1496
+01:14:11,500 --> 01:14:16,840
+here is their adorable Handsome
+Dan as of this past year.
+
+1497
+01:14:16,840 --> 01:14:18,150
+So there's an image.
+
+1498
+01:14:18,150 --> 01:14:20,970
+We can kind of do funky
+things now with nesting.
+
+1499
+01:14:20,970 --> 01:14:24,120
+So this is not all that interesting
+because it doesn't go anywhere,
+
+1500
+01:14:24,120 --> 01:14:26,760
+but I could just combine these ideas.
+
+1501
+01:14:26,760 --> 01:14:34,320
+I could do a href = http://www.yale.edu
+or, because I don't want the user
+
+1502
+01:14:34,320 --> 01:14:37,500
+to bother getting redirected,
+I could just proactively make
+
+1503
+01:14:37,500 --> 01:14:40,630
+it secure because I know Yale
+supports that per earlier,
+
+1504
+01:14:40,630 --> 01:14:42,540
+and I can nest these tags like this.
+
+1505
+01:14:42,540 --> 01:14:45,910
+Now if I go here, reload,
+it still looks the same
+
+1506
+01:14:45,910 --> 01:14:50,640
+but notice my cursor changes to like a
+pointer, and if indeed I click on that,
+
+1507
+01:14:50,640 --> 01:14:55,290
+now the image leads to Yale's web
+site, but I skimmed over something.
+
+1508
+01:14:55,290 --> 01:14:56,910
+One of these is not like the other.
+
+1509
+01:14:56,910 --> 01:15:00,090
+
+
+1510
+01:15:00,090 --> 01:15:04,512
+What detail have I
+kind of not mentioned?
+
+1511
+01:15:04,512 --> 01:15:05,012
+Yeah.
+
+1512
+01:15:05,012 --> 01:15:07,187
+AUDIENCE: The image file
+closes within itself.
+
+1513
+01:15:07,187 --> 01:15:10,020
+DAVID J. MALAN: Yeah, the image tag
+kind of closes in and of itself,
+
+1514
+01:15:10,020 --> 01:15:12,390
+and so there are some of
+these anomalies within HTML
+
+1515
+01:15:12,390 --> 01:15:15,332
+where there really isn't a notion
+of, like, start doing something
+
+1516
+01:15:15,332 --> 01:15:17,040
+and then eventually
+stop doing something.
+
+1517
+01:15:17,040 --> 01:15:18,831
+Like, an image is either
+there or it's not.
+
+1518
+01:15:18,831 --> 01:15:22,041
+Like, you can't kind of put
+something in between it conceptually,
+
+1519
+01:15:22,041 --> 01:15:24,540
+and so some of these tags in
+HTML are what are called empty.
+
+1520
+01:15:24,540 --> 01:15:27,750
+Like, they should not have
+anything after the open tag
+
+1521
+01:15:27,750 --> 01:15:29,140
+or before the close tag.
+
+1522
+01:15:29,140 --> 01:15:33,330
+So if you wanted to be really sort
+of precise you could say this,
+
+1523
+01:15:33,330 --> 01:15:36,032
+but you should not put
+anything where my cursor now
+
+1524
+01:15:36,032 --> 01:15:39,240
+is because it would make no sense to
+try to put something inside of an image,
+
+1525
+01:15:39,240 --> 01:15:43,170
+but this is just kind of lame to
+have this unnecessary verboseness.
+
+1526
+01:15:43,170 --> 01:15:46,380
+So you can just put the slash in
+there and technically in HTML5 you
+
+1527
+01:15:46,380 --> 01:15:49,570
+don't even need the slash in
+this case, but at least this way,
+
+1528
+01:15:49,570 --> 01:15:52,410
+and I think for pedagogical purposes,
+doing it, even for empty tags,
+
+1529
+01:15:52,410 --> 01:15:56,280
+makes sure and makes more clear
+visually, when and that your tags are
+
+1530
+01:15:56,280 --> 01:15:56,972
+balanced.
+
+1531
+01:15:56,972 --> 01:15:58,680
+So that's the only
+anomaly there and then
+
+1532
+01:15:58,680 --> 01:16:01,690
+there's bunches of others which we
+can fly through really quickly here.
+
+1533
+01:16:01,690 --> 01:16:05,147
+So if I go back to our examples
+here, I whipped up headings.html.
+
+1534
+01:16:05,147 --> 01:16:07,230
+So if you want to do
+something like this if you're
+
+1535
+01:16:07,230 --> 01:16:10,440
+writing like a book or a website
+that has like chapters and sections
+
+1536
+01:16:10,440 --> 01:16:13,980
+and subsections and so
+forth, HTML lets you
+
+1537
+01:16:13,980 --> 01:16:16,890
+easily format things as big and
+bold, slightly smaller and bold,
+
+1538
+01:16:16,890 --> 01:16:22,410
+slightly smaller and bold, and so
+forth by using the h1 through h6 tags.
+
+1539
+01:16:22,410 --> 01:16:26,100
+So if I go into headings, this
+is how I made this web page.
+
+1540
+01:16:26,100 --> 01:16:30,420
+I simply have h1, h2, h3, h4
+opened and closed and that's it.
+
+1541
+01:16:30,420 --> 01:16:33,480
+So any time you're reading
+some kind of online text,
+
+1542
+01:16:33,480 --> 01:16:37,140
+odds are they're using one or more
+of these tags to format the page.
+
+1543
+01:16:37,140 --> 01:16:42,090
+If we look at another example in here,
+we have something like list.html.
+
+1544
+01:16:42,090 --> 01:16:45,870
+Lists are not uncommon on the internet,
+you'll never believe number three,
+
+1545
+01:16:45,870 --> 01:16:50,010
+and here's how you might do something
+with a bulleted list by just marking up
+
+1546
+01:16:50,010 --> 01:16:52,170
+three words-- foo, bar and baz--
+
+1547
+01:16:52,170 --> 01:16:56,460
+and the HTML for this,
+if I open up list.html,
+
+1548
+01:16:56,460 --> 01:17:01,440
+simply looks a little more verbose
+in that we need a parent element so
+
+1549
+01:17:01,440 --> 01:17:04,080
+to speak, borrowing
+our tree terminology,
+
+1550
+01:17:04,080 --> 01:17:07,260
+but here we have an unordered
+list, or ul, each of which
+
+1551
+01:17:07,260 --> 01:17:10,500
+has one or more list
+items, or li, each of which
+
+1552
+01:17:10,500 --> 01:17:12,600
+open and close foo, bar and baz.
+
+1553
+01:17:12,600 --> 01:17:14,920
+And if I really want it
+numbered, I can also do this.
+
+1554
+01:17:14,920 --> 01:17:20,940
+I can change unordered list to ordered
+list, ol, reload and now the browser
+
+1555
+01:17:20,940 --> 01:17:23,940
+figures out the numbering for me,
+which is nice if you have lots of data
+
+1556
+01:17:23,940 --> 01:17:26,970
+and you don't want to deal with
+actually laying it out yourself.
+
+1557
+01:17:26,970 --> 01:17:30,870
+Meanwhile, we can go one or two
+steps further before we actually
+
+1558
+01:17:30,870 --> 01:17:32,550
+get to something functional.
+
+1559
+01:17:32,550 --> 01:17:36,220
+Here is kind of the
+most complicated of all,
+
+1560
+01:17:36,220 --> 01:17:39,510
+but it too just kind of
+tells the browser what to do.
+
+1561
+01:17:39,510 --> 01:17:43,080
+So before we look at the result, this
+says, hey browser, here comes a table,
+
+1562
+01:17:43,080 --> 01:17:44,190
+like tabular data.
+
+1563
+01:17:44,190 --> 01:17:46,690
+Rows and columns like Excel
+or Google Spreadsheets.
+
+1564
+01:17:46,690 --> 01:17:50,605
+Hey browser, here comes
+a table row, or tr.
+
+1565
+01:17:50,605 --> 01:17:54,060
+Hey browser, within that row,
+here comes some table data, a.k.a.
+
+1566
+01:17:54,060 --> 01:17:55,680
+a cell or column.
+
+1567
+01:17:55,680 --> 01:17:56,910
+Here comes another cell.
+
+1568
+01:17:56,910 --> 01:17:58,060
+Here comes another cell.
+
+1569
+01:17:58,060 --> 01:18:01,050
+So that's one, two,
+three cells in a row.
+
+1570
+01:18:01,050 --> 01:18:03,370
+Hey browser, here
+comes three more cells.
+
+1571
+01:18:03,370 --> 01:18:05,150
+Hey browser, here
+comes three more cells.
+
+1572
+01:18:05,150 --> 01:18:08,280
+Hey browser, here comes three
+more cells and if we actually
+
+1573
+01:18:08,280 --> 01:18:15,720
+render this in the browser, you can
+see the layout of a sort of old school
+
+1574
+01:18:15,720 --> 01:18:17,250
+phone pad on your phone.
+
+1575
+01:18:17,250 --> 01:18:19,380
+It's not very pretty, it's
+not very well formatted,
+
+1576
+01:18:19,380 --> 01:18:23,400
+but if we zoom in you really do see
+that it is lined up in rows and columns
+
+1577
+01:18:23,400 --> 01:18:27,780
+as I sort of verbally implied, but
+this is all very kind of underwhelming.
+
+1578
+01:18:27,780 --> 01:18:29,790
+Like, Google is cool
+because you can go to it
+
+1579
+01:18:29,790 --> 01:18:33,780
+and you can actually search for cats
+and find lots of cats on the internet,
+
+1580
+01:18:33,780 --> 01:18:36,610
+but how is it that this actually works?
+
+1581
+01:18:36,610 --> 01:18:39,930
+So, aww, bad news today.
+
+1582
+01:18:39,930 --> 01:18:44,220
+OK, so we'll just zoom in on this one.
+
+1583
+01:18:44,220 --> 01:18:47,760
+OK, so let's try to focus
+on the pedagogy here--
+
+1584
+01:18:47,760 --> 01:18:49,750
+of cats-- as follows.
+
+1585
+01:18:49,750 --> 01:18:54,450
+Let me go ahead and focus on really the
+URL, which is kind of long and cryptic,
+
+1586
+01:18:54,450 --> 01:18:57,660
+but let me just throw away honestly
+anything that kind of looks confusing
+
+1587
+01:18:57,660 --> 01:18:58,690
+or I don't understand.
+
+1588
+01:18:58,690 --> 01:19:01,590
+I have no idea what source means
+so I'm going to get rid of that.
+
+1589
+01:19:01,590 --> 01:19:02,890
+I have no idea what
+the rest of this means.
+
+1590
+01:19:02,890 --> 01:19:05,220
+I'm going to get rid of that and I'm
+going to try to distill-- granted,
+
+1591
+01:19:05,220 --> 01:19:08,190
+with some foresight because I
+knew how Google works here--
+
+1592
+01:19:08,190 --> 01:19:10,860
+I changed the URL to something
+much, much, much simpler.
+
+1593
+01:19:10,860 --> 01:19:19,740
+Cats,f where it's
+www.google.com/search?q=cats.
+
+1594
+01:19:19,740 --> 01:19:23,520
+It seems that, somehow or
+other, Google's behavior
+
+1595
+01:19:23,520 --> 01:19:26,359
+is controlled by information
+that's conveyed in the URL,
+
+1596
+01:19:26,359 --> 01:19:27,900
+and it's not just that I'm searching.
+
+1597
+01:19:27,900 --> 01:19:29,580
+It's that I'm searching for cats.
+
+1598
+01:19:29,580 --> 01:19:32,940
+So in fact, on a whim, I'm going
+to search for dogs instead and hit
+
+1599
+01:19:32,940 --> 01:19:35,700
+Enter, and indeed a few things change.
+
+1600
+01:19:35,700 --> 01:19:39,180
+We have all these dog images
+appear here on the right.
+
+1601
+01:19:39,180 --> 01:19:41,760
+We have the text
+pre-populated up here and we
+
+1602
+01:19:41,760 --> 01:19:43,470
+can search for any
+number of other things
+
+1603
+01:19:43,470 --> 01:19:50,400
+here, like Harvard
+Yale prank 2004, Enter,
+
+1604
+01:19:50,400 --> 01:19:53,590
+and there you have a Wikipedia
+article on the video we saw earlier.
+
+1605
+01:19:53,590 --> 01:19:56,670
+So it seems that you can
+parameterize the behavior of Google
+
+1606
+01:19:56,670 --> 01:19:58,570
+just by understanding
+how this URL works.
+
+1607
+01:19:58,570 --> 01:20:01,090
+So here is kind of the path
+that's being requested,
+
+1608
+01:20:01,090 --> 01:20:02,940
+the file or folder or whatever that is.
+
+1609
+01:20:02,940 --> 01:20:05,340
+A question mark says, hey
+browser, or hey server,
+
+1610
+01:20:05,340 --> 01:20:08,830
+rather, here come some HTTP parameters.
+
+1611
+01:20:08,830 --> 01:20:12,550
+Some inputs from a human who's either
+filled out a form or apparently
+
+1612
+01:20:12,550 --> 01:20:15,610
+is kind of hacking the URL bar here,
+and then the name of the parameter
+
+1613
+01:20:15,610 --> 01:20:19,000
+comes next. q, meaning query, and this
+is what Larry and Sergey decided years
+
+1614
+01:20:19,000 --> 01:20:21,640
+ago for their search
+box, an equals sign,
+
+1615
+01:20:21,640 --> 01:20:23,570
+and then whatever it
+is the human typed in.
+
+1616
+01:20:23,570 --> 01:20:25,210
+Now it got a little funky here quickly.
+
+1617
+01:20:25,210 --> 01:20:27,280
+Now you see %20.
+
+1618
+01:20:27,280 --> 01:20:30,910
+That is the web's way
+of encoding a space so
+
+1619
+01:20:30,910 --> 01:20:33,790
+that it's not a physical space,
+it's all one contiguous string.
+
+1620
+01:20:33,790 --> 01:20:38,410
+So it's just one contiguous string for
+the server to actually look at or read,
+
+1621
+01:20:38,410 --> 01:20:40,370
+and so why is this useful?
+
+1622
+01:20:40,370 --> 01:20:42,790
+Well it turns out I can
+leverage this information
+
+1623
+01:20:42,790 --> 01:20:46,300
+and kind of implement my
+own Google pretty easily.
+
+1624
+01:20:46,300 --> 01:20:52,120
+Let me go ahead and go into search.html,
+one of the other examples I whipped up,
+
+1625
+01:20:52,120 --> 01:20:54,520
+and you'll see another tag all together.
+
+1626
+01:20:54,520 --> 01:20:58,840
+Inside of the body of this
+page is an HTML form tag,
+
+1627
+01:20:58,840 --> 01:21:01,770
+and the form tag takes a
+couple of attributes I know.
+
+1628
+01:21:01,770 --> 01:21:05,140
+One is action, which
+is the URL to which you
+
+1629
+01:21:05,140 --> 01:21:07,570
+want to send the form's
+information, and the other
+
+1630
+01:21:07,570 --> 01:21:09,220
+is the method that you want to use.
+
+1631
+01:21:09,220 --> 01:21:13,220
+Now it's a little inconsistently
+lowercased here just because,
+
+1632
+01:21:13,220 --> 01:21:14,576
+but we did see that verb before.
+
+1633
+01:21:14,576 --> 01:21:15,075
+Where?
+
+1634
+01:21:15,075 --> 01:21:18,260
+
+
+1635
+01:21:18,260 --> 01:21:19,650
+Where did we see this verb?
+
+1636
+01:21:19,650 --> 01:21:22,570
+
+
+1637
+01:21:22,570 --> 01:21:26,250
+This was like the somewhat arcane
+message that was going, supposedly,
+
+1638
+01:21:26,250 --> 01:21:32,220
+inside one of these envelopes when
+we said GET in all caps /http1.1
+
+1639
+01:21:32,220 --> 01:21:33,550
+and so forth.
+
+1640
+01:21:33,550 --> 01:21:37,620
+So it seems that if you
+want, as the web developer,
+
+1641
+01:21:37,620 --> 01:21:42,150
+to create an HTML form that has text
+boxes and maybe checkboxes and dropdown
+
+1642
+01:21:42,150 --> 01:21:45,660
+menus and so forth that submits its
+information when the user clicks Enter
+
+1643
+01:21:45,660 --> 01:21:49,260
+or a button to this address, and you
+want it to go inside of a virtual
+
+1644
+01:21:49,260 --> 01:21:52,800
+envelope using that GET verb, you
+literally just say method=GET.
+
+1645
+01:21:52,800 --> 01:21:56,220
+And then down here I seem to have
+two inputs, one of whose names
+
+1646
+01:21:56,220 --> 01:22:00,180
+is q, the type of which is a
+text box, and the other of which
+
+1647
+01:22:00,180 --> 01:22:02,927
+is a submit type, whatever that
+is, the value of which is search.
+
+1648
+01:22:02,927 --> 01:22:05,760
+Now you would only know what these
+things mean by seeing them demoed
+
+1649
+01:22:05,760 --> 01:22:09,250
+or looking at some online reference, but
+if we pull this up to see the results
+
+1650
+01:22:09,250 --> 01:22:10,680
+we have a super simple--
+
+1651
+01:22:10,680 --> 01:22:11,880
+and I'll zoom in--
+
+1652
+01:22:11,880 --> 01:22:14,460
+very, very simple
+version of Google, right?
+
+1653
+01:22:14,460 --> 01:22:19,290
+It don't even have the logo, but it does
+have, I claim, all of the functionality
+
+1654
+01:22:19,290 --> 01:22:24,780
+because watch what happens if I type in,
+for instance, whoops, birds and click
+
+1655
+01:22:24,780 --> 01:22:26,160
+Search.
+
+1656
+01:22:26,160 --> 01:22:31,350
+Oh my god, I implemented Google
+with just like 15 lines of code,
+
+1657
+01:22:31,350 --> 01:22:32,340
+but not really, right?
+
+1658
+01:22:32,340 --> 01:22:34,660
+Like, I've implemented
+the front end of Google,
+
+1659
+01:22:34,660 --> 01:22:37,020
+which I got to start Googling
+these things in advance
+
+1660
+01:22:37,020 --> 01:22:38,780
+OK, uh, these are very sad stories.
+
+1661
+01:22:38,780 --> 01:22:40,530
+[STUDENTS LAUGH AT MORBID NEWS
+ HEADLINES]
+
+1662
+01:22:40,530 --> 01:22:49,080
+DAVID J. MALAN: OK, so the point though
+is, the point-- look up, look up.
+
+1663
+01:22:49,080 --> 01:22:53,610
+The point is that the
+URL is what I generated.
+
+1664
+01:22:53,610 --> 01:22:57,450
+So using those HTML tags coupled
+with the human's cooperation
+
+1665
+01:22:57,450 --> 01:22:59,520
+and actually clicking
+a button did I then
+
+1666
+01:22:59,520 --> 01:23:02,550
+generate this URL, whisk
+the user away from the IDE
+
+1667
+01:23:02,550 --> 01:23:06,230
+to google.com, where Google
+is handling the back end,
+
+1668
+01:23:06,230 --> 01:23:08,730
+like all of the hard work,
+actually checking their database,
+
+1669
+01:23:08,730 --> 01:23:11,170
+rendering the HTML, but
+I made the front end,
+
+1670
+01:23:11,170 --> 01:23:15,900
+the user interface via which you can
+actually interact with Google's search
+
+1671
+01:23:15,900 --> 01:23:16,710
+engine there.
+
+1672
+01:23:16,710 --> 01:23:19,950
+And it boils down to just
+these basic heuristics,
+
+1673
+01:23:19,950 --> 01:23:22,340
+but of course this is a pretty
+ugly search engine, right?
+
+1674
+01:23:22,340 --> 01:23:25,530
+Black and white text box, a
+gray button and that's it.
+
+1675
+01:23:25,530 --> 01:23:31,260
+Like, even Google, simple though it
+is, has a little bit of style and color
+
+1676
+01:23:31,260 --> 01:23:34,180
+to it and things are centered
+and kind of spaced differently.
+
+1677
+01:23:34,180 --> 01:23:36,140
+So there's an art to this
+ultimately and indeed
+
+1678
+01:23:36,140 --> 01:23:38,940
+being a web designer in
+itself is a profession
+
+1679
+01:23:38,940 --> 01:23:42,180
+and in fact, you'll find in
+industry that some people are
+
+1680
+01:23:42,180 --> 01:23:43,860
+good at front end design.
+
+1681
+01:23:43,860 --> 01:23:45,030
+Some people are bad at it.
+
+1682
+01:23:45,030 --> 01:23:46,170
+I'm among the ones worse.
+
+1683
+01:23:46,170 --> 01:23:49,620
+Like, my web pages look like that
+search box just a moment ago,
+
+1684
+01:23:49,620 --> 01:23:52,465
+but some people really prefer the
+non-graphical stuff, the back-end,
+
+1685
+01:23:52,465 --> 01:23:55,590
+the database stuff, and indeed one of
+the takeaways over the next few weeks
+
+1686
+01:23:55,590 --> 01:23:58,423
+will be for you to figure out for
+yourselves if you like any of this
+
+1687
+01:23:58,423 --> 01:24:00,982
+at all certainly, but also
+like what your preferences are.
+
+1688
+01:24:00,982 --> 01:24:02,940
+And you might hear terms
+in industry these days
+
+1689
+01:24:02,940 --> 01:24:05,370
+like front-end developer,
+back-end developer.
+
+1690
+01:24:05,370 --> 01:24:09,510
+That just means do you work on what
+the user sees in their browser or app
+
+1691
+01:24:09,510 --> 01:24:12,240
+or do you work on the back-end,
+the database stuff that's
+
+1692
+01:24:12,240 --> 01:24:15,030
+really important and
+sometimes quite difficult,
+
+1693
+01:24:15,030 --> 01:24:18,169
+but that the user doesn't
+interact with directly.
+
+1694
+01:24:18,169 --> 01:24:20,460
+Or are you a full-stack
+developer, which means you just
+
+1695
+01:24:20,460 --> 01:24:22,500
+do all of this, which
+all of you from CS50
+
+1696
+01:24:22,500 --> 01:24:26,640
+are effectively, albeit after just
+one or so semesters of background.
+
+1697
+01:24:26,640 --> 01:24:29,550
+So how do we start, though,
+to make things prettier?
+
+1698
+01:24:29,550 --> 01:24:34,470
+Well it turns out that HTML, for the
+most part, is just a markup language.
+
+1699
+01:24:34,470 --> 01:24:38,490
+It's for structuring a web page
+and semantically tagging things,
+
+1700
+01:24:38,490 --> 01:24:40,200
+and by semantically
+tagging things I mean
+
+1701
+01:24:40,200 --> 01:24:42,270
+like, hey browser, here's
+the head of my page
+
+1702
+01:24:42,270 --> 01:24:43,840
+and that's a concept, semantically.
+
+1703
+01:24:43,840 --> 01:24:46,048
+Hey browser, here's the body
+of my page, and that too
+
+1704
+01:24:46,048 --> 01:24:47,760
+is a concept, semantically.
+
+1705
+01:24:47,760 --> 01:24:51,780
+I didn't say anything about bold
+facing or font size or colors
+
+1706
+01:24:51,780 --> 01:24:55,800
+or all this stuff that's important
+for a good user experience, or UX,
+
+1707
+01:24:55,800 --> 01:24:59,444
+but that can be decoupled
+from HTML, and in fact,
+
+1708
+01:24:59,444 --> 01:25:01,860
+one of the challenges as you
+learn HTML for the first time
+
+1709
+01:25:01,860 --> 01:25:05,760
+is to try to make your way through
+various online resources and references
+
+1710
+01:25:05,760 --> 01:25:07,230
+will sometimes combine these ideas.
+
+1711
+01:25:07,230 --> 01:25:10,930
+So, again, today we'll focus not just
+on correctness, getting things to work,
+
+1712
+01:25:10,930 --> 01:25:12,880
+but design as well.
+
+1713
+01:25:12,880 --> 01:25:15,000
+So here, for instance,
+is a super simple web
+
+1714
+01:25:15,000 --> 01:25:17,280
+page for someone named
+John Harvard that has
+
+1715
+01:25:17,280 --> 01:25:21,170
+a header and a main part and a footer,
+and header is distinct from head.
+
+1716
+01:25:21,170 --> 01:25:22,650
+It's sort of poorly named here.
+
+1717
+01:25:22,650 --> 01:25:25,839
+Head of the web page is just the tab
+bar and other such things up top,
+
+1718
+01:25:25,839 --> 01:25:28,380
+but semantically you might have
+a page with like three parts.
+
+1719
+01:25:28,380 --> 01:25:31,890
+Like the header, like the title
+on the body of the page itself,
+
+1720
+01:25:31,890 --> 01:25:34,500
+like the main part where
+the actual contents
+
+1721
+01:25:34,500 --> 01:25:37,534
+are, and then a footer like a copyright
+symbol or something like that.
+
+1722
+01:25:37,534 --> 01:25:39,450
+So this might be a general
+division of a page,
+
+1723
+01:25:39,450 --> 01:25:42,070
+but notice I've styled
+it a little differently.
+
+1724
+01:25:42,070 --> 01:25:46,870
+Let me go ahead and open this up in
+a browser as I did just a moment ago
+
+1725
+01:25:46,870 --> 01:25:53,610
+and go to, sorry, I'm going back
+through my entire internet history here.
+
+1726
+01:25:53,610 --> 01:25:58,560
+Let's go ahead and open this up
+just as we did before at this URL
+
+1727
+01:25:58,560 --> 01:26:01,630
+so that we can go ahead
+and open up CSS0.html.
+
+1728
+01:26:01,630 --> 01:26:04,910
+
+
+1729
+01:26:04,910 --> 01:26:07,980
+Notice that, oh, this is already
+marginally better than the pages
+
+1730
+01:26:07,980 --> 01:26:11,430
+we've looked at before if only because
+it's centered, which is a step forward
+
+1731
+01:26:11,430 --> 01:26:13,044
+from everything just being left.
+
+1732
+01:26:13,044 --> 01:26:14,460
+The first line is a little bigger.
+
+1733
+01:26:14,460 --> 01:26:17,980
+The second line is kind of medium
+and the bottom line is the smallest.
+
+1734
+01:26:17,980 --> 01:26:20,630
+So there's a little bit of style
+here, but not all that much.
+
+1735
+01:26:20,630 --> 01:26:22,240
+So how did I actually do this?
+
+1736
+01:26:22,240 --> 01:26:24,340
+Well take a look at the code here.
+
+1737
+01:26:24,340 --> 01:26:28,510
+I have added, now, a style
+attribute to several of my tags.
+
+1738
+01:26:28,510 --> 01:26:31,120
+So the header, the main
+and the footer really
+
+1739
+01:26:31,120 --> 01:26:32,650
+aren't styled in any specific way.
+
+1740
+01:26:32,650 --> 01:26:34,000
+They're just a way of
+telling the browser this
+
+1741
+01:26:34,000 --> 01:26:36,040
+is the important stuff
+for the title, this
+
+1742
+01:26:36,040 --> 01:26:37,300
+is the important stuff
+for the main part,
+
+1743
+01:26:37,300 --> 01:26:39,091
+this is the important
+stuff for the footer,
+
+1744
+01:26:39,091 --> 01:26:42,850
+but the stylization or aesthetics
+come from this yellow text
+
+1745
+01:26:42,850 --> 01:26:45,190
+here, thanks to the IDE
+syntax highlighting it,
+
+1746
+01:26:45,190 --> 01:26:47,350
+and notice this text
+follows a different pattern.
+
+1747
+01:26:47,350 --> 01:26:50,110
+Up until now, we've been using
+angled brackets and words
+
+1748
+01:26:50,110 --> 01:26:51,830
+and equals signs and quotes.
+
+1749
+01:26:51,830 --> 01:26:56,680
+Now, inside of those quotes,
+we also have another pattern
+
+1750
+01:26:56,680 --> 01:26:59,800
+when you're using this second
+of two languages today, CSS.
+
+1751
+01:26:59,800 --> 01:27:05,920
+fontsize:large is the stylization for
+this particular element's content.
+
+1752
+01:27:05,920 --> 01:27:08,180
+Text align should be center.
+
+1753
+01:27:08,180 --> 01:27:10,700
+These are two CSS properties.
+
+1754
+01:27:10,700 --> 01:27:13,820
+CSS, cascading style sheets, and
+we'll see what that means in a moment,
+
+1755
+01:27:13,820 --> 01:27:16,810
+but this is just how you configure
+the style of those elements,
+
+1756
+01:27:16,810 --> 01:27:20,380
+and indeed that's why one is a little
+bigger and then a little smaller
+
+1757
+01:27:20,380 --> 01:27:25,125
+and then even smaller because, notice,
+I did fontsize:large, fontsize:medium,
+
+1758
+01:27:25,125 --> 01:27:25,750
+fontsize:small.
+
+1759
+01:27:25,750 --> 01:27:29,680
+All right, but as we've often done,
+let's iteratively improve upon this.
+
+1760
+01:27:29,680 --> 01:27:32,430
+Even if you've never
+seen HTML or CSS before,
+
+1761
+01:27:32,430 --> 01:27:36,860
+there's some poor design
+manifest in this simple example.
+
+1762
+01:27:36,860 --> 01:27:42,600
+What might you say seems wrong or
+seems a little copy paste-like?
+
+1763
+01:27:42,600 --> 01:27:44,444
+Yeah.
+
+1764
+01:27:44,444 --> 01:27:46,981
+AUDIENCE: They're all
+centered [INAUDIBLE]..
+
+1765
+01:27:46,981 --> 01:27:48,730
+DAVID J. MALAN: Yeah,
+they're all centered
+
+1766
+01:27:48,730 --> 01:27:52,720
+and I literally like copied and pasted
+that CSS property, its key value
+
+1767
+01:27:52,720 --> 01:27:54,850
+pair, its name and
+value, again and again
+
+1768
+01:27:54,850 --> 01:27:57,100
+and again, but remember
+the hierarchy of HTML
+
+1769
+01:27:57,100 --> 01:28:00,730
+and the DOM, Document Object Model,
+the tree we drew a little bit ago.
+
+1770
+01:28:00,730 --> 01:28:02,980
+All of these elements--
+header, main, and footer--
+
+1771
+01:28:02,980 --> 01:28:05,454
+have a parent element called what?
+
+1772
+01:28:05,454 --> 01:28:06,220
+AUDIENCE: Body.
+
+1773
+01:28:06,220 --> 01:28:07,344
+DAVID J. MALAN: Yeah, body.
+
+1774
+01:28:07,344 --> 01:28:10,030
+So one level higher,
+which is indented this way
+
+1775
+01:28:10,030 --> 01:28:14,020
+or in the tree is higher up in that
+family tree-like drawing, all of these
+
+1776
+01:28:14,020 --> 01:28:15,530
+are children of body.
+
+1777
+01:28:15,530 --> 01:28:18,776
+So why don't I just move or
+factor out text align center
+
+1778
+01:28:18,776 --> 01:28:19,900
+into the elements above it?
+
+1779
+01:28:19,900 --> 01:28:22,390
+And herein lies the cascading of CSS.
+
+1780
+01:28:22,390 --> 01:28:25,660
+Cascading style sheets means that
+if you have a property up here,
+
+1781
+01:28:25,660 --> 01:28:29,537
+it will cascade down to all of the
+children and descendants below it
+
+1782
+01:28:29,537 --> 01:28:30,870
+and it means another thing, too.
+
+1783
+01:28:30,870 --> 01:28:33,370
+You can even override
+these properties somehow,
+
+1784
+01:28:33,370 --> 01:28:34,900
+but we'll see that before long.
+
+1785
+01:28:34,900 --> 01:28:38,650
+So if I go ahead now
+and open up CSS1.html,
+
+1786
+01:28:38,650 --> 01:28:41,160
+notice that I did
+exactly that improvement.
+
+1787
+01:28:41,160 --> 01:28:43,150
+The code's a little tighter now.
+
+1788
+01:28:43,150 --> 01:28:45,430
+It's fewer characters,
+easier to maintain
+
+1789
+01:28:45,430 --> 01:28:48,220
+because now if I want to change
+it to left or right or center,
+
+1790
+01:28:48,220 --> 01:28:49,840
+I change it one place, not three.
+
+1791
+01:28:49,840 --> 01:28:53,170
+And so this is kind of consistent with
+some of our design takeaways from C
+
+1792
+01:28:53,170 --> 01:28:58,370
+and indeed, if I visit this page,
+CSS1.html, it looks the same,
+
+1793
+01:28:58,370 --> 01:29:01,030
+but it's better design
+underneath the hood.
+
+1794
+01:29:01,030 --> 01:29:02,860
+But we can do a little better still.
+
+1795
+01:29:02,860 --> 01:29:08,290
+If I open up CSS2.html,
+notice that I've done this.
+
+1796
+01:29:08,290 --> 01:29:12,190
+I rather like this design now
+because it's even more succinct.
+
+1797
+01:29:12,190 --> 01:29:14,680
+I'm not using the style
+attribute anymore.
+
+1798
+01:29:14,680 --> 01:29:17,740
+I'm using a different
+attribute called class,
+
+1799
+01:29:17,740 --> 01:29:19,960
+and class is kind of a way to define--
+
+1800
+01:29:19,960 --> 01:29:24,310
+much like a struct in C lets you define
+your own data types, a class in CSS
+
+1801
+01:29:24,310 --> 01:29:27,770
+allows you to define a name for
+a whole bunch of properties,
+
+1802
+01:29:27,770 --> 01:29:31,622
+and so here I just said let's call
+this class large, medium, and small,
+
+1803
+01:29:31,622 --> 01:29:33,580
+and I don't know what
+those mean, and frankly I
+
+1804
+01:29:33,580 --> 01:29:35,996
+might be working with a friend
+who's much better at design
+
+1805
+01:29:35,996 --> 01:29:39,910
+than I am so I'm going to let him or
+her actually define these meanings.
+
+1806
+01:29:39,910 --> 01:29:42,910
+I'm just going to kind of tag
+things in this way semantically,
+
+1807
+01:29:42,910 --> 01:29:46,420
+but if we scroll up in this file, you'll
+see that for now I have no such friend,
+
+1808
+01:29:46,420 --> 01:29:50,064
+and so I implemented it myself,
+and here's, for the first time,
+
+1809
+01:29:50,064 --> 01:29:51,730
+one other thing in the head of the page.
+
+1810
+01:29:51,730 --> 01:29:54,520
+Up until now, we've just had
+the title, but it turns out
+
+1811
+01:29:54,520 --> 01:29:56,770
+you can have a style tag.
+
+1812
+01:29:56,770 --> 01:30:00,220
+Not just an attribute, but
+a style tag inside of which,
+
+1813
+01:30:00,220 --> 01:30:04,330
+it's a little cryptic at first glance,
+but there's some pattern here, clearly.
+
+1814
+01:30:04,330 --> 01:30:08,350
+You have all of those properties,
+but the new syntax here
+
+1815
+01:30:08,350 --> 01:30:11,110
+is that if you want to define
+a word called centered,
+
+1816
+01:30:11,110 --> 01:30:13,360
+you literally do a period
+and then the word centered.
+
+1817
+01:30:13,360 --> 01:30:16,330
+If you want a word like
+large, you say .large.
+
+1818
+01:30:16,330 --> 01:30:19,800
+So it's similar in spirit, though not
+quite the same as like typedef in C,
+
+1819
+01:30:19,800 --> 01:30:22,750
+but you say .center,
+.large, .medium, .small.
+
+1820
+01:30:22,750 --> 01:30:26,620
+You use our old friends curly braces,
+which we will only see in CSS,
+
+1821
+01:30:26,620 --> 01:30:29,500
+and this just defines
+one or more properties
+
+1822
+01:30:29,500 --> 01:30:31,690
+to be associated with that new keyword.
+
+1823
+01:30:31,690 --> 01:30:35,180
+And so, if we scroll
+down here to the bottom,
+
+1824
+01:30:35,180 --> 01:30:37,960
+you'll see that I centered the body.
+
+1825
+01:30:37,960 --> 01:30:43,060
+I made large the head, medium
+the main, and small the footer,
+
+1826
+01:30:43,060 --> 01:30:45,220
+and the result is going
+to be exactly the same.
+
+1827
+01:30:45,220 --> 01:30:47,620
+Very underwhelming, but
+again, marginally better
+
+1828
+01:30:47,620 --> 01:30:51,660
+design because now we are just one
+step away of really improving this.
+
+1829
+01:30:51,660 --> 01:30:54,190
+If I do finally have
+that friend, it's not
+
+1830
+01:30:54,190 --> 01:30:57,640
+going to be very easy to
+collaborate, ultimately,
+
+1831
+01:30:57,640 --> 01:31:00,910
+if we're both working on the
+same file and moreover, it
+
+1832
+01:31:00,910 --> 01:31:03,340
+seems unnecessary to
+introduce these semantics.
+
+1833
+01:31:03,340 --> 01:31:07,600
+Like, why do I have to have tags
+like header and main and footer
+
+1834
+01:31:07,600 --> 01:31:11,560
+and classes called large and
+medium and small and centered?
+
+1835
+01:31:11,560 --> 01:31:14,830
+Like, why don't I leverage the
+names of these tags themselves?
+
+1836
+01:31:14,830 --> 01:31:17,830
+And this is where HTML
+can be pretty powerful.
+
+1837
+01:31:17,830 --> 01:31:20,740
+Notice I've simplified
+some of my CSS up top.
+
+1838
+01:31:20,740 --> 01:31:22,974
+I've dropped the period,
+which was like typedef.
+
+1839
+01:31:22,974 --> 01:31:25,890
+Like, give me something called large,
+give me something called medium.
+
+1840
+01:31:25,890 --> 01:31:30,929
+Now I'm just saying literally a word,
+but those words are identical to what?
+
+1841
+01:31:30,929 --> 01:31:31,720
+AUDIENCE: The tags.
+
+1842
+01:31:31,720 --> 01:31:33,220
+DAVID J. MALAN: The tags themselves.
+
+1843
+01:31:33,220 --> 01:31:36,610
+So preexisting tags, if I just
+mention them by name without a period,
+
+1844
+01:31:36,610 --> 01:31:37,986
+which gives me a new name--
+
+1845
+01:31:37,986 --> 01:31:40,360
+I just mention the body, the
+header, the main and footer,
+
+1846
+01:31:40,360 --> 01:31:42,818
+and then, inside of the curly
+braces, define my properties,
+
+1847
+01:31:42,818 --> 01:31:47,650
+now I can just stylize the actual
+tags as they exist in my page,
+
+1848
+01:31:47,650 --> 01:31:51,790
+and this now looks like really
+readable, maintainable HTML.
+
+1849
+01:31:51,790 --> 01:31:56,080
+There is no aesthetics associated
+with the markup language here,
+
+1850
+01:31:56,080 --> 01:31:59,619
+but rather there's useful tag
+names that come with HTML--
+
+1851
+01:31:59,619 --> 01:32:01,160
+you can't just make up your own tags.
+
+1852
+01:32:01,160 --> 01:32:04,370
+They're in, sort of, the documentation,
+but now it's just much more readable,
+
+1853
+01:32:04,370 --> 01:32:07,390
+and this might look different on my
+phone or your phone or your laptop,
+
+1854
+01:32:07,390 --> 01:32:09,700
+but my friend who's good at
+stylization can figure out
+
+1855
+01:32:09,700 --> 01:32:12,700
+how to style all of these things, and
+better yet, he or she doesn't even
+
+1856
+01:32:12,700 --> 01:32:14,800
+need my file.
+
+1857
+01:32:14,800 --> 01:32:18,730
+In the fifth example here,
+notice that's it for the page.
+
+1858
+01:32:18,730 --> 01:32:24,952
+We've gotten rid of the big style tag
+and replaced it apparently with what?
+
+1859
+01:32:24,952 --> 01:32:26,730
+AUDIENCE: Href, a link?
+
+1860
+01:32:26,730 --> 01:32:29,530
+DAVID J. MALAN: Yeah, link href,
+which is a horrible, horrible name
+
+1861
+01:32:29,530 --> 01:32:32,500
+because it's not like a link
+in the page and hyperreference
+
+1862
+01:32:32,500 --> 01:32:36,310
+was already used for a link in a page,
+but this is what we're stuck with.
+
+1863
+01:32:36,310 --> 01:32:41,530
+This just says, hey browser,
+include this CSS file
+
+1864
+01:32:41,530 --> 01:32:43,090
+that is elsewhere on the server.
+
+1865
+01:32:43,090 --> 01:32:46,310
+The name of this file
+is arbitrarily CSS4.css
+
+1866
+01:32:46,310 --> 01:32:50,840
+because this is our fifth
+example here-- zero index.
+
+1867
+01:32:50,840 --> 01:32:54,800
+The relationship of
+this file to this page
+
+1868
+01:32:54,800 --> 01:32:58,700
+is that it's a style sheet, which is
+just a list of aesthetics or properties
+
+1869
+01:32:58,700 --> 01:33:03,980
+that should characterize its layout
+and indeed, if I open up CSS4.css,
+
+1870
+01:33:03,980 --> 01:33:06,450
+I just copied and pasted
+everything in there,
+
+1871
+01:33:06,450 --> 01:33:08,900
+but this is nice now in
+principle, even though we're just
+
+1872
+01:33:08,900 --> 01:33:11,057
+creating work for ourselves
+today, because now I
+
+1873
+01:33:11,057 --> 01:33:12,640
+can share this file with someone else.
+
+1874
+01:33:12,640 --> 01:33:14,360
+He or she can work on it on their own.
+
+1875
+01:33:14,360 --> 01:33:17,390
+Then we can merge our work together
+because my work's in the HTML file.
+
+1876
+01:33:17,390 --> 01:33:19,100
+Their work's in the CSS file.
+
+1877
+01:33:19,100 --> 01:33:23,270
+Better still, if we're making a whole
+website that has a dozen pages or 100
+
+1878
+01:33:23,270 --> 01:33:24,920
+pages, consider this.
+
+1879
+01:33:24,920 --> 01:33:28,790
+Just like in a C header
+file, I can include bitmap.h
+
+1880
+01:33:28,790 --> 01:33:30,590
+in all sorts of programs.
+
+1881
+01:33:30,590 --> 01:33:34,940
+Similarly can I include
+CS4.css in all of my web pages.
+
+1882
+01:33:34,940 --> 01:33:37,220
+So if I want to change the
+font size or the layout
+
+1883
+01:33:37,220 --> 01:33:41,910
+or whatever in all of my website
+all at once, I change in one place,
+
+1884
+01:33:41,910 --> 01:33:46,610
+not in every darn web page that might
+have been created by me or by someone
+
+1885
+01:33:46,610 --> 01:33:49,880
+else, and so there's just that
+maintainability to it too,
+
+1886
+01:33:49,880 --> 01:33:53,360
+but we can do even better than
+that because even the CSS we're
+
+1887
+01:33:53,360 --> 01:33:56,510
+looking at here is only so
+good, and what's really nice
+
+1888
+01:33:56,510 --> 01:33:59,750
+is if we go to bootstrap-- let
+Google tell me where to go.
+
+1889
+01:33:59,750 --> 01:34:00,480
+We're safe.
+
+1890
+01:34:00,480 --> 01:34:04,400
+OK, so Bootstrap is a library--
+formerly from Twitter, now
+
+1891
+01:34:04,400 --> 01:34:08,030
+a much larger community-- that's
+a whole bunch of CSS libraries.
+
+1892
+01:34:08,030 --> 01:34:12,170
+So just as in C, we have code and
+functions that other people wrote.
+
+1893
+01:34:12,170 --> 01:34:14,090
+So in the world of web
+development do we have
+
+1894
+01:34:14,090 --> 01:34:17,048
+code that other people wrote and we
+use that for JavaScript and Python,
+
+1895
+01:34:17,048 --> 01:34:20,000
+but even for aesthetics are
+there sites like Bootstrap
+
+1896
+01:34:20,000 --> 01:34:24,620
+and other popular things that
+allow us to make our sites prettier
+
+1897
+01:34:24,620 --> 01:34:27,680
+and build them more quickly
+without having to reinvent wheels.
+
+1898
+01:34:27,680 --> 01:34:34,550
+So for instance, if I go down to let's
+say Content and I go to Typography
+
+1899
+01:34:34,550 --> 01:34:39,410
+and skim through here, you'll
+indeed see like h1, h2 and h3,
+
+1900
+01:34:39,410 --> 01:34:42,920
+but if you want things even bigger than
+that there's like a display heading.
+
+1901
+01:34:42,920 --> 01:34:45,490
+There's this fancy version,
+which has a fancy display heading
+
+1902
+01:34:45,490 --> 01:34:47,000
+with some faded secondary text.
+
+1903
+01:34:47,000 --> 01:34:50,780
+So pretty marginal, but I don't have to
+figure out how to do that now myself.
+
+1904
+01:34:50,780 --> 01:34:54,410
+If I want to actually have tables,
+I can do much prettier tables
+
+1905
+01:34:54,410 --> 01:34:56,910
+than I did with my little old
+school phone pad a moment ago.
+
+1906
+01:34:56,910 --> 01:34:58,670
+Like I can make things different colors.
+
+1907
+01:34:58,670 --> 01:35:02,480
+I can shade the columns like this and
+in fact, you can do even fancier things.
+
+1908
+01:35:02,480 --> 01:35:04,940
+If I go ahead and open
+up a web page and go
+
+1909
+01:35:04,940 --> 01:35:09,410
+to our big board for
+speller.cs50.net, you'll
+
+1910
+01:35:09,410 --> 01:35:11,990
+see that this is a pretty good
+looking table as tables go.
+
+1911
+01:35:11,990 --> 01:35:14,198
+Certainly much better than
+the one before, but that's
+
+1912
+01:35:14,198 --> 01:35:16,490
+because we're using
+the Bootstrap library,
+
+1913
+01:35:16,490 --> 01:35:19,820
+and even more compelling
+than the aesthetics are
+
+1914
+01:35:19,820 --> 01:35:22,955
+that suppose that you visit
+speller.cs50.net on your phone,
+
+1915
+01:35:22,955 --> 01:35:26,360
+it starts to get pretty ugly
+once your window gets smaller,
+
+1916
+01:35:26,360 --> 01:35:28,740
+but notice stuff can
+just disappear magically
+
+1917
+01:35:28,740 --> 01:35:30,740
+when you're on a mobile
+device or, in this case,
+
+1918
+01:35:30,740 --> 01:35:33,180
+simulating it by using just
+a smaller browser window.
+
+1919
+01:35:33,180 --> 01:35:35,810
+So using CSS and the aesthetic
+power that it provides,
+
+1920
+01:35:35,810 --> 01:35:40,820
+we can also dynamically change our
+files to just render differently
+
+1921
+01:35:40,820 --> 01:35:44,330
+on different devices, and then
+lastly, let me open up, for instance,
+
+1922
+01:35:44,330 --> 01:35:45,260
+this under Components.
+
+1923
+01:35:45,260 --> 01:35:46,926
+This is where the really juicy stuff is.
+
+1924
+01:35:46,926 --> 01:35:50,690
+If you want fancy alerts to yell at
+the user or say everything is OK,
+
+1925
+01:35:50,690 --> 01:35:53,240
+you get nice little
+colored boxes like this.
+
+1926
+01:35:53,240 --> 01:35:55,190
+The forms are much prettier.
+
+1927
+01:35:55,190 --> 01:35:58,040
+I mean, already this looks much
+more like the web you and I use
+
+1928
+01:35:58,040 --> 01:36:01,030
+and not the mess of a form
+that I created a moment ago
+
+1929
+01:36:01,030 --> 01:36:03,590
+and long story short,
+just like in C it's
+
+1930
+01:36:03,590 --> 01:36:07,740
+pretty easy to include these things
+in your own site, so can I do this.
+
+1931
+01:36:07,740 --> 01:36:12,350
+Let me go ahead and open up
+form0.html, and this is literally
+
+1932
+01:36:12,350 --> 01:36:15,860
+an approximation of the very
+first web application I made,
+
+1933
+01:36:15,860 --> 01:36:20,320
+even before web application
+was a phrase, in 1997.
+
+1934
+01:36:20,320 --> 01:36:21,980
+I had taken CS50 and CS51.
+
+1935
+01:36:21,980 --> 01:36:23,780
+I hadn't learned web stuff at the time.
+
+1936
+01:36:23,780 --> 01:36:25,280
+I just kind of taught
+it to myself and learned
+
+1937
+01:36:25,280 --> 01:36:27,080
+from some friends and
+the first thing I did
+
+1938
+01:36:27,080 --> 01:36:30,590
+was build an interactive website
+via which first years could register
+
+1939
+01:36:30,590 --> 01:36:34,819
+for intramural sports because literally
+that year in 1996 it was paper-based.
+
+1940
+01:36:34,819 --> 01:36:37,610
+You'd walk across the yard, open
+up Wigglesworth, one of the dorms,
+
+1941
+01:36:37,610 --> 01:36:39,776
+slide a piece of paper--
+old school-- under the door
+
+1942
+01:36:39,776 --> 01:36:41,810
+and you were registered for a sport.
+
+1943
+01:36:41,810 --> 01:36:45,290
+We could do better even in 1997,
+and so we did it with the web,
+
+1944
+01:36:45,290 --> 01:36:50,000
+and so this form0 back in the day looked
+a little something ugly like this,
+
+1945
+01:36:50,000 --> 01:36:53,025
+but there's a text box where
+you could type in your name
+
+1946
+01:36:53,025 --> 01:36:55,400
+and then there's the dorm
+where you could select Matthew.
+
+1947
+01:36:55,400 --> 01:36:58,647
+So I could actually do David Malan
+and Matthews and then click Register,
+
+1948
+01:36:58,647 --> 01:37:00,980
+but we don't yet have the
+ability to make backbends yet.
+
+1949
+01:37:00,980 --> 01:37:03,710
+So this form goes nowhere
+for today, but you at least
+
+1950
+01:37:03,710 --> 01:37:08,450
+get these kinds of aesthetics, which
+are kind of 1997 aesthetics, literally.
+
+1951
+01:37:08,450 --> 01:37:11,390
+But if we go into this
+other example, form1.html,
+
+1952
+01:37:11,390 --> 01:37:14,870
+it looks pretty, pretty better now.
+
+1953
+01:37:14,870 --> 01:37:17,960
+It's maybe a little big in retrospect,
+looking at the display font,
+
+1954
+01:37:17,960 --> 01:37:21,530
+but all I've done is now use this
+Bootstrap library, and notice,
+
+1955
+01:37:21,530 --> 01:37:23,840
+it's a little hard to see
+on the projector here,
+
+1956
+01:37:23,840 --> 01:37:25,874
+but everything's kind
+of like nicely outlined.
+
+1957
+01:37:25,874 --> 01:37:28,040
+There's like Mark Zuckerberg
+sample text there which
+
+1958
+01:37:28,040 --> 01:37:33,265
+we can override by actually typing
+in our own email address here.
+
+1959
+01:37:33,265 --> 01:37:36,140
+We have a prettier looking box, a
+prettier looking button, and that's
+
+1960
+01:37:36,140 --> 01:37:42,500
+just because if we
+open up, as down here,
+
+1961
+01:37:42,500 --> 01:37:46,920
+form1.html, notice that
+in addition to my HTML
+
+1962
+01:37:46,920 --> 01:37:49,620
+down below and in addition
+to a couple of other things
+
+1963
+01:37:49,620 --> 01:37:52,590
+that I've added to make things
+more mobile-friendly in particular,
+
+1964
+01:37:52,590 --> 01:37:54,057
+I just added this.
+
+1965
+01:37:54,057 --> 01:37:55,890
+I read the documentation
+on getbootstrap.com
+
+1966
+01:37:55,890 --> 01:38:00,300
+and I went ahead and added
+Bootstrap's library to my own code
+
+1967
+01:38:00,300 --> 01:38:04,500
+in order to have access
+to its actual features,
+
+1968
+01:38:04,500 --> 01:38:08,010
+and then down here, it's a little
+overwhelming at first glance,
+
+1969
+01:38:08,010 --> 01:38:09,610
+but I just followed the directions.
+
+1970
+01:38:09,610 --> 01:38:12,276
+There's something called div in
+HTML for a division of the page.
+
+1971
+01:38:12,276 --> 01:38:14,640
+It means give me this
+invisible rectangular region.
+
+1972
+01:38:14,640 --> 01:38:16,936
+The class I associated with
+it is called form group.
+
+1973
+01:38:16,936 --> 01:38:18,060
+I didn't make this word up.
+
+1974
+01:38:18,060 --> 01:38:19,143
+This comes from Bootstrap.
+
+1975
+01:38:19,143 --> 01:38:20,740
+I just did what they told me to do.
+
+1976
+01:38:20,740 --> 01:38:22,860
+I then have a label, which
+makes things more accessible
+
+1977
+01:38:22,860 --> 01:38:24,450
+and you can click in different places.
+
+1978
+01:38:24,450 --> 01:38:26,408
+I have another class here
+but long story short,
+
+1979
+01:38:26,408 --> 01:38:29,130
+I just read the documentation
+because I know what tags are,
+
+1980
+01:38:29,130 --> 01:38:31,980
+I know what attributes are.
+
+1981
+01:38:31,980 --> 01:38:35,280
+I know a little bit of CSS
+now and I know how HTTP works,
+
+1982
+01:38:35,280 --> 01:38:40,740
+and so really I have enough building
+blocks in order to work on this myself.
+
+1983
+01:38:40,740 --> 01:38:44,745
+So that then is CSS and there's one
+last detail I thought I'd show us here.
+
+1984
+01:38:44,745 --> 01:38:48,930
+In all of these John Harvard
+examples, as in just a moment ago,
+
+1985
+01:38:48,930 --> 01:38:53,100
+we had something like
+this at the very bottom.
+
+1986
+01:38:53,100 --> 01:38:57,090
+This {} ampersand #169;.
+
+1987
+01:38:57,090 --> 01:39:00,424
+What was that rendering as, if
+you notice, in the web page?
+
+1988
+01:39:00,424 --> 01:39:01,380
+AUDIENCE: Copyright.
+
+1989
+01:39:01,380 --> 01:39:02,310
+DAVID J. MALAN: Yeah,
+the copyright symbol.
+
+1990
+01:39:02,310 --> 01:39:05,030
+There is, on my US keyboard,
+no copyright symbol.
+
+1991
+01:39:05,030 --> 01:39:07,860
+So you need kind of a
+pattern of characters
+
+1992
+01:39:07,860 --> 01:39:10,290
+with which to represent those in HTML.
+
+1993
+01:39:10,290 --> 01:39:14,010
+So just like we have /n and other
+special escape characters in C,
+
+1994
+01:39:14,010 --> 01:39:17,250
+you have what are called HTML entities
+in HTML that you would only know from
+
+1995
+01:39:17,250 --> 01:39:20,010
+reading the documentation, but
+that's the copyright symbol,
+
+1996
+01:39:20,010 --> 01:39:24,210
+but I thought it was rather timely to
+point that out because just yesterday
+
+1997
+01:39:24,210 --> 01:39:27,660
+or this morning, Apple announced that
+with the very new version of iOS that
+
+1998
+01:39:27,660 --> 01:39:32,100
+you can soon download, they added even
+more damn Emojis to the Emoji character
+
+1999
+01:39:32,100 --> 01:39:32,920
+set.
+
+2000
+01:39:32,920 --> 01:39:35,070
+So these are certainly
+in vogue these days
+
+2001
+01:39:35,070 --> 01:39:39,030
+and not only do we see, now, a way to
+represent special characters that you
+
+2002
+01:39:39,030 --> 01:39:43,470
+couldn't otherwise type using
+HTML, it turns out all this time
+
+2003
+01:39:43,470 --> 01:39:47,250
+that Emojis are actually
+just characters, chars,
+
+2004
+01:39:47,250 --> 01:39:48,480
+but they're not 8 bits.
+
+2005
+01:39:48,480 --> 01:39:50,640
+Recall that C as we've
+been using it uses
+
+2006
+01:39:50,640 --> 01:39:54,780
+ASCII, which uses only 7 or 8
+bits total and Emojis, my god.
+
+2007
+01:39:54,780 --> 01:39:57,747
+There's so many of them right
+now and we need more than 8 bits
+
+2008
+01:39:57,747 --> 01:40:00,330
+to represent them, and thus was
+born something called Unicode.
+
+2009
+01:40:00,330 --> 01:40:02,940
+Well, that is not why
+Unicode was invented,
+
+2010
+01:40:02,940 --> 01:40:07,050
+but this is what Unicode is now being
+used for because these emojis are
+
+2011
+01:40:07,050 --> 01:40:10,890
+simply like ASCII characters but
+multiple bytes, generally two bytes,
+
+2012
+01:40:10,890 --> 01:40:14,070
+maybe three bytes, and in
+fact, if you go on unicode.org,
+
+2013
+01:40:14,070 --> 01:40:21,611
+you can see that if the number in hex
+1F600 represents the grinning face,
+
+2014
+01:40:21,611 --> 01:40:24,360
+which happens to be implemented
+differently by different companies
+
+2015
+01:40:24,360 --> 01:40:27,450
+on different devices,
+but if in closing here,
+
+2016
+01:40:27,450 --> 01:40:37,470
+I open up this same file and I change
+this to 1F600 in hex, 1-F-6-0-0, save,
+
+2017
+01:40:37,470 --> 01:40:41,530
+and I go back to my browser
+and I go back to CSS0,
+
+2018
+01:40:41,530 --> 01:40:44,292
+now we have a very
+happy web page for you.
+
+2019
+01:40:44,292 --> 01:40:45,250
+So that's it for today.
+
+2020
+01:40:45,250 --> 01:40:48,530
+I'll stick around for questions
+and we'll see you next time.
+
+2021
+01:40:48,530 --> 01:40:50,445

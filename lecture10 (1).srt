@@ -1,0 +1,10523 @@
+1
+00:00:00,000 --> 00:00:09,580
+
+
+2
+00:00:09,580 --> 00:00:14,470
+DAVID MALAN: All right, this
+is CS50 and this is lecture 10.
+
+3
+00:00:14,470 --> 00:00:16,210
+Welcome to those parents among you.
+
+4
+00:00:16,210 --> 00:00:19,390
+Today, for those tuning in online,
+is freshmen family weekend.
+
+5
+00:00:19,390 --> 00:00:21,100
+We have quite a few
+guests with us and we
+
+6
+00:00:21,100 --> 00:00:23,860
+thought we would begin today in
+fact by perhaps putting everyone
+
+7
+00:00:23,860 --> 00:00:26,920
+at ease since I know this is
+perhaps the first time in a while
+
+8
+00:00:26,920 --> 00:00:28,370
+that you've been back to college.
+
+9
+00:00:28,370 --> 00:00:30,880
+Maybe this is your first
+class for the fall semester.
+
+10
+00:00:30,880 --> 00:00:33,880
+And so we thought we'd
+share with you by proxy
+
+11
+00:00:33,880 --> 00:00:36,360
+what you might be feeling
+by way of a short film
+
+12
+00:00:36,360 --> 00:00:40,390
+that CS50's video team put together
+with a little friend of ours
+
+13
+00:00:40,390 --> 00:00:42,055
+just a few semesters ago.
+
+14
+00:00:42,055 --> 00:00:44,805
+
+
+15
+00:00:44,805 --> 00:00:46,801
+[VIDEO PLAYBACK]
+
+16
+00:00:46,801 --> 00:00:48,797
+[MUSIC PLAYING]
+
+17
+00:00:48,797 --> 00:02:12,130
+
+
+18
+00:02:12,130 --> 00:02:13,128
+- Hi.
+
+19
+00:02:13,128 --> 00:02:57,455
+- Hello
+
+20
+00:02:57,455 --> 00:02:58,038
+[END PLAYBACK]
+
+21
+00:02:58,038 --> 00:03:03,080
+DAVID MALAN: All right, well,
+welcome to Harvard and CS50.
+
+22
+00:03:03,080 --> 00:03:06,080
+So if you'd like to actually
+return in just a few weeks time,
+
+23
+00:03:06,080 --> 00:03:09,470
+your children or siblings or
+friends or here in the room
+
+24
+00:03:09,470 --> 00:03:13,550
+will be exhibiting their CS50 final
+projects in just a few weeks' time.
+
+25
+00:03:13,550 --> 00:03:15,320
+This is the so-called
+CS50 fair, which is
+
+26
+00:03:15,320 --> 00:03:18,290
+meant to be a campus wide exhibition
+of students' final projects.
+
+27
+00:03:18,290 --> 00:03:21,020
+And it's worth noting that, as
+the students in the class know,
+
+28
+00:03:21,020 --> 00:03:25,740
+68% of the students in CS50 this
+year had no prior CS experience.
+
+29
+00:03:25,740 --> 00:03:28,640
+And so what you and they will
+see on display at the CS fair
+
+30
+00:03:28,640 --> 00:03:32,900
+in a few weeks' time in December
+is all of their accomplishments.
+
+31
+00:03:32,900 --> 00:03:34,820
+And in fact, the goal
+of this event really
+
+32
+00:03:34,820 --> 00:03:37,190
+is to delight in what everyone
+has achieved and glancing
+
+33
+00:03:37,190 --> 00:03:41,340
+at each other's screens and phones
+to see with great surprise what
+
+34
+00:03:41,340 --> 00:03:42,950
+each of our students has pulled off.
+
+35
+00:03:42,950 --> 00:03:46,320
+So you are invited back if you
+would like for that as well.
+
+36
+00:03:46,320 --> 00:03:48,350
+Now CS50 of course is
+characterized as a class
+
+37
+00:03:48,350 --> 00:03:50,699
+for those less comfortable
+and those more comfortable
+
+38
+00:03:50,699 --> 00:03:51,990
+and those somewhere in between.
+
+39
+00:03:51,990 --> 00:03:54,080
+And I daresay some of our
+guests today are perhaps
+
+40
+00:03:54,080 --> 00:03:56,820
+at one end of that
+spectrum or the other.
+
+41
+00:03:56,820 --> 00:03:59,330
+And so rest assured that
+what we'll dive into today,
+
+42
+00:03:59,330 --> 00:04:03,230
+the world of databases and SQL
+with applications to data science
+
+43
+00:04:03,230 --> 00:04:06,930
+and beyond, is new to most
+everyone in the room as well.
+
+44
+00:04:06,930 --> 00:04:10,330
+So you are in good company,
+and I daresay 68% or more
+
+45
+00:04:10,330 --> 00:04:15,440
+of percent of the parents in the room
+are perhaps feeling exactly as you are.
+
+46
+00:04:15,440 --> 00:04:19,310
+So if we can now turn our attention
+back to some things lower level,
+
+47
+00:04:19,310 --> 00:04:22,370
+those students among you will recall
+that we focused in recent days
+
+48
+00:04:22,370 --> 00:04:25,070
+on Python, this other higher
+level language by which you
+
+49
+00:04:25,070 --> 00:04:28,910
+can solve problems a bit more readily
+than you can using, say, something
+
+50
+00:04:28,910 --> 00:04:31,880
+lower level like C. Now you might
+have noticed I'm ready if you dived
+
+51
+00:04:31,880 --> 00:04:36,320
+into problem set 6 as I'm sure
+you have, the debug 50 only
+
+52
+00:04:36,320 --> 00:04:37,785
+supports C and not Python.
+
+53
+00:04:37,785 --> 00:04:41,280
+So you have relatively fewer tools
+at your disposal for debugging.
+
+54
+00:04:41,280 --> 00:04:44,600
+But do realize that within
+the CS50 library for Python
+
+55
+00:04:44,600 --> 00:04:47,060
+is a function like this
+called eprint, which
+
+56
+00:04:47,060 --> 00:04:50,030
+you might recall if you've
+used eprintf with C.
+
+57
+00:04:50,030 --> 00:04:52,440
+This is a Python version of the same.
+
+58
+00:04:52,440 --> 00:04:54,800
+And so if you need help
+debugging your programs,
+
+59
+00:04:54,800 --> 00:04:57,680
+it suffices to write
+a program in Python.
+
+60
+00:04:57,680 --> 00:04:59,790
+And anywhere you want to
+see diagnostic output,
+
+61
+00:04:59,790 --> 00:05:01,970
+simply call this eprint function.
+
+62
+00:05:01,970 --> 00:05:04,880
+And it will print the file name
+and the line number for which you
+
+63
+00:05:04,880 --> 00:05:07,940
+have written that line of code.
+
+64
+00:05:07,940 --> 00:05:11,540
+But let's turn our attention
+now to things more web-oriented
+
+65
+00:05:11,540 --> 00:05:13,970
+and perhaps something with
+which you're familiar Facebook
+
+66
+00:05:13,970 --> 00:05:16,290
+and the login screen thereof.
+
+67
+00:05:16,290 --> 00:05:20,210
+So there's so many websites out there
+today where when you visit them,
+
+68
+00:05:20,210 --> 00:05:22,530
+you're prompted to log
+in-- something like this.
+
+69
+00:05:22,530 --> 00:05:26,060
+But you're not prompted to log in every
+time you click a link on facebook.com.
+
+70
+00:05:26,060 --> 00:05:29,300
+You're not prompted to log in
+every minute or every two minutes
+
+71
+00:05:29,300 --> 00:05:31,640
+because indeed, the websites,
+if they required as much,
+
+72
+00:05:31,640 --> 00:05:34,410
+they would degrade into
+something downright unusable.
+
+73
+00:05:34,410 --> 00:05:37,960
+So instead, these websites remember
+that you're logged in somehow.
+
+74
+00:05:37,960 --> 00:05:40,770
+So you log in once per
+day, per week, per year.
+
+75
+00:05:40,770 --> 00:05:41,930
+It varies by website.
+
+76
+00:05:41,930 --> 00:05:45,710
+And then somehow the website remembers
+that you are Maria or you are Brian
+
+77
+00:05:45,710 --> 00:05:48,290
+and you have already
+logged into this website.
+
+78
+00:05:48,290 --> 00:05:50,240
+Now how might that work?
+
+79
+00:05:50,240 --> 00:05:53,570
+How does Facebook or any site
+like it, Gmail and beyond,
+
+80
+00:05:53,570 --> 00:05:57,230
+remember that you are logged in once
+you are logged in even though you only
+
+81
+00:05:57,230 --> 00:05:59,440
+type your username and password once?
+
+82
+00:05:59,440 --> 00:06:01,215
+AUDIENCE: [INAUDIBLE]
+
+83
+00:06:01,215 --> 00:06:03,590
+DAVID MALAN: OK, so they store
+information on the server.
+
+84
+00:06:03,590 --> 00:06:04,965
+And indeed, that's exactly right.
+
+85
+00:06:04,965 --> 00:06:08,210
+On the server, as we're now starting
+to see with Python and today with SQL,
+
+86
+00:06:08,210 --> 00:06:10,490
+you have the ability to store
+information on a server.
+
+87
+00:06:10,490 --> 00:06:13,670
+We saw very simply about a week
+ago the ability to store data
+
+88
+00:06:13,670 --> 00:06:16,157
+in, like, CSV files, just
+text files on the server.
+
+89
+00:06:16,157 --> 00:06:17,990
+That's not going to be
+very high performing,
+
+90
+00:06:17,990 --> 00:06:19,823
+so we're going to do
+better than that today.
+
+91
+00:06:19,823 --> 00:06:23,390
+But you can also store data
+in variables inside a flask
+
+92
+00:06:23,390 --> 00:06:24,937
+while it's running as we saw as well.
+
+93
+00:06:24,937 --> 00:06:27,020
+But we'll need some more
+sophistication than that.
+
+94
+00:06:27,020 --> 00:06:30,650
+But yes, we can certainly remember
+that Maria or Brian have logged in.
+
+95
+00:06:30,650 --> 00:06:34,340
+But how do we remember from
+which computer or browser
+
+96
+00:06:34,340 --> 00:06:37,854
+Maria or Brian have logged in?
+
+97
+00:06:37,854 --> 00:06:39,061
+AUDIENCE: [INAUDIBLE]
+
+98
+00:06:39,061 --> 00:06:41,060
+DAVID MALAN: Via the IP
+address-- so could work.
+
+99
+00:06:41,060 --> 00:06:43,550
+You could just recall that
+from those virtual envelopes
+
+100
+00:06:43,550 --> 00:06:45,080
+which I no longer have today.
+
+101
+00:06:45,080 --> 00:06:48,380
+We've been writing the to address in the
+from address, the IP address, on those
+
+102
+00:06:48,380 --> 00:06:48,880
+envelopes.
+
+103
+00:06:48,880 --> 00:06:52,730
+So you could certainly remember, oh,
+I saw Brian from 1.2.3.4 and Maria
+
+104
+00:06:52,730 --> 00:06:56,240
+from 4.5.6.7 or whenever
+the numbers actually are.
+
+105
+00:06:56,240 --> 00:06:58,670
+But that's a problem in, like,
+households and frankly even
+
+106
+00:06:58,670 --> 00:07:02,497
+on campuses these days because of
+NAT, Network Address Translation,
+
+107
+00:07:02,497 --> 00:07:05,330
+that technique whereby a bunch of
+us probably in this room right now
+
+108
+00:07:05,330 --> 00:07:08,780
+on our laptops or phones are sharing
+the same IP address, at least so
+
+109
+00:07:08,780 --> 00:07:10,770
+far as the outside world is concerned.
+
+110
+00:07:10,770 --> 00:07:12,060
+So we could confuse things.
+
+111
+00:07:12,060 --> 00:07:15,410
+And that would be bad because that means
+if Brian sort of logs into Facebook
+
+112
+00:07:15,410 --> 00:07:17,330
+and Maria logs into
+Facebook, suddenly Brian
+
+113
+00:07:17,330 --> 00:07:20,730
+might actually see Maria's
+profile page or the like.
+
+114
+00:07:20,730 --> 00:07:23,230
+So what else might they be doing?
+
+115
+00:07:23,230 --> 00:07:23,730
+What's that?
+
+116
+00:07:23,730 --> 00:07:24,400
+AUDIENCE: Cookie?
+
+117
+00:07:24,400 --> 00:07:27,191
+DAVID MALAN: Cookie, so-- eh,
+correct answer, but what in the world
+
+118
+00:07:27,191 --> 00:07:28,024
+does that mean?
+
+119
+00:07:28,024 --> 00:07:28,959
+AUDIENCE: [INAUDIBLE]
+
+120
+00:07:28,959 --> 00:07:30,000
+DAVID MALAN: Don't know--
+
+121
+00:07:30,000 --> 00:07:30,501
+OK.
+
+122
+00:07:30,501 --> 00:07:32,291
+So, perfect-- so you're
+in the right place.
+
+123
+00:07:32,291 --> 00:07:35,320
+And most everyone in this room
+probably, if you use the web frequently,
+
+124
+00:07:35,320 --> 00:07:38,770
+have generally heard about cookies and
+probably that they're dangerous or bad
+
+125
+00:07:38,770 --> 00:07:40,521
+or some way or you've
+probably googled how
+
+126
+00:07:40,521 --> 00:07:42,686
+to clear your cookies if
+you've indeed heard they're
+
+127
+00:07:42,686 --> 00:07:44,264
+a bad thing or something like that.
+
+128
+00:07:44,264 --> 00:07:46,430
+And indeed, cookies are the
+answer to this question.
+
+129
+00:07:46,430 --> 00:07:47,810
+But how does that actually work?
+
+130
+00:07:47,810 --> 00:07:51,230
+Well, if you've been to like
+an amusement park or a club
+
+131
+00:07:51,230 --> 00:07:54,969
+or someplace where you typically have a
+ticketed access gate, sometimes if you
+
+132
+00:07:54,969 --> 00:07:57,760
+want to come in go to and from the
+parking lot or out to the street
+
+133
+00:07:57,760 --> 00:08:00,790
+or wherever, they might stamp your
+hand using like a little red stamp
+
+134
+00:08:00,790 --> 00:08:02,110
+or invisible stamp or the like.
+
+135
+00:08:02,110 --> 00:08:04,990
+And then you just show it to the
+bouncer or the person at the checker
+
+136
+00:08:04,990 --> 00:08:07,364
+that you had been there before
+because you have this hand
+
+137
+00:08:07,364 --> 00:08:08,890
+stamp via the remembering you.
+
+138
+00:08:08,890 --> 00:08:11,140
+So web servers and browsers
+are kind of the same.
+
+139
+00:08:11,140 --> 00:08:14,620
+When you visit Facebook or Gmail
+or wherever for the first time
+
+140
+00:08:14,620 --> 00:08:17,680
+and moreover log in, they
+essentially put like a digital hand
+
+141
+00:08:17,680 --> 00:08:20,350
+stamp on your browser called a cookie.
+
+142
+00:08:20,350 --> 00:08:22,210
+And that handstand
+happens to be implemented
+
+143
+00:08:22,210 --> 00:08:24,790
+not obviously as ink but like
+as a big random number that
+
+144
+00:08:24,790 --> 00:08:26,650
+is given just to you.
+
+145
+00:08:26,650 --> 00:08:28,690
+And it's stored either
+in your computer's RAM
+
+146
+00:08:28,690 --> 00:08:31,810
+or on your computer's
+hard drive longer term.
+
+147
+00:08:31,810 --> 00:08:34,900
+And your browser,
+because it speaks HTTP,
+
+148
+00:08:34,900 --> 00:08:37,179
+that protocol we've
+been talking about, it
+
+149
+00:08:37,179 --> 00:08:40,659
+has been designed to show
+its hand, so to speak.
+
+150
+00:08:40,659 --> 00:08:44,320
+Every time you revisit Facebook,
+every time you click an email,
+
+151
+00:08:44,320 --> 00:08:47,890
+every time you send a message, anytime
+you browse around on that same website,
+
+152
+00:08:47,890 --> 00:08:50,950
+the browser is, without
+you realizing it, reminding
+
+153
+00:08:50,950 --> 00:08:52,990
+the server of that hand stamp.
+
+154
+00:08:52,990 --> 00:08:54,490
+So how might it be doing it?
+
+155
+00:08:54,490 --> 00:08:58,510
+Where can a browser sort of tuck
+away information like this such
+
+156
+00:08:58,510 --> 00:09:00,430
+that it's always in that envelope?
+
+157
+00:09:00,430 --> 00:09:00,930
+Yeah.
+
+158
+00:09:00,930 --> 00:09:04,115
+AUDIENCE: It can put it like into a list
+like you did before with the invites
+
+159
+00:09:04,115 --> 00:09:05,073
+or something like that.
+
+160
+00:09:05,073 --> 00:09:07,870
+DAVID MALAN: The invites, the invites--
+
+161
+00:09:07,870 --> 00:09:10,600
+oh, so that would be lower
+lev-- so, OK, I remember now.
+
+162
+00:09:10,600 --> 00:09:12,402
+So that would be not
+quite there because we
+
+163
+00:09:12,402 --> 00:09:14,860
+want to make sure that this
+has nothing to do fundamentally
+
+164
+00:09:14,860 --> 00:09:15,850
+with our application.
+
+165
+00:09:15,850 --> 00:09:17,500
+This has to do with HTTP.
+
+166
+00:09:17,500 --> 00:09:21,160
+So this was invented years ago before
+there was like a list of registrants
+
+167
+00:09:21,160 --> 00:09:21,970
+for [INAUDIBLE].
+
+168
+00:09:21,970 --> 00:09:23,460
+So we can't put it there.
+
+169
+00:09:23,460 --> 00:09:24,065
+Yeah.
+
+170
+00:09:24,065 --> 00:09:26,190
+AUDIENCE: [INAUDIBLE]
+
+171
+00:09:26,190 --> 00:09:28,770
+DAVID MALAN: A concept of
+a cache-- not here, no, no.
+
+172
+00:09:28,770 --> 00:09:29,270
+Yeah.
+
+173
+00:09:29,270 --> 00:09:30,410
+AUDIENCE: [INAUDIBLE] header.
+
+174
+00:09:30,410 --> 00:09:32,160
+DAVID MALAN: The
+header-- so the header is
+
+175
+00:09:32,160 --> 00:09:35,690
+where we have access to metadata, sort
+of lower level technical information
+
+176
+00:09:35,690 --> 00:09:38,120
+that most of us never see
+unless you poke around Chrome
+
+177
+00:09:38,120 --> 00:09:41,010
+or actually sniff your own
+internet traffic and see.
+
+178
+00:09:41,010 --> 00:09:44,970
+But we do have the ability, within
+these HTB headers, to send, so to speak,
+
+179
+00:09:44,970 --> 00:09:46,670
+this virtual hand stamp.
+
+180
+00:09:46,670 --> 00:09:48,770
+So let's recall what
+these headers look like.
+
+181
+00:09:48,770 --> 00:09:51,504
+So the headers that get sent
+in this virtual envelope
+
+182
+00:09:51,504 --> 00:09:53,670
+when you request Facebook's
+home page, for instance,
+
+183
+00:09:53,670 --> 00:09:56,461
+might look like this-- get slash,
+which means get me the home page,
+
+184
+00:09:56,461 --> 00:09:58,070
+using version 1.1.
+
+185
+00:09:58,070 --> 00:09:59,820
+The host I'm visiting,
+just as a reminder,
+
+186
+00:09:59,820 --> 00:10:01,760
+is facebook.com or www.facebook.com.
+
+187
+00:10:01,760 --> 00:10:04,269
+And then below that
+is maybe more headers.
+
+188
+00:10:04,269 --> 00:10:07,310
+We've generally waived our hands at
+it because they're not as interesting
+
+189
+00:10:07,310 --> 00:10:09,680
+but there might be some
+more information there too.
+
+190
+00:10:09,680 --> 00:10:12,620
+Well, when Facebook replies,
+especially after you've
+
+191
+00:10:12,620 --> 00:10:15,560
+logged in, it turns out one of
+the headers we haven't looked
+
+192
+00:10:15,560 --> 00:10:19,580
+at in addition to these which
+we have seen, the response,
+
+193
+00:10:19,580 --> 00:10:24,080
+the 200 OK from the server,
+is that Facebook and servers
+
+194
+00:10:24,080 --> 00:10:27,080
+like it are probably sending
+this header as well, literally
+
+195
+00:10:27,080 --> 00:10:31,764
+Set-Cookie colon and then a name
+and then a value or key and a value.
+
+196
+00:10:31,764 --> 00:10:34,430
+The name here, for instance, I'm
+going to start calling session,
+
+197
+00:10:34,430 --> 00:10:35,820
+as is the term of art.
+
+198
+00:10:35,820 --> 00:10:39,110
+And then the value to the
+right can actually be anything.
+
+199
+00:10:39,110 --> 00:10:42,800
+So value might be 123,
+456, or any unique value
+
+200
+00:10:42,800 --> 00:10:46,380
+that's sort of randomly generated by
+the server to remember who you are.
+
+201
+00:10:46,380 --> 00:10:50,840
+And so session equals value is like this
+is your hand and this is your value.
+
+202
+00:10:50,840 --> 00:10:53,840
+That is now the cookie that's
+been planted on the computer.
+
+203
+00:10:53,840 --> 00:10:58,310
+And what your browser thereafter is
+supposed to do is not send set cookie.
+
+204
+00:10:58,310 --> 00:11:00,320
+That only comes from server to browser.
+
+205
+00:11:00,320 --> 00:11:03,380
+But whenever you on Facebook
+request another page,
+
+206
+00:11:03,380 --> 00:11:06,260
+click a friend's profile
+page or the like,
+
+207
+00:11:06,260 --> 00:11:09,470
+your virtual envelope will
+contain not these familiar headers
+
+208
+00:11:09,470 --> 00:11:12,740
+but also cookie session equals value.
+
+209
+00:11:12,740 --> 00:11:16,200
+And so that is the presentation
+of that same key value pair.
+
+210
+00:11:16,200 --> 00:11:19,250
+So if Facebook now to your
+point earlier remembers
+
+211
+00:11:19,250 --> 00:11:24,920
+that user 123456 has logged in and
+that user happens to be named Maria
+
+212
+00:11:24,920 --> 00:11:27,260
+and we can store that
+information on the server,
+
+213
+00:11:27,260 --> 00:11:30,290
+every time Facebook sees
+this same hand stamp
+
+214
+00:11:30,290 --> 00:11:35,730
+or sees this same session equals value,
+it'll be like, oh, that must be Maria.
+
+215
+00:11:35,730 --> 00:11:39,290
+And so I'll show Maria her
+messages and her profile page
+
+216
+00:11:39,290 --> 00:11:41,930
+and all that comes with it in a website.
+
+217
+00:11:41,930 --> 00:11:44,750
+So let's take a step back because
+the mechanism is as relatively
+
+218
+00:11:44,750 --> 00:11:46,834
+simple as this, even though
+it's certainly arcane
+
+219
+00:11:46,834 --> 00:11:49,500
+and you have to kind of know what
+you're doing to leverage this.
+
+220
+00:11:49,500 --> 00:11:51,260
+But is there a threat here?
+
+221
+00:11:51,260 --> 00:11:54,260
+Like, why might cookies be
+dangerous and why do people
+
+222
+00:11:54,260 --> 00:11:55,760
+tell us occasionally to delete them?
+
+223
+00:11:55,760 --> 00:11:57,990
+AUDIENCE: If some one gains
+access to [INAUDIBLE]..
+
+224
+00:11:57,990 --> 00:12:00,448
+DAVID MALAN: Yeah, if someone
+gains access to your cookies,
+
+225
+00:12:00,448 --> 00:12:02,674
+you could masquerade as
+someone else like Maria.
+
+226
+00:12:02,674 --> 00:12:04,840
+And so in the sort of
+equivalent at a club or a part
+
+227
+00:12:04,840 --> 00:12:07,540
+would be if you kind of do this with
+someone else's hand and try to say,
+
+228
+00:12:07,540 --> 00:12:10,660
+hey, we're both here even though one
+is now backwards, that would be kind
+
+229
+00:12:10,660 --> 00:12:13,120
+of a duplication of the session value.
+
+230
+00:12:13,120 --> 00:12:15,790
+So you probably want to make
+sure these are encrypted.
+
+231
+00:12:15,790 --> 00:12:18,547
+And what's the easiest way to
+ensure that the traffic between you
+
+232
+00:12:18,547 --> 00:12:19,630
+and a server is encrypted?
+
+233
+00:12:19,630 --> 00:12:21,229
+AUDIENCE: [INAUDIBLE]
+
+234
+00:12:21,229 --> 00:12:22,770
+DAVID MALAN: Not hashing necessarily.
+
+235
+00:12:22,770 --> 00:12:23,710
+AUDIENCE: SSL.
+
+236
+00:12:23,710 --> 00:12:27,060
+DAVID MALAN: SSL or the
+HTTPS prefixed URLs.
+
+237
+00:12:27,060 --> 00:12:29,490
+And thankfully-- and the story
+has changed over the years.
+
+238
+00:12:29,490 --> 00:12:30,750
+Thankfully, web servers
+are getting better
+
+239
+00:12:30,750 --> 00:12:33,069
+at supporting HTTPS because
+then all of this stuff,
+
+240
+00:12:33,069 --> 00:12:35,610
+even though the browser can see
+it and the server can see it,
+
+241
+00:12:35,610 --> 00:12:37,930
+it's at least encrypted
+or scrambled to anyone
+
+242
+00:12:37,930 --> 00:12:41,839
+who's eavesdropping and trying to
+see what's going on between the two.
+
+243
+00:12:41,839 --> 00:12:43,630
+But there have been
+bugs along these lines.
+
+244
+00:12:43,630 --> 00:12:46,110
+In fact, it was just a
+few years ago in CS50
+
+245
+00:12:46,110 --> 00:12:49,800
+where just days or hours
+prior, a security researcher
+
+246
+00:12:49,800 --> 00:12:52,620
+had presented at a conference
+some very easy to use
+
+247
+00:12:52,620 --> 00:12:56,190
+software via which you could
+hijack other people's sessions,
+
+248
+00:12:56,190 --> 00:12:58,740
+or session highjacking
+being the term of art here.
+
+249
+00:12:58,740 --> 00:13:03,480
+And what he had implemented was this
+plug-in for Firefox, another browser.
+
+250
+00:13:03,480 --> 00:13:07,020
+And that would allow you, when
+you ran this guy's plug-in,
+
+251
+00:13:07,020 --> 00:13:11,070
+to just sniff all of the wireless
+traffic in the same room.
+
+252
+00:13:11,070 --> 00:13:15,900
+And it would show you, so user friendly,
+a list of all of the session cookies
+
+253
+00:13:15,900 --> 00:13:18,900
+that were kind of going back and
+forth through the air, so to speak,
+
+254
+00:13:18,900 --> 00:13:19,980
+that were not encrypted.
+
+255
+00:13:19,980 --> 00:13:22,280
+And this was, I don't know,
+four or five years ago.
+
+256
+00:13:22,280 --> 00:13:25,080
+When HTTPS existed, it's
+just not, a lot of websites
+
+257
+00:13:25,080 --> 00:13:26,520
+were actually really using it.
+
+258
+00:13:26,520 --> 00:13:29,071
+So a lot of really popular
+websites weren't using it.
+
+259
+00:13:29,071 --> 00:13:31,320
+And so the demonstration in
+class, which thankfully we
+
+260
+00:13:31,320 --> 00:13:34,860
+can't do anymore because most
+websites have been more secured,
+
+261
+00:13:34,860 --> 00:13:37,080
+it was as easy as
+clicking a button for me
+
+262
+00:13:37,080 --> 00:13:41,760
+to log into that here Rose's Facebook
+account because she was using Facebook
+
+263
+00:13:41,760 --> 00:13:45,480
+during lecture and unbeknownst
+to her, so now was I.
+
+264
+00:13:45,480 --> 00:13:48,780
+And it was simply a matter of
+capturing this kind of value.
+
+265
+00:13:48,780 --> 00:13:51,840
+Moreover, if the session cookies
+are stored, as they're called,
+
+266
+00:13:51,840 --> 00:13:55,290
+on your computer's hard drive,
+there's just more remnants
+
+267
+00:13:55,290 --> 00:13:57,000
+of where you have been on the web.
+
+268
+00:13:57,000 --> 00:14:00,000
+Not just that little drop down menu,
+but elsewhere on your file system
+
+269
+00:14:00,000 --> 00:14:04,140
+might be reminders for better or for
+worse of where you have actually been.
+
+270
+00:14:04,140 --> 00:14:06,570
+So for these and other
+reasons do you sometimes
+
+271
+00:14:06,570 --> 00:14:08,880
+want to clear these or at
+least be mindful of them.
+
+272
+00:14:08,880 --> 00:14:10,860
+And frankly, from a
+development perspective,
+
+273
+00:14:10,860 --> 00:14:14,730
+one of the reasons why we keep
+encouraging you students to use
+
+274
+00:14:14,730 --> 00:14:19,260
+incognito mode occasionally
+for development purposes
+
+275
+00:14:19,260 --> 00:14:21,274
+is to essentially clear
+all of your cookies.
+
+276
+00:14:21,274 --> 00:14:23,190
+Incognito mode gets rid
+of all of your cookies
+
+277
+00:14:23,190 --> 00:14:25,467
+temporarily so that you can
+interact with the server
+
+278
+00:14:25,467 --> 00:14:26,550
+in a more predictable way.
+
+279
+00:14:26,550 --> 00:14:28,508
+And for software developers,
+that's just useful
+
+280
+00:14:28,508 --> 00:14:32,550
+not to be confused by
+older stale cookies.
+
+281
+00:14:32,550 --> 00:14:36,750
+Any questions then about cookies?
+
+282
+00:14:36,750 --> 00:14:38,120
+All right, so who cares?
+
+283
+00:14:38,120 --> 00:14:39,440
+Like, that's all fine and good.
+
+284
+00:14:39,440 --> 00:14:41,773
+Now we can be a little more
+paranoid when using the web.
+
+285
+00:14:41,773 --> 00:14:44,540
+But what can we actually do
+with this now that's actionable?
+
+286
+00:14:44,540 --> 00:14:49,070
+Well, if I go ahead into CS50 IDE,
+let me go ahead and open up an example
+
+287
+00:14:49,070 --> 00:14:52,940
+that you can also look at later
+on via the course's web site.
+
+288
+00:14:52,940 --> 00:14:55,700
+And this is a little web-based
+store that I whipped up.
+
+289
+00:14:55,700 --> 00:14:58,500
+It's super common these days
+to, like, buy things on the web.
+
+290
+00:14:58,500 --> 00:15:01,041
+And of course when you're buying
+things on the web, hopefully
+
+291
+00:15:01,041 --> 00:15:03,800
+the website is remembering
+what you are interested in.
+
+292
+00:15:03,800 --> 00:15:07,490
+If you go to amazon.com and click
+Add to Cart, where does that go?
+
+293
+00:15:07,490 --> 00:15:08,630
+Well, let's think about it.
+
+294
+00:15:08,630 --> 00:15:11,660
+Amazon is somehow remembering,
+after I logged in, who I am.
+
+295
+00:15:11,660 --> 00:15:14,270
+And we can assume that they're
+doing that via cookies already.
+
+296
+00:15:14,270 --> 00:15:16,670
+So they're putting some
+handstamp on my hand
+
+297
+00:15:16,670 --> 00:15:20,120
+and my browser is reminding
+Amazon on every page click
+
+298
+00:15:20,120 --> 00:15:22,820
+that I am me who logged in previously.
+
+299
+00:15:22,820 --> 00:15:27,860
+So what do you think a server is doing
+any time you add something to your cart
+
+300
+00:15:27,860 --> 00:15:31,120
+or quantity two of your car or
+something else in your cart?
+
+301
+00:15:31,120 --> 00:15:35,670
+Where Where's that information
+being stored as well?
+
+302
+00:15:35,670 --> 00:15:36,170
+Say again?
+
+303
+00:15:36,170 --> 00:15:37,630
+AUDIENCE: [INAUDIBLE]
+
+304
+00:15:37,630 --> 00:15:41,530
+DAVID MALAN: Also-- so in
+the header, it suffices just
+
+305
+00:15:41,530 --> 00:15:43,720
+to put that cookie because
+you proposed actually
+
+306
+00:15:43,720 --> 00:15:47,380
+earlier that we can store stuff in
+a server, whether it's a CSV file
+
+307
+00:15:47,380 --> 00:15:50,290
+or in RAM or today in a database.
+
+308
+00:15:50,290 --> 00:15:52,600
+If you can store anything
+you want on the server,
+
+309
+00:15:52,600 --> 00:15:55,750
+it suffices just to
+remember via this cookie
+
+310
+00:15:55,750 --> 00:15:59,050
+that the person has logged in before
+and uniquely identify him or her
+
+311
+00:15:59,050 --> 00:16:01,210
+thereafter by that cookie's value--
+
+312
+00:16:01,210 --> 00:16:04,071
+123456 or whatever it is.
+
+313
+00:16:04,071 --> 00:16:04,570
+Yeah.
+
+314
+00:16:04,570 --> 00:16:06,950
+AUDIENCE: But there's a list
+associated with your cookie?
+
+315
+00:16:06,950 --> 00:16:08,470
+DAVID MALAN: There's a list
+associated with my cookie.
+
+316
+00:16:08,470 --> 00:16:10,675
+That is actually the perfect
+segue to, yes, exactly.
+
+317
+00:16:10,675 --> 00:16:13,100
+And let's take a look at
+what that actually means.
+
+318
+00:16:13,100 --> 00:16:15,190
+So this is a web based application.
+
+319
+00:16:15,190 --> 00:16:18,520
+To those of you in the audience
+who weren't here last week
+
+320
+00:16:18,520 --> 00:16:20,680
+or the week prior or
+the whole semester, this
+
+321
+00:16:20,680 --> 00:16:22,879
+is a programming language called Python.
+
+322
+00:16:22,879 --> 00:16:25,420
+It's the language we've now
+started using over the past week.
+
+323
+00:16:25,420 --> 00:16:28,780
+And this is using what's called a
+framework, freely available software
+
+324
+00:16:28,780 --> 00:16:33,040
+that other people wrote, called Flask
+that makes it easier to implement web
+
+325
+00:16:33,040 --> 00:16:34,840
+based applications or websites.
+
+326
+00:16:34,840 --> 00:16:38,419
+And what we're doing in CS50, now
+recall, is not making static websites.
+
+327
+00:16:38,419 --> 00:16:40,210
+We're not talking about
+web design, per se,
+
+328
+00:16:40,210 --> 00:16:44,230
+which tends to be the art of
+creating static content, very
+
+329
+00:16:44,230 --> 00:16:48,520
+beautiful informational websites, but
+web programming, whereby we're actually
+
+330
+00:16:48,520 --> 00:16:52,810
+using logic to generate web
+applications or web sites dynamically.
+
+331
+00:16:52,810 --> 00:16:54,700
+And so Python lets us do this.
+
+332
+00:16:54,700 --> 00:16:57,160
+So this, recall from last
+week, is the magical line
+
+333
+00:16:57,160 --> 00:16:59,810
+that says give me a Flash
+based web application.
+
+334
+00:16:59,810 --> 00:17:02,590
+And with this comes certain
+features, like the ability to say,
+
+335
+00:17:02,590 --> 00:17:05,769
+hey Flask, define a route for slash.
+
+336
+00:17:05,769 --> 00:17:09,250
+That means anytime the user
+visits slash, the default page
+
+337
+00:17:09,250 --> 00:17:12,819
+on a web site, return what
+file, just to be clear?
+
+338
+00:17:12,819 --> 00:17:13,960
+Index.html.
+
+339
+00:17:13,960 --> 00:17:16,930
+And then we looked last week
+at where those index.html are
+
+340
+00:17:16,930 --> 00:17:18,770
+and that they are
+templates and so forth.
+
+341
+00:17:18,770 --> 00:17:21,730
+But this simply means render index.html.
+
+342
+00:17:21,730 --> 00:17:24,440
+So recall that I can run
+this web app as follows.
+
+343
+00:17:24,440 --> 00:17:27,849
+If I go into the store
+directory and type flaskrun,
+
+344
+00:17:27,849 --> 00:17:31,870
+I have now turned on a web
+server, so to speak, in the cloud,
+
+345
+00:17:31,870 --> 00:17:33,970
+and it's literally telling
+me what URL to visit.
+
+346
+00:17:33,970 --> 00:17:36,430
+So I'm going to go ahead and
+click on this and click Open.
+
+347
+00:17:36,430 --> 00:17:38,360
+And we see a super simple store.
+
+348
+00:17:38,360 --> 00:17:39,160
+Let me zoom in.
+
+349
+00:17:39,160 --> 00:17:41,380
+It's really ugly-- haven't used any CSS.
+
+350
+00:17:41,380 --> 00:17:42,880
+This is indeed not web design.
+
+351
+00:17:42,880 --> 00:17:44,549
+This is all functional today.
+
+352
+00:17:44,549 --> 00:17:47,090
+And you'll see, even though the
+projector is a little cloudy,
+
+353
+00:17:47,090 --> 00:17:49,330
+that there's three text fields there.
+
+354
+00:17:49,330 --> 00:17:51,469
+There's a number for
+Foo, a number for Bar,
+
+355
+00:17:51,469 --> 00:17:53,260
+and a number for Bas,
+which if I'm familiar
+
+356
+00:17:53,260 --> 00:17:55,540
+are just go-to words in
+computer science when
+
+357
+00:17:55,540 --> 00:17:58,331
+you need to talk about something
+that doesn't need a specific name.
+
+358
+00:17:58,331 --> 00:17:59,770
+It's like x, y, and z in math.
+
+359
+00:17:59,770 --> 00:18:03,790
+So right now, here's a store a la
+Amazon.com that sells three things--
+
+360
+00:18:03,790 --> 00:18:04,870
+Foo, Bar, and Baz.
+
+361
+00:18:04,870 --> 00:18:08,180
+And I can buy any
+number of these things.
+
+362
+00:18:08,180 --> 00:18:10,240
+But what we haven't
+had yet is the ability
+
+363
+00:18:10,240 --> 00:18:13,390
+really to allow a user to
+interact with a web form
+
+364
+00:18:13,390 --> 00:18:16,330
+and then store that information
+and change that information.
+
+365
+00:18:16,330 --> 00:18:20,740
+We kind of scratched the surface last
+time with the CSV file for [INAUDIBLE]..
+
+366
+00:18:20,740 --> 00:18:25,000
+But here now we have the ability to
+actually store something in a database.
+
+367
+00:18:25,000 --> 00:18:29,240
+So let me go back to the IDE for a
+moment and focus on exactly that.
+
+368
+00:18:29,240 --> 00:18:34,900
+So first of all, here is
+how this program works.
+
+369
+00:18:34,900 --> 00:18:38,740
+I'm going to go ahead and buy myself
+one Foo, two Bars and three Bazes,
+
+370
+00:18:38,740 --> 00:18:39,820
+whatever those are.
+
+371
+00:18:39,820 --> 00:18:41,860
+I'm going to go ahead
+and click Purchase.
+
+372
+00:18:41,860 --> 00:18:43,510
+And now I see my shopping cart.
+
+373
+00:18:43,510 --> 00:18:48,160
+And just to be clear, if I hover
+over the URL, I am now at slash cart
+
+374
+00:18:48,160 --> 00:18:50,740
+preceded by the long URL,
+which is where I began.
+
+375
+00:18:50,740 --> 00:18:52,120
+So notice what's neat here.
+
+376
+00:18:52,120 --> 00:18:55,750
+I can reload and it's still the same.
+
+377
+00:18:55,750 --> 00:18:57,670
+I can reload, still the same.
+
+378
+00:18:57,670 --> 00:19:02,740
+I can even close the tab, open a new
+one, go back to it, and it's still me.
+
+379
+00:19:02,740 --> 00:19:07,100
+Now let's see what's actually going on
+underneath the hood in terms of code.
+
+380
+00:19:07,100 --> 00:19:10,270
+Well, to C/cart is
+actually super simple.
+
+381
+00:19:10,270 --> 00:19:12,110
+Just render cart.html.
+
+382
+00:19:12,110 --> 00:19:14,860
+But cart.html, which I
+wrote before this morning,
+
+383
+00:19:14,860 --> 00:19:16,740
+didn't know in advance
+presumably that I was
+
+384
+00:19:16,740 --> 00:19:19,990
+going to buy one Foo, two
+Bars, and three Bazes.
+
+385
+00:19:19,990 --> 00:19:21,580
+So it's probably not hardcoded.
+
+386
+00:19:21,580 --> 00:19:23,950
+So there's this other
+feature of templates
+
+387
+00:19:23,950 --> 00:19:26,260
+in a web application
+like this one whereby
+
+388
+00:19:26,260 --> 00:19:30,730
+in addition to telling the
+computer show me cart.html,
+
+389
+00:19:30,730 --> 00:19:32,850
+recall that you can pass in values.
+
+390
+00:19:32,850 --> 00:19:34,720
+And I think we did this once last time.
+
+391
+00:19:34,720 --> 00:19:39,580
+So cart is just the name I've given
+to this concept, like a shopping cart.
+
+392
+00:19:39,580 --> 00:19:42,210
+And I'm going to pass it
+something called a session.
+
+393
+00:19:42,210 --> 00:19:44,560
+And a session is the term
+of art that describes
+
+394
+00:19:44,560 --> 00:19:47,800
+whatever it is the server is
+remembering on that user's
+
+395
+00:19:47,800 --> 00:19:50,440
+behalf per his or her cookie.
+
+396
+00:19:50,440 --> 00:19:53,170
+So the user's browser has
+the hand stamp, the cookie--
+
+397
+00:19:53,170 --> 00:19:54,550
+123456.
+
+398
+00:19:54,550 --> 00:19:57,580
+The server actually
+stores the session, which
+
+399
+00:19:57,580 --> 00:20:01,390
+is just going to be a box
+filled with values, something
+
+400
+00:20:01,390 --> 00:20:04,130
+that has been put into that box before.
+
+401
+00:20:04,130 --> 00:20:10,700
+And so what I have now
+in my cart.html is this.
+
+402
+00:20:10,700 --> 00:20:13,585
+Let me go into templates,
+open up cart.html.
+
+403
+00:20:13,585 --> 00:20:15,460
+And this is going to
+look especially cryptic.
+
+404
+00:20:15,460 --> 00:20:17,290
+But for those who've
+seen it before, recall
+
+405
+00:20:17,290 --> 00:20:20,930
+that this just means descend
+from or inherit from layout.html.
+
+406
+00:20:20,930 --> 00:20:23,680
+That's where, where, like, of the
+standard HTML is-- head and body
+
+407
+00:20:23,680 --> 00:20:24,700
+and all that.
+
+408
+00:20:24,700 --> 00:20:26,620
+Then this says, hey, server.
+
+409
+00:20:26,620 --> 00:20:29,766
+Here comes the body of my website.
+
+410
+00:20:29,766 --> 00:20:31,390
+And there's relatively little in there.
+
+411
+00:20:31,390 --> 00:20:32,850
+Here's my big bold title--
+
+412
+00:20:32,850 --> 00:20:33,580
+cart.
+
+413
+00:20:33,580 --> 00:20:38,040
+And that's why a moment ago, we
+saw exactly that, big bold cart.
+
+414
+00:20:38,040 --> 00:20:40,300
+And then over here,
+notice that I'm using
+
+415
+00:20:40,300 --> 00:20:43,950
+Jinja, that templating language--
+very lightweight, very Python-like,
+
+416
+00:20:43,950 --> 00:20:46,170
+and you'll get more
+used to it over time.
+
+417
+00:20:46,170 --> 00:20:52,080
+Notice that we have here a for
+loop saying for each item in cart,
+
+418
+00:20:52,080 --> 00:20:55,460
+go ahead and do this colon
+that, which looks super cryptic.
+
+419
+00:20:55,460 --> 00:20:58,270
+But does anyone recall perhaps
+from [INAUDIBLE] last time,
+
+420
+00:20:58,270 --> 00:21:02,100
+like, what does this syntax mean with
+the two curly braces on left and right?
+
+421
+00:21:02,100 --> 00:21:03,570
+AUDIENCE: Variables.
+
+422
+00:21:03,570 --> 00:21:06,240
+DAVID MALAN: Variables-- just
+plug in these values here.
+
+423
+00:21:06,240 --> 00:21:10,650
+And now as an aside, it turns out
+that these curly braces are actually
+
+424
+00:21:10,650 --> 00:21:12,990
+escaping our data, so
+to speak, in a way so
+
+425
+00:21:12,990 --> 00:21:15,720
+that if the user types in
+kind of dangerous characters
+
+426
+00:21:15,720 --> 00:21:18,630
+at his or her keyboard, this prevents
+that from becoming a problem,
+
+427
+00:21:18,630 --> 00:21:20,100
+but more on that some other time.
+
+428
+00:21:20,100 --> 00:21:24,619
+And so this is just going to say
+item colon cart bracket item.
+
+429
+00:21:24,619 --> 00:21:26,160
+And this might be new syntax to some.
+
+430
+00:21:26,160 --> 00:21:27,939
+Where have we seen
+square brackets before?
+
+431
+00:21:27,939 --> 00:21:28,980
+What does that mean in C?
+
+432
+00:21:28,980 --> 00:21:29,827
+AUDIENCE: Arrays?
+
+433
+00:21:29,827 --> 00:21:30,660
+DAVID MALAN: Arrays.
+
+434
+00:21:30,660 --> 00:21:35,130
+So in Python, we still have
+arrays, but they're called lists.
+
+435
+00:21:35,130 --> 00:21:37,860
+But we have another feature
+too, and you wouldn't know this
+
+436
+00:21:37,860 --> 00:21:39,660
+just by glancing at the syntax.
+
+437
+00:21:39,660 --> 00:21:41,760
+But when you see square
+brackets next to a word
+
+438
+00:21:41,760 --> 00:21:45,624
+like cart inside of
+which is not a number,
+
+439
+00:21:45,624 --> 00:21:47,040
+but it's going to turn out a word.
+
+440
+00:21:47,040 --> 00:21:51,060
+This word is literally going
+to be Foo or Bar or Baz.
+
+441
+00:21:51,060 --> 00:21:55,650
+This is a way of using a hash table
+or a dictionary or a dict in Python,
+
+442
+00:21:55,650 --> 00:22:00,180
+as it's called, whereby if the cart is
+what's been passed into this template
+
+443
+00:22:00,180 --> 00:22:04,080
+and inside of the cart are a bunch
+of items like Foo and Bar and Baz,
+
+444
+00:22:04,080 --> 00:22:09,750
+you can get the number of Foos by doing
+cart brackets Foo, which would look,
+
+445
+00:22:09,750 --> 00:22:11,730
+if I hardcoded it, like this.
+
+446
+00:22:11,730 --> 00:22:14,280
+You can get the number
+of Bars by doing this.
+
+447
+00:22:14,280 --> 00:22:16,950
+And you can get the number
+of Bazes by doing that.
+
+448
+00:22:16,950 --> 00:22:20,950
+And yet if I just plug in
+item, which is a variable,
+
+449
+00:22:20,950 --> 00:22:23,280
+I'm going to get out,
+within this loop, the Foos,
+
+450
+00:22:23,280 --> 00:22:26,907
+then the Bars, then the
+Bazes, and so forth.
+
+451
+00:22:26,907 --> 00:22:27,990
+So what is the end result?
+
+452
+00:22:27,990 --> 00:22:29,250
+Let's go back to the browser.
+
+453
+00:22:29,250 --> 00:22:32,280
+When I hit reload here, the
+reason we're seeing Foo colon 1,
+
+454
+00:22:32,280 --> 00:22:36,060
+Bar colon 2, Baz colon three,
+is because of that template.
+
+455
+00:22:36,060 --> 00:22:38,670
+And if I reload again
+and again and again,
+
+456
+00:22:38,670 --> 00:22:42,540
+I'm seeing the same thing because my
+browser is probably doing something.
+
+457
+00:22:42,540 --> 00:22:43,290
+So let me do that.
+
+458
+00:22:43,290 --> 00:22:45,060
+Let we go to inspect.
+
+459
+00:22:45,060 --> 00:22:46,630
+Let me go to Network.
+
+460
+00:22:46,630 --> 00:22:49,380
+And just for good measure, and you
+should get into this habit too,
+
+461
+00:22:49,380 --> 00:22:50,410
+click preserve log.
+
+462
+00:22:50,410 --> 00:22:53,460
+Because this way, if you change
+pages, the log doesn't go away.
+
+463
+00:22:53,460 --> 00:22:55,454
+You can still poke around
+what you're seeing.
+
+464
+00:22:55,454 --> 00:22:56,870
+And again, this is my Network tab.
+
+465
+00:22:56,870 --> 00:23:00,930
+So I want to look at what Chrome
+is doing to talk to this web app.
+
+466
+00:23:00,930 --> 00:23:05,160
+I'm going to go ahead now and I'm going
+to hold Shift and then click reload.
+
+467
+00:23:05,160 --> 00:23:06,360
+Or if you click and hold--
+
+468
+00:23:06,360 --> 00:23:08,350
+you've probably never noticed this.
+
+469
+00:23:08,350 --> 00:23:11,667
+But if you click and hold on
+your own reload button in Chrome,
+
+470
+00:23:11,667 --> 00:23:14,500
+you can do a normal reload, which
+is what all of us do all the time,
+
+471
+00:23:14,500 --> 00:23:17,505
+or a hard reload or an empty cache
+and hard reload, which is just
+
+472
+00:23:17,505 --> 00:23:19,380
+a way of saying get rid
+of all of my cookies,
+
+473
+00:23:19,380 --> 00:23:21,930
+all remnants, and just forcibly
+reload everything, which
+
+474
+00:23:21,930 --> 00:23:25,560
+is great for software development so
+we know what state we're always in.
+
+475
+00:23:25,560 --> 00:23:28,364
+But you can also do
+that by holding Shift--
+
+476
+00:23:28,364 --> 00:23:31,110
+whoops-- and clicking reload.
+
+477
+00:23:31,110 --> 00:23:31,980
+So let's do that.
+
+478
+00:23:31,980 --> 00:23:34,050
+Reload-- and here we go.
+
+479
+00:23:34,050 --> 00:23:37,680
+That made one request because there's
+no images or CSS or fancy stuff
+
+480
+00:23:37,680 --> 00:23:40,590
+to send more requests.
+
+481
+00:23:40,590 --> 00:23:43,030
+This is going to be a little
+overwhelming at first glance.
+
+482
+00:23:43,030 --> 00:23:46,510
+The IED itself uses
+cookies for other purposes.
+
+483
+00:23:46,510 --> 00:23:48,754
+So you are seeing
+bunches of cookies that
+
+484
+00:23:48,754 --> 00:23:50,670
+have nothing to do with
+this application-- has
+
+485
+00:23:50,670 --> 00:23:52,360
+to do with the programming environment.
+
+486
+00:23:52,360 --> 00:23:55,830
+But what we can focus on is this here.
+
+487
+00:23:55,830 --> 00:24:00,360
+Notice that any time I get
+a response from the server,
+
+488
+00:24:00,360 --> 00:24:04,380
+it's indeed sending me set
+cookie and then some value.
+
+489
+00:24:04,380 --> 00:24:07,380
+Now this is a longer value
+than 123456, but it's
+
+490
+00:24:07,380 --> 00:24:10,000
+the same thing-- a big random number.
+
+491
+00:24:10,000 --> 00:24:13,110
+So what's happening is
+that is the server's way
+
+492
+00:24:13,110 --> 00:24:16,320
+of telling my browser you
+are user 123456 or whatever
+
+493
+00:24:16,320 --> 00:24:17,610
+that big long number was.
+
+494
+00:24:17,610 --> 00:24:21,630
+And my browser is now supposed to
+present that again and again and again.
+
+495
+00:24:21,630 --> 00:24:25,650
+So lastly, what is actually going on
+when we continue shopping and let's
+
+496
+00:24:25,650 --> 00:24:29,910
+say buy 10 of these and 10 of these
+and 10 of these and click Purchase?
+
+497
+00:24:29,910 --> 00:24:35,850
+Notice that if I look at the form,
+this is going to slash update.
+
+498
+00:24:35,850 --> 00:24:37,470
+And it's via Post.
+
+499
+00:24:37,470 --> 00:24:40,810
+And so if I now go back to
+the code to see what happens--
+
+500
+00:24:40,810 --> 00:24:44,160
+let me go back into
+application.py, focus on update.
+
+501
+00:24:44,160 --> 00:24:49,140
+This now is how I'm updating the
+contents of my server side cart.
+
+502
+00:24:49,140 --> 00:24:53,100
+I am saying for each
+item in the form that
+
+503
+00:24:53,100 --> 00:24:57,360
+was submitted, the requests form,
+go ahead and update session bracket
+
+504
+00:24:57,360 --> 00:25:00,120
+item, which is going to be Foo or
+Bar or Baz because that is what
+
+505
+00:25:00,120 --> 00:25:04,260
+was in the form, and store there this--
+
+506
+00:25:04,260 --> 00:25:05,940
+request.form.get.
+
+507
+00:25:05,940 --> 00:25:09,807
+So get me the value of that item,
+whether it's 10 and 10 and 10 or 1
+
+508
+00:25:09,807 --> 00:25:12,390
+and 2 and 3, whatever the numbers
+are that the human typed in.
+
+509
+00:25:12,390 --> 00:25:14,139
+And why do you think
+we put this word int?
+
+510
+00:25:14,139 --> 00:25:16,744
+
+
+511
+00:25:16,744 --> 00:25:17,910
+Why might that be necessary?
+
+512
+00:25:17,910 --> 00:25:18,410
+Yeah.
+
+513
+00:25:18,410 --> 00:25:19,420
+AUDIENCE: [INAUDIBLE]
+
+514
+00:25:19,420 --> 00:25:20,100
+DAVID MALAN: Yeah, it's simple as that.
+
+515
+00:25:20,100 --> 00:25:23,170
+It's kind of a casting in C.
+What the user typed in was text.
+
+516
+00:25:23,170 --> 00:25:25,030
+It might look like numbers, like 1, 0.
+
+517
+00:25:25,030 --> 00:25:26,050
+Certainly looks like 10.
+
+518
+00:25:26,050 --> 00:25:27,130
+But it's not a number.
+
+519
+00:25:27,130 --> 00:25:29,360
+That's a string that
+looks like a number.
+
+520
+00:25:29,360 --> 00:25:33,670
+So using int converts it to an actual
+number so we can do math on it.
+
+521
+00:25:33,670 --> 00:25:36,790
+So long story short, what is
+it that made this possible?
+
+522
+00:25:36,790 --> 00:25:40,780
+We've not used this before, but you
+will have seen this perhaps in P set six
+
+523
+00:25:40,780 --> 00:25:43,900
+or rather P set seven's distribution
+code, which is now on the web site.
+
+524
+00:25:43,900 --> 00:25:46,510
+There's a few lines of code
+that just enable sessions.
+
+525
+00:25:46,510 --> 00:25:49,880
+With those few lines, are we
+able to tell Flask, hey Flask,
+
+526
+00:25:49,880 --> 00:25:52,900
+start sending cookies
+and expecting cookies
+
+527
+00:25:52,900 --> 00:25:58,300
+back so that the programmer can
+use what is called a session, which
+
+528
+00:25:58,300 --> 00:26:00,360
+I've additionally imported up here?
+
+529
+00:26:00,360 --> 00:26:02,495
+So I've just added some
+additional functionality.
+
+530
+00:26:02,495 --> 00:26:04,870
+And if you've ever wondered
+where all this data is going,
+
+531
+00:26:04,870 --> 00:26:08,931
+let me go ahead and stop the server,
+clear my terminal and type LS.
+
+532
+00:26:08,931 --> 00:26:10,930
+A moment ago, the only
+two things in this folder
+
+533
+00:26:10,930 --> 00:26:13,120
+were application.pi and templates.
+
+534
+00:26:13,120 --> 00:26:15,870
+Now there's apparently a
+directory called Flask session.
+
+535
+00:26:15,870 --> 00:26:20,230
+So if you've ever wondered where Amazon
+stores the contents of your shopping
+
+536
+00:26:20,230 --> 00:26:24,220
+cart or where Facebook stores Maria
+or Brian once they've logged in,
+
+537
+00:26:24,220 --> 00:26:28,090
+it's probably in a folder
+in a file like this
+
+538
+00:26:28,090 --> 00:26:30,850
+where these big long strings
+represent your cookie value
+
+539
+00:26:30,850 --> 00:26:33,077
+or, better yet, it's in a database.
+
+540
+00:26:33,077 --> 00:26:35,410
+And so that's why those are
+there-- because I apparently
+
+541
+00:26:35,410 --> 00:26:40,730
+created four cookies by reloading and
+experimenting a few different times.
+
+542
+00:26:40,730 --> 00:26:43,540
+OK, any questions on
+what the potential then
+
+543
+00:26:43,540 --> 00:26:49,100
+or the usage of cookies
+and sessions are?
+
+544
+00:26:49,100 --> 00:26:52,430
+All right, so let's then
+transition to solving
+
+545
+00:26:52,430 --> 00:26:57,620
+problems a little more powerfully
+with these things called databases.
+
+546
+00:26:57,620 --> 00:27:01,310
+So here is, like, a depiction of
+what we've been doing the past week
+
+547
+00:27:01,310 --> 00:27:05,510
+and we'll do a bit more today and you'll
+do with problem set seven as well.
+
+548
+00:27:05,510 --> 00:27:10,310
+We have been having browsers
+and servers talk to one another
+
+549
+00:27:10,310 --> 00:27:12,350
+using kind of a certain paradigm.
+
+550
+00:27:12,350 --> 00:27:15,830
+And the paradigm is generally called
+MVC, Model View Controller, though we
+
+551
+00:27:15,830 --> 00:27:17,270
+didn't call it that last week.
+
+552
+00:27:17,270 --> 00:27:18,770
+And MVC means this--
+
+553
+00:27:18,770 --> 00:27:22,610
+you are writing code that
+is called controller.
+
+554
+00:27:22,610 --> 00:27:24,770
+This is like the logic,
+the intellectual property,
+
+555
+00:27:24,770 --> 00:27:26,840
+the business logic of your application.
+
+556
+00:27:26,840 --> 00:27:31,566
+Like, if a user submits form, then
+add update contents of shopping cart.
+
+557
+00:27:31,566 --> 00:27:33,440
+Any of those kinds of
+ifs and elses and loops
+
+558
+00:27:33,440 --> 00:27:37,680
+are in what's called your
+controller code, AKA application.pi.
+
+559
+00:27:37,680 --> 00:27:43,100
+You might also have views, V in MVC,
+which specifically are your templates,
+
+560
+00:27:43,100 --> 00:27:47,000
+the idea being that you separate all
+of the interesting, juicy, intellectual
+
+561
+00:27:47,000 --> 00:27:50,780
+part of your program in the
+controller code, the application.pi,
+
+562
+00:27:50,780 --> 00:27:54,200
+and all of the important
+but kind of aesthetic stuff
+
+563
+00:27:54,200 --> 00:27:57,290
+in your templates directory, AKA views.
+
+564
+00:27:57,290 --> 00:27:59,820
+This way, among other
+things, you, for instance,
+
+565
+00:27:59,820 --> 00:28:01,880
+can implement all of
+the logic of a web site
+
+566
+00:28:01,880 --> 00:28:05,090
+whereas a friend of yours who is much
+better at design certainly than me
+
+567
+00:28:05,090 --> 00:28:07,430
+can do all of the aesthetic
+stuff, all of the views,
+
+568
+00:28:07,430 --> 00:28:10,740
+in the templates directory, and you
+can collaborate a lot more effectively.
+
+569
+00:28:10,740 --> 00:28:12,800
+But there's one more letter in MVC.
+
+570
+00:28:12,800 --> 00:28:15,020
+It's Model View Controller.
+
+571
+00:28:15,020 --> 00:28:18,380
+And what we'll focus now
+on today is the M in MVC.
+
+572
+00:28:18,380 --> 00:28:21,230
+Model is just a generic
+way of talking about data--
+
+573
+00:28:21,230 --> 00:28:23,210
+like where does the actual data go.
+
+574
+00:28:23,210 --> 00:28:25,760
+So the mental model to have
+moving forward as you write code,
+
+575
+00:28:25,760 --> 00:28:28,040
+even though the lines are
+not going to be always as
+
+576
+00:28:28,040 --> 00:28:30,270
+clear as this picture
+suggests, is any time
+
+577
+00:28:30,270 --> 00:28:33,500
+you're writing code in application.pi
+that's probably controller code.
+
+578
+00:28:33,500 --> 00:28:36,650
+Like, that's the intellectual
+workflow of your application.
+
+579
+00:28:36,650 --> 00:28:39,170
+Anytime you're doing
+HTML or CSS or Jinja,
+
+580
+00:28:39,170 --> 00:28:42,590
+that's the view of your application,
+the aesthetics, the presentation
+
+581
+00:28:42,590 --> 00:28:43,440
+of information.
+
+582
+00:28:43,440 --> 00:28:47,600
+And any time you're reading and
+writing data, long term or short term.
+
+583
+00:28:47,600 --> 00:28:48,629
+That's the model.
+
+584
+00:28:48,629 --> 00:28:50,420
+And sometimes the lines
+will be very blurry
+
+585
+00:28:50,420 --> 00:28:52,230
+and it could all be in the same file.
+
+586
+00:28:52,230 --> 00:28:56,509
+But those three types of operations
+are the mental model to begin to adopt.
+
+587
+00:28:56,509 --> 00:28:57,300
+So let's get there.
+
+588
+00:28:57,300 --> 00:29:00,939
+You'll recall that in week zero,
+we introduced this guy, Scratch,
+
+589
+00:29:00,939 --> 00:29:03,980
+and the graphical programming language
+with which you began the semester.
+
+590
+00:29:03,980 --> 00:29:08,480
+A week later, we introduced C, which
+had the same ideas and capabilities
+
+591
+00:29:08,480 --> 00:29:12,890
+for the most part but using a keyboard
+only instead of graphics and a GUI.
+
+592
+00:29:12,890 --> 00:29:15,830
+Then we transitioned a week ago
+to Python, a couple of weeks
+
+593
+00:29:15,830 --> 00:29:18,650
+ago now to Python, which is
+very similar in spirit to see.
+
+594
+00:29:18,650 --> 00:29:21,530
+But as you may recall with
+great delight or frustration,
+
+595
+00:29:21,530 --> 00:29:23,800
+you can get so much
+more work done quickly--
+
+596
+00:29:23,800 --> 00:29:25,310
+for instance, P set five--
+
+597
+00:29:25,310 --> 00:29:26,840
+using the right language.
+
+598
+00:29:26,840 --> 00:29:30,830
+And so here too we
+begin to use a new tool
+
+599
+00:29:30,830 --> 00:29:34,160
+for the job called SQL, or
+Structured Query Language,
+
+600
+00:29:34,160 --> 00:29:39,020
+or S-Q-L. This is yet another language,
+but it's much smaller than Python and C
+
+601
+00:29:39,020 --> 00:29:40,890
+as we shall see today.
+
+602
+00:29:40,890 --> 00:29:42,830
+But it is a language
+that you typically use
+
+603
+00:29:42,830 --> 00:29:44,720
+when you want to talk to a database.
+
+604
+00:29:44,720 --> 00:29:46,820
+So based on your
+familiarity already, what
+
+605
+00:29:46,820 --> 00:29:50,770
+is a database even if you've
+never actually used or programmed
+
+606
+00:29:50,770 --> 00:29:52,510
+with one before?
+
+607
+00:29:52,510 --> 00:29:53,400
+AUDIENCE: [INAUDIBLE]
+
+608
+00:29:53,400 --> 00:29:54,570
+DAVID MALAN: Place
+where your store data.
+
+609
+00:29:54,570 --> 00:29:58,290
+So a database is a place where you store
+data- a base where you store data even
+
+610
+00:29:58,290 --> 00:29:58,909
+perhaps.
+
+611
+00:29:58,909 --> 00:29:59,700
+And so that's true.
+
+612
+00:29:59,700 --> 00:30:01,075
+And what does that actually mean?
+
+613
+00:30:01,075 --> 00:30:04,770
+Well, a database, like a web server,
+is actually a piece of software.
+
+614
+00:30:04,770 --> 00:30:07,390
+We might think of it is
+this, like, physical entity,
+
+615
+00:30:07,390 --> 00:30:10,140
+but a database is technically
+a database program
+
+616
+00:30:10,140 --> 00:30:13,770
+that is listening for connections just
+like a web server or an email server.
+
+617
+00:30:13,770 --> 00:30:17,280
+And any time it gets requests,
+it serves up a response.
+
+618
+00:30:17,280 --> 00:30:20,820
+So we have the same client server
+relationship that we do with the web
+
+619
+00:30:20,820 --> 00:30:21,600
+itself.
+
+620
+00:30:21,600 --> 00:30:26,550
+Now the database hopefully is better
+and smarter and faster at storing data
+
+621
+00:30:26,550 --> 00:30:28,230
+than certainly little old me.
+
+622
+00:30:28,230 --> 00:30:32,010
+And it's hopefully better
+than something like CSV files.
+
+623
+00:30:32,010 --> 00:30:36,110
+Like, recall we used CSV to store the
+registrants for [INAUDIBLE] last week.
+
+624
+00:30:36,110 --> 00:30:38,990
+I think it was me and Rob
+and Maria all at once.
+
+625
+00:30:38,990 --> 00:30:40,920
+Then what was good about that?
+
+626
+00:30:40,920 --> 00:30:45,886
+What problem did we solve by
+introducing CSVs with that example?
+
+627
+00:30:45,886 --> 00:30:46,385
+Yeah.
+
+628
+00:30:46,385 --> 00:30:48,122
+AUDIENCE: [INAUDIBLE]
+
+629
+00:30:48,122 --> 00:30:50,580
+DAVID MALAN: You didn't have
+to go through my inbox, right?
+
+630
+00:30:50,580 --> 00:30:52,875
+One of the other versions
+of the registration program
+
+631
+00:30:52,875 --> 00:30:55,500
+were to just email the proctor
+in charge of [INAUDIBLE],, which
+
+632
+00:30:55,500 --> 00:30:58,650
+is fine because he or she can just
+use labels and keep track of it there.
+
+633
+00:30:58,650 --> 00:30:59,733
+But that's not a database.
+
+634
+00:30:59,733 --> 00:31:01,980
+You're Just kind of abusing
+Gmail as a database.
+
+635
+00:31:01,980 --> 00:31:04,710
+So why not put in a Text
+file instead like a CSV?
+
+636
+00:31:04,710 --> 00:31:07,750
+Because what kinds of
+programs can open CSVs?
+
+637
+00:31:07,750 --> 00:31:10,800
+Yeah, like Excel and Numbers and
+similar spreadsheet programs.
+
+638
+00:31:10,800 --> 00:31:13,300
+You can import it into
+Google Spreadsheets as well.
+
+639
+00:31:13,300 --> 00:31:15,120
+So that was a plus of using CSVs.
+
+640
+00:31:15,120 --> 00:31:17,700
+But what's perhaps a minus
+even though we didn't really
+
+641
+00:31:17,700 --> 00:31:20,665
+experience the minus so much?
+
+642
+00:31:20,665 --> 00:31:21,544
+AUDIENCE: [INAUDIBLE]
+
+643
+00:31:21,544 --> 00:31:22,710
+DAVID MALAN: Harder to what?
+
+644
+00:31:22,710 --> 00:31:23,790
+AUDIENCE: [INAUDIBLE]
+
+645
+00:31:23,790 --> 00:31:26,110
+DAVID MALAN: It is harder to do stuff
+with it because at the end of the day,
+
+646
+00:31:26,110 --> 00:31:28,510
+it's just a stupid text
+file, and we humans
+
+647
+00:31:28,510 --> 00:31:31,927
+have agreed to put commas in
+between values we care about.
+
+648
+00:31:31,927 --> 00:31:32,510
+But that's it.
+
+649
+00:31:32,510 --> 00:31:33,593
+Like, there's no features.
+
+650
+00:31:33,593 --> 00:31:37,140
+You open up that file, you're just going
+to see ASCII text and commas with them.
+
+651
+00:31:37,140 --> 00:31:39,440
+You get no, like,
+features, no functionality.
+
+652
+00:31:39,440 --> 00:31:40,816
+And do you have another thought?
+
+653
+00:31:40,816 --> 00:31:41,610
+AUDIENCE: [INAUDIBLE]
+
+654
+00:31:41,610 --> 00:31:43,026
+DAVID MALAN: It's inefficient why?
+
+655
+00:31:43,026 --> 00:31:44,524
+AUDIENCE: [INAUDIBLE]
+
+656
+00:31:44,524 --> 00:31:46,190
+DAVID MALAN: It's harder to find things.
+
+657
+00:31:46,190 --> 00:31:48,564
+Certainly not in the case of,
+like, me and Rob and Maria.
+
+658
+00:31:48,564 --> 00:31:51,950
+But as soon as you start having hundreds
+of students registered or thousands
+
+659
+00:31:51,950 --> 00:31:55,460
+of customers in your database or
+hundreds of thousands, like, in CSV,
+
+660
+00:31:55,460 --> 00:31:58,460
+the best they can do is
+linear time for everything.
+
+661
+00:31:58,460 --> 00:32:01,060
+You have to search the
+entire file top to bottom.
+
+662
+00:32:01,060 --> 00:32:04,250
+So wouldn't it be better if we
+can borrow ideas from week zero,
+
+663
+00:32:04,250 --> 00:32:07,010
+integrate them into the context
+of this problem, databases,
+
+664
+00:32:07,010 --> 00:32:11,540
+and actually query for data, ask for
+it, change it, delete it, and edit it
+
+665
+00:32:11,540 --> 00:32:14,660
+much more readily than simple
+little text files allow?
+
+666
+00:32:14,660 --> 00:32:17,550
+So what should you be thinking about
+when you think about a database?
+
+667
+00:32:17,550 --> 00:32:18,800
+Well, there's different types.
+
+668
+00:32:18,800 --> 00:32:22,050
+And today, we're going to focus on what
+are called relational databases, which
+
+669
+00:32:22,050 --> 00:32:25,584
+is a fancy way of saying
+tables of columns and rows.
+
+670
+00:32:25,584 --> 00:32:27,500
+So this is a screenshot
+of Google Spreadsheets
+
+671
+00:32:27,500 --> 00:32:28,917
+with which you're likely familiar.
+
+672
+00:32:28,917 --> 00:32:31,625
+The projector seems to be hiding
+the fact that there are actually
+
+673
+00:32:31,625 --> 00:32:32,560
+rows and columns here.
+
+674
+00:32:32,560 --> 00:32:34,090
+And instead, we're just
+seeing a big white box.
+
+675
+00:32:34,090 --> 00:32:36,630
+But there are indeed rows
+and columns inside of here
+
+676
+00:32:36,630 --> 00:32:38,040
+as you can see on the screen.
+
+677
+00:32:38,040 --> 00:32:40,790
+And if I use a [INAUDIBLE]
+this is a screenshot.
+
+678
+00:32:40,790 --> 00:32:42,530
+So I can't even enable rows and columns.
+
+679
+00:32:42,530 --> 00:32:46,250
+So here, we have our columns and rows.
+
+680
+00:32:46,250 --> 00:32:47,540
+So why is this useful?
+
+681
+00:32:47,540 --> 00:32:51,170
+Well, if you've ever store data for your
+student group, or for your customers
+
+682
+00:32:51,170 --> 00:32:54,050
+or for other applications
+around the house,
+
+683
+00:32:54,050 --> 00:32:58,130
+you've probably been in the habit of
+storing things in rows and columns.
+
+684
+00:32:58,130 --> 00:33:02,564
+And what does each column typically
+represent in a spreadsheet?
+
+685
+00:33:02,564 --> 00:33:04,230
+What kinds of things might it represent?
+
+686
+00:33:04,230 --> 00:33:06,396
+And here's an actual version
+of Google Spreadsheets.
+
+687
+00:33:06,396 --> 00:33:11,980
+And let me actually highlight this and
+turn on, just because, darker lines.
+
+688
+00:33:11,980 --> 00:33:13,470
+So there's our rows and columns.
+
+689
+00:33:13,470 --> 00:33:16,270
+So when you're using a spreadsheet,
+maybe from personal experience,
+
+690
+00:33:16,270 --> 00:33:18,741
+like, what do you put in the columns?
+
+691
+00:33:18,741 --> 00:33:19,800
+I'm sorry?
+
+692
+00:33:19,800 --> 00:33:20,720
+AUDIENCE: [INAUDIBLE]
+
+693
+00:33:20,720 --> 00:33:21,530
+DAVID MALAN: Categories of what?
+
+694
+00:33:21,530 --> 00:33:22,790
+Give me a concrete example.
+
+695
+00:33:22,790 --> 00:33:28,200
+AUDIENCE: [INAUDIBLE] the name of the
+student and lab that they're in and--
+
+696
+00:33:28,200 --> 00:33:30,170
+DAVID MALAN: Oh, what
+a delightful example.
+
+697
+00:33:30,170 --> 00:33:35,090
+So yes, we can say, like, the student's
+name and the student's dorm and maybe
+
+698
+00:33:35,090 --> 00:33:37,460
+their email or if we
+collected their phone number
+
+699
+00:33:37,460 --> 00:33:38,960
+and bunches of other things.
+
+700
+00:33:38,960 --> 00:33:41,746
+And you know, just to be sort
+of tidy, we might boldface it,
+
+701
+00:33:41,746 --> 00:33:44,870
+and you can use features like this,
+which just kind of lock that row there.
+
+702
+00:33:44,870 --> 00:33:46,203
+But these are just GUI features.
+
+703
+00:33:46,203 --> 00:33:48,470
+These are not sort of
+intellectually that interesting.
+
+704
+00:33:48,470 --> 00:33:51,860
+But what do I typically
+put in each row thereafter?
+
+705
+00:33:51,860 --> 00:33:53,870
+The first row is kind of
+special usually, which
+
+706
+00:33:53,870 --> 00:33:55,704
+is why you can kind of lock it off.
+
+707
+00:33:55,704 --> 00:33:56,870
+What do you put in the rows?
+
+708
+00:33:56,870 --> 00:33:57,800
+AUDIENCE: [INAUDIBLE]
+
+709
+00:33:57,800 --> 00:33:58,060
+DAVID MALAN: I'm sorry?
+
+710
+00:33:58,060 --> 00:33:59,690
+AUDIENCE: Elements [INAUDIBLE]
+
+711
+00:33:59,690 --> 00:34:01,190
+DAVID MALAN: Yeah, the actual data--
+
+712
+00:34:01,190 --> 00:34:02,410
+so, students' names.
+
+713
+00:34:02,410 --> 00:34:05,080
+So if, like, David
+registered from Matthews,
+
+714
+00:34:05,080 --> 00:34:06,830
+you would put his information in there.
+
+715
+00:34:06,830 --> 00:34:10,424
+And then, like, if Rob registered
+from Thayer put his in--
+
+716
+00:34:10,424 --> 00:34:11,760
+oh, that's not--
+
+717
+00:34:11,760 --> 00:34:14,170
+Rob's from Thayer, not Rob from Bowden.
+
+718
+00:34:14,170 --> 00:34:15,624
+And then Maria, who--
+
+719
+00:34:15,624 --> 00:34:17,290
+damn it, I asked her this the other day.
+
+720
+00:34:17,290 --> 00:34:20,060
+Where does she live?
+
+721
+00:34:20,060 --> 00:34:24,330
+[INAUDIBLE] Matthews, just like me,
+which is why I should remember it.
+
+722
+00:34:24,330 --> 00:34:28,860
+OK, so here's-- we now might have
+multiple rows in this database,
+
+723
+00:34:28,860 --> 00:34:32,100
+each of which represents an entity would
+be the fancy way of describing where
+
+724
+00:34:32,100 --> 00:34:35,391
+an entity is like a real world thing or
+a physical object or whatever it is you
+
+725
+00:34:35,391 --> 00:34:36,659
+care about.
+
+726
+00:34:36,659 --> 00:34:38,520
+So this is how we might form at this.
+
+727
+00:34:38,520 --> 00:34:42,451
+And of course literally, we might
+format things using Excel or Numbers
+
+728
+00:34:42,451 --> 00:34:44,909
+or Google Spreadsheet's, like,
+format column, which kind of
+
+729
+00:34:44,909 --> 00:34:46,450
+presents the data in a different way.
+
+730
+00:34:46,450 --> 00:34:49,440
+Maybe it centers it to the left
+or-- the lines to the left or right.
+
+731
+00:34:49,440 --> 00:34:51,060
+Maybe it removes leading zeros.
+
+732
+00:34:51,060 --> 00:34:52,770
+Maybe it adds dollar signs, percentages.
+
+733
+00:34:52,770 --> 00:34:55,186
+You can kind of present the
+information in different ways.
+
+734
+00:34:55,186 --> 00:34:58,530
+But for the most part, at the moment,
+it's just text that I've typed in.
+
+735
+00:34:58,530 --> 00:35:02,670
+But if I want to actually find someone
+in this spreadsheet, what can I do?
+
+736
+00:35:02,670 --> 00:35:05,514
+Well, I can do Command-F
+and then type in Rob.
+
+737
+00:35:05,514 --> 00:35:06,180
+And there we go.
+
+738
+00:35:06,180 --> 00:35:07,470
+We found Rob.
+
+739
+00:35:07,470 --> 00:35:09,090
+But what did the spreadsheet do?
+
+740
+00:35:09,090 --> 00:35:12,090
+Pretty much looked from top to
+bottom looking for R-O-B and as,
+
+741
+00:35:12,090 --> 00:35:14,580
+soon as it found it,
+highlighted that row.
+
+742
+00:35:14,580 --> 00:35:17,430
+And if I had thousands of
+rows or tens of thousands
+
+743
+00:35:17,430 --> 00:35:20,550
+of rows in the spreadsheet,
+Rob might be all the way
+
+744
+00:35:20,550 --> 00:35:23,220
+at the bottom at which
+point it could take longer
+
+745
+00:35:23,220 --> 00:35:25,710
+to actually find all instances of Rob.
+
+746
+00:35:25,710 --> 00:35:29,070
+And in fact, programs
+like Excel and Numbers
+
+747
+00:35:29,070 --> 00:35:32,181
+and even Google Spreadsheet
+eventually just start to break down.
+
+748
+00:35:32,181 --> 00:35:33,930
+In fact, I experienced
+this in grad school
+
+749
+00:35:33,930 --> 00:35:37,194
+myself I was doing some research
+where I wanted people to analyze data
+
+750
+00:35:37,194 --> 00:35:40,110
+and it was just convenient to be
+able to double click on my CSV files,
+
+751
+00:35:40,110 --> 00:35:43,740
+open them in Excel, and look at
+or search for some of the rows
+
+752
+00:35:43,740 --> 00:35:44,760
+that I cared about.
+
+753
+00:35:44,760 --> 00:35:48,060
+But it turns out that because of the
+long running simulations I was doing,
+
+754
+00:35:48,060 --> 00:35:53,900
+I had, like, over 65,000 rows of
+data, and Excel just wouldn't do it.
+
+755
+00:35:53,900 --> 00:35:55,650
+I would double click
+and, sorry, this file
+
+756
+00:35:55,650 --> 00:35:59,660
+is too big because someone at
+Microsoft, in prior versions of Excel,
+
+757
+00:35:59,660 --> 00:36:02,280
+had decided, first and
+foremost, surely no one
+
+758
+00:36:02,280 --> 00:36:05,190
+needs more than 65,000
+rows in this product.
+
+759
+00:36:05,190 --> 00:36:10,200
+But specifically, they used a number
+of bits to represent the row number.
+
+760
+00:36:10,200 --> 00:36:16,020
+If you recall, we tend to deal in powers
+of 2 or multiples of 8 specifically--
+
+761
+00:36:16,020 --> 00:36:18,480
+so 8 and 16 and 32 and so forth.
+
+762
+00:36:18,480 --> 00:36:23,730
+Well, 16 bits, 2 to the 16th, is 65,536.
+
+763
+00:36:23,730 --> 00:36:28,560
+And indeed, I must have
+had 65,537 rows or more.
+
+764
+00:36:28,560 --> 00:36:30,990
+So Excel just kind of
+wouldn't cooperate,
+
+765
+00:36:30,990 --> 00:36:33,780
+and I would have to use an actual
+database like Microsoft Access
+
+766
+00:36:33,780 --> 00:36:38,550
+or Oracle or, as we'll see
+today, something like SQLite.
+
+767
+00:36:38,550 --> 00:36:42,450
+So as soon as you kind of hit
+some ceiling with the tool
+
+768
+00:36:42,450 --> 00:36:46,350
+whereby it's slow to search or the
+program just can't open all of the data
+
+769
+00:36:46,350 --> 00:36:51,960
+or you can't kind of edit information
+or delete information any better
+
+770
+00:36:51,960 --> 00:36:55,800
+than linearly, it's probably
+time for an actual database.
+
+771
+00:36:55,800 --> 00:36:59,180
+And one such database is
+called, indeed, SQLite.
+
+772
+00:36:59,180 --> 00:37:03,030
+So SQL, Structured Query Language,
+is the language we're about to see.
+
+773
+00:37:03,030 --> 00:37:06,270
+SQLite is like a very
+free and very lightweight
+
+774
+00:37:06,270 --> 00:37:08,067
+implementation of this database.
+
+775
+00:37:08,067 --> 00:37:09,900
+And it's a lightweight
+in the sense that you
+
+776
+00:37:09,900 --> 00:37:11,970
+don't need special software licenses.
+
+777
+00:37:11,970 --> 00:37:13,620
+You don't really need to install it.
+
+778
+00:37:13,620 --> 00:37:16,650
+All you have to do is store
+data in binary format.
+
+779
+00:37:16,650 --> 00:37:18,570
+So up until now in
+CS50, we've pretty much
+
+780
+00:37:18,570 --> 00:37:22,920
+stored almost everything in ASCI or
+text format except for P set 4's images.
+
+781
+00:37:22,920 --> 00:37:26,520
+Well, today we're back to storing
+things in binary format, zeros and ones.
+
+782
+00:37:26,520 --> 00:37:29,790
+But again, we are well past the point
+of caring what those zeros and ones
+
+783
+00:37:29,790 --> 00:37:31,870
+look like, the patterns there of.
+
+784
+00:37:31,870 --> 00:37:35,140
+So SQLite is going to handle
+all of that complexity for us,
+
+785
+00:37:35,140 --> 00:37:37,800
+and it's going to store in
+one big binary file containing
+
+786
+00:37:37,800 --> 00:37:40,920
+zeros and ones the same kind
+of information as David and Rob
+
+787
+00:37:40,920 --> 00:37:43,410
+and Maria and others but
+much more efficiently
+
+788
+00:37:43,410 --> 00:37:46,890
+because one of the things
+you get from a database
+
+789
+00:37:46,890 --> 00:37:50,040
+is the result of a lot of
+smart people's effort trying
+
+790
+00:37:50,040 --> 00:37:54,540
+to figure out how can we, on behalf of
+the world, store data more efficiently?
+
+791
+00:37:54,540 --> 00:37:58,020
+How can we provide users around the
+world with searching and deletion
+
+792
+00:37:58,020 --> 00:38:01,290
+and editing capabilities more
+efficiently than he or she could
+
+793
+00:38:01,290 --> 00:38:02,460
+implement themselves?
+
+794
+00:38:02,460 --> 00:38:04,650
+So again, in the spirit
+of CS50, we sort of
+
+795
+00:38:04,650 --> 00:38:07,935
+are standing on the shoulders
+of people who've come before us.
+
+796
+00:38:07,935 --> 00:38:09,810
+Now what is this going
+to mean in real terms?
+
+797
+00:38:09,810 --> 00:38:11,930
+We're going to use at
+least one of two tools.
+
+798
+00:38:11,930 --> 00:38:15,370
+There's a tool called PHP
+lighted min, happens to be
+
+799
+00:38:15,370 --> 00:38:17,190
+written in another language called PHP.
+
+800
+00:38:17,190 --> 00:38:18,600
+But that's incidental.
+
+801
+00:38:18,600 --> 00:38:20,970
+We're going to use it as a
+graphical tool with which we
+
+802
+00:38:20,970 --> 00:38:22,950
+can interact with the database program.
+
+803
+00:38:22,950 --> 00:38:27,390
+But there turns out there is also a
+terminal window version of a management
+
+804
+00:38:27,390 --> 00:38:30,040
+tool called SQLite or
+technically SQLite 3,
+
+805
+00:38:30,040 --> 00:38:33,750
+which is just a text based way of
+interacting with the database as well.
+
+806
+00:38:33,750 --> 00:38:36,690
+But that's just how we're going
+to see the database visually
+
+807
+00:38:36,690 --> 00:38:38,940
+in my terminal window or in my browser.
+
+808
+00:38:38,940 --> 00:38:42,210
+At the end of the day, we're going
+to talk to our database using
+
+809
+00:38:42,210 --> 00:38:44,080
+actual Python code.
+
+810
+00:38:44,080 --> 00:38:46,290
+But before we get there,
+let's seed ourselves
+
+811
+00:38:46,290 --> 00:38:48,690
+with some of the basic
+building blocks that we'll have
+
+812
+00:38:48,690 --> 00:38:50,640
+at our disposal with this language.
+
+813
+00:38:50,640 --> 00:38:53,790
+So unlike C and Python,
+where we're generally focused
+
+814
+00:38:53,790 --> 00:38:59,520
+on the logical controls, conditions
+and loops and functions and so forth--
+
+815
+00:38:59,520 --> 00:39:01,710
+some of those do exist in SQL.
+
+816
+00:39:01,710 --> 00:39:05,670
+But we're actually going to focus
+really on just the operations, so
+
+817
+00:39:05,670 --> 00:39:07,980
+to speak-- the verbs that SQL supports.
+
+818
+00:39:07,980 --> 00:39:11,910
+So it's a little different mental
+model to have than C and Python.
+
+819
+00:39:11,910 --> 00:39:14,940
+Specifically, perhaps the
+most common operations
+
+820
+00:39:14,940 --> 00:39:20,130
+we're going to use when storing data
+in not a spreadsheet like Google
+
+821
+00:39:20,130 --> 00:39:25,020
+but rather a binary file like a
+SQLite file is these five operations.
+
+822
+00:39:25,020 --> 00:39:27,030
+We can create tables.
+
+823
+00:39:27,030 --> 00:39:30,450
+We can create-- we can insert rows.
+
+824
+00:39:30,450 --> 00:39:33,330
+We can select rows from the table.
+
+825
+00:39:33,330 --> 00:39:37,552
+We can update rows in the table and
+we can delete rows from the table.
+
+826
+00:39:37,552 --> 00:39:39,510
+So these are kind of like
+what you would expect
+
+827
+00:39:39,510 --> 00:39:41,770
+you would get from a database program.
+
+828
+00:39:41,770 --> 00:39:44,020
+It's just these happen to
+be the terms of art as well.
+
+829
+00:39:44,020 --> 00:39:45,394
+Like, these are the verbs we use.
+
+830
+00:39:45,394 --> 00:39:47,250
+And it's conventional
+to capitalize them,
+
+831
+00:39:47,250 --> 00:39:49,060
+but they don't strictly need to be.
+
+832
+00:39:49,060 --> 00:39:50,940
+So let's look at a few examples now.
+
+833
+00:39:50,940 --> 00:39:56,550
+If I wanted to, in an
+actual database program,
+
+834
+00:39:56,550 --> 00:39:59,010
+create kind of the
+equivalent of this idea--
+
+835
+00:39:59,010 --> 00:40:01,800
+rows and columns and
+things called tables--
+
+836
+00:40:01,800 --> 00:40:03,820
+here's how I might do that.
+
+837
+00:40:03,820 --> 00:40:09,230
+So in my administrative program, which
+we'll see in a moment, or in code,
+
+838
+00:40:09,230 --> 00:40:12,010
+I might do lines like
+this, one at a time.
+
+839
+00:40:12,010 --> 00:40:12,990
+We'll review.
+
+840
+00:40:12,990 --> 00:40:15,100
+So in yellow now is CREATE TABLE.
+
+841
+00:40:15,100 --> 00:40:19,410
+So if you want to create the binary
+equivalent, the computer equivalent
+
+842
+00:40:19,410 --> 00:40:22,320
+of like a Google spreadsheet
+for [INAUDIBLE] registrants,
+
+843
+00:40:22,320 --> 00:40:25,914
+you would literally do CREATE
+TABLE quote unquote registrants
+
+844
+00:40:25,914 --> 00:40:28,830
+where that's the name of the table
+or the sheet you want to deal with.
+
+845
+00:40:28,830 --> 00:40:30,220
+And then this didn't fit on one line.
+
+846
+00:40:30,220 --> 00:40:30,886
+So I wrapped it.
+
+847
+00:40:30,886 --> 00:40:32,670
+But this is technically
+one long command.
+
+848
+00:40:32,670 --> 00:40:37,020
+Then in parentheses, you specify a,
+separated list of all of the columns
+
+849
+00:40:37,020 --> 00:40:39,550
+that you want to have
+in that table, but--
+
+850
+00:40:39,550 --> 00:40:41,430
+and this is fancier
+than Excel and Numbers
+
+851
+00:40:41,430 --> 00:40:44,710
+and Google Spreadsheets-- you
+specify a few other details as well.
+
+852
+00:40:44,710 --> 00:40:48,420
+For instance, if my leftmost or
+first column is going to be called ID
+
+853
+00:40:48,420 --> 00:40:50,760
+and my second is going to
+be called Name and my third
+
+854
+00:40:50,760 --> 00:40:52,050
+is going to be called Dorm--
+
+855
+00:40:52,050 --> 00:40:53,670
+so similar to what you
+proposed earlier but
+
+856
+00:40:53,670 --> 00:40:56,461
+we're not going to worry about
+email and phone number and the like.
+
+857
+00:40:56,461 --> 00:40:59,760
+And I have added, for good measure,
+a unique identifier, an integer
+
+858
+00:40:59,760 --> 00:41:03,257
+to identify each freshmen
+registering for sports.
+
+859
+00:41:03,257 --> 00:41:05,340
+There's a few other details
+I'm clearly providing.
+
+860
+00:41:05,340 --> 00:41:08,305
+Like, what type of information
+is a name going to be clearly?
+
+861
+00:41:08,305 --> 00:41:09,180
+AUDIENCE: [INAUDIBLE]
+
+862
+00:41:09,180 --> 00:41:12,660
+DAVID MALAN: Text, and
+indeed, SQLite has a data type
+
+863
+00:41:12,660 --> 00:41:15,360
+called not string but literally text.
+
+864
+00:41:15,360 --> 00:41:17,580
+Similarly, as dorm going to be text.
+
+865
+00:41:17,580 --> 00:41:19,450
+But ID is going to be
+a little different.
+
+866
+00:41:19,450 --> 00:41:20,880
+It could be text.
+
+867
+00:41:20,880 --> 00:41:23,970
+But we get better efficiency
+if we just use numbers
+
+868
+00:41:23,970 --> 00:41:26,010
+to uniquely identify humans, right?
+
+869
+00:41:26,010 --> 00:41:32,430
+Because even in my name, D-A-V-I-D,
+how many bytes is that minimally?
+
+870
+00:41:32,430 --> 00:41:33,070
+How many bytes?
+
+871
+00:41:33,070 --> 00:41:39,150
+D-A-V-I-D. Five-- yes, five
+bytes total for D-A-V-I-D.
+
+872
+00:41:39,150 --> 00:41:43,050
+But if we instead represent me in a
+computer using a number like the number
+
+873
+00:41:43,050 --> 00:41:47,410
+one or two or even the number 2
+billion if we have a lot of users,
+
+874
+00:41:47,410 --> 00:41:50,990
+how many bytes does it
+take to store that number?
+
+875
+00:41:50,990 --> 00:41:53,111
+AUDIENCE: [INAUDIBLE]
+
+876
+00:41:53,111 --> 00:41:54,360
+DAVID MALAN: Well, even fewer.
+
+877
+00:41:54,360 --> 00:41:57,690
+If I just rep-- if my Harvard ID
+number is just a single number,
+
+878
+00:41:57,690 --> 00:42:00,240
+like one or two or 2
+billion, how many bits
+
+879
+00:42:00,240 --> 00:42:03,400
+do you need to represent
+an int like that?
+
+880
+00:42:03,400 --> 00:42:04,840
+Typically, we've used four.
+
+881
+00:42:04,840 --> 00:42:06,910
+You could use eight if
+you want a bigger integer,
+
+882
+00:42:06,910 --> 00:42:10,150
+but generally speaking, it's going to
+be fewer than the number of characters
+
+883
+00:42:10,150 --> 00:42:11,180
+you're actually carrying about.
+
+884
+00:42:11,180 --> 00:42:12,950
+And so that's why I
+might use an integer.
+
+885
+00:42:12,950 --> 00:42:15,460
+We'll come back to what primary
+key means in just a moment.
+
+886
+00:42:15,460 --> 00:42:19,240
+But long story short, that
+line, those lines in yellow
+
+887
+00:42:19,240 --> 00:42:21,184
+if executed in a database
+program are going
+
+888
+00:42:21,184 --> 00:42:23,350
+to create the equivalent
+of a spreadsheet containing
+
+889
+00:42:23,350 --> 00:42:25,420
+three columns that I care about.
+
+890
+00:42:25,420 --> 00:42:30,620
+Thereafter, if I want to insert
+someone like myself into that table.
+
+891
+00:42:30,620 --> 00:42:32,800
+This is how you use the
+SQL language to do so.
+
+892
+00:42:32,800 --> 00:42:35,050
+You literally execute
+insert into registrant,
+
+893
+00:42:35,050 --> 00:42:37,960
+which is the name of the
+table, then a, separated list
+
+894
+00:42:37,960 --> 00:42:41,230
+in parentheses of the columns
+for which you have values
+
+895
+00:42:41,230 --> 00:42:42,610
+that you're about to provide.
+
+896
+00:42:42,610 --> 00:42:45,110
+And this allows you to change
+the order if you really want,
+
+897
+00:42:45,110 --> 00:42:47,410
+but I'm just keeping it clean
+and going left to right.
+
+898
+00:42:47,410 --> 00:42:49,730
+Then you literally write values.
+
+899
+00:42:49,730 --> 00:42:53,200
+And then in parentheses again, you list
+a comma separated list of the values
+
+900
+00:42:53,200 --> 00:42:55,580
+that you want to plug
+into those columns.
+
+901
+00:42:55,580 --> 00:42:58,602
+And again, it's up to you to make
+sure that if you say ID first,
+
+902
+00:42:58,602 --> 00:42:59,560
+you put a number first.
+
+903
+00:42:59,560 --> 00:43:02,440
+Name second, you put the
+name second, and so forth.
+
+904
+00:43:02,440 --> 00:43:04,210
+That's where we're in control.
+
+905
+00:43:04,210 --> 00:43:08,610
+Meanwhile, if we want to search
+for everyone who has registered for
+
+906
+00:43:08,610 --> 00:43:11,170
+[INAUDIBLE],, we're going
+to see syntax like this.
+
+907
+00:43:11,170 --> 00:43:15,520
+You're going to say to the database
+select star everyone from the database,
+
+908
+00:43:15,520 --> 00:43:17,980
+specifically from the
+table called registrants.
+
+909
+00:43:17,980 --> 00:43:19,900
+And that's going to
+return to you literally
+
+910
+00:43:19,900 --> 00:43:23,320
+every row somehow in code
+from the table Meanwhile.
+
+911
+00:43:23,320 --> 00:43:27,010
+if I want to change my name because
+I wasn't sort of following directions
+
+912
+00:43:27,010 --> 00:43:29,770
+and they technically wanted
+my full name for sports, well,
+
+913
+00:43:29,770 --> 00:43:32,680
+here I can do update
+registrants, the table,
+
+914
+00:43:32,680 --> 00:43:36,970
+set the name column
+equal to David Mailand,
+
+915
+00:43:36,970 --> 00:43:40,130
+but this last part is pretty key.
+
+916
+00:43:40,130 --> 00:43:44,660
+If I don't put where ID equals
+1, what intuitively do you think
+
+917
+00:43:44,660 --> 00:43:46,504
+might happen in the database?
+
+918
+00:43:46,504 --> 00:43:49,470
+AUDIENCE: [INAUDIBLE]
+
+919
+00:43:49,470 --> 00:43:52,770
+DAVID MALAN: All the names go to David
+Mailand, which is probably incorrect.
+
+920
+00:43:52,770 --> 00:43:55,172
+And some of the C course's
+head teaching fellows
+
+921
+00:43:55,172 --> 00:43:56,880
+will remember years
+ago-- we actually had
+
+922
+00:43:56,880 --> 00:43:58,713
+a teaching fellow named
+Michael [? Tingly ?]
+
+923
+00:43:58,713 --> 00:44:00,030
+whose nickname was Tingles.
+
+924
+00:44:00,030 --> 00:44:03,550
+And we accidentally executed
+a SQL query omitting
+
+925
+00:44:03,550 --> 00:44:05,880
+this condition, this predicate.
+
+926
+00:44:05,880 --> 00:44:09,480
+Where we should have said where ID
+equals Michael [? Tingly's ?] ID
+
+927
+00:44:09,480 --> 00:44:11,400
+number, instead we left this off.
+
+928
+00:44:11,400 --> 00:44:15,970
+And thereafter, we had like 700 Michael
+[? Tingles ?] registered in the class
+
+929
+00:44:15,970 --> 00:44:17,220
+until we restored from backup.
+
+930
+00:44:17,220 --> 00:44:20,430
+So it can happen to you as it did to us.
+
+931
+00:44:20,430 --> 00:44:22,950
+Finally, if you wanted
+to delete someone,
+
+932
+00:44:22,950 --> 00:44:26,430
+same principles, just different
+verbs-- delete from the table
+
+933
+00:44:26,430 --> 00:44:28,740
+that you want to delete
+from where you are
+
+934
+00:44:28,740 --> 00:44:31,437
+specifying an actual ID in this case.
+
+935
+00:44:31,437 --> 00:44:34,020
+And actually just for good
+measure, though it doesn't strictly
+
+936
+00:44:34,020 --> 00:44:38,094
+matter, let me be consistent and
+just capitalize that Where as well.
+
+937
+00:44:38,094 --> 00:44:40,260
+The reason for the
+capitalization, just to be clear,
+
+938
+00:44:40,260 --> 00:44:42,510
+is that it kind of helps
+the human eye to distinguish
+
+939
+00:44:42,510 --> 00:44:46,530
+what is, like, SQL syntax from
+words that we humans have invented
+
+940
+00:44:46,530 --> 00:44:47,910
+for own spreadsheet.
+
+941
+00:44:47,910 --> 00:44:49,920
+And notice a few
+characteristics as well.
+
+942
+00:44:49,920 --> 00:44:53,730
+I have standardized on all
+lowercase for my column names
+
+943
+00:44:53,730 --> 00:44:57,150
+ID, name, and dorm, which is
+common, but not strictly required.
+
+944
+00:44:57,150 --> 00:44:58,740
+The table as well is all lowercase.
+
+945
+00:44:58,740 --> 00:45:02,790
+But what is absent from all of these
+field names is I'm not using spaces.
+
+946
+00:45:02,790 --> 00:45:05,370
+I'm not using funky characters
+like exclamation points,
+
+947
+00:45:05,370 --> 00:45:07,330
+like "registrants!",
+or anything like that.
+
+948
+00:45:07,330 --> 00:45:10,170
+I'm just kind of keeping it
+clean with very simple characters
+
+949
+00:45:10,170 --> 00:45:12,060
+and that's good for portability.
+
+950
+00:45:12,060 --> 00:45:13,260
+It's very commonly the case.
+
+951
+00:45:13,260 --> 00:45:15,551
+And you might have seen or
+experienced this in the IDE.
+
+952
+00:45:15,551 --> 00:45:18,750
+Any time you start using
+spaces or funky characters,
+
+953
+00:45:18,750 --> 00:45:22,470
+computers sometimes get confused
+because they're not expecting them.
+
+954
+00:45:22,470 --> 00:45:25,179
+So the best practice with
+things like database design
+
+955
+00:45:25,179 --> 00:45:27,720
+is just avoid those issues
+altogether and keep things simple.
+
+956
+00:45:27,720 --> 00:45:31,490
+Use underscores instead of spaces if
+you really want to put something--
+
+957
+00:45:31,490 --> 00:45:33,090
+a gap between two things.
+
+958
+00:45:33,090 --> 00:45:35,067
+Now meanwhile, there are
+different data types.
+
+959
+00:45:35,067 --> 00:45:36,900
+There's not terribly
+many, and the only ones
+
+960
+00:45:36,900 --> 00:45:40,560
+we have to care about for the coming
+days are these here, one of which
+
+961
+00:45:40,560 --> 00:45:42,340
+is kind of strangely named.
+
+962
+00:45:42,340 --> 00:45:47,130
+But SQLite, the database we're using
+henceforth, supports text as we've
+
+963
+00:45:47,130 --> 00:45:51,090
+seen, integers as we've seen, or
+AKA int-- some of these things
+
+964
+00:45:51,090 --> 00:45:52,620
+have aliases or nicknames
+
+965
+00:45:52,620 --> 00:45:55,560
+Null is going to be kind of the
+opposite of having any value.
+
+966
+00:45:55,560 --> 00:45:58,500
+You can actually specify,
+no, there's no value here.
+
+967
+00:45:58,500 --> 00:46:00,572
+Real is going to be what, perhaps?
+
+968
+00:46:00,572 --> 00:46:01,930
+AUDIENCE: [INAUDIBLE]
+
+969
+00:46:01,930 --> 00:46:04,721
+DAVID MALAN: Yeah, like a real
+number, like a floating point value,
+
+970
+00:46:04,721 --> 00:46:06,250
+as we called it in C and in Python.
+
+971
+00:46:06,250 --> 00:46:08,840
+And then BLOB is binary large object.
+
+972
+00:46:08,840 --> 00:46:12,070
+So if you actually want to store 0's
+and 1's in some form in your database,
+
+973
+00:46:12,070 --> 00:46:15,280
+you store it as a BLOB,
+which isn't super common
+
+974
+00:46:15,280 --> 00:46:18,820
+because there are better ways to
+store binary data like, in files.
+
+975
+00:46:18,820 --> 00:46:20,920
+But it is possible as well.
+
+976
+00:46:20,920 --> 00:46:24,100
+And it's worth noting that there's
+kind of sort, of some other types,
+
+977
+00:46:24,100 --> 00:46:26,020
+but they're not sort
+of officially there.
+
+978
+00:46:26,020 --> 00:46:28,990
+SQLite is nice because
+it's pretty flexible.
+
+979
+00:46:28,990 --> 00:46:31,120
+There are a lot of database
+programs out there.
+
+980
+00:46:31,120 --> 00:46:33,911
+You've probably heard of some of
+them like the ones I rattled off--
+
+981
+00:46:33,911 --> 00:46:39,160
+Microsoft Access, Oracle,
+MySQL, Postgres SQL, and others.
+
+982
+00:46:39,160 --> 00:46:41,650
+SQLite is just an alternative
+that's pretty flexible.
+
+983
+00:46:41,650 --> 00:46:45,730
+And so if you try to load data from
+like another database like Oracle
+
+984
+00:46:45,730 --> 00:46:49,960
+into SQLite, it will actually
+tolerate unofficial types
+
+985
+00:46:49,960 --> 00:46:53,500
+like date times, which look like
+years and time-- or dates and times
+
+986
+00:46:53,500 --> 00:46:56,084
+literally-- numeric, which
+is when you're not sure
+
+987
+00:46:56,084 --> 00:46:58,500
+if it's going to be a floating
+point number or an integer,
+
+988
+00:46:58,500 --> 00:47:01,682
+the database can figure it out
+for you and some others as well.
+
+989
+00:47:01,682 --> 00:47:03,640
+So don't be confused when
+reading up on SQLite.
+
+990
+00:47:03,640 --> 00:47:05,848
+If you see some things that
+aren't wholly consistent,
+
+991
+00:47:05,848 --> 00:47:09,580
+it's just consistent with
+that kind of flexibility.
+
+992
+00:47:09,580 --> 00:47:13,600
+And in fact, here's an exhaustive
+chart of all the things from left
+
+993
+00:47:13,600 --> 00:47:14,750
+that map to the right.
+
+994
+00:47:14,750 --> 00:47:18,610
+So in the right are all of SQLite's
+official data types, these five here.
+
+995
+00:47:18,610 --> 00:47:20,980
+And you might see on the
+internet in SQL tutorials
+
+996
+00:47:20,980 --> 00:47:23,380
+and like bunches of other types here.
+
+997
+00:47:23,380 --> 00:47:27,080
+The most popular might be, like,
+bigint, which is a 64-bit integer,
+
+998
+00:47:27,080 --> 00:47:30,880
+which is really big, varchar, which
+is a variable number of charts--
+
+999
+00:47:30,880 --> 00:47:33,130
+either fewer or more,
+depending on the data--
+
+1000
+00:47:33,130 --> 00:47:34,630
+and lots of other things as well.
+
+1001
+00:47:34,630 --> 00:47:37,210
+So just realize they're out
+there, but the five on the right
+
+1002
+00:47:37,210 --> 00:47:39,220
+are the ones we really care about.
+
+1003
+00:47:39,220 --> 00:47:41,380
+SQL also has some built-in functions.
+
+1004
+00:47:41,380 --> 00:47:43,580
+You can do this in Python
+code too as we'll see.
+
+1005
+00:47:43,580 --> 00:47:47,120
+But date and time and datetime allow
+you to get, like, the current time.
+
+1006
+00:47:47,120 --> 00:47:49,390
+So if a user registers
+for your website and you
+
+1007
+00:47:49,390 --> 00:47:51,339
+want to record when
+he or she registered,
+
+1008
+00:47:51,339 --> 00:47:53,380
+you can call functions
+like this and the database
+
+1009
+00:47:53,380 --> 00:47:54,920
+will just figure it out for you.
+
+1010
+00:47:54,920 --> 00:47:57,340
+You don't have to check
+the computer's own clock.
+
+1011
+00:47:57,340 --> 00:48:00,820
+But most importantly, there's going
+to be some of these decisions.
+
+1012
+00:48:00,820 --> 00:48:06,168
+But before we forge ahead with too much
+more, let me pause for any questions.
+
+1013
+00:48:06,168 --> 00:48:07,144
+Yeah.
+
+1014
+00:48:07,144 --> 00:48:13,980
+AUDIENCE: [INAUDIBLE]
+when you [INAUDIBLE]
+
+1015
+00:48:13,980 --> 00:48:15,980
+DAVID MALAN: Ah, good question.
+
+1016
+00:48:15,980 --> 00:48:17,780
+Typically, no.
+
+1017
+00:48:17,780 --> 00:48:21,087
+But if you want to be
+really precise, yes.
+
+1018
+00:48:21,087 --> 00:48:24,170
+So I was really precise and I actually
+read the documentation this morning
+
+1019
+00:48:24,170 --> 00:48:26,044
+to make sure I got all
+of those quotes right.
+
+1020
+00:48:26,044 --> 00:48:27,800
+The rule of thumb if you're curious--
+
+1021
+00:48:27,800 --> 00:48:31,790
+though for the most part, this won't
+matter and it shouldn't hang up--
+
+1022
+00:48:31,790 --> 00:48:36,050
+is that any time you are referring
+to the name of an identifier,
+
+1023
+00:48:36,050 --> 00:48:38,540
+as it's called, like a
+column name or a table name,
+
+1024
+00:48:38,540 --> 00:48:40,820
+you use double quotes with SQLite.
+
+1025
+00:48:40,820 --> 00:48:43,340
+Anytime you're referring
+to a literal string
+
+1026
+00:48:43,340 --> 00:48:47,210
+that the human has typed in
+somewhere like with David Mailand
+
+1027
+00:48:47,210 --> 00:48:50,460
+and like with Matthews,
+you use single quotes.
+
+1028
+00:48:50,460 --> 00:48:52,340
+So if it's kind of user input, single.
+
+1029
+00:48:52,340 --> 00:48:55,160
+If it's a name in your database,
+then it's double coated,
+
+1030
+00:48:55,160 --> 00:48:57,930
+but it doesn't typically matter.
+
+1031
+00:48:57,930 --> 00:49:00,000
+So don't fret two much.
+
+1032
+00:49:00,000 --> 00:49:02,510
+So let's consider then
+for just a moment where we
+
+1033
+00:49:02,510 --> 00:49:04,850
+started this particular conversation.
+
+1034
+00:49:04,850 --> 00:49:08,210
+We were trying to create a database
+or spreadsheet for [INAUDIBLE] IM's,
+
+1035
+00:49:08,210 --> 00:49:10,460
+but we kind of stopped
+short of the juicy part.
+
+1036
+00:49:10,460 --> 00:49:13,100
+Like, I typed in some
+names and some dorms.
+
+1037
+00:49:13,100 --> 00:49:15,590
+But I could have started
+typing email, which
+
+1038
+00:49:15,590 --> 00:49:18,800
+would have hopefully some standard
+format-- something at something dot
+
+1039
+00:49:18,800 --> 00:49:19,610
+whatever.
+
+1040
+00:49:19,610 --> 00:49:22,550
+And then phone number is
+kind of interesting, right?
+
+1041
+00:49:22,550 --> 00:49:24,964
+Like, how should I store a number?
+
+1042
+00:49:24,964 --> 00:49:27,380
+Like, if I just want people
+calling Harvard's main number,
+
+1043
+00:49:27,380 --> 00:49:30,224
+is that, like, 459-- what is it 5,000?
+
+1044
+00:49:30,224 --> 00:49:31,640
+Well should I store it like this--
+
+1045
+00:49:31,640 --> 00:49:33,650
+10 digits and two hyphens?
+
+1046
+00:49:33,650 --> 00:49:37,640
+Should I instead store it without the
+hyphens just to kind of save space?
+
+1047
+00:49:37,640 --> 00:49:40,190
+Should I, need to be consistent
+with international folks,
+
+1048
+00:49:40,190 --> 00:49:43,287
+store the country code as well, which
+now Google is confusing for math?
+
+1049
+00:49:43,287 --> 00:49:46,370
+So that's what Harvard's phone number
+is when you add the numbers together
+
+1050
+00:49:46,370 --> 00:49:48,290
+apparently.
+
+1051
+00:49:48,290 --> 00:49:50,450
+How do you store the information?
+
+1052
+00:49:50,450 --> 00:49:55,494
+Or better still, what should
+you expect the users to type in?
+
+1053
+00:49:55,494 --> 00:49:58,160
+When you visit a website and you
+are asked for your phone number
+
+1054
+00:49:58,160 --> 00:50:01,690
+to buy something or create an
+account, like, in what format
+
+1055
+00:50:01,690 --> 00:50:04,430
+are you typically prompted for
+your number at least in the US?
+
+1056
+00:50:04,430 --> 00:50:07,562
+
+
+1057
+00:50:07,562 --> 00:50:11,390
+AUDIENCE: Area code, [INAUDIBLE]
+
+1058
+00:50:11,390 --> 00:50:14,750
+DAVID MALAN: Yeah, you're often prompted
+[INAUDIBLE] like an example like this.
+
+1059
+00:50:14,750 --> 00:50:16,666
+And then you have to
+type it in and hit Enter.
+
+1060
+00:50:16,666 --> 00:50:18,255
+And then it's stored, like that.
+
+1061
+00:50:18,255 --> 00:50:20,630
+What else have you seen--
+probably the other formats too?
+
+1062
+00:50:20,630 --> 00:50:22,856
+So which way should you do it?
+
+1063
+00:50:22,856 --> 00:50:24,850
+AUDIENCE: [INAUDIBLE]
+
+1064
+00:50:24,850 --> 00:50:28,710
+DAVID MALAN: Yes, yes, all of these
+ways are perfectly reasonable,
+
+1065
+00:50:28,710 --> 00:50:32,860
+and any website that forces you to type
+your data into one format is stupid.
+
+1066
+00:50:32,860 --> 00:50:34,720
+Like, it is poorly designed.
+
+1067
+00:50:34,720 --> 00:50:37,960
+And this is one of my greatest--
+well, it's not my greatest pet peeves.
+
+1068
+00:50:37,960 --> 00:50:41,890
+But like, one of my pet peeves is
+when a web site just completely
+
+1069
+00:50:41,890 --> 00:50:45,970
+technologically unnecessarily puts the
+burden of the human to format the data.
+
+1070
+00:50:45,970 --> 00:50:49,300
+Like, I should certainly be able
+to type my information in like this
+
+1071
+00:50:49,300 --> 00:50:51,741
+or with the plus one or
+without the parentheses
+
+1072
+00:50:51,741 --> 00:50:54,490
+or with an additional hyphen or
+the like because you know what you
+
+1073
+00:50:54,490 --> 00:50:56,950
+the programmer who made
+the website can do?
+
+1074
+00:50:56,950 --> 00:50:59,560
+You can just use some
+kind of pattern matching
+
+1075
+00:50:59,560 --> 00:51:03,610
+in the spirit even of P set six,
+throw away all of the punctuation,
+
+1076
+00:51:03,610 --> 00:51:06,020
+and then store just the
+digits if you want or go in
+
+1077
+00:51:06,020 --> 00:51:08,020
+and forcibly add the
+hyphens where you want them
+
+1078
+00:51:08,020 --> 00:51:09,760
+or the parentheses where you want them.
+
+1079
+00:51:09,760 --> 00:51:11,800
+The burden does not
+need to be on the human.
+
+1080
+00:51:11,800 --> 00:51:14,560
+And there's actually compelling
+UX, or User Experience,
+
+1081
+00:51:14,560 --> 00:51:17,320
+reasons for this beyond me
+going off kind of on a rant.
+
+1082
+00:51:17,320 --> 00:51:19,960
+Like, if you can't copy and
+paste something into a field,
+
+1083
+00:51:19,960 --> 00:51:21,540
+that is a bad user experience.
+
+1084
+00:51:21,540 --> 00:51:24,040
+And if you've ever tried to
+just copy one field into another
+
+1085
+00:51:24,040 --> 00:51:27,190
+and the website is disabling that
+for you, it's not the best practice.
+
+1086
+00:51:27,190 --> 00:51:31,420
+Worse yet are websites that don't let
+you paste your passwords into the forms
+
+1087
+00:51:31,420 --> 00:51:34,660
+because if you store your passwords,
+as is good practice, in like a password
+
+1088
+00:51:34,660 --> 00:51:39,100
+manager, encrypted somehow, it's
+better to have a really long password
+
+1089
+00:51:39,100 --> 00:51:42,760
+and then paste it into the form than
+memorize a really short password
+
+1090
+00:51:42,760 --> 00:51:44,080
+that someone else could guess.
+
+1091
+00:51:44,080 --> 00:51:46,445
+So in short, as we move
+forward with web programming,
+
+1092
+00:51:46,445 --> 00:51:49,570
+don't necessarily take as canon, like,
+what you see out there, but consider
+
+1093
+00:51:49,570 --> 00:51:52,300
+for your own users, like, what
+would be the best way to do this
+
+1094
+00:51:52,300 --> 00:51:56,170
+and how can I, knowing programming,
+accommodate different styles
+
+1095
+00:51:56,170 --> 00:51:57,830
+and expectations as well?
+
+1096
+00:51:57,830 --> 00:52:01,150
+But at the end of the
+day, there's an issue here
+
+1097
+00:52:01,150 --> 00:52:07,330
+because is this phone number now a
+number, or is it a string or text?
+
+1098
+00:52:07,330 --> 00:52:08,220
+AUDIENCE: [INAUDIBLE]
+
+1099
+00:52:08,220 --> 00:52:10,570
+DAVID MALAN: So OK, so I
+heard a few strings or text.
+
+1100
+00:52:10,570 --> 00:52:12,580
+So that's good because
+SQLite supports text.
+
+1101
+00:52:12,580 --> 00:52:17,590
+So I could specify, when I convert the
+spreadsheet into SQL commands and a SQL
+
+1102
+00:52:17,590 --> 00:52:19,960
+database, I could use text.
+
+1103
+00:52:19,960 --> 00:52:22,240
+And so that's probably a good thing.
+
+1104
+00:52:22,240 --> 00:52:23,920
+What about zip codes, right?
+
+1105
+00:52:23,920 --> 00:52:26,950
+Zip codes, at least if we do the
+first five digits in the US--
+
+1106
+00:52:26,950 --> 00:52:29,020
+like 02138 to.
+
+1107
+00:52:29,020 --> 00:52:30,640
+Is that a number or is that text?
+
+1108
+00:52:30,640 --> 00:52:31,790
+AUDIENCE: Text.
+
+1109
+00:52:31,790 --> 00:52:32,540
+DAVID MALAN: Text?
+
+1110
+00:52:32,540 --> 00:52:33,860
+Why?
+
+1111
+00:52:33,860 --> 00:52:35,652
+AUDIENCE: [INAUDIBLE]
+
+1112
+00:52:35,652 --> 00:52:36,610
+DAVID MALAN: I'm sorry?
+
+1113
+00:52:36,610 --> 00:52:37,426
+Say again?
+
+1114
+00:52:37,426 --> 00:52:40,970
+AUDIENCE: [INAUDIBLE]
+
+1115
+00:52:40,970 --> 00:52:42,720
+DAVID MALAN: Yeah,
+it's more of a category
+
+1116
+00:52:42,720 --> 00:52:44,190
+than it is a quantity, certainly.
+
+1117
+00:52:44,190 --> 00:52:47,147
+Like I don't have zero, one,
+two, three, eight of things.
+
+1118
+00:52:47,147 --> 00:52:49,230
+That is actually just meant
+to be a unique symbol.
+
+1119
+00:52:49,230 --> 00:52:53,320
+And in fact, as a side effect of the
+spreadsheet trying to be helpful, here
+
+1120
+00:52:53,320 --> 00:52:56,700
+is an actual bug, or
+reason to store it as text.
+
+1121
+00:52:56,700 --> 00:52:59,930
+I typed in 02138, which is
+Cambridge, Massachusetts,
+
+1122
+00:52:59,930 --> 00:53:01,560
+one of its largest zip codes.
+
+1123
+00:53:01,560 --> 00:53:04,590
+And unfortunately, Google
+just decided, you don't really
+
+1124
+00:53:04,590 --> 00:53:08,140
+need that leading zero, do
+you, and it got rid of it.
+
+1125
+00:53:08,140 --> 00:53:11,730
+And so this is because, at least in
+Google Spreadsheets, my data here,
+
+1126
+00:53:11,730 --> 00:53:14,250
+if I go under Format, it's
+being stored automatically.
+
+1127
+00:53:14,250 --> 00:53:16,950
+Google, for better or for
+worse-- often for worse--
+
+1128
+00:53:16,950 --> 00:53:20,250
+is inferring that, if it looks like a
+number, it is a number, therefore let's
+
+1129
+00:53:20,250 --> 00:53:22,810
+throw away the leading zeros,
+which humans don't need.
+
+1130
+00:53:22,810 --> 00:53:27,360
+But if I change it to plain text and
+now do 02138, now it kind of sticks.
+
+1131
+00:53:27,360 --> 00:53:30,070
+And another sort of
+true story, years ago,
+
+1132
+00:53:30,070 --> 00:53:32,402
+I used to use Microsoft
+Outlook for my email.
+
+1133
+00:53:32,402 --> 00:53:34,110
+And then eventually,
+I switched to Gmail.
+
+1134
+00:53:34,110 --> 00:53:36,960
+And before I did that, I
+wanted to copy my contacts,
+
+1135
+00:53:36,960 --> 00:53:39,960
+like my address book
+from Outlook into Gmail.
+
+1136
+00:53:39,960 --> 00:53:41,880
+And so Outlook actually
+has a feature where
+
+1137
+00:53:41,880 --> 00:53:44,742
+you can export a big CSV,
+literally, from Outlook.
+
+1138
+00:53:44,742 --> 00:53:47,700
+And that contains columns of, like,
+all your friends' names and numbers
+
+1139
+00:53:47,700 --> 00:53:50,340
+and addresses and zip codes.
+
+1140
+00:53:50,340 --> 00:53:52,830
+And I foolishly didn't
+realize that I probably
+
+1141
+00:53:52,830 --> 00:53:55,800
+shouldn't open the file
+first in Excel to look at it,
+
+1142
+00:53:55,800 --> 00:53:59,310
+probably instinctively hit Command
+S or Control S just to save it,
+
+1143
+00:53:59,310 --> 00:54:00,510
+because that's like a habit.
+
+1144
+00:54:00,510 --> 00:54:03,012
+As soon as I did that,
+Excel presumptuously
+
+1145
+00:54:03,012 --> 00:54:05,470
+did a Google just did, and
+dropped all those leading zeros.
+
+1146
+00:54:05,470 --> 00:54:08,040
+And to this day, like
+10 years later, I'm
+
+1147
+00:54:08,040 --> 00:54:11,220
+still finding friends whose addresses
+are Cambridge, Massachusetts
+
+1148
+00:54:11,220 --> 00:54:13,990
+2138 for that very reason.
+
+1149
+00:54:13,990 --> 00:54:15,720
+So data formats matter.
+
+1150
+00:54:15,720 --> 00:54:18,480
+And we actually have a number of
+decisions to make, and moreover,
+
+1151
+00:54:18,480 --> 00:54:23,100
+if we want this database to be
+highly performing-- that is, quick--
+
+1152
+00:54:23,100 --> 00:54:25,260
+we actually have a few
+other design decisions.
+
+1153
+00:54:25,260 --> 00:54:27,820
+And so let's take our five-minute
+break here, and when we come back,
+
+1154
+00:54:27,820 --> 00:54:30,930
+we'll actually wrestle with how can
+you store the data most efficiently so
+
+1155
+00:54:30,930 --> 00:54:34,350
+that your web applications
+are super fast.
+
+1156
+00:54:34,350 --> 00:54:35,520
+So we are back.
+
+1157
+00:54:35,520 --> 00:54:39,720
+And let's see what problems now arise
+besides the most immediate, which
+
+1158
+00:54:39,720 --> 00:54:40,690
+was the phone number.
+
+1159
+00:54:40,690 --> 00:54:45,120
+So let's consider that these aren't
+necessarily students registering
+
+1160
+00:54:45,120 --> 00:54:47,430
+for [INAUDIBLE],, and so
+therefore they don't just
+
+1161
+00:54:47,430 --> 00:54:49,800
+have dorms and so forth,
+but maybe these are actually
+
+1162
+00:54:49,800 --> 00:54:53,410
+like customers in a database,
+Amazon customers or the like.
+
+1163
+00:54:53,410 --> 00:54:57,000
+And so people are indeed going
+to have names, we'll say.
+
+1164
+00:54:57,000 --> 00:55:00,480
+And people are going to
+have addresses, address.
+
+1165
+00:55:00,480 --> 00:55:04,380
+And people will have phone
+numbers still, email, and maybe
+
+1166
+00:55:04,380 --> 00:55:06,480
+some other identifiers, as well.
+
+1167
+00:55:06,480 --> 00:55:09,690
+So when it comes to
+storing actual data here--
+
+1168
+00:55:09,690 --> 00:55:13,890
+and just for clarity, these will
+be my column headings now, so
+
+1169
+00:55:13,890 --> 00:55:15,090
+special first column--
+
+1170
+00:55:15,090 --> 00:55:19,140
+so what's my name here
+going to be, David Malan?
+
+1171
+00:55:19,140 --> 00:55:20,900
+Should it be David?
+
+1172
+00:55:20,900 --> 00:55:24,300
+Like, how do you actually think
+about something as trivial as this,
+
+1173
+00:55:24,300 --> 00:55:27,595
+and what are some of the
+upsides and downsides?
+
+1174
+00:55:27,595 --> 00:55:29,558
+Like, which should it be?
+
+1175
+00:55:29,558 --> 00:55:30,522
+AUDIENCE: David Malan.
+
+1176
+00:55:30,522 --> 00:55:31,730
+DAVID MALAN: David Malan, OK.
+
+1177
+00:55:31,730 --> 00:55:33,500
+So David Malan is what we store.
+
+1178
+00:55:33,500 --> 00:55:34,000
+OK?
+
+1179
+00:55:34,000 --> 00:55:36,350
+But now, later on, I
+realize I'd really like
+
+1180
+00:55:36,350 --> 00:55:38,960
+to send customized
+emails to my customers,
+
+1181
+00:55:38,960 --> 00:55:42,230
+and it feels kind of lame and informal
+if I say dear David Malan, where
+
+1182
+00:55:42,230 --> 00:55:43,760
+clearly it's not very intimate.
+
+1183
+00:55:43,760 --> 00:55:46,220
+I'd like it to say, dear David comma.
+
+1184
+00:55:46,220 --> 00:55:48,788
+So how do you address that?
+
+1185
+00:55:48,788 --> 00:55:50,210
+AUDIENCE: [INAUDIBLE]
+
+1186
+00:55:50,210 --> 00:55:53,330
+DAVID MALAN: OK, so maybe we should
+store first and last names separated.
+
+1187
+00:55:53,330 --> 00:55:56,150
+So to do that, maybe I'll just
+kind of redo this, and actually
+
+1188
+00:55:56,150 --> 00:55:58,700
+call this First, and
+then call this Last.
+
+1189
+00:55:58,700 --> 00:56:02,240
+And so now, I can keep
+my two columns separated.
+
+1190
+00:56:02,240 --> 00:56:03,249
+Other thoughts?
+
+1191
+00:56:03,249 --> 00:56:04,040
+That's pretty good.
+
+1192
+00:56:04,040 --> 00:56:04,540
+Or--
+
+1193
+00:56:04,540 --> 00:56:05,530
+AUDIENCE: [INAUDIBLE]
+
+1194
+00:56:05,530 --> 00:56:06,321
+DAVID MALAN: Sorry?
+
+1195
+00:56:06,321 --> 00:56:07,220
+AUDIENCE: [INAUDIBLE]
+
+1196
+00:56:07,220 --> 00:56:09,110
+DAVID MALAN: Oh, so we have
+like the greeting, as well,
+
+1197
+00:56:09,110 --> 00:56:11,850
+which you might be asked by a
+dropdown or a text box, too.
+
+1198
+00:56:11,850 --> 00:56:13,760
+So maybe we need that, as well.
+
+1199
+00:56:13,760 --> 00:56:16,747
+So technically, I should probably
+move this over like this.
+
+1200
+00:56:16,747 --> 00:56:18,830
+And this will be like the
+greeting, and maybe this
+
+1201
+00:56:18,830 --> 00:56:22,730
+will be Mr. or some
+number of other symbols.
+
+1202
+00:56:22,730 --> 00:56:24,890
+So we might have to
+deal with that, as well.
+
+1203
+00:56:24,890 --> 00:56:26,000
+What about address?
+
+1204
+00:56:26,000 --> 00:56:29,030
+Let's move on to that, because
+honestly, with most of these questions,
+
+1205
+00:56:29,030 --> 00:56:31,497
+there's not necessarily a best answer.
+
+1206
+00:56:31,497 --> 00:56:33,830
+There might be some best
+practices, but even then you're
+
+1207
+00:56:33,830 --> 00:56:35,210
+going to hit corner cases.
+
+1208
+00:56:35,210 --> 00:56:40,232
+For instance now, anytime I do want
+the user's first name and last name,
+
+1209
+00:56:40,232 --> 00:56:42,690
+I'm gonna have to concatenate
+them together, which is fine.
+
+1210
+00:56:42,690 --> 00:56:43,750
+It's not a big deal in Python.
+
+1211
+00:56:43,750 --> 00:56:46,160
+It was a bigger deal in C.
+So there's these tradeoffs.
+
+1212
+00:56:46,160 --> 00:56:49,160
+Like, I just have to now do
+that, or write more code later.
+
+1213
+00:56:49,160 --> 00:56:50,250
+What about the address?
+
+1214
+00:56:50,250 --> 00:56:55,340
+So it might be 33 Oxford Street, the CS
+building in Cambridge, Massachusetts,
+
+1215
+00:56:55,340 --> 00:56:57,095
+02138 USA.
+
+1216
+00:56:57,095 --> 00:56:59,760
+Let me even make more
+room for all of this.
+
+1217
+00:56:59,760 --> 00:57:00,260
+Good?
+
+1218
+00:57:00,260 --> 00:57:00,801
+Bad?
+
+1219
+00:57:00,801 --> 00:57:01,300
+Why?
+
+1220
+00:57:01,300 --> 00:57:04,290
+
+
+1221
+00:57:04,290 --> 00:57:05,000
+Let's go here.
+
+1222
+00:57:05,000 --> 00:57:05,320
+AUDIENCE: [INAUDIBLE]
+
+1223
+00:57:05,320 --> 00:57:06,111
+DAVID MALAN: Sorry?
+
+1224
+00:57:06,111 --> 00:57:11,040
+AUDIENCE: [INAUDIBLE] separate the
+data [INAUDIBLE] zip code [INAUDIBLE]..
+
+1225
+00:57:11,040 --> 00:57:14,640
+DAVID MALAN: Well you say need to
+separate the data into street and city
+
+1226
+00:57:14,640 --> 00:57:17,222
+and country and zip
+code and state, but why?
+
+1227
+00:57:17,222 --> 00:57:22,042
+AUDIENCE: [INAUDIBLE] right now
+to sort people by [INAUDIBLE]..
+
+1228
+00:57:22,042 --> 00:57:25,110
+
+
+1229
+00:57:25,110 --> 00:57:26,860
+DAVID MALAN: Yeah,
+that's a great example.
+
+1230
+00:57:26,860 --> 00:57:29,443
+So if everything has just kind
+of been this long string, which
+
+1231
+00:57:29,443 --> 00:57:33,250
+we humans and the postmaster
+general in the US can understand,
+
+1232
+00:57:33,250 --> 00:57:38,140
+and computers can parse, it's not that
+easy to just glean what we care about
+
+1233
+00:57:38,140 --> 00:57:39,370
+from that whole long string.
+
+1234
+00:57:39,370 --> 00:57:40,850
+Like, we're gonna have to
+use some kind of heuristics,
+
+1235
+00:57:40,850 --> 00:57:43,433
+we're gonna have to look for all
+numbers to get the zip codes.
+
+1236
+00:57:43,433 --> 00:57:47,650
+And I can, as you say, not sort
+everyone who's in Massachusetts,
+
+1237
+00:57:47,650 --> 00:57:50,870
+or everyone who's in 02138, because
+like it's not a separate field.
+
+1238
+00:57:50,870 --> 00:57:52,870
+And so even mechanically
+in Google Spreadsheets,
+
+1239
+00:57:52,870 --> 00:57:56,020
+I can't sort by anything
+other than 33 Oxford Street.
+
+1240
+00:57:56,020 --> 00:57:58,120
+And I probably don't
+really care to sort people
+
+1241
+00:57:58,120 --> 00:58:01,480
+by their street addresses, which
+really have no notion of ordering
+
+1242
+00:58:01,480 --> 00:58:02,590
+that's interesting.
+
+1243
+00:58:02,590 --> 00:58:04,300
+So we probably want to split this up.
+
+1244
+00:58:04,300 --> 00:58:08,536
+So maybe this is actually Street,
+and maybe this is actually--
+
+1245
+00:58:08,536 --> 00:58:10,660
+let me shrink this to make
+a little more room now--
+
+1246
+00:58:10,660 --> 00:58:13,780
+maybe this is City, maybe this
+is State, maybe this is Zip,
+
+1247
+00:58:13,780 --> 00:58:16,150
+maybe this is now Country.
+
+1248
+00:58:16,150 --> 00:58:20,830
+And then over here, we have
+Email and Phone and so forth.
+
+1249
+00:58:20,830 --> 00:58:24,850
+And so now, I could do 33 Oxford Street.
+
+1250
+00:58:24,850 --> 00:58:34,755
+And then I could do Cambridge, Mass,
+02138, USA, malan@harvard.edu, 6174495.
+
+1251
+00:58:34,755 --> 00:58:37,630
+See, this is why you shouldn't allow
+user input in different formats.
+
+1252
+00:58:37,630 --> 00:58:41,710
+495, 5000 and so forth.
+
+1253
+00:58:41,710 --> 00:58:43,240
+OK, so suppose we do that.
+
+1254
+00:58:43,240 --> 00:58:46,430
+But you know, Rob has an office
+in the CS building, as well.
+
+1255
+00:58:46,430 --> 00:58:48,910
+And so he's actually Mr. Rob Bowden.
+
+1256
+00:58:48,910 --> 00:58:50,380
+So now he and I are both there.
+
+1257
+00:58:50,380 --> 00:58:54,970
+And oops, we didn't fix this, so
+technically let's go back here.
+
+1258
+00:58:54,970 --> 00:58:57,100
+02138.
+
+1259
+00:58:57,100 --> 00:58:59,415
+And now it's like rob@cs.harvard.edu.
+
+1260
+00:58:59,415 --> 00:59:01,750
+And maybe we share the
+same office number.
+
+1261
+00:59:01,750 --> 00:59:05,126
+And there are certainly, like, dozens
+of other people in the CS building,
+
+1262
+00:59:05,126 --> 00:59:06,250
+if not a couple of hundred.
+
+1263
+00:59:06,250 --> 00:59:09,430
+So this is actually
+yielding another problem.
+
+1264
+00:59:09,430 --> 00:59:13,740
+At least if I keep typing, I'm going
+to dislike this for some other reason.
+
+1265
+00:59:13,740 --> 00:59:16,510
+What's also bad about this?
+
+1266
+00:59:16,510 --> 00:59:17,184
+Yeah.
+
+1267
+00:59:17,184 --> 00:59:19,922
+AUDIENCE: [INAUDIBLE] the office room.
+
+1268
+00:59:19,922 --> 00:59:21,380
+DAVID MALAN: The office room, yeah.
+
+1269
+00:59:21,380 --> 00:59:23,510
+So we didn't specify the
+room in the building.
+
+1270
+00:59:23,510 --> 00:59:25,160
+So we're missing data all together.
+
+1271
+00:59:25,160 --> 00:59:27,620
+What else really rears
+its head over time?
+
+1272
+00:59:27,620 --> 00:59:28,212
+Yeah.
+
+1273
+00:59:28,212 --> 00:59:29,571
+AUDIENCE: It's very redundant.
+
+1274
+00:59:29,571 --> 00:59:30,862
+DAVID MALAN: What is redundant?
+
+1275
+00:59:30,862 --> 00:59:34,617
+AUDIENCE: [INAUDIBLE]
+wasted space [INAUDIBLE]..
+
+1276
+00:59:34,617 --> 00:59:36,700
+DAVID MALAN: Which information
+is redundant, then?
+
+1277
+00:59:36,700 --> 00:59:40,069
+AUDIENCE: The street [INAUDIBLE].
+
+1278
+00:59:40,069 --> 00:59:41,610
+DAVID MALAN: Yeah, there's a lot of--
+
+1279
+00:59:41,610 --> 00:59:44,490
+I mean, literally I copied and
+pasted, which in coding in general
+
+1280
+00:59:44,490 --> 00:59:46,560
+should kind of be a bad
+sign or a bad habit,
+
+1281
+00:59:46,560 --> 00:59:48,660
+certainly if you do it
+more than just once.
+
+1282
+00:59:48,660 --> 00:59:51,900
+And so Cambridge is identical,
+Massachusetts is identical,
+
+1283
+00:59:51,900 --> 00:59:53,430
+zip code is identical.
+
+1284
+00:59:53,430 --> 00:59:55,920
+And even though this is
+gonna be a small white lie,
+
+1285
+00:59:55,920 --> 01:00:00,570
+it's probably the case that every zip
+code actually maps to a unique city.
+
+1286
+01:00:00,570 --> 01:00:05,160
+So I don't-- if I know 02138, do I
+really need to store Cambridge, Mass,
+
+1287
+01:00:05,160 --> 01:00:07,500
+Cambridge, Mass, Cambridge,
+Mass for everyone?
+
+1288
+01:00:07,500 --> 01:00:09,870
+No, it's probably all the same.
+
+1289
+01:00:09,870 --> 01:00:12,330
+So I should be able to
+delete some of this data.
+
+1290
+01:00:12,330 --> 01:00:16,530
+And this kind of messiness is a
+problem that databases can now solve.
+
+1291
+01:00:16,530 --> 01:00:20,250
+You could do this in Excel and in
+Google Spreadsheets and so forth.
+
+1292
+01:00:20,250 --> 01:00:24,450
+You can quote unquote normalize your
+data by factoring out commonalities.
+
+1293
+01:00:24,450 --> 01:00:27,120
+But to do so, the most
+common way, then, is
+
+1294
+01:00:27,120 --> 01:00:30,250
+to start assigning unique
+identifiers to things.
+
+1295
+01:00:30,250 --> 01:00:33,870
+So for instance, if I want to go in
+here-- let me give myself a new column,
+
+1296
+01:00:33,870 --> 01:00:35,280
+call it ID.
+
+1297
+01:00:35,280 --> 01:00:38,310
+And I'm just going to be user one,
+Rob will be user two, and then three
+
+1298
+01:00:38,310 --> 01:00:39,420
+and four and so forth.
+
+1299
+01:00:39,420 --> 01:00:41,920
+We're just gonna use an int to
+keep it simple and efficient,
+
+1300
+01:00:41,920 --> 01:00:44,280
+because now it's only like
+32 bits, or maybe 64 bits,
+
+1301
+01:00:44,280 --> 01:00:48,360
+no matter how long the humans' names
+and street names and so forth are.
+
+1302
+01:00:48,360 --> 01:00:52,440
+Let me just fix the border so
+that everything looks uniform.
+
+1303
+01:00:52,440 --> 01:00:53,730
+So now I've done this.
+
+1304
+01:00:53,730 --> 01:00:55,650
+And you know what, if
+you've never noticed,
+
+1305
+01:00:55,650 --> 01:00:58,860
+like Excel and Numbers
+and Google support
+
+1306
+01:00:58,860 --> 01:01:01,230
+multiple sheets in a spreadsheet.
+
+1307
+01:01:01,230 --> 01:01:04,710
+So just for good measure, let me
+actually rename this to Customers.
+
+1308
+01:01:04,710 --> 01:01:05,460
+And you know what?
+
+1309
+01:01:05,460 --> 01:01:07,680
+I'm gonna go ahead in
+Google Spreadsheets,
+
+1310
+01:01:07,680 --> 01:01:10,860
+give myself another one called Cities.
+
+1311
+01:01:10,860 --> 01:01:13,900
+And then here, I'm gonna
+do something like this.
+
+1312
+01:01:13,900 --> 01:01:21,682
+I'm gonna store over here maybe
+a let's say city and state.
+
+1313
+01:01:21,682 --> 01:01:23,640
+And actually, you know
+what, because cities I'm
+
+1314
+01:01:23,640 --> 01:01:26,580
+gonna claim for the moment are
+uniquely identified by their zip codes,
+
+1315
+01:01:26,580 --> 01:01:28,320
+let's just put zip code there.
+
+1316
+01:01:28,320 --> 01:01:31,140
+And then in this spreadsheet, let's do--
+
+1317
+01:01:31,140 --> 01:01:34,350
+preemptively this time-- plain text--
+
+1318
+01:01:34,350 --> 01:01:38,400
+02138 shall be Cambridge, Massachusetts.
+
+1319
+01:01:38,400 --> 01:01:41,130
+And now, back in my
+customers database, which
+
+1320
+01:01:41,130 --> 01:01:46,542
+of these columns, A through I or
+so, do I actually not need anymore?
+
+1321
+01:01:46,542 --> 01:01:48,000
+AUDIENCE: [INAUDIBLE]
+
+1322
+01:01:48,000 --> 01:01:50,080
+DAVID MALAN: Yeah, I don't need this.
+
+1323
+01:01:50,080 --> 01:01:51,280
+I don't need this.
+
+1324
+01:01:51,280 --> 01:01:53,100
+I probably still need zip.
+
+1325
+01:01:53,100 --> 01:01:55,950
+So let me just go ahead
+and delete these and start
+
+1326
+01:01:55,950 --> 01:01:59,190
+to assuage your concern, which
+was this redundancy of data.
+
+1327
+01:01:59,190 --> 01:02:03,480
+Now, I can do a little better, but now
+at least I'm storing zip code only.
+
+1328
+01:02:03,480 --> 01:02:05,520
+And actually, this is
+getting a little lazy.
+
+1329
+01:02:05,520 --> 01:02:10,500
+Let me get rid of country, as well,
+and just put this in here, as well,
+
+1330
+01:02:10,500 --> 01:02:13,950
+for generalizing zip code
+to be postal code now, say.
+
+1331
+01:02:13,950 --> 01:02:15,840
+And this shall be USA.
+
+1332
+01:02:15,840 --> 01:02:19,390
+So now my Customers table
+has a lot less redundancy.
+
+1333
+01:02:19,390 --> 01:02:21,660
+So clear upside is that it
+just takes up less space,
+
+1334
+01:02:21,660 --> 01:02:24,850
+and less space means less money,
+and just more room for other things.
+
+1335
+01:02:24,850 --> 01:02:26,190
+So that's surely good.
+
+1336
+01:02:26,190 --> 01:02:31,350
+But it probably means too it's
+easier to update the data, right?
+
+1337
+01:02:31,350 --> 01:02:33,720
+If someone-- if Cambridge
+for whatever reason
+
+1338
+01:02:33,720 --> 01:02:37,170
+changes its name back to Newtown,
+as it apparently once was,
+
+1339
+01:02:37,170 --> 01:02:41,910
+we just change it in one place, not for
+every resident in the Customers table,
+
+1340
+01:02:41,910 --> 01:02:42,452
+and so forth.
+
+1341
+01:02:42,452 --> 01:02:44,118
+So this is just a good principle, right?
+
+1342
+01:02:44,118 --> 01:02:47,184
+Anytime in coding we've done something
+again and again, or in CSS even,
+
+1343
+01:02:47,184 --> 01:02:48,600
+like we've tried to factor it out.
+
+1344
+01:02:48,600 --> 01:02:51,330
+In HTML, we factored it out
+with templates or with functions
+
+1345
+01:02:51,330 --> 01:02:52,720
+or with other techniques.
+
+1346
+01:02:52,720 --> 01:02:55,921
+So this normalization process
+feels like a good thing.
+
+1347
+01:02:55,921 --> 01:02:56,670
+But you know what?
+
+1348
+01:02:56,670 --> 01:03:00,270
+02138, we can do a little
+better, because that's a string.
+
+1349
+01:03:00,270 --> 01:03:02,070
+We could just store this as a number.
+
+1350
+01:03:02,070 --> 01:03:03,694
+So you know what I'm actually gonna do?
+
+1351
+01:03:03,694 --> 01:03:06,390
+I'm gonna also have in this
+spreadsheet a column called
+
+1352
+01:03:06,390 --> 01:03:10,260
+ID whose value for this city is gonna
+be one, and then for subsequent cities
+
+1353
+01:03:10,260 --> 01:03:14,040
+it's just gonna an arbitrary number
+that's just increasing and unique.
+
+1354
+01:03:14,040 --> 01:03:17,940
+And so now what I can actually do here
+is I don't strictly need to store even
+
+1355
+01:03:17,940 --> 01:03:22,500
+02138 dash whatever whatever,
+I can just store the ID.
+
+1356
+01:03:22,500 --> 01:03:26,390
+And I'm gonna go ahead and call that
+zip ID, just to make super clear to me
+
+1357
+01:03:26,390 --> 01:03:28,350
+that now this is just a number.
+
+1358
+01:03:28,350 --> 01:03:33,450
+And so by starting to assign arbitrary
+but consistent unique integers to all
+
+1359
+01:03:33,450 --> 01:03:36,840
+of our data, you can kind of
+relate them back to one another
+
+1360
+01:03:36,840 --> 01:03:38,492
+by looking up one value in the other.
+
+1361
+01:03:38,492 --> 01:03:40,950
+So for instance, if you're
+looking at this table as a human
+
+1362
+01:03:40,950 --> 01:03:43,695
+and you see that, oh, David
+and Rob live in zip ID 1,
+
+1363
+01:03:43,695 --> 01:03:47,346
+you do have to ask a follow-up question,
+which is, well, what is zip ID 1?
+
+1364
+01:03:47,346 --> 01:03:50,220
+You can only answer that by looking
+at the Cities table, checking it,
+
+1365
+01:03:50,220 --> 01:03:53,220
+and being like, oh, Rob and David
+both live in Cambridge, Massachusetts,
+
+1366
+01:03:53,220 --> 01:03:55,290
+02138, USA.
+
+1367
+01:03:55,290 --> 01:03:59,105
+So it's added a step, but
+it's also massively shrunk
+
+1368
+01:03:59,105 --> 01:04:01,980
+the amount of data we need, assuming
+there's more people in the world
+
+1369
+01:04:01,980 --> 01:04:03,855
+than just the two of
+us, and there's millions
+
+1370
+01:04:03,855 --> 01:04:07,320
+of users or thousands of users,
+or just otherwise context
+
+1371
+01:04:07,320 --> 01:04:09,460
+where you have lots and lots of data.
+
+1372
+01:04:09,460 --> 01:04:13,440
+And in fact, as an example of this, what
+we put together on the course's website
+
+1373
+01:04:13,440 --> 01:04:16,020
+is a Google spreadsheet that
+has a whole bunch of sheets.
+
+1374
+01:04:16,020 --> 01:04:18,030
+This is based on a freely
+available open source
+
+1375
+01:04:18,030 --> 01:04:20,430
+database that looks like
+real data, but it's mostly
+
+1376
+01:04:20,430 --> 01:04:25,800
+taken from one guy's iTunes account and
+then made up names and company names
+
+1377
+01:04:25,800 --> 01:04:26,550
+and so forth.
+
+1378
+01:04:26,550 --> 01:04:29,550
+And you'll see that this is actually
+a database for like a digital music
+
+1379
+01:04:29,550 --> 01:04:32,820
+store, a la iTunes or Google
+Play or Spotify or whatever.
+
+1380
+01:04:32,820 --> 01:04:36,000
+And so there's different entities
+in the world of digital music.
+
+1381
+01:04:36,000 --> 01:04:38,910
+You have album names,
+you have artist names,
+
+1382
+01:04:38,910 --> 01:04:42,750
+you have customers who might buy those
+albums and listen to those artists.
+
+1383
+01:04:42,750 --> 01:04:46,020
+You have employees at the
+company who is selling the music.
+
+1384
+01:04:46,020 --> 01:04:48,090
+You have genres for those songs.
+
+1385
+01:04:48,090 --> 01:04:53,370
+Because this is actually a very
+slippery slope whereby, over time,
+
+1386
+01:04:53,370 --> 01:04:56,100
+you're gonna have lots
+and lots of data that
+
+1387
+01:04:56,100 --> 01:04:59,536
+ideally would be in multiple places
+at once, but that's just bad design.
+
+1388
+01:04:59,536 --> 01:05:00,910
+Keeping it factored out is ideal.
+
+1389
+01:05:00,910 --> 01:05:06,120
+So if we glance at this album
+title, or rather album tab,
+
+1390
+01:05:06,120 --> 01:05:09,120
+here are all of the albums that
+this digital music store sells.
+
+1391
+01:05:09,120 --> 01:05:11,280
+Here are the unique
+IDs, album ID, that have
+
+1392
+01:05:11,280 --> 01:05:15,900
+been assigned to those albums,
+arbitrarily but for permanently.
+
+1393
+01:05:15,900 --> 01:05:19,652
+And then here are the artists
+who published those albums.
+
+1394
+01:05:19,652 --> 01:05:21,360
+So the only way to
+know the artist's name
+
+1395
+01:05:21,360 --> 01:05:23,460
+is-- at least in Google,
+I'm gonna actually have
+
+1396
+01:05:23,460 --> 01:05:26,940
+to scroll over to my
+Artists tab and, OK,
+
+1397
+01:05:26,940 --> 01:05:28,860
+here are the artists and their numbers.
+
+1398
+01:05:28,860 --> 01:05:32,830
+Meanwhile, all of these albums later--
+or songs are associated with genres.
+
+1399
+01:05:32,830 --> 01:05:36,700
+So here's all the genres and the IDs
+associated therewith, and so forth.
+
+1400
+01:05:36,700 --> 01:05:39,360
+So you're welcome to poke
+around this kind of data later.
+
+1401
+01:05:39,360 --> 01:05:42,804
+Here's even data involving birth
+dates, so dates and times and so forth.
+
+1402
+01:05:42,804 --> 01:05:44,970
+Here are invoices, like the
+addresses and the cities
+
+1403
+01:05:44,970 --> 01:05:48,000
+of people who bought this music,
+supposedly, in the sample database.
+
+1404
+01:05:48,000 --> 01:05:51,150
+But honestly, this is very,
+very, very quickly becoming
+
+1405
+01:05:51,150 --> 01:05:52,980
+really really annoying, right?
+
+1406
+01:05:52,980 --> 01:05:55,740
+Because if you the human just
+so much want to know, OK,
+
+1407
+01:05:55,740 --> 01:06:01,260
+who produced Restless and Wild, artist
+two, who the heck was artist two?
+
+1408
+01:06:01,260 --> 01:06:03,090
+This is not good for humans.
+
+1409
+01:06:03,090 --> 01:06:04,470
+But this is good for computers.
+
+1410
+01:06:04,470 --> 01:06:09,000
+We just need a language with which to
+reconstruct what we want and query for
+
+1411
+01:06:09,000 --> 01:06:10,780
+and change what we want.
+
+1412
+01:06:10,780 --> 01:06:13,600
+And that is the kind of thing
+that SQL is going to do for us.
+
+1413
+01:06:13,600 --> 01:06:19,002
+So let me change to another
+tab here in CS50 IDE.
+
+1414
+01:06:19,002 --> 01:06:21,430
+Let me find the right tab here.
+
+1415
+01:06:21,430 --> 01:06:27,690
+So if I go back to CS50 IDE, let me
+introduce a tool called phpLiteAdmin.
+
+1416
+01:06:27,690 --> 01:06:31,100
+Name doesn't really matter, but this
+is a tool that comes with the IDE--
+
+1417
+01:06:31,100 --> 01:06:34,410
+and we downloaded it for free off the
+web and just installed it for you--
+
+1418
+01:06:34,410 --> 01:06:35,850
+that allows us to do this.
+
+1419
+01:06:35,850 --> 01:06:39,730
+I have among today's distribution
+code a file called lecture.db.
+
+1420
+01:06:39,730 --> 01:06:41,307
+.db just means it's a database.
+
+1421
+01:06:41,307 --> 01:06:43,140
+It could be another
+file extension, as well,
+
+1422
+01:06:43,140 --> 01:06:44,770
+but this is one of the standard ones.
+
+1423
+01:06:44,770 --> 01:06:48,220
+And notice that-- let me close the
+console-- if I double-click this,
+
+1424
+01:06:48,220 --> 01:06:52,600
+this is going to open a special
+tab in the IDE called phpLiteAdmin.
+
+1425
+01:06:52,600 --> 01:06:57,220
+What I am now seeing is
+the content of lecture.db.
+
+1426
+01:06:57,220 --> 01:07:00,490
+Lecture.db is a binary
+file, zeros and ones,
+
+1427
+01:07:00,490 --> 01:07:03,304
+that represents a SQLite database
+that I made before class.
+
+1428
+01:07:03,304 --> 01:07:06,220
+So I essentially downloaded all this
+data, I made a few changes to it,
+
+1429
+01:07:06,220 --> 01:07:08,950
+and then saved it in a
+file called lecture.db.
+
+1430
+01:07:08,950 --> 01:07:12,820
+phpLiteAdmin, this GUI
+here in the tab, is just
+
+1431
+01:07:12,820 --> 01:07:17,110
+a way of visualizing for us
+humans what's in this database.
+
+1432
+01:07:17,110 --> 01:07:20,170
+And you can see there's a bunch of
+tables, I think 11 different tables,
+
+1433
+01:07:20,170 --> 01:07:22,730
+that I named identically
+to the Google spreadsheet.
+
+1434
+01:07:22,730 --> 01:07:25,210
+So this is the SQLite equivalent
+of the Google spreadsheet.
+
+1435
+01:07:25,210 --> 01:07:28,630
+But notice just from the links alone--
+not that this is a very good design--
+
+1436
+01:07:28,630 --> 01:07:31,360
+the overwhelming amount of
+functionality that I now get.
+
+1437
+01:07:31,360 --> 01:07:34,960
+I have the ability apparently already
+to browse the data, search the data,
+
+1438
+01:07:34,960 --> 01:07:38,250
+insert, export the data,
+empty the data, and so forth
+
+1439
+01:07:38,250 --> 01:07:39,914
+that we just get from a database.
+
+1440
+01:07:39,914 --> 01:07:41,830
+And we'll see how to do
+that in just a moment.
+
+1441
+01:07:41,830 --> 01:07:43,840
+If I go ahead and click
+on Album, I'm gonna
+
+1442
+01:07:43,840 --> 01:07:47,410
+see the same data as before
+within this graphical tool,
+
+1443
+01:07:47,410 --> 01:07:49,780
+but again I just have
+some handy functionality.
+
+1444
+01:07:49,780 --> 01:07:53,120
+I have the ability to edit each
+of these albums, delete them.
+
+1445
+01:07:53,120 --> 01:07:56,450
+But I can also see the artist ID.
+
+1446
+01:07:56,450 --> 01:08:01,300
+Now, this isn't all that useful,
+but let me go ahead and do this.
+
+1447
+01:08:01,300 --> 01:08:04,150
+Let me go ahead and go to the SQL tab.
+
+1448
+01:08:04,150 --> 01:08:06,540
+And this is where this
+tool is actually handy.
+
+1449
+01:08:06,540 --> 01:08:09,207
+phpLiteAdmin is not something
+you put on your resume.
+
+1450
+01:08:09,207 --> 01:08:12,040
+This is just like a tool we will
+use to help visualize what's inside
+
+1451
+01:08:12,040 --> 01:08:14,800
+of our database, and to try
+out queries before we actually
+
+1452
+01:08:14,800 --> 01:08:16,720
+write them into code.
+
+1453
+01:08:16,720 --> 01:08:20,800
+I recall from before that one of the
+operations that SQL supports is Select.
+
+1454
+01:08:20,800 --> 01:08:24,920
+So let me try that,
+select star from album.
+
+1455
+01:08:24,920 --> 01:08:26,800
+And these are the key words from SQL.
+
+1456
+01:08:26,800 --> 01:08:28,029
+This is the name of my table.
+
+1457
+01:08:28,029 --> 01:08:30,310
+I could quote it, but it's
+not strictly necessary to,
+
+1458
+01:08:30,310 --> 01:08:31,790
+so I'm not gonna bother here.
+
+1459
+01:08:31,790 --> 01:08:34,660
+And if I go ahead now
+and zoom out-- whoops--
+
+1460
+01:08:34,660 --> 01:08:38,350
+and click Go, this is
+going to select for me
+
+1461
+01:08:38,350 --> 01:08:40,640
+all of the albums in the album table.
+
+1462
+01:08:40,640 --> 01:08:43,390
+Now, this is not all that interesting,
+because just a moment ago I
+
+1463
+01:08:43,390 --> 01:08:46,240
+just clicked on the word album and
+I showed you all of the albums.
+
+1464
+01:08:46,240 --> 01:08:48,390
+But suppose I don't
+care about the album ID.
+
+1465
+01:08:48,390 --> 01:08:50,770
+I don't care about the
+artist ID at the moment.
+
+1466
+01:08:50,770 --> 01:08:57,790
+Well, let me go to SQL tab again
+and do select star from album.
+
+1467
+01:08:57,790 --> 01:09:00,580
+But instead of star, which
+was the wildcard, what might
+
+1468
+01:09:00,580 --> 01:09:02,260
+I want to select instead?
+
+1469
+01:09:02,260 --> 01:09:04,250
+Just the name of the album?
+
+1470
+01:09:04,250 --> 01:09:06,040
+So let me do that, select--
+
+1471
+01:09:06,040 --> 01:09:08,740
+oh sorry, it was called
+title, title from album.
+
+1472
+01:09:08,740 --> 01:09:09,670
+Click Go.
+
+1473
+01:09:09,670 --> 01:09:15,479
+And now I get back a set of rows,
+a result set, as it's called,
+
+1474
+01:09:15,479 --> 01:09:17,310
+of just the titles.
+
+1475
+01:09:17,310 --> 01:09:20,310
+Now again, I'm not programming,
+I'm not using this data.
+
+1476
+01:09:20,310 --> 01:09:24,960
+But this is the language, the way I
+can express myself in the SQL language
+
+1477
+01:09:24,960 --> 01:09:27,660
+to get back only the data I care about.
+
+1478
+01:09:27,660 --> 01:09:28,410
+And you know what?
+
+1479
+01:09:28,410 --> 01:09:29,863
+Let me go ahead and do this now.
+
+1480
+01:09:29,863 --> 01:09:31,529
+And this is where it gets more powerful.
+
+1481
+01:09:31,529 --> 01:09:35,100
+If I go back to selecting all
+the data, there's the artist ID.
+
+1482
+01:09:35,100 --> 01:09:36,330
+How do I get the artist ID?
+
+1483
+01:09:36,330 --> 01:09:39,510
+Well let me go to Artist, and
+there's that same data, artist ID
+
+1484
+01:09:39,510 --> 01:09:40,830
+and all of the names.
+
+1485
+01:09:40,830 --> 01:09:42,580
+But here's where SQL gets powerful.
+
+1486
+01:09:42,580 --> 01:09:45,450
+I can now take one table,
+one of whose columns
+
+1487
+01:09:45,450 --> 01:09:48,060
+is these numbers, take another
+table, one of whose columns
+
+1488
+01:09:48,060 --> 01:09:51,569
+is these numbers, as well, and
+I can kind of join them cleverly
+
+1489
+01:09:51,569 --> 01:09:54,840
+by lining up the numbers
+that are identical in both.
+
+1490
+01:09:54,840 --> 01:09:58,410
+The syntax is a little funky
+at first, but let's try this.
+
+1491
+01:09:58,410 --> 01:10:04,320
+Select star from album join artist.
+
+1492
+01:10:04,320 --> 01:10:05,400
+I want to join the two.
+
+1493
+01:10:05,400 --> 01:10:08,830
+But now I have to tell the
+database what two columns to join.
+
+1494
+01:10:08,830 --> 01:10:11,700
+It just looks like numbers, but
+I have to tell the database which
+
+1495
+01:10:11,700 --> 01:10:13,110
+columns should line up.
+
+1496
+01:10:13,110 --> 01:10:24,580
+So artist on album dot artist
+ID equals artist dot artist ID.
+
+1497
+01:10:24,580 --> 01:10:26,910
+So this is just a predicate
+or a condition at the end,
+
+1498
+01:10:26,910 --> 01:10:29,160
+but you can kind of read it intuitively.
+
+1499
+01:10:29,160 --> 01:10:33,360
+Select everything from the result
+of joining album and artist,
+
+1500
+01:10:33,360 --> 01:10:36,300
+provided you join them
+on album dot artist
+
+1501
+01:10:36,300 --> 01:10:42,110
+ID, which is the artist ID column
+in the album table on the artist ID
+
+1502
+01:10:42,110 --> 01:10:43,920
+column in the artist table.
+
+1503
+01:10:43,920 --> 01:10:45,960
+So that's kind of doing
+this digital equivalent.
+
+1504
+01:10:45,960 --> 01:10:49,560
+And so now if I go ahead
+and click Go, amazing.
+
+1505
+01:10:49,560 --> 01:10:53,490
+Like, now I get back all
+of the data reconstructed
+
+1506
+01:10:53,490 --> 01:10:57,000
+in a way that's useful, because
+now every row contains the album
+
+1507
+01:10:57,000 --> 01:11:00,480
+ID and the artist ID, but
+more importantly the title
+
+1508
+01:11:00,480 --> 01:11:04,290
+of the song and the name of the artist.
+
+1509
+01:11:04,290 --> 01:11:08,790
+And I now have the ability to query for
+the data I want without inefficiently
+
+1510
+01:11:08,790 --> 01:11:11,750
+storing all of this together.
+
+1511
+01:11:11,750 --> 01:11:16,200
+And I can actually store a join
+on yet more tables in here, too.
+
+1512
+01:11:16,200 --> 01:11:19,351
+You'll notice that playlist, for
+instance, is one of the tables in here,
+
+1513
+01:11:19,351 --> 01:11:22,350
+because this digital music store
+supports the ability to make playlists.
+
+1514
+01:11:22,350 --> 01:11:27,840
+And here we have playlist IDs
+which map to playlist names.
+
+1515
+01:11:27,840 --> 01:11:31,320
+But how do you associate
+songs with a playlist?
+
+1516
+01:11:31,320 --> 01:11:33,600
+Well, if a playlist just
+has a name and an ID,
+
+1517
+01:11:33,600 --> 01:11:38,120
+you need some way of associating songs
+with a playlist by way of these IDs.
+
+1518
+01:11:38,120 --> 01:11:41,210
+So we actually need kind of a many
+to many relationship, so to speak.
+
+1519
+01:11:41,210 --> 01:11:43,043
+And that's what a
+database person would say.
+
+1520
+01:11:43,043 --> 01:11:45,690
+If you want multiple
+people, playlists, to all
+
+1521
+01:11:45,690 --> 01:11:48,780
+be able to have different songs
+but maybe overlapping songs,
+
+1522
+01:11:48,780 --> 01:11:51,270
+so that you can't dedicate
+one song to one person,
+
+1523
+01:11:51,270 --> 01:11:53,020
+you want a many to many relationship.
+
+1524
+01:11:53,020 --> 01:11:56,970
+And so if we look at Playlist
+Track, notice this column is crazy.
+
+1525
+01:11:56,970 --> 01:11:59,010
+This column-- or rather this table--
+
+1526
+01:11:59,010 --> 01:12:04,770
+has just playlist ID, track
+ID, whereby track ID maps
+
+1527
+01:12:04,770 --> 01:12:09,300
+to one of the rows in the track table,
+playlist ID maps to one of the rows
+
+1528
+01:12:09,300 --> 01:12:11,500
+in the playlist table.
+
+1529
+01:12:11,500 --> 01:12:15,780
+And by using this table and
+joining with multiple tables,
+
+1530
+01:12:15,780 --> 01:12:19,430
+we can map playlist, which is
+just names of playlists and IDs,
+
+1531
+01:12:19,430 --> 01:12:23,880
+to tracks, which is names
+of songs on certain albums.
+
+1532
+01:12:23,880 --> 01:12:26,460
+And with the right join
+commands, I can actually
+
+1533
+01:12:26,460 --> 01:12:29,790
+reconstruct all of the data I
+care about, and then in one breath
+
+1534
+01:12:29,790 --> 01:12:32,250
+get all of the data back
+and let the database figure
+
+1535
+01:12:32,250 --> 01:12:35,160
+out how to find all of those
+people and all of those songs
+
+1536
+01:12:35,160 --> 01:12:37,200
+and all of those playlists efficiently.
+
+1537
+01:12:37,200 --> 01:12:40,230
+A CSV, you would have to read
+every darn file top to bottom
+
+1538
+01:12:40,230 --> 01:12:42,870
+and then figure it all out yourself.
+
+1539
+01:12:42,870 --> 01:12:45,510
+But there are some key
+design decisions to be made.
+
+1540
+01:12:45,510 --> 01:12:49,080
+I mentioned earlier not just these
+data types that SQL supports,
+
+1541
+01:12:49,080 --> 01:12:57,080
+but also the constraints pictured here.
+
+1542
+01:12:57,080 --> 01:13:01,160
+So these are a few new terms
+that we now need as ingredients
+
+1543
+01:13:01,160 --> 01:13:02,540
+to designing a good database.
+
+1544
+01:13:02,540 --> 01:13:04,920
+And we've seen one of
+these before, Primary Key.
+
+1545
+01:13:04,920 --> 01:13:07,100
+It turns out that, anytime
+in one of these tables
+
+1546
+01:13:07,100 --> 01:13:10,910
+we have defined for ourselves an
+arbitrary but a unique number,
+
+1547
+01:13:10,910 --> 01:13:14,240
+generally in the left-hand column,
+just by convention, called ID or called
+
+1548
+01:13:14,240 --> 01:13:17,240
+Artist ID or Album ID,
+whatever you call it,
+
+1549
+01:13:17,240 --> 01:13:19,700
+that we've declared
+typically as a primary key.
+
+1550
+01:13:19,700 --> 01:13:23,110
+This is a way of telling the database,
+when you design the database,
+
+1551
+01:13:23,110 --> 01:13:28,300
+give me a table with an ID column
+that is meant to be the primary key.
+
+1552
+01:13:28,300 --> 01:13:33,010
+That is, database, I promise to you
+that this column will always be unique.
+
+1553
+01:13:33,010 --> 01:13:35,480
+Therefore, database,
+use this in the future.
+
+1554
+01:13:35,480 --> 01:13:37,400
+Anytime you want to do
+something efficient,
+
+1555
+01:13:37,400 --> 01:13:40,220
+rely on that column as
+uniquely identifying rows.
+
+1556
+01:13:40,220 --> 01:13:42,590
+Don't use albums or
+artist names and titles,
+
+1557
+01:13:42,590 --> 01:13:44,900
+which can be longer and non-unique.
+
+1558
+01:13:44,900 --> 01:13:46,460
+Instead, use that, as well.
+
+1559
+01:13:46,460 --> 01:13:50,780
+But there's other fields that you
+might want to flag as being unique,
+
+1560
+01:13:50,780 --> 01:13:54,110
+but not your primary key, the
+number that uniquely identifies.
+
+1561
+01:13:54,110 --> 01:13:58,910
+Like in the world of customers, which
+field that we played with a moment ago
+
+1562
+01:13:58,910 --> 01:14:01,910
+might you arguably want to make unique?
+
+1563
+01:14:01,910 --> 01:14:05,730
+And this was our own little
+database here of customers.
+
+1564
+01:14:05,730 --> 01:14:09,120
+Which are the candidates
+for unique values here?
+
+1565
+01:14:09,120 --> 01:14:11,780
+
+
+1566
+01:14:11,780 --> 01:14:13,660
+In back?
+
+1567
+01:14:13,660 --> 01:14:14,443
+No, here.
+
+1568
+01:14:14,443 --> 01:14:15,170
+AUDIENCE: Phone.
+
+1569
+01:14:15,170 --> 01:14:16,080
+DAVID MALAN: No.
+
+1570
+01:14:16,080 --> 01:14:19,550
+Phone, phone could be unique, certainly
+in the world of mobile phones.
+
+1571
+01:14:19,550 --> 01:14:21,170
+But some people still have landlines.
+
+1572
+01:14:21,170 --> 01:14:22,850
+That might get a little messy.
+
+1573
+01:14:22,850 --> 01:14:24,330
+So maybe, maybe not.
+
+1574
+01:14:24,330 --> 01:14:25,050
+What else?
+
+1575
+01:14:25,050 --> 01:14:26,090
+AUDIENCE: Names?
+
+1576
+01:14:26,090 --> 01:14:28,670
+DAVID MALAN: Names, maybe.
+
+1577
+01:14:28,670 --> 01:14:30,816
+But if you Google
+yourself, odds are there's
+
+1578
+01:14:30,816 --> 01:14:32,690
+many people in the world
+with your same name.
+
+1579
+01:14:32,690 --> 01:14:35,990
+And you don't want to have one of you
+only buying things from the store.
+
+1580
+01:14:35,990 --> 01:14:36,490
+Yeah.
+
+1581
+01:14:36,490 --> 01:14:36,900
+AUDIENCE: [INAUDIBLE].
+
+1582
+01:14:36,900 --> 01:14:37,150
+DAVID MALAN: What's that?
+
+1583
+01:14:37,150 --> 01:14:37,750
+AUDIENCE: [INAUDIBLE].
+
+1584
+01:14:37,750 --> 01:14:39,560
+DAVID MALAN: Email probably more likely.
+
+1585
+01:14:39,560 --> 01:14:42,224
+Now, we can probably think
+of some family members
+
+1586
+01:14:42,224 --> 01:14:44,390
+even who are maybe sharing
+an email address at home,
+
+1587
+01:14:44,390 --> 01:14:46,440
+which complicates even that scenario.
+
+1588
+01:14:46,440 --> 01:14:47,000
+But maybe.
+
+1589
+01:14:47,000 --> 01:14:50,420
+If you do at least want to mandate
+that email addresses be the same--
+
+1590
+01:14:50,420 --> 01:14:52,550
+I'd probably go with
+email over name, which
+
+1591
+01:14:52,550 --> 01:14:54,620
+is gonna collide with multiple people--
+
+1592
+01:14:54,620 --> 01:14:58,040
+then maybe we could specify yes,
+email address for our customers
+
+1593
+01:14:58,040 --> 01:15:00,600
+must be unique, because maybe
+they're using it to log in.
+
+1594
+01:15:00,600 --> 01:15:01,100
+Right?
+
+1595
+01:15:01,100 --> 01:15:03,470
+If you're using email as
+a login name, it better
+
+1596
+01:15:03,470 --> 01:15:06,450
+be unique so that there can't be
+two people with different passwords
+
+1597
+01:15:06,450 --> 01:15:08,559
+but the same username or email address.
+
+1598
+01:15:08,559 --> 01:15:10,100
+But an email address is kind of long.
+
+1599
+01:15:10,100 --> 01:15:12,230
+Malan@harvard.edu, rob@cs.harvard.
+
+1600
+01:15:12,230 --> 01:15:15,200
+Like, that's more bytes than an integer.
+
+1601
+01:15:15,200 --> 01:15:17,990
+So long story short, it
+might make good sense
+
+1602
+01:15:17,990 --> 01:15:20,450
+to uniquely identify your
+users at the end of the day
+
+1603
+01:15:20,450 --> 01:15:23,330
+with just an ID, a numeric
+ID, the primary key.
+
+1604
+01:15:23,330 --> 01:15:27,360
+But one of the features you get from a
+database is you can tell the database,
+
+1605
+01:15:27,360 --> 01:15:30,500
+hey database, make this
+other column also unique,
+
+1606
+01:15:30,500 --> 01:15:36,290
+and make sure that I or my colleagues
+can never accidentally insert data
+
+1607
+01:15:36,290 --> 01:15:38,600
+into the database that is duplicated.
+
+1608
+01:15:38,600 --> 01:15:41,000
+The database will defend
+against that for you.
+
+1609
+01:15:41,000 --> 01:15:43,490
+You don't need ifs and
+else ifs in your own code,
+
+1610
+01:15:43,490 --> 01:15:45,530
+you can let the database
+do that for you.
+
+1611
+01:15:45,530 --> 01:15:47,820
+Index, meanwhile, is really powerful.
+
+1612
+01:15:47,820 --> 01:15:52,310
+You can specify by the
+keyword index, hey database,
+
+1613
+01:15:52,310 --> 01:15:54,840
+this column is important to me.
+
+1614
+01:15:54,840 --> 01:15:57,680
+I am going to want to do
+searches on this column.
+
+1615
+01:15:57,680 --> 01:16:00,290
+I am gonna want to look
+up people by this column.
+
+1616
+01:16:00,290 --> 01:16:03,440
+Therefore, please go ahead
+and index it by using
+
+1617
+01:16:03,440 --> 01:16:08,300
+your sort of secret sauce using fancy
+data structures and solid algorithms
+
+1618
+01:16:08,300 --> 01:16:09,751
+to actually find data efficiently.
+
+1619
+01:16:09,751 --> 01:16:12,500
+And here again is where we're
+standing on the shoulders of others.
+
+1620
+01:16:12,500 --> 01:16:15,470
+Other computer scientists have figured
+out really good algorithms and data
+
+1621
+01:16:15,470 --> 01:16:17,300
+structures, usually
+involving trees, which
+
+1622
+01:16:17,300 --> 01:16:20,390
+we did discuss a few weeks back,
+that allow you to find data generally
+
+1623
+01:16:20,390 --> 01:16:22,730
+in logarithmic time, not linear time.
+
+1624
+01:16:22,730 --> 01:16:24,740
+And so simply by using
+this keyword index,
+
+1625
+01:16:24,740 --> 01:16:29,510
+we'll see you can tell the database
+use those years of knowledge
+
+1626
+01:16:29,510 --> 01:16:32,390
+to actually find data for
+little old me more quickly.
+
+1627
+01:16:32,390 --> 01:16:32,990
+Not null.
+
+1628
+01:16:32,990 --> 01:16:36,230
+You can specify don't let
+null end up in this column.
+
+1629
+01:16:36,230 --> 01:16:37,790
+I must have a user's name.
+
+1630
+01:16:37,790 --> 01:16:39,180
+I must have their phone number.
+
+1631
+01:16:39,180 --> 01:16:40,370
+It cannot be blank.
+
+1632
+01:16:40,370 --> 01:16:44,930
+Foreign key is even more fancy,
+but we've seen it already, in fact.
+
+1633
+01:16:44,930 --> 01:16:51,630
+When we looked in just these examples
+here, rather for the songs database,
+
+1634
+01:16:51,630 --> 01:16:54,980
+notice that in Album we
+had two types of IDs.
+
+1635
+01:16:54,980 --> 01:16:59,780
+We had album ID in the Album
+table associated with titles,
+
+1636
+01:16:59,780 --> 01:17:03,450
+and then each of these albums
+was associated with an artist ID.
+
+1637
+01:17:03,450 --> 01:17:05,660
+And we've got two
+keywords here to apply.
+
+1638
+01:17:05,660 --> 01:17:08,360
+I claim that this is the
+primary key for this table
+
+1639
+01:17:08,360 --> 01:17:10,610
+because it just uniquely
+identifies the albums.
+
+1640
+01:17:10,610 --> 01:17:11,630
+Why is that the primary?
+
+1641
+01:17:11,630 --> 01:17:14,810
+Well, the table itself, the
+spreadsheet is called Album.
+
+1642
+01:17:14,810 --> 01:17:18,890
+This is the unique ID that's primarily
+responsible for identifying rows.
+
+1643
+01:17:18,890 --> 01:17:22,230
+That key over there is not primary,
+because there can only be one,
+
+1644
+01:17:22,230 --> 01:17:23,630
+so it's called a foreign key.
+
+1645
+01:17:23,630 --> 01:17:26,884
+But it's foreign in what sense?
+
+1646
+01:17:26,884 --> 01:17:28,106
+AUDIENCE: [INAUDIBLE].
+
+1647
+01:17:28,106 --> 01:17:29,189
+DAVID MALAN: Say it again?
+
+1648
+01:17:29,189 --> 01:17:30,120
+AUDIENCE: [INAUDIBLE].
+
+1649
+01:17:30,120 --> 01:17:31,203
+DAVID MALAN: To the album.
+
+1650
+01:17:31,203 --> 01:17:34,230
+It's related to the album
+in that it's the artist,
+
+1651
+01:17:34,230 --> 01:17:36,300
+but it's foreign in what way?
+
+1652
+01:17:36,300 --> 01:17:37,242
+AUDIENCE: [INAUDIBLE].
+
+1653
+01:17:37,242 --> 01:17:39,700
+DAVID MALAN: It's in a different
+file in a different table.
+
+1654
+01:17:39,700 --> 01:17:43,200
+So it is a primary key
+in another table, which
+
+1655
+01:17:43,200 --> 01:17:46,480
+is what makes it foreign if we
+mention it in this table, right?
+
+1656
+01:17:46,480 --> 01:17:49,870
+Strictly speaking, this column
+doesn't need to be here.
+
+1657
+01:17:49,870 --> 01:17:51,720
+I could just go ahead
+and forget about all
+
+1658
+01:17:51,720 --> 01:17:53,820
+of the values in this
+highlighted column.
+
+1659
+01:17:53,820 --> 01:17:58,421
+But once I add it, that allows me to
+link it primarily to another table,
+
+1660
+01:17:58,421 --> 01:18:00,670
+because in this context it's
+just called foreign keys.
+
+1661
+01:18:00,670 --> 01:18:02,310
+So that's it for the vocabulary there.
+
+1662
+01:18:02,310 --> 01:18:03,810
+So what does this actually all mean?
+
+1663
+01:18:03,810 --> 01:18:06,540
+Let me go ahead now
+into phpLiteAdmin, which
+
+1664
+01:18:06,540 --> 01:18:09,660
+is again just our web-based
+tool for manipulating data.
+
+1665
+01:18:09,660 --> 01:18:11,670
+And let me go ahead
+actually and do this.
+
+1666
+01:18:11,670 --> 01:18:14,790
+Let me go ahead and close
+this version of phpLiteAdmin.
+
+1667
+01:18:14,790 --> 01:18:16,950
+Let me go back over to my file browser.
+
+1668
+01:18:16,950 --> 01:18:20,160
+And let me open up a terminal
+window for just a moment.
+
+1669
+01:18:20,160 --> 01:18:22,230
+And I'm actually gonna
+go ahead and do this.
+
+1670
+01:18:22,230 --> 01:18:26,040
+If I want to create a new file in
+Linux, the operating system we're using,
+
+1671
+01:18:26,040 --> 01:18:28,950
+you can actually do this pretty
+easily by just touching the file,
+
+1672
+01:18:28,950 --> 01:18:30,240
+even if it doesn't exist.
+
+1673
+01:18:30,240 --> 01:18:34,830
+So touch customers.db, and now
+notice at left customers.db exists.
+
+1674
+01:18:34,830 --> 01:18:36,420
+It's just an empty file.
+
+1675
+01:18:36,420 --> 01:18:41,370
+I can now, wonderfully, double-click
+that and begin interacting with it
+
+1676
+01:18:41,370 --> 01:18:42,580
+as though it's a database.
+
+1677
+01:18:42,580 --> 01:18:45,506
+There's no zeros and ones in it
+yet until I start manipulating it,
+
+1678
+01:18:45,506 --> 01:18:47,380
+and that's why it says
+no tables in database.
+
+1679
+01:18:47,380 --> 01:18:48,850
+It's just an empty file.
+
+1680
+01:18:48,850 --> 01:18:52,560
+So let's create an actual table in
+this database akin to what I was doing
+
+1681
+01:18:52,560 --> 01:18:54,990
+in Excel, or in Google Spreadsheets.
+
+1682
+01:18:54,990 --> 01:18:57,440
+So here is where in
+this user interface I
+
+1683
+01:18:57,440 --> 01:18:59,770
+can create a new table
+on database Customers.
+
+1684
+01:18:59,770 --> 01:19:05,450
+So let me go ahead and call this my
+Users table, because they-- well,
+
+1685
+01:19:05,450 --> 01:19:06,810
+we're just gonna call it--
+
+1686
+01:19:06,810 --> 01:19:09,010
+yeah, Users is good.
+
+1687
+01:19:09,010 --> 01:19:11,850
+And number of fields, let's
+just do four this time.
+
+1688
+01:19:11,850 --> 01:19:13,680
+And now I'm gonna go ahead and click Go.
+
+1689
+01:19:13,680 --> 01:19:16,560
+And this is again what
+you get from phpLiteAdmin.
+
+1690
+01:19:16,560 --> 01:19:18,390
+It's just a nice,
+user-friendly interface
+
+1691
+01:19:18,390 --> 01:19:19,690
+for, like, answering questions.
+
+1692
+01:19:19,690 --> 01:19:22,300
+So what columns do I want in this table?
+
+1693
+01:19:22,300 --> 01:19:25,900
+Well, the first one is going
+to be the customer's name,
+
+1694
+01:19:25,900 --> 01:19:30,120
+or maybe it should be first name, so
+like first underscore name or F Name
+
+1695
+01:19:30,120 --> 01:19:31,500
+or whatever you want to call it.
+
+1696
+01:19:31,500 --> 01:19:32,690
+I'll just call it First.
+
+1697
+01:19:32,690 --> 01:19:34,465
+What should the data type be?
+
+1698
+01:19:34,465 --> 01:19:35,090
+AUDIENCE: Text.
+
+1699
+01:19:35,090 --> 01:19:36,090
+DAVID MALAN: Yeah, text.
+
+1700
+01:19:36,090 --> 01:19:39,391
+And then last name should be text.
+
+1701
+01:19:39,391 --> 01:19:41,140
+And actually, I'm
+getting ahead of myself.
+
+1702
+01:19:41,140 --> 01:19:43,431
+I don't want to uniquely
+identify users by their names.
+
+1703
+01:19:43,431 --> 01:19:44,500
+What did we decide?
+
+1704
+01:19:44,500 --> 01:19:45,134
+AUDIENCE: ID.
+
+1705
+01:19:45,134 --> 01:19:46,050
+DAVID MALAN: Yeah, ID.
+
+1706
+01:19:46,050 --> 01:19:48,540
+So just to be kind of tidy,
+I'm gonna put it first.
+
+1707
+01:19:48,540 --> 01:19:51,370
+It doesn't strictly matter,
+but it's just kind of the norm.
+
+1708
+01:19:51,370 --> 01:19:53,850
+So I could call this
+ID, as would be a norm.
+
+1709
+01:19:53,850 --> 01:19:56,400
+You could call it user ID,
+which might be another norm,
+
+1710
+01:19:56,400 --> 01:19:58,860
+so long as you're consistent
+is what's important.
+
+1711
+01:19:58,860 --> 01:20:01,350
+This should be not text but integer.
+
+1712
+01:20:01,350 --> 01:20:02,910
+And notice these other features.
+
+1713
+01:20:02,910 --> 01:20:05,920
+I can tell the database
+this is my primary key.
+
+1714
+01:20:05,920 --> 01:20:08,322
+And now no other field
+should be primary.
+
+1715
+01:20:08,322 --> 01:20:11,530
+I can tell the database, you know what,
+you deal with auto incrementing this.
+
+1716
+01:20:11,530 --> 01:20:13,571
+I don't want to keep track
+of who is what number.
+
+1717
+01:20:13,571 --> 01:20:16,260
+The database can assign
+an auto-incremented ID,
+
+1718
+01:20:16,260 --> 01:20:18,925
+so one becomes two
+becomes three over time.
+
+1719
+01:20:18,925 --> 01:20:22,470
+Not null is a given, because if it's
+a primary key it can't be blank.
+
+1720
+01:20:22,470 --> 01:20:25,780
+And then this is irrelevant here,
+but you can give default values.
+
+1721
+01:20:25,780 --> 01:20:28,150
+So for instance, if,
+for whatever reason,
+
+1722
+01:20:28,150 --> 01:20:31,650
+people want to remain anonymous
+in their name, we could say,
+
+1723
+01:20:31,650 --> 01:20:33,960
+well, the default name for
+everyone in my database
+
+1724
+01:20:33,960 --> 01:20:35,740
+will be Bob, or something like that.
+
+1725
+01:20:35,740 --> 01:20:37,440
+But that is kind of silly, as well.
+
+1726
+01:20:37,440 --> 01:20:42,300
+We probably want to say that there is
+no default value, but rather first name
+
+1727
+01:20:42,300 --> 01:20:47,430
+and last name must not be null so that
+the users must cooperate and provide us
+
+1728
+01:20:47,430 --> 01:20:48,090
+with a value.
+
+1729
+01:20:48,090 --> 01:20:50,640
+As for the last one here, I don't
+know, we'll just use email for now.
+
+1730
+01:20:50,640 --> 01:20:51,660
+We'll make that text.
+
+1731
+01:20:51,660 --> 01:20:54,030
+And it turns out you can't
+specify in the database
+
+1732
+01:20:54,030 --> 01:20:56,790
+that an email address must
+have something at something.
+
+1733
+01:20:56,790 --> 01:20:59,010
+We're gonna have to do that
+if we ever want in code.
+
+1734
+01:20:59,010 --> 01:21:00,820
+But I can at least make it not null.
+
+1735
+01:21:00,820 --> 01:21:01,920
+Now notice what happens.
+
+1736
+01:21:01,920 --> 01:21:04,260
+Even though this is a GUI,
+graphical user interface,
+
+1737
+01:21:04,260 --> 01:21:09,470
+when I click Create now, I'm told
+this-- table Users has been created.
+
+1738
+01:21:09,470 --> 01:21:13,190
+But what's nice about phpLiteAdmin,
+which is largely why we use it,
+
+1739
+01:21:13,190 --> 01:21:15,080
+is it's a good teaching tool, too.
+
+1740
+01:21:15,080 --> 01:21:20,966
+This is what phpLiteAdmin just
+executed in order to create this table.
+
+1741
+01:21:20,966 --> 01:21:23,840
+So it's a way of kind of learning
+SQL as you go by just click, click,
+
+1742
+01:21:23,840 --> 01:21:28,430
+clicking in a user-friendly way,
+and then seeing immediately feedback
+
+1743
+01:21:28,430 --> 01:21:31,280
+as to what command you could
+have just typed manually
+
+1744
+01:21:31,280 --> 01:21:32,900
+in order to create that same table.
+
+1745
+01:21:32,900 --> 01:21:36,030
+And it's wrapping because it's a little
+long, and it's not nicely indented.
+
+1746
+01:21:36,030 --> 01:21:37,520
+But here, we have
+something very reminiscent
+
+1747
+01:21:37,520 --> 01:21:39,050
+of what I put on the board earlier.
+
+1748
+01:21:39,050 --> 01:21:41,966
+We have an ID field that's an
+integer, that's a primary key.
+
+1749
+01:21:41,966 --> 01:21:44,090
+And by the way, it should
+also be auto-incremented.
+
+1750
+01:21:44,090 --> 01:21:45,140
+That's a new feature.
+
+1751
+01:21:45,140 --> 01:21:46,760
+But it cannot be null.
+
+1752
+01:21:46,760 --> 01:21:49,730
+Over here, first name is
+text, must not be null.
+
+1753
+01:21:49,730 --> 01:21:51,710
+Last is-- should not be an integer.
+
+1754
+01:21:51,710 --> 01:21:52,790
+That's a screw-up.
+
+1755
+01:21:52,790 --> 01:21:56,240
+So I should have made that text,
+so that's flawed at the moment.
+
+1756
+01:21:56,240 --> 01:21:59,027
+And then email all the way
+over here is text, not null.
+
+1757
+01:21:59,027 --> 01:22:00,360
+So what does this actually mean?
+
+1758
+01:22:00,360 --> 01:22:03,680
+Well, let me show you one other way
+before we use this in actual code
+
+1759
+01:22:03,680 --> 01:22:06,620
+as to how else I could be
+interacting with this database.
+
+1760
+01:22:06,620 --> 01:22:12,110
+If I open up a terminal and I go
+ahead and type this now, SQLite
+
+1761
+01:22:12,110 --> 01:22:14,780
+3, which is the third
+version of the program,
+
+1762
+01:22:14,780 --> 01:22:18,680
+I'm gonna make this my alternative
+database and hit Enter.
+
+1763
+01:22:18,680 --> 01:22:19,970
+This is not as user-friendly.
+
+1764
+01:22:19,970 --> 01:22:23,834
+Like, I have to know what I type, or it
+seems I can type Help to get some help.
+
+1765
+01:22:23,834 --> 01:22:26,750
+And these are all of the commands
+that I can type at the command line.
+
+1766
+01:22:26,750 --> 01:22:28,370
+It's not all that user-friendly.
+
+1767
+01:22:28,370 --> 01:22:29,540
+But I do know this.
+
+1768
+01:22:29,540 --> 01:22:33,650
+Once I know SQL, I can just interact
+with this with SQL commands.
+
+1769
+01:22:33,650 --> 01:22:36,290
+And I'm gonna go ahead and fix
+this in my alternative database.
+
+1770
+01:22:36,290 --> 01:22:39,710
+I did not mean to say integer,
+so let me make that text.
+
+1771
+01:22:39,710 --> 01:22:42,620
+I'm gonna put a semicolon at the
+end, which is typically needed,
+
+1772
+01:22:42,620 --> 01:22:44,640
+though it's not always needed.
+
+1773
+01:22:44,640 --> 01:22:46,580
+So let me go ahead and hit Enter now.
+
+1774
+01:22:46,580 --> 01:22:48,060
+Nothing seems to happen.
+
+1775
+01:22:48,060 --> 01:22:52,400
+But in SQLite, if I type Schema,
+schema is like my database design.
+
+1776
+01:22:52,400 --> 01:22:54,530
+.schema means show me my database.
+
+1777
+01:22:54,530 --> 01:22:57,350
+And any command that starts
+with a dot is SQLite specific.
+
+1778
+01:22:57,350 --> 01:23:01,290
+It is not SQL, it's now part of the
+language, it's just a local command.
+
+1779
+01:23:01,290 --> 01:23:02,630
+Oh, that's kind of cool.
+
+1780
+01:23:02,630 --> 01:23:07,100
+It just spits back out what
+it is my tables look like.
+
+1781
+01:23:07,100 --> 01:23:08,389
+I can see this in another way.
+
+1782
+01:23:08,389 --> 01:23:10,430
+Let me go ahead and close
+this for just a moment.
+
+1783
+01:23:10,430 --> 01:23:13,430
+And notice that, in today's
+files on the website,
+
+1784
+01:23:13,430 --> 01:23:16,917
+I have lecture.db, which was the music
+database that we opened up earlier.
+
+1785
+01:23:16,917 --> 01:23:17,750
+Let me look at that.
+
+1786
+01:23:17,750 --> 01:23:20,090
+SQLite 2, lecture.db.
+
+1787
+01:23:20,090 --> 01:23:22,550
+Let me do .schema.
+
+1788
+01:23:22,550 --> 01:23:23,150
+Oh.
+
+1789
+01:23:23,150 --> 01:23:28,184
+That is all of the data inside of this
+database redisplayed to me as text.
+
+1790
+01:23:28,184 --> 01:23:30,600
+So I can kind of back it up
+if I want, or do other things.
+
+1791
+01:23:30,600 --> 01:23:32,641
+But let's just skim it
+for something interesting.
+
+1792
+01:23:32,641 --> 01:23:34,110
+Let me go to the top.
+
+1793
+01:23:34,110 --> 01:23:37,040
+And here we have, nicely
+formatted, these are the commands
+
+1794
+01:23:37,040 --> 01:23:40,280
+that the people who wrote this database
+online from whom we downloaded it
+
+1795
+01:23:40,280 --> 01:23:41,330
+essentially made.
+
+1796
+01:23:41,330 --> 01:23:42,890
+Create Table, Album.
+
+1797
+01:23:42,890 --> 01:23:46,460
+The square brackets are optional, but
+they just are alternatives to quotes.
+
+1798
+01:23:46,460 --> 01:23:49,510
+One of the fields will be called
+Album ID, Title, Artist ID.
+
+1799
+01:23:49,510 --> 01:23:51,530
+We've seen those things before.
+
+1800
+01:23:51,530 --> 01:23:54,169
+One is an integer, one is
+text, another is integer.
+
+1801
+01:23:54,169 --> 01:23:56,960
+And then we'd see these features
+here, which we didn't see earlier.
+
+1802
+01:23:56,960 --> 01:23:58,760
+And I'm gonna wave my
+hand at them for now.
+
+1803
+01:23:58,760 --> 01:24:03,090
+But there is a way to tell the database
+that there is indeed a foreign key.
+
+1804
+01:24:03,090 --> 01:24:07,850
+So you can say, in this table, there's
+a number that refers to another table,
+
+1805
+01:24:07,850 --> 01:24:10,700
+and you can let the database
+make sure that you can never
+
+1806
+01:24:10,700 --> 01:24:17,180
+add an artist ID that doesn't
+map to an actual artist.
+
+1807
+01:24:17,180 --> 01:24:19,445
+So you can't just insert
+artist number one, two, three
+
+1808
+01:24:19,445 --> 01:24:22,364
+if artist number one, two,
+three doesn't even exist.
+
+1809
+01:24:22,364 --> 01:24:24,530
+So again, another feature
+you get from the database.
+
+1810
+01:24:24,530 --> 01:24:27,489
+And for PSET 7 we're just gonna
+scratch the surface of some of these.
+
+1811
+01:24:27,489 --> 01:24:30,530
+But again, this is one of the reasons
+that you sort of graduate from text
+
+1812
+01:24:30,530 --> 01:24:33,613
+files and you graduate from [INAUDIBLE]
+and start using [? full-pledged ?]
+
+1813
+01:24:33,613 --> 01:24:38,270
+database software like SQLite
+or Oracle or other such tools.
+
+1814
+01:24:38,270 --> 01:24:45,640
+So let me pause to see if there's any
+questions before we dive into Python.
+
+1815
+01:24:45,640 --> 01:24:47,770
+All right, so let's now
+actually use this in code.
+
+1816
+01:24:47,770 --> 01:24:54,750
+The value of seeing, hopefully,
+SQLite 3 and in seeing phpLiteAdmin
+
+1817
+01:24:54,750 --> 01:24:58,000
+is just so that you have tools with
+which you can create your databases
+
+1818
+01:24:58,000 --> 01:25:00,340
+and actually see what's
+inside of them without having
+
+1819
+01:25:00,340 --> 01:25:04,030
+to write code to do both, which just
+makes it very hard and annoying to get
+
+1820
+01:25:04,030 --> 01:25:04,690
+started.
+
+1821
+01:25:04,690 --> 01:25:07,780
+So phpLiteAdmin is what you'll
+use for problem set seven.
+
+1822
+01:25:07,780 --> 01:25:09,890
+And we'll end with a
+look at that in a bit.
+
+1823
+01:25:09,890 --> 01:25:12,320
+But it's just a way of
+administering your database.
+
+1824
+01:25:12,320 --> 01:25:14,980
+It's not actually the
+intellectually juicy part.
+
+1825
+01:25:14,980 --> 01:25:17,660
+For that, we're gonna need
+some actual Python code.
+
+1826
+01:25:17,660 --> 01:25:21,280
+So for that, let me go ahead
+and open up my console again.
+
+1827
+01:25:21,280 --> 01:25:23,240
+Let me get some tabs open here.
+
+1828
+01:25:23,240 --> 01:25:29,140
+And let me go into let's say
+Lecture 0 folder from today.
+
+1829
+01:25:29,140 --> 01:25:31,120
+And this is not online
+now, but soon will be.
+
+1830
+01:25:31,120 --> 01:25:34,510
+Let me open up application.py
+and see what this app is.
+
+1831
+01:25:34,510 --> 01:25:35,810
+Super simple.
+
+1832
+01:25:35,810 --> 01:25:38,290
+This is just copy paste pretty
+much from past examples.
+
+1833
+01:25:38,290 --> 01:25:42,550
+And notice that it has one route,
+slash, that's gonna render index.html.
+
+1834
+01:25:42,550 --> 01:25:43,880
+And then what is that template?
+
+1835
+01:25:43,880 --> 01:25:46,360
+Well, index.html is one of two files.
+
+1836
+01:25:46,360 --> 01:25:49,620
+My layout is big generic
+HTML structure of the page.
+
+1837
+01:25:49,620 --> 01:25:52,130
+Index.html looks like this.
+
+1838
+01:25:52,130 --> 01:25:53,140
+It's a big to-do.
+
+1839
+01:25:53,140 --> 01:25:57,790
+So let's actually do something
+with this program as follows.
+
+1840
+01:25:57,790 --> 01:26:00,370
+But first, let's take a stepping stone.
+
+1841
+01:26:00,370 --> 01:26:04,960
+Let me go into New File,
+save this as lecture.py.
+
+1842
+01:26:04,960 --> 01:26:08,590
+It's just a local script, nothing
+to do with web programming just yet.
+
+1843
+01:26:08,590 --> 01:26:11,560
+And let me go ahead and do this.
+
+1844
+01:26:11,560 --> 01:26:16,090
+First, for those in the room who've
+never seen Python before today,
+
+1845
+01:26:16,090 --> 01:26:18,910
+python lecture.py--
+
+1846
+01:26:18,910 --> 01:26:21,010
+that is a program written in Python.
+
+1847
+01:26:21,010 --> 01:26:23,440
+If you're underwhelmed, that's
+deliberate at this point.
+
+1848
+01:26:23,440 --> 01:26:24,580
+It's a one-line program.
+
+1849
+01:26:24,580 --> 01:26:27,130
+But now we can do something
+so much more powerful.
+
+1850
+01:26:27,130 --> 01:26:29,710
+Let me go ahead and essentially do this.
+
+1851
+01:26:29,710 --> 01:26:34,960
+In pseudo code, query
+database for all albums.
+
+1852
+01:26:34,960 --> 01:26:37,870
+Whoops, albums.
+
+1853
+01:26:37,870 --> 01:26:46,370
+For each album in database,
+print title of album.
+
+1854
+01:26:46,370 --> 01:26:48,910
+Like, suppose this is now
+the program we want to write.
+
+1855
+01:26:48,910 --> 01:26:50,030
+How do I do this?
+
+1856
+01:26:50,030 --> 01:26:52,300
+Well, in Python, I'm gonna
+go ahead and do this.
+
+1857
+01:26:52,300 --> 01:26:55,660
+From CS50, import CS50
+SQL library, which
+
+1858
+01:26:55,660 --> 01:26:57,310
+will be introduced again in PSET 7.
+
+1859
+01:26:57,310 --> 01:26:59,584
+And it just makes SQL a
+little easier to get into.
+
+1860
+01:26:59,584 --> 01:27:02,500
+And for your final projects, you're
+welcome to drop use of the library
+
+1861
+01:27:02,500 --> 01:27:03,070
+all together.
+
+1862
+01:27:03,070 --> 01:27:04,330
+It's just training wheels.
+
+1863
+01:27:04,330 --> 01:27:05,340
+And I'm gonna do this.
+
+1864
+01:27:05,340 --> 01:27:08,110
+DB for database, but I could
+call that anything I want,
+
+1865
+01:27:08,110 --> 01:27:13,945
+is going to get a SQL database whose
+file is of type SQLite colon slash
+
+1866
+01:27:13,945 --> 01:27:16,510
+slash slash just because dot DB.
+
+1867
+01:27:16,510 --> 01:27:19,550
+So long story short, this
+one line of code just says,
+
+1868
+01:27:19,550 --> 01:27:23,450
+hey Python, open a SQLite
+database called lecture.db
+
+1869
+01:27:23,450 --> 01:27:24,700
+that's in the same directory.
+
+1870
+01:27:24,700 --> 01:27:26,320
+That's all.
+
+1871
+01:27:26,320 --> 01:27:30,250
+So after that, I have a
+Python variable called DB.
+
+1872
+01:27:30,250 --> 01:27:34,081
+And this is a variable that allows
+me to talk to the database in code.
+
+1873
+01:27:34,081 --> 01:27:35,330
+And this is the missing piece.
+
+1874
+01:27:35,330 --> 01:27:38,760
+So far the only way we've interacted
+with lecture.db thus far--
+
+1875
+01:27:38,760 --> 01:27:41,110
+and lecture.db, again,
+is the musical database--
+
+1876
+01:27:41,110 --> 01:27:44,830
+is by using phpLiteAdmin, which
+is just this administrative GUI,
+
+1877
+01:27:44,830 --> 01:27:47,380
+or SQLite 3, which is the
+command line version of the same.
+
+1878
+01:27:47,380 --> 01:27:50,380
+We haven't actually done anything
+intellectually interesting by querying
+
+1879
+01:27:50,380 --> 01:27:52,510
+for data in a programmatic way.
+
+1880
+01:27:52,510 --> 01:27:54,040
+I've done it all very manually.
+
+1881
+01:27:54,040 --> 01:27:55,450
+But not now.
+
+1882
+01:27:55,450 --> 01:27:57,040
+Now let me go ahead and do this.
+
+1883
+01:27:57,040 --> 01:28:01,180
+Let me say, go ahead and store
+in a variable called Rows.
+
+1884
+01:28:01,180 --> 01:28:04,840
+All of the rows in the table
+that are the result of executing,
+
+1885
+01:28:04,840 --> 01:28:08,080
+select star from album.
+
+1886
+01:28:08,080 --> 01:28:12,280
+So I'm writing Python code, but inside
+of my Python code I have a string,
+
+1887
+01:28:12,280 --> 01:28:16,840
+and that string has SQL in it.
+
+1888
+01:28:16,840 --> 01:28:19,510
+So what do I now want to
+implement this pseudo code?
+
+1889
+01:28:19,510 --> 01:28:21,070
+So that's what I've just done.
+
+1890
+01:28:21,070 --> 01:28:22,150
+That's my comment.
+
+1891
+01:28:22,150 --> 01:28:24,790
+Now I want to iterate over
+each album in the database.
+
+1892
+01:28:24,790 --> 01:28:26,024
+How can I do this?
+
+1893
+01:28:26,024 --> 01:28:27,440
+Well, let me go ahead and do that.
+
+1894
+01:28:27,440 --> 01:28:32,340
+So for each album in database,
+so for row in rows, old syntax
+
+1895
+01:28:32,340 --> 01:28:34,570
+by now, what do I want to do?
+
+1896
+01:28:34,570 --> 01:28:37,480
+I want to just go ahead
+and print out row--
+
+1897
+01:28:37,480 --> 01:28:41,726
+what were the columns in my album table?
+
+1898
+01:28:41,726 --> 01:28:43,660
+AUDIENCE: [INAUDIBLE]
+
+1899
+01:28:43,660 --> 01:28:45,460
+DAVID MALAN: Yeah, it was album ID and?
+
+1900
+01:28:45,460 --> 01:28:46,650
+AUDIENCE: [INAUDIBLE]
+
+1901
+01:28:46,650 --> 01:28:48,910
+DAVID MALAN: I think it
+was title in the album one.
+
+1902
+01:28:48,910 --> 01:28:50,260
+So I'm gonna do this.
+
+1903
+01:28:50,260 --> 01:28:53,290
+Quote unquote-- I think
+it was called title.
+
+1904
+01:28:53,290 --> 01:28:55,810
+We shall see if I'm
+remembering correctly.
+
+1905
+01:28:55,810 --> 01:28:58,400
+And now let me just put my
+comment over here, as well.
+
+1906
+01:28:58,400 --> 01:29:02,450
+So now we have a pretty short
+program that just executes a query,
+
+1907
+01:29:02,450 --> 01:29:07,840
+and it turns out-- oops, I indented
+excessively-- this variable Rows
+
+1908
+01:29:07,840 --> 01:29:09,350
+contains what's called a result set.
+
+1909
+01:29:09,350 --> 01:29:13,600
+It is a list, an array, a list of all
+of the rows that match that query,
+
+1910
+01:29:13,600 --> 01:29:14,920
+which hopefully is all of them.
+
+1911
+01:29:14,920 --> 01:29:17,020
+Then this is just Python
+from a week or two ago
+
+1912
+01:29:17,020 --> 01:29:22,300
+for each of the row in that Rows
+list, print out that row's title.
+
+1913
+01:29:22,300 --> 01:29:25,300
+Now what is this exactly?
+
+1914
+01:29:25,300 --> 01:29:28,000
+You can think of this as a
+hash table, or a dictionary.
+
+1915
+01:29:28,000 --> 01:29:29,980
+Row is one of the rows.
+
+1916
+01:29:29,980 --> 01:29:31,280
+It has a bunch of columns.
+
+1917
+01:29:31,280 --> 01:29:35,607
+And the syntax in Python for
+indexing into those columns
+
+1918
+01:29:35,607 --> 01:29:36,940
+is just square bracket notation.
+
+1919
+01:29:36,940 --> 01:29:40,740
+This is a dict, or a
+dictionary object in Python.
+
+1920
+01:29:40,740 --> 01:29:41,240
+OK.
+
+1921
+01:29:41,240 --> 01:29:43,430
+So let's cross my fingers
+because I'm not sure
+
+1922
+01:29:43,430 --> 01:29:47,930
+if I named everything correctly here
+and do Python of lecture.py, enter.
+
+1923
+01:29:47,930 --> 01:29:48,430
+Whew.
+
+1924
+01:29:48,430 --> 01:29:49,280
+It worked.
+
+1925
+01:29:49,280 --> 01:29:53,915
+So outputted here is every
+title from the database.
+
+1926
+01:29:53,915 --> 01:29:56,180
+So let me go ahead and just pick one.
+
+1927
+01:29:56,180 --> 01:29:58,730
+For instance, a soprano inspired.
+
+1928
+01:29:58,730 --> 01:30:00,272
+And just do another proof of concept.
+
+1929
+01:30:00,272 --> 01:30:00,855
+You know what?
+
+1930
+01:30:00,855 --> 01:30:02,250
+I don't want to get all of them.
+
+1931
+01:30:02,250 --> 01:30:06,620
+I want to go ahead and
+get where title equals.
+
+1932
+01:30:06,620 --> 01:30:09,110
+And now I will use
+quotes to distinguish it.
+
+1933
+01:30:09,110 --> 01:30:12,590
+So how many rows should
+this query now return?
+
+1934
+01:30:12,590 --> 01:30:13,747
+AUDIENCE: [INAUDIBLE]
+
+1935
+01:30:13,747 --> 01:30:15,080
+DAVID MALAN: Hopefully just one.
+
+1936
+01:30:15,080 --> 01:30:15,740
+So let's see.
+
+1937
+01:30:15,740 --> 01:30:19,100
+Let me go ahead and
+rerun it, lecture.py.
+
+1938
+01:30:19,100 --> 01:30:20,182
+And very nice.
+
+1939
+01:30:20,182 --> 01:30:21,890
+And now two things
+printed, though, which
+
+1940
+01:30:21,890 --> 01:30:24,530
+we didn't see before because there
+was a lot of output, but it was there.
+
+1941
+01:30:24,530 --> 01:30:27,800
+It turns out that the CS50 library, to
+help you out, especially with problem
+
+1942
+01:30:27,800 --> 01:30:31,150
+set seven, always prints out this
+debugging information that you
+
+1943
+01:30:31,150 --> 01:30:32,150
+can technically disable.
+
+1944
+01:30:32,150 --> 01:30:34,820
+It's not part of your program,
+just kind of sent in addition.
+
+1945
+01:30:34,820 --> 01:30:37,430
+This shows you exactly
+what query was executed,
+
+1946
+01:30:37,430 --> 01:30:40,430
+which is gonna be helpful because,
+when you start using web programming,
+
+1947
+01:30:40,430 --> 01:30:43,520
+as we're about to, as well, you can
+then see in your terminal window
+
+1948
+01:30:43,520 --> 01:30:45,920
+what your web app is actually
+doing to make sure your
+
+1949
+01:30:45,920 --> 01:30:47,870
+can diagnose any bugs in your code.
+
+1950
+01:30:47,870 --> 01:30:49,490
+But we can be fancier than this.
+
+1951
+01:30:49,490 --> 01:30:53,910
+Remember for problem set six,
+or soon see in problem set six,
+
+1952
+01:30:53,910 --> 01:30:59,000
+that if you import sys for a Python
+program, this gives us access to what,
+
+1953
+01:30:59,000 --> 01:30:59,975
+among other things?
+
+1954
+01:30:59,975 --> 01:31:00,850
+AUDIENCE: [INAUDIBLE]
+
+1955
+01:31:00,850 --> 01:31:02,850
+DAVID MALAN: Yeah,
+command line arguments.
+
+1956
+01:31:02,850 --> 01:31:08,390
+So what if I do this, where
+title equals something.
+
+1957
+01:31:08,390 --> 01:31:11,180
+I want that to come
+from the command line.
+
+1958
+01:31:11,180 --> 01:31:13,150
+So how can I go about doing this?
+
+1959
+01:31:13,150 --> 01:31:15,410
+Well, turns out there's
+one other piece of syntax
+
+1960
+01:31:15,410 --> 01:31:17,840
+that you need to know
+from the CS50 library.
+
+1961
+01:31:17,840 --> 01:31:21,500
+The Execute method supports what
+are called name placeholders, where
+
+1962
+01:31:21,500 --> 01:31:25,280
+you can essentially say this,
+colon t, or colon title,
+
+1963
+01:31:25,280 --> 01:31:26,910
+or colon whatever you want.
+
+1964
+01:31:26,910 --> 01:31:28,130
+It's just a placeholder.
+
+1965
+01:31:28,130 --> 01:31:30,170
+And I'm just gonna call it t for title.
+
+1966
+01:31:30,170 --> 01:31:31,640
+And what you can then do is this.
+
+1967
+01:31:31,640 --> 01:31:34,730
+You can specify that
+the value of t shall be,
+
+1968
+01:31:34,730 --> 01:31:39,410
+for instance, sys.argv
+bracket 1, which will
+
+1969
+01:31:39,410 --> 01:31:42,590
+be the first word that the human
+typed in at the command line.
+
+1970
+01:31:42,590 --> 01:31:44,600
+And what is Python gonna do?
+
+1971
+01:31:44,600 --> 01:31:48,601
+It's gonna plug this into colon t.
+
+1972
+01:31:48,601 --> 01:31:49,100
+That's all.
+
+1973
+01:31:49,100 --> 01:31:50,420
+It's just a placeholder.
+
+1974
+01:31:50,420 --> 01:31:53,060
+And just as an aside,
+we've seen this before.
+
+1975
+01:31:53,060 --> 01:31:55,340
+Let me delete this for just a moment.
+
+1976
+01:31:55,340 --> 01:31:58,880
+As of like two minutes ago, the
+way you might have done this
+
+1977
+01:31:58,880 --> 01:32:03,140
+is like this, with a so-called f string
+or format string, just plug it in.
+
+1978
+01:32:03,140 --> 01:32:06,450
+This is dangerous, for reasons
+we'll see in just a moment.
+
+1979
+01:32:06,450 --> 01:32:09,590
+So I'm gonna actually do this
+instead, the colon approach,
+
+1980
+01:32:09,590 --> 01:32:14,090
+and let the CS50 library actually
+scrub or sanitize my data so
+
+1981
+01:32:14,090 --> 01:32:17,670
+that the user can't accidentally trick
+me into, like, deleting all of my data.
+
+1982
+01:32:17,670 --> 01:32:19,128
+So now let me go ahead and do this.
+
+1983
+01:32:19,128 --> 01:32:21,140
+Python of lecture.py-- whoops.
+
+1984
+01:32:21,140 --> 01:32:22,850
+Python of lecture.py.
+
+1985
+01:32:22,850 --> 01:32:27,280
+And now let me go ahead and type
+in that same title, which was--
+
+1986
+01:32:27,280 --> 01:32:29,490
+what was it, a soprano?
+
+1987
+01:32:29,490 --> 01:32:31,210
+AUDIENCE: Soprano inspired.
+
+1988
+01:32:31,210 --> 01:32:33,716
+DAVID MALAN: A soprano inspired?
+
+1989
+01:32:33,716 --> 01:32:35,120
+Inspired?
+
+1990
+01:32:35,120 --> 01:32:36,210
+And now I'm using quotes.
+
+1991
+01:32:36,210 --> 01:32:38,274
+Why?
+
+1992
+01:32:38,274 --> 01:32:39,150
+AUDIENCE: [INAUDIBLE]
+
+1993
+01:32:39,150 --> 01:32:40,640
+DAVID MALAN: Yeah, it's one phrase.
+
+1994
+01:32:40,640 --> 01:32:42,230
+I want it all in argv1.
+
+1995
+01:32:42,230 --> 01:32:44,900
+I don't want it partly
+in argv1 and 2 and 3.
+
+1996
+01:32:44,900 --> 01:32:46,550
+It's just gonna be messy.
+
+1997
+01:32:46,550 --> 01:32:47,746
+Enter.
+
+1998
+01:32:47,746 --> 01:32:48,440
+Whew.
+
+1999
+01:32:48,440 --> 01:32:49,470
+It actually worked.
+
+2000
+01:32:49,470 --> 01:32:51,410
+So now I've written
+an interactive program
+
+2001
+01:32:51,410 --> 01:32:56,150
+that takes user input at the command
+line, plugs it into the SQL string,
+
+2002
+01:32:56,150 --> 01:32:59,310
+and actually allows me to get
+the data that I care about.
+
+2003
+01:32:59,310 --> 01:33:00,710
+Now, why did I do this?
+
+2004
+01:33:00,710 --> 01:33:05,990
+As a quick aside, if you do it this
+way, which would have been our technique
+
+2005
+01:33:05,990 --> 01:33:10,400
+as of, again, like minutes ago,
+before seeing this, this technique--
+
+2006
+01:33:10,400 --> 01:33:13,430
+and actually, now I need to
+quote it inside the SQL string,
+
+2007
+01:33:13,430 --> 01:33:15,350
+the library otherwise does that for me--
+
+2008
+01:33:15,350 --> 01:33:17,490
+this is actually very dangerous.
+
+2009
+01:33:17,490 --> 01:33:19,430
+This is violating a
+principle that henceforth
+
+2010
+01:33:19,430 --> 01:33:22,280
+you should be very mindful of.
+
+2011
+01:33:22,280 --> 01:33:26,720
+Why might this be dangerous,
+just plugging in the command line
+
+2012
+01:33:26,720 --> 01:33:27,800
+argument to that string?
+
+2013
+01:33:27,800 --> 01:33:31,258
+AUDIENCE: I could put malicious quotes,
+or I could put, like, [INAUDIBLE]..
+
+2014
+01:33:31,258 --> 01:33:35,710
+
+
+2015
+01:33:35,710 --> 01:33:36,860
+DAVID MALAN: Exactly.
+
+2016
+01:33:36,860 --> 01:33:39,740
+You can plug in sort of
+code that you didn't intend.
+
+2017
+01:33:39,740 --> 01:33:41,330
+So let me go back down here.
+
+2018
+01:33:41,330 --> 01:33:43,730
+What if a really malicious
+user didn't just type
+
+2019
+01:33:43,730 --> 01:33:46,280
+in the beautiful name of
+a song, but did something
+
+2020
+01:33:46,280 --> 01:33:53,386
+like haha semicolon delete from album
+to try to delete your whole database.
+
+2021
+01:33:53,386 --> 01:33:54,510
+This isn't perfectly right.
+
+2022
+01:33:54,510 --> 01:33:56,450
+This won't actually execute properly.
+
+2023
+01:33:56,450 --> 01:33:57,810
+Haha is not a keyword.
+
+2024
+01:33:57,810 --> 01:34:02,760
+But the semicolon means that's it
+for this query, the delete from album
+
+2025
+01:34:02,760 --> 01:34:04,760
+is a valid query that we
+saw before, and this is
+
+2026
+01:34:04,760 --> 01:34:06,500
+what's called a SQL injection attack.
+
+2027
+01:34:06,500 --> 01:34:09,170
+And in fact, this is
+very common even today,
+
+2028
+01:34:09,170 --> 01:34:12,260
+because one of the features you're
+getting from the CS50 library
+
+2029
+01:34:12,260 --> 01:34:15,530
+is sanitization or
+scrubbing of the user input.
+
+2030
+01:34:15,530 --> 01:34:17,990
+And the takeaway for today
+is that you should never
+
+2031
+01:34:17,990 --> 01:34:21,380
+henceforth trust the user's
+input ever, even if it's you.
+
+2032
+01:34:21,380 --> 01:34:24,170
+Get into the habit now of
+distrusting even yourself,
+
+2033
+01:34:24,170 --> 01:34:27,560
+lest you somehow inject data into
+your database that shouldn't be there.
+
+2034
+01:34:27,560 --> 01:34:29,500
+Let me demonstrate this as follows.
+
+2035
+01:34:29,500 --> 01:34:32,660
+So if you're logging in, for instance,
+to a Yale University website,
+
+2036
+01:34:32,660 --> 01:34:34,280
+your login form looks like this.
+
+2037
+01:34:34,280 --> 01:34:36,980
+Or at Harvard University, it looks
+like this, Harvard [? key. ?]
+
+2038
+01:34:36,980 --> 01:34:39,590
+Now I'm gonna g sort of reveal
+what a password prompt actually
+
+2039
+01:34:39,590 --> 01:34:42,320
+looks like without showing the
+bullets, which is the norm,
+
+2040
+01:34:42,320 --> 01:34:45,650
+but in the context of
+the web, if a user were
+
+2041
+01:34:45,650 --> 01:34:50,420
+to type in seemingly dangerous
+instructions, maybe this could happen.
+
+2042
+01:34:50,420 --> 01:34:54,200
+So suppose that my name is
+me@exampleprovider.com or whatever,
+
+2043
+01:34:54,200 --> 01:34:58,580
+and my password is this funky single
+quote or quote unquote one equals one.
+
+2044
+01:34:58,580 --> 01:35:00,140
+Like, this is not a complete thought.
+
+2045
+01:35:00,140 --> 01:35:06,020
+But notice it's miss-- it ends a
+quote here, and it lacks one here.
+
+2046
+01:35:06,020 --> 01:35:07,910
+So it's kind of like
+this partial thought,
+
+2047
+01:35:07,910 --> 01:35:10,220
+because if an adversary
+out there on the internet
+
+2048
+01:35:10,220 --> 01:35:13,779
+is trying to hack into a Harvard
+or a Yale system or the like,
+
+2049
+01:35:13,779 --> 01:35:16,820
+he or she might think what if someone
+at Harvard or Yale wasn't so bright
+
+2050
+01:35:16,820 --> 01:35:20,810
+and did not sanitize users' input,
+and just trusted whatever it is.
+
+2051
+01:35:20,810 --> 01:35:23,480
+Maybe I, the malicious
+adversary, can try
+
+2052
+01:35:23,480 --> 01:35:26,050
+to finish their thought, so
+to speak, in a malicious way.
+
+2053
+01:35:26,050 --> 01:35:27,050
+And what does this mean?
+
+2054
+01:35:27,050 --> 01:35:30,920
+Well, suppose that the code that
+someone at Harvard or Yale had written
+
+2055
+01:35:30,920 --> 01:35:31,910
+looks like this.
+
+2056
+01:35:31,910 --> 01:35:34,370
+Give me a user name variable
+and a password variable
+
+2057
+01:35:34,370 --> 01:35:36,350
+using syntax that we
+started seeing last week,
+
+2058
+01:35:36,350 --> 01:35:38,330
+and you'll see more of
+in problem set seven.
+
+2059
+01:35:38,330 --> 01:35:41,810
+This just says get me whatever the
+user passed into the web application,
+
+2060
+01:35:41,810 --> 01:35:43,560
+as opposed to from the command line.
+
+2061
+01:35:43,560 --> 01:35:46,260
+And then suppose that the
+Harvard or Yale staffer actually
+
+2062
+01:35:46,260 --> 01:35:51,650
+executed select star from users where
+username equals this f string syntax.
+
+2063
+01:35:51,650 --> 01:35:54,230
+What's interesting here
+is that they are correctly
+
+2064
+01:35:54,230 --> 01:35:58,430
+quoting whatever the string is supposed
+to be for both username and password.
+
+2065
+01:35:58,430 --> 01:36:01,400
+But remember what the user was
+about to type in a moment ago.
+
+2066
+01:36:01,400 --> 01:36:04,760
+If I kind of close one quote
+and then like leave one open,
+
+2067
+01:36:04,760 --> 01:36:08,250
+I can kind of inject
+arbitrary statements in here.
+
+2068
+01:36:08,250 --> 01:36:11,060
+And so what a SQL injection
+attack might look like is this.
+
+2069
+01:36:11,060 --> 01:36:14,120
+If I type in exactly those values,
+me@exampleemailprovider.com,
+
+2070
+01:36:14,120 --> 01:36:19,610
+and that funky password, notice if you
+look past the syntactic weirdness what
+
+2071
+01:36:19,610 --> 01:36:21,050
+really this is saying.
+
+2072
+01:36:21,050 --> 01:36:24,170
+Where password equals
+quote unquote, which
+
+2073
+01:36:24,170 --> 01:36:29,480
+is kind of silly, if your password
+is blank, or if one equals one.
+
+2074
+01:36:29,480 --> 01:36:33,560
+Now, which of those
+statements is obviously true?
+
+2075
+01:36:33,560 --> 01:36:34,390
+One equals one.
+
+2076
+01:36:34,390 --> 01:36:34,970
+And this is arbitrary.
+
+2077
+01:36:34,970 --> 01:36:36,800
+I could've said foo
+equals foo or anything.
+
+2078
+01:36:36,800 --> 01:36:41,450
+The point is, I sort of finished
+one thought with that single quote.
+
+2079
+01:36:41,450 --> 01:36:43,640
+Then, I typed whatever
+I wanted because I'm
+
+2080
+01:36:43,640 --> 01:36:47,100
+presuming a little cleverly,
+but also kind of guessing,
+
+2081
+01:36:47,100 --> 01:36:49,370
+because the adversary
+can't see this code,
+
+2082
+01:36:49,370 --> 01:36:52,400
+I just have a hunch that, if
+I construct the right query,
+
+2083
+01:36:52,400 --> 01:36:57,090
+I can trick the database into returning
+any user because one always equals one.
+
+2084
+01:36:57,090 --> 01:37:00,900
+So I'm gonna get back a row which is
+probably gonna let me into the system.
+
+2085
+01:37:00,900 --> 01:37:05,970
+So what the end result is is very bad,
+unless you sanitize the user's input.
+
+2086
+01:37:05,970 --> 01:37:07,850
+So this other approach
+with which I started,
+
+2087
+01:37:07,850 --> 01:37:10,970
+actually using these
+colon-based conventions, which
+
+2088
+01:37:10,970 --> 01:37:13,700
+is very similar to percent
+[? s ?] in C, but it's
+
+2089
+01:37:13,700 --> 01:37:16,910
+just now SQL-specific,
+or SQLite-specific,
+
+2090
+01:37:16,910 --> 01:37:20,000
+this now ensures that
+when the user types
+
+2091
+01:37:20,000 --> 01:37:24,230
+in even the most malicious-looking
+data, CS50's library, or other libraries
+
+2092
+01:37:24,230 --> 01:37:26,420
+out there in the world that
+do the exact same thing,
+
+2093
+01:37:26,420 --> 01:37:29,720
+is gonna make sure that any
+dangerous characters like apostrophes
+
+2094
+01:37:29,720 --> 01:37:31,970
+are escaped with backslash.
+
+2095
+01:37:31,970 --> 01:37:34,490
+So long story short, you
+don't even have to know
+
+2096
+01:37:34,490 --> 01:37:37,060
+or care what a SQL injection
+attack is fundamentally
+
+2097
+01:37:37,060 --> 01:37:41,250
+if you just practice good database
+sanitization techniques, which
+
+2098
+01:37:41,250 --> 01:37:42,300
+doesn't sound very cool.
+
+2099
+01:37:42,300 --> 01:37:47,220
+But it's very easy to do so by
+using, in our case, the CS50 library,
+
+2100
+01:37:47,220 --> 01:37:51,991
+but in the more general case,
+actually using a library like it.
+
+2101
+01:37:51,991 --> 01:37:54,990
+And so this is kind of a fun meme
+that kind of goes around the internet,
+
+2102
+01:37:54,990 --> 01:37:57,810
+supposedly like some
+actual person's car.
+
+2103
+01:37:57,810 --> 01:38:01,142
+This was meant to do what, do you think?
+
+2104
+01:38:01,142 --> 01:38:02,520
+AUDIENCE: Hide the license plate.
+
+2105
+01:38:02,520 --> 01:38:04,849
+DAVID MALAN: Well, not just
+hide the license plate.
+
+2106
+01:38:04,849 --> 01:38:07,140
+This is probably one of those
+cities where you actually
+
+2107
+01:38:07,140 --> 01:38:11,560
+have cameras overhead that are using
+optical character recognition to bill
+
+2108
+01:38:11,560 --> 01:38:14,820
+the right person for their license
+plate, or ticket the right person
+
+2109
+01:38:14,820 --> 01:38:15,970
+for their license plate.
+
+2110
+01:38:15,970 --> 01:38:18,303
+So this person, correctly or
+incorrectly, was presuming,
+
+2111
+01:38:18,303 --> 01:38:20,850
+hey, maybe, you know,
+the city of Cambridge
+
+2112
+01:38:20,850 --> 01:38:25,620
+has some buggy software that's not
+sanitizing its inputs like that.
+
+2113
+01:38:25,620 --> 01:38:28,140
+And before we look at
+an actual web example,
+
+2114
+01:38:28,140 --> 01:38:32,600
+I would be remiss if I didn't teach
+a generation of aspiring programmers
+
+2115
+01:38:32,600 --> 01:38:35,210
+this comic.
+
+2116
+01:38:35,210 --> 01:38:39,593
+
+
+2117
+01:38:39,593 --> 01:38:43,010
+[LAUGHTER]
+
+2118
+01:38:43,010 --> 01:38:46,280
+So henceforth, if you ever
+hear about Little Bobby Tables,
+
+2119
+01:38:46,280 --> 01:38:50,040
+this is what CS people
+are actually referring to.
+
+2120
+01:38:50,040 --> 01:38:52,460
+So let's actually now use
+this in a web context.
+
+2121
+01:38:52,460 --> 01:38:54,070
+So I'm gonna go ahead and do this.
+
+2122
+01:38:54,070 --> 01:38:57,607
+I'm gonna go back to the IDE,
+close out the command line program
+
+2123
+01:38:57,607 --> 01:38:58,940
+that I was writing a moment ago.
+
+2124
+01:38:58,940 --> 01:39:00,620
+And let's just fill in this to-do.
+
+2125
+01:39:00,620 --> 01:39:04,850
+Let me go ahead and go back
+to application.py, which
+
+2126
+01:39:04,850 --> 01:39:07,130
+doesn't do much of anything just yet.
+
+2127
+01:39:07,130 --> 01:39:09,410
+But I'm gonna go ahead
+here and do the following.
+
+2128
+01:39:09,410 --> 01:39:12,390
+I am going to initialize my database.
+
+2129
+01:39:12,390 --> 01:39:19,640
+So this gives SQL of SQLite colon slash
+slash lecture.db, so just like before.
+
+2130
+01:39:19,640 --> 01:39:22,820
+And then in my index route, I'm
+gonna do something like this,
+
+2131
+01:39:22,820 --> 01:39:29,300
+rows gets db.execute, which is the only
+method in there that you need to know.
+
+2132
+01:39:29,300 --> 01:39:31,940
+Select star from album.
+
+2133
+01:39:31,940 --> 01:39:33,810
+And that's gonna get me all of them.
+
+2134
+01:39:33,810 --> 01:39:37,432
+And now I'm gonna pass to
+this template all of the rows.
+
+2135
+01:39:37,432 --> 01:39:40,140
+And I'm gonna call it albums, and
+I'm gonna pass in all the rows.
+
+2136
+01:39:40,140 --> 01:39:43,310
+And this is a way now of handing
+all of those rows and those titles
+
+2137
+01:39:43,310 --> 01:39:45,080
+into my template.
+
+2138
+01:39:45,080 --> 01:39:48,200
+If I now go to my template
+where I have this to-do,
+
+2139
+01:39:48,200 --> 01:39:50,420
+I can use some Jinja syntax,
+which honestly is not
+
+2140
+01:39:50,420 --> 01:39:52,794
+going to sink in until you
+start practicing it some more,
+
+2141
+01:39:52,794 --> 01:39:58,010
+but I do know from experience
+it's for album in albums.
+
+2142
+01:39:58,010 --> 01:40:01,850
+Now close brace, and
+then endfor is gonna
+
+2143
+01:40:01,850 --> 01:40:04,190
+be how we end this in my Jinja template.
+
+2144
+01:40:04,190 --> 01:40:07,670
+And in here, I'm gonna go
+ahead and output each time
+
+2145
+01:40:07,670 --> 01:40:13,640
+the album's quote unquote title,
+if I didn't get a syntax error.
+
+2146
+01:40:13,640 --> 01:40:17,750
+And so now, let me go ahead
+into my terminal window
+
+2147
+01:40:17,750 --> 01:40:21,170
+and do in my source directory
+in my lecture example
+
+2148
+01:40:21,170 --> 01:40:24,980
+flask run to start the web server.
+
+2149
+01:40:24,980 --> 01:40:27,540
+Open up the URL.
+
+2150
+01:40:27,540 --> 01:40:28,379
+Whoa.
+
+2151
+01:40:28,379 --> 01:40:29,420
+So that's kind of a mess.
+
+2152
+01:40:29,420 --> 01:40:32,180
+But it kind of looks like
+all of the titles, probably.
+
+2153
+01:40:32,180 --> 01:40:33,570
+Let me clean this up.
+
+2154
+01:40:33,570 --> 01:40:35,662
+And here's where HTML now
+becomes really useful.
+
+2155
+01:40:35,662 --> 01:40:38,620
+In HTML, what's the tag for, like,
+an unordered list, [INAUDIBLE] list?
+
+2156
+01:40:38,620 --> 01:40:39,522
+AUDIENCE: [INAUDIBLE]
+
+2157
+01:40:39,522 --> 01:40:41,230
+DAVID MALAN: Yeah, UL
+for unordered list.
+
+2158
+01:40:41,230 --> 01:40:44,120
+So let me go ahead and make
+an unordered list tag there,
+
+2159
+01:40:44,120 --> 01:40:47,390
+but close it after this loop.
+
+2160
+01:40:47,390 --> 01:40:49,340
+Let me go ahead and
+nicely indent everything.
+
+2161
+01:40:49,340 --> 01:40:51,740
+And now inside of the loop,
+let me go ahead and output
+
+2162
+01:40:51,740 --> 01:40:54,890
+a list item, recall
+from a few weeks back.
+
+2163
+01:40:54,890 --> 01:40:58,640
+And now it still looks super cryptic,
+but what is the logic saying?
+
+2164
+01:40:58,640 --> 01:41:03,380
+Within the body block of my page, go
+ahead and start an unordered list.
+
+2165
+01:41:03,380 --> 01:41:06,110
+Iterate over each of the
+albums, and then output
+
+2166
+01:41:06,110 --> 01:41:08,370
+its title inside of a list item.
+
+2167
+01:41:08,370 --> 01:41:13,400
+So if I go back here and
+reload, what should I see?
+
+2168
+01:41:13,400 --> 01:41:15,770
+A whole list of those album titles.
+
+2169
+01:41:15,770 --> 01:41:17,870
+Moreover, I can do a little bit better.
+
+2170
+01:41:17,870 --> 01:41:22,260
+Let me go ahead back now here
+and do something like this.
+
+2171
+01:41:22,260 --> 01:41:26,390
+Let me go ahead and say q
+equals request.args.get q.
+
+2172
+01:41:26,390 --> 01:41:29,240
+
+
+2173
+01:41:29,240 --> 01:41:31,370
+And q is, again, what
+Google uses for its queries,
+
+2174
+01:41:31,370 --> 01:41:33,410
+but I could call this anything I want.
+
+2175
+01:41:33,410 --> 01:41:37,520
+Let me now go ahead and
+pass in the following.
+
+2176
+01:41:37,520 --> 01:41:44,090
+Where title equals colon q, and
+then let me pass in q equals q.
+
+2177
+01:41:44,090 --> 01:41:46,770
+This feels a little silly, but
+just think about what it's doing.
+
+2178
+01:41:46,770 --> 01:41:51,230
+I want to substitute for
+colon q the actual value of q.
+
+2179
+01:41:51,230 --> 01:41:53,630
+And maybe I can be more explicit here.
+
+2180
+01:41:53,630 --> 01:41:59,450
+If I call this query, what I'm really
+doing here is passing that in to there.
+
+2181
+01:41:59,450 --> 01:42:02,000
+So now that I've done
+that, what can I do?
+
+2182
+01:42:02,000 --> 01:42:04,400
+This is not a very
+fancy web application,
+
+2183
+01:42:04,400 --> 01:42:08,840
+but suppose I want to search only for
+what was it, the soprano song before,
+
+2184
+01:42:08,840 --> 01:42:09,984
+soprano inspired.
+
+2185
+01:42:09,984 --> 01:42:11,900
+Actually, let me search
+for something simpler.
+
+2186
+01:42:11,900 --> 01:42:13,910
+How about just worlds.
+
+2187
+01:42:13,910 --> 01:42:15,560
+A la hello world.
+
+2188
+01:42:15,560 --> 01:42:17,030
+Let me go to my URL.
+
+2189
+01:42:17,030 --> 01:42:19,280
+And remember, if you
+understand HTTP, we can
+
+2190
+01:42:19,280 --> 01:42:26,235
+do question mark q slash question
+mark q equals worlds, and enter.
+
+2191
+01:42:26,235 --> 01:42:26,880
+And dammit.
+
+2192
+01:42:26,880 --> 01:42:30,890
+
+
+2193
+01:42:30,890 --> 01:42:35,600
+Where title equals worlds q--
+where title equals worlds.
+
+2194
+01:42:35,600 --> 01:42:38,090
+Why did you not come out?
+
+2195
+01:42:38,090 --> 01:42:39,760
+request.args.
+
+2196
+01:42:39,760 --> 01:42:41,340
+request.
+
+2197
+01:42:41,340 --> 01:42:43,624
+Stand by real quick.
+
+2198
+01:42:43,624 --> 01:42:46,010
+We were doing so well there.
+
+2199
+01:42:46,010 --> 01:42:48,920
+All right, let me just reload.
+
+2200
+01:42:48,920 --> 01:42:50,460
+Oh actually, what a good time--
+
+2201
+01:42:50,460 --> 01:42:50,960
+none.
+
+2202
+01:42:50,960 --> 01:42:52,130
+OK, none is bad.
+
+2203
+01:42:52,130 --> 01:42:55,134
+What am I doing wrong?
+
+2204
+01:42:55,134 --> 01:42:56,460
+Did I screw up?
+
+2205
+01:42:56,460 --> 01:42:57,200
+OK, hang on.
+
+2206
+01:42:57,200 --> 01:42:57,840
+Stand by.
+
+2207
+01:42:57,840 --> 01:43:04,800
+What a good time to introduce eprint
+for just a moment from earlier.
+
+2208
+01:43:04,800 --> 01:43:08,490
+Now let me go ahead and reload
+the page to trigger the load.
+
+2209
+01:43:08,490 --> 01:43:09,360
+OK, that's bad.
+
+2210
+01:43:09,360 --> 01:43:10,020
+Dammit.
+
+2211
+01:43:10,020 --> 01:43:12,491
+eprint is not defined from CS50.
+
+2212
+01:43:12,491 --> 01:43:12,990
+Oh.
+
+2213
+01:43:12,990 --> 01:43:17,450
+
+
+2214
+01:43:17,450 --> 01:43:19,721
+Oh, so close to--
+
+2215
+01:43:19,721 --> 01:43:22,076
+yes!
+
+2216
+01:43:22,076 --> 01:43:23,018
+OK.
+
+2217
+01:43:23,018 --> 01:43:25,844
+[APPLAUSE]
+
+2218
+01:43:25,844 --> 01:43:26,800
+
+
+2219
+01:43:26,800 --> 01:43:29,070
+In fairness, I have no
+idea what just happened.
+
+2220
+01:43:29,070 --> 01:43:30,960
+But it worked.
+
+2221
+01:43:30,960 --> 01:43:34,090
+So let's now, with
+those inspiring words,
+
+2222
+01:43:34,090 --> 01:43:35,840
+give us a sense of
+what it is you're going
+
+2223
+01:43:35,840 --> 01:43:37,640
+to be doing with these ingredients.
+
+2224
+01:43:37,640 --> 01:43:40,766
+We focused a lot today on
+SQL and on database design,
+
+2225
+01:43:40,766 --> 01:43:43,640
+but the ultimate goal at hand is
+going to be to use these ingredients
+
+2226
+01:43:43,640 --> 01:43:47,490
+and use this new language to
+query for real information.
+
+2227
+01:43:47,490 --> 01:43:50,702
+So here is what we call CS50
+Finance, AKA problem set seven.
+
+2228
+01:43:50,702 --> 01:43:52,910
+And you'll be given a little
+bit of distribution code
+
+2229
+01:43:52,910 --> 01:43:55,940
+that essentially gives you a user
+interface similar to this that just
+
+2230
+01:43:55,940 --> 01:43:58,340
+allows users to log in and log out.
+
+2231
+01:43:58,340 --> 01:44:00,530
+But it doesn't allow users to register.
+
+2232
+01:44:00,530 --> 01:44:04,780
+It doesn't allow users to buy or
+sell stocks yet, as will be the goal.
+
+2233
+01:44:04,780 --> 01:44:07,880
+CS50 Finance is like building
+your own e-trade website
+
+2234
+01:44:07,880 --> 01:44:09,950
+where you can buy and sell stocks.
+
+2235
+01:44:09,950 --> 01:44:12,180
+But it's going to
+integrate thanks to code
+
+2236
+01:44:12,180 --> 01:44:15,890
+you write with Yahoo Finance, which
+happens to provide essentially a very
+
+2237
+01:44:15,890 --> 01:44:19,820
+lightweight API, application programming
+interface, whereby if you ask Yahoo
+
+2238
+01:44:19,820 --> 01:44:23,734
+for the current stock price of a
+certain stock ticker, they will respond
+
+2239
+01:44:23,734 --> 01:44:26,900
+and actually give you that answer so
+you can integrate it into your website.
+
+2240
+01:44:26,900 --> 01:44:28,670
+So what you'll ultimately
+be able to do--
+
+2241
+01:44:28,670 --> 01:44:30,590
+and this is simply the staff solution--
+
+2242
+01:44:30,590 --> 01:44:35,660
+is build a website like this one
+here, such that I can go ahead now
+
+2243
+01:44:35,660 --> 01:44:42,560
+and log in to CS50 Finance as a
+John Harvard with his password.
+
+2244
+01:44:42,560 --> 01:44:44,870
+I can then see that, by
+default, all of your customers,
+
+2245
+01:44:44,870 --> 01:44:48,650
+wonderfully, for a special deal, are
+going to get 10,000 virtual dollars.
+
+2246
+01:44:48,650 --> 01:44:52,910
+I can go ahead and get a quote
+for a stock, like GOOG is G-O-O-G.
+
+2247
+01:44:52,910 --> 01:44:55,880
+Google as of right now
+is just over $1,000.
+
+2248
+01:44:55,880 --> 01:44:57,970
+That's great, because I have $10,000.
+
+2249
+01:44:57,970 --> 01:45:02,330
+So I'm gonna go ahead and buy one share
+of GOOG by typing in its stock ticker
+
+2250
+01:45:02,330 --> 01:45:03,680
+symbol and one.
+
+2251
+01:45:03,680 --> 01:45:08,231
+And now I actually have one share of
+Alphabet AKA Google plus some remaining
+
+2252
+01:45:08,231 --> 01:45:08,730
+cash.
+
+2253
+01:45:08,730 --> 01:45:11,410
+So all of this and more
+you will implement.
+
+2254
+01:45:11,410 --> 01:45:12,910
+Happy to stick around for questions.
+
+2255
+01:45:12,910 --> 01:45:13,930
+That is it for today.
+
+2256
+01:45:13,930 --> 01:45:16,760
+And thank you so much for today's
+parents and families for coming.
+
+2257
+01:45:16,760 --> 01:45:20,110
+[APPLAUSE]
+
+2258
+01:45:20,110 --> 01:45:21,840

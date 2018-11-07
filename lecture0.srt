@@ -1,0 +1,6433 @@
+1
+00:00:00,000 --> 00:00:09,580
+
+
+2
+00:00:09,580 --> 00:00:14,060
+SPEAKER 1: All right, this is CS50,
+Harvard University's introduction
+
+3
+00:00:14,060 --> 00:00:16,340
+to the intellectual
+enterprises of computer science
+
+4
+00:00:16,340 --> 00:00:18,110
+and the art of programming.
+
+5
+00:00:18,110 --> 00:00:21,800
+And this was apparently
+me around the time
+
+6
+00:00:21,800 --> 00:00:24,620
+that I sat where are you guys
+now sitting thanks to a teaching
+
+7
+00:00:24,620 --> 00:00:28,370
+fellow who spent a little too much time
+trolling around Lemont Library, where
+
+8
+00:00:28,370 --> 00:00:32,000
+the 1995 freshman registers
+apparently still are.
+
+9
+00:00:32,000 --> 00:00:36,200
+And I point this out because
+this was a big deal for me
+
+10
+00:00:36,200 --> 00:00:37,910
+back when I was a
+freshman and ultimately
+
+11
+00:00:37,910 --> 00:00:41,600
+sophomore considering to take a class
+like this, CS50, but more generally,
+
+12
+00:00:41,600 --> 00:00:42,690
+computer science.
+
+13
+00:00:42,690 --> 00:00:45,599
+And if you, like me, have this
+perception of computer science
+
+14
+00:00:45,599 --> 00:00:47,390
+from high school or
+even middle school, you
+
+15
+00:00:47,390 --> 00:00:51,390
+might have the perception that it's
+entirely based about programming.
+
+16
+00:00:51,390 --> 00:00:53,170
+It's perhaps a bit antisocial.
+
+17
+00:00:53,170 --> 00:00:55,512
+It's perhaps the
+computer lab, heads down,
+
+18
+00:00:55,512 --> 00:00:58,470
+sort of coding away on something that
+you don't necessarily understand.
+
+19
+00:00:58,470 --> 00:01:01,855
+And yeah, I too had that perception
+freshman year in this course
+
+20
+00:01:01,855 --> 00:01:03,980
+and, dare say, the field
+more generally, really did
+
+21
+00:01:03,980 --> 00:01:05,450
+have this reputation to beware.
+
+22
+00:01:05,450 --> 00:01:07,730
+I certainly assumed that
+most everyone around me
+
+23
+00:01:07,730 --> 00:01:09,555
+certainly knew more than I did.
+
+24
+00:01:09,555 --> 00:01:11,180
+And this wasn't just true of CS for me.
+
+25
+00:01:11,180 --> 00:01:14,690
+This was true of most any field
+at Harvard in the course catalog
+
+26
+00:01:14,690 --> 00:01:16,220
+that I had no familiarity with.
+
+27
+00:01:16,220 --> 00:01:18,650
+And so I instead gravitated
+toward the more comfortable.
+
+28
+00:01:18,650 --> 00:01:21,410
+I took a lot of gov classes
+and economics and history
+
+29
+00:01:21,410 --> 00:01:24,165
+just because that's kind of what
+I knew and liked in high school.
+
+30
+00:01:24,165 --> 00:01:27,290
+I wouldn't say I loved it, but I knew
+it and it was within my comfort zone.
+
+31
+00:01:27,290 --> 00:01:29,930
+And it wasn't until
+sophomore year that I got up
+
+32
+00:01:29,930 --> 00:01:32,490
+the nerve to take this class, CS50.
+
+33
+00:01:32,490 --> 00:01:36,080
+And I only did because the professor
+at the time let me take it pass-fail,
+
+34
+00:01:36,080 --> 00:01:37,324
+now called SAT/UNSAT.
+
+35
+00:01:37,324 --> 00:01:39,740
+And that allowed me to get
+over this sort of mental hurdle
+
+36
+00:01:39,740 --> 00:01:42,830
+that I imposed upon myself,
+sort of fear of failure
+
+37
+00:01:42,830 --> 00:01:46,170
+or simply not doing as well as
+I might have been accustomed to.
+
+38
+00:01:46,170 --> 00:01:48,980
+And so I bewared a class
+like this until then.
+
+39
+00:01:48,980 --> 00:01:51,420
+And I always kind of regretted
+not exploring earlier on.
+
+40
+00:01:51,420 --> 00:01:53,044
+And that doesn't have to be this class.
+
+41
+00:01:53,044 --> 00:01:56,210
+It doesn't have to be CS but can
+be really any field more generally.
+
+42
+00:01:56,210 --> 00:01:59,630
+But those really were my takeaways
+around the time I looked like this.
+
+43
+00:01:59,630 --> 00:02:03,290
+And I've taken comfort since
+in taking over this class
+
+44
+00:02:03,290 --> 00:02:07,940
+and have found it inspiring that these
+days, 68% of the students in this room
+
+45
+00:02:07,940 --> 00:02:11,720
+and in this room last year had
+never taken a CS course before.
+
+46
+00:02:11,720 --> 00:02:14,780
+So if you do have that mental
+model of everyone to your left
+
+47
+00:02:14,780 --> 00:02:17,690
+and your right surely must know
+more than you, odds are it is not,
+
+48
+00:02:17,690 --> 00:02:18,770
+in fact, the case.
+
+49
+00:02:18,770 --> 00:02:21,890
+In fact, within CS50, we have these
+different tracks, different types
+
+50
+00:02:21,890 --> 00:02:25,074
+of sections for students less
+comfortable, students more comfortable
+
+51
+00:02:25,074 --> 00:02:26,490
+and students somewhere in between.
+
+52
+00:02:26,490 --> 00:02:28,190
+And there's no formal
+definition to these labels.
+
+53
+00:02:28,190 --> 00:02:29,900
+You just sort of know it if you are.
+
+54
+00:02:29,900 --> 00:02:32,401
+And if you kind of have one
+foot mentally out the door today
+
+55
+00:02:32,401 --> 00:02:34,358
+because you're not really
+sure this is for you,
+
+56
+00:02:34,358 --> 00:02:36,260
+you're probably among
+those less comfortable.
+
+57
+00:02:36,260 --> 00:02:40,192
+But as such, you're in the majority,
+56% of last year's students.
+
+58
+00:02:40,192 --> 00:02:41,900
+If by contrast, you
+have been programming
+
+59
+00:02:41,900 --> 00:02:43,730
+since you were eight
+years old, 10 years old,
+
+60
+00:02:43,730 --> 00:02:45,860
+whatever but you're largely
+self-taught and therefore
+
+61
+00:02:45,860 --> 00:02:47,568
+maybe have lots of
+gaps in your knowledge
+
+62
+00:02:47,568 --> 00:02:49,610
+or don't really understand
+all the formalities,
+
+63
+00:02:49,610 --> 00:02:52,640
+you just kind of figure things out, you
+might be among those more comfortable.
+
+64
+00:02:52,640 --> 00:02:54,556
+And if not, maybe you're
+somewhere in between.
+
+65
+00:02:54,556 --> 00:02:57,800
+And so in CS50 sections, do we
+have similar students together,
+
+66
+00:02:57,800 --> 00:02:59,786
+similar comfort level,
+similar backgrounds,
+
+67
+00:02:59,786 --> 00:03:02,660
+so that everyone can kind of feel
+comfortable speaking up not knowing
+
+68
+00:03:02,660 --> 00:03:04,490
+things, knowing things, and beyond.
+
+69
+00:03:04,490 --> 00:03:09,200
+Because ultimately, the course is
+graded and assessed ultimately very much
+
+70
+00:03:09,200 --> 00:03:12,680
+manually, very much very
+delicately with respect
+
+71
+00:03:12,680 --> 00:03:14,690
+to students' prior
+background or lack thereof.
+
+72
+00:03:14,690 --> 00:03:17,060
+Indeed, what's most important
+at the end of the semester
+
+73
+00:03:17,060 --> 00:03:19,700
+is not so much where you end
+up relative to your classmates
+
+74
+00:03:19,700 --> 00:03:23,930
+but where you end up in week 11, our
+very last week, relative to yourself
+
+75
+00:03:23,930 --> 00:03:25,830
+today in week 0.
+
+76
+00:03:25,830 --> 00:03:30,384
+And in fact, thanks to CS50's
+own Haley James and a whole bunch
+
+77
+00:03:30,384 --> 00:03:32,300
+of CS50 team members--
+this summer, they spent
+
+78
+00:03:32,300 --> 00:03:34,790
+a while traveling around the
+country bringing folks back
+
+79
+00:03:34,790 --> 00:03:38,930
+to campus, alumni and former students
+and staff who had some connection
+
+80
+00:03:38,930 --> 00:03:41,297
+taking or teaching CS50 in some form.
+
+81
+00:03:41,297 --> 00:03:44,630
+And if you'd like to see stories of some
+of your predecessors and folks who sort
+
+82
+00:03:44,630 --> 00:03:46,630
+have found their way--
+accidentally, even--
+
+83
+00:03:46,630 --> 00:03:49,500
+to computer science finding
+challenge along the way,
+
+84
+00:03:49,500 --> 00:03:53,810
+check out this domain that the team
+put together-- project5050.org.
+
+85
+00:03:53,810 --> 00:03:58,490
+Now the course itself ultimately
+is not about programming per se.
+
+86
+00:03:58,490 --> 00:03:59,990
+That's indeed a tool that we'll use.
+
+87
+00:03:59,990 --> 00:04:01,110
+It's really about this.
+
+88
+00:04:01,110 --> 00:04:03,960
+And that's really what CS
+is, the field more generally.
+
+89
+00:04:03,960 --> 00:04:07,160
+Whether you're starting hardware
+or graphics or theory or any number
+
+90
+00:04:07,160 --> 00:04:10,444
+of fields, artificial intelligence
+these days, machine learning and beyond,
+
+91
+00:04:10,444 --> 00:04:12,110
+it's really just about solving problems.
+
+92
+00:04:12,110 --> 00:04:14,540
+And what's really cool
+about CS I found early on
+
+93
+00:04:14,540 --> 00:04:17,970
+is that it doesn't necessarily--
+it's not an end unto itself.
+
+94
+00:04:17,970 --> 00:04:21,140
+It's this field that empowers you to
+go do more interesting, more powerful
+
+95
+00:04:21,140 --> 00:04:24,410
+things in the humanities, social
+sciences, physical sciences, the arts,
+
+96
+00:04:24,410 --> 00:04:27,590
+anything because you have this new
+mental model for how you can solve
+
+97
+00:04:27,590 --> 00:04:31,070
+problems better, more efficiently,
+how you can solve them correctly,
+
+98
+00:04:31,070 --> 00:04:34,250
+and how you can sort of
+analyze large datasets
+
+99
+00:04:34,250 --> 00:04:37,790
+or solve problems that might have
+otherwise been beyond your grasp.
+
+100
+00:04:37,790 --> 00:04:38,880
+So what does this mean?
+
+101
+00:04:38,880 --> 00:04:40,390
+What is problem solving?
+
+102
+00:04:40,390 --> 00:04:42,140
+Well we could perhaps
+distill it as simply
+
+103
+00:04:42,140 --> 00:04:45,290
+as this-- a big black
+box, some secret sauce,
+
+104
+00:04:45,290 --> 00:04:47,910
+into which go inputs, like
+the problem we want to solve,
+
+105
+00:04:47,910 --> 00:04:51,680
+and out of which comes outputs,
+the solutions that we want.
+
+106
+00:04:51,680 --> 00:04:54,290
+So a very generic way of
+describing it, but what's
+
+107
+00:04:54,290 --> 00:04:57,202
+pictured here in the black box
+is the so-called algorithms.
+
+108
+00:04:57,202 --> 00:04:58,910
+And we'll come back
+to that in just a bit
+
+109
+00:04:58,910 --> 00:05:01,250
+the actual ingredients
+for solving problems.
+
+110
+00:05:01,250 --> 00:05:04,150
+But how do we represent
+inputs and outputs?
+
+111
+00:05:04,150 --> 00:05:08,420
+Odds are even if you're not a computer
+person and don't really think like one,
+
+112
+00:05:08,420 --> 00:05:12,150
+you probably know that shooters only
+understand a very limited vocabulary.
+
+113
+00:05:12,150 --> 00:05:16,260
+Like, what is the alphabet,
+so to speak, that they speak?
+
+114
+00:05:16,260 --> 00:05:17,232
+ASCII maybe, but more--
+
+115
+00:05:17,232 --> 00:05:17,940
+AUDIENCE: Binary.
+
+116
+00:05:17,940 --> 00:05:21,180
+SPEAKER 1: Binary, binary, bi
+meaning two for zeros and ones.
+
+117
+00:05:21,180 --> 00:05:23,940
+So whereas we humans
+typically use decimal--
+
+118
+00:05:23,940 --> 00:05:27,330
+dec meaning 10, 0 through 9--
+as in our alphabet of letters,
+
+119
+00:05:27,330 --> 00:05:31,380
+computers of course, as you may
+have heard, only use zeros and ones.
+
+120
+00:05:31,380 --> 00:05:32,940
+Now why is this powerful?
+
+121
+00:05:32,940 --> 00:05:36,210
+Well, turns out as soon as you have
+at least two digits in your alphabet,
+
+122
+00:05:36,210 --> 00:05:39,900
+you can start to represent things
+much more powerfully and much more
+
+123
+00:05:39,900 --> 00:05:40,410
+efficiently.
+
+124
+00:05:40,410 --> 00:05:43,326
+For instance, how many-- if I wanted
+to count the people in this room,
+
+125
+00:05:43,326 --> 00:05:46,130
+how many of you could I
+count on just one hand?
+
+126
+00:05:46,130 --> 00:05:46,876
+Hopefully five.
+
+127
+00:05:46,876 --> 00:05:47,750
+So I could call five.
+
+128
+00:05:47,750 --> 00:05:51,350
+It would be one, two, three, four, five.
+
+129
+00:05:51,350 --> 00:05:52,490
+But you know what?
+
+130
+00:05:52,490 --> 00:05:55,640
+If I were a little more clever,
+I bet I could use the same hand
+
+131
+00:05:55,640 --> 00:05:59,750
+and count as many as
+32, maybe 31 of you.
+
+132
+00:05:59,750 --> 00:06:00,620
+Well, how is that?
+
+133
+00:06:00,620 --> 00:06:04,400
+Well, right now, I'm kind of using
+the unary system, uno meaning one.
+
+134
+00:06:04,400 --> 00:06:07,710
+So it's just one digit in your
+alphabet-- the finger or no finger.
+
+135
+00:06:07,710 --> 00:06:09,630
+It's not quite the same as zero or one--
+
+136
+00:06:09,630 --> 00:06:11,720
+so one person, two, three, four, five.
+
+137
+00:06:11,720 --> 00:06:14,720
+But what if I instead permuted
+my fingers in some way
+
+138
+00:06:14,720 --> 00:06:17,720
+so that the pattern of fingers
+that are up actually matters,
+
+139
+00:06:17,720 --> 00:06:19,010
+not just the quantity?
+
+140
+00:06:19,010 --> 00:06:22,310
+So maybe this is still 0 this now is 1.
+
+141
+00:06:22,310 --> 00:06:26,205
+And instead of 2 being this,
+maybe two could be this.
+
+142
+00:06:26,205 --> 00:06:28,580
+So if my second finger is up,
+I'm going to call that two.
+
+143
+00:06:28,580 --> 00:06:32,010
+And if my first two fingers are
+up, I might call that three.
+
+144
+00:06:32,010 --> 00:06:34,010
+Somewhat offensively, if
+just this finger is up,
+
+145
+00:06:34,010 --> 00:06:37,220
+I might call this four and then five.
+
+146
+00:06:37,220 --> 00:06:38,750
+And then this gets kind of painful--
+
+147
+00:06:38,750 --> 00:06:40,910
+six, seven.
+
+148
+00:06:40,910 --> 00:06:43,010
+And what I'm actually doing
+is counting in binary.
+
+149
+00:06:43,010 --> 00:06:45,530
+Now that might have
+looked completely cryptic,
+
+150
+00:06:45,530 --> 00:06:47,990
+but it turns out as soon as
+you have two digits, that's
+
+151
+00:06:47,990 --> 00:06:51,890
+enough to represent anything you want
+and to do so pretty darn efficiently.
+
+152
+00:06:51,890 --> 00:06:52,730
+But why?
+
+153
+00:06:52,730 --> 00:06:56,120
+So odds are, if you're like me,
+you probably grew up learning,
+
+154
+00:06:56,120 --> 00:06:58,250
+of course, the decimal
+system, zero through nine.
+
+155
+00:06:58,250 --> 00:07:01,166
+And you might have written on the
+board some points like this number--
+
+156
+00:07:01,166 --> 00:07:02,030
+123.
+
+157
+00:07:02,030 --> 00:07:04,610
+But why do you think of that as 123?
+
+158
+00:07:04,610 --> 00:07:06,950
+It's really just a pretty
+pattern of symbols--
+
+159
+00:07:06,950 --> 00:07:10,790
+glyphs, so to speak-- on the screen that
+we ascribe some kind of mathematical
+
+160
+00:07:10,790 --> 00:07:11,370
+meaning to--
+
+161
+00:07:11,370 --> 00:07:12,650
+123.
+
+162
+00:07:12,650 --> 00:07:17,240
+But really, it's just like someone
+drew in ink on the screen some symbols.
+
+163
+00:07:17,240 --> 00:07:19,290
+Well, if you're like me
+back in grade school,
+
+164
+00:07:19,290 --> 00:07:22,280
+you probably learned that
+the right-most number here
+
+165
+00:07:22,280 --> 00:07:25,040
+is in the so-called what place?
+
+166
+00:07:25,040 --> 00:07:26,120
+The ones place, right?
+
+167
+00:07:26,120 --> 00:07:27,870
+And so if we wanted
+to label these things,
+
+168
+00:07:27,870 --> 00:07:30,530
+we might put ones place there
+and then of course the tens place
+
+169
+00:07:30,530 --> 00:07:33,290
+and the hundreds place, maybe the
+thousands, 10,000, and so forth.
+
+170
+00:07:33,290 --> 00:07:35,600
+So we had this sort of mental
+models for the columns.
+
+171
+00:07:35,600 --> 00:07:38,600
+And notice they happen
+to be powers of 10.
+
+172
+00:07:38,600 --> 00:07:40,860
+10 to the 0 is 1.
+
+173
+00:07:40,860 --> 00:07:42,290
+10 to the 1 is 10.
+
+174
+00:07:42,290 --> 00:07:43,667
+10 to the 2 is 100 and so forth.
+
+175
+00:07:43,667 --> 00:07:46,250
+So that's the pattern even if
+your grade school teacher didn't
+
+176
+00:07:46,250 --> 00:07:48,860
+talk about exponentiation at the time.
+
+177
+00:07:48,860 --> 00:07:51,860
+So why is this number 123?
+
+178
+00:07:51,860 --> 00:07:55,970
+Well, it's because we have a
+one in the hundreds column--
+
+179
+00:07:55,970 --> 00:07:57,410
+so 100 times 1.
+
+180
+00:07:57,410 --> 00:07:59,330
+We have a two in the tens column.
+
+181
+00:07:59,330 --> 00:08:00,860
+We have a three in the ones column.
+
+182
+00:08:00,860 --> 00:08:01,050
+Them.
+
+183
+00:08:01,050 --> 00:08:03,410
+And of course, if we start
+to do the arithmetic now,
+
+184
+00:08:03,410 --> 00:08:08,056
+that's 100 plus 20 plus
+3 or obviously 123.
+
+185
+00:08:08,056 --> 00:08:10,430
+And all of us take that
+certainly for granted these days.
+
+186
+00:08:10,430 --> 00:08:12,860
+You see a number, you know
+what it is mathematically.
+
+187
+00:08:12,860 --> 00:08:15,570
+But computers fundamentally
+work in the same way.
+
+188
+00:08:15,570 --> 00:08:18,650
+So even if you up until now have never
+thought of yourself as a computer
+
+189
+00:08:18,650 --> 00:08:20,630
+person or had no idea
+really what it means
+
+190
+00:08:20,630 --> 00:08:23,570
+for computers to speak just zeros
+and ones, all you have to do
+
+191
+00:08:23,570 --> 00:08:24,880
+is update the places.
+
+192
+00:08:24,880 --> 00:08:29,360
+Instead of powers of 10 dec, meaning
+decimal, we're going to powers of two
+
+193
+00:08:29,360 --> 00:08:30,440
+for binary.
+
+194
+00:08:30,440 --> 00:08:34,409
+So now we're going to have 2
+to the 0 2 to 1, 2 to the 2, 2
+
+195
+00:08:34,409 --> 00:08:35,419
+to the 3, same idea.
+
+196
+00:08:35,419 --> 00:08:37,039
+It's just a different base.
+
+197
+00:08:37,039 --> 00:08:38,510
+We change tend to 2.
+
+198
+00:08:38,510 --> 00:08:41,659
+And so now we have places like this--
+
+199
+00:08:41,659 --> 00:08:46,440
+1, 2, 4, and if we kept going,
+8 16, 32, 64, and so forth.
+
+200
+00:08:46,440 --> 00:08:50,510
+So as such, what number is this on
+the screen in binary if you convert it
+
+201
+00:08:50,510 --> 00:08:52,397
+in your head to decimal?
+
+202
+00:08:52,397 --> 00:08:53,730
+It's just the number one, right?
+
+203
+00:08:53,730 --> 00:08:57,310
+Because you've got a 1 in the ones place
+and then a zero in every other place.
+
+204
+00:08:57,310 --> 00:08:59,430
+So it's just 1 times 1 equals 1.
+
+205
+00:08:59,430 --> 00:09:02,940
+Now if I were using unary or my hands,
+the sort of traditional way, two
+
+206
+00:09:02,940 --> 00:09:05,580
+would be this where
+you put up two fingers.
+
+207
+00:09:05,580 --> 00:09:09,630
+But not if you're trying to use
+patterns as well as quantities.
+
+208
+00:09:09,630 --> 00:09:14,252
+And so in binary, how do I
+represent the number two?
+
+209
+00:09:14,252 --> 00:09:15,900
+010.
+
+210
+00:09:15,900 --> 00:09:19,090
+It's the equivalent of putting
+up just my index finger here.
+
+211
+00:09:19,090 --> 00:09:22,080
+And if I want to count to three,
+now I need to add a 1 to the mix.
+
+212
+00:09:22,080 --> 00:09:23,550
+So I add the ones place.
+
+213
+00:09:23,550 --> 00:09:25,840
+And now if you start
+to visualize this, it's
+
+214
+00:09:25,840 --> 00:09:27,840
+like one of those really
+old school clocks where
+
+215
+00:09:27,840 --> 00:09:30,030
+the numbers flip around and roll over.
+
+216
+00:09:30,030 --> 00:09:32,670
+Now those ones are going to
+kind of flip and become zeros
+
+217
+00:09:32,670 --> 00:09:35,220
+and the zero is going to become a one.
+
+218
+00:09:35,220 --> 00:09:38,970
+And so now we have five and
+then six and then seven.
+
+219
+00:09:38,970 --> 00:09:41,640
+And then dang it, how does
+a computer count to eight?
+
+220
+00:09:41,640 --> 00:09:45,070
+
+
+221
+00:09:45,070 --> 00:09:47,100
+Yeah, you just need to
+add another place, right?
+
+222
+00:09:47,100 --> 00:09:49,260
+Just like we humans don't have
+an infinite number of numbers
+
+223
+00:09:49,260 --> 00:09:51,176
+when we write something
+down-- we sort of stop
+
+224
+00:09:51,176 --> 00:09:53,670
+when it's not necessary--
+all we need is another bit.
+
+225
+00:09:53,670 --> 00:09:57,030
+We just need to add another 0 or
+1 to the left, specifically a one.
+
+226
+00:09:57,030 --> 00:09:58,710
+Then all these ones can become zeros.
+
+227
+00:09:58,710 --> 00:10:00,780
+And we can do this toward infinity.
+
+228
+00:10:00,780 --> 00:10:03,330
+But where are these bits coming from?
+
+229
+00:10:03,330 --> 00:10:06,330
+This is all very abstract and
+just pictures on a screen.
+
+230
+00:10:06,330 --> 00:10:09,810
+Well, it turns out that we
+have one physical ingredient
+
+231
+00:10:09,810 --> 00:10:10,920
+to all of our computers.
+
+232
+00:10:10,920 --> 00:10:13,170
+Maybe it's your laptop or
+desktop or your cell phone.
+
+233
+00:10:13,170 --> 00:10:14,670
+At the end of the day, they're
+either driven these days
+
+234
+00:10:14,670 --> 00:10:17,921
+by batteries or like a cord into the
+wall where electricity comes from.
+
+235
+00:10:17,921 --> 00:10:20,295
+And even if you have little
+familiarity with electricity,
+
+236
+00:10:20,295 --> 00:10:22,830
+you probably know that it's
+like little electrons flowing.
+
+237
+00:10:22,830 --> 00:10:26,310
+So there's some kind of physical
+resource that can flow or not flow.
+
+238
+00:10:26,310 --> 00:10:28,440
+You can turn it on or off.
+
+239
+00:10:28,440 --> 00:10:31,470
+Well, much like these
+desk lamps here, here I
+
+240
+00:10:31,470 --> 00:10:34,890
+have three physical lights that are of
+course connected into the electricity.
+
+241
+00:10:34,890 --> 00:10:36,370
+So I have some physical input.
+
+242
+00:10:36,370 --> 00:10:39,270
+And now that I do, I can kind
+of implement my own computer
+
+243
+00:10:39,270 --> 00:10:40,740
+using these simple desk lamps.
+
+244
+00:10:40,740 --> 00:10:46,440
+If I want to represent some value, some
+input or output, OK, here's the zero.
+
+245
+00:10:46,440 --> 00:10:48,080
+This is zero in binary.
+
+246
+00:10:48,080 --> 00:10:50,400
+I just need to leave
+three light bulbs off.
+
+247
+00:10:50,400 --> 00:10:54,720
+If I want to represent a
+one, I need to turn this on.
+
+248
+00:10:54,720 --> 00:10:56,220
+And that's now the ones place.
+
+249
+00:10:56,220 --> 00:10:59,220
+If I want to represent two, I
+just need to turn this light on.
+
+250
+00:10:59,220 --> 00:11:01,830
+If I want to represent
+three, this one comes on.
+
+251
+00:11:01,830 --> 00:11:05,630
+If I want to represent
+four, that goes on.
+
+252
+00:11:05,630 --> 00:11:11,250
+5, 6, seven, and then of
+course we need like 8,
+
+253
+00:11:11,250 --> 00:11:15,905
+if we want to represent and turn
+these off, four total bits together.
+
+254
+00:11:15,905 --> 00:11:19,030
+And so that's all that's going on inside
+of your phones and your computers.
+
+255
+00:11:19,030 --> 00:11:20,820
+Phones and computers
+and devices these days
+
+256
+00:11:20,820 --> 00:11:23,694
+have what are called transistors,
+which are tiny little switches that
+
+257
+00:11:23,694 --> 00:11:25,080
+are on or off.
+
+258
+00:11:25,080 --> 00:11:28,470
+And that's all we need if we have some
+source like electricity to just store
+
+259
+00:11:28,470 --> 00:11:28,992
+information.
+
+260
+00:11:28,992 --> 00:11:31,200
+We just need lots and lots
+of switches, lots and lots
+
+261
+00:11:31,200 --> 00:11:35,580
+of light bulbs, certainly much smaller
+in order to represent information.
+
+262
+00:11:35,580 --> 00:11:38,710
+But computers of course can do
+much more than represent numbers.
+
+263
+00:11:38,710 --> 00:11:41,820
+What about letters and
+e-mails and things like that?
+
+264
+00:11:41,820 --> 00:11:44,070
+Well, for that, we actually
+need to kind of decide
+
+265
+00:11:44,070 --> 00:11:48,060
+as humans how we're going to interpret
+things like these light bulbs.
+
+266
+00:11:48,060 --> 00:11:51,420
+In one context like a calculator,
+or they might represent numbers--
+
+267
+00:11:51,420 --> 00:11:53,020
+decimal numbers whatever.
+
+268
+00:11:53,020 --> 00:11:54,270
+But in an email program--
+
+269
+00:11:54,270 --> 00:11:56,010
+Microsoft Word, Google Docs--
+
+270
+00:11:56,010 --> 00:11:58,860
+you probably want those light
+bulbs or those transistors
+
+271
+00:11:58,860 --> 00:12:00,750
+in the computers storing
+not just numbers,
+
+272
+00:12:00,750 --> 00:12:02,430
+or else you could just do math.
+
+273
+00:12:02,430 --> 00:12:06,250
+You want them storing letters and
+sentences and paragraphs and so forth.
+
+274
+00:12:06,250 --> 00:12:08,970
+And so we need to have
+some kind of mapping.
+
+275
+00:12:08,970 --> 00:12:10,190
+And we'll do that as follows.
+
+276
+00:12:10,190 --> 00:12:12,330
+ASCII, which is just
+an acronym describing
+
+277
+00:12:12,330 --> 00:12:15,360
+a mapping from numbers
+to letters-- humans years
+
+278
+00:12:15,360 --> 00:12:16,800
+ago just decided, you know what?
+
+279
+00:12:16,800 --> 00:12:18,840
+In the context where
+we need letters, let's
+
+280
+00:12:18,840 --> 00:12:22,440
+just store a pattern of bits
+that's equal to the number 65
+
+281
+00:12:22,440 --> 00:12:23,880
+if we want the letter a.
+
+282
+00:12:23,880 --> 00:12:26,820
+Pattern of bits equal to the
+number, decimal number, 66
+
+283
+00:12:26,820 --> 00:12:28,320
+if we want to store the number b.
+
+284
+00:12:28,320 --> 00:12:29,700
+Fast forward to h and i.
+
+285
+00:12:29,700 --> 00:12:34,450
+If you want to store h or i, 72,
+73, and just store that many bits.
+
+286
+00:12:34,450 --> 00:12:39,930
+And now I don't care any more in this
+story how you represent 65 or 73.
+
+287
+00:12:39,930 --> 00:12:42,780
+I just need to know that you
+can somehow with light bulbs
+
+288
+00:12:42,780 --> 00:12:46,390
+on stage, with transistors in my
+phone, or whatever the device may be.
+
+289
+00:12:46,390 --> 00:12:49,269
+We can begin to abstract
+away these low level details.
+
+290
+00:12:49,269 --> 00:12:51,060
+In fact, we're not
+going to spend much time
+
+291
+00:12:51,060 --> 00:12:54,450
+after today talking about
+binary in CS50 because here, we
+
+292
+00:12:54,450 --> 00:12:56,400
+have sort of electricity conceptually.
+
+293
+00:12:56,400 --> 00:12:59,192
+On top of that, we can build the
+notion of binary, zeros and ones.
+
+294
+00:12:59,192 --> 00:13:00,900
+And once we come up
+with this convention,
+
+295
+00:13:00,900 --> 00:13:04,200
+now we can start to talk
+about letters of an alphabet.
+
+296
+00:13:04,200 --> 00:13:06,360
+But that's not the only
+thing we can talk about.
+
+297
+00:13:06,360 --> 00:13:09,750
+We can also talk about graphics
+and videos and all the things
+
+298
+00:13:09,750 --> 00:13:11,490
+we take for granted these days.
+
+299
+00:13:11,490 --> 00:13:14,790
+For instance, and just to
+recap, what message have I
+
+300
+00:13:14,790 --> 00:13:17,880
+encoded here on the
+screen if you recall?
+
+301
+00:13:17,880 --> 00:13:18,760
+AUDIENCE: High.
+
+302
+00:13:18,760 --> 00:13:22,440
+SPEAKER 1: Yeah, it's high because
+72 and 73 I claimed a moment ago
+
+303
+00:13:22,440 --> 00:13:25,500
+are just the numbers we humans came
+up with years ago to represent HI.
+
+304
+00:13:25,500 --> 00:13:27,176
+I don't really know what 33 is.
+
+305
+00:13:27,176 --> 00:13:28,800
+You'd have to look it up or be told it.
+
+306
+00:13:28,800 --> 00:13:33,390
+Turns out it's an exclamation
+point because indeed humans decided
+
+307
+00:13:33,390 --> 00:13:37,290
+to express in numeric codes as
+well all the keys on a keyboard.
+
+308
+00:13:37,290 --> 00:13:40,230
+Unfortunately, they weren't
+very far sighted early on.
+
+309
+00:13:40,230 --> 00:13:44,010
+They only used 7 bits total
+and later kind of 8 bits.
+
+310
+00:13:44,010 --> 00:13:48,930
+But even that, even though that gives
+us over 200 possible values, 256,
+
+311
+00:13:48,930 --> 00:13:52,629
+there's a lot of languages that
+aren't in like the English alphabet,
+
+312
+00:13:52,629 --> 00:13:55,170
+Asian languages and the like,
+that have many, many, many more
+
+313
+00:13:55,170 --> 00:13:58,560
+symbols than you can express with
+just seven or eight bits alone.
+
+314
+00:13:58,560 --> 00:14:01,530
+And so now ASCII has been succeeded
+by something called Unicode.
+
+315
+00:14:01,530 --> 00:14:05,430
+And long story short, humans have begun
+to solve problems that were initially
+
+316
+00:14:05,430 --> 00:14:11,170
+created by not anticipating, needing, or
+wanting even larger values than these,
+
+317
+00:14:11,170 --> 00:14:15,000
+but in another context like
+Photoshop or any graphics program,
+
+318
+00:14:15,000 --> 00:14:16,950
+you might see the same pattern of bits--
+
+319
+00:14:16,950 --> 00:14:19,380
+72, 73, 33.
+
+320
+00:14:19,380 --> 00:14:22,410
+But in those programs, they
+know to interpret these numbers
+
+321
+00:14:22,410 --> 00:14:23,800
+as some amount of color.
+
+322
+00:14:23,800 --> 00:14:25,620
+If you've ever heard of RGB--
+
+323
+00:14:25,620 --> 00:14:27,720
+Red, Green, Blue-- this
+is just an acronym that
+
+324
+00:14:27,720 --> 00:14:30,370
+describes how you can mix
+together three different colors,
+
+325
+00:14:30,370 --> 00:14:33,390
+sort of in the spirit of paint
+or more technically light,
+
+326
+00:14:33,390 --> 00:14:37,770
+combine these three different colors,
+and get any color of the rainbow.
+
+327
+00:14:37,770 --> 00:14:45,200
+So each of these numbers I'll claim
+can be from 0 to 255 and 72 out of 255.
+
+328
+00:14:45,200 --> 00:14:46,679
+That's like a medium amount of red.
+
+329
+00:14:46,679 --> 00:14:49,470
+That's like a medium amount of
+green and just a little bit of blue.
+
+330
+00:14:49,470 --> 00:14:52,970
+And if you combine those three
+colors by mixing them together
+
+331
+00:14:52,970 --> 00:14:56,300
+into just one dot or pixel,
+as it's called in a computer,
+
+332
+00:14:56,300 --> 00:14:59,240
+you get this sort of
+murky shade of yellow.
+
+333
+00:14:59,240 --> 00:15:01,970
+But in the context of Photoshop
+or some graphics program,
+
+334
+00:15:01,970 --> 00:15:07,040
+that is what those same three patterns
+of bits would be interpreted as.
+
+335
+00:15:07,040 --> 00:15:10,259
+And it happens to be the case that
+talking in terms of single bits,
+
+336
+00:15:10,259 --> 00:15:11,300
+it's not all that useful.
+
+337
+00:15:11,300 --> 00:15:13,340
+With one bit, you can
+count as high as one.
+
+338
+00:15:13,340 --> 00:15:17,960
+So humans long ago also standardized
+on a nomenclature a byte, B-Y-T-E,
+
+339
+00:15:17,960 --> 00:15:19,212
+is just 8 bits.
+
+340
+00:15:19,212 --> 00:15:21,920
+And if you've ever heard of
+kilobytes and megabytes and gigabytes
+
+341
+00:15:21,920 --> 00:15:25,010
+and terabytes and the like,
+those are just multiples thereof,
+
+342
+00:15:25,010 --> 00:15:29,220
+typically orders of magnitude
+of 1,000 or 1,024, or more.
+
+343
+00:15:29,220 --> 00:15:32,960
+So with just three
+bytes, 24 bits, can we
+
+344
+00:15:32,960 --> 00:15:34,820
+represent letters,
+numbers, and the like.
+
+345
+00:15:34,820 --> 00:15:37,250
+And ultimately, these are
+just examples of abstraction.
+
+346
+00:15:37,250 --> 00:15:39,020
+And this is going to be
+a thing that permeates
+
+347
+00:15:39,020 --> 00:15:41,728
+not just this class, but computer
+science more generally-- taking
+
+348
+00:15:41,728 --> 00:15:45,200
+very simple ideas that really don't seem
+all that interesting at first glance.
+
+349
+00:15:45,200 --> 00:15:48,309
+But as soon as you use them as
+ingredients to solve a problem,
+
+350
+00:15:48,309 --> 00:15:51,350
+you can then sort of reuse that tool
+to build something more interesting,
+
+351
+00:15:51,350 --> 00:15:53,474
+reuse that tool to build
+something more interesting
+
+352
+00:15:53,474 --> 00:15:56,180
+still until you get to work
+application development
+
+353
+00:15:56,180 --> 00:15:58,190
+and solving real problems
+that you care about,
+
+354
+00:15:58,190 --> 00:16:00,680
+taking for granted the
+people that came before you
+
+355
+00:16:00,680 --> 00:16:06,110
+have solved a lot of these lower level
+implementation details, so to speak.
+
+356
+00:16:06,110 --> 00:16:09,560
+So what is inside this black box?
+
+357
+00:16:09,560 --> 00:16:11,420
+It is what we shall call algorithms.
+
+358
+00:16:11,420 --> 00:16:13,820
+And an algorithm, if familiar, is what?
+
+359
+00:16:13,820 --> 00:16:17,300
+It's kind of a fancy looking
+word, but it's a simple thing.
+
+360
+00:16:17,300 --> 00:16:19,596
+What is an algorithm if anyone knows?
+
+361
+00:16:19,596 --> 00:16:21,096
+AUDIENCE: Step by step instructions.
+
+362
+00:16:21,096 --> 00:16:24,390
+SPEAKER 1: Yeah, it's just step by step
+instructions for solving a problem.
+
+363
+00:16:24,390 --> 00:16:24,890
+That's it.
+
+364
+00:16:24,890 --> 00:16:28,730
+That is an algorithm-- step by step
+instructions for solving some problem.
+
+365
+00:16:28,730 --> 00:16:31,560
+So what might be a problem
+that we want to solve?
+
+366
+00:16:31,560 --> 00:16:33,800
+Well, I'm reminded of, and we've--
+
+367
+00:16:33,800 --> 00:16:36,230
+I'm reminded of fifth grade.
+
+368
+00:16:36,230 --> 00:16:38,990
+My homeroom teacher
+was trying to teach us
+
+369
+00:16:38,990 --> 00:16:41,780
+as effectively as she could how
+to follow directions correctly.
+
+370
+00:16:41,780 --> 00:16:43,710
+And at the time, it was
+a complete disaster.
+
+371
+00:16:43,710 --> 00:16:46,527
+But I always remember from
+that example the demonstration
+
+372
+00:16:46,527 --> 00:16:48,860
+that she did because it lent
+itself, although she didn't
+
+373
+00:16:48,860 --> 00:16:52,460
+use this word at the time, to this
+notion of computational thinking
+
+374
+00:16:52,460 --> 00:16:54,830
+or thinking like a
+computer, if you will,
+
+375
+00:16:54,830 --> 00:16:58,550
+whereby you want to solve
+something correctly.
+
+376
+00:16:58,550 --> 00:17:01,700
+But to do, so you need to be
+fed very precise instructions.
+
+377
+00:17:01,700 --> 00:17:03,360
+And this is easier said than done.
+
+378
+00:17:03,360 --> 00:17:07,950
+And so in fact, to recreate this, thanks
+to the team here, we have a plate.
+
+379
+00:17:07,950 --> 00:17:10,430
+We have a loaf of bread.
+
+380
+00:17:10,430 --> 00:17:15,079
+We have a jar of creamy
+Skippy peanut butter.
+
+381
+00:17:15,079 --> 00:17:20,390
+And we have a jar of
+Smucker's Concord gape jam,
+
+382
+00:17:20,390 --> 00:17:24,829
+and then for the invariable
+need, a whole lot of paper towel
+
+383
+00:17:24,829 --> 00:17:26,060
+and this one knife.
+
+384
+00:17:26,060 --> 00:17:27,980
+And so let me propose
+that for just a moment,
+
+385
+00:17:27,980 --> 00:17:30,230
+I'll play the role of
+a computer or maybe
+
+386
+00:17:30,230 --> 00:17:33,080
+in this form like a robot who's
+implementing some algorithm where
+
+387
+00:17:33,080 --> 00:17:37,147
+you guys are the programmer, the person
+who's supposed to feed me instructions
+
+388
+00:17:37,147 --> 00:17:38,480
+so that I can solve the problem.
+
+389
+00:17:38,480 --> 00:17:41,146
+And the problem here will be to,
+implement, perhaps no surprise,
+
+390
+00:17:41,146 --> 00:17:44,180
+a peanut butter and jelly sandwich--
+easy to sort of do intuitively
+
+391
+00:17:44,180 --> 00:17:45,800
+if you grew up eating these things.
+
+392
+00:17:45,800 --> 00:17:49,220
+But if you've never really thought
+about how to teach someone else to do it
+
+393
+00:17:49,220 --> 00:17:54,840
+and that someone else is not as
+sort of forgiving as another human
+
+394
+00:17:54,840 --> 00:17:57,741
+where we humans have conventions
+of just reading between the lines--
+
+395
+00:17:57,741 --> 00:17:58,740
+computers can't do that.
+
+396
+00:17:58,740 --> 00:18:00,531
+They will only do what
+you tell them to do.
+
+397
+00:18:00,531 --> 00:18:04,940
+And as such, they are less powerful,
+in some sense, than we humans.
+
+398
+00:18:04,940 --> 00:18:08,210
+So what's the first step for
+making with these ingredients--
+
+399
+00:18:08,210 --> 00:18:10,847
+these inputs, if you will-- a
+peanut butter and jelly sandwich?
+
+400
+00:18:10,847 --> 00:18:12,180
+AUDIENCE: Open the bag of bread.
+
+401
+00:18:12,180 --> 00:18:13,929
+SPEAKER 1: Open the
+bag of bread, I heard.
+
+402
+00:18:13,929 --> 00:18:16,560
+AUDIENCE: That's wrong.
+
+403
+00:18:16,560 --> 00:18:19,757
+SPEAKER 1: Correct, but not really
+what you had in mind, perhaps.
+
+404
+00:18:19,757 --> 00:18:20,340
+But that's OK.
+
+405
+00:18:20,340 --> 00:18:21,600
+The bag is open.
+
+406
+00:18:21,600 --> 00:18:23,844
+So what might a more
+precise step two be?
+
+407
+00:18:23,844 --> 00:18:25,010
+AUDIENCE: Remove two slices.
+
+408
+00:18:25,010 --> 00:18:25,884
+SPEAKER 1: Say again?
+
+409
+00:18:25,884 --> 00:18:27,130
+AUDIENCE: Remove two slices.
+
+410
+00:18:27,130 --> 00:18:29,390
+SPEAKER 1: Remove two slices.
+
+411
+00:18:29,390 --> 00:18:30,447
+OK.
+
+412
+00:18:30,447 --> 00:18:32,280
+AUDIENCE: Put those two
+slices on the plate.
+
+413
+00:18:32,280 --> 00:18:35,250
+SPEAKER 1: Put those
+two slices on the plate.
+
+414
+00:18:35,250 --> 00:18:37,110
+AUDIENCE: Drop the knife.
+
+415
+00:18:37,110 --> 00:18:38,700
+SPEAKER 1: Drop-- what?
+
+416
+00:18:38,700 --> 00:18:39,411
+Drop the knife?
+
+417
+00:18:39,411 --> 00:18:40,286
+AUDIENCE: [INAUDIBLE]
+
+418
+00:18:40,286 --> 00:18:42,776
+SPEAKER 1: OK.
+
+419
+00:18:42,776 --> 00:18:45,270
+AUDIENCE: Unscrew the jam.
+
+420
+00:18:45,270 --> 00:18:47,800
+SPEAKER 1: Unscrew the jam.
+
+421
+00:18:47,800 --> 00:18:48,300
+OK.
+
+422
+00:18:48,300 --> 00:18:49,570
+AUDIENCE: Grab the knife.
+
+423
+00:18:49,570 --> 00:18:50,956
+SPEAKER 1: Grab the knife.
+
+424
+00:18:50,956 --> 00:18:53,240
+AUDIENCE: Put the knife in the jelly.
+
+425
+00:18:53,240 --> 00:18:54,880
+SPEAKER 1: Put the knife in the-- oh.
+
+426
+00:18:54,880 --> 00:18:55,380
+What?
+
+427
+00:18:55,380 --> 00:18:56,760
+AUDIENCE: Other end of the--
+
+428
+00:18:56,760 --> 00:18:58,630
+SPEAKER 1: Oh, thank you.
+
+429
+00:18:58,630 --> 00:18:59,134
+Right?
+
+430
+00:18:59,134 --> 00:19:00,550
+Grab the knife from the other end.
+
+431
+00:19:00,550 --> 00:19:02,462
+Someone from farther back, perhaps?
+
+432
+00:19:02,462 --> 00:19:05,120
+AUDIENCE: Stick the knife in the jam.
+
+433
+00:19:05,120 --> 00:19:08,340
+SPEAKER 1: Stick the knife in the jam.
+
+434
+00:19:08,340 --> 00:19:08,840
+What's that?
+
+435
+00:19:08,840 --> 00:19:10,200
+AUDIENCE: Take it out.
+
+436
+00:19:10,200 --> 00:19:11,590
+SPEAKER 1: Take it out.
+
+437
+00:19:11,590 --> 00:19:13,620
+OK.
+
+438
+00:19:13,620 --> 00:19:14,120
+Again?
+
+439
+00:19:14,120 --> 00:19:15,710
+AUDIENCE: Put the knife in the jam.
+
+440
+00:19:15,710 --> 00:19:17,230
+SPEAKER 1: Put the knife in the jam.
+
+441
+00:19:17,230 --> 00:19:18,380
+Ow.
+
+442
+00:19:18,380 --> 00:19:19,430
+Scoop it.
+
+443
+00:19:19,430 --> 00:19:21,350
+AUDIENCE: Yeah.
+
+444
+00:19:21,350 --> 00:19:23,270
+Dump it on the bread.
+
+445
+00:19:23,270 --> 00:19:27,120
+[LAUGHTER]
+
+446
+00:19:27,120 --> 00:19:29,380
+SPEAKER 1: OK, we're halfway there.
+
+447
+00:19:29,380 --> 00:19:29,880
+Now what?
+
+448
+00:19:29,880 --> 00:19:33,120
+AUDIENCE: Spread the jam with
+the knife across the bread.
+
+449
+00:19:33,120 --> 00:19:36,452
+SPEAKER 1: Spread the jam with
+the knife across the bread.
+
+450
+00:19:36,452 --> 00:19:37,160
+AUDIENCE: Evenly!
+
+451
+00:19:37,160 --> 00:19:38,290
+SPEAKER 1: Oh, evenly.
+
+452
+00:19:38,290 --> 00:19:41,004
+Let's be careful here.
+
+453
+00:19:41,004 --> 00:19:43,780
+OK, OK.
+
+454
+00:19:43,780 --> 00:19:44,724
+Next?
+
+455
+00:19:44,724 --> 00:19:48,042
+AUDIENCE: Do the same thing you did
+with the jam with the peanut butter
+
+456
+00:19:48,042 --> 00:19:51,012
+on the other slice of bread.
+
+457
+00:19:51,012 --> 00:19:52,845
+SPEAKER 1: OK, so I
+think we did this first.
+
+458
+00:19:52,845 --> 00:19:54,594
+
+
+459
+00:19:54,594 --> 00:19:57,010
+AUDIENCE: And this time, don't
+get a lot of peanut butter.
+
+460
+00:19:57,010 --> 00:19:59,580
+SPEAKER 1: We did
+this, then we did that.
+
+461
+00:19:59,580 --> 00:20:01,600
+Then-- oh.
+
+462
+00:20:01,600 --> 00:20:04,810
+All right, I'll take some liberties.
+
+463
+00:20:04,810 --> 00:20:07,240
+OK, and now we put it in again.
+
+464
+00:20:07,240 --> 00:20:08,650
+AUDIENCE: Scoop a little bit out.
+
+465
+00:20:08,650 --> 00:20:11,127
+SPEAKER 1: "Scoop a little
+bit out" I heard this time.
+
+466
+00:20:11,127 --> 00:20:12,260
+AUDIENCE: Onto the other slice of bread.
+
+467
+00:20:12,260 --> 00:20:14,000
+SPEAKER 1: Onto the other
+slice of bread, thank you.
+
+468
+00:20:14,000 --> 00:20:15,170
+AUDIENCE: Spread it evenly.
+
+469
+00:20:15,170 --> 00:20:16,336
+SPEAKER 1: Spread it evenly.
+
+470
+00:20:16,336 --> 00:20:19,870
+
+
+471
+00:20:19,870 --> 00:20:23,772
+Next time, have me use
+my right hand please.
+
+472
+00:20:23,772 --> 00:20:26,384
+OK, and--
+
+473
+00:20:26,384 --> 00:20:28,854
+AUDIENCE: Put the knife down.
+
+474
+00:20:28,854 --> 00:20:30,965
+Put the jam side on the peanut butter.
+
+475
+00:20:30,965 --> 00:20:31,840
+SPEAKER 1: Thank you.
+
+476
+00:20:31,840 --> 00:20:34,550
+Put the jam side on
+the peanut butter and--
+
+477
+00:20:34,550 --> 00:20:35,050
+delicious.
+
+478
+00:20:35,050 --> 00:20:36,790
+OK.
+
+479
+00:20:36,790 --> 00:20:38,335
+Thank you very much.
+
+480
+00:20:38,335 --> 00:20:40,315
+[APPLAUSE]
+
+481
+00:20:40,315 --> 00:20:43,290
+
+
+482
+00:20:43,290 --> 00:20:47,610
+So a silly example, to be fair, but
+just realize how much opportunity there
+
+483
+00:20:47,610 --> 00:20:51,450
+was even in something as simple
+as that for ambiguity or scenarios
+
+484
+00:20:51,450 --> 00:20:52,410
+you didn't anticipate.
+
+485
+00:20:52,410 --> 00:20:54,576
+And indeed, among the things
+we're going to do today
+
+486
+00:20:54,576 --> 00:20:58,080
+as we begin to formalize these ideas
+with code, with programming code,
+
+487
+00:20:58,080 --> 00:21:02,130
+are how you think about breaking down
+problems into their constituent parts,
+
+488
+00:21:02,130 --> 00:21:05,075
+considering what happened-- what
+should I do if this happens?
+
+489
+00:21:05,075 --> 00:21:06,450
+What should I do if this happens?
+
+490
+00:21:06,450 --> 00:21:07,890
+What should I do if this happens?
+
+491
+00:21:07,890 --> 00:21:10,320
+Because unless you anticipate
+the kind of silliness
+
+492
+00:21:10,320 --> 00:21:12,030
+that I was deliberately
+acting out there,
+
+493
+00:21:12,030 --> 00:21:14,910
+who knows what the computer
+might end up doing?
+
+494
+00:21:14,910 --> 00:21:16,710
+After all, odds are
+everyone in this room
+
+495
+00:21:16,710 --> 00:21:19,500
+like me has seen like a spinning
+beach ball or an hourglass
+
+496
+00:21:19,500 --> 00:21:22,530
+on your computer or your Mac
+or PC freezes or crashes.
+
+497
+00:21:22,530 --> 00:21:25,830
+And almost always that's just
+the result of some human error.
+
+498
+00:21:25,830 --> 00:21:29,400
+Someone at Google or Microsoft or
+Facebook or wherever made some mistake.
+
+499
+00:21:29,400 --> 00:21:31,590
+He or she did not
+anticipate some situation,
+
+500
+00:21:31,590 --> 00:21:33,960
+didn't anticipate you typing
+in a word that you did,
+
+501
+00:21:33,960 --> 00:21:36,180
+didn't anticipate you
+running 20 programs at once,
+
+502
+00:21:36,180 --> 00:21:37,900
+didn't anticipate some scenario.
+
+503
+00:21:37,900 --> 00:21:41,620
+And so as such, the computer's
+behavior was effectively undefined.
+
+504
+00:21:41,620 --> 00:21:45,300
+And so the incorrect
+solution was outputted.
+
+505
+00:21:45,300 --> 00:21:47,310
+So how do we begin to think about this?
+
+506
+00:21:47,310 --> 00:21:49,840
+What would be ideal if we somehow--
+
+507
+00:21:49,840 --> 00:21:54,780
+if we somehow formalize
+this by way of actual code.
+
+508
+00:21:54,780 --> 00:21:57,150
+And we'll do that with
+sort of another old school
+
+509
+00:21:57,150 --> 00:21:59,850
+problem, one that's a lot
+more digital these days
+
+510
+00:21:59,850 --> 00:22:01,170
+but it's still with us today.
+
+511
+00:22:01,170 --> 00:22:03,711
+Whether you have an Android
+phone or iPhone or anything else,
+
+512
+00:22:03,711 --> 00:22:06,900
+odds are you have like a little app
+for your contacts or your address book.
+
+513
+00:22:06,900 --> 00:22:08,649
+And then there are a
+whole bunch of names,
+
+514
+00:22:08,649 --> 00:22:10,772
+probably alphabetical by
+first name or last name,
+
+515
+00:22:10,772 --> 00:22:13,980
+and a whole bunch of telephone numbers
+and maybe more information like emails
+
+516
+00:22:13,980 --> 00:22:15,330
+and so forth today.
+
+517
+00:22:15,330 --> 00:22:18,720
+But the physical incarnation
+of that icon on your phone
+
+518
+00:22:18,720 --> 00:22:20,460
+is this old thing, a phone book.
+
+519
+00:22:20,460 --> 00:22:24,690
+And if I wanted to look for an old
+friend like, say, Mike Smith, how might
+
+520
+00:22:24,690 --> 00:22:26,944
+I go about finding him in
+this old school phone book?
+
+521
+00:22:26,944 --> 00:22:28,860
+Well, just as in my
+digital form, I might just
+
+522
+00:22:28,860 --> 00:22:30,690
+scroll through the list looking for him.
+
+523
+00:22:30,690 --> 00:22:34,410
+So could I look at the first page,
+look down, not see him, turn the page,
+
+524
+00:22:34,410 --> 00:22:38,190
+look down, not see him, turn the page,
+look down, not see him, and so forth.
+
+525
+00:22:38,190 --> 00:22:40,140
+Is this algorithm correct?
+
+526
+00:22:40,140 --> 00:22:41,260
+AUDIENCE: Yes.
+
+527
+00:22:41,260 --> 00:22:42,510
+SPEAKER 1: Yeah, it's correct.
+
+528
+00:22:42,510 --> 00:22:44,130
+It's kind of dumb right
+because it's going
+
+529
+00:22:44,130 --> 00:22:46,830
+to take forever to get to Mike
+if there's like 1,000 pages here,
+
+530
+00:22:46,830 --> 00:22:47,892
+but it is correct.
+
+531
+00:22:47,892 --> 00:22:50,850
+And it's the equivalent really of
+sort of slowly methodically scrolling
+
+532
+00:22:50,850 --> 00:22:53,600
+through your list of contacts
+without the luxury of like searching
+
+533
+00:22:53,600 --> 00:22:54,767
+or autocomplete or the like.
+
+534
+00:22:54,767 --> 00:22:56,141
+Well, I could do a little better.
+
+535
+00:22:56,141 --> 00:22:58,770
+Back in grade school, I generally
+learned to count by two.
+
+536
+00:22:58,770 --> 00:23:02,750
+So I could instead do
+2, 4, 6, 8, 10, 12.
+
+537
+00:23:02,750 --> 00:23:05,940
+I'm flying through the phone
+book now clearly faster.
+
+538
+00:23:05,940 --> 00:23:07,260
+But is that algorithm correct?
+
+539
+00:23:07,260 --> 00:23:08,281
+AUDIENCE: No.
+
+540
+00:23:08,281 --> 00:23:09,030
+SPEAKER 1: No why?
+
+541
+00:23:09,030 --> 00:23:10,239
+AUDIENCE: You might miss him.
+
+542
+00:23:10,239 --> 00:23:11,946
+SPEAKER 1: Yeah, I
+might miss him, right?
+
+543
+00:23:11,946 --> 00:23:14,550
+Like Mike, just by chance,
+might be sandwiched between--
+
+544
+00:23:14,550 --> 00:23:19,350
+so it is, no pun intended-- between
+the two pages then I'm flying past
+
+545
+00:23:19,350 --> 00:23:20,280
+and I might miss him.
+
+546
+00:23:20,280 --> 00:23:23,340
+But I can at least fixed this
+mistake or bug, so to speak.
+
+547
+00:23:23,340 --> 00:23:25,770
+A bug is a mistake in a
+program, just human error.
+
+548
+00:23:25,770 --> 00:23:28,830
+If I hit like the T section,
+t comes after Smith.
+
+549
+00:23:28,830 --> 00:23:32,040
+So I can maybe double back at
+least one page and solve that bug.
+
+550
+00:23:32,040 --> 00:23:35,400
+So it costs me a little bit more time
+to double back, but if I do it right,
+
+551
+00:23:35,400 --> 00:23:37,190
+it only costs me like
+one extra page turn.
+
+552
+00:23:37,190 --> 00:23:38,760
+So better and now correct.
+
+553
+00:23:38,760 --> 00:23:41,520
+But obviously no one in this room
+is going to look for Mike Smith
+
+554
+00:23:41,520 --> 00:23:42,870
+by starting on the first page.
+
+555
+00:23:42,870 --> 00:23:44,804
+Where are you going to roughly look?
+
+556
+00:23:44,804 --> 00:23:47,970
+In the middle, maybe a little toward
+the end because you know where S's are.
+
+557
+00:23:47,970 --> 00:23:49,594
+And so you open the book to the middle.
+
+558
+00:23:49,594 --> 00:23:51,480
+You look down and you see the M section.
+
+559
+00:23:51,480 --> 00:23:52,830
+So I haven't gone far enough.
+
+560
+00:23:52,830 --> 00:23:55,020
+But what's nice about
+this old school technology
+
+561
+00:23:55,020 --> 00:23:59,550
+is that we can now tear this
+problem in half, throw half of it
+
+562
+00:23:59,550 --> 00:24:04,241
+away, and be left with fundamentally
+the same problem but a smaller version
+
+563
+00:24:04,241 --> 00:24:04,740
+thereof.
+
+564
+00:24:04,740 --> 00:24:09,690
+This now is maybe not 1,000 but 500
+pages, but it is the same problem.
+
+565
+00:24:09,690 --> 00:24:13,050
+And I can apply the same logic, go
+roughly to the middle, look down.
+
+566
+00:24:13,050 --> 00:24:15,270
+I went a little too far
+this time, the T section.
+
+567
+00:24:15,270 --> 00:24:20,640
+But I can again tear off almost
+a quarter of that problem,
+
+568
+00:24:20,640 --> 00:24:24,570
+leaving me now with a total
+size of the maybe 250 pages
+
+569
+00:24:24,570 --> 00:24:26,550
+after dividing it in half twice now.
+
+570
+00:24:26,550 --> 00:24:29,010
+And now I can repeat
+and repeat and repeat.
+
+571
+00:24:29,010 --> 00:24:31,680
+And so long as Mike
+is in the phone book,
+
+572
+00:24:31,680 --> 00:24:35,010
+I should ultimately find
+him once and only once
+
+573
+00:24:35,010 --> 00:24:38,760
+on the final page of the phone
+book, at which point I can call him.
+
+574
+00:24:38,760 --> 00:24:41,582
+So the real question then
+is how much better was this.
+
+575
+00:24:41,582 --> 00:24:42,540
+It's a little wasteful.
+
+576
+00:24:42,540 --> 00:24:45,480
+You can't sort of undo
+here in the analog world.
+
+577
+00:24:45,480 --> 00:24:49,020
+But let's consider how we can think
+about how good that algorithm was,
+
+578
+00:24:49,020 --> 00:24:52,220
+the one that we all probably took for
+granted and should have started with.
+
+579
+00:24:52,220 --> 00:24:55,740
+Well, if here's a simple plot
+and on the x or horizontal axis
+
+580
+00:24:55,740 --> 00:24:56,980
+is the size of the problem--
+
+581
+00:24:56,980 --> 00:25:00,063
+so the number of pages in the phone
+book, however you want to measure it--
+
+582
+00:25:00,063 --> 00:25:02,730
+and then the y or vertical
+axis is time to solve--
+
+583
+00:25:02,730 --> 00:25:04,860
+so maybe number of seconds,
+number of page turns,
+
+584
+00:25:04,860 --> 00:25:07,110
+however you want to count up the steps--
+
+585
+00:25:07,110 --> 00:25:09,780
+that's a relationship, size to time.
+
+586
+00:25:09,780 --> 00:25:12,330
+And the first algorithm
+I'm going to draw
+
+587
+00:25:12,330 --> 00:25:14,159
+like this-- a straight line in red.
+
+588
+00:25:14,159 --> 00:25:16,950
+And I'm going to call it n where
+n is just like the number of pages
+
+589
+00:25:16,950 --> 00:25:17,700
+in the phone book.
+
+590
+00:25:17,700 --> 00:25:21,150
+Computer scientists tend to use n as
+a variable so to speak, just a symbol.
+
+591
+00:25:21,150 --> 00:25:24,660
+And it's a straight line
+for the following reason.
+
+592
+00:25:24,660 --> 00:25:28,370
+If the phone book gets a little longer
+next year, a little longer next year,
+
+593
+00:25:28,370 --> 00:25:30,480
+by like one page, that
+means I might have
+
+594
+00:25:30,480 --> 00:25:32,920
+to spend one more step looking for Mike.
+
+595
+00:25:32,920 --> 00:25:35,231
+So the slope of this line is linear.
+
+596
+00:25:35,231 --> 00:25:37,230
+There's a one to one
+relationship between number
+
+597
+00:25:37,230 --> 00:25:40,800
+of pages Verizon or the phone company
+puts in the book and the number of page
+
+598
+00:25:40,800 --> 00:25:41,820
+turns I need to make.
+
+599
+00:25:41,820 --> 00:25:44,510
+The second algorithm, though,
+is also a straight line,
+
+600
+00:25:44,510 --> 00:25:46,630
+but it's lower drawn here in yellow.
+
+601
+00:25:46,630 --> 00:25:50,840
+And n over 2 means it's twice as fast
+or equivalently takes half as much
+
+602
+00:25:50,840 --> 00:25:56,030
+time because for a given size problem,
+if you kind of follow my hand straight
+
+603
+00:25:56,030 --> 00:25:59,690
+up, the yellow line should
+be below the red line
+
+604
+00:25:59,690 --> 00:26:02,930
+because I'm flying through the
+phone book two pages at a time.
+
+605
+00:26:02,930 --> 00:26:04,769
+So it should take me half as much time.
+
+606
+00:26:04,769 --> 00:26:07,310
+But if I use the first algorithm,
+I have to go all the way up
+
+607
+00:26:07,310 --> 00:26:10,580
+to the red, which measures
+that number of seconds.
+
+608
+00:26:10,580 --> 00:26:13,100
+But the third algorithm is a
+fundamentally different shape.
+
+609
+00:26:13,100 --> 00:26:16,130
+And this is where the sort of beauty
+of computer science and algorithms
+
+610
+00:26:16,130 --> 00:26:17,810
+specifically comes out.
+
+611
+00:26:17,810 --> 00:26:20,240
+It doesn't become straight ultimately.
+
+612
+00:26:20,240 --> 00:26:21,974
+It looks like it's gradually easing off.
+
+613
+00:26:21,974 --> 00:26:23,390
+But it's going to do this forever.
+
+614
+00:26:23,390 --> 00:26:26,624
+It's just becoming such
+a slow increase in time--
+
+615
+00:26:26,624 --> 00:26:29,540
+you can't even really see it especially
+if the screen were even wider.
+
+616
+00:26:29,540 --> 00:26:32,482
+We'll call this logarithmic, log
+n, more on that down the road.
+
+617
+00:26:32,482 --> 00:26:34,190
+But the shape is
+fundamentally different.
+
+618
+00:26:34,190 --> 00:26:34,690
+It's curved.
+
+619
+00:26:34,690 --> 00:26:37,898
+And what's powerful about this-- and
+you can think about it much more easily,
+
+620
+00:26:37,898 --> 00:26:38,690
+intuitively.
+
+621
+00:26:38,690 --> 00:26:41,556
+If Verizon next year doubles
+the size of the phone book
+
+622
+00:26:41,556 --> 00:26:43,430
+because like maybe
+Cambridge and another town
+
+623
+00:26:43,430 --> 00:26:46,044
+merge together into
+one book, no big deal
+
+624
+00:26:46,044 --> 00:26:48,710
+because if Verizon doubles the
+size of the phone book next year,
+
+625
+00:26:48,710 --> 00:26:51,530
+how many more page turns
+do I need to find Mike?
+
+626
+00:26:51,530 --> 00:26:52,322
+AUDIENCE: Just one.
+
+627
+00:26:52,322 --> 00:26:53,446
+SPEAKER 1: Just one, right?
+
+628
+00:26:53,446 --> 00:26:56,360
+Because I just split the problem
+in half one more time, no big deal,
+
+629
+00:26:56,360 --> 00:27:00,950
+instead of flipping through an
+additional 1,000 or 500 pages.
+
+630
+00:27:00,950 --> 00:27:04,190
+And so this intuition with
+which you entered Sanders today,
+
+631
+00:27:04,190 --> 00:27:07,730
+odds are you can harness it already
+to solve problems more effectively so
+
+632
+00:27:07,730 --> 00:27:10,910
+long as you start to notice the
+patterns and the sort of useful inputs
+
+633
+00:27:10,910 --> 00:27:12,470
+with which you can solve problems.
+
+634
+00:27:12,470 --> 00:27:14,670
+But we need to begin to
+formalize the process.
+
+635
+00:27:14,670 --> 00:27:18,139
+We need to be able to express ourselves
+a little less organically than we
+
+636
+00:27:18,139 --> 00:27:19,680
+did with the peanut butter and jelly.
+
+637
+00:27:19,680 --> 00:27:22,700
+So how might we more
+methodically express
+
+638
+00:27:22,700 --> 00:27:26,840
+that algorithm with the phone book
+for which we probably nonetheless
+
+639
+00:27:26,840 --> 00:27:28,280
+have an intuitive understanding?
+
+640
+00:27:28,280 --> 00:27:31,522
+Well, let me start counting at zero
+just because programmers and computer
+
+641
+00:27:31,522 --> 00:27:33,230
+scientists tend to
+start counting at zero
+
+642
+00:27:33,230 --> 00:27:35,229
+because that's like all
+the light bulbs are off.
+
+643
+00:27:35,229 --> 00:27:36,710
+So you might as well start there.
+
+644
+00:27:36,710 --> 00:27:38,780
+And then step zero would
+be pick up phone book.
+
+645
+00:27:38,780 --> 00:27:39,800
+It's sort of an action.
+
+646
+00:27:39,800 --> 00:27:40,670
+Do this.
+
+647
+00:27:40,670 --> 00:27:43,220
+Step one is open to the
+middle of the phone book.
+
+648
+00:27:43,220 --> 00:27:45,290
+That's pretty much what
+I did a moment ago.
+
+649
+00:27:45,290 --> 00:27:47,080
+Step two is look at the names--
+
+650
+00:27:47,080 --> 00:27:48,560
+another action or verb
+
+651
+00:27:48,560 --> 00:27:51,050
+Step three, if Smith is among names.
+
+652
+00:27:51,050 --> 00:27:53,210
+So this is a different construct.
+
+653
+00:27:53,210 --> 00:27:55,426
+And that key word here
+is going to be if.
+
+654
+00:27:55,426 --> 00:27:57,050
+It's a question you're asking yourself.
+
+655
+00:27:57,050 --> 00:27:59,000
+It's kind of a proverbial
+fork in the road.
+
+656
+00:27:59,000 --> 00:28:03,740
+If Mike is among the names on the
+page you're looking, then call Mike.
+
+657
+00:28:03,740 --> 00:28:06,740
+And I've deliberately indented it
+because in many computer languages,
+
+658
+00:28:06,740 --> 00:28:09,380
+indentation means logically
+that you should only
+
+659
+00:28:09,380 --> 00:28:13,570
+do step four if line three were true.
+
+660
+00:28:13,570 --> 00:28:15,620
+Or the answer to that question is yes.
+
+661
+00:28:15,620 --> 00:28:20,840
+Else, if Smith is earlier in the book,
+he's meant to my left, then step six,
+
+662
+00:28:20,840 --> 00:28:23,030
+open to the middle of the
+left half of the book.
+
+663
+00:28:23,030 --> 00:28:26,150
+So that's when I tore it in half,
+threw it away, and then repeated
+
+664
+00:28:26,150 --> 00:28:27,590
+on the left half.
+
+665
+00:28:27,590 --> 00:28:29,720
+Else, if Smith-- oh, sorry.
+
+666
+00:28:29,720 --> 00:28:33,140
+Then go back to step two, a key step.
+
+667
+00:28:33,140 --> 00:28:35,540
+Now that I've divided
+the problem in half
+
+668
+00:28:35,540 --> 00:28:37,790
+and I'm looking in the
+middle of the left half,
+
+669
+00:28:37,790 --> 00:28:40,280
+the problem is fundamentally
+the same as I claimed before.
+
+670
+00:28:40,280 --> 00:28:42,280
+Just do the same thing
+but on a smaller problem.
+
+671
+00:28:42,280 --> 00:28:45,140
+And what's beautiful about this
+algorithm-- it's recursive,
+
+672
+00:28:45,140 --> 00:28:47,360
+so to speak, as we'll
+see down the road to--
+
+673
+00:28:47,360 --> 00:28:51,010
+is that you keep doing the same
+thing, same thing, same thing,
+
+674
+00:28:51,010 --> 00:28:53,450
+but because the problem
+keeps getting smaller,
+
+675
+00:28:53,450 --> 00:28:55,640
+eventually you're not
+going to do this forever.
+
+676
+00:28:55,640 --> 00:28:58,050
+You're going to find the
+answer you're looking for.
+
+677
+00:28:58,050 --> 00:28:59,690
+And so we go back to step two.
+
+678
+00:28:59,690 --> 00:29:03,170
+Step eight, else if Smith is
+later in the book, to my right,
+
+679
+00:29:03,170 --> 00:29:05,330
+open to the middle of the
+right half of the book
+
+680
+00:29:05,330 --> 00:29:08,600
+and then again go back to step two.
+
+681
+00:29:08,600 --> 00:29:11,870
+Else-- what's the fourth
+scenario to consider?
+
+682
+00:29:11,870 --> 00:29:12,969
+AUDIENCE: [INAUDIBLE]
+
+683
+00:29:12,969 --> 00:29:15,010
+SPEAKER 1: Yeah, what if
+Mike isn't in the phone?
+
+684
+00:29:15,010 --> 00:29:15,810
+He's unlisted.
+
+685
+00:29:15,810 --> 00:29:19,510
+We'd better anticipate that less my
+program crash or my computer freeze
+
+686
+00:29:19,510 --> 00:29:22,690
+because, like, it doesn't know
+what to do if Mike isn't there.
+
+687
+00:29:22,690 --> 00:29:25,184
+So I'll quit in this particular case.
+
+688
+00:29:25,184 --> 00:29:27,100
+And now let's tease this
+apart by highlighting
+
+689
+00:29:27,100 --> 00:29:29,870
+in yellow those operative
+verbs or actions.
+
+690
+00:29:29,870 --> 00:29:33,700
+Henceforth, we're going to call things
+like these yellow words functions,
+
+691
+00:29:33,700 --> 00:29:35,450
+so to speak, in a programming language.
+
+692
+00:29:35,450 --> 00:29:39,009
+These are verbs or actions, and I'll
+call them out, albeit in English
+
+693
+00:29:39,009 --> 00:29:40,550
+because there's no one language here.
+
+694
+00:29:40,550 --> 00:29:43,050
+This isn't like a formal
+vocabulary we're introducing.
+
+695
+00:29:43,050 --> 00:29:45,710
+It's just my most distinct way
+of expressing that algorithm.
+
+696
+00:29:45,710 --> 00:29:47,080
+And that's what pseudocode is.
+
+697
+00:29:47,080 --> 00:29:49,990
+It's English like syntax
+that anyone in the room
+
+698
+00:29:49,990 --> 00:29:51,850
+should hopefully be
+able to follow if you're
+
+699
+00:29:51,850 --> 00:29:53,810
+nice and clean and precise about it.
+
+700
+00:29:53,810 --> 00:29:56,080
+But there's another
+type of keyword in here
+
+701
+00:29:56,080 --> 00:29:58,930
+and that's the if and the else
+if and else if and the else.
+
+702
+00:29:58,930 --> 00:30:01,240
+These are the keywords
+that languages typically
+
+703
+00:30:01,240 --> 00:30:04,360
+use to represent these
+forks in the road-- go left,
+
+704
+00:30:04,360 --> 00:30:07,090
+go right, go here, go
+there, do different things.
+
+705
+00:30:07,090 --> 00:30:11,230
+And each of those decisions, if
+you will, is based on the answer
+
+706
+00:30:11,230 --> 00:30:12,310
+to a question.
+
+707
+00:30:12,310 --> 00:30:15,460
+And these questions we're going
+to call Boolean expressions named
+
+708
+00:30:15,460 --> 00:30:17,650
+after a person named Bool years ago.
+
+709
+00:30:17,650 --> 00:30:21,190
+And a Boolean expression is just
+a question with a yes or no answer
+
+710
+00:30:21,190 --> 00:30:24,850
+or really more technically
+a true false answer.
+
+711
+00:30:24,850 --> 00:30:28,510
+And notice the fact that everything
+falls into like buckets of two--
+
+712
+00:30:28,510 --> 00:30:30,250
+yes, no, true, false--
+
+713
+00:30:30,250 --> 00:30:32,770
+means we can use those light
+bulbs really to our advantage.
+
+714
+00:30:32,770 --> 00:30:35,690
+Maybe off shall be no or false.
+
+715
+00:30:35,690 --> 00:30:38,290
+Maybe on will be true or yes.
+
+716
+00:30:38,290 --> 00:30:42,100
+Just using a one light bulb can
+we represent any of these answers
+
+717
+00:30:42,100 --> 00:30:43,010
+to these questions.
+
+718
+00:30:43,010 --> 00:30:45,940
+And so those are Boolean expressions.
+
+719
+00:30:45,940 --> 00:30:47,650
+And then lastly, there is these things--
+
+720
+00:30:47,650 --> 00:30:50,160
+go to step two, which is
+perhaps the most explicit.
+
+721
+00:30:50,160 --> 00:30:53,350
+It's inducing some
+kind of loop or cycle.
+
+722
+00:30:53,350 --> 00:30:54,860
+Do something again and again.
+
+723
+00:30:54,860 --> 00:30:58,240
+And all of these ideas, functions,
+conditions, Boolean expressions, loops,
+
+724
+00:30:58,240 --> 00:31:02,140
+and more are going to permeate
+several languages that we explore over
+
+725
+00:31:02,140 --> 00:31:04,580
+the course of the semester.
+
+726
+00:31:04,580 --> 00:31:07,516
+But of course this unto
+itself is not yet real code.
+
+727
+00:31:07,516 --> 00:31:09,640
+And today in just a little
+bit, we're going to dive
+
+728
+00:31:09,640 --> 00:31:12,580
+into real programming code, albeit
+graphically using a language
+
+729
+00:31:12,580 --> 00:31:16,060
+called Scratch, and then follow that
+on later next week with a programming
+
+730
+00:31:16,060 --> 00:31:17,320
+language called C.
+
+731
+00:31:17,320 --> 00:31:20,170
+But before that, let me make
+just a couple of introductions.
+
+732
+00:31:20,170 --> 00:31:23,890
+Behind CS50 and its lectures and
+sections and office hours and more
+
+733
+00:31:23,890 --> 00:31:26,680
+is a whole team, nearly
+100 staff every year,
+
+734
+00:31:26,680 --> 00:31:29,470
+that are here to make this
+course successful for you
+
+735
+00:31:29,470 --> 00:31:32,110
+so that irrespective of your
+prior background or lack thereof,
+
+736
+00:31:32,110 --> 00:31:36,250
+you too can succeed, especially
+if you are among those 68%.
+
+737
+00:31:36,250 --> 00:31:40,480
+And allow me to invite up Maria
+and Brian and Doug and Rob
+
+738
+00:31:40,480 --> 00:31:42,430
+to come say hello from
+the course's staff.
+
+739
+00:31:42,430 --> 00:31:52,330
+
+
+740
+00:31:52,330 --> 00:31:54,314
+DOUG LLOYD: Good morning, everybody.
+
+741
+00:31:54,314 --> 00:31:55,230
+My name is Doug Lloyd.
+
+742
+00:31:55,230 --> 00:31:58,650
+I'm the course's senior
+preceptor and course manager.
+
+743
+00:31:58,650 --> 00:32:01,422
+12 years ago now, I sat
+figuratively where you sat.
+
+744
+00:32:01,422 --> 00:32:03,630
+It was in Lowell Lecture
+Hall just across the street.
+
+745
+00:32:03,630 --> 00:32:05,430
+I was among those less comfortable.
+
+746
+00:32:05,430 --> 00:32:09,160
+I had never programmed
+before in my life.
+
+747
+00:32:09,160 --> 00:32:09,900
+I took CS50.
+
+748
+00:32:09,900 --> 00:32:13,410
+It totally changed the way I
+thought about problem solving.
+
+749
+00:32:13,410 --> 00:32:17,040
+I switched to CS major
+shortly thereafter,
+
+750
+00:32:17,040 --> 00:32:19,890
+and I've been on the staff
+with David for 11 years now.
+
+751
+00:32:19,890 --> 00:32:21,562
+So it's great to be here once again.
+
+752
+00:32:21,562 --> 00:32:22,770
+Thank you all for being here.
+
+753
+00:32:22,770 --> 00:32:28,160
+
+
+754
+00:32:28,160 --> 00:32:29,190
+MARIA: Hi, everyone.
+
+755
+00:32:29,190 --> 00:32:29,960
+My name is Maria.
+
+756
+00:32:29,960 --> 00:32:34,580
+I'm a senior living in Cabot, and
+it's my fourth year in the course.
+
+757
+00:32:34,580 --> 00:32:38,810
+I took it as a freshman at an awesome
+time, and it's my third year on heads.
+
+758
+00:32:38,810 --> 00:32:40,910
+And I've absolutely loved it.
+
+759
+00:32:40,910 --> 00:32:41,960
+The staff is amazing.
+
+760
+00:32:41,960 --> 00:32:44,150
+Working with all of
+us amazing and I can't
+
+761
+00:32:44,150 --> 00:32:46,280
+wait to have an amazing
+senior year with you guys.
+
+762
+00:32:46,280 --> 00:32:50,627
+
+
+763
+00:32:50,627 --> 00:32:52,700
+BRIAN: Hi, everyone I'm Brian.
+
+764
+00:32:52,700 --> 00:32:55,010
+I am the course's head course assistant.
+
+765
+00:32:55,010 --> 00:32:58,520
+I am a junior living in Winthrop,
+and I took the class my freshman year
+
+766
+00:32:58,520 --> 00:32:59,930
+two years ago now.
+
+767
+00:32:59,930 --> 00:33:02,780
+And really glad that all of you
+are here and really looking forward
+
+768
+00:33:02,780 --> 00:33:04,946
+to a fantastic semester and
+working with all of you.
+
+769
+00:33:04,946 --> 00:33:08,747
+
+
+770
+00:33:08,747 --> 00:33:09,440
+ROB: Hey, guys.
+
+771
+00:33:09,440 --> 00:33:10,330
+I'm Rob.
+
+772
+00:33:10,330 --> 00:33:13,640
+I'm a fourth year PhD
+student living in Thayer,
+
+773
+00:33:13,640 --> 00:33:18,050
+and this is my eighth
+year with the course.
+
+774
+00:33:18,050 --> 00:33:20,074
+And every year, I think
+the course gets better.
+
+775
+00:33:20,074 --> 00:33:22,490
+And we put a lot of effort
+into the course over the summer
+
+776
+00:33:22,490 --> 00:33:25,380
+and building new tools
+and making new curriculum.
+
+777
+00:33:25,380 --> 00:33:28,834
+And I really think that you
+guys are going to enjoy it.
+
+778
+00:33:28,834 --> 00:33:30,315
+[APPLAUSE]
+
+779
+00:33:30,315 --> 00:33:31,190
+SPEAKER 1: Thank you.
+
+780
+00:33:31,190 --> 00:33:35,650
+We have a tradition in CS50 of ending
+the first week with cake or cupcakes.
+
+781
+00:33:35,650 --> 00:33:38,260
+And so after today's lecture,
+you're welcome to join us
+
+782
+00:33:38,260 --> 00:33:40,730
+in the transept to meet even
+more of the course's staff.
+
+783
+00:33:40,730 --> 00:33:45,022
+But first, and before we transition to
+one of these first actual programming
+
+784
+00:33:45,022 --> 00:33:46,730
+languages, we thought
+we'd dim the lights
+
+785
+00:33:46,730 --> 00:33:50,160
+and paint a picture too of not just
+the course's support structure,
+
+786
+00:33:50,160 --> 00:33:52,400
+but also its culture or
+community, which is something
+
+787
+00:33:52,400 --> 00:33:55,730
+we've increasingly focused on in recent
+years so that students in the class
+
+788
+00:33:55,730 --> 00:33:59,210
+feel that it's not only an opportunity
+to get an introduction to computer
+
+789
+00:33:59,210 --> 00:34:01,580
+science but also an
+introduction at Harvard
+
+790
+00:34:01,580 --> 00:34:06,440
+and, as you've seen at Yale and
+beyond there, a community of support
+
+791
+00:34:06,440 --> 00:34:09,659
+so that you can lean on each other
+as you tackle the week's problems
+
+792
+00:34:09,659 --> 00:34:13,639
+and ultimately exit having had a
+very shared similar experience.
+
+793
+00:34:13,639 --> 00:34:14,934
+This is CS50's community.
+
+794
+00:34:14,934 --> 00:34:19,231
+[MUSIC PLAYING]
+
+795
+00:34:19,231 --> 00:35:07,633
+SINGER: [SINGING] [INAUDIBLE]
+Stop rocking the beat.
+
+796
+00:35:07,633 --> 00:35:08,133
+Come on!
+
+797
+00:35:08,133 --> 00:35:15,119
+
+
+798
+00:35:15,119 --> 00:35:40,451
+[INAUDIBLE]
+
+799
+00:35:40,451 --> 00:35:41,825
+SPEAKER 1: All right, so before--
+
+800
+00:35:41,825 --> 00:35:45,950
+
+
+801
+00:35:45,950 --> 00:35:49,001
+so before long, this is what
+code is going to look like.
+
+802
+00:35:49,001 --> 00:35:51,500
+And frankly, it's pretty darn
+cryptic and it's pretty darned
+
+803
+00:35:51,500 --> 00:35:54,050
+distracting with the semi-colons,
+as we'll see, and curly
+
+804
+00:35:54,050 --> 00:35:55,910
+braces and parentheses and the like.
+
+805
+00:35:55,910 --> 00:35:58,610
+And frankly, these kinds
+of syntactic distractions
+
+806
+00:35:58,610 --> 00:36:00,800
+tend to get in the way
+of learning what's really
+
+807
+00:36:00,800 --> 00:36:04,070
+the interesting intellectual content
+about programming and computer science
+
+808
+00:36:04,070 --> 00:36:05,040
+more generally.
+
+809
+00:36:05,040 --> 00:36:08,510
+And so we instead begin today
+before transitioning next week
+
+810
+00:36:08,510 --> 00:36:11,390
+to that language with Scratch,
+an adorable language that
+
+811
+00:36:11,390 --> 00:36:13,850
+was invented down the
+street at MIT's Media Lab
+
+812
+00:36:13,850 --> 00:36:17,390
+some years ago that wonderfully has
+all of the concepts we've looked
+
+813
+00:36:17,390 --> 00:36:20,640
+at thus far in the form of Mike Smith,
+in the form of peanut butter and jelly,
+
+814
+00:36:20,640 --> 00:36:23,330
+and yet more ideas and
+allows us to program
+
+815
+00:36:23,330 --> 00:36:26,390
+today by dragging and
+dropping puzzle pieces,
+
+816
+00:36:26,390 --> 00:36:30,950
+really, that only interlock if
+it makes logical sense to do so.
+
+817
+00:36:30,950 --> 00:36:34,550
+And coincidentally too, as you may have
+glimpsed as part of CS50's community,
+
+818
+00:36:34,550 --> 00:36:37,430
+is as you may have seen door
+drop this week's CS50 Puzzle Day,
+
+819
+00:36:37,430 --> 00:36:42,980
+an opportunity to not solve problems
+using computers and programs but rather
+
+820
+00:36:42,980 --> 00:36:46,130
+peers and forming teams of two
+or three or four across the river
+
+821
+00:36:46,130 --> 00:36:47,750
+at the iLab for CS50 Puzzle Day.
+
+822
+00:36:47,750 --> 00:36:50,090
+Grab one of the invites
+on your way out, the goal
+
+823
+00:36:50,090 --> 00:36:52,760
+there being to message the computer
+science itself is indeed not
+
+824
+00:36:52,760 --> 00:36:56,210
+about programming but
+ultimately about problem solving
+
+825
+00:36:56,210 --> 00:36:59,220
+and, in this case, pizza
+and prizes as well.
+
+826
+00:36:59,220 --> 00:37:01,100
+So this here is Scratch.
+
+827
+00:37:01,100 --> 00:37:03,680
+And what's nice about scratch
+is that via this language,
+
+828
+00:37:03,680 --> 00:37:07,520
+can we distill that previous,
+more cryptic program
+
+829
+00:37:07,520 --> 00:37:09,380
+into just a couple of puzzle pieces?
+
+830
+00:37:09,380 --> 00:37:10,610
+And let's see the comparison.
+
+831
+00:37:10,610 --> 00:37:12,650
+If we look back just
+a moment ago, there's
+
+832
+00:37:12,650 --> 00:37:16,430
+this program in C, a fairly
+old programming language.
+
+833
+00:37:16,430 --> 00:37:18,510
+But it's nice in that it's fairly small.
+
+834
+00:37:18,510 --> 00:37:21,961
+We'll see that we learn almost every
+aspect of this language before long.
+
+835
+00:37:21,961 --> 00:37:23,210
+But what do you think it does?
+
+836
+00:37:23,210 --> 00:37:25,043
+Especially if you've
+never programmed before
+
+837
+00:37:25,043 --> 00:37:27,770
+and don't even recognize some
+of the words on the screen,
+
+838
+00:37:27,770 --> 00:37:30,440
+what operative word maybe
+does jump out at you?
+
+839
+00:37:30,440 --> 00:37:31,447
+What is the-- prints.
+
+840
+00:37:31,447 --> 00:37:33,530
+So it's technically prints
+f, which I don't really
+
+841
+00:37:33,530 --> 00:37:34,821
+know what that means right now.
+
+842
+00:37:34,821 --> 00:37:36,170
+But printing sounds familiar.
+
+843
+00:37:36,170 --> 00:37:37,130
+And what's it going to print?
+
+844
+00:37:37,130 --> 00:37:37,910
+AUDIENCE: Hello world.
+
+845
+00:37:37,910 --> 00:37:39,243
+SPEAKER 1: Probably hello world.
+
+846
+00:37:39,243 --> 00:37:41,720
+When I run this program
+on my Mac or PC, odds are,
+
+847
+00:37:41,720 --> 00:37:43,700
+it's going to print,
+quite simply, hello world.
+
+848
+00:37:43,700 --> 00:37:44,300
+How?
+
+849
+00:37:44,300 --> 00:37:46,350
+Don't know yet, but we'll get there.
+
+850
+00:37:46,350 --> 00:37:48,930
+But for now, the same program
+in this other language,
+
+851
+00:37:48,930 --> 00:37:52,310
+Scratch, can be implemented graphically
+by dragging and dropping two puzzle
+
+852
+00:37:52,310 --> 00:37:55,940
+pieces together so that scratch
+has, you'll soon meet as a cat,
+
+853
+00:37:55,940 --> 00:37:59,700
+says hello world in a
+cartoon-like bubble on the screen.
+
+854
+00:37:59,700 --> 00:38:03,290
+And so in fact, we'll be able to explore
+with Scratch all of these same ideas--
+
+855
+00:38:03,290 --> 00:38:05,581
+functions, conditions, Boolean
+expressions, and loops--
+
+856
+00:38:05,581 --> 00:38:09,560
+and then bunches of others as well that
+we'll then see again in C and later
+
+857
+00:38:09,560 --> 00:38:13,070
+in the semester in Python and later
+in the semester in SQL and JavaScript
+
+858
+00:38:13,070 --> 00:38:14,040
+and beyond.
+
+859
+00:38:14,040 --> 00:38:16,230
+And so we'll begin by
+exploring them as follows.
+
+860
+00:38:16,230 --> 00:38:18,950
+Let me go ahead and open
+up this program Scratch.
+
+861
+00:38:18,950 --> 00:38:21,426
+It exists in two forms--
+an offline version
+
+862
+00:38:21,426 --> 00:38:24,050
+that I tend to use in class just
+so we don't have Wi-Fi issues,
+
+863
+00:38:24,050 --> 00:38:27,410
+but then an online
+version at scratch.mit.edu
+
+864
+00:38:27,410 --> 00:38:31,580
+which you'll use for the course's
+first assignment problem set zero.
+
+865
+00:38:31,580 --> 00:38:33,530
+And this is what the
+environment looks like.
+
+866
+00:38:33,530 --> 00:38:37,940
+On the top left where this cat here
+is, we'll call this Scratch's stage.
+
+867
+00:38:37,940 --> 00:38:40,530
+This is his two dimensional
+world wherein he can move up,
+
+868
+00:38:40,530 --> 00:38:42,020
+down, left, or right.
+
+869
+00:38:42,020 --> 00:38:45,320
+In the middle is a whole bunch
+of categories of puzzle pieces.
+
+870
+00:38:45,320 --> 00:38:49,520
+This one here says move 10 steps,
+turn 15 degrees, and so forth.
+
+871
+00:38:49,520 --> 00:38:53,330
+And up at the top are different color
+coded other categories of other puzzle
+
+872
+00:38:53,330 --> 00:38:54,770
+pieces we might want to use.
+
+873
+00:38:54,770 --> 00:38:57,184
+And then at right here is
+a so-called scripts area.
+
+874
+00:38:57,184 --> 00:38:58,350
+This is where I can program.
+
+875
+00:38:58,350 --> 00:39:01,010
+This is where I'll drag and
+drop these puzzle pieces.
+
+876
+00:39:01,010 --> 00:39:03,930
+And down here if I want more than
+one cat or some other character,
+
+877
+00:39:03,930 --> 00:39:07,440
+I can create other sprites
+or characters as well.
+
+878
+00:39:07,440 --> 00:39:09,050
+So how do I program in this case?
+
+879
+00:39:09,050 --> 00:39:13,550
+Well, notice first that Scratch's world
+has a green arrow and a red stop sign.
+
+880
+00:39:13,550 --> 00:39:14,900
+Green arrow is going to mean go.
+
+881
+00:39:14,900 --> 00:39:16,280
+Stop sign's going to mean stop.
+
+882
+00:39:16,280 --> 00:39:20,840
+So that's how I start and stop my
+program up here just above Scratch.
+
+883
+00:39:20,840 --> 00:39:24,440
+Meanwhile, if I want to start
+programming, I'm going to do this.
+
+884
+00:39:24,440 --> 00:39:27,650
+And I know this only from having
+used Scratch before where things are.
+
+885
+00:39:27,650 --> 00:39:31,520
+If I click on the Events category,
+notice this puzzle piece here--
+
+886
+00:39:31,520 --> 00:39:33,410
+when green flag clicked.
+
+887
+00:39:33,410 --> 00:39:36,802
+I can drag and just drop that
+puzzle piece anywhere on the right.
+
+888
+00:39:36,802 --> 00:39:38,510
+And my program's not
+going to do anything
+
+889
+00:39:38,510 --> 00:39:40,134
+because I haven't finished the thought.
+
+890
+00:39:40,134 --> 00:39:43,580
+But if I now go to looks, a
+different category in purple,
+
+891
+00:39:43,580 --> 00:39:45,432
+I might say something like, say--
+
+892
+00:39:45,432 --> 00:39:48,140
+and now notice when I get close
+enough, they're sort of magnetic.
+
+893
+00:39:48,140 --> 00:39:49,200
+They want to interlock.
+
+894
+00:39:49,200 --> 00:39:53,270
+So I can let go and then type
+in here hello comma world.
+
+895
+00:39:53,270 --> 00:39:58,170
+I'll zoom out now, move my cursor
+over to the green flag, and click.
+
+896
+00:39:58,170 --> 00:40:00,680
+And now I've written my first program.
+
+897
+00:40:00,680 --> 00:40:02,270
+It's not all that complex, certainly.
+
+898
+00:40:02,270 --> 00:40:05,150
+All I did was drag and
+drop a couple of graphics.
+
+899
+00:40:05,150 --> 00:40:08,407
+But logically, it's doing
+exactly what I told it to do.
+
+900
+00:40:08,407 --> 00:40:11,240
+Well, before we proceed further,
+let's see what some of these blocks
+
+901
+00:40:11,240 --> 00:40:13,199
+are fundamentally going
+to look like so that we
+
+902
+00:40:13,199 --> 00:40:15,740
+have a mental model for these
+various color coded categories.
+
+903
+00:40:15,740 --> 00:40:19,190
+In purple, we're going to see
+functions-- actions, or verbs, like we
+
+904
+00:40:19,190 --> 00:40:21,319
+saw with the phone book example.
+
+905
+00:40:21,319 --> 00:40:22,860
+Here, we're going to have conditions.
+
+906
+00:40:22,860 --> 00:40:26,060
+It's a few more puzzle pieces, but they
+very beautifully interlock together.
+
+907
+00:40:26,060 --> 00:40:28,370
+And this is a branch or a condition.
+
+908
+00:40:28,370 --> 00:40:31,220
+And notice too just like
+in my textual program,
+
+909
+00:40:31,220 --> 00:40:34,140
+I indented things by hitting
+the space bar or tab key.
+
+910
+00:40:34,140 --> 00:40:36,920
+So here is it kind of indented
+because the yellow wraps
+
+911
+00:40:36,920 --> 00:40:38,300
+around the whole puzzle piece.
+
+912
+00:40:38,300 --> 00:40:42,590
+So it's only going to say x is less
+than y if those orange puzzle pieces
+
+913
+00:40:42,590 --> 00:40:46,590
+x and y, which we'll call variables,
+which just like an algebra hold values
+
+914
+00:40:46,590 --> 00:40:48,360
+like one or two or three or four.
+
+915
+00:40:48,360 --> 00:40:50,880
+We're going to say x is
+less than y in that case.
+
+916
+00:40:50,880 --> 00:40:52,779
+Meanwhile, we can nest these things.
+
+917
+00:40:52,779 --> 00:40:54,570
+So even though they
+look like a fixed size,
+
+918
+00:40:54,570 --> 00:40:58,240
+they'll actually grow to fit other
+blocks if you want to cram more in.
+
+919
+00:40:58,240 --> 00:41:01,890
+So here, we have a three way fork in
+the road just by combining these ideas.
+
+920
+00:41:01,890 --> 00:41:05,820
+If x is less than y, then
+say x is less than y.
+
+921
+00:41:05,820 --> 00:41:09,960
+Else if x is greater than y,
+then say x is greater than y.
+
+922
+00:41:09,960 --> 00:41:13,590
+Else the third scenario, of
+course, is x must be equal to y.
+
+923
+00:41:13,590 --> 00:41:14,910
+So this is how we'll program.
+
+924
+00:41:14,910 --> 00:41:17,200
+We'll just drag and drop
+these puzzle pieces together.
+
+925
+00:41:17,200 --> 00:41:20,954
+What is this green block here
+called generally speaking?
+
+926
+00:41:20,954 --> 00:41:21,840
+AUDIENCE: [INAUDIBLE]
+
+927
+00:41:21,840 --> 00:41:23,160
+SPEAKER 1: Well, the
+condition we'll technically
+
+928
+00:41:23,160 --> 00:41:25,590
+call the yellow that's
+using this green block.
+
+929
+00:41:25,590 --> 00:41:26,460
+AUDIENCE: Boolean.
+
+930
+00:41:26,460 --> 00:41:28,251
+SPEAKER 1: Yeah, it's
+a Boolean expression,
+
+931
+00:41:28,251 --> 00:41:31,770
+and it is because it's a
+yes/no or true/false answer.
+
+932
+00:41:31,770 --> 00:41:35,670
+x is less than y is
+either true or it's false.
+
+933
+00:41:35,670 --> 00:41:38,130
+It can't be both.
+
+934
+00:41:38,130 --> 00:41:40,530
+And so we might have more
+generally is i less than 50.
+
+935
+00:41:40,530 --> 00:41:42,030
+You don't have to compare variables.
+
+936
+00:41:42,030 --> 00:41:45,797
+Just like in math, you can
+compare numbers against variables.
+
+937
+00:41:45,797 --> 00:41:47,130
+But here is a different concept.
+
+938
+00:41:47,130 --> 00:41:49,990
+We call this a loop, some kind
+of cycle that does, in this case,
+
+939
+00:41:49,990 --> 00:41:52,140
+something forever
+like, say, hello world.
+
+940
+00:41:52,140 --> 00:41:55,650
+Or we can do it a finite number of
+times-- like, 50 times say hello world
+
+941
+00:41:55,650 --> 00:41:56,760
+and then stop.
+
+942
+00:41:56,760 --> 00:41:58,470
+Here's how we might set a variable.
+
+943
+00:41:58,470 --> 00:42:01,950
+This orange block says set a variable
+called i by convention because i
+
+944
+00:42:01,950 --> 00:42:03,900
+stands for integer like a number.
+
+945
+00:42:03,900 --> 00:42:05,640
+Set it equal to 0.
+
+946
+00:42:05,640 --> 00:42:08,400
+And then these two things are
+demonstrative of a more powerful
+
+947
+00:42:08,400 --> 00:42:12,150
+feature that Scratch and languages
+tend to have of multi-threading.
+
+948
+00:42:12,150 --> 00:42:15,150
+This is a fancy way of saying a
+program can be written in such a way
+
+949
+00:42:15,150 --> 00:42:16,620
+that it does two things at once.
+
+950
+00:42:16,620 --> 00:42:17,310
+How?
+
+951
+00:42:17,310 --> 00:42:20,430
+Just use two of these puzzle pieces
+so that when you click the green flag,
+
+952
+00:42:20,430 --> 00:42:25,144
+multiple things happen at a
+time, thus our supported threads.
+
+953
+00:42:25,144 --> 00:42:27,060
+And then there's this,
+an even fancier feature
+
+954
+00:42:27,060 --> 00:42:28,699
+but that's relatively easy to use.
+
+955
+00:42:28,699 --> 00:42:30,990
+It's called event handling,
+and we'll come back to this
+
+956
+00:42:30,990 --> 00:42:33,980
+when we introduce web programming
+later in the semester.
+
+957
+00:42:33,980 --> 00:42:36,090
+Broadcast and when I
+receive just mean this.
+
+958
+00:42:36,090 --> 00:42:39,210
+One sprite, one character,
+like the cat, can kind of
+
+959
+00:42:39,210 --> 00:42:42,330
+sort of whisper to another
+sprite in the program
+
+960
+00:42:42,330 --> 00:42:46,320
+and send it a message that it can
+hear or, more properly, receive
+
+961
+00:42:46,320 --> 00:42:48,120
+and then do something based on it.
+
+962
+00:42:48,120 --> 00:42:50,400
+So rather than have your
+program do something only
+
+963
+00:42:50,400 --> 00:42:52,320
+when you click the
+green flag, you can have
+
+964
+00:42:52,320 --> 00:42:56,040
+one sprite talking to another
+telling it when to begin
+
+965
+00:42:56,040 --> 00:42:57,750
+or something along those lines.
+
+966
+00:42:57,750 --> 00:43:00,240
+And so with just these
+fundamentals are we
+
+967
+00:43:00,240 --> 00:43:03,390
+able to begin implementing
+any number of programs.
+
+968
+00:43:03,390 --> 00:43:04,890
+In fact, let's go ahead and do this.
+
+969
+00:43:04,890 --> 00:43:07,860
+Let me go ahead make this
+more interesting by not just
+
+970
+00:43:07,860 --> 00:43:09,880
+saying it on the screen.
+
+971
+00:43:09,880 --> 00:43:14,391
+Let me go ahead and go to
+sound and play sound meow.
+
+972
+00:43:14,391 --> 00:43:16,300
+[MEOW]
+
+973
+00:43:16,300 --> 00:43:18,642
+With slightly more volume.
+
+974
+00:43:18,642 --> 00:43:19,740
+[MEOW]
+
+975
+00:43:19,740 --> 00:43:22,218
+Oh, With slightly less volume.
+
+976
+00:43:22,218 --> 00:43:23,670
+[MEOW]
+
+977
+00:43:23,670 --> 00:43:24,670
+Adorable.
+
+978
+00:43:24,670 --> 00:43:26,587
+It's a simple program.
+
+979
+00:43:26,587 --> 00:43:28,170
+And if I want it to meow three times--
+
+980
+00:43:28,170 --> 00:43:29,070
+[MEOW]
+
+981
+00:43:29,070 --> 00:43:30,570
+--I just have to hit it three times.
+
+982
+00:43:30,570 --> 00:43:31,830
+But I can do better than this.
+
+983
+00:43:31,830 --> 00:43:33,246
+I don't want to rerun the program.
+
+984
+00:43:33,246 --> 00:43:36,320
+What's the construct that
+would let me meow three times?
+
+985
+00:43:36,320 --> 00:43:37,545
+Yeah, a loop or repeat.
+
+986
+00:43:37,545 --> 00:43:38,915
+So let me go to control.
+
+987
+00:43:38,915 --> 00:43:40,170
+I'll zoom in.
+
+988
+00:43:40,170 --> 00:43:42,300
+Repeat-- by default, it's 10 times.
+
+989
+00:43:42,300 --> 00:43:44,010
+So I'm going to change that to three.
+
+990
+00:43:44,010 --> 00:43:46,350
+I can drag this away
+and now put it inside.
+
+991
+00:43:46,350 --> 00:43:49,620
+Notice it wants to connect
+inside and it grows to fit.
+
+992
+00:43:49,620 --> 00:43:51,524
+And now I can let it connect there.
+
+993
+00:43:51,524 --> 00:43:52,440
+Let me hit play again.
+
+994
+00:43:52,440 --> 00:43:56,200
+[MEOW]
+
+995
+00:43:56,200 --> 00:43:57,790
+Hm, what's happened there?
+
+996
+00:43:57,790 --> 00:43:59,930
+My first bug.
+
+997
+00:43:59,930 --> 00:44:02,050
+This is subtle, but
+it's the kind of thing
+
+998
+00:44:02,050 --> 00:44:05,410
+that should give you pause, especially
+if encountering this on your own.
+
+999
+00:44:05,410 --> 00:44:12,310
+Turns out I should have thought a little
+more closely about what blocks to use.
+
+1000
+00:44:12,310 --> 00:44:16,570
+The hint is kind of on the
+screen, though it's very subtle.
+
+1001
+00:44:16,570 --> 00:44:19,031
+Until done-- like, there's
+this alternative block.
+
+1002
+00:44:19,031 --> 00:44:19,780
+And you know what?
+
+1003
+00:44:19,780 --> 00:44:23,546
+I don't know why this is going to
+be true yet, but let me do this
+
+1004
+00:44:23,546 --> 00:44:25,420
+and get rid of this by
+just dragging it away.
+
+1005
+00:44:25,420 --> 00:44:28,390
+Let's see if this fixes the
+problem even if we're not sure why.
+
+1006
+00:44:28,390 --> 00:44:28,890
+[MEOW]
+
+1007
+00:44:28,890 --> 00:44:29,390
+[MEOW]
+
+1008
+00:44:29,390 --> 00:44:30,890
+[MEOW]
+
+1009
+00:44:30,890 --> 00:44:35,300
+It's not a very natural sounding
+cat, but it kind of fixed the bug.
+
+1010
+00:44:35,300 --> 00:44:40,250
+So can we infer retrospectively
+why it was previously buggy
+
+1011
+00:44:40,250 --> 00:44:41,807
+and how it was buggy?
+
+1012
+00:44:41,807 --> 00:44:43,390
+AUDIENCE: It played all three at once.
+
+1013
+00:44:43,390 --> 00:44:45,270
+SPEAKER 1: Yeah, it kind of
+played all three at once.
+
+1014
+00:44:45,270 --> 00:44:47,610
+Not technically at the
+exact same time, but my Mac
+
+1015
+00:44:47,610 --> 00:44:49,230
+is so darned fast these days, right?
+
+1016
+00:44:49,230 --> 00:44:52,200
+Intel inside-- you've got
+a gigahertz CPU or brain
+
+1017
+00:44:52,200 --> 00:44:53,910
+inside of the computer or 2 gigahertz.
+
+1018
+00:44:53,910 --> 00:44:58,710
+Those numbers literally mean your Mac or
+PC can do a billion things at once or--
+
+1019
+00:44:58,710 --> 00:45:01,050
+sorry, a billion things
+in a second, which
+
+1020
+00:45:01,050 --> 00:45:03,490
+just still pretty good, or 2
+billion things in a second,
+
+1021
+00:45:03,490 --> 00:45:04,615
+which is still pretty good.
+
+1022
+00:45:04,615 --> 00:45:07,470
+So certainly it can meow
+three times and the things
+
+1023
+00:45:07,470 --> 00:45:09,220
+just kind of trip over each other.
+
+1024
+00:45:09,220 --> 00:45:12,030
+But if we instead use the block
+that says play it until done,
+
+1025
+00:45:12,030 --> 00:45:13,530
+then you'll actually hear all three.
+
+1026
+00:45:13,530 --> 00:45:15,529
+And we can actually do a
+little better than that
+
+1027
+00:45:15,529 --> 00:45:17,250
+because that was not a very normal cat.
+
+1028
+00:45:17,250 --> 00:45:20,519
+I can drag this block, wait
+one second, and let's see
+
+1029
+00:45:20,519 --> 00:45:22,060
+if this is a little now more natural.
+
+1030
+00:45:22,060 --> 00:45:24,016
+[MEOW]
+
+1031
+00:45:24,016 --> 00:45:24,994
+[MEOW]
+
+1032
+00:45:24,994 --> 00:45:25,972
+OK.
+
+1033
+00:45:25,972 --> 00:45:26,950
+[MEOW]
+
+1034
+00:45:26,950 --> 00:45:28,720
+So not bad-- pretty darn adorable.
+
+1035
+00:45:28,720 --> 00:45:31,030
+But what if we want to
+add in some motion now?
+
+1036
+00:45:31,030 --> 00:45:32,580
+Let me go ahead and remove this.
+
+1037
+00:45:32,580 --> 00:45:35,080
+And let me do a forever block
+so I don't have to figure out
+
+1038
+00:45:35,080 --> 00:45:36,790
+in advance how long to do this.
+
+1039
+00:45:36,790 --> 00:45:43,381
+And let me go to motion and move 10
+steps and now click the green flag.
+
+1040
+00:45:43,381 --> 00:45:44,140
+Ah, OK.
+
+1041
+00:45:44,140 --> 00:45:46,420
+Thankfully, MIT realized
+that this could be bad.
+
+1042
+00:45:46,420 --> 00:45:49,900
+So they give us just enough access
+to his tail to pull him back.
+
+1043
+00:45:49,900 --> 00:45:51,460
+But this is not the best program.
+
+1044
+00:45:51,460 --> 00:45:55,206
+It would probably be better if he
+bounces off the side or detects--
+
+1045
+00:45:55,206 --> 00:45:56,330
+collision detection, right?
+
+1046
+00:45:56,330 --> 00:45:58,750
+We're living in a world now of
+self-driving cars, apparently.
+
+1047
+00:45:58,750 --> 00:45:59,890
+It would be nice if things--
+
+1048
+00:45:59,890 --> 00:46:01,890
+well, maybe they don't
+bounce off of each other,
+
+1049
+00:46:01,890 --> 00:46:03,640
+but they avoid things altogether.
+
+1050
+00:46:03,640 --> 00:46:04,507
+So that's OK.
+
+1051
+00:46:04,507 --> 00:46:06,340
+I have the vocabulary
+with which to do this.
+
+1052
+00:46:06,340 --> 00:46:07,420
+Let me zoom in.
+
+1053
+00:46:07,420 --> 00:46:11,360
+And what is the construct
+I want to solve this?
+
+1054
+00:46:11,360 --> 00:46:14,140
+Like if you hit the edge, turn around.
+
+1055
+00:46:14,140 --> 00:46:15,360
+It's some kind of if, right?
+
+1056
+00:46:15,360 --> 00:46:20,080
+So let me pull this out
+and then say, oh, OK.
+
+1057
+00:46:20,080 --> 00:46:24,040
+If-- now I have to finish the sentence,
+and I can do this more quickly just
+
+1058
+00:46:24,040 --> 00:46:24,890
+from experience.
+
+1059
+00:46:24,890 --> 00:46:26,352
+So I'm going to go to sensing.
+
+1060
+00:46:26,352 --> 00:46:28,810
+And then I'm going to grab this
+Boolean expression in blue.
+
+1061
+00:46:28,810 --> 00:46:31,600
+And notice it's way too big,
+but it will grow to fill.
+
+1062
+00:46:31,600 --> 00:46:34,570
+And now from this dropdown, I can
+actually ask this question instead.
+
+1063
+00:46:34,570 --> 00:46:40,490
+If touching edge, what
+might I want to do?
+
+1064
+00:46:40,490 --> 00:46:42,100
+Maybe turn like this.
+
+1065
+00:46:42,100 --> 00:46:45,501
+And I'm going to turn like 180 degrees
+just to completely wrap around.
+
+1066
+00:46:45,501 --> 00:46:47,000
+And now I need to move this back in.
+
+1067
+00:46:47,000 --> 00:46:49,916
+And again, it looks like it might
+not fit, but it will grow to fit it.
+
+1068
+00:46:49,916 --> 00:46:52,490
+Else go ahead and move 10 steps.
+
+1069
+00:46:52,490 --> 00:46:55,500
+So let me go ahead and hit play now.
+
+1070
+00:46:55,500 --> 00:46:59,440
+OK, still a little buggy,
+but at least it's dynamic
+
+1071
+00:46:59,440 --> 00:47:00,850
+and it's doing this forever.
+
+1072
+00:47:00,850 --> 00:47:04,060
+Now we can stray from the
+academics of this example
+
+1073
+00:47:04,060 --> 00:47:07,450
+and do something silly like this just
+so you know what features it has.
+
+1074
+00:47:07,450 --> 00:47:10,720
+This is a microphone.
+
+1075
+00:47:10,720 --> 00:47:12,621
+That was me recording
+this is a microphone.
+
+1076
+00:47:12,621 --> 00:47:13,120
+Here we go.
+
+1077
+00:47:13,120 --> 00:47:15,780
+
+
+1078
+00:47:15,780 --> 00:47:17,250
+Ouch!
+
+1079
+00:47:17,250 --> 00:47:20,630
+OK, that's what the word ouch
+looks like as a waveform.
+
+1080
+00:47:20,630 --> 00:47:24,050
+Let's now call this ouch.
+
+1081
+00:47:24,050 --> 00:47:26,810
+And now I need sound.
+
+1082
+00:47:26,810 --> 00:47:28,100
+Whoops-- scripts.
+
+1083
+00:47:28,100 --> 00:47:32,420
+Sound, play sound ouch logically.
+
+1084
+00:47:32,420 --> 00:47:36,490
+So just to give you a sense of what we
+did, if touching edge play sound ouch,
+
+1085
+00:47:36,490 --> 00:47:38,750
+turn around.
+
+1086
+00:47:38,750 --> 00:47:39,970
+Ouch.
+
+1087
+00:47:39,970 --> 00:47:41,260
+Ouch.
+
+1088
+00:47:41,260 --> 00:47:42,480
+Ouch.
+
+1089
+00:47:42,480 --> 00:47:44,840
+It's a little bit of a delayed
+reaction, but we've now
+
+1090
+00:47:44,840 --> 00:47:46,550
+sort of combine these different ideas.
+
+1091
+00:47:46,550 --> 00:47:49,310
+And already we've kind of moved
+quickly beyond where we started.
+
+1092
+00:47:49,310 --> 00:47:51,270
+All we did initially was say something.
+
+1093
+00:47:51,270 --> 00:47:52,520
+Then we move the cat.
+
+1094
+00:47:52,520 --> 00:47:53,780
+Now we moved it forever.
+
+1095
+00:47:53,780 --> 00:47:56,662
+Then we moved it forever unless
+you hit the edge in which case
+
+1096
+00:47:56,662 --> 00:47:57,620
+you should turn around.
+
+1097
+00:47:57,620 --> 00:48:00,290
+So just by building on
+these very simple ideas can
+
+1098
+00:48:00,290 --> 00:48:02,447
+we make more complicated programs still.
+
+1099
+00:48:02,447 --> 00:48:05,030
+And let's fast forward for just
+a moment before we tease apart
+
+1100
+00:48:05,030 --> 00:48:08,450
+some of the more sophisticated features
+to take a look back at actually
+
+1101
+00:48:08,450 --> 00:48:12,170
+the very first program I myself
+wrote back in graduate school
+
+1102
+00:48:12,170 --> 00:48:13,820
+when Scratch first came out.
+
+1103
+00:48:13,820 --> 00:48:17,210
+I called it Oscar Time since
+I always loved Sesame Street.
+
+1104
+00:48:17,210 --> 00:48:22,280
+And this was the program I made that
+combines many, many, many, many hours
+
+1105
+00:48:22,280 --> 00:48:25,544
+after first starting with Scratch
+a whole bunch of these same ideas.
+
+1106
+00:48:25,544 --> 00:48:27,710
+And rather than I playing
+this, it would be more fun
+
+1107
+00:48:27,710 --> 00:48:29,390
+if someone else perhaps plays.
+
+1108
+00:48:29,390 --> 00:48:32,700
+Could we get a brave volunteer
+maybe a little farther back?
+
+1109
+00:48:32,700 --> 00:48:33,684
+Yeah, what's your name?
+
+1110
+00:48:33,684 --> 00:48:34,350
+AUDIENCE: Mansi.
+
+1111
+00:48:34,350 --> 00:48:36,550
+SPEAKER 1: Mansi, come on up, Mansi.
+
+1112
+00:48:36,550 --> 00:48:38,370
+All right, thank you to Mansi.
+
+1113
+00:48:38,370 --> 00:48:40,870
+[APPLAUSE]
+
+1114
+00:48:40,870 --> 00:48:44,074
+
+
+1115
+00:48:44,074 --> 00:48:46,240
+And you have to be comfortable
+being on the internet
+
+1116
+00:48:46,240 --> 00:48:47,320
+now since there are cameras.
+
+1117
+00:48:47,320 --> 00:48:47,950
+Nice to meet you.
+
+1118
+00:48:47,950 --> 00:48:48,670
+SPEAKER 2: Nice to meet you too.
+
+1119
+00:48:48,670 --> 00:48:49,720
+SPEAKER 1: Come on over.
+
+1120
+00:48:49,720 --> 00:48:53,347
+And so with Oscar time here, notice
+there's a whole bunch of sprites.
+
+1121
+00:48:53,347 --> 00:48:55,430
+So you'll see a bunch of
+things happening at once.
+
+1122
+00:48:55,430 --> 00:48:59,380
+And realize I did not start writing
+this program by implementing this game.
+
+1123
+00:48:59,380 --> 00:49:02,930
+I implemented just pieces of it at a
+time until the net effect many, many,
+
+1124
+00:49:02,930 --> 00:49:06,250
+many hours later was the
+game you're now about to see.
+
+1125
+00:49:06,250 --> 00:49:07,750
+Let me go ahead and full screen it.
+
+1126
+00:49:07,750 --> 00:49:10,249
+And we'll see some directions
+on the screen in just a moment
+
+1127
+00:49:10,249 --> 00:49:12,878
+and you can control with the keyboard.
+
+1128
+00:49:12,878 --> 00:49:16,670
+Drag as much falling crash
+as you can to this cash down.
+
+1129
+00:49:16,670 --> 00:49:18,710
+OSCAR: [SINGING] Oh I love trash.
+
+1130
+00:49:18,710 --> 00:49:22,712
+Anything dirty or dingy or dusty.
+
+1131
+00:49:22,712 --> 00:49:24,195
+Anything ragged or--
+
+1132
+00:49:24,195 --> 00:49:25,070
+SPEAKER 1: Very good.
+
+1133
+00:49:25,070 --> 00:49:26,390
+OSCAR: [SINGING] --or rusty.
+
+1134
+00:49:26,390 --> 00:49:30,470
+SPEAKER 1: So as she plays, let's
+consider what some of the building
+
+1135
+00:49:30,470 --> 00:49:31,940
+blocks are of this program.
+
+1136
+00:49:31,940 --> 00:49:34,310
+So the first thing I think
+I did when I implemented
+
+1137
+00:49:34,310 --> 00:49:37,070
+this game, which is about to get
+more and more complex, is I just
+
+1138
+00:49:37,070 --> 00:49:39,903
+figured out how to move a piece of
+trash from the top to the bottom.
+
+1139
+00:49:39,903 --> 00:49:42,200
+And that's kind of what
+we just did with the cat
+
+1140
+00:49:42,200 --> 00:49:45,200
+albeit a top bottom
+instead of left or right.
+
+1141
+00:49:45,200 --> 00:49:49,460
+And then after that, I think I
+probably implemented part of Oscar.
+
+1142
+00:49:49,460 --> 00:49:52,049
+And Oscar is very sort
+of simply animated.
+
+1143
+00:49:52,049 --> 00:49:53,090
+This is not like a video.
+
+1144
+00:49:53,090 --> 00:49:55,290
+This is like three or
+so different images.
+
+1145
+00:49:55,290 --> 00:49:56,940
+So the trash can is closed.
+
+1146
+00:49:56,940 --> 00:49:57,830
+It's partly open.
+
+1147
+00:49:57,830 --> 00:49:58,700
+It's fully open.
+
+1148
+00:49:58,700 --> 00:49:59,790
+He pops out.
+
+1149
+00:49:59,790 --> 00:50:03,250
+It's just a bunch of different images
+or costumes, as MIT calls them,
+
+1150
+00:50:03,250 --> 00:50:06,230
+that I play like a half second
+apart in order to create
+
+1151
+00:50:06,230 --> 00:50:09,410
+the illusion like those old
+school flip books of something
+
+1152
+00:50:09,410 --> 00:50:16,010
+happening in animated fashion
+Meanwhile, he's counting clearly.
+
+1153
+00:50:16,010 --> 00:50:19,897
+So that using variable, one of those
+orange puzzle pieces we previously saw.
+
+1154
+00:50:19,897 --> 00:50:21,230
+There's some kind of randomness.
+
+1155
+00:50:21,230 --> 00:50:23,510
+It turns up programs,
+and Scratch included,
+
+1156
+00:50:23,510 --> 00:50:26,220
+can use pseudo randomness--
+kind of sort of random values
+
+1157
+00:50:26,220 --> 00:50:29,120
+so that the trash sometimes
+falls here or here or here.
+
+1158
+00:50:29,120 --> 00:50:30,860
+And lots of video games do this, right?
+
+1159
+00:50:30,860 --> 00:50:32,943
+A lot of the games you
+might have grown up playing
+
+1160
+00:50:32,943 --> 00:50:36,910
+would be pretty lame if they are the
+exact same every time you play them.
+
+1161
+00:50:36,910 --> 00:50:39,470
+You want the computer
+or CPU to do things
+
+1162
+00:50:39,470 --> 00:50:42,028
+a little differently or randomly.
+
+1163
+00:50:42,028 --> 00:50:44,448
+OSCAR: [SINGING] Now look
+at this rest of this junk.
+
+1164
+00:50:44,448 --> 00:50:50,212
+A clock that won't work and an
+old telephone, a broken umbrella--
+
+1165
+00:50:50,212 --> 00:50:52,920
+SPEAKER 1: Now keep in mind, this
+song is like three minutes long
+
+1166
+00:50:52,920 --> 00:50:57,000
+and having just one bug
+partway through this program
+
+1167
+00:50:57,000 --> 00:51:01,020
+was an absolute nightmare to debug
+waiting the minute or two until it
+
+1168
+00:51:01,020 --> 00:51:01,740
+happened again.
+
+1169
+00:51:01,740 --> 00:51:08,205
+OSCAR: [SINGING] Oh I love trash,
+anything dirty or dingy or dusty.
+
+1170
+00:51:08,205 --> 00:51:09,580
+SPEAKER 1: It never really stops.
+
+1171
+00:51:09,580 --> 00:51:11,550
+So congratulations.
+
+1172
+00:51:11,550 --> 00:51:13,440
+Thank you.
+
+1173
+00:51:13,440 --> 00:51:16,440
+Let me thank you with a
+little CS50 stress ball.
+
+1174
+00:51:16,440 --> 00:51:17,550
+No less as well.
+
+1175
+00:51:17,550 --> 00:51:18,840
+So that then is Oscar Time.
+
+1176
+00:51:18,840 --> 00:51:23,220
+But what's nice about
+it, beyond being my baby,
+
+1177
+00:51:23,220 --> 00:51:26,880
+is that it gives us an opportunity
+to consider how you might build up
+
+1178
+00:51:26,880 --> 00:51:30,490
+something pretty complex looking
+and hopefully pretty fun at the end
+
+1179
+00:51:30,490 --> 00:51:32,310
+but just out of these constituent parts.
+
+1180
+00:51:32,310 --> 00:51:35,850
+And let's see what other ingredients,
+for instance, we actually have.
+
+1181
+00:51:35,850 --> 00:51:40,470
+Let me go ahead actually and
+open up, for instance, Sheep.
+
+1182
+00:51:40,470 --> 00:51:41,354
+This is an example.
+
+1183
+00:51:41,354 --> 00:51:43,770
+And this, like all of today's,
+are on the course's website
+
+1184
+00:51:43,770 --> 00:51:44,310
+if you want to play.
+
+1185
+00:51:44,310 --> 00:51:46,170
+I changed the cat to
+a sheep in this case.
+
+1186
+00:51:46,170 --> 00:51:49,790
+And if I hit Play, you'll see
+what happens here is the sheep--
+
+1187
+00:51:49,790 --> 00:51:51,960
+whoops, the sheep does not count at all.
+
+1188
+00:51:51,960 --> 00:51:55,980
+Let me go ahead and grab a
+different version of the sheep
+
+1189
+00:51:55,980 --> 00:51:58,160
+since I broke it a moment ago.
+
+1190
+00:51:58,160 --> 00:52:01,160
+Apologies.
+
+1191
+00:52:01,160 --> 00:52:04,570
+Sheep is coming up now.
+
+1192
+00:52:04,570 --> 00:52:08,740
+So here we have a sheep
+with a very simple script.
+
+1193
+00:52:08,740 --> 00:52:11,590
+That is also missing his program.
+
+1194
+00:52:11,590 --> 00:52:12,910
+How embarrassing.
+
+1195
+00:52:12,910 --> 00:52:15,914
+And here, we have the
+online version of Scratch.
+
+1196
+00:52:15,914 --> 00:52:18,580
+And of course since every browser
+in the world now blocks flash,
+
+1197
+00:52:18,580 --> 00:52:20,710
+we have to enable it.
+
+1198
+00:52:20,710 --> 00:52:21,320
+Here we go.
+
+1199
+00:52:21,320 --> 00:52:26,474
+And now finally we have the sheep
+counting, so very anti-climactic.
+
+1200
+00:52:26,474 --> 00:52:28,140
+This is literally just a counting sheep.
+
+1201
+00:52:28,140 --> 00:52:30,460
+OK.
+
+1202
+00:52:30,460 --> 00:52:31,970
+So I put a lot of time into this.
+
+1203
+00:52:31,970 --> 00:52:33,220
+So I'm glad we got it working.
+
+1204
+00:52:33,220 --> 00:52:37,000
+So at the top right, though, you can
+consider the parts that went into this.
+
+1205
+00:52:37,000 --> 00:52:39,986
+When green flag clicked, set a
+counter which is just a variable.
+
+1206
+00:52:39,986 --> 00:52:41,860
+It's more interesting
+than calling it x or y.
+
+1207
+00:52:41,860 --> 00:52:42,790
+I called it counter.
+
+1208
+00:52:42,790 --> 00:52:43,810
+Set it equal to 0.
+
+1209
+00:52:43,810 --> 00:52:46,720
+And then forever say the
+counter for one second
+
+1210
+00:52:46,720 --> 00:52:48,910
+like in the little cartoon
+bubble, wait one second,
+
+1211
+00:52:48,910 --> 00:52:52,030
+and then change the counter
+by 1 by simply adding 1 to it.
+
+1212
+00:52:52,030 --> 00:52:57,610
+And we get this effect of perpetual
+counting up by using this variable.
+
+1213
+00:52:57,610 --> 00:52:59,710
+We can do something else
+as well, for instance.
+
+1214
+00:52:59,710 --> 00:53:02,680
+Let me go ahead now and
+have a bit of dynamic input
+
+1215
+00:53:02,680 --> 00:53:05,350
+from a character like a cat again.
+
+1216
+00:53:05,350 --> 00:53:08,020
+And this one is called Pet the Cat.
+
+1217
+00:53:08,020 --> 00:53:13,700
+So in Pet the Cat here,
+we have the following--
+
+1218
+00:53:13,700 --> 00:53:15,780
+nothing, even though I hit play.
+
+1219
+00:53:15,780 --> 00:53:16,750
+But wait a minute.
+
+1220
+00:53:16,750 --> 00:53:18,439
+Let's look at the program.
+
+1221
+00:53:18,439 --> 00:53:20,105
+How do I make this program do something?
+
+1222
+00:53:20,105 --> 00:53:21,114
+AUDIENCE: Pet the cat.
+
+1223
+00:53:21,114 --> 00:53:22,530
+SPEAKER 1: Oh, pet the cat, right?
+
+1224
+00:53:22,530 --> 00:53:24,660
+So there's an if condition
+there that's asking the question
+
+1225
+00:53:24,660 --> 00:53:26,430
+if you're touching the mouse pointer.
+
+1226
+00:53:26,430 --> 00:53:28,138
+So let's try it.
+
+1227
+00:53:28,138 --> 00:53:29,126
+[MEOW]
+
+1228
+00:53:29,126 --> 00:53:30,608
+Ah.
+
+1229
+00:53:30,608 --> 00:53:32,090
+[MEOW]
+
+1230
+00:53:32,090 --> 00:53:33,150
+It's kind of nice.
+
+1231
+00:53:33,150 --> 00:53:33,650
+We can do--
+
+1232
+00:53:33,650 --> 00:53:34,160
+[MEOW]
+
+1233
+00:53:34,160 --> 00:53:36,980
+--kind of the opposite,
+though with don't pet the cat.
+
+1234
+00:53:36,980 --> 00:53:40,820
+You'll see that I have an if else
+so that by default, the cat now--
+
+1235
+00:53:40,820 --> 00:53:42,572
+[MEOW]
+
+1236
+00:53:42,572 --> 00:53:43,450
+[MEOW]
+
+1237
+00:53:43,450 --> 00:53:44,186
+--meows.
+
+1238
+00:53:44,186 --> 00:53:45,180
+[MEOW]
+
+1239
+00:53:45,180 --> 00:53:46,710
+But if you pet this cat--
+
+1240
+00:53:46,710 --> 00:53:48,674
+[MEOW]
+
+1241
+00:53:48,674 --> 00:53:50,638
+[MEOW]
+
+1242
+00:53:50,638 --> 00:53:52,120
+[GROWL]
+
+1243
+00:53:52,120 --> 00:53:53,230
+--so don't put this cat.
+
+1244
+00:53:53,230 --> 00:53:54,320
+How does this work?
+
+1245
+00:53:54,320 --> 00:53:56,195
+Well, you just need
+another fork in the road.
+
+1246
+00:53:56,195 --> 00:53:58,420
+If you're petting the
+cat, make the lion sound.
+
+1247
+00:53:58,420 --> 00:54:01,610
+Else just meow in a much
+nicer, more tranquil way.
+
+1248
+00:54:01,610 --> 00:54:02,860
+And we can go beyond this too.
+
+1249
+00:54:02,860 --> 00:54:05,110
+Let me go ahead and now
+open up threads, which
+
+1250
+00:54:05,110 --> 00:54:08,230
+is an example of a program
+doing multiple things at a time.
+
+1251
+00:54:08,230 --> 00:54:11,980
+In this case here, we have
+another type of cat and a bird.
+
+1252
+00:54:11,980 --> 00:54:16,720
+And which seems to be
+the smarter of the two?
+
+1253
+00:54:16,720 --> 00:54:21,246
+The cat kind of knows a bit more
+than the bird about what's going on--
+
+1254
+00:54:21,246 --> 00:54:24,680
+a sort of AI if you will.
+
+1255
+00:54:24,680 --> 00:54:25,180
+[GROWL]
+
+1256
+00:54:25,180 --> 00:54:26,890
+OK, so same sound there.
+
+1257
+00:54:26,890 --> 00:54:29,837
+But notice now we have
+interaction between the two.
+
+1258
+00:54:29,837 --> 00:54:31,420
+The cat, frankly, is kind of cheating.
+
+1259
+00:54:31,420 --> 00:54:32,360
+It's not really AI.
+
+1260
+00:54:32,360 --> 00:54:33,790
+It's just point at the bird.
+
+1261
+00:54:33,790 --> 00:54:37,660
+And so here we have a puzzle piece
+that says forever if touching the bird,
+
+1262
+00:54:37,660 --> 00:54:38,589
+play the lion sound.
+
+1263
+00:54:38,589 --> 00:54:39,880
+So that's how the program ends.
+
+1264
+00:54:39,880 --> 00:54:42,970
+But at the bottom there, point
+towards bird, move one step.
+
+1265
+00:54:42,970 --> 00:54:45,580
+Point toward bird, move one step.
+
+1266
+00:54:45,580 --> 00:54:50,890
+And so what does this do if I get a
+little sort of impatient and I give
+
+1267
+00:54:50,890 --> 00:54:53,440
+the cat some god-like powers here just--
+
+1268
+00:54:53,440 --> 00:54:54,310
+[GROWL]
+
+1269
+00:54:54,310 --> 00:54:56,410
+--to speed it up moving
+10 steps at a time.
+
+1270
+00:54:56,410 --> 00:54:57,910
+And that's all, again, animation is.
+
+1271
+00:54:57,910 --> 00:55:00,130
+Instead of moving one
+dot or pixel at a time,
+
+1272
+00:55:00,130 --> 00:55:02,410
+move 10, the effect
+of which to us humans
+
+1273
+00:55:02,410 --> 00:55:04,600
+is that it actually moves a lot faster.
+
+1274
+00:55:04,600 --> 00:55:06,589
+Of course, we can give
+the bird an advantage.
+
+1275
+00:55:06,589 --> 00:55:08,880
+So the bird is apparently
+moving three steps at a time.
+
+1276
+00:55:08,880 --> 00:55:09,755
+Lets up that to 30.
+
+1277
+00:55:09,755 --> 00:55:12,950
+
+
+1278
+00:55:12,950 --> 00:55:13,450
+[GROWL]
+
+1279
+00:55:13,450 --> 00:55:15,340
+That did not work out very well either.
+
+1280
+00:55:15,340 --> 00:55:17,710
+But in this case, the two
+sprites are interacting
+
+1281
+00:55:17,710 --> 00:55:21,670
+because one is checking whether
+or not it's touching the other.
+
+1282
+00:55:21,670 --> 00:55:22,990
+Meanwhile, you can do this.
+
+1283
+00:55:22,990 --> 00:55:25,750
+Let me introduce events,
+which is another program too.
+
+1284
+00:55:25,750 --> 00:55:29,290
+It's not very long, but it again has
+two sprites, two little puppets here.
+
+1285
+00:55:29,290 --> 00:55:34,510
+And if I hit Play here, nothing
+happens until I hit the space bar.
+
+1286
+00:55:34,510 --> 00:55:37,990
+When if you played this game growing
+up, one says Marco and then the other
+
+1287
+00:55:37,990 --> 00:55:39,090
+says Polo.
+
+1288
+00:55:39,090 --> 00:55:42,520
+But one is saying Polo in response
+to the other saying Marco.
+
+1289
+00:55:42,520 --> 00:55:45,770
+Let me look at the sprite for the
+orange puppet here and you'll see this.
+
+1290
+00:55:45,770 --> 00:55:47,200
+Forever do the following.
+
+1291
+00:55:47,200 --> 00:55:50,320
+If key Space pressed-- so if
+the space bar is pressed--
+
+1292
+00:55:50,320 --> 00:55:53,230
+then say Marco for two seconds
+and then broadcast an event.
+
+1293
+00:55:53,230 --> 00:55:55,770
+And an event for our purposes
+today, it's like a whisper.
+
+1294
+00:55:55,770 --> 00:55:59,470
+Whisper something that only other
+sprites can hear, not humans.
+
+1295
+00:55:59,470 --> 00:56:03,010
+Meanwhile if I look at the blue
+puppet, it's not much going on there.
+
+1296
+00:56:03,010 --> 00:56:06,580
+When you receive that event,
+that whisper, say polo.
+
+1297
+00:56:06,580 --> 00:56:08,950
+And so we have interaction
+between these two sprites
+
+1298
+00:56:08,950 --> 00:56:12,910
+much like Oscar was responding to
+the trash being dragged and dropped
+
+1299
+00:56:12,910 --> 00:56:14,920
+over his trash can.
+
+1300
+00:56:14,920 --> 00:56:17,656
+Finally, we have this
+one here-- hi, hi, hi--
+
+1301
+00:56:17,656 --> 00:56:21,040
+which combines some of these
+ideas as well that allows you--
+
+1302
+00:56:21,040 --> 00:56:21,820
+[SEAL BARKING]
+
+1303
+00:56:21,820 --> 00:56:23,710
+--to implement perhaps a familiar idea--
+
+1304
+00:56:23,710 --> 00:56:24,293
+[SEAL BARKING]
+
+1305
+00:56:24,293 --> 00:56:26,770
+--from like a video game on
+your phone or the computer.
+
+1306
+00:56:26,770 --> 00:56:27,360
+[SEAL BARKING]
+
+1307
+00:56:27,360 --> 00:56:29,755
+This is very annoyingly
+barks in perpetuity--
+
+1308
+00:56:29,755 --> 00:56:30,430
+[SEAL BARKING]
+
+1309
+00:56:30,430 --> 00:56:32,920
+--until you figure out how it works.
+
+1310
+00:56:32,920 --> 00:56:35,717
+How do I make this stop?
+
+1311
+00:56:35,717 --> 00:56:36,300
+[SEAL BARKING]
+
+1312
+00:56:36,300 --> 00:56:38,427
+Yeah, so if you look at
+the code at top right--
+
+1313
+00:56:38,427 --> 00:56:39,010
+[SEAL BARKING]
+
+1314
+00:56:39,010 --> 00:56:43,580
+--it mentions to the
+space bar and it stopped.
+
+1315
+00:56:43,580 --> 00:56:44,250
+Why?
+
+1316
+00:56:44,250 --> 00:56:48,964
+What does hitting the space bar
+actually seem to do logically?
+
+1317
+00:56:48,964 --> 00:56:51,930
+
+
+1318
+00:56:51,930 --> 00:56:53,590
+It's in this left hand program.
+
+1319
+00:56:53,590 --> 00:56:56,070
+If key Space pressed, what am I doing?
+
+1320
+00:56:56,070 --> 00:56:59,320
+If-- yeah, if muted, which looks like a
+variable because it's an orange block.
+
+1321
+00:56:59,320 --> 00:57:02,740
+If muted is 0, set muted to 1.
+
+1322
+00:57:02,740 --> 00:57:04,150
+Else set muted to 0.
+
+1323
+00:57:04,150 --> 00:57:05,180
+So what does this mean.
+
+1324
+00:57:05,180 --> 00:57:08,200
+Well, this is kind of the
+programming equivalent of this.
+
+1325
+00:57:08,200 --> 00:57:11,530
+If the light bulb is off, turn it on.
+
+1326
+00:57:11,530 --> 00:57:13,820
+Else turn it off.
+
+1327
+00:57:13,820 --> 00:57:16,870
+And so it's just a way of changing
+state or changing the answer
+
+1328
+00:57:16,870 --> 00:57:19,220
+from false to true or true to false.
+
+1329
+00:57:19,220 --> 00:57:23,710
+And then I'm using that information to
+decide on the right if muted is zero.
+
+1330
+00:57:23,710 --> 00:57:25,780
+So zero means off or false.
+
+1331
+00:57:25,780 --> 00:57:29,980
+So if it's not muted, if muted
+equals 0 means not muted,
+
+1332
+00:57:29,980 --> 00:57:31,090
+play the sound sea lion.
+
+1333
+00:57:31,090 --> 00:57:34,127
+And that's how the program stops
+until I do it by actually--
+
+1334
+00:57:34,127 --> 00:57:34,710
+[SEAL BARKING]
+
+1335
+00:57:34,710 --> 00:57:36,190
+--hitting that.
+
+1336
+00:57:36,190 --> 00:57:39,460
+So we have all these puzzle pieces,
+if you will, of these ingredients--
+
+1337
+00:57:39,460 --> 00:57:40,043
+[SEAL BARKING]
+
+1338
+00:57:40,043 --> 00:57:42,700
+--and all of these abilities
+to weave these ideas together.
+
+1339
+00:57:42,700 --> 00:57:45,539
+And you can do ultimately
+some pretty amazing things.
+
+1340
+00:57:45,539 --> 00:57:47,830
+And in fact, in the spirit
+of bringing our two campuses
+
+1341
+00:57:47,830 --> 00:57:50,770
+together both here and
+in New Haven, we thought
+
+1342
+00:57:50,770 --> 00:57:53,020
+we'd conclude with one
+final game here for which
+
+1343
+00:57:53,020 --> 00:57:56,977
+we need one additional volunteer to
+play for us here Ivy's hardest game.
+
+1344
+00:57:56,977 --> 00:57:59,560
+Let's have you come up because
+your hand was up last time too.
+
+1345
+00:57:59,560 --> 00:57:59,980
+What's your name?
+
+1346
+00:57:59,980 --> 00:58:00,650
+LUKE: Luke.
+
+1347
+00:58:00,650 --> 00:58:02,780
+SPEAKER 1: Luke, come on around.
+
+1348
+00:58:02,780 --> 00:58:06,320
+So here comes Luke to
+play Ivy's hardest game.
+
+1349
+00:58:06,320 --> 00:58:10,900
+This was written by one of your own
+CS50 predecessors, a former student.
+
+1350
+00:58:10,900 --> 00:58:15,400
+And you'll see the instructions here
+on the screen in just one moment.
+
+1351
+00:58:15,400 --> 00:58:16,689
+Here we go, full screen.
+
+1352
+00:58:16,689 --> 00:58:18,730
+I'm going to go ahead and
+play for you and you'll
+
+1353
+00:58:18,730 --> 00:58:20,620
+use the arrow keys in this game.
+
+1354
+00:58:20,620 --> 00:58:21,953
+Here we go Luke.
+
+1355
+00:58:21,953 --> 00:58:23,654
+[MUSIC PLAYING]
+
+1356
+00:58:23,654 --> 00:58:25,404
+[MUSIC - MC HAMMER, "U CAN'T TOUCH
+ THIS"]
+
+1357
+00:58:25,404 --> 00:58:28,855
+MC HAMMER: [RAPPING]
+You can't touch this.
+
+1358
+00:58:28,855 --> 00:58:31,874
+You can't touch this.
+
+1359
+00:58:31,874 --> 00:58:32,790
+SPEAKER 1: [INAUDIBLE]
+
+1360
+00:58:32,790 --> 00:58:34,550
+MC HAMMER: [RAPPING]
+You can't touch this.
+
+1361
+00:58:34,550 --> 00:58:35,960
+SPEAKER 1: Very good.
+
+1362
+00:58:35,960 --> 00:58:36,480
+Ah, you can.
+
+1363
+00:58:36,480 --> 00:58:38,672
+That's OK.
+
+1364
+00:58:38,672 --> 00:58:42,158
+MC HAMMER: [RAPPING] My,
+my, my music hits so hard.
+
+1365
+00:58:42,158 --> 00:58:44,150
+That's what I'm saying, oh my lord.
+
+1366
+00:58:44,150 --> 00:58:45,660
+Thank you for blessing me.
+
+1367
+00:58:45,660 --> 00:58:46,570
+SPEAKER 1: Very nice.
+
+1368
+00:58:46,570 --> 00:58:48,440
+Notice the two variables at top.
+
+1369
+00:58:48,440 --> 00:58:50,065
+Level three has death zero.
+
+1370
+00:58:50,065 --> 00:58:53,300
+
+
+1371
+00:58:53,300 --> 00:58:57,110
+Meanwhile, there's of course,
+multiple sprites on the screen.
+
+1372
+00:58:57,110 --> 00:58:59,210
+Three Yale ones.
+
+1373
+00:58:59,210 --> 00:59:01,930
+They, like the cat, are
+bouncing off the edge.
+
+1374
+00:59:01,930 --> 00:59:08,391
+
+
+1375
+00:59:08,391 --> 00:59:10,880
+Very n-- oh!
+
+1376
+00:59:10,880 --> 00:59:13,130
+Keep going, keep going.
+
+1377
+00:59:13,130 --> 00:59:15,170
+Death is now one.
+
+1378
+00:59:15,170 --> 00:59:17,841
+Death is now two.
+
+1379
+00:59:17,841 --> 00:59:18,340
+Infinite.
+
+1380
+00:59:18,340 --> 00:59:21,450
+It's OK.
+
+1381
+00:59:21,450 --> 00:59:23,060
+Very nice.
+
+1382
+00:59:23,060 --> 00:59:24,060
+Level six.
+
+1383
+00:59:24,060 --> 00:59:29,479
+
+
+1384
+00:59:29,479 --> 00:59:29,978
+Nice.
+
+1385
+00:59:29,978 --> 00:59:41,720
+
+
+1386
+00:59:41,720 --> 00:59:46,510
+Clearly there's an if
+near Harvard, move away.
+
+1387
+00:59:46,510 --> 00:59:47,010
+Nice.
+
+1388
+00:59:47,010 --> 00:59:59,442
+
+
+1389
+00:59:59,442 --> 01:00:00,400
+Come on, you can do it.
+
+1390
+01:00:00,400 --> 01:00:05,690
+
+
+1391
+01:00:05,690 --> 01:00:06,950
+Second to last level.
+
+1392
+01:00:06,950 --> 01:00:12,640
+
+
+1393
+01:00:12,640 --> 01:00:15,170
+Death is up to seven.
+
+1394
+01:00:15,170 --> 01:00:16,900
+Nice.
+
+1395
+01:00:16,900 --> 01:00:17,886
+Last level!
+
+1396
+01:00:17,886 --> 01:00:33,169
+
+
+1397
+01:00:33,169 --> 01:00:36,710
+Just a couple more tries.
+
+1398
+01:00:36,710 --> 01:00:37,210
+Nice.
+
+1399
+01:00:37,210 --> 01:00:41,162
+
+
+1400
+01:00:41,162 --> 01:00:42,644
+One more time.
+
+1401
+01:00:42,644 --> 01:00:57,958
+
+
+1402
+01:00:57,958 --> 01:01:00,030
+Let us end on that note.
+
+1403
+01:01:00,030 --> 01:01:00,700
+This is CS50.
+
+1404
+01:01:00,700 --> 01:01:02,740
+Cake with the staff is now served.
+
+1405
+01:01:02,740 --> 01:01:04,990
+We'll see you next week.
+
+1406
+01:01:04,990 --> 01:01:10,191

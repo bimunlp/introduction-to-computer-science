@@ -1,0 +1,10580 @@
+1
+00:00:00,000 --> 00:00:10,416
+[MUSIC PLAYING]
+
+2
+00:00:10,416 --> 00:00:11,420
+DAVID MALAN: All right.
+
+3
+00:00:11,420 --> 00:00:14,760
+This is CS50, and this is lecture three.
+
+4
+00:00:14,760 --> 00:00:19,605
+And today, the goal is to be a lot
+more algorithmic than code-oriented,
+
+5
+00:00:19,605 --> 00:00:22,510
+and to really kind of come back to
+where we started in lecture zero,
+
+6
+00:00:22,510 --> 00:00:25,120
+when we talked about computational
+thinking, and algorithms.
+
+7
+00:00:25,120 --> 00:00:26,980
+Because now you have a
+few weeks under your belt,
+
+8
+00:00:26,980 --> 00:00:29,830
+and you have a few new tools, and
+hopefully skills, under your belt,
+
+9
+00:00:29,830 --> 00:00:31,270
+even though odds are,
+you're still getting
+
+10
+00:00:31,270 --> 00:00:33,130
+comfortable with some of those skills.
+
+11
+00:00:33,130 --> 00:00:36,190
+And so let's look, then,
+at this piece of hardware
+
+12
+00:00:36,190 --> 00:00:37,690
+that we talked about a couple times.
+
+13
+00:00:37,690 --> 00:00:39,034
+And this is an example of what?
+
+14
+00:00:39,034 --> 00:00:39,742
+AUDIENCE: Memory.
+
+15
+00:00:39,742 --> 00:00:42,280
+DAVID MALAN: Yeah, memory,
+or RAM, random access memory.
+
+16
+00:00:42,280 --> 00:00:44,290
+And this happens to be
+pretty big on the screen,
+
+17
+00:00:44,290 --> 00:00:46,081
+but it's actually pretty
+small, if you were
+
+18
+00:00:46,081 --> 00:00:49,000
+to find it in your Mac, or PC, in
+your laptop, or some other device.
+
+19
+00:00:49,000 --> 00:00:50,260
+And this is just memory.
+
+20
+00:00:50,260 --> 00:00:54,010
+And so, memory is places you can store
+information-- numbers and characters
+
+21
+00:00:54,010 --> 00:00:55,990
+and strings, and bigger things still.
+
+22
+00:00:55,990 --> 00:01:00,910
+And recall that if you want to use
+this memory, you need to address it.
+
+23
+00:01:00,910 --> 00:01:03,060
+You need to put something
+in particular locations.
+
+24
+00:01:03,060 --> 00:01:05,560
+And we're going to start doing this
+all the more So in particular, there's
+
+25
+00:01:05,560 --> 00:01:06,640
+at least, like, five--
+
+26
+00:01:06,640 --> 00:01:10,210
+four black chips on here, which is
+actually where the zeros and ones are
+
+27
+00:01:10,210 --> 00:01:11,979
+stored, in the green circuit board.
+
+28
+00:01:11,979 --> 00:01:14,020
+And little gold connectors
+you see on the screen,
+
+29
+00:01:14,020 --> 00:01:16,300
+too-- that just allows
+all of those black chips
+
+30
+00:01:16,300 --> 00:01:19,880
+to intercommunicate, ultimately, and
+for the zeros and ones to move around.
+
+31
+00:01:19,880 --> 00:01:22,720
+But if we zoom in on just
+one of these chips of memory,
+
+32
+00:01:22,720 --> 00:01:26,780
+arbitrarily, and then zoom in here, you
+can think of this, wonderfully enough,
+
+33
+00:01:26,780 --> 00:01:27,712
+as a rectangle.
+
+34
+00:01:27,712 --> 00:01:30,670
+Could be any shape, certainly, but
+if we think about it as a rectangle,
+
+35
+00:01:30,670 --> 00:01:34,720
+we can divide this chip of
+memory up into a grid, like this.
+
+36
+00:01:34,720 --> 00:01:37,231
+Completely arbitrary how I've
+drawn this, but the fact, now,
+
+37
+00:01:37,231 --> 00:01:38,980
+that I have a whole
+bunch of small boxes--
+
+38
+00:01:38,980 --> 00:01:41,410
+you can start to think of this
+as being one byte, and then
+
+39
+00:01:41,410 --> 00:01:42,910
+another byte, and then another byte.
+
+40
+00:01:42,910 --> 00:01:47,080
+And I coincidentally wrote eight bytes
+across, but it could be any number.
+
+41
+00:01:47,080 --> 00:01:48,440
+It doesn't really matter.
+
+42
+00:01:48,440 --> 00:01:51,430
+And so, you can start to
+think about these bytes
+
+43
+00:01:51,430 --> 00:01:55,349
+as having specific locations,
+or numbers, or addresses,
+
+44
+00:01:55,349 --> 00:01:56,890
+as we're going to start calling them.
+
+45
+00:01:56,890 --> 00:01:58,960
+So if I zoom in on the
+top of this, you could
+
+46
+00:01:58,960 --> 00:02:02,059
+start to think of the top
+left as being byte number 0,
+
+47
+00:02:02,059 --> 00:02:03,850
+because computer
+scientists generally start
+
+48
+00:02:03,850 --> 00:02:07,840
+counting at zero, and then byte 1,
+and 2, and 3, and 4, and dot dot dot.
+
+49
+00:02:07,840 --> 00:02:12,820
+And then, just as a refresher, in
+a typical Mac or PC these days,
+
+50
+00:02:12,820 --> 00:02:16,894
+how much RAM, or memory,
+would you typically have?
+
+51
+00:02:16,894 --> 00:02:17,710
+AUDIENCE: Four?
+
+52
+00:02:17,710 --> 00:02:18,700
+DAVID MALAN: Four what?
+
+53
+00:02:18,700 --> 00:02:19,420
+AUDIENCE: Four gigabytes.
+
+54
+00:02:19,420 --> 00:02:20,586
+DAVID MALAN: Four gigabytes.
+
+55
+00:02:20,586 --> 00:02:23,095
+And giga means billion, so
+that's four billion bytes.
+
+56
+00:02:23,095 --> 00:02:25,720
+And maybe you have a little less,
+maybe you have a little more,
+
+57
+00:02:25,720 --> 00:02:27,303
+but on the order of billions of bytes.
+
+58
+00:02:27,303 --> 00:02:30,460
+So we're only scratching the surface
+of just how much storage there is,
+
+59
+00:02:30,460 --> 00:02:32,590
+and how many numbers and
+characters you can store.
+
+60
+00:02:32,590 --> 00:02:37,550
+But the point is that we can address
+them, in some way-- zero, one, two,
+
+61
+00:02:37,550 --> 00:02:38,420
+and so forth.
+
+62
+00:02:38,420 --> 00:02:41,377
+So this is how we stored
+Stelios' name in memory.
+
+63
+00:02:41,377 --> 00:02:43,210
+Recall, this was an
+example last time, where
+
+64
+00:02:43,210 --> 00:02:46,310
+we needed to put the characters
+of his name somewhere.
+
+65
+00:02:46,310 --> 00:02:48,400
+And so we actually put
+the S, and then the T,
+
+66
+00:02:48,400 --> 00:02:52,090
+and then so forth, starting at
+the leftmost location on forward.
+
+67
+00:02:52,090 --> 00:02:54,150
+But we also put something else.
+
+68
+00:02:54,150 --> 00:02:56,900
+It's not sufficient just to put
+the letters of his name in memory.
+
+69
+00:02:56,900 --> 00:02:58,270
+What else did we have to do?
+
+70
+00:02:58,270 --> 00:02:59,680
+AUDIENCE: Put a zero in there?
+
+71
+00:02:59,680 --> 00:03:02,920
+DAVID MALAN: Yeah, the zero command,
+or more specifically, the zero byte,
+
+72
+00:03:02,920 --> 00:03:04,810
+or the so-called null byte--
+
+73
+00:03:04,810 --> 00:03:08,060
+N-U-L. And it's
+represented as backslash 0.
+
+74
+00:03:08,060 --> 00:03:10,270
+Because if you were just
+to type a normal zero,
+
+75
+00:03:10,270 --> 00:03:12,820
+that would technically be a
+character from your keyboard.
+
+76
+00:03:12,820 --> 00:03:15,880
+It looks like a number, but it's
+technically a character, a char.
+
+77
+00:03:15,880 --> 00:03:21,620
+And so backslash zero literally means
+8-0 bits in that byte's location.
+
+78
+00:03:21,620 --> 00:03:22,120
+OK.
+
+79
+00:03:22,120 --> 00:03:25,240
+So now that we have this
+ability to represent Stelios
+
+80
+00:03:25,240 --> 00:03:28,315
+with a sequence of characters,
+null-terminated at the end,
+
+81
+00:03:28,315 --> 00:03:30,690
+we don't really need to worry
+about the hardware anymore.
+
+82
+00:03:30,690 --> 00:03:30,850
+Right?
+
+83
+00:03:30,850 --> 00:03:33,610
+We can abstract away from that
+just as we did in week zero,
+
+84
+00:03:33,610 --> 00:03:36,110
+and not worry about how those
+zeros and ones are stored.
+
+85
+00:03:36,110 --> 00:03:37,849
+We can just trust that
+they are, somehow.
+
+86
+00:03:37,849 --> 00:03:39,640
+And so we can abstract
+away, and just start
+
+87
+00:03:39,640 --> 00:03:43,420
+thinking about it as a sequence,
+or a grid, of letters like this.
+
+88
+00:03:43,420 --> 00:03:46,510
+But that backslash zero
+is important, because it
+
+89
+00:03:46,510 --> 00:03:49,360
+is the only way that this
+language we're currently using,
+
+90
+00:03:49,360 --> 00:03:51,490
+C, knows where strings end.
+
+91
+00:03:51,490 --> 00:03:53,960
+If you didn't have that, it
+would-- printf, for instance,
+
+92
+00:03:53,960 --> 00:03:57,640
+might just keep printing all of the
+contents, all four gigabytes, of memory
+
+93
+00:03:57,640 --> 00:04:00,910
+that your computer has, no matter
+what those characters actually are.
+
+94
+00:04:00,910 --> 00:04:04,420
+And then, of course, you couldn't
+distinguish Stelios' name from Maria,
+
+95
+00:04:04,420 --> 00:04:07,130
+or someone else altogether in memory.
+
+96
+00:04:07,130 --> 00:04:10,325
+So, let me go ahead and open up the
+IDE, just to demonstrate now what
+
+97
+00:04:10,325 --> 00:04:11,950
+you can do with this kind of knowledge.
+
+98
+00:04:11,950 --> 00:04:14,740
+Suppose I wanted to write
+a program that allows
+
+99
+00:04:14,740 --> 00:04:17,209
+me to let a user type
+in his or her name,
+
+100
+00:04:17,209 --> 00:04:19,459
+and then I just want to print
+out his or her initials.
+
+101
+00:04:19,459 --> 00:04:22,780
+And for simplicity, I'm going to
+assume that the person's initials,
+
+102
+00:04:22,780 --> 00:04:25,930
+or whatever the capitalized letters
+are, in the input they type.
+
+103
+00:04:25,930 --> 00:04:29,020
+So, I have to be a little nit-picky,
+and type in my name properly.
+
+104
+00:04:29,020 --> 00:04:31,430
+But with that said, let me
+go ahead and whip this up.
+
+105
+00:04:31,430 --> 00:04:34,682
+So, I'm going to save
+this as initials.c.
+
+106
+00:04:34,682 --> 00:04:37,877
+Just out of habit, I'm going to
+start by including the CS50 library,
+
+107
+00:04:37,877 --> 00:04:40,210
+because I'm going to want to
+get a string from the user.
+
+108
+00:04:40,210 --> 00:04:42,670
+I'm going to go ahead and
+include standard io.h, so that I
+
+109
+00:04:42,670 --> 00:04:44,140
+can print something to the screen.
+
+110
+00:04:44,140 --> 00:04:46,240
+And we'll decide later
+if we need anything more.
+
+111
+00:04:46,240 --> 00:04:49,240
+I don't need any command line arguments
+for the purpose of this program,
+
+112
+00:04:49,240 --> 00:04:52,270
+so I'm going to go back to our old
+version of main, where you just
+
+113
+00:04:52,270 --> 00:04:55,030
+specify void-- no argc, no argv.
+
+114
+00:04:55,030 --> 00:04:58,600
+And then here, let me go ahead
+and declare a string called s,
+
+115
+00:04:58,600 --> 00:05:04,490
+and get a name from the user,
+as with, "name," and get string.
+
+116
+00:05:04,490 --> 00:05:07,030
+And then, what do I
+want to do after this?
+
+117
+00:05:07,030 --> 00:05:11,820
+I want to go ahead and iterate over
+the characters in the user's name,
+
+118
+00:05:11,820 --> 00:05:13,720
+and print them out only
+if they're uppercase.
+
+119
+00:05:13,720 --> 00:05:15,750
+But you know what, rather
+than just print them out,
+
+120
+00:05:15,750 --> 00:05:16,875
+you know what I want to do?
+
+121
+00:05:16,875 --> 00:05:21,390
+I actually want to create a new string,
+myself, containing the user's initials.
+
+122
+00:05:21,390 --> 00:05:24,510
+So, I don't want to go ahead
+and just print out, with percent
+
+123
+00:05:24,510 --> 00:05:26,790
+c, one character after
+the other-- rather, I
+
+124
+00:05:26,790 --> 00:05:30,279
+want to go ahead and store the user's
+actual initials in a new string,
+
+125
+00:05:30,279 --> 00:05:32,070
+so that I've got one
+string for their name,
+
+126
+00:05:32,070 --> 00:05:34,010
+and one string for their initials.
+
+127
+00:05:34,010 --> 00:05:36,254
+And, ladies and gentlemen, Ian.
+
+128
+00:05:36,254 --> 00:05:37,920
+SPEAKER 2: Sorry for the video glitches.
+
+129
+00:05:37,920 --> 00:05:40,540
+DAVID MALAN: Thanks.
+
+130
+00:05:40,540 --> 00:05:41,040
+All right.
+
+131
+00:05:41,040 --> 00:05:43,456
+So, to be ever more clear, let
+me go ahead and rename this
+
+132
+00:05:43,456 --> 00:05:48,270
+to name, literally, and then I want
+to have a string for their initials.
+
+133
+00:05:48,270 --> 00:05:51,480
+But we know what a string
+is, as of last time.
+
+134
+00:05:51,480 --> 00:05:53,640
+It's really just a
+sequence of characters.
+
+135
+00:05:53,640 --> 00:05:57,900
+And a sequence really has
+another name in programming.
+
+136
+00:05:57,900 --> 00:06:00,540
+What is another synonym we've
+used for a sequence of something?
+
+137
+00:06:00,540 --> 00:06:01,420
+AUDIENCE: [INAUDIBLE]
+
+138
+00:06:01,420 --> 00:06:02,080
+DAVID MALAN: An array.
+
+139
+00:06:02,080 --> 00:06:04,050
+An array is that data
+structure we had when we
+
+140
+00:06:04,050 --> 00:06:06,670
+started using square bracket notation.
+
+141
+00:06:06,670 --> 00:06:10,282
+So, if I actually kind of roll this
+back and break the abstraction,
+
+142
+00:06:10,282 --> 00:06:12,240
+if you will-- don't think
+about it as a string.
+
+143
+00:06:12,240 --> 00:06:12,948
+What is a string?
+
+144
+00:06:12,948 --> 00:06:14,340
+It's a sequence of characters.
+
+145
+00:06:14,340 --> 00:06:18,480
+Technically, I could say char,
+and then I could say initials,
+
+146
+00:06:18,480 --> 00:06:21,240
+and then I can specify
+however many letters I
+
+147
+00:06:21,240 --> 00:06:23,100
+want to support in a human's initials.
+
+148
+00:06:23,100 --> 00:06:26,880
+And by-- assuming we have a first name,
+maybe a middle name, and a last name,
+
+149
+00:06:26,880 --> 00:06:28,500
+three characters should do it.
+
+150
+00:06:28,500 --> 00:06:31,260
+
+
+151
+00:06:31,260 --> 00:06:32,680
+Three characters.
+
+152
+00:06:32,680 --> 00:06:35,400
+So, David J. Malan,
+DJM, three characters.
+
+153
+00:06:35,400 --> 00:06:36,721
+Is that enough chars?
+
+154
+00:06:36,721 --> 00:06:38,429
+AUDIENCE: [INAUDIBLE]
+
+155
+00:06:38,429 --> 00:06:40,470
+DAVID MALAN: I'm hesitating,
+because it doesn't--
+
+156
+00:06:40,470 --> 00:06:40,810
+AUDIENCE: [INAUDIBLE]
+
+157
+00:06:40,810 --> 00:06:42,060
+DAVID MALAN: It's not, but why?
+
+158
+00:06:42,060 --> 00:06:43,420
+AUDIENCE: You need for
+the null character.
+
+159
+00:06:43,420 --> 00:06:43,840
+DAVID MALAN: Yeah.
+
+160
+00:06:43,840 --> 00:06:46,840
+So if we want to terminate even my
+initials-- which isn't technically
+
+161
+00:06:46,840 --> 00:06:48,640
+a word, but it's
+certainly a string, it's
+
+162
+00:06:48,640 --> 00:06:51,830
+a sequence of characters--
+we need a fourth character,
+
+163
+00:06:51,830 --> 00:06:53,894
+or we need to anticipate
+a fourth character,
+
+164
+00:06:53,894 --> 00:06:56,560
+so that whatever we put in the
+computer's memory is technically,
+
+165
+00:06:56,560 --> 00:06:59,770
+in my case-- like, D-J-M backslash 0.
+
+166
+00:06:59,770 --> 00:07:01,120
+You need that fourth byte.
+
+167
+00:07:01,120 --> 00:07:04,880
+Otherwise you do not have room
+to actually terminate the string.
+
+168
+00:07:04,880 --> 00:07:08,650
+So, now, even though this
+doesn't look like a string,
+
+169
+00:07:08,650 --> 00:07:11,290
+insofar as I'm not saying the
+word string, it really is.
+
+170
+00:07:11,290 --> 00:07:15,100
+It's a sequence of characters of size
+four that I can put characters in.
+
+171
+00:07:15,100 --> 00:07:20,410
+Now, what are the characters in this
+array, by default, have we said?
+
+172
+00:07:20,410 --> 00:07:24,660
+When you just declare a variable
+of some size, what values go in it?
+
+173
+00:07:24,660 --> 00:07:25,800
+AUDIENCE: [INAUDIBLE]
+
+174
+00:07:25,800 --> 00:07:28,090
+DAVID MALAN: Sometimes
+zeros, but generally,
+
+175
+00:07:28,090 --> 00:07:29,500
+what's the better rule of thumb?
+
+176
+00:07:29,500 --> 00:07:30,541
+AUDIENCE: You don't know.
+
+177
+00:07:30,541 --> 00:07:31,957
+DAVID MALAN: Yeah, you don't know.
+
+178
+00:07:31,957 --> 00:07:33,360
+It's so-called garbage values.
+
+179
+00:07:33,360 --> 00:07:36,970
+Nothing-- you should not trust
+the value of a variable, generally
+
+180
+00:07:36,970 --> 00:07:41,170
+speaking, unless you yourself have
+put the value there, as by storing it,
+
+181
+00:07:41,170 --> 00:07:44,240
+with the assignment operator, or
+by manually typing it in yourself.
+
+182
+00:07:44,240 --> 00:07:46,750
+So, just to be clear,
+if I wanted this program
+
+183
+00:07:46,750 --> 00:07:50,890
+to be kind of useless for anyone except
+myself, I could actually do this--
+
+184
+00:07:50,890 --> 00:07:52,285
+I could go ahead and do--
+
+185
+00:07:52,285 --> 00:07:54,880
+
+
+186
+00:07:54,880 --> 00:08:06,310
+initials, bracket 0, get "d",
+initials, bracket 1, get "j",
+
+187
+00:08:06,310 --> 00:08:13,030
+and then finally initials,
+bracket 2, get "m".
+
+188
+00:08:13,030 --> 00:08:16,330
+And then lastly, and this is the
+thing you might forget sometimes,
+
+189
+00:08:16,330 --> 00:08:18,790
+you actually need to do
+the backslash zero there.
+
+190
+00:08:18,790 --> 00:08:20,620
+But of course, this
+is not at all dynamic.
+
+191
+00:08:20,620 --> 00:08:23,350
+But I have, in this
+these lines of code now,
+
+192
+00:08:23,350 --> 00:08:25,270
+created a new string called initials.
+
+193
+00:08:25,270 --> 00:08:28,750
+It's of length-- it's of
+human length three, DJM,
+
+194
+00:08:28,750 --> 00:08:31,230
+but the computer is actually
+using 4 bytes to store it.
+
+195
+00:08:31,230 --> 00:08:32,590
+But this is not the
+point of the exercise,
+
+196
+00:08:32,590 --> 00:08:34,839
+because we already asked the
+user for his or her name.
+
+197
+00:08:34,839 --> 00:08:36,520
+I need to now figure what that is.
+
+198
+00:08:36,520 --> 00:08:39,250
+So just logically, or
+algorithmically, if you will,
+
+199
+00:08:39,250 --> 00:08:45,790
+what process could we use, given a
+name like David J. Malan, or Brian Yu,
+
+200
+00:08:45,790 --> 00:08:47,680
+or anyone else's name--
+
+201
+00:08:47,680 --> 00:08:50,170
+how could we look at
+that input and figure out
+
+202
+00:08:50,170 --> 00:08:53,000
+what the user's initials are?
+
+203
+00:08:53,000 --> 00:08:54,170
+What's the thought process?
+
+204
+00:08:54,170 --> 00:08:56,980
+Let me go a little farther back.
+
+205
+00:08:56,980 --> 00:09:00,789
+So, David J. Malan, or any other name.
+
+206
+00:09:00,789 --> 00:09:01,580
+What's the process?
+
+207
+00:09:01,580 --> 00:09:02,330
+What do you think?
+
+208
+00:09:02,330 --> 00:09:09,444
+AUDIENCE: [INAUDIBLE]
+
+209
+00:09:09,444 --> 00:09:10,360
+DAVID MALAN: OK, good!
+
+210
+00:09:10,360 --> 00:09:12,970
+So, iterate with a for loop over
+the letters in the name-- and you've
+
+211
+00:09:12,970 --> 00:09:14,880
+done that before, or in
+the process of doing that,
+
+212
+00:09:14,880 --> 00:09:17,380
+for something like caesar
+or vigenere, most likely.
+
+213
+00:09:17,380 --> 00:09:19,780
+And then you can use
+something like is upper,
+
+214
+00:09:19,780 --> 00:09:23,590
+or you can even do asciimath, like we
+did a while ago, to actually determine,
+
+215
+00:09:23,590 --> 00:09:26,769
+is it in the range of A to
+Z capitals on both ends?
+
+216
+00:09:26,769 --> 00:09:28,060
+So we have a couple of options.
+
+217
+00:09:28,060 --> 00:09:29,710
+So, let me try to convert that to code.
+
+218
+00:09:29,710 --> 00:09:31,543
+Let me get rid of the
+hard-coded name, which
+
+219
+00:09:31,543 --> 00:09:34,000
+is just kind of nonsensical,
+but demonstrative of how
+
+220
+00:09:34,000 --> 00:09:36,102
+we could store arbitrary characters.
+
+221
+00:09:36,102 --> 00:09:37,060
+And now let me do this.
+
+222
+00:09:37,060 --> 00:09:44,665
+For int i get 0, i is less than the
+string length of name, i plus plus--
+
+223
+00:09:44,665 --> 00:09:46,540
+and then I'm going to
+do something like this.
+
+224
+00:09:46,540 --> 00:09:53,614
+If the i-th character character
+in name is an uppercase letter--
+
+225
+00:09:53,614 --> 00:09:56,530
+and I'm going to use a function that
+you might not have used yourself,
+
+226
+00:09:56,530 --> 00:09:57,910
+but recall that it does exist--
+
+227
+00:09:57,910 --> 00:10:02,350
+is upper will return, essentially, true
+or false, this is an uppercase letter--
+
+228
+00:10:02,350 --> 00:10:07,967
+so, if this is uppercase, I'm
+going to go ahead and do what?
+
+229
+00:10:07,967 --> 00:10:09,550
+Well, the story is not quite complete.
+
+230
+00:10:09,550 --> 00:10:12,160
+It's not enough to just
+iterate over the names and--
+
+231
+00:10:12,160 --> 00:10:13,690
+the letters in the name--
+
+232
+00:10:13,690 --> 00:10:18,250
+we now need to decide where to put the
+first capitalized letter that we find.
+
+233
+00:10:18,250 --> 00:10:21,850
+It's obviously going to
+go in the initials array,
+
+234
+00:10:21,850 --> 00:10:24,690
+but what more do I need to
+add to my code to know where,
+
+235
+00:10:24,690 --> 00:10:29,710
+in this block of four characters,
+to put the first character, D,
+
+236
+00:10:29,710 --> 00:10:31,460
+in the case of my name?
+
+237
+00:10:31,460 --> 00:10:31,960
+Yeah.
+
+238
+00:10:31,960 --> 00:10:33,940
+AUDIENCE: [INAUDIBLE] initials i?
+
+239
+00:10:33,940 --> 00:10:34,940
+DAVID MALAN: Initials i.
+
+240
+00:10:34,940 --> 00:10:36,350
+OK, so if I do that--
+
+241
+00:10:36,350 --> 00:10:36,990
+good thought.
+
+242
+00:10:36,990 --> 00:10:41,030
+So let's do, initials,
+bracket i, gets name bracket
+
+243
+00:10:41,030 --> 00:10:43,400
+i-- that would seem to put
+the i-th character of name
+
+244
+00:10:43,400 --> 00:10:46,730
+at the -th location in initials, which
+at the moment is perfectly correct,
+
+245
+00:10:46,730 --> 00:10:48,510
+because i is 0.
+
+246
+00:10:48,510 --> 00:10:52,560
+And if I typed in David J. Malan,
+D is at the zeroth location.
+
+247
+00:10:52,560 --> 00:10:53,220
+So, we're good.
+
+248
+00:10:53,220 --> 00:10:54,678
+But there's going to be a bug here.
+
+249
+00:10:54,678 --> 00:10:57,870
+AUDIENCE: [INAUDIBLE] continue to the
+name, then you'll have less slots.
+
+250
+00:10:57,870 --> 00:10:58,745
+DAVID MALAN: Exactly.
+
+251
+00:10:58,745 --> 00:11:02,280
+I is going to continue marching
+forward, one character at a time,
+
+252
+00:11:02,280 --> 00:11:07,410
+through the entire name of the
+user, but you only want to index--
+
+253
+00:11:07,410 --> 00:11:10,410
+you don't want to keep doing that
+same amount in the initials array,
+
+254
+00:11:10,410 --> 00:11:12,369
+because again, the
+initials is much smaller.
+
+255
+00:11:12,369 --> 00:11:14,160
+So even as i moves
+through the user's name,
+
+256
+00:11:14,160 --> 00:11:17,070
+you want to take baby steps, so
+to speak, through the initials.
+
+257
+00:11:17,070 --> 00:11:18,212
+So, how can we solve this?
+
+258
+00:11:18,212 --> 00:11:19,420
+I can't use i, it would seem.
+
+259
+00:11:19,420 --> 00:11:22,992
+AUDIENCE: You could use a
+variable that's like a [INAUDIBLE]
+
+260
+00:11:22,992 --> 00:11:23,950
+DAVID MALAN: OK, great.
+
+261
+00:11:23,950 --> 00:11:24,430
+Let's do that.
+
+262
+00:11:24,430 --> 00:11:25,490
+We need another variable.
+
+263
+00:11:25,490 --> 00:11:27,100
+So, I could put this in
+a few different places,
+
+264
+00:11:27,100 --> 00:11:29,450
+but I'm going to go ahead
+and put it here for now.
+
+265
+00:11:29,450 --> 00:11:31,580
+So, int counter gets zero--
+
+266
+00:11:31,580 --> 00:11:33,730
+I'm just initializing
+my counter to zero--
+
+267
+00:11:33,730 --> 00:11:37,420
+and then as soon as I won't
+find an uppercase letter,
+
+268
+00:11:37,420 --> 00:11:39,220
+I think I want to do this?
+
+269
+00:11:39,220 --> 00:11:41,890
+Put it at whatever the
+value of counter is?
+
+270
+00:11:41,890 --> 00:11:44,390
+And then there's one more step.
+
+271
+00:11:44,390 --> 00:11:47,812
+What do I need to do once I, yeah,
+put it at the counter location?
+
+272
+00:11:47,812 --> 00:11:49,420
+AUDIENCE: Increment counter by one.
+
+273
+00:11:49,420 --> 00:11:49,930
+DAVID MALAN: Exactly.
+
+274
+00:11:49,930 --> 00:11:51,010
+Increment counter by one.
+
+275
+00:11:51,010 --> 00:11:52,343
+So, I can do this in a few ways.
+
+276
+00:11:52,343 --> 00:11:56,490
+I can do it very literally-- counter
+gets counter plus one, semi-colon.
+
+277
+00:11:56,490 --> 00:11:58,030
+It's a little annoying to type.
+
+278
+00:11:58,030 --> 00:12:02,370
+You could do plus equals one,
+which is slightly more succinct.
+
+279
+00:12:02,370 --> 00:12:06,800
+Or, the ever-prettier, plus plus,
+which achieves the same result.
+
+280
+00:12:06,800 --> 00:12:09,520
+Fewer characters, same
+exact result, in this case.
+
+281
+00:12:09,520 --> 00:12:14,500
+OK, so now, I think we have
+a for loop that iterates
+
+282
+00:12:14,500 --> 00:12:17,560
+over all the letters in the name.
+
+283
+00:12:17,560 --> 00:12:21,790
+If it's an uppercase letter, it stores
+that letter, and only that letter,
+
+284
+00:12:21,790 --> 00:12:24,220
+in the initials array,
+and then increments
+
+285
+00:12:24,220 --> 00:12:26,960
+counter so that the next
+letter is going to go
+
+286
+00:12:26,960 --> 00:12:30,230
+at the next location
+in the initials array.
+
+287
+00:12:30,230 --> 00:12:33,520
+So, if all that seems to be correct--
+
+288
+00:12:33,520 --> 00:12:35,020
+ultimately, I want to do this--
+
+289
+00:12:35,020 --> 00:12:39,520
+I want to go ahead and print out
+percent s, backslash n, initials.
+
+290
+00:12:39,520 --> 00:12:41,440
+I want to just print
+the user's initials.
+
+291
+00:12:41,440 --> 00:12:46,780
+But there's one key step in this
+blank line that I should not forget.
+
+292
+00:12:46,780 --> 00:12:48,470
+What's the very last thing I need to do?
+
+293
+00:12:48,470 --> 00:12:48,580
+Yeah.
+
+294
+00:12:48,580 --> 00:12:50,500
+AUDIENCE: You need to print
+a null character [INAUDIBLE]
+
+295
+00:12:50,500 --> 00:12:52,420
+put a null character at
+the end of the [INAUDIBLE]..
+
+296
+00:12:52,420 --> 00:12:52,950
+DAVID MALAN: Exactly.
+
+297
+00:12:52,950 --> 00:12:55,450
+I need to put a null character
+at the end of the array.
+
+298
+00:12:55,450 --> 00:12:57,160
+So, how do I do that?
+
+299
+00:12:57,160 --> 00:12:59,730
+Well, I have the syntax, and I think--
+
+300
+00:12:59,730 --> 00:13:02,340
+you know, I want to say, end of array--
+
+301
+00:13:02,340 --> 00:13:04,570
+but how can I do that?
+
+302
+00:13:04,570 --> 00:13:06,030
+What values should I put here?
+
+303
+00:13:06,030 --> 00:13:08,330
+
+
+304
+00:13:08,330 --> 00:13:08,830
+Yeah.
+
+305
+00:13:08,830 --> 00:13:11,130
+DAVID MALAN: The string length name?
+
+306
+00:13:11,130 --> 00:13:16,326
+DAVID MALAN: Yeah, I could do
+strlen of name, well, not of name--
+
+307
+00:13:16,326 --> 00:13:17,690
+AUDIENCE: Of the initials.
+
+308
+00:13:17,690 --> 00:13:21,200
+DAVID MALAN: The initials, but now, you
+kind of got me in a circular argument,
+
+309
+00:13:21,200 --> 00:13:23,600
+because I'm trying to--
+
+310
+00:13:23,600 --> 00:13:24,890
+it's kind of a catch-22 now.
+
+311
+00:13:24,890 --> 00:13:29,160
+I am trying to store a backslash
+n at the end of the string.
+
+312
+00:13:29,160 --> 00:13:31,880
+But recall from last
+time, the way strlen
+
+313
+00:13:31,880 --> 00:13:36,830
+knows where the end of the string
+is, is by putting the backslash 0.
+
+314
+00:13:36,830 --> 00:13:38,190
+So, it's not there yet.
+
+315
+00:13:38,190 --> 00:13:39,270
+So we can't use strlen.
+
+316
+00:13:39,270 --> 00:13:41,240
+But, we already have,
+I think, the solution--
+
+317
+00:13:41,240 --> 00:13:43,630
+AUDIENCE: Can't you
+just put initials four?
+
+318
+00:13:43,630 --> 00:13:48,014
+[INAUDIBLE]
+
+319
+00:13:48,014 --> 00:13:48,680
+DAVID MALAN: OK.
+
+320
+00:13:48,680 --> 00:13:50,780
+So, we could absolutely
+do that, or almost that.
+
+321
+00:13:50,780 --> 00:13:52,520
+It's not quite four.
+
+322
+00:13:52,520 --> 00:13:53,536
+One tweak here, yeah?
+
+323
+00:13:53,536 --> 00:13:54,410
+AUDIENCE: [INAUDIBLE]
+
+324
+00:13:54,410 --> 00:13:55,535
+DAVID MALAN: In back, yeah?
+
+325
+00:13:55,535 --> 00:13:56,624
+AUDIENCE: [INAUDIBLE]
+
+326
+00:13:56,624 --> 00:13:57,540
+DAVID MALAN: OK, good.
+
+327
+00:13:57,540 --> 00:13:58,980
+So, actually-- so, counter--
+
+328
+00:13:58,980 --> 00:13:59,480
+is, yeah.
+
+329
+00:13:59,480 --> 00:14:01,317
+Spoiler, counter is
+going to be the answer.
+
+330
+00:14:01,317 --> 00:14:02,900
+But let me just fix this one bug here.
+
+331
+00:14:02,900 --> 00:14:05,390
+Four was the right
+intuition, but remember,
+
+332
+00:14:05,390 --> 00:14:11,750
+if you have four characters possible,
+it's 0, 1, 2, 3, is the very last one.
+
+333
+00:14:11,750 --> 00:14:13,130
+So, we needed to fix that to 3.
+
+334
+00:14:13,130 --> 00:14:17,450
+But even more general would be to put
+counter, because the value of counter
+
+335
+00:14:17,450 --> 00:14:21,530
+is literally the length of the string
+we just read into the initials.
+
+336
+00:14:21,530 --> 00:14:23,720
+And so if we want to
+terminate that string,
+
+337
+00:14:23,720 --> 00:14:27,920
+we already know how many
+characters we've counted up.
+
+338
+00:14:27,920 --> 00:14:32,600
+And in fact, it would technically be
+wrong to just blindly put backslash
+
+339
+00:14:32,600 --> 00:14:36,480
+zero only at the very end
+of these four characters.
+
+340
+00:14:36,480 --> 00:14:37,002
+Why?
+
+341
+00:14:37,002 --> 00:14:39,210
+In what situation would that
+be-- logic be incorrect?
+
+342
+00:14:39,210 --> 00:14:39,350
+Yeah?
+
+343
+00:14:39,350 --> 00:14:41,420
+AUDIENCE: If someone has
+more than three initials.
+
+344
+00:14:41,420 --> 00:14:42,690
+DAVID MALAN: If they have
+more than three initials,
+
+345
+00:14:42,690 --> 00:14:45,439
+we really have a problem, because
+we don't have space for anything
+
+346
+00:14:45,439 --> 00:14:48,290
+beyond three actual letters
+and a null terminator.
+
+347
+00:14:48,290 --> 00:14:50,060
+And there's another
+problem, potentially.
+
+348
+00:14:50,060 --> 00:14:50,250
+Yeah?
+
+349
+00:14:50,250 --> 00:14:51,530
+AUDIENCE: If they don't
+have a middle name?
+
+350
+00:14:51,530 --> 00:14:53,000
+DAVID MALAN: Yeah, if they
+don't have a middle name,
+
+351
+00:14:53,000 --> 00:14:56,390
+there's going to be, only maybe two
+letters, first name and last name.
+
+352
+00:14:56,390 --> 00:14:58,550
+And so, you're putting
+the backslash zero
+
+353
+00:14:58,550 --> 00:15:01,050
+at the end of your array, which is good.
+
+354
+00:15:01,050 --> 00:15:04,490
+But what's going to be that third
+value, that second to last value,
+
+355
+00:15:04,490 --> 00:15:05,090
+in the array?
+
+356
+00:15:05,090 --> 00:15:06,173
+AUDIENCE: A garbage value.
+
+357
+00:15:06,173 --> 00:15:07,530
+It's just garbage, so to speak.
+
+358
+00:15:07,530 --> 00:15:09,020
+And so it could be some
+funky character, you
+
+359
+00:15:09,020 --> 00:15:10,700
+might get weird symbols on
+the screen-- you don't know,
+
+360
+00:15:10,700 --> 00:15:11,866
+because it's just incorrect.
+
+361
+00:15:11,866 --> 00:15:15,390
+The backslash zero has to go
+at the very end of the string.
+
+362
+00:15:15,390 --> 00:15:18,710
+So, let me go ahead, and if I've
+made no syntax errors here--
+
+363
+00:15:18,710 --> 00:15:24,740
+let me go ahead now and save this,
+and go ahead and do make initials--
+
+364
+00:15:24,740 --> 00:15:26,390
+OK, so, hmm.
+
+365
+00:15:26,390 --> 00:15:30,899
+Implicitly declaring library function
+strlen with type unsigned long.
+
+366
+00:15:30,899 --> 00:15:34,190
+So, there's a lot of words, only some of
+which I kind of recognize immediately.
+
+367
+00:15:34,190 --> 00:15:36,680
+I could run this through help50,
+which should be your first instinct,
+
+368
+00:15:36,680 --> 00:15:38,330
+on your own or in office hours.
+
+369
+00:15:38,330 --> 00:15:42,050
+But let's see if we can't tease
+apart what the error actually is.
+
+370
+00:15:42,050 --> 00:15:44,780
+What did I forget to do?
+
+371
+00:15:44,780 --> 00:15:45,280
+Yeah.
+
+372
+00:15:45,280 --> 00:15:48,122
+AUDIENCE: Uh, [INAUDIBLE]
+
+373
+00:15:48,122 --> 00:15:50,705
+DAVID MALAN: Yeah, I needed the
+string library, which now I'll
+
+374
+00:15:50,705 --> 00:15:52,121
+start to get in the habit of more.
+
+375
+00:15:52,121 --> 00:15:54,777
+Anytime I'm using strlen, just
+try to remember to use string,
+
+376
+00:15:54,777 --> 00:15:57,110
+otherwise you'll see that
+error message again and again.
+
+377
+00:15:57,110 --> 00:15:58,944
+Maybe there's more
+errors, but I'm not sure,
+
+378
+00:15:58,944 --> 00:16:01,568
+so I'm going to go ahead and just
+recompile, because again, you
+
+379
+00:16:01,568 --> 00:16:04,530
+might have more errors on the screen
+than you actually have in reality.
+
+380
+00:16:04,530 --> 00:16:05,970
+But there is indeed one more.
+
+381
+00:16:05,970 --> 00:16:07,940
+So, similar error, but
+different function.
+
+382
+00:16:07,940 --> 00:16:11,300
+Implicit declaration
+of function is upper.
+
+383
+00:16:11,300 --> 00:16:13,340
+So that's, again, same mistake.
+
+384
+00:16:13,340 --> 00:16:14,390
+I've forgotten something.
+
+385
+00:16:14,390 --> 00:16:15,110
+Anyone recall?
+
+386
+00:16:15,110 --> 00:16:17,480
+This one's a little more--
+
+387
+00:16:17,480 --> 00:16:19,780
+less common, I would say.
+
+388
+00:16:19,780 --> 00:16:20,280
+Yeah.
+
+389
+00:16:20,280 --> 00:16:22,744
+AUDIENCE: You need the
+character type library.
+
+390
+00:16:22,744 --> 00:16:25,160
+DAVID MALAN: Yeah, the character
+type, or C type, library.
+
+391
+00:16:25,160 --> 00:16:27,493
+So again, you'd only know
+this by checking the [? man ?]
+
+392
+00:16:27,493 --> 00:16:29,480
+page, so to speak, or
+reference.cs50.net,
+
+393
+00:16:29,480 --> 00:16:31,579
+or checking your notes,
+or whatnot, or Google.
+
+394
+00:16:31,579 --> 00:16:32,370
+And so that's fine.
+
+395
+00:16:32,370 --> 00:16:34,820
+It happens to be in Ctype.h.
+
+396
+00:16:34,820 --> 00:16:37,220
+Now, let me go ahead and recompile.
+
+397
+00:16:37,220 --> 00:16:42,575
+Seems to work, so, initials-- let me
+go ahead now and type David J. Malan,
+
+398
+00:16:42,575 --> 00:16:44,010
+enter-- seems to work.
+
+399
+00:16:44,010 --> 00:16:47,750
+Let me try a corner case, like Rob
+Bowden, without his middle name.
+
+400
+00:16:47,750 --> 00:16:48,260
+RB.
+
+401
+00:16:48,260 --> 00:16:49,410
+And so, it seems to work.
+
+402
+00:16:49,410 --> 00:16:52,370
+This is not a rigorous testing
+process, but let's trust that we did
+
+403
+00:16:52,370 --> 00:16:53,870
+at least get the fundamentals right.
+
+404
+00:16:53,870 --> 00:16:57,030
+But the key here is that we broke
+this abstraction, so to speak,
+
+405
+00:16:57,030 --> 00:16:58,130
+of what a string is.
+
+406
+00:16:58,130 --> 00:17:00,379
+Because if you understand
+that, well, a string is just
+
+407
+00:17:00,379 --> 00:17:03,800
+a sequence of characters, and hey, a
+string must end with a backslash zero,
+
+408
+00:17:03,800 --> 00:17:05,119
+you can do that yourself.
+
+409
+00:17:05,119 --> 00:17:08,089
+And this is what you can do in C.
+You can put characters anywhere
+
+410
+00:17:08,089 --> 00:17:10,970
+you want in memory, you can put
+numbers anywhere you want in memory.
+
+411
+00:17:10,970 --> 00:17:13,670
+And this ultimately gives you
+a lot of power and flexibility,
+
+412
+00:17:13,670 --> 00:17:17,119
+but also, as you'll soon see, a
+lot of opportunities for bugs,
+
+413
+00:17:17,119 --> 00:17:18,500
+with this power.
+
+414
+00:17:18,500 --> 00:17:22,440
+All right, any questions
+on that particular example?
+
+415
+00:17:22,440 --> 00:17:22,940
+Yeah.
+
+416
+00:17:22,940 --> 00:17:25,710
+AUDIENCE: Can you explain
+the initials counter?
+
+417
+00:17:25,710 --> 00:17:26,460
+DAVID MALAN: Sure.
+
+418
+00:17:26,460 --> 00:17:27,420
+AUDIENCE: [INAUDIBLE]
+
+419
+00:17:27,420 --> 00:17:28,170
+DAVID MALAN: Sure.
+
+420
+00:17:28,170 --> 00:17:32,400
+Let's explain the initials
+counter, which is used here,
+
+421
+00:17:32,400 --> 00:17:34,320
+and is declared up here.
+
+422
+00:17:34,320 --> 00:17:37,590
+So, we essentially want to
+keep track of two locations.
+
+423
+00:17:37,590 --> 00:17:40,830
+If my name is sort of of this length,
+I'm going to start at the first
+
+424
+00:17:40,830 --> 00:17:47,140
+character, D, and with i, iterate
+from D-A-V-I-D, space, and so forth.
+
+425
+00:17:47,140 --> 00:17:49,770
+So, that one just kind of
+marches on, one step at a time.
+
+426
+00:17:49,770 --> 00:17:52,186
+The initials array, meanwhile,
+is another chunk of memory.
+
+427
+00:17:52,186 --> 00:17:55,500
+It's of size four, somewhere
+else in that green silicon chip,
+
+428
+00:17:55,500 --> 00:17:57,270
+with all those black chips on it.
+
+429
+00:17:57,270 --> 00:17:59,760
+And we want to move through it
+more slowly, because we only
+
+430
+00:17:59,760 --> 00:18:03,630
+want to move to the next
+location in the initials array
+
+431
+00:18:03,630 --> 00:18:05,309
+once we've put a capital letter in it.
+
+432
+00:18:05,309 --> 00:18:07,350
+And that's going to be
+less frequent, presumably,
+
+433
+00:18:07,350 --> 00:18:09,210
+unless the user typed in all caps.
+
+434
+00:18:09,210 --> 00:18:11,689
+So, in order to achieve that,
+we need a second variable.
+
+435
+00:18:11,689 --> 00:18:13,980
+And you proposed that we use
+a variable called counter.
+
+436
+00:18:13,980 --> 00:18:16,660
+But we could have called
+it j, or something else.
+
+437
+00:18:16,660 --> 00:18:19,170
+And so, the counter is
+initialized to zero,
+
+438
+00:18:19,170 --> 00:18:24,250
+and it is incremented here any
+time we encounter a capital letter.
+
+439
+00:18:24,250 --> 00:18:26,890
+So, it has the effect of literally
+counting the capital letters
+
+440
+00:18:26,890 --> 00:18:32,100
+in someone's name: D, J, M. And so it
+should be 3, at the end of those loops.
+
+441
+00:18:32,100 --> 00:18:34,320
+And that's perfect, because
+as we realized earlier,
+
+442
+00:18:34,320 --> 00:18:39,540
+3 happens to be the correct location
+for where you put the backslash 0, even
+
+443
+00:18:39,540 --> 00:18:42,480
+though it wants to go in the
+fourth location, the address of it,
+
+444
+00:18:42,480 --> 00:18:44,340
+or the location is technically 3.
+
+445
+00:18:44,340 --> 00:18:47,490
+So, we sort of solve multiple
+problems at once, in this way.
+
+446
+00:18:47,490 --> 00:18:48,170
+Good question.
+
+447
+00:18:48,170 --> 00:18:50,394
+Other questions?
+
+448
+00:18:50,394 --> 00:18:51,060
+Other questions?
+
+449
+00:18:51,060 --> 00:18:51,580
+All right.
+
+450
+00:18:51,580 --> 00:18:52,080
+So.
+
+451
+00:18:52,080 --> 00:18:56,880
+With that said, let's not worry
+as much about that low-level kind
+
+452
+00:18:56,880 --> 00:19:00,420
+of implementation, and consider what
+more we can do with these things
+
+453
+00:19:00,420 --> 00:19:01,170
+called arrays.
+
+454
+00:19:01,170 --> 00:19:03,211
+If we start to get rid of
+the addresses, and just
+
+455
+00:19:03,211 --> 00:19:06,240
+know that we have sequence of
+characters, or anything else in memory,
+
+456
+00:19:06,240 --> 00:19:08,700
+and really, at the end of
+the day, we have the ability
+
+457
+00:19:08,700 --> 00:19:10,590
+to lay things out
+contiguously in memory.
+
+458
+00:19:10,590 --> 00:19:12,280
+Back to back to back to back, like this.
+
+459
+00:19:12,280 --> 00:19:16,147
+So, here are, then, eight boxes,
+inside of which we can put anything.
+
+460
+00:19:16,147 --> 00:19:18,480
+But we've kind of been cheating
+as humans for some time.
+
+461
+00:19:18,480 --> 00:19:21,540
+When we had Stelios' name on the
+screen, all of us in this room
+
+462
+00:19:21,540 --> 00:19:25,450
+just kind of glance up, and you kind of
+absorb his name all in one fell swoop.
+
+463
+00:19:25,450 --> 00:19:29,910
+But it turns out that computers are not
+quite as intuitive, or as all-seeing
+
+464
+00:19:29,910 --> 00:19:33,570
+as we are, where we can sort of
+take in the whole room, visually.
+
+465
+00:19:33,570 --> 00:19:36,940
+A computer can only look
+at one thing at a time.
+
+466
+00:19:36,940 --> 00:19:40,260
+And so, a better metaphor
+than a box like this
+
+467
+00:19:40,260 --> 00:19:42,960
+for the locations that you
+have in your computer's memory
+
+468
+00:19:42,960 --> 00:19:45,960
+would really be like
+eight lockers in a school,
+
+469
+00:19:45,960 --> 00:19:49,680
+where a computer, in order to look
+at the value in any of those boxes,
+
+470
+00:19:49,680 --> 00:19:53,550
+actually has to do a bit of work and
+open the door to see what's inside.
+
+471
+00:19:53,550 --> 00:19:57,840
+And you cannot, therefore, see all
+eight locations simultaneously.
+
+472
+00:19:57,840 --> 00:20:00,960
+So, this is going to have very real
+world implications, because now,
+
+473
+00:20:00,960 --> 00:20:03,270
+if we want to start checking
+the length of a string,
+
+474
+00:20:03,270 --> 00:20:06,520
+or counting the number of things in
+an array, or moving things around,
+
+475
+00:20:06,520 --> 00:20:09,112
+we're going to have to
+do one thing at a time.
+
+476
+00:20:09,112 --> 00:20:11,070
+Whereas we humans might
+just kind of look at it
+
+477
+00:20:11,070 --> 00:20:14,690
+and say, oh, sort these
+numbers in some intuitive way.
+
+478
+00:20:14,690 --> 00:20:18,880
+And that actually is a good segue
+to a very different problem,
+
+479
+00:20:18,880 --> 00:20:20,830
+which is that of sorting values.
+
+480
+00:20:20,830 --> 00:20:25,230
+So, for this, we have, say, the
+equivalent of seven lockers,
+
+481
+00:20:25,230 --> 00:20:26,310
+up here now.
+
+482
+00:20:26,310 --> 00:20:29,082
+And behind these doors, so to
+speak, is a whole bunch of numbers.
+
+483
+00:20:29,082 --> 00:20:31,290
+So we'll transition away
+from characters and strings,
+
+484
+00:20:31,290 --> 00:20:33,373
+and just generalize it to
+numbers, because they're
+
+485
+00:20:33,373 --> 00:20:36,520
+convenient to work with, and we have
+so many of them at our disposal.
+
+486
+00:20:36,520 --> 00:20:38,970
+But I'd like to find one
+number in particular.
+
+487
+00:20:38,970 --> 00:20:42,037
+So, suppose that a computer were
+storing an array of numbers,
+
+488
+00:20:42,037 --> 00:20:44,370
+a whole bunch of integers,
+back to back to back to back.
+
+489
+00:20:44,370 --> 00:20:45,745
+Here's what they might look like.
+
+490
+00:20:45,745 --> 00:20:48,974
+The doors are closed, though, so we
+need an algorithm for finding a number,
+
+491
+00:20:48,974 --> 00:20:52,140
+because a computer can't just look at
+it and say, there's your number there.
+
+492
+00:20:52,140 --> 00:20:54,540
+The computer has to be
+more methodical, probably
+
+493
+00:20:54,540 --> 00:20:57,570
+going from left to right, from right
+to left, starting in the middle,
+
+494
+00:20:57,570 --> 00:20:58,890
+randomly opening them.
+
+495
+00:20:58,890 --> 00:21:00,270
+We need an algorithm.
+
+496
+00:21:00,270 --> 00:21:05,010
+So, for that-- could we
+get one brave volunteer?
+
+497
+00:21:05,010 --> 00:21:06,448
+OK, come on down.
+
+498
+00:21:06,448 --> 00:21:07,156
+What's your name?
+
+499
+00:21:07,156 --> 00:21:07,910
+CHRISSY: Chrissy.
+
+500
+00:21:07,910 --> 00:21:08,310
+DAVID MALAN: Kristen?
+
+501
+00:21:08,310 --> 00:21:08,850
+CHRISSY: Chrissy.
+
+502
+00:21:08,850 --> 00:21:09,725
+DAVID MALAN: Chrissy.
+
+503
+00:21:09,725 --> 00:21:11,700
+Come on down, over this way.
+
+504
+00:21:11,700 --> 00:21:14,970
+All right, so Chrissy, all you know
+is that there are seven doors--
+
+505
+00:21:14,970 --> 00:21:16,550
+nice to meet you--
+
+506
+00:21:16,550 --> 00:21:17,502
+here on the screen.
+
+507
+00:21:17,502 --> 00:21:20,460
+And using your finger, you should be
+able to just touch a door to open,
+
+508
+00:21:20,460 --> 00:21:22,085
+or unlock it, and we'll see what it is.
+
+509
+00:21:22,085 --> 00:21:26,800
+And I would like you
+to find the number 50.
+
+510
+00:21:26,800 --> 00:21:27,300
+Dammit.
+
+511
+00:21:27,300 --> 00:21:29,284
+[LAUGHTER]
+
+512
+00:21:29,284 --> 00:21:30,772
+Very good!
+
+513
+00:21:30,772 --> 00:21:36,240
+[APPLAUSE]
+
+514
+00:21:36,240 --> 00:21:38,940
+I feel-- we need a better prize
+than a stress ball for that.
+
+515
+00:21:38,940 --> 00:21:40,037
+But very nicely done.
+
+516
+00:21:40,037 --> 00:21:42,870
+And let me ask you, if we can-- if
+you don't mind me putting the mic
+
+517
+00:21:42,870 --> 00:21:43,680
+in your hand--
+
+518
+00:21:43,680 --> 00:21:44,380
+here you go.
+
+519
+00:21:44,380 --> 00:21:49,040
+So, what was your amazing
+algorithm for finding 50?
+
+520
+00:21:49,040 --> 00:21:50,550
+CHRISSY: I just clicked on it.
+
+521
+00:21:50,550 --> 00:21:51,508
+DAVID MALAN: OK, that's great.
+
+522
+00:21:51,508 --> 00:21:52,466
+CHRISSY: It looks nice.
+
+523
+00:21:52,466 --> 00:21:53,280
+DAVID MALAN: OK.
+
+524
+00:21:53,280 --> 00:21:54,111
+So, you-- OK.
+
+525
+00:21:54,111 --> 00:21:54,610
+So, good.
+
+526
+00:21:54,610 --> 00:21:57,570
+So, wonderfully effective.
+
+527
+00:21:57,570 --> 00:22:00,600
+Let me go ahead and reveal--
+actually, let's do this.
+
+528
+00:22:00,600 --> 00:22:04,920
+So, here's where you could have
+gone wrong any number of places.
+
+529
+00:22:04,920 --> 00:22:07,920
+And let me ask the audience
+before we try one other example.
+
+530
+00:22:07,920 --> 00:22:10,470
+What strikes you about these numbers?
+
+531
+00:22:10,470 --> 00:22:12,422
+Anything in particular?
+
+532
+00:22:12,422 --> 00:22:14,089
+AUDIENCE: They're unordered.
+
+533
+00:22:14,089 --> 00:22:15,505
+DAVID MALAN: They're all in order?
+
+534
+00:22:15,505 --> 00:22:15,790
+AUDIENCE: Unordered.
+
+535
+00:22:15,790 --> 00:22:17,170
+DAVID MALAN: Unordered.
+
+536
+00:22:17,170 --> 00:22:19,360
+Kind of random.
+
+537
+00:22:19,360 --> 00:22:22,690
+Although, the very astute
+might notice something.
+
+538
+00:22:22,690 --> 00:22:24,591
+Or, someone who watches too much TV.
+
+539
+00:22:24,591 --> 00:22:25,090
+Yeah.
+
+540
+00:22:25,090 --> 00:22:26,290
+AUDIENCE: They're the numbers from Lost.
+
+541
+00:22:26,290 --> 00:22:27,456
+DAVID MALAN: Yes, thank you.
+
+542
+00:22:27,456 --> 00:22:29,300
+The two of us watch a lot of Lost.
+
+543
+00:22:29,300 --> 00:22:32,560
+So-- plus we had a seventh
+number, so we added ours.
+
+544
+00:22:32,560 --> 00:22:34,570
+So, they are actually in random order.
+
+545
+00:22:34,570 --> 00:22:36,460
+I just kind of shuffled
+them arbitrarily.
+
+546
+00:22:36,460 --> 00:22:38,410
+They're not sorted from
+smallest to biggest,
+
+547
+00:22:38,410 --> 00:22:40,845
+they're not sorted from
+biggest to smallest.
+
+548
+00:22:40,845 --> 00:22:43,720
+There's really no pattern, because
+I really just did shuffle them up.
+
+549
+00:22:43,720 --> 00:22:48,240
+And that's problematic, because even
+though Chrissy got lucky, finding 50--
+
+550
+00:22:48,240 --> 00:22:50,500
+was just so good at finding 50--
+
+551
+00:22:50,500 --> 00:22:53,410
+it might be hard to replicate
+that algorithm and find it
+
+552
+00:22:53,410 --> 00:22:55,720
+every time, unless you
+know a little something
+
+553
+00:22:55,720 --> 00:22:57,550
+about the numbers behind the doors.
+
+554
+00:22:57,550 --> 00:23:00,020
+And so, we do know that
+in this next example.
+
+555
+00:23:00,020 --> 00:23:04,210
+So, in this next example, there
+are still seven doors, and still
+
+556
+00:23:04,210 --> 00:23:07,060
+the same seven numbers,
+but now they're sorted.
+
+557
+00:23:07,060 --> 00:23:11,864
+And knowing that, does
+that change your approach?
+
+558
+00:23:11,864 --> 00:23:16,130
+CHRISSY: Uh, well, I guess if they're
+sorted, like, lowest to highest,
+
+559
+00:23:16,130 --> 00:23:18,850
+then it would, because I would
+know it's closer to the end.
+
+560
+00:23:18,850 --> 00:23:21,389
+But if I don't know
+how it's sorted, then--
+
+561
+00:23:21,389 --> 00:23:22,680
+I guess I wouldn't really know.
+
+562
+00:23:22,680 --> 00:23:23,040
+DAVID MALAN: OK, good.
+
+563
+00:23:23,040 --> 00:23:25,790
+So let me stipulate they're
+sorted from smallest to biggest,
+
+564
+00:23:25,790 --> 00:23:28,206
+and let me propose that you,
+again, find us the number 50.
+
+565
+00:23:28,206 --> 00:23:30,980
+
+
+566
+00:23:30,980 --> 00:23:32,680
+Yeah, this is not working out very well.
+
+567
+00:23:32,680 --> 00:23:34,010
+That is very well done.
+
+568
+00:23:34,010 --> 00:23:35,480
+OK, so, congratulations.
+
+569
+00:23:35,480 --> 00:23:40,040
+[APPLAUSE]
+
+570
+00:23:40,040 --> 00:23:41,919
+So, you'll see-- thank you.
+
+571
+00:23:41,919 --> 00:23:43,710
+So, you'll see just
+how much more efficient
+
+572
+00:23:43,710 --> 00:23:48,520
+her second algorithm was, when
+she leveraged that information.
+
+573
+00:23:48,520 --> 00:23:52,350
+But in all seriousness, you
+could do better, especially
+
+574
+00:23:52,350 --> 00:23:56,460
+for very large datasets, if you
+know something about the data.
+
+575
+00:23:56,460 --> 00:23:58,440
+If you know that these
+numbers are sorted,
+
+576
+00:23:58,440 --> 00:24:01,062
+you could, as Chrissy did very
+intuitively and very correctly,
+
+577
+00:24:01,062 --> 00:24:03,520
+go to the very end, knowing
+that that's the biggest number,
+
+578
+00:24:03,520 --> 00:24:05,145
+it's probably all the way on the right.
+
+579
+00:24:05,145 --> 00:24:08,850
+If she didn't know that, and just
+knew that the numbers were sorted,
+
+580
+00:24:08,850 --> 00:24:12,360
+and did not know if 50 was a
+small number, a medium number,
+
+581
+00:24:12,360 --> 00:24:15,900
+the largest number-- just it
+was a number behind doors.
+
+582
+00:24:15,900 --> 00:24:20,008
+What would a smart strategy be,
+given that lesser information?
+
+583
+00:24:20,008 --> 00:24:21,966
+AUDIENCE: [INAUDIBLE]
+halfway, and then if it's
+
+584
+00:24:21,966 --> 00:24:24,430
+greater, you move it to the
+right, if it's less, move it left.
+
+585
+00:24:24,430 --> 00:24:26,050
+DAVID MALAN: Yeah, we
+can try that same divide
+
+586
+00:24:26,050 --> 00:24:29,050
+and conquer approach we did in the
+very first class, with the phone book,
+
+587
+00:24:29,050 --> 00:24:29,260
+right?
+
+588
+00:24:29,260 --> 00:24:31,420
+Where we looked roughly
+in the middle, because we
+
+589
+00:24:31,420 --> 00:24:34,010
+know that the Ms, give or
+take, would be in the middle.
+
+590
+00:24:34,010 --> 00:24:34,930
+And then if the--
+
+591
+00:24:34,930 --> 00:24:37,480
+we're looking for Mike Smith,
+whose name starts with an S,
+
+592
+00:24:37,480 --> 00:24:40,438
+we know that he would be to the right,
+and so we would go to the right,
+
+593
+00:24:40,438 --> 00:24:41,842
+and then to divide the problem--
+
+594
+00:24:41,842 --> 00:24:46,790
+[LAUGHTER] Today is not going very well.
+
+595
+00:24:46,790 --> 00:24:49,520
+So, we would divide and conquer
+the problem again and again.
+
+596
+00:24:49,520 --> 00:24:50,560
+And we can do that here.
+
+597
+00:24:50,560 --> 00:24:53,800
+Even though it's not quite as
+visually engaging as a phone book,
+
+598
+00:24:53,800 --> 00:24:55,220
+you can kind of go to the middle.
+
+599
+00:24:55,220 --> 00:24:58,074
+And if Chrissy had opened
+that middle door, and seen 16,
+
+600
+00:24:58,074 --> 00:24:58,990
+you would know-- what?
+
+601
+00:24:58,990 --> 00:25:00,520
+And actually, I can recreate this.
+
+602
+00:25:00,520 --> 00:25:02,540
+I'm just going to refresh the screen.
+
+603
+00:25:02,540 --> 00:25:04,600
+So in this case, we have the same doors.
+
+604
+00:25:04,600 --> 00:25:08,920
+I know 50's somewhere, and I don't
+know how-- where it is, but 16.
+
+605
+00:25:08,920 --> 00:25:10,920
+Now I know it's to the
+right, as you propose.
+
+606
+00:25:10,920 --> 00:25:14,750
+So, now I can essentially eliminate all
+these doors, not even worry about them.
+
+607
+00:25:14,750 --> 00:25:16,630
+And indeed, if I open
+them, we can confirm
+
+608
+00:25:16,630 --> 00:25:19,249
+that I don't need to waste any
+time actually searching them.
+
+609
+00:25:19,249 --> 00:25:20,290
+Now I've got three doors.
+
+610
+00:25:20,290 --> 00:25:21,550
+What would you propose we do next?
+
+611
+00:25:21,550 --> 00:25:22,780
+AUDIENCE: Go in the middle again?
+
+612
+00:25:22,780 --> 00:25:24,530
+DAVID MALAN: Yeah, go
+in the middle again.
+
+613
+00:25:24,530 --> 00:25:28,340
+So here, 42 is a great answer, but
+it's not the one we're looking for.
+
+614
+00:25:28,340 --> 00:25:30,899
+And indeed, we can throw
+this half of the problem
+
+615
+00:25:30,899 --> 00:25:33,940
+away, and finally search the right
+half, which now has been whittled down
+
+616
+00:25:33,940 --> 00:25:36,746
+to one, and then we would find 50.
+
+617
+00:25:36,746 --> 00:25:38,620
+And if I can reconstruct
+what would have been
+
+618
+00:25:38,620 --> 00:25:42,820
+a great history, in the first
+example, how well might Chrissy
+
+619
+00:25:42,820 --> 00:25:46,240
+have done theoretically, or if we
+did this exercise again and again
+
+620
+00:25:46,240 --> 00:25:48,680
+and again, with the first example.
+
+621
+00:25:48,680 --> 00:25:50,770
+If you don't know anything
+about the numbers,
+
+622
+00:25:50,770 --> 00:25:54,190
+you can get lucky, as one might
+by just choosing a door and, wow,
+
+623
+00:25:54,190 --> 00:25:55,510
+that happens to be the number.
+
+624
+00:25:55,510 --> 00:25:57,920
+But that's not going to happen
+all the time, most likely.
+
+625
+00:25:57,920 --> 00:26:02,980
+And so you might have to just start,
+you know, maybe at the beginning-- no--
+
+626
+00:26:02,980 --> 00:26:04,240
+no-- no.
+
+627
+00:26:04,240 --> 00:26:06,750
+Maybe you can get clever
+and skip ahead-- no--
+
+628
+00:26:06,750 --> 00:26:10,275
+no-- OK, eventually, you will
+find it, if it's actually there.
+
+629
+00:26:10,275 --> 00:26:13,150
+But if you don't know anything about
+the numbers, the best you can do
+
+630
+00:26:13,150 --> 00:26:14,410
+is what's called brute force.
+
+631
+00:26:14,410 --> 00:26:17,830
+Just brute force your way
+through the possibilities
+
+632
+00:26:17,830 --> 00:26:18,950
+until you find the answer.
+
+633
+00:26:18,950 --> 00:26:20,980
+But in the worst case,
+how many doors might I
+
+634
+00:26:20,980 --> 00:26:23,710
+have to open to find the number
+50, if I knew nothing about them?
+
+635
+00:26:23,710 --> 00:26:24,543
+AUDIENCE: All seven.
+
+636
+00:26:24,543 --> 00:26:25,820
+DAVID MALAN: Yes, all seven.
+
+637
+00:26:25,820 --> 00:26:26,320
+Right?
+
+638
+00:26:26,320 --> 00:26:29,350
+If n is the number of doors, it
+might take me as many as n steps.
+
+639
+00:26:29,350 --> 00:26:31,600
+In this case, it was like
+n minus one, or six steps.
+
+640
+00:26:31,600 --> 00:26:35,740
+But in Chrissy's case, clearly,
+there's a really exciting lower bound,
+
+641
+00:26:35,740 --> 00:26:38,440
+because if you do get lucky, it
+might only take you one step.
+
+642
+00:26:38,440 --> 00:26:40,660
+So, that's an interesting
+range to consider.
+
+643
+00:26:40,660 --> 00:26:43,450
+The solution to your problem
+might take one step, or n steps,
+
+644
+00:26:43,450 --> 00:26:45,160
+or any number in between.
+
+645
+00:26:45,160 --> 00:26:48,250
+But the binary search that you
+proposed in the second approach, where
+
+646
+00:26:48,250 --> 00:26:49,630
+you divide and conquer--
+
+647
+00:26:49,630 --> 00:26:51,760
+recall that when we
+did that in the past,
+
+648
+00:26:51,760 --> 00:26:57,406
+we had a very nice shape to the
+curve that we drew that described
+
+649
+00:26:57,406 --> 00:26:58,780
+the efficiency of that algorithm.
+
+650
+00:26:58,780 --> 00:27:00,610
+And we'll come back to that before long.
+
+651
+00:27:00,610 --> 00:27:04,950
+But let's just, for clarity, formalize
+just what these two algorithms are.
+
+652
+00:27:04,950 --> 00:27:07,820
+If I start from the left and go
+right, or start from the right
+
+653
+00:27:07,820 --> 00:27:11,470
+and go left, following a line,
+we would call that linear search.
+
+654
+00:27:11,470 --> 00:27:13,540
+And it can be written
+in any number of ways.
+
+655
+00:27:13,540 --> 00:27:17,331
+I came up with this pseudo code,
+but again, any reasonable person
+
+656
+00:27:17,331 --> 00:27:20,330
+could come up with an alternative one
+and say it, too, is linear search.
+
+657
+00:27:20,330 --> 00:27:22,060
+These are not official definitions.
+
+658
+00:27:22,060 --> 00:27:23,620
+And I wrote it as follows.
+
+659
+00:27:23,620 --> 00:27:27,880
+For each element in array, if
+the element you're looking for,
+
+660
+00:27:27,880 --> 00:27:28,940
+return true.
+
+661
+00:27:28,940 --> 00:27:32,960
+So, this is a very concise way of
+saying, for each element in the array,
+
+662
+00:27:32,960 --> 00:27:35,170
+just look at it from left
+to right, or right to left.
+
+663
+00:27:35,170 --> 00:27:37,170
+If it's the one you're
+looking for, return true.
+
+664
+00:27:37,170 --> 00:27:39,940
+I found the number 50, or
+whatever it actually is.
+
+665
+00:27:39,940 --> 00:27:42,580
+Otherwise, return false at the very end.
+
+666
+00:27:42,580 --> 00:27:43,820
+And notice the indentation.
+
+667
+00:27:43,820 --> 00:27:48,430
+I un-indented it because only as the
+very, very last step do I return false,
+
+668
+00:27:48,430 --> 00:27:52,660
+if none of my iterations through
+the loop actually return true.
+
+669
+00:27:52,660 --> 00:27:54,400
+So, that would be linear search.
+
+670
+00:27:54,400 --> 00:27:59,697
+Binary search, you have to be a little
+more verbose to explain it, perhaps.
+
+671
+00:27:59,697 --> 00:28:01,780
+And there's many different
+ways to write this out,
+
+672
+00:28:01,780 --> 00:28:03,490
+but this is very similar
+in spirit to something
+
+673
+00:28:03,490 --> 00:28:05,650
+we saw before, with Mike
+Smith and the phone book.
+
+674
+00:28:05,650 --> 00:28:08,191
+So if we go ahead and look at
+the middle of the sorted array,
+
+675
+00:28:08,191 --> 00:28:12,010
+just as you proposed, and if the element
+you're looking for is right there,
+
+676
+00:28:12,010 --> 00:28:13,210
+go ahead and return true.
+
+677
+00:28:13,210 --> 00:28:13,900
+I found 50.
+
+678
+00:28:13,900 --> 00:28:16,600
+I got lucky, it was dead center
+in the middle of my array,
+
+679
+00:28:16,600 --> 00:28:18,820
+in one particular
+running of this program.
+
+680
+00:28:18,820 --> 00:28:22,015
+Else, if the element is to the left,
+search the left half of the array.
+
+681
+00:28:22,015 --> 00:28:24,640
+Else, if it's to the right, search
+the right half of the array.
+
+682
+00:28:24,640 --> 00:28:28,940
+Otherwise, return false, because
+it's presumably not there.
+
+683
+00:28:28,940 --> 00:28:30,440
+So, this would be binary search.
+
+684
+00:28:30,440 --> 00:28:33,880
+And even though it's more
+lines of code, or pseudo code,
+
+685
+00:28:33,880 --> 00:28:37,750
+it arguably should be
+a little faster, right?
+
+686
+00:28:37,750 --> 00:28:41,590
+Because of that dividing and conquering,
+and throwing half, half, half, half,
+
+687
+00:28:41,590 --> 00:28:43,750
+half, half of the
+problem away, the problem
+
+688
+00:28:43,750 --> 00:28:48,740
+gets smaller much, much more quickly.
+
+689
+00:28:48,740 --> 00:28:49,420
+All right.
+
+690
+00:28:49,420 --> 00:28:53,680
+So with that said, it seems
+to be a very good thing
+
+691
+00:28:53,680 --> 00:28:57,980
+that having things sorted for you is a
+very powerful ingredient to a problem.
+
+692
+00:28:57,980 --> 00:28:58,480
+Right?
+
+693
+00:28:58,480 --> 00:29:00,855
+It takes more work-- should
+have taken Chrissy more work;
+
+694
+00:29:00,855 --> 00:29:02,980
+would take all of us,
+in general, more work
+
+695
+00:29:02,980 --> 00:29:07,830
+to find a number using linear
+search than by using binary search.
+
+696
+00:29:07,830 --> 00:29:11,080
+Much like it would have taken me forever
+to find Mike Smith flipping one phone
+
+697
+00:29:11,080 --> 00:29:14,020
+page at a time, versus
+using divide and conquer,
+
+698
+00:29:14,020 --> 00:29:19,450
+where I found him much more quickly by
+dividing the problem in half, and half,
+
+699
+00:29:19,450 --> 00:29:20,830
+and half again.
+
+700
+00:29:20,830 --> 00:29:24,472
+So, that invites the question,
+how do you get something sorted?
+
+701
+00:29:24,472 --> 00:29:26,680
+Well, let me go ahead and
+pull up these things, which
+
+702
+00:29:26,680 --> 00:29:29,967
+we happen not to use in this
+class, but elsewhere on campus,
+
+703
+00:29:29,967 --> 00:29:31,300
+you might have these blue books.
+
+704
+00:29:31,300 --> 00:29:33,460
+And at exam time, you might
+write your name, and the class,
+
+705
+00:29:33,460 --> 00:29:34,450
+and all that on them.
+
+706
+00:29:34,450 --> 00:29:37,491
+And we've kind of simplified, so, this
+is a person whose last name starts
+
+707
+00:29:37,491 --> 00:29:38,990
+with A, last name--
+
+708
+00:29:38,990 --> 00:29:42,550
+a person's name starts with
+B, C, and all the way to Z.
+
+709
+00:29:42,550 --> 00:29:44,860
+But suppose that people
+finish at different times
+
+710
+00:29:44,860 --> 00:29:46,900
+during the exam, and of course,
+when you're in the science center
+
+711
+00:29:46,900 --> 00:29:48,580
+or wherever, everyone just
+starts handing them in,
+
+712
+00:29:48,580 --> 00:29:50,390
+and they kind of come
+in like this, and then
+
+713
+00:29:50,390 --> 00:29:52,348
+the TFs at the front of
+the room, or professor,
+
+714
+00:29:52,348 --> 00:29:54,970
+has to actually sort
+through these values.
+
+715
+00:29:54,970 --> 00:29:59,320
+Well, what's this algorithm
+going to be that we actually use?
+
+716
+00:29:59,320 --> 00:30:02,590
+If you've got a pile of exam
+books like this, all of them
+
+717
+00:30:02,590 --> 00:30:06,790
+have a letter associated with them,
+how would we go about sorting these?
+
+718
+00:30:06,790 --> 00:30:07,390
+What do I do?
+
+719
+00:30:07,390 --> 00:30:08,724
+AUDIENCE: Compare two at a time.
+
+720
+00:30:08,724 --> 00:30:10,181
+DAVID MALAN: Compare two at a time?
+
+721
+00:30:10,181 --> 00:30:12,580
+OK, so let me go ahead
+and pick up a couple here.
+
+722
+00:30:12,580 --> 00:30:13,960
+And since I'm the only
+one that can see them,
+
+723
+00:30:13,960 --> 00:30:17,001
+you should be able to see them on the
+overhead, thanks to Ian and Scully.
+
+724
+00:30:17,001 --> 00:30:19,154
+So, P and H, so, H goes
+before P, alphabetically.
+
+725
+00:30:19,154 --> 00:30:20,320
+All right, now what do I do?
+
+726
+00:30:20,320 --> 00:30:22,084
+Pick up another two?
+
+727
+00:30:22,084 --> 00:30:23,000
+AUDIENCE: Pick up one.
+
+728
+00:30:23,000 --> 00:30:24,874
+DAVID MALAN: Yeah, so
+maybe just pick up one,
+
+729
+00:30:24,874 --> 00:30:27,550
+and I happened to get N, so,
+that goes in between H and P.
+
+730
+00:30:27,550 --> 00:30:29,320
+So I can kind of slide it in.
+
+731
+00:30:29,320 --> 00:30:33,050
+Now I picked up G. That
+goes before H. Now I
+
+732
+00:30:33,050 --> 00:30:35,352
+picked up another one, E.
+That goes before G. So,
+
+733
+00:30:35,352 --> 00:30:36,810
+it's actually getting kind of easy.
+
+734
+00:30:36,810 --> 00:30:41,500
+Uh-oh, U-- this goes
+at the end, after P.
+
+735
+00:30:41,500 --> 00:30:45,730
+And so, I can keep grabbing
+one at a time, F in this case,
+
+736
+00:30:45,730 --> 00:30:48,214
+and then kind of insert it
+into its appropriate location.
+
+737
+00:30:48,214 --> 00:30:51,130
+And we won't do this the whole way,
+because it's going to get tedious,
+
+738
+00:30:51,130 --> 00:30:53,170
+and eventually I'm going to embarrass
+myself by getting one of the letters
+
+739
+00:30:53,170 --> 00:30:53,680
+wrong.
+
+740
+00:30:53,680 --> 00:30:55,660
+But that's an algorithm, right?
+
+741
+00:30:55,660 --> 00:30:59,654
+For each book in the pile,
+pick it up, compare it
+
+742
+00:30:59,654 --> 00:31:01,570
+to all of the elements
+you're already holding,
+
+743
+00:31:01,570 --> 00:31:04,030
+and insert it into the
+appropriate location.
+
+744
+00:31:04,030 --> 00:31:06,155
+And we can actually call
+that something, and that's
+
+745
+00:31:06,155 --> 00:31:09,860
+something called insertion sort, insofar
+as the emphasis of the algorithm is--
+
+746
+00:31:09,860 --> 00:31:13,630
+thank you-- on inserting
+letters, in this case,
+
+747
+00:31:13,630 --> 00:31:15,820
+into their appropriate location.
+
+748
+00:31:15,820 --> 00:31:21,179
+So, with that said, are
+there other ways than that?
+
+749
+00:31:21,179 --> 00:31:24,220
+Let's go ahead, here-- and we have
+enough stress balls to do it with just
+
+750
+00:31:24,220 --> 00:31:27,490
+one more human demo here,
+beyond these books--
+
+751
+00:31:27,490 --> 00:31:28,400
+these numbers here.
+
+752
+00:31:28,400 --> 00:31:30,190
+Suppose we wanted to sort these.
+
+753
+00:31:30,190 --> 00:31:33,070
+I have eight stress balls,
+eight pieces of paper--
+
+754
+00:31:33,070 --> 00:31:35,830
+could we get eight other volunteers?
+
+755
+00:31:35,830 --> 00:31:40,032
+So, yes, right and back, two three--
+let's go farther back-- four.
+
+756
+00:31:40,032 --> 00:31:40,990
+Can I get farther back?
+
+757
+00:31:40,990 --> 00:31:46,300
+Five, six, seven, and eight.
+
+758
+00:31:46,300 --> 00:31:47,050
+Come on up.
+
+759
+00:31:47,050 --> 00:31:48,541
+Ah, next time.
+
+760
+00:31:48,541 --> 00:31:49,040
+Next time.
+
+761
+00:31:49,040 --> 00:31:50,470
+All right, come on down.
+
+762
+00:31:50,470 --> 00:31:55,960
+
+
+763
+00:31:55,960 --> 00:31:56,460
+OK.
+
+764
+00:31:56,460 --> 00:31:56,880
+What's your name?
+
+765
+00:31:56,880 --> 00:31:57,470
+JERRY: Jerry.
+
+766
+00:31:57,470 --> 00:31:57,600
+DAVID MALAN: Jerry.
+
+767
+00:31:57,600 --> 00:32:00,240
+OK, If you want to go ahead and
+step in front of a board there.
+
+768
+00:32:00,240 --> 00:32:00,870
+ARMAH: [? Armah. ?]
+
+769
+00:32:00,870 --> 00:32:01,850
+DAVID MALAN: [? Armah, ?] David.
+
+770
+00:32:01,850 --> 00:32:02,391
+CHRIS: Chris.
+
+771
+00:32:02,391 --> 00:32:03,630
+DAVID MALAN: Chris, David.
+
+772
+00:32:03,630 --> 00:32:04,230
+Thank you.
+
+773
+00:32:04,230 --> 00:32:05,066
+KAYLIND: Kaylind.
+
+774
+00:32:05,066 --> 00:32:05,998
+DAVID MALAN: Kaylind.
+
+775
+00:32:05,998 --> 00:32:06,464
+NOLAN: Nolan.
+
+776
+00:32:06,464 --> 00:32:07,290
+DAVID MALAN: Nolan, David.
+
+777
+00:32:07,290 --> 00:32:07,860
+JAY: Jay.
+
+778
+00:32:07,860 --> 00:32:08,130
+DAVID MALAN: David.
+
+779
+00:32:08,130 --> 00:32:08,820
+MATTHEW: Matthew.
+
+780
+00:32:08,820 --> 00:32:09,540
+DAVID MALAN: Matthew, David.
+
+781
+00:32:09,540 --> 00:32:10,050
+OK.
+
+782
+00:32:10,050 --> 00:32:14,580
+So, this is statistically
+anomalous, insofar
+
+783
+00:32:14,580 --> 00:32:17,632
+as we're actually very excited
+to say, in CS50, this semester,
+
+784
+00:32:17,632 --> 00:32:20,090
+for the first time ever-- we
+watch these numbers annually--
+
+785
+00:32:20,090 --> 00:32:23,850
+and we actually have 44%
+women in CS50 this year.
+
+786
+00:32:23,850 --> 00:32:26,446
+
+
+787
+00:32:26,446 --> 00:32:28,320
+So, as you can see, none
+of my demonstrations
+
+788
+00:32:28,320 --> 00:32:30,370
+are going correctly today.
+
+789
+00:32:30,370 --> 00:32:31,490
+But trust in that data.
+
+790
+00:32:31,490 --> 00:32:34,980
+So if each of you could
+stand behind one of the music
+
+791
+00:32:34,980 --> 00:32:38,880
+stands here-- hopefully I have
+counted out exactly eight people.
+
+792
+00:32:38,880 --> 00:32:40,740
+We have, in front of you guys, numbers.
+
+793
+00:32:40,740 --> 00:32:43,022
+So go ahead and turn
+around the pieces of paper,
+
+794
+00:32:43,022 --> 00:32:45,480
+which represent the numbers
+that we have on the board here,
+
+795
+00:32:45,480 --> 00:32:46,749
+if I got the same order right.
+
+796
+00:32:46,749 --> 00:32:48,790
+So, there's going to be
+a bunch of different ways
+
+797
+00:32:48,790 --> 00:32:52,120
+we can sort these eight values.
+
+798
+00:32:52,120 --> 00:32:54,280
+So, how do we go about doing this?
+
+799
+00:32:54,280 --> 00:32:57,829
+Well, much like you proposed earlier--
+just pick up a pair of blue books
+
+800
+00:32:57,829 --> 00:33:00,120
+and compare them-- why don't
+I try that same intuition?
+
+801
+00:33:00,120 --> 00:33:03,510
+So, four and two-- these numbers
+are obviously out of order.
+
+802
+00:33:03,510 --> 00:33:05,310
+So, what do I want to go ahead and do?
+
+803
+00:33:05,310 --> 00:33:07,389
+Yeah, so I can go ahead and swap these.
+
+804
+00:33:07,389 --> 00:33:09,180
+And now, problem is
+solved, which is great.
+
+805
+00:33:09,180 --> 00:33:10,250
+I've taken a bite out of the problem.
+
+806
+00:33:10,250 --> 00:33:11,083
+And then we move on.
+
+807
+00:33:11,083 --> 00:33:12,240
+Four and seven?
+
+808
+00:33:12,240 --> 00:33:13,020
+Those look OK.
+
+809
+00:33:13,020 --> 00:33:14,430
+Seven and five?
+
+810
+00:33:14,430 --> 00:33:15,000
+Not OK.
+
+811
+00:33:15,000 --> 00:33:16,035
+So, what do I want to do here?
+
+812
+00:33:16,035 --> 00:33:16,660
+AUDIENCE: Switch them.
+
+813
+00:33:16,660 --> 00:33:18,300
+DAVID MALAN: Yeah, so I
+can swap those, thank you.
+
+814
+00:33:18,300 --> 00:33:19,230
+So, seven and six?
+
+815
+00:33:19,230 --> 00:33:19,980
+Also out of order.
+
+816
+00:33:19,980 --> 00:33:21,444
+Let's swap those.
+
+817
+00:33:21,444 --> 00:33:22,110
+Seven and eight?
+
+818
+00:33:22,110 --> 00:33:23,160
+That's good.
+
+819
+00:33:23,160 --> 00:33:23,940
+Eight and three?
+
+820
+00:33:23,940 --> 00:33:27,420
+Not correct, so if you want
+to go ahead and swap those.
+
+821
+00:33:27,420 --> 00:33:29,920
+And, eight and one, if you want
+to go ahead and swap those.
+
+822
+00:33:29,920 --> 00:33:31,650
+So, what was the net effect?
+
+823
+00:33:31,650 --> 00:33:34,290
+Have I sorted this list of numbers?
+
+824
+00:33:34,290 --> 00:33:35,150
+So, obviously not.
+
+825
+00:33:35,150 --> 00:33:36,690
+But I did improve it.
+
+826
+00:33:36,690 --> 00:33:40,350
+And what's the most glaring example,
+perhaps, of the improvement, in front
+
+827
+00:33:40,350 --> 00:33:41,102
+of these?
+
+828
+00:33:41,102 --> 00:33:42,310
+AUDIENCE: Eight's at the end.
+
+829
+00:33:42,310 --> 00:33:44,050
+DAVID MALAN: Eight is
+now at the very end.
+
+830
+00:33:44,050 --> 00:33:46,420
+So the biggest number, if you
+will, bubbled up to the end,
+
+831
+00:33:46,420 --> 00:33:48,390
+as though it was bigger
+and sort of bubbled up.
+
+832
+00:33:48,390 --> 00:33:51,090
+So that's good, but there's
+still work to be done here.
+
+833
+00:33:51,090 --> 00:33:53,521
+So, I can, again, just try to
+fix these problems locally.
+
+834
+00:33:53,521 --> 00:33:55,770
+Just pick up a couple of
+problems and try to solve it.
+
+835
+00:33:55,770 --> 00:33:56,591
+So, two and four?
+
+836
+00:33:56,591 --> 00:33:57,090
+We're good.
+
+837
+00:33:57,090 --> 00:33:58,220
+Four and five?
+
+838
+00:33:58,220 --> 00:33:58,800
+Five and six?
+
+839
+00:33:58,800 --> 00:33:59,595
+Six and seven?
+
+840
+00:33:59,595 --> 00:34:00,659
+Ooh, seven and three?
+
+841
+00:34:00,659 --> 00:34:01,950
+If you guys want to swap those?
+
+842
+00:34:01,950 --> 00:34:04,830
+
+
+843
+00:34:04,830 --> 00:34:05,550
+Wonderful.
+
+844
+00:34:05,550 --> 00:34:08,639
+And then, seven and one,
+we want to do it again.
+
+845
+00:34:08,639 --> 00:34:11,370
+And now, do I need to bother
+comparing seven and eight?
+
+846
+00:34:11,370 --> 00:34:13,620
+Technically no, right, because if
+we know eight made its way-- now
+
+847
+00:34:13,620 --> 00:34:15,630
+we can start cutting some
+corners, but correctly,
+
+848
+00:34:15,630 --> 00:34:17,520
+just to shave some time
+off of the algorithm,
+
+849
+00:34:17,520 --> 00:34:18,520
+make it a little more efficient.
+
+850
+00:34:18,520 --> 00:34:19,050
+Good.
+
+851
+00:34:19,050 --> 00:34:20,984
+So, sorted now?
+
+852
+00:34:20,984 --> 00:34:22,400
+No, so we have to keep doing this.
+
+853
+00:34:22,400 --> 00:34:25,355
+And let me let you guys now
+execute this, pair-wise at a time.
+
+854
+00:34:25,355 --> 00:34:25,980
+So, here we go.
+
+855
+00:34:25,980 --> 00:34:26,639
+Two, four.
+
+856
+00:34:26,639 --> 00:34:27,239
+Four, five.
+
+857
+00:34:27,239 --> 00:34:27,825
+Five, six.
+
+858
+00:34:27,825 --> 00:34:29,475
+Six, three.
+
+859
+00:34:29,475 --> 00:34:31,155
+Six, one.
+
+860
+00:34:31,155 --> 00:34:33,530
+And we can stop there, because
+we know seven is in order.
+
+861
+00:34:33,530 --> 00:34:34,321
+Now we do it again.
+
+862
+00:34:34,321 --> 00:34:34,949
+Two and four.
+
+863
+00:34:34,949 --> 00:34:35,532
+Four and five.
+
+864
+00:34:35,532 --> 00:34:36,882
+Five and three?
+
+865
+00:34:36,882 --> 00:34:38,670
+Five and one?
+
+866
+00:34:38,670 --> 00:34:39,449
+Improved, good.
+
+867
+00:34:39,449 --> 00:34:45,150
+And now, next, two and four,
+four and three, four and one,
+
+868
+00:34:45,150 --> 00:34:48,650
+and then two and three, three and one--
+
+869
+00:34:48,650 --> 00:34:51,458
+and then two and one--
+
+870
+00:34:51,458 --> 00:34:52,909
+OK, now it's sorted.
+
+871
+00:34:52,909 --> 00:34:54,150
+Yes, very well done.
+
+872
+00:34:54,150 --> 00:34:55,310
+Very well done.
+
+873
+00:34:55,310 --> 00:34:58,724
+So, it's kind of tedious,
+frankly, and I didn't
+
+874
+00:34:58,724 --> 00:35:01,640
+want to keep walking back and forth,
+because thankfully we have, like,
+
+875
+00:35:01,640 --> 00:35:04,670
+all of this-- this manpower, these
+multiple CPUs, I guess, literally
+
+876
+00:35:04,670 --> 00:35:05,210
+today.
+
+877
+00:35:05,210 --> 00:35:08,510
+So, we have all of these
+CPUs, or computers,
+
+878
+00:35:08,510 --> 00:35:09,750
+that are able to help me out.
+
+879
+00:35:09,750 --> 00:35:10,874
+But it was still very slow.
+
+880
+00:35:10,874 --> 00:35:12,329
+I mean, it's a long story.
+
+881
+00:35:12,329 --> 00:35:14,120
+So, let's rewind just
+once and do one more.
+
+882
+00:35:14,120 --> 00:35:16,520
+If you guys could rearrange
+your pieces of paper
+
+883
+00:35:16,520 --> 00:35:20,840
+so that it matches the screen again,
+just to reset to our original location.
+
+884
+00:35:20,840 --> 00:35:21,870
+Let's go back there.
+
+885
+00:35:21,870 --> 00:35:25,100
+
+
+886
+00:35:25,100 --> 00:35:27,090
+And let's try one other approach.
+
+887
+00:35:27,090 --> 00:35:30,300
+I've tried the insertion approach,
+whereby I just take a problem,
+
+888
+00:35:30,300 --> 00:35:32,910
+like the blue book, and insert
+it into its correct location.
+
+889
+00:35:32,910 --> 00:35:35,310
+But honestly, that was getting a little
+tedious, and that's why I aborted,
+
+890
+00:35:35,310 --> 00:35:37,351
+because it's going to take
+me longer, and longer,
+
+891
+00:35:37,351 --> 00:35:40,530
+and longer to find the right location
+among all of those blue books.
+
+892
+00:35:40,530 --> 00:35:42,840
+So, let me try just
+a more intuitive one.
+
+893
+00:35:42,840 --> 00:35:45,990
+If I want to sort these numbers,
+let me just go and select
+
+894
+00:35:45,990 --> 00:35:47,710
+the smallest number I see.
+
+895
+00:35:47,710 --> 00:35:50,509
+OK, four, at the moment, is
+the smallest number I see.
+
+896
+00:35:50,509 --> 00:35:52,050
+So I'm going to grab it for just now.
+
+897
+00:35:52,050 --> 00:35:53,514
+Now, again, these are lockers.
+
+898
+00:35:53,514 --> 00:35:55,680
+Even though we humans can
+see them all, the computer
+
+899
+00:35:55,680 --> 00:35:57,250
+can only see one location at a time.
+
+900
+00:35:57,250 --> 00:36:00,141
+And this is, indeed, the smallest
+number I have seen thus far.
+
+901
+00:36:00,141 --> 00:36:01,140
+So I'm going to grab it.
+
+902
+00:36:01,140 --> 00:36:03,930
+But very quickly, I can
+abort that, because now I've
+
+903
+00:36:03,930 --> 00:36:05,346
+found an even smaller number.
+
+904
+00:36:05,346 --> 00:36:06,970
+So I'm going to hang onto that instead.
+
+905
+00:36:06,970 --> 00:36:11,074
+Seven, I'm not going to worry about
+that; five, six, eight, three, one--
+
+906
+00:36:11,074 --> 00:36:12,240
+I've found a smaller number.
+
+907
+00:36:12,240 --> 00:36:14,580
+Now, I need to kind of
+do something with this.
+
+908
+00:36:14,580 --> 00:36:18,870
+I want to grab the one, so I
+could just put the two here.
+
+909
+00:36:18,870 --> 00:36:22,930
+And what do I want to do
+now with the number one?
+
+910
+00:36:22,930 --> 00:36:25,054
+Yeah, I kind of just
+want to put it here.
+
+911
+00:36:25,054 --> 00:36:26,970
+And so, I can do this
+in a few different ways,
+
+912
+00:36:26,970 --> 00:36:28,170
+but you know what, I'm
+just going to evict
+
+913
+00:36:28,170 --> 00:36:31,307
+whoever's here, because it's a pretty
+low number, but it's also random.
+
+914
+00:36:31,307 --> 00:36:32,640
+It could have been a big number.
+
+915
+00:36:32,640 --> 00:36:34,473
+So let me just make
+room for it and do that.
+
+916
+00:36:34,473 --> 00:36:36,990
+I have selected the smallest element.
+
+917
+00:36:36,990 --> 00:36:38,970
+Is the list sorted?
+
+918
+00:36:38,970 --> 00:36:40,260
+I mean, obviously not.
+
+919
+00:36:40,260 --> 00:36:42,240
+But is it better?
+
+920
+00:36:42,240 --> 00:36:42,930
+It is, right?
+
+921
+00:36:42,930 --> 00:36:45,420
+Because the one is now, at
+least, in the right location.
+
+922
+00:36:45,420 --> 00:36:48,490
+So I've solved one eighth
+of the problem so far.
+
+923
+00:36:48,490 --> 00:36:49,260
+So that's not bad.
+
+924
+00:36:49,260 --> 00:36:50,160
+What could I do next?
+
+925
+00:36:50,160 --> 00:36:51,493
+Let me apply the same algorithm.
+
+926
+00:36:51,493 --> 00:36:54,270
+Let me select the smallest, which
+is currently this one, still
+
+927
+00:36:54,270 --> 00:36:56,340
+this one, still this one--
+
+928
+00:36:56,340 --> 00:36:59,670
+nope, three is smaller-- oh, two is
+even smaller, so let me ultimately
+
+929
+00:36:59,670 --> 00:37:00,422
+grab this.
+
+930
+00:37:00,422 --> 00:37:02,880
+And you know what, four, you
+really don't need to be there;
+
+931
+00:37:02,880 --> 00:37:06,490
+I'm just going to evict you again,
+and put two where it belongs,
+
+932
+00:37:06,490 --> 00:37:08,419
+and move this one over here.
+
+933
+00:37:08,419 --> 00:37:09,960
+So now, the list is even more sorted.
+
+934
+00:37:09,960 --> 00:37:12,834
+And if I proceed to do this again
+and again, if you want to just keep
+
+935
+00:37:12,834 --> 00:37:14,670
+handing me the smallest number-- three?
+
+936
+00:37:14,670 --> 00:37:17,294
+OK, so I'm going to go ahead and
+just evict seven, because it's
+
+937
+00:37:17,294 --> 00:37:18,930
+kind of a random number anyway.
+
+938
+00:37:18,930 --> 00:37:20,430
+And now, thank you, four--
+
+939
+00:37:20,430 --> 00:37:23,541
+I'm going to go ahead and evict
+five, even though, kind of feels
+
+940
+00:37:23,541 --> 00:37:26,040
+like I'm making a little bit
+of work for myself, on average,
+
+941
+00:37:26,040 --> 00:37:26,760
+it's not going to matter.
+
+942
+00:37:26,760 --> 00:37:29,160
+Sometimes it will be good,
+sometimes it'll be bad.
+
+943
+00:37:29,160 --> 00:37:31,260
+So let me go ahead and
+put five over here.
+
+944
+00:37:31,260 --> 00:37:35,580
+Now I need to select the next smallest
+element, which happens to be five.
+
+945
+00:37:35,580 --> 00:37:37,720
+So we recovered pretty quickly.
+
+946
+00:37:37,720 --> 00:37:39,221
+So I'm going to evict six over here.
+
+947
+00:37:39,221 --> 00:37:41,178
+Now I'm going to look
+for the smallest element.
+
+948
+00:37:41,178 --> 00:37:42,180
+Now it's indeed six.
+
+949
+00:37:42,180 --> 00:37:44,830
+I'm going to evict eight,
+put this over here--
+
+950
+00:37:44,830 --> 00:37:47,001
+and now seven is good, eight is good--
+
+951
+00:37:47,001 --> 00:37:47,500
+done.
+
+952
+00:37:47,500 --> 00:37:49,300
+But it's still kind of
+a long story, right?
+
+953
+00:37:49,300 --> 00:37:51,960
+Like, I'm going back and forth,
+looking for these numbers.
+
+954
+00:37:51,960 --> 00:37:53,960
+But this would be what
+we'd call selection sort.
+
+955
+00:37:53,960 --> 00:37:56,370
+So thank you all very much-- if you'd
+like to keep your pieces of paper,
+
+956
+00:37:56,370 --> 00:37:57,360
+you're welcome to.
+
+957
+00:37:57,360 --> 00:38:03,035
+And let me give you guys
+a stress ball as well.
+
+958
+00:38:03,035 --> 00:38:05,160
+And a round of applause,
+if we could, for you guys.
+
+959
+00:38:05,160 --> 00:38:07,732
+If you want to hand those out.
+
+960
+00:38:07,732 --> 00:38:13,480
+So, as before, let's
+see if we can apply--
+
+961
+00:38:13,480 --> 00:38:17,330
+let's see if we can apply some
+pseudo code to this algorithm,
+
+962
+00:38:17,330 --> 00:38:20,950
+because it's one thing to talk about
+it, and it's one thing to sort of reason
+
+963
+00:38:20,950 --> 00:38:22,420
+through it intuitively,
+but at the end of the day,
+
+964
+00:38:22,420 --> 00:38:24,836
+if you want to program this,
+we've got to be more precise,
+
+965
+00:38:24,836 --> 00:38:28,720
+and we've got to consider the lower
+level operations that the computer is
+
+966
+00:38:28,720 --> 00:38:30,440
+going to execute.
+
+967
+00:38:30,440 --> 00:38:32,980
+So, here's how we might
+implement bubble sort.
+
+968
+00:38:32,980 --> 00:38:35,710
+Repeat until no swaps.
+
+969
+00:38:35,710 --> 00:38:40,150
+For i, from 0 to n
+minus 2-- and n is just
+
+970
+00:38:40,150 --> 00:38:43,720
+the size of the problem, the number
+of doors, the number of humans,
+
+971
+00:38:43,720 --> 00:38:46,690
+the number of numbers, whatever the
+input to the problem actually is.
+
+972
+00:38:46,690 --> 00:38:52,930
+So, for i, from 0 to n minus 2, if
+the i-th and the i-th plus 1 elements
+
+973
+00:38:52,930 --> 00:38:56,290
+are out of order, swap them.
+
+974
+00:38:56,290 --> 00:38:57,940
+So, this is kind of a mouthful.
+
+975
+00:38:57,940 --> 00:39:01,300
+But if you think about it, I'm just
+kind of applying some of the vocabulary
+
+976
+00:39:01,300 --> 00:39:04,420
+that we have from C, and
+kind of sort of from scratch,
+
+977
+00:39:04,420 --> 00:39:07,540
+to an otherwise very
+organic human experience,
+
+978
+00:39:07,540 --> 00:39:11,740
+but using more methodical language than
+I was just kind of doing off the cuff,
+
+979
+00:39:11,740 --> 00:39:13,390
+when we were doing it with humans.
+
+980
+00:39:13,390 --> 00:39:14,740
+Because what does this mean?
+
+981
+00:39:14,740 --> 00:39:17,470
+For i from 0 to n minus 2.
+
+982
+00:39:17,470 --> 00:39:20,410
+That means start at,
+like, the 0 location,
+
+983
+00:39:20,410 --> 00:39:23,350
+and if there's n elements
+here-- this is 0--
+
+984
+00:39:23,350 --> 00:39:25,690
+and this, at the very end, is location--
+
+985
+00:39:25,690 --> 00:39:28,990
+
+
+986
+00:39:28,990 --> 00:39:30,670
+it's going to be n minus 1.
+
+987
+00:39:30,670 --> 00:39:31,170
+Right?
+
+988
+00:39:31,170 --> 00:39:33,960
+If you start counting at 0, you
+have to readjust your whole life
+
+989
+00:39:33,960 --> 00:39:37,240
+to subtract 1 from the tail
+end of that range of numbers.
+
+990
+00:39:37,240 --> 00:39:37,740
+Right?
+
+991
+00:39:37,740 --> 00:39:40,560
+0-- if that was 1, this would be n.
+
+992
+00:39:40,560 --> 00:39:43,620
+But if that were 0,
+this is now n minus one.
+
+993
+00:39:43,620 --> 00:39:45,870
+So I'm saying, though, for 0--
+
+994
+00:39:45,870 --> 00:39:49,920
+for i from 0 to n minus 2,
+which is technically this.
+
+995
+00:39:49,920 --> 00:39:54,360
+So I'm using sort of for loop-like
+language to start iterating here,
+
+996
+00:39:54,360 --> 00:39:57,420
+and do something like
+this, up until the second
+
+997
+00:39:57,420 --> 00:39:59,850
+to last element, which
+we've not done before.
+
+998
+00:39:59,850 --> 00:40:01,560
+Seems almost buggy.
+
+999
+00:40:01,560 --> 00:40:06,130
+But if you read ahead in the
+pseudo code, why did I do that?
+
+1000
+00:40:06,130 --> 00:40:10,100
+And only iterate until the
+second to last element with i?
+
+1001
+00:40:10,100 --> 00:40:11,730
+What jumps out at you?
+
+1002
+00:40:11,730 --> 00:40:12,370
+Yeah.
+
+1003
+00:40:12,370 --> 00:40:16,580
+AUDIENCE: Because then you're gonna swap
+the i in the i-plus-one-th elements?
+
+1004
+00:40:16,580 --> 00:40:17,330
+DAVID MALAN: Good.
+
+1005
+00:40:17,330 --> 00:40:20,060
+AUDIENCE: When you get to n minus
+2, you'll swap it with n minus 1.
+
+1006
+00:40:20,060 --> 00:40:20,630
+DAVID MALAN: Exactly.
+
+1007
+00:40:20,630 --> 00:40:23,870
+Recall that bubble sort was all about
+swapping, or potentially swapping
+
+1008
+00:40:23,870 --> 00:40:25,877
+pair-wise elements,
+neighbors, if you will.
+
+1009
+00:40:25,877 --> 00:40:29,210
+So, you have to make sure that if you're
+iterating through all of these numbers,
+
+1010
+00:40:29,210 --> 00:40:33,140
+you have to stop short of the end
+of the array, so that i plus 1
+
+1011
+00:40:33,140 --> 00:40:36,440
+actually refers to an element
+that's actually in your list,
+
+1012
+00:40:36,440 --> 00:40:38,330
+and not, for instance,
+way over here, which
+
+1013
+00:40:38,330 --> 00:40:41,220
+would be some garbage value that
+you shouldn't actually touch.
+
+1014
+00:40:41,220 --> 00:40:44,420
+So, if those elements are
+out of order, we swap them,
+
+1015
+00:40:44,420 --> 00:40:46,610
+and I have a big outer
+loop there that just says,
+
+1016
+00:40:46,610 --> 00:40:51,020
+keep doing this, again and again and
+again, until you don't swap anything.
+
+1017
+00:40:51,020 --> 00:40:53,889
+At which point you can
+infer that you're done.
+
+1018
+00:40:53,889 --> 00:40:56,180
+Because every time I walked
+back and forth on the list,
+
+1019
+00:40:56,180 --> 00:41:00,410
+and the guys helped out by swapping
+their numbers as appropriate,
+
+1020
+00:41:00,410 --> 00:41:04,490
+I kept doing it again if there
+was still room for improvement.
+
+1021
+00:41:04,490 --> 00:41:07,610
+And intuitively, why is it
+absolutely, logically safe
+
+1022
+00:41:07,610 --> 00:41:12,230
+to stop that whole process once you
+have not made any swaps on a pass
+
+1023
+00:41:12,230 --> 00:41:14,380
+through the list?
+
+1024
+00:41:14,380 --> 00:41:15,880
+Why is that a safe conclusion?
+
+1025
+00:41:15,880 --> 00:41:18,760
+
+
+1026
+00:41:18,760 --> 00:41:20,520
+So, if I walk through the list--
+
+1027
+00:41:20,520 --> 00:41:23,850
+no, these are good, these
+are good, these are good--
+
+1028
+00:41:23,850 --> 00:41:25,230
+OK, you didn't want your number--
+
+1029
+00:41:25,230 --> 00:41:27,300
+these are good, these are good--
+
+1030
+00:41:27,300 --> 00:41:30,720
+how do I know that I don't
+need to do that again?
+
+1031
+00:41:30,720 --> 00:41:31,994
+AUDIENCE: It's sorted already.
+
+1032
+00:41:31,994 --> 00:41:33,660
+DAVID MALAN: It's sorted already, right?
+
+1033
+00:41:33,660 --> 00:41:35,189
+And it would be kind of irrational--
+
+1034
+00:41:35,189 --> 00:41:37,980
+if you've walked through the list,
+looking at everything pair-wise,
+
+1035
+00:41:37,980 --> 00:41:40,492
+found nothing to swap, to
+even bother doing that again--
+
+1036
+00:41:40,492 --> 00:41:43,200
+why would you expect different
+results, if the numbers themselves
+
+1037
+00:41:43,200 --> 00:41:45,241
+are not moving and you
+didn't move them yourself?
+
+1038
+00:41:45,241 --> 00:41:46,230
+So you can just stop.
+
+1039
+00:41:46,230 --> 00:41:48,930
+But this still is going to invite the
+question, well, how expensive was that?
+
+1040
+00:41:48,930 --> 00:41:50,763
+How many swaps, or
+comparisons, did we make?
+
+1041
+00:41:50,763 --> 00:41:52,710
+And we'll come back to that before long.
+
+1042
+00:41:52,710 --> 00:41:56,381
+Selection sort, though, can be expressed
+maybe even a little more succinctly.
+
+1043
+00:41:56,381 --> 00:41:59,130
+And that was the second algorithm
+we did with our eight volunteers
+
+1044
+00:41:59,130 --> 00:42:01,900
+here, for i from zero to n minus 1.
+
+1045
+00:42:01,900 --> 00:42:04,600
+So this time, all the way
+through the end of the list,
+
+1046
+00:42:04,600 --> 00:42:08,115
+find the smallest element
+between i-th and n minus 1-th.
+
+1047
+00:42:08,115 --> 00:42:10,080
+So between those two
+ranges, the beginning
+
+1048
+00:42:10,080 --> 00:42:14,670
+of your list and the end, and then swap
+the smallest with the i-th element.
+
+1049
+00:42:14,670 --> 00:42:15,730
+So what does this mean?
+
+1050
+00:42:15,730 --> 00:42:17,950
+So again, for i from 0 to n minus 1.
+
+1051
+00:42:17,950 --> 00:42:22,410
+This is just pseudo code for saying,
+start a variable i at location 0.
+
+1052
+00:42:22,410 --> 00:42:24,902
+And do this until i equals n minus 1.
+
+1053
+00:42:24,902 --> 00:42:27,360
+So, do this until you've gone
+all the way through the list.
+
+1054
+00:42:27,360 --> 00:42:28,560
+What is it telling me to do?
+
+1055
+00:42:28,560 --> 00:42:33,180
+Find the smallest element between the
+i-th element and the end of the list.
+
+1056
+00:42:33,180 --> 00:42:34,530
+N minus one never changes.
+
+1057
+00:42:34,530 --> 00:42:36,090
+It always refers to the
+end of the list, so that's
+
+1058
+00:42:36,090 --> 00:42:38,923
+why I walked through the list looking
+for, ultimately, the number 1.
+
+1059
+00:42:38,923 --> 00:42:40,710
+And what did I do with the number 1?
+
+1060
+00:42:40,710 --> 00:42:42,800
+Swap the smallest with the i-th element.
+
+1061
+00:42:42,800 --> 00:42:46,050
+And I might have gotten one of the steps
+wrong when I did a little switcheroo,
+
+1062
+00:42:46,050 --> 00:42:48,720
+but we fixed it thereafter.
+
+1063
+00:42:48,720 --> 00:42:51,780
+Ultimately, I kept evicting
+whoever was in the i-th location
+
+1064
+00:42:51,780 --> 00:42:54,900
+to make room for the element
+that I knew belonged there
+
+1065
+00:42:54,900 --> 00:42:57,690
+And I could have shuffled them
+to make room for those elements,
+
+1066
+00:42:57,690 --> 00:43:00,450
+but it turns out,
+mathematically, it's just as fine
+
+1067
+00:43:00,450 --> 00:43:03,150
+to just evict it and move it all
+the way to the end, as we did.
+
+1068
+00:43:03,150 --> 00:43:04,620
+And once I've gone all
+the way through the list,
+
+1069
+00:43:04,620 --> 00:43:06,370
+there is no more
+smallest element to find.
+
+1070
+00:43:06,370 --> 00:43:09,071
+And as we saw, the list is sorted.
+
+1071
+00:43:09,071 --> 00:43:11,070
+So, maybe this is faster,
+maybe this is slower--
+
+1072
+00:43:11,070 --> 00:43:13,040
+it's not immediately obvious.
+
+1073
+00:43:13,040 --> 00:43:16,560
+And insertion sort, which we actually
+came up with by way of the blue books
+
+1074
+00:43:16,560 --> 00:43:18,750
+on the floor, might
+be described as this.
+
+1075
+00:43:18,750 --> 00:43:26,250
+For i, from 1 to n minus 1, call the
+0th through the i minus i-th element
+
+1076
+00:43:26,250 --> 00:43:27,450
+the sorted side--
+
+1077
+00:43:27,450 --> 00:43:30,270
+that's a mouthful-- so,
+consider the left of your list
+
+1078
+00:43:30,270 --> 00:43:32,100
+the sorted side of the list.
+
+1079
+00:43:32,100 --> 00:43:33,840
+And initially, there's nothing there.
+
+1080
+00:43:33,840 --> 00:43:35,940
+You have zero elements
+sorted to your left,
+
+1081
+00:43:35,940 --> 00:43:37,710
+and eight unsorted
+elements to your right.
+
+1082
+00:43:37,710 --> 00:43:39,840
+So that sort of describes
+this story, when
+
+1083
+00:43:39,840 --> 00:43:41,670
+we had volunteers and numbers here.
+
+1084
+00:43:41,670 --> 00:43:44,580
+There are no elements sorted;
+everything to my right was unsorted.
+
+1085
+00:43:44,580 --> 00:43:45,870
+That's all that's saying.
+
+1086
+00:43:45,870 --> 00:43:47,070
+Remove the i-th element.
+
+1087
+00:43:47,070 --> 00:43:49,290
+That was like picking
+up this blue book, if we
+
+1088
+00:43:49,290 --> 00:43:51,090
+were using blue books in this example.
+
+1089
+00:43:51,090 --> 00:43:52,200
+Then what do I want to do?
+
+1090
+00:43:52,200 --> 00:43:54,780
+Insert it into the
+sorted side, in order.
+
+1091
+00:43:54,780 --> 00:43:57,972
+So, if this is the sorted side,
+this is the unsorted side,
+
+1092
+00:43:57,972 --> 00:44:00,180
+this is the equivalent of
+saying, take that blue book
+
+1093
+00:44:00,180 --> 00:44:01,770
+and just put it in the first location.
+
+1094
+00:44:01,770 --> 00:44:03,645
+And you can kind of make
+a visual gap for it.
+
+1095
+00:44:03,645 --> 00:44:06,122
+Now, this is the sorted side,
+this is the unsorted side.
+
+1096
+00:44:06,122 --> 00:44:08,580
+Or, equivalently, when I was
+down here with the blue books,
+
+1097
+00:44:08,580 --> 00:44:12,120
+the books in my hands were the sorted
+side, and everything still on the stage
+
+1098
+00:44:12,120 --> 00:44:13,870
+was the unsorted side.
+
+1099
+00:44:13,870 --> 00:44:14,940
+Same idea.
+
+1100
+00:44:14,940 --> 00:44:16,440
+So, what happens next?
+
+1101
+00:44:16,440 --> 00:44:22,380
+I then iterate one location next,
+and I remove the next element,
+
+1102
+00:44:22,380 --> 00:44:26,160
+and whatever number that is, I
+figure out, does it go to the left
+
+1103
+00:44:26,160 --> 00:44:27,630
+or does it go to the right?
+
+1104
+00:44:27,630 --> 00:44:29,652
+Which was the same
+thing, again, on stage,
+
+1105
+00:44:29,652 --> 00:44:31,860
+me sort of picking up a
+third blue book and deciding,
+
+1106
+00:44:31,860 --> 00:44:33,150
+does it go in between these books?
+
+1107
+00:44:33,150 --> 00:44:34,680
+Does it go below, does it go above?
+
+1108
+00:44:34,680 --> 00:44:37,300
+I inserted it into its
+appropriate location.
+
+1109
+00:44:37,300 --> 00:44:41,160
+So in this insertion sort algorithm,
+you sort of take each number
+
+1110
+00:44:41,160 --> 00:44:43,922
+as you encounter it, and
+deal with it then and there.
+
+1111
+00:44:43,922 --> 00:44:45,630
+You take the number
+and deal with it, so,
+
+1112
+00:44:45,630 --> 00:44:48,210
+you know what, this one's got to go
+here, if we just kind of pretend what
+
+1113
+00:44:48,210 --> 00:44:49,740
+the numbers look like for a moment.
+
+1114
+00:44:49,740 --> 00:44:51,730
+So that would be inserting
+it into the right location,
+
+1115
+00:44:51,730 --> 00:44:52,860
+like I did with the blue books.
+
+1116
+00:44:52,860 --> 00:44:55,360
+Maybe this one-- oh, maybe this
+one's a really small number,
+
+1117
+00:44:55,360 --> 00:44:57,060
+and so I insert it over here.
+
+1118
+00:44:57,060 --> 00:45:00,240
+So I kind of literally deal with
+each problem as I encounter it,
+
+1119
+00:45:00,240 --> 00:45:02,700
+but it just gets expensive,
+or very annoying,
+
+1120
+00:45:02,700 --> 00:45:07,127
+to have to move all of
+this stuff out of the way
+
+1121
+00:45:07,127 --> 00:45:08,460
+to make room for those elements.
+
+1122
+00:45:08,460 --> 00:45:10,750
+And that's why I got bored
+with the blue book example,
+
+1123
+00:45:10,750 --> 00:45:12,541
+because it was getting
+very tedious looking
+
+1124
+00:45:12,541 --> 00:45:14,860
+through all of the blue books
+for the correct location.
+
+1125
+00:45:14,860 --> 00:45:16,770
+So in short, all three
+of these algorithms,
+
+1126
+00:45:16,770 --> 00:45:19,830
+while very differently
+expressed, and while all of them
+
+1127
+00:45:19,830 --> 00:45:24,000
+are kind of intuitive until you try to
+describe what your human intuition has
+
+1128
+00:45:24,000 --> 00:45:27,210
+actually been doing for the
+past some number of years
+
+1129
+00:45:27,210 --> 00:45:31,200
+that you've been sorting
+things just in the real world--
+
+1130
+00:45:31,200 --> 00:45:34,559
+they can all be described, at
+least, in terms of these algorithms.
+
+1131
+00:45:34,559 --> 00:45:37,350
+So these algorithms-- and we started
+this conversation in the first
+
+1132
+00:45:37,350 --> 00:45:38,070
+lecture--
+
+1133
+00:45:38,070 --> 00:45:40,410
+all have, ultimately,
+some kind of running
+
+1134
+00:45:40,410 --> 00:45:44,280
+time associated with them, like how
+long does it take to do something.
+
+1135
+00:45:44,280 --> 00:45:47,670
+And we talked about the process
+of finding Mike Smith in terms
+
+1136
+00:45:47,670 --> 00:45:48,990
+of this pretty generic graph.
+
+1137
+00:45:48,990 --> 00:45:51,420
+It wasn't very mathematical, it
+wasn't very sophisticated-- we just
+
+1138
+00:45:51,420 --> 00:45:54,210
+wanted to get a sense of the
+relationships, or tradeoffs, of space
+
+1139
+00:45:54,210 --> 00:45:55,510
+and time, so to speak.
+
+1140
+00:45:55,510 --> 00:45:58,770
+And so, on the x-axis, or horizontal,
+we have the size of the problem--
+
+1141
+00:45:58,770 --> 00:46:00,720
+so, like, a number of
+pages in the phone book,
+
+1142
+00:46:00,720 --> 00:46:02,490
+or number of people in the phone book--
+
+1143
+00:46:02,490 --> 00:46:05,490
+and on the y-axis, or vertical,
+we had the amount of time
+
+1144
+00:46:05,490 --> 00:46:06,699
+to solve the problem.
+
+1145
+00:46:06,699 --> 00:46:08,490
+How many seconds, how
+many page turns-- you
+
+1146
+00:46:08,490 --> 00:46:11,130
+could count using any
+unit of measure you like.
+
+1147
+00:46:11,130 --> 00:46:15,270
+And the first algorithm for Mike Smith,
+when I started with the very first page
+
+1148
+00:46:15,270 --> 00:46:19,400
+and turned, and turned, and turned, was
+a straight line, a linear relationship.
+
+1149
+00:46:19,400 --> 00:46:21,290
+One more page, one more step.
+
+1150
+00:46:21,290 --> 00:46:22,580
+So, it's straight line.
+
+1151
+00:46:22,580 --> 00:46:25,580
+The next algorithm was searching by
+twos, recall, in the first lecture.
+
+1152
+00:46:25,580 --> 00:46:26,959
+Two, four, six, eight.
+
+1153
+00:46:26,959 --> 00:46:29,000
+And that's still a straight
+line, because there's
+
+1154
+00:46:29,000 --> 00:46:33,740
+a predictable relationship between
+number of pages and number of seconds,
+
+1155
+00:46:33,740 --> 00:46:34,430
+or page turns.
+
+1156
+00:46:34,430 --> 00:46:37,304
+It's two to one instead of one to
+one, so it's still a straight line,
+
+1157
+00:46:37,304 --> 00:46:38,490
+but it's lower on the graph.
+
+1158
+00:46:38,490 --> 00:46:39,380
+It's better.
+
+1159
+00:46:39,380 --> 00:46:43,150
+But the best one, by far, was the
+divide and conquer approach, we said.
+
+1160
+00:46:43,150 --> 00:46:43,650
+Right?
+
+1161
+00:46:43,650 --> 00:46:46,441
+And it certainly felt faster; it's
+great, because it was intuitive.
+
+1162
+00:46:46,441 --> 00:46:48,920
+It wasn't quite as easy to
+express in pseudo code--
+
+1163
+00:46:48,920 --> 00:46:51,080
+that was among the longer ones today--
+
+1164
+00:46:51,080 --> 00:46:53,630
+but it at least got us
+to the answer faster.
+
+1165
+00:46:53,630 --> 00:46:56,990
+And this is logarithmic, in
+the sense that the logarithm--
+
+1166
+00:46:56,990 --> 00:46:59,845
+technically base 2, if you
+recall some of your math--
+
+1167
+00:46:59,845 --> 00:47:02,720
+it's because you're dividing the
+problem in half, and half, and half.
+
+1168
+00:47:02,720 --> 00:47:04,180
+And it's fine if you're
+uncomfortable with it,
+
+1169
+00:47:04,180 --> 00:47:05,870
+don't even remember what a logarithm is.
+
+1170
+00:47:05,870 --> 00:47:11,640
+For now, just assume that logarithmic
+time has this different shape to it.
+
+1171
+00:47:11,640 --> 00:47:13,730
+It grows much more slowly.
+
+1172
+00:47:13,730 --> 00:47:18,890
+Any time you can choose log of n over
+n, when picking between two algorithms,
+
+1173
+00:47:18,890 --> 00:47:20,720
+go with the log n, or
+something like that,
+
+1174
+00:47:20,720 --> 00:47:24,150
+because it is going to be smaller,
+as we can see visually here.
+
+1175
+00:47:24,150 --> 00:47:26,510
+So, let's just consider
+something like bubble sort.
+
+1176
+00:47:26,510 --> 00:47:28,490
+There's a couple of ways
+we can look at this.
+
+1177
+00:47:28,490 --> 00:47:30,865
+And again, the goal here is
+not to be very mathematical--
+
+1178
+00:47:30,865 --> 00:47:33,620
+we're not going to start doing
+proofs, but at least, by taking
+
+1179
+00:47:33,620 --> 00:47:36,620
+a glance at some of the
+steps in this algorithm,
+
+1180
+00:47:36,620 --> 00:47:40,400
+you can get a general sense of how
+slow or how fast an algorithm is.
+
+1181
+00:47:40,400 --> 00:47:41,690
+And indeed, that's the goal.
+
+1182
+00:47:41,690 --> 00:47:45,140
+There's this fancy notation we're about
+to see called asymptotic notation,
+
+1183
+00:47:45,140 --> 00:47:46,670
+with special Greek characters.
+
+1184
+00:47:46,670 --> 00:47:48,290
+But at the end of the day,
+we're really just trying
+
+1185
+00:47:48,290 --> 00:47:51,590
+to get an intuitive sense of how good
+or bad an algorithm is, much like we
+
+1186
+00:47:51,590 --> 00:47:53,119
+were trying to do with this picture.
+
+1187
+00:47:53,119 --> 00:47:55,160
+But now we'll do it a
+little more conventionally,
+
+1188
+00:47:55,160 --> 00:47:56,840
+as a computer scientist might.
+
+1189
+00:47:56,840 --> 00:48:01,340
+So in bubble sort, recall that
+we compared every pair of humans
+
+1190
+00:48:01,340 --> 00:48:03,240
+and made a swap if
+they were out of order.
+
+1191
+00:48:03,240 --> 00:48:04,370
+And then we repeated.
+
+1192
+00:48:04,370 --> 00:48:05,630
+And we repeated, and repeated.
+
+1193
+00:48:05,630 --> 00:48:07,200
+And we kept going through the list.
+
+1194
+00:48:07,200 --> 00:48:11,210
+So, that can be quantized-- like,
+you can kind of break that down
+
+1195
+00:48:11,210 --> 00:48:12,810
+into some total number of steps.
+
+1196
+00:48:12,810 --> 00:48:15,050
+So, if you've got n humans
+in front of the room,
+
+1197
+00:48:15,050 --> 00:48:18,260
+and you want to compare them
+from left to right in pairs,
+
+1198
+00:48:18,260 --> 00:48:20,450
+how many possible pairs
+are there as I walk
+
+1199
+00:48:20,450 --> 00:48:23,980
+through the list for that first time?
+
+1200
+00:48:23,980 --> 00:48:30,204
+If there's n elements, and I can
+put the stands back where they were.
+
+1201
+00:48:30,204 --> 00:48:32,620
+How many pairs were there, as
+I walked from left to right?
+
+1202
+00:48:32,620 --> 00:48:35,650
+I compared these two,
+these two, these two.
+
+1203
+00:48:35,650 --> 00:48:39,950
+
+
+1204
+00:48:39,950 --> 00:48:41,250
+Yeah, there's n minus one.
+
+1205
+00:48:41,250 --> 00:48:42,250
+Specifically seven.
+
+1206
+00:48:42,250 --> 00:48:44,833
+And even if you're not quite
+sure where we're going with this,
+
+1207
+00:48:44,833 --> 00:48:48,140
+if there's eight stands-- like, this
+is one, two, three, four, five, six,
+
+1208
+00:48:48,140 --> 00:48:48,861
+seven--
+
+1209
+00:48:48,861 --> 00:48:49,860
+and there's eight total.
+
+1210
+00:48:49,860 --> 00:48:51,600
+So, that's indeed n minus 1.
+
+1211
+00:48:51,600 --> 00:48:53,720
+So, that's how many
+comparisons we might have made
+
+1212
+00:48:53,720 --> 00:48:55,040
+the first time through bubble sort.
+
+1213
+00:48:55,040 --> 00:48:57,623
+But the very first time I went
+through the list in bubble sort
+
+1214
+00:48:57,623 --> 00:48:59,180
+did the list get fully sorted?
+
+1215
+00:48:59,180 --> 00:49:00,290
+No, we had to do it again.
+
+1216
+00:49:00,290 --> 00:49:03,650
+We knew that 8 had bubbled up to
+the very end, so that was good.
+
+1217
+00:49:03,650 --> 00:49:05,280
+8 was in the right place.
+
+1218
+00:49:05,280 --> 00:49:08,220
+But I had to do it again, and
+fix more problems along the way.
+
+1219
+00:49:08,220 --> 00:49:11,870
+But the second time, I didn't need
+to go all the way through the list.
+
+1220
+00:49:11,870 --> 00:49:15,500
+To be clear, who did
+I not need to look at?
+
+1221
+00:49:15,500 --> 00:49:18,240
+The last location, or 8,
+in our very specific case.
+
+1222
+00:49:18,240 --> 00:49:21,740
+So the second time through
+the list of humans,
+
+1223
+00:49:21,740 --> 00:49:23,550
+I only have to make n
+minus 2 comparisons.
+
+1224
+00:49:23,550 --> 00:49:24,050
+Right?
+
+1225
+00:49:24,050 --> 00:49:28,040
+Because I can just ignore number
+8, the final human, and just deal
+
+1226
+00:49:28,040 --> 00:49:30,800
+with the seven other humans
+that are somehow misordered.
+
+1227
+00:49:30,800 --> 00:49:34,130
+So, if I wanted to really be nitpicky
+and write this down, and count up
+
+1228
+00:49:34,130 --> 00:49:36,350
+how many steps, or how
+many comparisons, I made,
+
+1229
+00:49:36,350 --> 00:49:37,740
+we could generalize it like this.
+
+1230
+00:49:37,740 --> 00:49:38,240
+All right?
+
+1231
+00:49:38,240 --> 00:49:42,920
+It's going to be n minus 1, plus n minus
+2, plus n minus 3, plus dot-dot-dot.
+
+1232
+00:49:42,920 --> 00:49:46,070
+Or, more specifically, 7
+plus 6 plus 5 plus 4-- this
+
+1233
+00:49:46,070 --> 00:49:49,280
+is just the fancier formulaic
+way of saying the same thing.
+
+1234
+00:49:49,280 --> 00:49:52,700
+Now, I don't remember my
+back-of-math-book formulas all that
+
+1235
+00:49:52,700 --> 00:49:54,440
+well, but I remember this one.
+
+1236
+00:49:54,440 --> 00:49:57,650
+You know, in your physics books, your
+math books, often in the hardcovers,
+
+1237
+00:49:57,650 --> 00:50:00,830
+you'll see little cheat sheets
+for what series of numbers
+
+1238
+00:50:00,830 --> 00:50:03,050
+actually sum to or multiply out to.
+
+1239
+00:50:03,050 --> 00:50:06,290
+And so it turns out that
+that summation can actually
+
+1240
+00:50:06,290 --> 00:50:10,730
+be expressed more succinctly as n
+times n minus 1, all divided by 2.
+
+1241
+00:50:10,730 --> 00:50:14,360
+That is the same thing,
+mathematically, as the long series
+
+1242
+00:50:14,360 --> 00:50:16,220
+that I had a dot-dot-dot there for.
+
+1243
+00:50:16,220 --> 00:50:19,370
+So if I multiply this out,
+just using some algebra,
+
+1244
+00:50:19,370 --> 00:50:22,611
+that's like n squared
+minus n, divided by 2.
+
+1245
+00:50:22,611 --> 00:50:25,610
+And then if I kind of multiply that
+out, that's n squared, divided by 2,
+
+1246
+00:50:25,610 --> 00:50:27,000
+minus n over 2.
+
+1247
+00:50:27,000 --> 00:50:29,240
+So if I wanted to be
+really precise, this
+
+1248
+00:50:29,240 --> 00:50:30,790
+is the running time of bubble sort.
+
+1249
+00:50:30,790 --> 00:50:34,080
+It takes this many
+steps to sort n people.
+
+1250
+00:50:34,080 --> 00:50:34,580
+Why?
+
+1251
+00:50:34,580 --> 00:50:37,539
+Because I literally just counted
+the number of comparisons I made.
+
+1252
+00:50:37,539 --> 00:50:39,830
+That's how many comparisons
+it takes to do bubble sort.
+
+1253
+00:50:39,830 --> 00:50:41,782
+But honestly, this is
+really getting tedious,
+
+1254
+00:50:41,782 --> 00:50:43,740
+and my eyes are already
+starting to glaze over.
+
+1255
+00:50:43,740 --> 00:50:46,640
+I don't want to remember
+these algebraic formulas here.
+
+1256
+00:50:46,640 --> 00:50:49,580
+So let's actually try an example,
+just to get a sense of how slow
+
+1257
+00:50:49,580 --> 00:50:50,770
+or how fast this is.
+
+1258
+00:50:50,770 --> 00:50:52,370
+Suppose that n were a million.
+
+1259
+00:50:52,370 --> 00:50:55,910
+So not eight, but a million
+people, or a million numbers.
+
+1260
+00:50:55,910 --> 00:50:58,460
+How slow, or fast, is
+bubble sort going to be?
+
+1261
+00:50:58,460 --> 00:51:01,560
+Well, if we plug in a million,
+that's like saying n is a million.
+
+1262
+00:51:01,560 --> 00:51:06,809
+So that's a million squared, divided
+by 2, minus a million divided by 2.
+
+1263
+00:51:06,809 --> 00:51:08,600
+Because that's what it
+all summed up to be.
+
+1264
+00:51:08,600 --> 00:51:10,820
+So if I do this out,
+it's a really big number.
+
+1265
+00:51:10,820 --> 00:51:14,720
+500 billion minus 500,000.
+
+1266
+00:51:14,720 --> 00:51:18,680
+And in any other context, 500,000
+is a pretty darn big number.
+
+1267
+00:51:18,680 --> 00:51:23,120
+But not so much when you
+subtract it from 500 billion,
+
+1268
+00:51:23,120 --> 00:51:29,780
+because you still get 499,999,500,000
+after subtracting those off.
+
+1269
+00:51:29,780 --> 00:51:33,770
+Which is to say, of those two terms,
+the one on the left versus the one
+
+1270
+00:51:33,770 --> 00:51:35,450
+on the right, which is the bigger one?
+
+1271
+00:51:35,450 --> 00:51:38,827
+The more dominating factor in
+the mathematical expression?
+
+1272
+00:51:38,827 --> 00:51:40,160
+It's the one on the left, right?
+
+1273
+00:51:40,160 --> 00:51:41,870
+That's the one that's massively bigger.
+
+1274
+00:51:41,870 --> 00:51:45,440
+And so more generally,
+n squared divided by 2
+
+1275
+00:51:45,440 --> 00:51:49,167
+feels like a bigger result
+than n divided by 2 alone.
+
+1276
+00:51:49,167 --> 00:51:51,750
+And we've seen it by proof-- by
+example, which is not a proof,
+
+1277
+00:51:51,750 --> 00:51:54,590
+but it at least gives us a feel
+for the size of the program,
+
+1278
+00:51:54,590 --> 00:51:57,230
+or the number of comparisons
+we're actually making.
+
+1279
+00:51:57,230 --> 00:52:01,084
+So you know what, ugh-- if that is
+the case, if the dominant factor--
+
+1280
+00:52:01,084 --> 00:52:03,500
+the one on the left, in our
+case; the one with the square,
+
+1281
+00:52:03,500 --> 00:52:06,141
+specifically-- is just
+so much more influential
+
+1282
+00:52:06,141 --> 00:52:08,390
+on the number of comparisons
+we're going to make, then
+
+1283
+00:52:08,390 --> 00:52:11,630
+let's just wave our hands
+at the lower-ordered terms,
+
+1284
+00:52:11,630 --> 00:52:13,850
+and divide it by 2,
+and anything like that,
+
+1285
+00:52:13,850 --> 00:52:17,360
+and just say, ugh, this
+algorithm feels like n squared.
+
+1286
+00:52:17,360 --> 00:52:19,330
+I'm going to throw away
+the denominator, I'm
+
+1287
+00:52:19,330 --> 00:52:21,413
+going to throw away the
+thing I'm subtracting off,
+
+1288
+00:52:21,413 --> 00:52:24,540
+I'm going to throw away anything
+that is not the dominating factor,
+
+1289
+00:52:24,540 --> 00:52:28,500
+which is the term that contributes
+the most to the total number of steps
+
+1290
+00:52:28,500 --> 00:52:29,000
+incurred.
+
+1291
+00:52:29,000 --> 00:52:32,300
+And indeed, this is what a computer
+scientist would describe, generally,
+
+1292
+00:52:32,300 --> 00:52:34,730
+as the running time of this algorithm.
+
+1293
+00:52:34,730 --> 00:52:36,770
+It is on the order of n squared.
+
+1294
+00:52:36,770 --> 00:52:39,995
+It's not n squared, but it's on the
+order of n squared, as we've seen.
+
+1295
+00:52:39,995 --> 00:52:42,620
+It's pretty darn close, and it's
+good enough for a conversation
+
+1296
+00:52:42,620 --> 00:52:46,100
+with another reasonable person who wants
+to debate whether his or her algorithm
+
+1297
+00:52:46,100 --> 00:52:48,380
+is maybe better or worse than yours.
+
+1298
+00:52:48,380 --> 00:52:51,160
+So, this would be called big O notation.
+
+1299
+00:52:51,160 --> 00:52:56,360
+Big O is used to refer to an upper
+bound on an algorithm's running time.
+
+1300
+00:52:56,360 --> 00:53:00,500
+Upper bound meaning, we'll consider,
+for our purposes, in the worst case,
+
+1301
+00:53:00,500 --> 00:53:02,780
+how much time might this algorithm take?
+
+1302
+00:53:02,780 --> 00:53:05,660
+Well, it's going to take on
+the order of n squared steps.
+
+1303
+00:53:05,660 --> 00:53:08,300
+Because if the list of
+numbers is unsorted initially,
+
+1304
+00:53:08,300 --> 00:53:10,860
+we've got to do a lot of
+work to actually sort it.
+
+1305
+00:53:10,860 --> 00:53:14,720
+There's other terms that we
+could put in those parentheses.
+
+1306
+00:53:14,720 --> 00:53:17,240
+Some algorithms are not
+on the order of n squared.
+
+1307
+00:53:17,240 --> 00:53:20,250
+Some algorithms are
+actually order of n log n;
+
+1308
+00:53:20,250 --> 00:53:24,380
+some algorithms are on the order
+of n itself, or log n, or even 1,
+
+1309
+00:53:24,380 --> 00:53:26,297
+where 1 refers to constant time.
+
+1310
+00:53:26,297 --> 00:53:28,130
+And in fact, the ones
+I've highlighted here,
+
+1311
+00:53:28,130 --> 00:53:32,060
+we've actually seen examples along
+the way of all of these so far.
+
+1312
+00:53:32,060 --> 00:53:34,100
+For instance, what
+algorithm have we seen
+
+1313
+00:53:34,100 --> 00:53:38,180
+that has a running
+time on the order of n?
+
+1314
+00:53:38,180 --> 00:53:38,960
+n steps?
+
+1315
+00:53:38,960 --> 00:53:40,186
+AUDIENCE: Linear search.
+
+1316
+00:53:40,186 --> 00:53:41,310
+DAVID MALAN: Linear search.
+
+1317
+00:53:41,310 --> 00:53:43,680
+If we were to think back, even
+to today, to linear search--
+
+1318
+00:53:43,680 --> 00:53:46,804
+or from the first lecture, when I was
+just looking for Mike, really slowly,
+
+1319
+00:53:46,804 --> 00:53:49,590
+one phone book page at a time,
+that's a linear algorithm.
+
+1320
+00:53:49,590 --> 00:53:53,280
+If there's n pages, or n humans, it
+might take me on the order of n steps,
+
+1321
+00:53:53,280 --> 00:53:54,230
+because Mike Smith--
+
+1322
+00:53:54,230 --> 00:53:57,360
+S is toward the end of the alphabet,
+so he might be way over there,
+
+1323
+00:53:57,360 --> 00:53:59,760
+or way toward the end of the
+phone book, or, God forbid,
+
+1324
+00:53:59,760 --> 00:54:01,860
+his name starts with
+a Z, then I'm really
+
+1325
+00:54:01,860 --> 00:54:04,500
+going to have to go all the
+way into the phone book.
+
+1326
+00:54:04,500 --> 00:54:06,690
+And so that's on the order of n steps.
+
+1327
+00:54:06,690 --> 00:54:08,340
+So, n here would be linear.
+
+1328
+00:54:08,340 --> 00:54:10,950
+We've also seen another
+algorithm, here in yellow--
+
+1329
+00:54:10,950 --> 00:54:13,680
+big O of log n.
+
+1330
+00:54:13,680 --> 00:54:14,740
+Saw it just a moment ago.
+
+1331
+00:54:14,740 --> 00:54:18,990
+Which of our algorithms was on
+the order of log n running time?
+
+1332
+00:54:18,990 --> 00:54:20,210
+Yeah, so binary search.
+
+1333
+00:54:20,210 --> 00:54:21,050
+Divide and conquer.
+
+1334
+00:54:21,050 --> 00:54:22,010
+We didn't call it--
+
+1335
+00:54:22,010 --> 00:54:24,600
+we didn't describe it this
+formulaically in the first lecture,
+
+1336
+00:54:24,600 --> 00:54:26,180
+but that's how you would
+describe the running time.
+
+1337
+00:54:26,180 --> 00:54:28,400
+Not just with a pretty picture,
+but just with an expression
+
+1338
+00:54:28,400 --> 00:54:29,540
+like this, that all humans--
+
+1339
+00:54:29,540 --> 00:54:31,456
+at least computer
+scientists-- can agree upon.
+
+1340
+00:54:31,456 --> 00:54:32,834
+And constant time.
+
+1341
+00:54:32,834 --> 00:54:35,000
+The funny thing here is,
+because we're throwing away
+
+1342
+00:54:35,000 --> 00:54:37,220
+terms that don't really
+matter, O of 1 does not
+
+1343
+00:54:37,220 --> 00:54:39,470
+mean an algorithm that
+takes one step only.
+
+1344
+00:54:39,470 --> 00:54:43,190
+That would be a very limited number
+of options for your algorithms.
+
+1345
+00:54:43,190 --> 00:54:50,196
+But it does mean, symbolically,
+a constant number of steps.
+
+1346
+00:54:50,196 --> 00:54:51,320
+A constant number of steps.
+
+1347
+00:54:51,320 --> 00:54:55,280
+So, what's something you might do
+that takes a constant number of steps,
+
+1348
+00:54:55,280 --> 00:54:56,542
+in an algorithm?
+
+1349
+00:54:56,542 --> 00:54:58,762
+
+
+1350
+00:54:58,762 --> 00:55:01,470
+Maybe in, like, the first lecture,
+we had the silly peanut butter
+
+1351
+00:55:01,470 --> 00:55:02,550
+and jelly example.
+
+1352
+00:55:02,550 --> 00:55:04,800
+Which of the steps that
+day might have taken big O
+
+1353
+00:55:04,800 --> 00:55:07,030
+of 1 steps, a constant number of steps?
+
+1354
+00:55:07,030 --> 00:55:10,060
+
+
+1355
+00:55:10,060 --> 00:55:13,120
+I remember one, like,
+insert knife into jar?
+
+1356
+00:55:13,120 --> 00:55:14,120
+That's kind of one step.
+
+1357
+00:55:14,120 --> 00:55:16,828
+Maybe it's two, because I might
+have to, like, pick up the knife,
+
+1358
+00:55:16,828 --> 00:55:18,460
+and insert it into the jar then.
+
+1359
+00:55:18,460 --> 00:55:20,830
+One step, two steps-- but
+it's a constant number.
+
+1360
+00:55:20,830 --> 00:55:25,460
+The number of steps is not at all
+informed by the algorithm itself.
+
+1361
+00:55:25,460 --> 00:55:26,230
+It just happens.
+
+1362
+00:55:26,230 --> 00:55:27,244
+You do that in one step.
+
+1363
+00:55:27,244 --> 00:55:29,410
+So, if there's any number
+of other algorithms here--
+
+1364
+00:55:29,410 --> 00:55:31,620
+and we'll leave in white one that
+we'll come back to-- but let's
+
+1365
+00:55:31,620 --> 00:55:33,910
+just consider the opposite
+of this, if you will.
+
+1366
+00:55:33,910 --> 00:55:36,970
+If big O is our upper bound
+on running time, it turns out,
+
+1367
+00:55:36,970 --> 00:55:40,881
+there's a vocabulary for discussing the
+lower bound on an algorithm's running
+
+1368
+00:55:40,881 --> 00:55:41,380
+time.
+
+1369
+00:55:41,380 --> 00:55:44,870
+Which, for our purposes, we'll generally
+consider in the context of best case.
+
+1370
+00:55:44,870 --> 00:55:48,940
+So in the best case scenario, how
+little time might an algorithm take?
+
+1371
+00:55:48,940 --> 00:55:52,930
+Well, this is a capital omega, and
+it's used in exactly the same way.
+
+1372
+00:55:52,930 --> 00:55:57,040
+You just say, omega of n squared,
+or omega of n, or omega of log n.
+
+1373
+00:55:57,040 --> 00:56:00,820
+So it's the same symbology, it
+just refers to a lower bound.
+
+1374
+00:56:00,820 --> 00:56:03,290
+So, it takes this few
+steps, or this many steps.
+
+1375
+00:56:03,290 --> 00:56:05,170
+Big O, big omega.
+
+1376
+00:56:05,170 --> 00:56:12,032
+So, what's an algorithm, therefore,
+that is in, so to speak, omega of 1?
+
+1377
+00:56:12,032 --> 00:56:17,720
+Like, what algorithm, in the best case,
+might actually take just one step?
+
+1378
+00:56:17,720 --> 00:56:23,022
+And who is best to answer this
+question today in the room, in fact.
+
+1379
+00:56:23,022 --> 00:56:24,480
+What algorithm could take one step?
+
+1380
+00:56:24,480 --> 00:56:24,979
+Yeah.
+
+1381
+00:56:24,979 --> 00:56:26,200
+AUDIENCE: [INAUDIBLE]
+
+1382
+00:56:26,200 --> 00:56:29,500
+DAVID MALAN: Yeah, linear search
+could take omega of one steps.
+
+1383
+00:56:29,500 --> 00:56:31,830
+Because in the best
+case, it is right there.
+
+1384
+00:56:31,830 --> 00:56:33,800
+Or in Chrissy's case,
+even if our algorithm
+
+1385
+00:56:33,800 --> 00:56:35,800
+is to sort of choose
+randomly, in the best case,
+
+1386
+00:56:35,800 --> 00:56:38,230
+it is right there, the number 50.
+
+1387
+00:56:38,230 --> 00:56:41,950
+So even her algorithm, and even
+our linear search algorithm--
+
+1388
+00:56:41,950 --> 00:56:44,920
+and for that matter, even
+our binary search algorithm--
+
+1389
+00:56:44,920 --> 00:56:48,377
+are in omega of 1, at
+least in the best case.
+
+1390
+00:56:48,377 --> 00:56:49,960
+Because if you get lucky, you're done.
+
+1391
+00:56:49,960 --> 00:56:51,370
+One step.
+
+1392
+00:56:51,370 --> 00:56:56,630
+By contrast, what is an algorithm
+that takes at least n steps?
+
+1393
+00:56:56,630 --> 00:56:58,536
+So, omega of n?
+
+1394
+00:56:58,536 --> 00:56:59,999
+AUDIENCE: [INAUDIBLE]
+
+1395
+00:56:59,999 --> 00:57:01,290
+DAVID MALAN: That's a good one.
+
+1396
+00:57:01,290 --> 00:57:02,990
+So you say bubble sort, I heard.
+
+1397
+00:57:02,990 --> 00:57:03,690
+AUDIENCE: Yes.
+
+1398
+00:57:03,690 --> 00:57:04,398
+DAVID MALAN: Why?
+
+1399
+00:57:04,398 --> 00:57:06,530
+AUDIENCE: Because if they're
+all already in order,
+
+1400
+00:57:06,530 --> 00:57:09,900
+you just go through each
+comparison, and then make no swaps.
+
+1401
+00:57:09,900 --> 00:57:10,650
+DAVID MALAN: Good.
+
+1402
+00:57:10,650 --> 00:57:13,002
+So in the case of bubble
+sort, where we generally
+
+1403
+00:57:13,002 --> 00:57:15,210
+had a lot more work to do
+than just finding something
+
+1404
+00:57:15,210 --> 00:57:19,710
+with a searching algorithm, bubble
+sort is, minimally, an omega event
+
+1405
+00:57:19,710 --> 00:57:22,440
+you need at least on the order of
+n steps-- maybe it's n minus 1,
+
+1406
+00:57:22,440 --> 00:57:24,390
+or n minus 2-- but
+it's on the order of n.
+
+1407
+00:57:24,390 --> 00:57:25,290
+Why?
+
+1408
+00:57:25,290 --> 00:57:29,250
+Because only once you go through
+the list at least once do
+
+1409
+00:57:29,250 --> 00:57:30,480
+you know-- what, to be clear?
+
+1410
+00:57:30,480 --> 00:57:31,770
+AUDIENCE: That they're all in order.
+
+1411
+00:57:31,770 --> 00:57:33,228
+DAVID MALAN: That they're in order.
+
+1412
+00:57:33,228 --> 00:57:36,810
+And you know that as a side effect
+of having not made any swaps.
+
+1413
+00:57:36,810 --> 00:57:39,960
+So, you can only determine that a
+list is sorted in the first place
+
+1414
+00:57:39,960 --> 00:57:43,410
+by spending at least n
+steps on that process.
+
+1415
+00:57:43,410 --> 00:57:44,160
+Excellent.
+
+1416
+00:57:44,160 --> 00:57:46,680
+So, there's yet another
+one, and this is the last,
+
+1417
+00:57:46,680 --> 00:57:50,010
+whereby if you happen to have
+an algorithm, or a scenario
+
+1418
+00:57:50,010 --> 00:57:54,044
+where the upper bound and the
+lower bound are the same--
+
+1419
+00:57:54,044 --> 00:57:57,210
+turns out there's a symbol for that
+too; you can just describe the algorithm
+
+1420
+00:57:57,210 --> 00:57:59,400
+in terms of theta notation.
+
+1421
+00:57:59,400 --> 00:58:02,460
+That just means theta of n,
+theta of log n-- whatever it is,
+
+1422
+00:58:02,460 --> 00:58:05,549
+that just means upper bound and
+lower bound are one and the same.
+
+1423
+00:58:05,549 --> 00:58:08,590
+And there's more formalities to this,
+and you can actually dive in deeper
+
+1424
+00:58:08,590 --> 00:58:09,750
+to this in a theory class.
+
+1425
+00:58:09,750 --> 00:58:13,350
+But for our purposes, big O and
+omega will be a generally useful way
+
+1426
+00:58:13,350 --> 00:58:18,150
+of describing, generally speaking, just
+what the running time of an algorithm
+
+1427
+00:58:18,150 --> 00:58:19,380
+actually is.
+
+1428
+00:58:19,380 --> 00:58:23,460
+So, big O of n squared is the
+fastest we've seen thus far.
+
+1429
+00:58:23,460 --> 00:58:27,180
+Unfortunately, it does actually
+tend to run pretty slowly.
+
+1430
+00:58:27,180 --> 00:58:29,776
+We saw it with an example of,
+like, 500 billion steps just
+
+1431
+00:58:29,776 --> 00:58:30,900
+to sort a million elements.
+
+1432
+00:58:30,900 --> 00:58:32,790
+Turns out we can do
+way better than that.
+
+1433
+00:58:32,790 --> 00:58:35,370
+Much like in the first lecture,
+when I crazily proposed,
+
+1434
+00:58:35,370 --> 00:58:38,190
+I think, suppose your phone book
+had, like, four billion pages--
+
+1435
+00:58:38,190 --> 00:58:41,130
+well, you only need 32
+steps using binary search,
+
+1436
+00:58:41,130 --> 00:58:44,980
+instead of four billion
+steps using linear search.
+
+1437
+00:58:44,980 --> 00:58:48,630
+So, it would be nice if, after all
+of this discussion of algorithms
+
+1438
+00:58:48,630 --> 00:58:51,540
+and introduction of these formalities,
+if we can actually do better.
+
+1439
+00:58:51,540 --> 00:58:53,629
+And it turns out that we
+can do better, but this
+
+1440
+00:58:53,629 --> 00:58:55,920
+has been a lot to do already,
+so let's go ahead in here
+
+1441
+00:58:55,920 --> 00:58:56,970
+and take a five-minute. break.
+
+1442
+00:58:56,970 --> 00:59:00,390
+And when we come back, we'll blow out of
+the water the performance of all three
+
+1443
+00:59:00,390 --> 00:59:02,955
+of those algorithms we just saw.
+
+1444
+00:59:02,955 --> 00:59:04,230
+All right.
+
+1445
+00:59:04,230 --> 00:59:07,500
+So, let's take a quick look at
+what these algorithms look like,
+
+1446
+00:59:07,500 --> 00:59:09,750
+so we can actually compare
+them against something
+
+1447
+00:59:09,750 --> 00:59:13,470
+that I claim is actually
+going to end up being better.
+
+1448
+00:59:13,470 --> 00:59:14,040
+OK.
+
+1449
+00:59:14,040 --> 00:59:18,920
+So, here we have an array of numbers
+represented as vertical bars.
+
+1450
+00:59:18,920 --> 00:59:22,010
+So, small bar is small number;
+tall bar is big number.
+
+1451
+00:59:22,010 --> 00:59:25,110
+And so it's a nice way to visualize
+what otherwise is pretty low level
+
+1452
+00:59:25,110 --> 00:59:26,250
+numbers alone.
+
+1453
+00:59:26,250 --> 00:59:29,880
+I'm going to go ahead here and
+make the animation pretty fast,
+
+1454
+00:59:29,880 --> 00:59:33,270
+and I'm going to go ahead here and
+choose, for instance, bubble sort.
+
+1455
+00:59:33,270 --> 00:59:36,180
+And, actually, let me
+slow it down a little bit,
+
+1456
+00:59:36,180 --> 00:59:37,600
+just for the sake of discussion.
+
+1457
+00:59:37,600 --> 00:59:39,870
+So, you'll see, in this
+algorithm, bubble sort.
+
+1458
+00:59:39,870 --> 00:59:43,170
+It's making multiple passes
+through the list, just as I did,
+
+1459
+00:59:43,170 --> 00:59:45,900
+highlighting in pink
+two neighbors at a time,
+
+1460
+00:59:45,900 --> 00:59:47,670
+and deciding whether
+or not to swap them,
+
+1461
+00:59:47,670 --> 00:59:51,180
+just as we were, with our eight
+volunteers, doing the exact same thing.
+
+1462
+00:59:51,180 --> 00:59:54,400
+Of course, with this visualization,
+we can do it more quickly,
+
+1463
+00:59:54,400 --> 00:59:57,540
+and we can speed this up to the
+point where you can kind of now
+
+1464
+00:59:57,540 --> 01:00:01,800
+start to feel the bubbling effect,
+if you will, whereby the bigger
+
+1465
+01:00:01,800 --> 01:00:06,540
+numbers are bubbling up to the top, to
+the right, just as the number 8 did,
+
+1466
+01:00:06,540 --> 01:00:07,930
+when we did it on paper.
+
+1467
+01:00:07,930 --> 01:00:09,226
+So, this is bubble sort.
+
+1468
+01:00:09,226 --> 01:00:11,850
+And we could watch this for quite
+some time, and in some sense,
+
+1469
+01:00:11,850 --> 01:00:12,930
+it's kind of mesmerizing.
+
+1470
+01:00:12,930 --> 01:00:14,931
+But in another sense,
+it's pretty underwhelming,
+
+1471
+01:00:14,931 --> 01:00:17,180
+because at the end of the
+day, all you're going to get
+
+1472
+01:00:17,180 --> 01:00:19,620
+is a bunch of bars, sorted,
+from short bars to big bars.
+
+1473
+01:00:19,620 --> 01:00:22,050
+But perhaps the takeaway
+is that I'd kind of
+
+1474
+01:00:22,050 --> 01:00:24,324
+have to stall here for
+a decent amount of time,
+
+1475
+01:00:24,324 --> 01:00:27,240
+even though we're running this at
+the fastest speed, because it's only
+
+1476
+01:00:27,240 --> 01:00:30,300
+fixing, at best, one number at a time.
+
+1477
+01:00:30,300 --> 01:00:33,570
+And maybe some others are improving,
+but we're only moving all the way
+
+1478
+01:00:33,570 --> 01:00:35,040
+to the end one number at a time.
+
+1479
+01:00:35,040 --> 01:00:39,210
+And we have to then go back, and go
+back, and go back, and do more work.
+
+1480
+01:00:39,210 --> 01:00:42,990
+It's going to be very ungratifying to
+abort it, but let's go back to random.
+
+1481
+01:00:42,990 --> 01:00:46,410
+And now, if we choose, for
+instance, selection sort,
+
+1482
+01:00:46,410 --> 01:00:48,790
+you'll see that the algorithm
+works a little differently.
+
+1483
+01:00:48,790 --> 01:00:50,677
+Let me slow it down.
+
+1484
+01:00:50,677 --> 01:00:53,010
+And what it's doing now, which
+is a little less obvious,
+
+1485
+01:00:53,010 --> 01:00:57,150
+is it's looking through the list
+for the next smallest element,
+
+1486
+01:00:57,150 --> 01:00:59,430
+and it's going to put it at
+the beginning of the list.
+
+1487
+01:00:59,430 --> 01:01:00,669
+All the way at the left.
+
+1488
+01:01:00,669 --> 01:01:02,460
+So, it's looking, and
+looking, and looking,
+
+1489
+01:01:02,460 --> 01:01:07,050
+and it leaves highlighted in
+red the most recently discovered
+
+1490
+01:01:07,050 --> 01:01:07,965
+smallest element.
+
+1491
+01:01:07,965 --> 01:01:10,090
+And then as soon as it gets
+to the end of the list,
+
+1492
+01:01:10,090 --> 01:01:13,340
+it's going to move that smallest
+element all the way to the left.
+
+1493
+01:01:13,340 --> 01:01:16,380
+So that we now, kind of like
+the opposite of bubble sort,
+
+1494
+01:01:16,380 --> 01:01:18,370
+have all of the smallest
+elements to the left.
+
+1495
+01:01:18,370 --> 01:01:19,480
+Though, this is arbitrary.
+
+1496
+01:01:19,480 --> 01:01:21,870
+We could bubble up the small
+elements by just reversing
+
+1497
+01:01:21,870 --> 01:01:24,000
+the order of our operations;
+we could sort from biggest
+
+1498
+01:01:24,000 --> 01:01:25,374
+to smallest-- that is irrelevant.
+
+1499
+01:01:25,374 --> 01:01:29,220
+It's just by human convention we tend to
+sort from smallest to biggest, at least
+
+1500
+01:01:29,220 --> 01:01:30,630
+in examples like this.
+
+1501
+01:01:30,630 --> 01:01:34,427
+And we can speed this up, but it doesn't
+quite have quite the same comparison
+
+1502
+01:01:34,427 --> 01:01:37,260
+effect, because all you're doing
+is a swoop through the list looking
+
+1503
+01:01:37,260 --> 01:01:41,290
+for the smallest, looking for the
+smallest, looking for the smallest.
+
+1504
+01:01:41,290 --> 01:01:45,550
+And so, this way, it's going
+to build up from short to tall.
+
+1505
+01:01:45,550 --> 01:01:48,690
+Let me go ahead and do it one more
+time, this time with insertion sort,
+
+1506
+01:01:48,690 --> 01:01:51,700
+and slow it down.
+
+1507
+01:01:51,700 --> 01:01:55,060
+And so, what we're doing
+here is the following.
+
+1508
+01:01:55,060 --> 01:01:59,730
+We identify the next element, and then
+we go and insert it into the place
+
+1509
+01:01:59,730 --> 01:02:03,570
+it belongs in the "sorted
+half" of the list.
+
+1510
+01:02:03,570 --> 01:02:06,840
+So, recall that I generally describe
+stuff on the left as being sorted,
+
+1511
+01:02:06,840 --> 01:02:09,960
+stuff on the right as being
+unsorted, and the implication
+
+1512
+01:02:09,960 --> 01:02:13,020
+of that is that even though
+these numbers here on the left
+
+1513
+01:02:13,020 --> 01:02:17,370
+are indeed sorted, when I encounter a
+new number, out in the unsorted area,
+
+1514
+01:02:17,370 --> 01:02:20,520
+I might have to move some things
+around and shuffle things around.
+
+1515
+01:02:20,520 --> 01:02:23,610
+And unlike the cheat I
+was doing here in person--
+
+1516
+01:02:23,610 --> 01:02:27,262
+when I grabbed that music stand before
+and just kind of moved it over here--
+
+1517
+01:02:27,262 --> 01:02:28,470
+that's not really legitimate.
+
+1518
+01:02:28,470 --> 01:02:28,970
+Right?
+
+1519
+01:02:28,970 --> 01:02:30,540
+This is garbage value land.
+
+1520
+01:02:30,540 --> 01:02:33,190
+Like, I should not have
+had access to this memory.
+
+1521
+01:02:33,190 --> 01:02:36,150
+And so what we did with our actual
+eight humans was more legitimate.
+
+1522
+01:02:36,150 --> 01:02:38,640
+The fact that our volunteers
+did the physical labor
+
+1523
+01:02:38,640 --> 01:02:40,170
+of moving those numbers around?
+
+1524
+01:02:40,170 --> 01:02:42,940
+That was the low-level work that
+the computer has to do, too.
+
+1525
+01:02:42,940 --> 01:02:47,730
+And you see it here all the more, either
+at this slow speed or the faster speed.
+
+1526
+01:02:47,730 --> 01:02:49,830
+It's being inserted into
+the appropriate location.
+
+1527
+01:02:49,830 --> 01:02:51,840
+So, case in point, this
+tiny little element?
+
+1528
+01:02:51,840 --> 01:02:56,100
+We have to do a huge amount
+of work to find its location,
+
+1529
+01:02:56,100 --> 01:02:59,260
+until finally, we've found it,
+and now we do the same thing.
+
+1530
+01:02:59,260 --> 01:03:01,980
+So, all of these have some
+pluses and some minuses.
+
+1531
+01:03:01,980 --> 01:03:05,670
+But it turns out, with merge
+sort, we can do even better.
+
+1532
+01:03:05,670 --> 01:03:07,990
+An algorithm that goes by
+the name of merge sort.
+
+1533
+01:03:07,990 --> 01:03:12,120
+But to do better, we need to have a new
+ingredient, or at least more formally
+
+1534
+01:03:12,120 --> 01:03:15,210
+defined, that we've kind of sort of
+leverage before, but not by name.
+
+1535
+01:03:15,210 --> 01:03:19,860
+And to do this, I'm going actually take
+out a little bit of code, in CS50 IDE,
+
+1536
+01:03:19,860 --> 01:03:23,190
+a program called sigma-0.c.
+
+1537
+01:03:23,190 --> 01:03:25,930
+And we'll see the
+interconnection in just a moment.
+
+1538
+01:03:25,930 --> 01:03:28,410
+So in this program,
+notice the following.
+
+1539
+01:03:28,410 --> 01:03:31,860
+We have a main function,
+whose purpose in life
+
+1540
+01:03:31,860 --> 01:03:33,842
+is to get a positive
+integer from the user,
+
+1541
+01:03:33,842 --> 01:03:35,550
+and to pester him or
+her, again and again
+
+1542
+01:03:35,550 --> 01:03:38,250
+and again, until they cooperate
+and provide a positive integer.
+
+1543
+01:03:38,250 --> 01:03:40,620
+That's what the do-while
+loop is often useful for.
+
+1544
+01:03:40,620 --> 01:03:42,240
+And then, what do we do with it?
+
+1545
+01:03:42,240 --> 01:03:46,680
+We simply pass that value,
+n, that the human typed in,
+
+1546
+01:03:46,680 --> 01:03:49,237
+via get int, to a function called sigma.
+
+1547
+01:03:49,237 --> 01:03:52,320
+And sigma is like the Greek character,
+or the capital E-looking character,
+
+1548
+01:03:52,320 --> 01:03:54,900
+that generally means, in math,
+like, sum a bunch of numbers.
+
+1549
+01:03:54,900 --> 01:03:56,680
+Add a bunch of numbers together.
+
+1550
+01:03:56,680 --> 01:04:00,720
+So, this is essentially a function
+called sigma, whose purpose in life
+
+1551
+01:04:00,720 --> 01:04:03,810
+is to sum all of the
+numbers from 0 to n.
+
+1552
+01:04:03,810 --> 01:04:05,730
+Or, equivalently, from 1 to n.
+
+1553
+01:04:05,730 --> 01:04:09,100
+So, 1 plus 2 plus 3 plus 4
+plus, dot-dot-dot, n, whatever n
+
+1554
+01:04:09,100 --> 01:04:10,090
+happens to be.
+
+1555
+01:04:10,090 --> 01:04:12,940
+And then, via printf,
+we're just printing it out.
+
+1556
+01:04:12,940 --> 01:04:16,290
+So, let me just run this program to
+make super clear what's going on.
+
+1557
+01:04:16,290 --> 01:04:21,460
+And I can do this by doing, of course,
+in my source three directory for today,
+
+1558
+01:04:21,460 --> 01:04:29,070
+make sigma 0, enter, dot slash sigma
+0, positive integer, I will do 2.
+
+1559
+01:04:29,070 --> 01:04:32,730
+So by that definition, it
+should sum 0 plus 1 plus 2, so 1
+
+1560
+01:04:32,730 --> 01:04:34,090
+plus 2-- that should be 3.
+
+1561
+01:04:34,090 --> 01:04:35,427
+So I should see 3.
+
+1562
+01:04:35,427 --> 01:04:36,260
+And indeed, I see 3.
+
+1563
+01:04:36,260 --> 01:04:39,120
+Let's do one more, if
+I add in three numbers.
+
+1564
+01:04:39,120 --> 01:04:43,790
+So, this should be 1 plus 2 plus 3--
+so, that's 1-- that's 6, in total.
+
+1565
+01:04:43,790 --> 01:04:44,570
+And so forth.
+
+1566
+01:04:44,570 --> 01:04:46,520
+And they get pretty big pretty quickly.
+
+1567
+01:04:46,520 --> 01:04:49,040
+If I do 50, then we start
+to get into the thousands.
+
+1568
+01:04:49,040 --> 01:04:50,360
+So, that's all it's doing.
+
+1569
+01:04:50,360 --> 01:04:51,470
+And how is it doing this?
+
+1570
+01:04:51,470 --> 01:04:53,761
+Well, we could implement this
+in a whole bunch of ways,
+
+1571
+01:04:53,761 --> 01:04:56,797
+but if we leverage some of our
+sort of techniques thus far,
+
+1572
+01:04:56,797 --> 01:04:58,130
+we might do it using a for loop.
+
+1573
+01:04:58,130 --> 01:05:00,950
+That's kind of been one of the
+most common tools in our toolkit.
+
+1574
+01:05:00,950 --> 01:05:02,730
+And how am I using it here?
+
+1575
+01:05:02,730 --> 01:05:05,570
+I'm first declaring a variable
+called sum, initializing it to 0,
+
+1576
+01:05:05,570 --> 01:05:07,130
+because I've done no work yet.
+
+1577
+01:05:07,130 --> 01:05:11,810
+Then I have a for loop, for i
+equals 1 all the way up through m.
+
+1578
+01:05:11,810 --> 01:05:12,310
+Why m?
+
+1579
+01:05:12,310 --> 01:05:13,220
+Well, just because.
+
+1580
+01:05:13,220 --> 01:05:17,060
+Recall that when you make your own
+function, whether in Scratch or in C,
+
+1581
+01:05:17,060 --> 01:05:19,970
+you get to decide what to call
+the inputs to that function.
+
+1582
+01:05:19,970 --> 01:05:22,100
+The arguments, or parameters,
+as they're called.
+
+1583
+01:05:22,100 --> 01:05:24,830
+And just for clarity,
+I called it m, even
+
+1584
+01:05:24,830 --> 01:05:26,330
+though we've typically been using n.
+
+1585
+01:05:26,330 --> 01:05:28,080
+I could have called it anything I want.
+
+1586
+01:05:28,080 --> 01:05:29,795
+I just wanted to make super
+clear it's a different variable.
+
+1587
+01:05:29,795 --> 01:05:31,550
+But more on that in a week or so.
+
+1588
+01:05:31,550 --> 01:05:36,350
+And so I'm just counting from one to
+m, and I'm adding to sum whatever i is.
+
+1589
+01:05:36,350 --> 01:05:38,360
+Now, just as a quick
+check, why am I not doing
+
+1590
+01:05:38,360 --> 01:05:42,904
+sum plus plus, as I usually
+do in these kinds of cases?
+
+1591
+01:05:42,904 --> 01:05:45,320
+AUDIENCE: Because you're not
+incrementing by [INAUDIBLE]..
+
+1592
+01:05:45,320 --> 01:05:46,195
+DAVID MALAN: Exactly.
+
+1593
+01:05:46,195 --> 01:05:48,950
+I'm not incrementing by 1, I'm
+incrementing by 1, and then by 2,
+
+1594
+01:05:48,950 --> 01:05:50,760
+and then by 3, and then
+by 4, and so forth.
+
+1595
+01:05:50,760 --> 01:05:52,593
+So I need this loop to
+be counting up, and I
+
+1596
+01:05:52,593 --> 01:05:56,420
+need to be adding i to the sum,
+not just a plus plus, in this case.
+
+1597
+01:05:56,420 --> 01:05:57,800
+Then I return the sum.
+
+1598
+01:05:57,800 --> 01:06:00,030
+And so, this is an
+example of an abstraction.
+
+1599
+01:06:00,030 --> 01:06:01,820
+Like, I now have a
+function called sigma--
+
+1600
+01:06:01,820 --> 01:06:03,980
+just like in math, you might
+have the big capital sigma
+
+1601
+01:06:03,980 --> 01:06:05,750
+symbol that just says, add
+all these numbers together,
+
+1602
+01:06:05,750 --> 01:06:07,400
+I have a C function that does that.
+
+1603
+01:06:07,400 --> 01:06:10,790
+And so now, higher up in my
+code, I can call that function
+
+1604
+01:06:10,790 --> 01:06:12,230
+and then print out the answer.
+
+1605
+01:06:12,230 --> 01:06:15,710
+But it turns out that this
+simple function lends itself
+
+1606
+01:06:15,710 --> 01:06:20,570
+to a nice example of another programming
+technique, something called recursion.
+
+1607
+01:06:20,570 --> 01:06:23,120
+And we won't have terribly
+many opportunities in CS50
+
+1608
+01:06:23,120 --> 01:06:26,077
+to apply this technique, but
+we will toward semester's end.
+
+1609
+01:06:26,077 --> 01:06:28,910
+If you continue on to a class like
+CS51, you'll use it all the time.
+
+1610
+01:06:28,910 --> 01:06:31,059
+If you use another type
+of programming language,
+
+1611
+01:06:31,059 --> 01:06:32,600
+you'll very often use this technique.
+
+1612
+01:06:32,600 --> 01:06:36,140
+And it's called recursion,
+and it looks like this.
+
+1613
+01:06:36,140 --> 01:06:38,270
+Let me go ahead and open
+up another file that's
+
+1614
+01:06:38,270 --> 01:06:41,370
+available on the course's
+website called sigma 1.
+
+1615
+01:06:41,370 --> 01:06:45,390
+Notice that main is identical.
+
+1616
+01:06:45,390 --> 01:06:46,850
+So, main is identical.
+
+1617
+01:06:46,850 --> 01:06:49,674
+And indeed, it's still calling
+a function called sigma,
+
+1618
+01:06:49,674 --> 01:06:51,590
+and then using printf
+to print out the answer.
+
+1619
+01:06:51,590 --> 01:06:53,460
+So there's no difference there.
+
+1620
+01:06:53,460 --> 01:06:58,740
+But what is different, in this next
+version, is the code for sigma.
+
+1621
+01:06:58,740 --> 01:07:00,560
+So, what's going on here?
+
+1622
+01:07:00,560 --> 01:07:03,616
+It still takes, as input,
+an integer called m.
+
+1623
+01:07:03,616 --> 01:07:05,990
+So that's good, because I need
+to know what to sum up to.
+
+1624
+01:07:05,990 --> 01:07:08,390
+It returns an integer, as before.
+
+1625
+01:07:08,390 --> 01:07:10,790
+And it amazingly has, like--
+
+1626
+01:07:10,790 --> 01:07:13,730
+what, four real lines of
+code, plus some curly braces?
+
+1627
+01:07:13,730 --> 01:07:16,190
+And even those lines of
+code are super short.
+
+1628
+01:07:16,190 --> 01:07:19,767
+And there's no additional variables, and
+there's this weird, crazy logic here.
+
+1629
+01:07:19,767 --> 01:07:21,850
+But let's see what it's
+doing, first and foremost.
+
+1630
+01:07:21,850 --> 01:07:27,170
+On line 23, I'm saying if m is
+less than or equal to 0, return 0.
+
+1631
+01:07:27,170 --> 01:07:28,740
+Now, why does this make sense?
+
+1632
+01:07:28,740 --> 01:07:31,910
+Well, I only want to support positive
+numbers, or non-negative numbers,
+
+1633
+01:07:31,910 --> 01:07:33,500
+from 0 to m.
+
+1634
+01:07:33,500 --> 01:07:35,930
+And so I just kind of need
+an error check there, right?
+
+1635
+01:07:35,930 --> 01:07:39,292
+If the human somehow passes into this
+function negative 50 or something else,
+
+1636
+01:07:39,292 --> 01:07:42,250
+I don't want the function to freak
+out and give unpredictable behavior,
+
+1637
+01:07:42,250 --> 01:07:45,110
+I just want it to return
+0, in cases of error
+
+1638
+01:07:45,110 --> 01:07:48,780
+or when the number gets that
+small as to hit 0 or even lower.
+
+1639
+01:07:48,780 --> 01:07:50,362
+So this, I'm going to call base case.
+
+1640
+01:07:50,362 --> 01:07:52,070
+It's just, like, this
+sanity check, like,
+
+1641
+01:07:52,070 --> 01:07:57,260
+don't let the math go beyond
+this point of 0 or less.
+
+1642
+01:07:57,260 --> 01:08:02,750
+So, amazingly, if you really zoom in on
+this code, the entirety of this program
+
+1643
+01:08:02,750 --> 01:08:05,450
+really boils down to one line.
+
+1644
+01:08:05,450 --> 01:08:07,200
+And what's going on here?
+
+1645
+01:08:07,200 --> 01:08:11,150
+So, I am returning,
+from sigma, an answer.
+
+1646
+01:08:11,150 --> 01:08:15,050
+But, curiously, my answer is kind
+of defined in terms of itself,
+
+1647
+01:08:15,050 --> 01:08:16,550
+which generally is a bad idea.
+
+1648
+01:08:16,550 --> 01:08:17,050
+Right?
+
+1649
+01:08:17,050 --> 01:08:18,830
+It's like in English,
+if you try to define
+
+1650
+01:08:18,830 --> 01:08:20,689
+a word by using the
+word in the definition,
+
+1651
+01:08:20,689 --> 01:08:22,399
+usually someone calls you
+on that, because it's not
+
+1652
+01:08:22,399 --> 01:08:25,040
+all that helpful to use a word
+in the definition of the word.
+
+1653
+01:08:25,040 --> 01:08:28,100
+And that's the same idea, at
+first glance, of recursion.
+
+1654
+01:08:28,100 --> 01:08:33,439
+You are using the same function
+to solve a problem that
+
+1655
+01:08:33,439 --> 01:08:36,875
+was supposed to be solved by
+that function in the first place.
+
+1656
+01:08:36,875 --> 01:08:38,000
+So, what do I mean by that?
+
+1657
+01:08:38,000 --> 01:08:42,080
+Main, of course, is calling
+sigma, and that means this code
+
+1658
+01:08:42,080 --> 01:08:44,670
+down here that we've been
+looking at gets executed.
+
+1659
+01:08:44,670 --> 01:08:47,630
+So, suppose that we
+hit this line of code.
+
+1660
+01:08:47,630 --> 01:08:50,060
+What recursion allows
+us to do, in this case,
+
+1661
+01:08:50,060 --> 01:08:53,377
+is take a bite out of the problem,
+and then defer to someone else
+
+1662
+01:08:53,377 --> 01:08:54,960
+to figure out the rest of the problem.
+
+1663
+01:08:54,960 --> 01:08:56,330
+So, what do we mean by that?
+
+1664
+01:08:56,330 --> 01:09:00,260
+Well, sigma, again, is just this process
+of adding up all the numbers between 0
+
+1665
+01:09:00,260 --> 01:09:01,680
+and some number, m.
+
+1666
+01:09:01,680 --> 01:09:03,920
+So, 1 plus 2 plus 3 plus dot-dot-dot.
+
+1667
+01:09:03,920 --> 01:09:05,300
+So, you know what?
+
+1668
+01:09:05,300 --> 01:09:08,729
+I don't want to do all that work, as
+I did in version 0 with my for loop.
+
+1669
+01:09:08,729 --> 01:09:10,670
+Let me just do a piece of that work.
+
+1670
+01:09:10,670 --> 01:09:11,939
+And how do I do that?
+
+1671
+01:09:11,939 --> 01:09:17,359
+Well, you know what, when you ask
+me, what is the sum from 0 to m?
+
+1672
+01:09:17,359 --> 01:09:21,620
+I'm going to be kind of circular
+about it, and be like, well,
+
+1673
+01:09:21,620 --> 01:09:23,420
+it's the answer of--
+
+1674
+01:09:23,420 --> 01:09:28,310
+the answer is m, the biggest number you
+handed me, plus the sum of everything
+
+1675
+01:09:28,310 --> 01:09:30,240
+below it.
+
+1676
+01:09:30,240 --> 01:09:30,770
+Right?
+
+1677
+01:09:30,770 --> 01:09:34,880
+So, if you passed in the number 10,
+it's like saying, well, sigma of 10
+
+1678
+01:09:34,880 --> 01:09:37,910
+is 10 plus sigma of nine,
+and, like, leave me alone.
+
+1679
+01:09:37,910 --> 01:09:39,830
+I don't want to do the rest of the math.
+
+1680
+01:09:39,830 --> 01:09:45,050
+But, because you're calling the same
+function again, that's actually OK.
+
+1681
+01:09:45,050 --> 01:09:47,090
+A function can call
+itself, because if you
+
+1682
+01:09:47,090 --> 01:09:51,170
+think about where the story is going,
+now sigma gets called, in this story,
+
+1683
+01:09:51,170 --> 01:09:52,640
+with sigma of 9.
+
+1684
+01:09:52,640 --> 01:09:53,720
+What does the code do?
+
+1685
+01:09:53,720 --> 01:09:59,180
+Well, sigma of nine returns 9
+plus whatever sigma of 8 is.
+
+1686
+01:09:59,180 --> 01:10:00,830
+So we're not solving the whole problem.
+
+1687
+01:10:00,830 --> 01:10:03,840
+We're handing back a 10, plus a 9--
+
+1688
+01:10:03,840 --> 01:10:06,930
+and if we keep going, plus
+an 8, plus a 7, plus a 6.
+
+1689
+01:10:06,930 --> 01:10:09,110
+But we're not going to do this forever.
+
+1690
+01:10:09,110 --> 01:10:13,250
+Even though I'm using sigma in my
+implementation of my answer, under what
+
+1691
+01:10:13,250 --> 01:10:15,917
+circumstances am I not calling sigma?
+
+1692
+01:10:15,917 --> 01:10:17,140
+AUDIENCE: If m equals 0.
+
+1693
+01:10:17,140 --> 01:10:20,390
+DAVID MALAN: If m equals 0, or is even
+less than 0-- which shouldn't happen,
+
+1694
+01:10:20,390 --> 01:10:24,200
+but just to be sure, I made sure it
+can't, with the less than or equal to.
+
+1695
+01:10:24,200 --> 01:10:28,820
+So eventually, you're going
+to ask me, what is sigma of 0?
+
+1696
+01:10:28,820 --> 01:10:34,430
+And I'm not going to be difficult
+about it, I'm just going to say 0.
+
+1697
+01:10:34,430 --> 01:10:38,532
+And no longer do I keep passing
+the buck to that same function.
+
+1698
+01:10:38,532 --> 01:10:41,490
+And so even though it takes a while
+to get to that point in the story--
+
+1699
+01:10:41,490 --> 01:10:44,390
+because we say 10 plus
+sigma of 9, sigma of 9
+
+1700
+01:10:44,390 --> 01:10:48,212
+is 9 plus sigma of 8, which is
+sigma of 8 plus sigma of 7--
+
+1701
+01:10:48,212 --> 01:10:49,920
+like, it keeps going
+and going and going.
+
+1702
+01:10:49,920 --> 01:10:51,920
+But if you kind of mentally
+buffer, so to speak,
+
+1703
+01:10:51,920 --> 01:10:54,290
+much like a video in your
+browser, all of those numbers
+
+1704
+01:10:54,290 --> 01:10:56,490
+that you're being handed
+back, one at a time--
+
+1705
+01:10:56,490 --> 01:10:58,910
+which are, technically,
+being added together
+
+1706
+01:10:58,910 --> 01:11:02,600
+for you by your program with the plus
+operator-- the last number you're
+
+1707
+01:11:02,600 --> 01:11:05,960
+going to be handed back is zero, and
+at that point, all of the plus signs
+
+1708
+01:11:05,960 --> 01:11:08,630
+can just kind of kick
+in and give you back
+
+1709
+01:11:08,630 --> 01:11:11,340
+whatever number you're
+actually looking for.
+
+1710
+01:11:11,340 --> 01:11:15,560
+So, recursion is the act of
+a function calling itself.
+
+1711
+01:11:15,560 --> 01:11:21,440
+Which is very, very, very bad, unless
+you have a base case that ensures that
+
+1712
+01:11:21,440 --> 01:11:24,860
+eventually, as you take
+bites out of the problem,
+
+1713
+01:11:24,860 --> 01:11:27,920
+you will handle, with a
+special case, so to speak--
+
+1714
+01:11:27,920 --> 01:11:31,760
+a base case-- a small piece
+of the puzzle, and just hand
+
+1715
+01:11:31,760 --> 01:11:33,830
+back a hard-coded answer,
+to make sure that this
+
+1716
+01:11:33,830 --> 01:11:36,980
+doesn't happen infinitely many times.
+
+1717
+01:11:36,980 --> 01:11:42,780
+So, any questions on this principle, of
+a function being able to call itself?
+
+1718
+01:11:42,780 --> 01:11:43,280
+Yeah.
+
+1719
+01:11:43,280 --> 01:11:46,521
+AUDIENCE: So, the base case
+here was when m equals 0?
+
+1720
+01:11:46,521 --> 01:11:49,520
+DAVID MALAN: When m equals 0 or is
+even less than zero, just to be sure.
+
+1721
+01:11:49,520 --> 01:11:51,830
+But yes, when m equals zero.
+
+1722
+01:11:51,830 --> 01:11:53,700
+Indeed.
+
+1723
+01:11:53,700 --> 01:11:54,720
+So, let's see.
+
+1724
+01:11:54,720 --> 01:11:57,720
+If you're comfortable, at least,
+with the fact-- oh, and actually,
+
+1725
+01:11:57,720 --> 01:12:00,690
+there's a good little geek humor now--
+
+1726
+01:12:00,690 --> 01:12:03,357
+if you go to Google.com,
+and suppose you wonder,
+
+1727
+01:12:03,357 --> 01:12:06,190
+you're wondering what recursion is,
+especially a few hours from now.
+
+1728
+01:12:06,190 --> 01:12:13,429
+Well, you can Google it, and then
+the computer scientists at Google--
+
+1729
+01:12:13,429 --> 01:12:13,970
+there you go.
+
+1730
+01:12:13,970 --> 01:12:16,790
+OK, so if you're laughing,
+you get it, which is great.
+
+1731
+01:12:16,790 --> 01:12:18,370
+So that, then, is recursion.
+
+1732
+01:12:18,370 --> 01:12:20,840
+Something giving you back an
+answer in terms of itself.
+
+1733
+01:12:20,840 --> 01:12:22,170
+So, why is this useful?
+
+1734
+01:12:22,170 --> 01:12:24,320
+Well, it turns out we
+can leverage this now
+
+1735
+01:12:24,320 --> 01:12:27,470
+to solve a problem if we know that
+we can actually convert it to code.
+
+1736
+01:12:27,470 --> 01:12:30,380
+We'll focus less on the actual
+implementation and more on the idea,
+
+1737
+01:12:30,380 --> 01:12:33,260
+but let's see if we can't wrap
+our minds around the problem
+
+1738
+01:12:33,260 --> 01:12:35,520
+to be solved with this code.
+
+1739
+01:12:35,520 --> 01:12:37,260
+This is merge sort, in pseudo code.
+
+1740
+01:12:37,260 --> 01:12:39,020
+And again, like all the pseudo
+code we've ever written,
+
+1741
+01:12:39,020 --> 01:12:41,103
+you could write this in
+bunches of different ways.
+
+1742
+01:12:41,103 --> 01:12:42,390
+Here's one such way.
+
+1743
+01:12:42,390 --> 01:12:46,850
+Notice, the first thing, on input of n
+elements-- so, n numbers, n blue books,
+
+1744
+01:12:46,850 --> 01:12:48,950
+n whatever-- go ahead
+and do the following.
+
+1745
+01:12:48,950 --> 01:12:50,832
+If n is less than 2, return.
+
+1746
+01:12:50,832 --> 01:12:53,540
+So it's a little different from
+the condition I had a moment ago,
+
+1747
+01:12:53,540 --> 01:12:56,240
+but the context here is
+sorting, it's not summing.
+
+1748
+01:12:56,240 --> 01:13:02,290
+So, why is it logically OK to say,
+if n is less than 2, just return?
+
+1749
+01:13:02,290 --> 01:13:03,470
+Yeah, that's just itself.
+
+1750
+01:13:03,470 --> 01:13:06,590
+If it's less than 2, that means there's
+only one blue book, or maybe even
+
+1751
+01:13:06,590 --> 01:13:08,990
+0, so in either case,
+there's no work to be done.
+
+1752
+01:13:08,990 --> 01:13:09,620
+Just return.
+
+1753
+01:13:09,620 --> 01:13:12,380
+The list is sorted, however short it is.
+
+1754
+01:13:12,380 --> 01:13:15,020
+But if it's longer than that,
+you might have to do some work,
+
+1755
+01:13:15,020 --> 01:13:17,360
+and actually do some actual sorting.
+
+1756
+01:13:17,360 --> 01:13:18,510
+So, what happens then?
+
+1757
+01:13:18,510 --> 01:13:20,540
+So, else-- you know what?
+
+1758
+01:13:20,540 --> 01:13:22,940
+Sort the left half of the
+elements, and then sort
+
+1759
+01:13:22,940 --> 01:13:26,700
+the right half of the elements,
+and then, OK, merge them together.
+
+1760
+01:13:26,700 --> 01:13:29,162
+So it's the same kind of,
+like, blase attitude, where,
+
+1761
+01:13:29,162 --> 01:13:32,120
+like, ah-- if you ask me to sort
+something, I'm just going to tell you,
+
+1762
+01:13:32,120 --> 01:13:35,210
+well, you go sort the left,
+then you go sort the right,
+
+1763
+01:13:35,210 --> 01:13:38,050
+and then we'll just merge
+the results back together.
+
+1764
+01:13:38,050 --> 01:13:40,160
+And this is cyclical
+in the sense that, how
+
+1765
+01:13:40,160 --> 01:13:42,470
+do you sort the left half of anything?
+
+1766
+01:13:42,470 --> 01:13:44,240
+You need a sorting algorithm.
+
+1767
+01:13:44,240 --> 01:13:46,410
+But this is the sorting algorithm.
+
+1768
+01:13:46,410 --> 01:13:50,420
+So this is like saying, use
+merge sort to sort the left half,
+
+1769
+01:13:50,420 --> 01:13:53,564
+use merge sort to sort the right
+half, and then merge them together.
+
+1770
+01:13:53,564 --> 01:13:55,730
+Merging doesn't really need
+to be a fancy algorithm;
+
+1771
+01:13:55,730 --> 01:13:57,890
+merging is like, if you've
+got one pile of numbers here
+
+1772
+01:13:57,890 --> 01:14:00,260
+that are sorted, one pile of
+numbers here that's sorted,
+
+1773
+01:14:00,260 --> 01:14:02,840
+you can just kind of eyeball them
+and grab the appropriate one to kind
+
+1774
+01:14:02,840 --> 01:14:04,640
+of interleave them in the right order.
+
+1775
+01:14:04,640 --> 01:14:06,230
+That's what we mean by merging.
+
+1776
+01:14:06,230 --> 01:14:08,750
+So, how in the world
+is this even correct?
+
+1777
+01:14:08,750 --> 01:14:13,250
+Because we haven't actually done
+any apparent work, in this way.
+
+1778
+01:14:13,250 --> 01:14:16,220
+There's no loops, there's
+no comparisons, it seems.
+
+1779
+01:14:16,220 --> 01:14:20,210
+It's just completely recursively
+defined, so to speak.
+
+1780
+01:14:20,210 --> 01:14:22,130
+Well, let's see what
+actually this means.
+
+1781
+01:14:22,130 --> 01:14:25,580
+And this is a sequence
+of visualizations that
+
+1782
+01:14:25,580 --> 01:14:30,845
+can potentially fall off the story of.
+
+1783
+01:14:30,845 --> 01:14:34,200
+So I'll try to go slowly, but not
+so slowly that the example itself
+
+1784
+01:14:34,200 --> 01:14:34,700
+is boring.
+
+1785
+01:14:34,700 --> 01:14:35,780
+We'll just go through
+this once, and then
+
+1786
+01:14:35,780 --> 01:14:36,950
+again, the slides are
+online, if you kind of
+
+1787
+01:14:36,950 --> 01:14:38,690
+want to step through the visualization.
+
+1788
+01:14:38,690 --> 01:14:41,240
+So, here is a list of 8
+numbers, the same 8 numbers,
+
+1789
+01:14:41,240 --> 01:14:42,350
+that we looked at before.
+
+1790
+01:14:42,350 --> 01:14:45,890
+I've drawn them contiguously,
+as though they are in an array.
+
+1791
+01:14:45,890 --> 01:14:48,020
+This list is currently of size 8.
+
+1792
+01:14:48,020 --> 01:14:51,180
+So an input of 8 elements is
+the beginning of this story.
+
+1793
+01:14:51,180 --> 01:14:53,240
+What was the first
+step in our algorithm?
+
+1794
+01:14:53,240 --> 01:14:55,760
+Well, we were going to check,
+if n is less than 2, return.
+
+1795
+01:14:55,760 --> 01:14:58,410
+That is irrelevant, because
+n is 8, not less than 2.
+
+1796
+01:14:58,410 --> 01:15:00,390
+So that's a moot point.
+
+1797
+01:15:00,390 --> 01:15:04,250
+So, the first three things
+for me to do to sort this list
+
+1798
+01:15:04,250 --> 01:15:08,480
+is to sort the left half,
+then sort the right half,
+
+1799
+01:15:08,480 --> 01:15:10,640
+then to merge the sorted halves.
+
+1800
+01:15:10,640 --> 01:15:12,180
+OK, so let's see how we get there.
+
+1801
+01:15:12,180 --> 01:15:14,535
+So here's the list,
+here is the left half,
+
+1802
+01:15:14,535 --> 01:15:16,410
+and I need to sort the
+left half, apparently.
+
+1803
+01:15:16,410 --> 01:15:17,860
+How do I do that?
+
+1804
+01:15:17,860 --> 01:15:20,952
+Well, how do you sort a
+list of four elements?
+
+1805
+01:15:20,952 --> 01:15:22,190
+AUDIENCE: Break it up again?
+
+1806
+01:15:22,190 --> 01:15:23,481
+DAVID MALAN: Break it up again.
+
+1807
+01:15:23,481 --> 01:15:28,070
+Sort the left half, then its right half,
+then merge those two halves together.
+
+1808
+01:15:28,070 --> 01:15:28,820
+So let me do that.
+
+1809
+01:15:28,820 --> 01:15:31,452
+I'm going to draw a box
+around only the elements we're
+
+1810
+01:15:31,452 --> 01:15:32,660
+thinking about at the moment.
+
+1811
+01:15:32,660 --> 01:15:35,390
+So, let me look at the left half.
+
+1812
+01:15:35,390 --> 01:15:37,730
+OK, now I need to sort this list.
+
+1813
+01:15:37,730 --> 01:15:39,830
+How do I sort a list of size 2?
+
+1814
+01:15:39,830 --> 01:15:41,430
+It's actually 2, it's not less than 2.
+
+1815
+01:15:41,430 --> 01:15:42,840
+So I have to do some work.
+
+1816
+01:15:42,840 --> 01:15:46,760
+So, how do you sort a list of size 2?
+
+1817
+01:15:46,760 --> 01:15:49,370
+It's a little strange to say it, but--
+
+1818
+01:15:49,370 --> 01:15:53,900
+sort the left half, then sort the
+right half, then merge the two.
+
+1819
+01:15:53,900 --> 01:15:55,997
+And at this point in the
+story, you may very well
+
+1820
+01:15:55,997 --> 01:15:58,580
+be lost, because we literally
+just keep saying the same thing,
+
+1821
+01:15:58,580 --> 01:16:00,650
+and not actually doing any work.
+
+1822
+01:16:00,650 --> 01:16:03,562
+But think of it like you're
+buffering these instructions.
+
+1823
+01:16:03,562 --> 01:16:06,020
+Like, I've said to sort the
+left half, then the right half,
+
+1824
+01:16:06,020 --> 01:16:07,760
+but you focused on just
+the left half for now.
+
+1825
+01:16:07,760 --> 01:16:09,170
+But unfortunately, you
+got a little distracted,
+
+1826
+01:16:09,170 --> 01:16:11,390
+because now to sort the left half,
+you have to sort the left half,
+
+1827
+01:16:11,390 --> 01:16:12,440
+so you have to do a little more work.
+
+1828
+01:16:12,440 --> 01:16:14,773
+So if you just kind of let
+this mental baggage build up,
+
+1829
+01:16:14,773 --> 01:16:17,150
+we have to remember
+to go back through it.
+
+1830
+01:16:17,150 --> 01:16:19,370
+But we've not actually
+done the real work yet.
+
+1831
+01:16:19,370 --> 01:16:20,630
+We're about to now.
+
+1832
+01:16:20,630 --> 01:16:24,890
+Because now that you've told me, given
+a list of size 2, sort the left half,
+
+1833
+01:16:24,890 --> 01:16:27,560
+here's where we bottom
+out with that base case
+
+1834
+01:16:27,560 --> 01:16:29,420
+and actually start to
+make some progress.
+
+1835
+01:16:29,420 --> 01:16:31,220
+So here's 4 and 2, a list of size 2.
+
+1836
+01:16:31,220 --> 01:16:33,050
+Let's sort the left half.
+
+1837
+01:16:33,050 --> 01:16:36,530
+How do you sort a list of size 1?
+
+1838
+01:16:36,530 --> 01:16:37,460
+You don't, right?
+
+1839
+01:16:37,460 --> 01:16:40,670
+Because n is 1; 1, of
+course, is less than 2,
+
+1840
+01:16:40,670 --> 01:16:43,760
+and what was the one instruction that
+we had at the top of this function
+
+1841
+01:16:43,760 --> 01:16:45,400
+merge sort?
+
+1842
+01:16:45,400 --> 01:16:46,430
+Just return.
+
+1843
+01:16:46,430 --> 01:16:47,750
+Like, do nothing.
+
+1844
+01:16:47,750 --> 01:16:48,800
+So, OK, everyone.
+
+1845
+01:16:48,800 --> 01:16:51,020
+I have now sorted the number 4 for you.
+
+1846
+01:16:51,020 --> 01:16:53,930
+Like, it's true, it's kind
+of a foolish statement,
+
+1847
+01:16:53,930 --> 01:16:56,702
+but the magic must therefore
+come when we combine the results.
+
+1848
+01:16:56,702 --> 01:16:58,160
+So, let's see where the story goes.
+
+1849
+01:16:58,160 --> 01:16:59,630
+I've sorted the left half-- done.
+
+1850
+01:16:59,630 --> 01:17:00,620
+Return.
+
+1851
+01:17:00,620 --> 01:17:03,150
+Now, what was I supposed to do next?
+
+1852
+01:17:03,150 --> 01:17:05,810
+Now I have to sort the right
+half of that list of size 2.
+
+1853
+01:17:05,810 --> 01:17:07,700
+OK, done.
+
+1854
+01:17:07,700 --> 01:17:11,090
+What's the third step at
+this point in the story?
+
+1855
+01:17:11,090 --> 01:17:11,630
+Merge them.
+
+1856
+01:17:11,630 --> 01:17:16,640
+So I'm now looking at a list of size 2
+again, each of whose halves is sorted--
+
+1857
+01:17:16,640 --> 01:17:18,750
+according to the crazy
+logic we're using here--
+
+1858
+01:17:18,750 --> 01:17:20,840
+but now, something interesting happens.
+
+1859
+01:17:20,840 --> 01:17:23,930
+I have on the left the
+number 4, I have on the right
+
+1860
+01:17:23,930 --> 01:17:26,432
+the number 2, and each of
+these lists is of size 1.
+
+1861
+01:17:26,432 --> 01:17:29,390
+And if you vary, in your mind's eye,
+or just visually, with my fingers,
+
+1862
+01:17:29,390 --> 01:17:32,180
+consider, like, your left hand
+pointing at the first list,
+
+1863
+01:17:32,180 --> 01:17:35,630
+your right hand pointing at the second
+list, the process of merging numbers
+
+1864
+01:17:35,630 --> 01:17:38,480
+is just comparing what your fingers
+are pointing at and deciding
+
+1865
+01:17:38,480 --> 01:17:39,890
+which one comes first.
+
+1866
+01:17:39,890 --> 01:17:42,450
+Obviously 2 is going to
+come first, so in a moment,
+
+1867
+01:17:42,450 --> 01:17:45,256
+we'll see that 2 should
+move over here, and then
+
+1868
+01:17:45,256 --> 01:17:46,880
+there's nothing left for my right hand.
+
+1869
+01:17:46,880 --> 01:17:47,380
+It's done.
+
+1870
+01:17:47,380 --> 01:17:49,310
+So, 4 is obviously going to go here.
+
+1871
+01:17:49,310 --> 01:17:53,540
+And that process of merging 2 followed
+by 4 is what we mean by merging.
+
+1872
+01:17:53,540 --> 01:17:56,300
+It's pretty much what I was
+doing with insertion sort,
+
+1873
+01:17:56,300 --> 01:17:59,589
+but here we're just doing it with
+individual elements at a time, kind
+
+1874
+01:17:59,589 --> 01:18:01,880
+of weaving things together,
+or zipping things together,
+
+1875
+01:18:01,880 --> 01:18:03,080
+like with a zipper, if
+you think of it that.
+
+1876
+01:18:03,080 --> 01:18:03,810
+Way.
+
+1877
+01:18:03,810 --> 01:18:06,990
+So, now, let me grab 2 and put it here.
+
+1878
+01:18:06,990 --> 01:18:09,650
+Let me grab 4 and put it here.
+
+1879
+01:18:09,650 --> 01:18:10,370
+OK.
+
+1880
+01:18:10,370 --> 01:18:14,660
+So I sorted left half, I sorted
+right half, I merged them--
+
+1881
+01:18:14,660 --> 01:18:15,950
+how do we unwind the story?
+
+1882
+01:18:15,950 --> 01:18:17,160
+Where did we leave off?
+
+1883
+01:18:17,160 --> 01:18:18,410
+AUDIENCE: Sort the right half.
+
+1884
+01:18:18,410 --> 01:18:21,035
+DAVID MALAN: Now we have to sort
+the right half that was, like,
+
+1885
+01:18:21,035 --> 01:18:24,812
+a minute ago in the story-- which, just
+to highlight it now, is the 7 and 5.
+
+1886
+01:18:24,812 --> 01:18:26,270
+So now I have to do the same thing.
+
+1887
+01:18:26,270 --> 01:18:31,350
+I'm sorting a list, of size 2, that
+happens to be on the right of the left.
+
+1888
+01:18:31,350 --> 01:18:34,250
+So now, I sort the left half, done.
+
+1889
+01:18:34,250 --> 01:18:36,140
+Sort the right half, done.
+
+1890
+01:18:36,140 --> 01:18:37,740
+I now have to merge the two together.
+
+1891
+01:18:37,740 --> 01:18:40,900
+So now my hands have to do some work,
+but I'll just do it from over here.
+
+1892
+01:18:40,900 --> 01:18:43,550
+5 goes down, then 7 goes down.
+
+1893
+01:18:43,550 --> 01:18:49,400
+And at this point in the story, we have
+sorted the left half of the left half,
+
+1894
+01:18:49,400 --> 01:18:53,010
+and the right half of the left half.
+
+1895
+01:18:53,010 --> 01:18:56,070
+So, what point in the
+story are we at now?
+
+1896
+01:18:56,070 --> 01:18:56,570
+Right.
+
+1897
+01:18:56,570 --> 01:18:59,480
+We're-- now we have-- well, we
+did the right half just now.
+
+1898
+01:18:59,480 --> 01:19:01,547
+We now have to merge
+the two halves together.
+
+1899
+01:19:01,547 --> 01:19:04,880
+And, frankly, if you do this at home, if
+you want to kind of retrace your steps,
+
+1900
+01:19:04,880 --> 01:19:07,640
+literally just write down a to-do
+list, like, from top to bottom
+
+1901
+01:19:07,640 --> 01:19:08,390
+on the sheet of paper.
+
+1902
+01:19:08,390 --> 01:19:10,640
+And then as you do something,
+cross it off, and go back
+
+1903
+01:19:10,640 --> 01:19:13,431
+to the previous thing in the list,
+you would actually see, or feel,
+
+1904
+01:19:13,431 --> 01:19:15,530
+even more what it was,
+that mental baggage
+
+1905
+01:19:15,530 --> 01:19:17,030
+you were accumulating that
+you need to attend to.
+
+1906
+01:19:17,030 --> 01:19:20,150
+But now I have two lists of size 2, so
+let's do the finger thing again here.
+
+1907
+01:19:20,150 --> 01:19:23,149
+So, I start pointing at the left list,
+start pointing at the right list.
+
+1908
+01:19:23,149 --> 01:19:26,166
+The first number to merge in
+is, presumably, going to be 2.
+
+1909
+01:19:26,166 --> 01:19:27,290
+Then what comes after that?
+
+1910
+01:19:27,290 --> 01:19:29,480
+I'm going to update my
+left finger, so now 1--
+
+1911
+01:19:29,480 --> 01:19:32,600
+my left hand's pointing at the 4,
+at this point; my right hand, still
+
+1912
+01:19:32,600 --> 01:19:35,150
+pointing at the 5, so which comes next?
+
+1913
+01:19:35,150 --> 01:19:35,930
+4.
+
+1914
+01:19:35,930 --> 01:19:37,760
+There's no more work for my
+left hand, so it's probably
+
+1915
+01:19:37,760 --> 01:19:38,926
+going to be pretty trivial--
+
+1916
+01:19:38,926 --> 01:19:39,427
+5 and 7.
+
+1917
+01:19:39,427 --> 01:19:40,760
+But I do need to do the merging.
+
+1918
+01:19:40,760 --> 01:19:43,520
+It looks merged already,
+but we have to do it.
+
+1919
+01:19:43,520 --> 01:19:46,500
+And I'm going to do it in some
+new space, just as before.
+
+1920
+01:19:46,500 --> 01:19:49,790
+So, 2 and 4 and 5 and 7.
+
+1921
+01:19:49,790 --> 01:19:52,250
+And now you can really
+see it for the first time.
+
+1922
+01:19:52,250 --> 01:19:55,610
+The left half of the original
+list is finally sorted.
+
+1923
+01:19:55,610 --> 01:19:59,220
+Unfortunately, like three minutes
+ago is when we started the story.
+
+1924
+01:19:59,220 --> 01:20:02,809
+And now we need to unwind, in our mind,
+to go back to the original right half.
+
+1925
+01:20:02,809 --> 01:20:05,600
+So if you think about it now, even
+though I've said a lot of words,
+
+1926
+01:20:05,600 --> 01:20:09,410
+this is technically the
+second step in our algorithm.
+
+1927
+01:20:09,410 --> 01:20:12,140
+Or at least the first
+invocation thereof.
+
+1928
+01:20:12,140 --> 01:20:14,600
+All right, so we'll do it a
+little faster, but same idea.
+
+1929
+01:20:14,600 --> 01:20:16,520
+Sort the left half.
+
+1930
+01:20:16,520 --> 01:20:17,660
+How do I do that?
+
+1931
+01:20:17,660 --> 01:20:22,340
+Sort the left half, then the right
+half, which are stupidly easy and dumb,
+
+1932
+01:20:22,340 --> 01:20:25,309
+but now I have to merge 6 and 8.
+
+1933
+01:20:25,309 --> 01:20:27,350
+So, merging in this case
+didn't have much effect,
+
+1934
+01:20:27,350 --> 01:20:29,720
+but it needed to be done to be sure.
+
+1935
+01:20:29,720 --> 01:20:32,180
+Next, let's sort the right
+half of the right half.
+
+1936
+01:20:32,180 --> 01:20:35,090
+Now I'm going to sort
+the left, sort the right.
+
+1937
+01:20:35,090 --> 01:20:36,340
+Now the key step is merging.
+
+1938
+01:20:36,340 --> 01:20:38,120
+And now we're doing some actual work.
+
+1939
+01:20:38,120 --> 01:20:40,080
+And now we really have
+some work to be done--
+
+1940
+01:20:40,080 --> 01:20:43,163
+now we have to sort the left half and
+the right half of the original right
+
+1941
+01:20:43,163 --> 01:20:43,760
+half.
+
+1942
+01:20:43,760 --> 01:20:47,990
+So it's 1, then 3, then 6, then 8.
+
+1943
+01:20:47,990 --> 01:20:49,812
+Now we're finally, almost at the end.
+
+1944
+01:20:49,812 --> 01:20:51,020
+Now what do we do with these?
+
+1945
+01:20:51,020 --> 01:20:54,015
+Now we have two halves, the original
+left and the original right,
+
+1946
+01:20:54,015 --> 01:20:56,390
+and you can think of the
+fingers as doing the work again.
+
+1947
+01:20:56,390 --> 01:21:01,580
+1 is going to go here, 2 is going to go
+here, 3 is going to go here, then 4--
+
+1948
+01:21:01,580 --> 01:21:03,987
+and I constantly compare
+where my fingers are pointing,
+
+1949
+01:21:03,987 --> 01:21:06,320
+but my fingers are constantly
+moving from left to right.
+
+1950
+01:21:06,320 --> 01:21:08,945
+As soon as I deal with a number,
+it advances to the next number
+
+1951
+01:21:08,945 --> 01:21:09,570
+in the list.
+
+1952
+01:21:09,570 --> 01:21:14,600
+So it's obviously going to
+be, now, 1, 2, 3, 4, 5, 6.
+
+1953
+01:21:14,600 --> 01:21:17,069
+But notice, if you imagine
+my fingers doing this work,
+
+1954
+01:21:17,069 --> 01:21:19,860
+they're constantly moving toward
+the right, to the end of the list.
+
+1955
+01:21:19,860 --> 01:21:24,500
+So, as soon as my fingers hit the ends
+of those lists, I must be done merging.
+
+1956
+01:21:24,500 --> 01:21:25,250
+And voila.
+
+1957
+01:21:25,250 --> 01:21:26,930
+We've now sorted the elements.
+
+1958
+01:21:26,930 --> 01:21:29,330
+It's a huge number of words,
+and it would be a nightmare
+
+1959
+01:21:29,330 --> 01:21:32,163
+to kind of do it with humans, because
+there's just so much going on,
+
+1960
+01:21:32,163 --> 01:21:35,230
+and you have to remember, or
+buffer, so many of those steps.
+
+1961
+01:21:35,230 --> 01:21:39,910
+But in the end, we've done something
+that is kind of captured even
+
+1962
+01:21:39,910 --> 01:21:41,560
+by this picture.
+
+1963
+01:21:41,560 --> 01:21:46,090
+So it turns out that merge sort, even
+though it sounds like a long story,
+
+1964
+01:21:46,090 --> 01:21:49,480
+is fundamentally faster, and it's
+fundamentally faster because we're
+
+1965
+01:21:49,480 --> 01:21:53,640
+dividing the problem in half, as we
+have been doing with binary search,
+
+1966
+01:21:53,640 --> 01:21:56,150
+in the phone book example even days ago.
+
+1967
+01:21:56,150 --> 01:22:00,700
+So if we look on the screen, you
+can kind of see the remnants of work
+
+1968
+01:22:00,700 --> 01:22:01,780
+that we've done.
+
+1969
+01:22:01,780 --> 01:22:08,670
+Like, how many times did we move the
+elements, from one row to another?
+
+1970
+01:22:08,670 --> 01:22:12,360
+They started up here, then they
+eventually made their way here,
+
+1971
+01:22:12,360 --> 01:22:14,260
+and then here, and then here.
+
+1972
+01:22:14,260 --> 01:22:18,780
+So that's one, two, three movements
+of the letters, or of the numbers,
+
+1973
+01:22:18,780 --> 01:22:19,770
+in memory, if you will.
+
+1974
+01:22:19,770 --> 01:22:21,630
+So if you imagine each of these
+rows as just a different chunk
+
+1975
+01:22:21,630 --> 01:22:24,450
+of memory and RAM, I'm just
+moving things around in memory.
+
+1976
+01:22:24,450 --> 01:22:26,612
+So, three is just a number.
+
+1977
+01:22:26,612 --> 01:22:29,070
+But it turns out, and if we
+did more general cases of this,
+
+1978
+01:22:29,070 --> 01:22:34,410
+turns out that log base
+2 of n, where n is 8--
+
+1979
+01:22:34,410 --> 01:22:40,020
+8 is the number of elements we
+started with-- log base 2 of 8 is 3.
+
+1980
+01:22:40,020 --> 01:22:42,300
+And so indeed-- and if
+you'll take on faith for now,
+
+1981
+01:22:42,300 --> 01:22:44,758
+so that we don't have to go
+through an even bigger example,
+
+1982
+01:22:44,758 --> 01:22:46,140
+to show it even more--
+
+1983
+01:22:46,140 --> 01:22:49,310
+the number of times we move
+the numbers is going to equal,
+
+1984
+01:22:49,310 --> 01:22:51,630
+turns out, log base 2 of n.
+
+1985
+01:22:51,630 --> 01:22:53,700
+Which, in this case, happens to be 3.
+
+1986
+01:22:53,700 --> 01:22:56,280
+And so that, then, invites
+the question-- on each
+
+1987
+01:22:56,280 --> 01:23:00,760
+of the rows, every time you move these
+numbers into a new location in memory,
+
+1988
+01:23:00,760 --> 01:23:05,399
+how many times are you touching that
+number while it's in that position?
+
+1989
+01:23:05,399 --> 01:23:07,440
+Or, how many times,
+equivalently, are you looking
+
+1990
+01:23:07,440 --> 01:23:08,820
+at it, to do something about it?
+
+1991
+01:23:08,820 --> 01:23:12,260
+
+
+1992
+01:23:12,260 --> 01:23:13,550
+What do I mean by this?
+
+1993
+01:23:13,550 --> 01:23:17,170
+Well, the movement from top to
+bottom was happening anytime
+
+1994
+01:23:17,170 --> 01:23:18,080
+we did the merging.
+
+1995
+01:23:18,080 --> 01:23:18,580
+Right?
+
+1996
+01:23:18,580 --> 01:23:20,729
+We would move the numbers
+from here to here.
+
+1997
+01:23:20,729 --> 01:23:23,770
+But as soon as we did that, we had to
+do some work, with the left pointer
+
+1998
+01:23:23,770 --> 01:23:24,519
+and right pointer.
+
+1999
+01:23:24,519 --> 01:23:26,830
+I needed to then merge those together.
+
+2000
+01:23:26,830 --> 01:23:29,960
+And I emphasized earlier that
+anytime I'm comparing numbers,
+
+2001
+01:23:29,960 --> 01:23:31,720
+my left hand and right
+hand are constantly
+
+2002
+01:23:31,720 --> 01:23:33,630
+advancing from left and right.
+
+2003
+01:23:33,630 --> 01:23:34,990
+I never double back.
+
+2004
+01:23:34,990 --> 01:23:38,190
+Much like I constantly was doubling
+back with bubble sort, insertion sort,
+
+2005
+01:23:38,190 --> 01:23:40,690
+selection sort-- there was so
+much damn comparison going on,
+
+2006
+01:23:40,690 --> 01:23:42,773
+it felt like a lot of work,
+and it physically was.
+
+2007
+01:23:42,773 --> 01:23:46,210
+But here, you know, merging,
+I'm moving things around,
+
+2008
+01:23:46,210 --> 01:23:50,710
+but my hands are constantly moving
+forward, looking at, on each row,
+
+2009
+01:23:50,710 --> 01:23:52,180
+n numbers total.
+
+2010
+01:23:52,180 --> 01:23:58,390
+My left hand or right hand pointed
+at each of the numbers once.
+
+2011
+01:23:58,390 --> 01:23:59,680
+Never doubled back.
+
+2012
+01:23:59,680 --> 01:24:03,160
+So, it was never n plus
+1, or 2 n, it was just n.
+
+2013
+01:24:03,160 --> 01:24:07,930
+So, we have log n movements
+of the numbers, in memory.
+
+2014
+01:24:07,930 --> 01:24:11,440
+And every time we do that, we merge
+them from left to right, effectively
+
+2015
+01:24:11,440 --> 01:24:13,150
+touching each number once.
+
+2016
+01:24:13,150 --> 01:24:18,070
+So we're doing n things log n times.
+
+2017
+01:24:18,070 --> 01:24:22,840
+And so, that would be
+mathematically equal to n log n.
+
+2018
+01:24:22,840 --> 01:24:25,480
+So, again, even if you're not
+super comfy with logarithms,
+
+2019
+01:24:25,480 --> 01:24:29,244
+you do know, from our picture, with
+the straight lines and the curved line,
+
+2020
+01:24:29,244 --> 01:24:30,160
+that which is smaller?
+
+2021
+01:24:30,160 --> 01:24:32,440
+Log of n, or n, generally speaking?
+
+2022
+01:24:32,440 --> 01:24:33,460
+AUDIENCE: Log of n.
+
+2023
+01:24:33,460 --> 01:24:35,440
+DAVID MALAN: Like, log
+of n is smaller, right?
+
+2024
+01:24:35,440 --> 01:24:39,400
+That's why the green line was
+lower, and it was also curved.
+
+2025
+01:24:39,400 --> 01:24:41,620
+It was below the linear line n.
+
+2026
+01:24:41,620 --> 01:24:46,754
+So, generally speaking, the bigger
+n gets, the more slowly log n grows.
+
+2027
+01:24:46,754 --> 01:24:48,670
+And again, if you just
+take on faith that this
+
+2028
+01:24:48,670 --> 01:24:52,060
+is a mathematical expression that
+communicates the time required
+
+2029
+01:24:52,060 --> 01:24:53,260
+to do something, it's less.
+
+2030
+01:24:53,260 --> 01:24:55,150
+So, which, therefore, is smaller?
+
+2031
+01:24:55,150 --> 01:24:58,510
+N squared, which of course is n times n?
+
+2032
+01:24:58,510 --> 01:24:59,867
+Or n log n?
+
+2033
+01:24:59,867 --> 01:25:01,095
+AUDIENCE: N log n.
+
+2034
+01:25:01,095 --> 01:25:01,970
+DAVID MALAN: N log n.
+
+2035
+01:25:01,970 --> 01:25:05,530
+So, we've now found an algorithm that's
+unlike all of the others we've seen.
+
+2036
+01:25:05,530 --> 01:25:07,690
+And even though it took a while to
+explain, and even though, frankly,
+
+2037
+01:25:07,690 --> 01:25:10,030
+you might have to kind of sift through
+it again to really wrap your mind
+
+2038
+01:25:10,030 --> 01:25:11,920
+around it-- it took me a while, too--
+
+2039
+01:25:11,920 --> 01:25:17,570
+it is fundamentally faster as well.
+
+2040
+01:25:17,570 --> 01:25:21,591
+So, just to take one other stab at
+this, let me show one other perspective.
+
+2041
+01:25:21,591 --> 01:25:24,340
+At least if you're more mathematically
+comfortable it after today,
+
+2042
+01:25:24,340 --> 01:25:26,530
+if you're worried that this is way
+more math than you were expecting,
+
+2043
+01:25:26,530 --> 01:25:29,170
+realize we very quickly abstract
+away from these details,
+
+2044
+01:25:29,170 --> 01:25:31,715
+and we start to wave our hands
+using big 0 and big omega.
+
+2045
+01:25:31,715 --> 01:25:34,090
+Let's consider how we could
+look at this a different way.
+
+2046
+01:25:34,090 --> 01:25:35,964
+If the picture wasn't
+really working for you,
+
+2047
+01:25:35,964 --> 01:25:39,670
+let's see if we can just, like,
+jot down how many steps each
+
+2048
+01:25:39,670 --> 01:25:40,780
+of these lines of code is.
+
+2049
+01:25:40,780 --> 01:25:42,190
+And there's not many
+lines of code here, so it
+
+2050
+01:25:42,190 --> 01:25:43,810
+shouldn't be a very long expression.
+
+2051
+01:25:43,810 --> 01:25:47,230
+So, how long does it take to
+decide if n is less than 2?
+
+2052
+01:25:47,230 --> 01:25:48,846
+And, if so, return?
+
+2053
+01:25:48,846 --> 01:25:50,970
+Well, you're past a bunch
+of numbers, so, you know,
+
+2054
+01:25:50,970 --> 01:25:52,520
+I'm going to call it constant time.
+
+2055
+01:25:52,520 --> 01:25:54,840
+Like, you know how many
+numbers you've been handed--
+
+2056
+01:25:54,840 --> 01:25:56,590
+nope, it's not less
+than 2, or yes, it is.
+
+2057
+01:25:56,590 --> 01:25:57,700
+You're just answering yes or no.
+
+2058
+01:25:57,700 --> 01:25:58,420
+Constant time.
+
+2059
+01:25:58,420 --> 01:25:59,270
+Big O of one.
+
+2060
+01:25:59,270 --> 01:25:59,770
+All right?
+
+2061
+01:25:59,770 --> 01:26:00,970
+So I'm going to describe that as this.
+
+2062
+01:26:00,970 --> 01:26:02,470
+This is the formal way of saying it.
+
+2063
+01:26:02,470 --> 01:26:06,070
+T of n, which is just how much time does
+it take, given a problem of size n--
+
+2064
+01:26:06,070 --> 01:26:07,730
+just a fancy way of saying that.
+
+2065
+01:26:07,730 --> 01:26:08,980
+It's on the order of one step.
+
+2066
+01:26:08,980 --> 01:26:10,560
+Maybe it's two, maybe it's
+three, because you kind of
+
+2067
+01:26:10,560 --> 01:26:11,410
+got to look at something.
+
+2068
+01:26:11,410 --> 01:26:13,201
+But it's a fixed number
+of steps to decide,
+
+2069
+01:26:13,201 --> 01:26:15,730
+there are fewer than n
+elements in front of me.
+
+2070
+01:26:15,730 --> 01:26:17,350
+It's not going to take you very long.
+
+2071
+01:26:17,350 --> 01:26:21,190
+So, that piece of the puzzle
+takes big O of one step.
+
+2072
+01:26:21,190 --> 01:26:23,200
+So now, we have three
+other questions to ask.
+
+2073
+01:26:23,200 --> 01:26:24,616
+That's, like, kind of a throwaway.
+
+2074
+01:26:24,616 --> 01:26:27,802
+That's really quick, if it's just one
+step, or two steps, or three steps.
+
+2075
+01:26:27,802 --> 01:26:29,260
+So, are these the expensive things?
+
+2076
+01:26:29,260 --> 01:26:30,220
+Well, let's see.
+
+2077
+01:26:30,220 --> 01:26:31,690
+Sort the left half of elements.
+
+2078
+01:26:31,690 --> 01:26:35,080
+Well, here, too, I can be kind of
+clever and propose the following.
+
+2079
+01:26:35,080 --> 01:26:35,740
+You know what?
+
+2080
+01:26:35,740 --> 01:26:38,830
+The amount of time
+required to sort n elements
+
+2081
+01:26:38,830 --> 01:26:40,810
+is technically equal
+to the amount of time
+
+2082
+01:26:40,810 --> 01:26:45,220
+it takes to sort half of those elements,
+plus the amount of time required
+
+2083
+01:26:45,220 --> 01:26:49,260
+to sort the other half of those
+elements, plus, to be fair,
+
+2084
+01:26:49,260 --> 01:26:51,040
+some merging time.
+
+2085
+01:26:51,040 --> 01:26:54,319
+And it's essentially n, but I'm
+going to generalize it as big O of n,
+
+2086
+01:26:54,319 --> 01:26:56,110
+because I did have to
+move my hands around.
+
+2087
+01:26:56,110 --> 01:26:59,235
+But again, the key thing was, my hands
+were constantly moving to the right.
+
+2088
+01:26:59,235 --> 01:27:02,592
+There was no looping back and again, and
+again, like with the other algorithms.
+
+2089
+01:27:02,592 --> 01:27:04,300
+So it's, like, n steps
+to do the merging.
+
+2090
+01:27:04,300 --> 01:27:06,250
+If I've got 4 numbers
+here, 4 numbers here,
+
+2091
+01:27:06,250 --> 01:27:08,170
+I have to touch a total of 8 elements.
+
+2092
+01:27:08,170 --> 01:27:12,730
+8 is n, so it feels like, yes, on the
+order of n steps to do the merging.
+
+2093
+01:27:12,730 --> 01:27:15,730
+Unfortunately, this is
+like a recursive answer
+
+2094
+01:27:15,730 --> 01:27:18,919
+to the question of how
+efficient is merge sort.
+
+2095
+01:27:18,919 --> 01:27:20,710
+But that's kind of
+consistent with the fact
+
+2096
+01:27:20,710 --> 01:27:24,432
+that merge sort is being implemented
+recursively in this code.
+
+2097
+01:27:24,432 --> 01:27:26,140
+And it turns out here,
+too, if you've got
+
+2098
+01:27:26,140 --> 01:27:28,930
+one of those old-school textbooks
+that's got a cheat sheet in the front
+
+2099
+01:27:28,930 --> 01:27:30,846
+or the back of your
+physics or your math book,
+
+2100
+01:27:30,846 --> 01:27:35,050
+this is a series that you can actually--
+that mathematicians know actually
+
+2101
+01:27:35,050 --> 01:27:39,370
+sum up to something known,
+which is n times log n.
+
+2102
+01:27:39,370 --> 01:27:42,550
+And we won't go into the weeds
+of why that is, mathematically,
+
+2103
+01:27:42,550 --> 01:27:45,850
+but if you take a problem of
+size n, and add the running
+
+2104
+01:27:45,850 --> 01:27:48,790
+time for first half, second
+half, and then add an n,
+
+2105
+01:27:48,790 --> 01:27:51,626
+this is what, mathematically,
+it ends up being.
+
+2106
+01:27:51,626 --> 01:27:53,500
+And so, if you're more
+comfortable with that,
+
+2107
+01:27:53,500 --> 01:27:56,980
+realize that this derives from just
+counting up of those several steps.
+
+2108
+01:27:56,980 --> 01:27:59,600
+And ultimately, this is
+much better than that.
+
+2109
+01:27:59,600 --> 01:28:01,422
+And in fact, we can
+kind of feel this here.
+
+2110
+01:28:01,422 --> 01:28:03,880
+You'll be able to feel it even
+better with other data sets,
+
+2111
+01:28:03,880 --> 01:28:07,570
+but let me go ahead and reload here,
+and go ahead, at the same speed
+
+2112
+01:28:07,570 --> 01:28:10,315
+as we were before, choosing merge sort.
+
+2113
+01:28:10,315 --> 01:28:13,270
+
+
+2114
+01:28:13,270 --> 01:28:16,540
+Let me fit it onto the screen at once.
+
+2115
+01:28:16,540 --> 01:28:21,260
+Actually, we should speed
+it up to the original.
+
+2116
+01:28:21,260 --> 01:28:22,600
+So, what is it doing?
+
+2117
+01:28:22,600 --> 01:28:25,780
+It's using a bit of extra memory,
+just as we were on the screen,
+
+2118
+01:28:25,780 --> 01:28:27,610
+using some additional space.
+
+2119
+01:28:27,610 --> 01:28:32,859
+But notice, as it does that work, it's
+kind of moving things back and forth.
+
+2120
+01:28:32,859 --> 01:28:34,150
+And it's actually saving space.
+
+2121
+01:28:34,150 --> 01:28:36,930
+Even though I used log n amount
+of memory by keep moving it,
+
+2122
+01:28:36,930 --> 01:28:37,600
+this was stupid.
+
+2123
+01:28:37,600 --> 01:28:40,266
+Like, I didn't need to keep using
+more memory, more memory, more
+
+2124
+01:28:40,266 --> 01:28:42,589
+memory, because I wasn't
+using the stuff anymore above.
+
+2125
+01:28:42,589 --> 01:28:45,130
+So with merge sort, you really
+just need twice as much memory
+
+2126
+01:28:45,130 --> 01:28:48,220
+as those other algorithms, because
+the first time you need to move them,
+
+2127
+01:28:48,220 --> 01:28:49,150
+move them here.
+
+2128
+01:28:49,150 --> 01:28:51,854
+And then, even though I did
+it visually, deliberately
+
+2129
+01:28:51,854 --> 01:28:54,520
+to move it to yet another location,
+just keep moving things back
+
+2130
+01:28:54,520 --> 01:28:55,450
+and forth as needed.
+
+2131
+01:28:55,450 --> 01:28:57,700
+And that's what's happening
+with that algorithm there.
+
+2132
+01:28:57,700 --> 01:29:00,430
+It's not quite as clear to see
+with this visualization, so let
+
+2133
+01:29:00,430 --> 01:29:02,860
+me open up this other one here.
+
+2134
+01:29:02,860 --> 01:29:05,050
+Now, go.
+
+2135
+01:29:05,050 --> 01:29:08,500
+And you'll see merge sort
+all the way on the right--
+
+2136
+01:29:08,500 --> 01:29:10,390
+done.
+
+2137
+01:29:10,390 --> 01:29:12,790
+All right, so, insertion
+sort got a little lucky here,
+
+2138
+01:29:12,790 --> 01:29:15,310
+just because of the order of the
+elements, and the size of the dataset
+
+2139
+01:29:15,310 --> 01:29:17,809
+isn't that big, which is why I
+wanted to show the other one.
+
+2140
+01:29:17,809 --> 01:29:22,490
+But if we do it once more, you'll
+see, again, that merge sort
+
+2141
+01:29:22,490 --> 01:29:23,770
+is pretty darn quick.
+
+2142
+01:29:23,770 --> 01:29:25,520
+And you can see it
+doing things in halves.
+
+2143
+01:29:25,520 --> 01:29:29,530
+And selection sort, and bubble
+sort, are still doing their thing.
+
+2144
+01:29:29,530 --> 01:29:32,670
+And if we did this using
+not, like, what is that--
+
+2145
+01:29:32,670 --> 01:29:35,470
+10, 20, bars total, but 100 bars?
+
+2146
+01:29:35,470 --> 01:29:36,506
+Or a million bars?
+
+2147
+01:29:36,506 --> 01:29:38,380
+You would really, really
+feel the difference,
+
+2148
+01:29:38,380 --> 01:29:43,100
+just as we did with the
+phone book example as well.
+
+2149
+01:29:43,100 --> 01:29:46,399
+Any questions there on that?
+
+2150
+01:29:46,399 --> 01:29:48,440
+And we won't walk through
+the code, but if you're
+
+2151
+01:29:48,440 --> 01:29:52,090
+curious to actually see how some
+of these ideas map to C code,
+
+2152
+01:29:52,090 --> 01:29:55,220
+you will find, in the CS50 appliance,
+in the source code from today,
+
+2153
+01:29:55,220 --> 01:29:59,600
+a couple of files-- binary zero and
+binary one in linear.c, all of which
+
+2154
+01:29:59,600 --> 01:30:02,620
+implement binary search and linear
+search in a couple of different ways,
+
+2155
+01:30:02,620 --> 01:30:04,370
+if you actually want
+to see how those map.
+
+2156
+01:30:04,370 --> 01:30:07,010
+But what we thought we would
+do, in our remaining time today,
+
+2157
+01:30:07,010 --> 01:30:10,280
+is tee up one of the next
+algorithmic challenges.
+
+2158
+01:30:10,280 --> 01:30:14,669
+It turns out that there are wonderful
+opportunities in computer science
+
+2159
+01:30:14,669 --> 01:30:16,460
+to intersect with other
+fields-- among them
+
+2160
+01:30:16,460 --> 01:30:18,380
+the arts, and very specifically, music.
+
+2161
+01:30:18,380 --> 01:30:21,560
+And it turns out that music,
+whether you're an audiophile or even
+
+2162
+01:30:21,560 --> 01:30:25,400
+a musical theoretician,
+there are relationships
+
+2163
+01:30:25,400 --> 01:30:29,030
+among the sounds that we hear and the
+rate at which we hear those notes.
+
+2164
+01:30:29,030 --> 01:30:30,750
+Which is to say, they follow patterns.
+
+2165
+01:30:30,750 --> 01:30:32,970
+And these patterns can
+be produced by computers,
+
+2166
+01:30:32,970 --> 01:30:35,480
+they can be generated by
+computers, and what we'll do,
+
+2167
+01:30:35,480 --> 01:30:37,550
+ultimately, in problem
+set three, in fact,
+
+2168
+01:30:37,550 --> 01:30:40,194
+is introduce you to a
+bit of the musical world,
+
+2169
+01:30:40,194 --> 01:30:42,110
+whether you have some
+prior experience or not.
+
+2170
+01:30:42,110 --> 01:30:45,940
+And Brian, if you wouldn't mind coming
+up just to assist with this teaser.
+
+2171
+01:30:45,940 --> 01:30:48,920
+Here are just a few
+keys from a keyboard,
+
+2172
+01:30:48,920 --> 01:30:51,519
+and here are 88 keys
+from an actual keyboard.
+
+2173
+01:30:51,519 --> 01:30:54,560
+And Brian will help us, in just a
+moment, with some of these definitions.
+
+2174
+01:30:54,560 --> 01:30:57,992
+But you'll see here that there are eight
+keys, or one, two, three, four, five,
+
+2175
+01:30:57,992 --> 01:31:01,640
+six, seven white keys and
+five black keys on the board.
+
+2176
+01:31:01,640 --> 01:31:03,042
+And it turns out that mankind--
+
+2177
+01:31:03,042 --> 01:31:05,000
+at least, in Western
+music, years ago-- decided
+
+2178
+01:31:05,000 --> 01:31:08,227
+to standardize on how
+we describe these keys.
+
+2179
+01:31:08,227 --> 01:31:09,560
+And we assigned letters to them.
+
+2180
+01:31:09,560 --> 01:31:11,690
+And you might have heard of
+middle C, even if you've never
+
+2181
+01:31:11,690 --> 01:31:14,660
+played a piano before, and you might
+think of that as being the leftmost key
+
+2182
+01:31:14,660 --> 01:31:15,170
+there.
+
+2183
+01:31:15,170 --> 01:31:19,100
+And then it's D, E, F, G, and then
+A, B. And of course, on a real piano,
+
+2184
+01:31:19,100 --> 01:31:21,530
+there's keys to the left, and
+there's keys to the right.
+
+2185
+01:31:21,530 --> 01:31:24,284
+Do you want to play what
+C might sound like here?
+
+2186
+01:31:24,284 --> 01:31:26,060
+[PIANO PLAYS]
+
+2187
+01:31:26,060 --> 01:31:29,472
+So, that's C. And then, if
+you want to-- very well done.
+
+2188
+01:31:29,472 --> 01:31:31,970
+[APPLAUSE]
+
+2189
+01:31:31,970 --> 01:31:34,545
+Do you want to go all the way
+up through the scale to B?
+
+2190
+01:31:34,545 --> 01:31:41,757
+[PIANO PLAYS]
+
+2191
+01:31:41,757 --> 01:31:44,590
+That's kind of unresolved, too,
+because what should have come next--
+
+2192
+01:31:44,590 --> 01:31:45,730
+[PIANO PLAYS]
+
+2193
+01:31:45,730 --> 01:31:48,340
+That would be another C. And so
+what Brian's played for us is
+
+2194
+01:31:48,340 --> 01:31:51,190
+a full octave, now, referring to eight.
+
+2195
+01:31:51,190 --> 01:31:53,777
+So, C to C inclusive, in this case.
+
+2196
+01:31:53,777 --> 01:31:56,110
+And those of us who are kind
+of are familiar with music,
+
+2197
+01:31:56,110 --> 01:31:57,860
+or like listening to
+certain music, you'll
+
+2198
+01:31:57,860 --> 01:31:59,980
+notice that certain things sound good.
+
+2199
+01:31:59,980 --> 01:32:03,220
+And there's actually mathematical and
+formulaic, or algorithmic, reasons
+
+2200
+01:32:03,220 --> 01:32:05,170
+that some of these sounds
+sound actually good.
+
+2201
+01:32:05,170 --> 01:32:06,503
+But what about these black keys?
+
+2202
+01:32:06,503 --> 01:32:09,740
+They actually can be defined
+in a couple of different ways.
+
+2203
+01:32:09,740 --> 01:32:11,759
+And if you've ever heard
+of flats, or sharps--
+
+2204
+01:32:11,759 --> 01:32:14,050
+Brian, do you want to explain
+what the relationship now
+
+2205
+01:32:14,050 --> 01:32:16,810
+is among the white keys and the black
+keys, and how they sound different?
+
+2206
+01:32:16,810 --> 01:32:17,680
+BRIAN: Yeah, sure.
+
+2207
+01:32:17,680 --> 01:32:19,870
+So, a bit of terminology first.
+
+2208
+01:32:19,870 --> 01:32:23,890
+A semi-tone is just the distance
+from one note to the note
+
+2209
+01:32:23,890 --> 01:32:26,970
+immediately after that, both
+white and black notes included.
+
+2210
+01:32:26,970 --> 01:32:28,870
+And all it means for
+something to be sharp,
+
+2211
+01:32:28,870 --> 01:32:32,500
+represented by the hashtag or
+pound sign up there, is take a note
+
+2212
+01:32:32,500 --> 01:32:35,200
+and move it up by one semi-tone.
+
+2213
+01:32:35,200 --> 01:32:39,040
+So, if we start with C, and make
+that note sharp, to C sharp,
+
+2214
+01:32:39,040 --> 01:32:41,170
+we move one semi-tone
+to the note immediately
+
+2215
+01:32:41,170 --> 01:32:46,630
+after it, which is that black note in
+between C and D. So, that's C sharp.
+
+2216
+01:32:46,630 --> 01:32:51,460
+And likewise, if we add E sharp, that is
+one semi-tone, or the note immediately
+
+2217
+01:32:51,460 --> 01:32:54,790
+after, E, which in this case,
+is the same thing as F. So,
+
+2218
+01:32:54,790 --> 01:32:57,209
+F and E sharp are the same note.
+
+2219
+01:32:57,209 --> 01:32:59,500
+And in the meantime, flat is
+just the opposite of that.
+
+2220
+01:32:59,500 --> 01:33:04,300
+If sharp means move up one semi-tone,
+flat means move down one semi-tone.
+
+2221
+01:33:04,300 --> 01:33:09,382
+So if I have E, E flat is one semi-tone
+moving left on the piano keyboard.
+
+2222
+01:33:09,382 --> 01:33:12,090
+DAVID MALAN: And so even though
+a typical piano keyboard wouldn't
+
+2223
+01:33:12,090 --> 01:33:14,200
+be labeled as such, it
+does follow a pattern,
+
+2224
+01:33:14,200 --> 01:33:16,709
+and it does repeat, to the
+left and to the right as well.
+
+2225
+01:33:16,709 --> 01:33:19,750
+And so as you learn to play piano,
+you learn what these notes sound like,
+
+2226
+01:33:19,750 --> 01:33:21,970
+you learn where these
+keys are, and you also
+
+2227
+01:33:21,970 --> 01:33:25,490
+learn, ultimately, how to read
+music, which might look like this.
+
+2228
+01:33:25,490 --> 01:33:28,420
+This is a familiar song, now
+officially in the public domain.
+
+2229
+01:33:28,420 --> 01:33:31,270
+And you'll see here that there are
+these little shapes called notes,
+
+2230
+01:33:31,270 --> 01:33:34,030
+or little circles, that happen
+to be on specific lines.
+
+2231
+01:33:34,030 --> 01:33:36,280
+And it turns out that if
+a note is on one line,
+
+2232
+01:33:36,280 --> 01:33:39,880
+it might represent the note A;
+if it's on a different line,
+
+2233
+01:33:39,880 --> 01:33:44,800
+higher above or down below, it might
+represent B or C or D or E or F or G.
+
+2234
+01:33:44,800 --> 01:33:48,250
+And if there is a sharp symbol,
+or a flat symbol, in front of it,
+
+2235
+01:33:48,250 --> 01:33:51,100
+that might shift it ever so
+slightly, so that you're actually
+
+2236
+01:33:51,100 --> 01:33:53,830
+touching, in many cases, one
+of the black keys as well.
+
+2237
+01:33:53,830 --> 01:33:56,050
+Which is to say that once
+you have the vocabulary,
+
+2238
+01:33:56,050 --> 01:33:58,827
+and you know what the alphabet
+is to which you have access,
+
+2239
+01:33:58,827 --> 01:34:01,660
+can you start to write it out, much
+like we write computer programs.
+
+2240
+01:34:01,660 --> 01:34:04,480
+But this is what a musician
+would actually see.
+
+2241
+01:34:04,480 --> 01:34:06,970
+And just to give us maybe a
+teaser of what you can actually
+
+2242
+01:34:06,970 --> 01:34:10,000
+do when you take into account
+the different sounds of notes,
+
+2243
+01:34:10,000 --> 01:34:12,190
+and the different pace
+at which you play notes,
+
+2244
+01:34:12,190 --> 01:34:14,680
+can you give us a little
+something more than just a scale?
+
+2245
+01:34:14,680 --> 01:34:17,346
+BRIAN: Sure.
+
+2246
+01:34:17,346 --> 01:34:21,338
+[PIANO PLAYS]
+
+2247
+01:34:21,338 --> 01:34:34,811
+
+
+2248
+01:34:34,811 --> 01:34:38,080
+[APPLAUSE]
+
+2249
+01:34:38,080 --> 01:34:40,080
+DAVID MALAN: So, if you're
+a little worried what
+
+2250
+01:34:40,080 --> 01:34:42,030
+we're getting into, not only
+computer science and programming,
+
+2251
+01:34:42,030 --> 01:34:42,655
+but now music--
+
+2252
+01:34:42,655 --> 01:34:45,000
+I am absolutely among the
+least comfortable with this,
+
+2253
+01:34:45,000 --> 01:34:47,580
+and this is why Brian has
+kindly joined us here today.
+
+2254
+01:34:47,580 --> 01:34:49,830
+But it'll be fun, we hope,
+ultimately, to explore
+
+2255
+01:34:49,830 --> 01:34:52,872
+these relationships, and also the
+intersection of one field with another.
+
+2256
+01:34:52,872 --> 01:34:54,871
+And to now tie these
+topics together, we thought
+
+2257
+01:34:54,871 --> 01:34:56,790
+we'd end by looking at
+a short visualization
+
+2258
+01:34:56,790 --> 01:35:00,150
+here, about a minute's worth of
+computer-generated sounds, that
+
+2259
+01:35:00,150 --> 01:35:02,940
+give you not just a visual
+feel of some of the algorithms
+
+2260
+01:35:02,940 --> 01:35:06,570
+and others that we've looked at
+today, but also associate sounds
+
+2261
+01:35:06,570 --> 01:35:09,450
+with the operations of moving
+things, swapping things,
+
+2262
+01:35:09,450 --> 01:35:13,110
+and ultimately touching bigger
+and smaller numbers digitally.
+
+2263
+01:35:13,110 --> 01:35:16,110
+So, here we have, up
+first, insertion sort.
+
+2264
+01:35:16,110 --> 01:35:21,400
+[COMPUTER SOUNDS]
+
+2265
+01:35:21,400 --> 01:35:26,910
+Again, it's inserting into
+the right place the number.
+
+2266
+01:35:26,910 --> 01:35:28,290
+This, now, is bubble sort.
+
+2267
+01:35:28,290 --> 01:35:31,692
+
+
+2268
+01:35:31,692 --> 01:35:35,400
+And again, you can both see, and
+now kind of feel, all of the swaps
+
+2269
+01:35:35,400 --> 01:35:36,090
+that it's doing.
+
+2270
+01:35:36,090 --> 01:35:45,750
+
+
+2271
+01:35:45,750 --> 01:35:47,460
+We will get the satisfaction this time.
+
+2272
+01:35:47,460 --> 01:35:55,240
+
+
+2273
+01:35:55,240 --> 01:35:57,330
+This, now, is selection
+sort, whereby you
+
+2274
+01:35:57,330 --> 01:35:59,910
+go through the list selecting
+the next smallest element,
+
+2275
+01:35:59,910 --> 01:36:02,840
+and plop it in its place.
+
+2276
+01:36:02,840 --> 01:36:06,220
+And the bars are getting higher
+and higher, just like the notes,
+
+2277
+01:36:06,220 --> 01:36:07,500
+or the frequencies.
+
+2278
+01:36:07,500 --> 01:36:11,680
+
+
+2279
+01:36:11,680 --> 01:36:14,370
+This, now, is merge sort.
+
+2280
+01:36:14,370 --> 01:36:18,551
+And notice the halves
+that are developing.
+
+2281
+01:36:18,551 --> 01:36:21,426
+And this is by far the most gratifying
+sound, at the end of this one.
+
+2282
+01:36:21,426 --> 01:36:27,730
+
+
+2283
+01:36:27,730 --> 01:36:30,240
+This is gnome sort,
+which we didn't look at,
+
+2284
+01:36:30,240 --> 01:36:33,720
+but very distinctly has
+a different shape, too.
+
+2285
+01:36:33,720 --> 01:36:35,540
+It's not quite as ordered as the others.
+
+2286
+01:36:35,540 --> 01:36:46,750
+
+
+2287
+01:36:46,750 --> 01:36:48,330
+And that, then, are algorithms.
+
+2288
+01:36:48,330 --> 01:36:49,870
+And Brian, play us out for today.
+
+2289
+01:36:49,870 --> 01:36:52,520
+Otherwise, we will see you next week.
+
+2290
+01:36:52,520 --> 01:36:55,459

@@ -1,0 +1,7980 @@
+1
+00:00:00,000 --> 00:00:03,339
+[MUSIC PLAYING]
+
+2
+00:00:03,339 --> 00:00:10,510
+
+
+3
+00:00:10,510 --> 00:00:14,050
+DAVID MALAN: All right, this
+is CS50, and this is lecture 9.
+
+4
+00:00:14,050 --> 00:00:16,600
+And so we've been diving
+into bunches of languages
+
+5
+00:00:16,600 --> 00:00:23,587
+recently among them have been HTML,
+and CSS, and Python most recently.
+
+6
+00:00:23,587 --> 00:00:25,420
+And soon we're going
+to see JavaScript soon.
+
+7
+00:00:25,420 --> 00:00:26,780
+We're going to see SQL and more.
+
+8
+00:00:26,780 --> 00:00:29,680
+So let's see just a moment if we can
+kind of wrap our minds around what's
+
+9
+00:00:29,680 --> 00:00:31,263
+going on with these various languages.
+
+10
+00:00:31,263 --> 00:00:35,450
+So HTML, which we looked at a couple
+of weeks back, is used for what?
+
+11
+00:00:35,450 --> 00:00:36,250
+AUDIENCE: Websites.
+
+12
+00:00:36,250 --> 00:00:36,950
+DAVID MALAN: Websites.
+
+13
+00:00:36,950 --> 00:00:37,991
+OK, but be more specific.
+
+14
+00:00:37,991 --> 00:00:38,990
+What about websites?
+
+15
+00:00:38,990 --> 00:00:39,850
+AUDIENCE: Markup.
+
+16
+00:00:39,850 --> 00:00:40,460
+DAVID MALAN: Markup.
+
+17
+00:00:40,460 --> 00:00:41,834
+OK, be more specific than markup.
+
+18
+00:00:41,834 --> 00:00:43,186
+What does that mean?
+
+19
+00:00:43,186 --> 00:00:44,410
+AUDIENCE: The way they look.
+
+20
+00:00:44,410 --> 00:00:45,701
+DAVID MALAN: The way they look.
+
+21
+00:00:45,701 --> 00:00:48,430
+OK, good, so marking up a website,
+the structure of the website,
+
+22
+00:00:48,430 --> 00:00:52,430
+and the contents of the website are
+what you would annotate using HTML--
+
+23
+00:00:52,430 --> 00:00:53,624
+Hypertext Markup Language.
+
+24
+00:00:53,624 --> 00:00:55,540
+It's not a programming
+language, so it doesn't
+
+25
+00:00:55,540 --> 00:00:57,290
+have functions, and
+loops, and conditions,
+
+26
+00:00:57,290 --> 00:01:00,010
+and the kind of logical control
+that we've used for some time.
+
+27
+00:01:00,010 --> 00:01:02,440
+It really is about
+presenting information.
+
+28
+00:01:02,440 --> 00:01:03,310
+Make something bold.
+
+29
+00:01:03,310 --> 00:01:04,390
+Make something italics.
+
+30
+00:01:04,390 --> 00:01:06,530
+Put something centered and so forth.
+
+31
+00:01:06,530 --> 00:01:10,930
+CSS, meanwhile, allows you to
+really take things the final mile
+
+32
+00:01:10,930 --> 00:01:13,240
+and really get the
+aesthetics just right.
+
+33
+00:01:13,240 --> 00:01:17,890
+And so, in fact, what I just described,
+boldfacing, and italics, and centering,
+
+34
+00:01:17,890 --> 00:01:21,110
+early on in version 1 say of
+HTML was actually how you did it.
+
+35
+00:01:21,110 --> 00:01:22,450
+There was no CSS.
+
+36
+00:01:22,450 --> 00:01:26,380
+But these days, the better approach is
+to factor out those kinds of aesthetics
+
+37
+00:01:26,380 --> 00:01:30,760
+from your HTML and instead put them
+in this other language, CSS, Cascading
+
+38
+00:01:30,760 --> 00:01:31,390
+Style Sheets.
+
+39
+00:01:31,390 --> 00:01:35,020
+So your HTML now becomes
+put this text in a column.
+
+40
+00:01:35,020 --> 00:01:37,840
+Put this other text in another column.
+
+41
+00:01:37,840 --> 00:01:39,610
+And structure your
+data in a certain way.
+
+42
+00:01:39,610 --> 00:01:43,990
+And then stylize it with colors,
+and fonts, and placement using CSS.
+
+43
+00:01:43,990 --> 00:01:46,630
+Now meanwhile, most recently,
+we introduced Python.
+
+44
+00:01:46,630 --> 00:01:50,374
+And what was noteworthy about Python?
+
+45
+00:01:50,374 --> 00:01:51,040
+What do you got?
+
+46
+00:01:51,040 --> 00:01:53,740
+
+
+47
+00:01:53,740 --> 00:01:56,680
+Some-- back here?
+
+48
+00:01:56,680 --> 00:01:57,700
+Python--
+
+49
+00:01:57,700 --> 00:01:59,770
+AUDIENCE: More straightforward syntax.
+
+50
+00:01:59,770 --> 00:02:02,440
+DAVID MALAN: More straightforward
+syntax, yeah, in some ways,
+
+51
+00:02:02,440 --> 00:02:05,230
+and we'll see some syntax where
+you take that back, I think.
+
+52
+00:02:05,230 --> 00:02:07,570
+But in general, that
+is kind of the case,
+
+53
+00:02:07,570 --> 00:02:10,850
+because you don't need parentheses
+if they're not strictly necessary.
+
+54
+00:02:10,850 --> 00:02:13,180
+You don't need curly
+braces just because.
+
+55
+00:02:13,180 --> 00:02:16,420
+Instead, things like indentation become
+more important, which on the one hand
+
+56
+00:02:16,420 --> 00:02:18,380
+is a little annoying,
+but on the other hand,
+
+57
+00:02:18,380 --> 00:02:19,990
+really does reinforce good habits.
+
+58
+00:02:19,990 --> 00:02:21,730
+So that's probably a good thing.
+
+59
+00:02:21,730 --> 00:02:23,634
+And then at the very
+end of the last lecture,
+
+60
+00:02:23,634 --> 00:02:26,050
+we did something that was
+hopefully wonderfully inspiring,
+
+61
+00:02:26,050 --> 00:02:28,830
+which was to implement what in Python?
+
+62
+00:02:28,830 --> 00:02:29,770
+AUDIENCE: Dictionary?
+
+63
+00:02:29,770 --> 00:02:30,936
+DAVID MALAN: The dictionary.
+
+64
+00:02:30,936 --> 00:02:33,100
+And so we've really, we
+pretty much re-implemented
+
+65
+00:02:33,100 --> 00:02:39,640
+all of problem set 5 speller using like
+I don't know, 15, 20, 25 lines of code,
+
+66
+00:02:39,640 --> 00:02:43,270
+not to mention I was able to
+type it out within 30 seconds.
+
+67
+00:02:43,270 --> 00:02:45,940
+And that's not just because
+I knew what I wanted to type,
+
+68
+00:02:45,940 --> 00:02:48,670
+but really because you have
+to write so few lines of code.
+
+69
+00:02:48,670 --> 00:02:52,720
+With Python, and soon with JavaScript,
+and even other languages out there,
+
+70
+00:02:52,720 --> 00:02:54,780
+you just get so much more
+functionality for free.
+
+71
+00:02:54,780 --> 00:02:57,530
+If you want to know the length of
+the string, you call a function.
+
+72
+00:02:57,530 --> 00:03:01,120
+If you want to get a linked list, you
+create a data structure called a List.
+
+73
+00:03:01,120 --> 00:03:04,450
+If you want a hash table, you create
+a data structure called a Dictionary.
+
+74
+00:03:04,450 --> 00:03:06,490
+You don't implement it yourself.
+
+75
+00:03:06,490 --> 00:03:09,129
+Underneath the hood, someone
+else out there in the world
+
+76
+00:03:09,129 --> 00:03:11,170
+has implemented all of
+that functionality for us.
+
+77
+00:03:11,170 --> 00:03:13,660
+But now we're standing
+on their shoulders.
+
+78
+00:03:13,660 --> 00:03:16,990
+And so today, what we begin
+to do is to transition
+
+79
+00:03:16,990 --> 00:03:21,340
+to this last portion of the class, where
+our domain is not just a command line
+
+80
+00:03:21,340 --> 00:03:24,850
+and dot slash something, but web
+programming, where the ideas are pretty
+
+81
+00:03:24,850 --> 00:03:28,070
+much going to be the same so long as
+we now understand, as hopefully you
+
+82
+00:03:28,070 --> 00:03:32,320
+do or are beginning to, what HTTP
+is and how the web and the internet
+
+83
+00:03:32,320 --> 00:03:33,400
+itself work.
+
+84
+00:03:33,400 --> 00:03:36,980
+So recall that we looked a little
+bit ago at a URL like this.
+
+85
+00:03:36,980 --> 00:03:41,950
+And so if you were to visit
+https://www.facebook.com and hit
+
+86
+00:03:41,950 --> 00:03:45,040
+Enter in your browser, you're
+going to send some kind of message
+
+87
+00:03:45,040 --> 00:03:48,230
+in an envelope that might physically
+in our world look like this.
+
+88
+00:03:48,230 --> 00:03:49,960
+But of course, it's digital instead.
+
+89
+00:03:49,960 --> 00:03:52,660
+And what is inside of that
+envelope, if you simply
+
+90
+00:03:52,660 --> 00:03:56,634
+do type that URL before
+trying to get to Facebook?
+
+91
+00:03:56,634 --> 00:03:58,582
+AUDIENCE: An error message
+that redirects to--
+
+92
+00:03:58,582 --> 00:04:00,280
+I guess [INAUDIBLE] that one.
+
+93
+00:04:00,280 --> 00:04:03,071
+DAVID MALAN: Yeah, probably no
+error message here, because that URL
+
+94
+00:04:03,071 --> 00:04:04,030
+did have the HTTPS.
+
+95
+00:04:04,030 --> 00:04:05,863
+And it wouldn't so much
+be an error message,
+
+96
+00:04:05,863 --> 00:04:08,220
+but like a preference to
+go to a different location.
+
+97
+00:04:08,220 --> 00:04:08,943
+AUDIENCE: Moved?
+
+98
+00:04:08,943 --> 00:04:09,734
+DAVID MALAN: Sorry?
+
+99
+00:04:09,734 --> 00:04:10,722
+AUDIENCE: Moved.
+
+100
+00:04:10,722 --> 00:04:12,774
+Moved, like permanently moved.
+
+101
+00:04:12,774 --> 00:04:13,690
+DAVID MALAN: Oh moved.
+
+102
+00:04:13,690 --> 00:04:16,250
+Not moved, only if we had
+gone to a shorter URL.
+
+103
+00:04:16,250 --> 00:04:18,880
+Recall that all of
+those 301 one redirects
+
+104
+00:04:18,880 --> 00:04:22,000
+were the result of, for instance,
+leaving off the dub dub dub
+
+105
+00:04:22,000 --> 00:04:24,156
+or leaving off the S. so
+this is actually the good.
+
+106
+00:04:24,156 --> 00:04:27,280
+This was the end of the story, where
+everything just worked and we got back
+
+107
+00:04:27,280 --> 00:04:28,930
+a 200 OK.
+
+108
+00:04:28,930 --> 00:04:33,040
+So if I did hit Enter though on my
+laptop and tried to visit that URL,
+
+109
+00:04:33,040 --> 00:04:35,890
+what did I put, or my laptop
+put inside of this envelope?
+
+110
+00:04:35,890 --> 00:04:37,150
+AUDIENCE: Request.
+
+111
+00:04:37,150 --> 00:04:40,150
+DAVID MALAN: The request to get an
+address, so it was like the get verb,
+
+112
+00:04:40,150 --> 00:04:45,040
+like getme, probably slash, because the
+last thing in this URL is the slash.
+
+113
+00:04:45,040 --> 00:04:47,070
+It probably had a Host header.
+
+114
+00:04:47,070 --> 00:04:50,912
+Recall, we saw host colon and then
+the domain name of the website again.
+
+115
+00:04:50,912 --> 00:04:53,120
+And there were bunches of
+other headers, so to speak,
+
+116
+00:04:53,120 --> 00:04:54,703
+that we kind of turned a blind eye to.
+
+117
+00:04:54,703 --> 00:04:57,910
+But in essence, atop the
+piece of paper, virtually,
+
+118
+00:04:57,910 --> 00:05:01,600
+that's inside of this envelope, or
+at least these two lines, a reminder
+
+119
+00:05:01,600 --> 00:05:04,870
+as well as to what protocol, sort
+of what handshake convention,
+
+120
+00:05:04,870 --> 00:05:07,150
+we are trying to use with the server.
+
+121
+00:05:07,150 --> 00:05:11,350
+And now when the server responds
+with an envelope of its own,
+
+122
+00:05:11,350 --> 00:05:12,820
+how do these headers change?
+
+123
+00:05:12,820 --> 00:05:16,940
+What's inside of Facebook's HTTP
+headers in its envelope back to me?
+
+124
+00:05:16,940 --> 00:05:21,007
+
+
+125
+00:05:21,007 --> 00:05:22,340
+Kind of spoiled it a moment ago.
+
+126
+00:05:22,340 --> 00:05:22,840
+What?
+
+127
+00:05:22,840 --> 00:05:24,120
+AUDIENCE: The IP address?
+
+128
+00:05:24,120 --> 00:05:25,920
+DAVID MALAN: Somewhere--
+let's kind of consider that
+
+129
+00:05:25,920 --> 00:05:27,360
+on the outside of the envelope, though.
+
+130
+00:05:27,360 --> 00:05:28,401
+That's how it gets to me.
+
+131
+00:05:28,401 --> 00:05:29,465
+What's on the inside?
+
+132
+00:05:29,465 --> 00:05:32,340
+What's the status code going to be
+when I visit Facebook's Home page?
+
+133
+00:05:32,340 --> 00:05:33,030
+AUDIENCE: 200 OK
+
+134
+00:05:33,030 --> 00:05:37,102
+DAVID MALAN: 200 OK-- and so we
+saw 200 OK only when we actually
+
+135
+00:05:37,102 --> 00:05:39,060
+looked underneath the
+hood, so to speak, to see
+
+136
+00:05:39,060 --> 00:05:43,200
+what was inside of these
+envelopes using Chrome's Inspector
+
+137
+00:05:43,200 --> 00:05:46,599
+toolbar, the developer tools, or
+using cURL, that command line program.
+
+138
+00:05:46,599 --> 00:05:48,390
+Odds are, there are
+other headers in there,
+
+139
+00:05:48,390 --> 00:05:50,910
+like content type is text slash html.
+
+140
+00:05:50,910 --> 00:05:53,100
+And I think that's the only one we saw.
+
+141
+00:05:53,100 --> 00:05:55,920
+But moving forward, as you make
+your own web-based applications,
+
+142
+00:05:55,920 --> 00:05:58,740
+you will actually see and Chrome
+and other tools a whole bunch
+
+143
+00:05:58,740 --> 00:05:59,940
+of different content types.
+
+144
+00:05:59,940 --> 00:06:03,242
+You'll see like image slash
+ping or image slash jpeg.
+
+145
+00:06:03,242 --> 00:06:04,950
+So indeed, anytime
+you download a picture
+
+146
+00:06:04,950 --> 00:06:07,320
+of a cat or something from
+the internet, included
+
+147
+00:06:07,320 --> 00:06:10,350
+in the headers in that envelope
+are two lines like this.
+
+148
+00:06:10,350 --> 00:06:12,000
+But a cat is not a web page.
+
+149
+00:06:12,000 --> 00:06:13,260
+It's not HTML.
+
+150
+00:06:13,260 --> 00:06:17,370
+So this would be like image slash
+jpeg, if it's a photograph of a cat.
+
+151
+00:06:17,370 --> 00:06:19,560
+And then below that
+though, the dot dot dot,
+
+152
+00:06:19,560 --> 00:06:22,620
+is where things started to get
+interesting in the last half
+
+153
+00:06:22,620 --> 00:06:27,427
+of our lecture on HTTP, because what
+came below all of the HTTP headers
+
+154
+00:06:27,427 --> 00:06:29,010
+inside of this envelope from Facebook?
+
+155
+00:06:29,010 --> 00:06:34,180
+
+
+156
+00:06:34,180 --> 00:06:36,115
+What's inside of the envelope?
+
+157
+00:06:36,115 --> 00:06:40,480
+
+
+158
+00:06:40,480 --> 00:06:41,450
+AUDIENCE: Nothing?
+
+159
+00:06:41,450 --> 00:06:43,240
+DAVID MALAN: Nothing-- yes,
+it's technically an answer.
+
+160
+00:06:43,240 --> 00:06:43,739
+But--
+
+161
+00:06:43,739 --> 00:06:45,531
+AUDIENCE: Isn't it like
+pieces of the file?
+
+162
+00:06:45,531 --> 00:06:47,488
+DAVID MALAN: Yeah, it's
+the pieces in the file.
+
+163
+00:06:47,488 --> 00:06:49,070
+I mean, it really is the file itself.
+
+164
+00:06:49,070 --> 00:06:52,270
+So essentially, when you write
+a letter in the human world,
+
+165
+00:06:52,270 --> 00:06:53,650
+you usually put like the date.
+
+166
+00:06:53,650 --> 00:06:55,450
+And you might put the person's address.
+
+167
+00:06:55,450 --> 00:06:57,196
+And you might put like dear so-and-so.
+
+168
+00:06:57,196 --> 00:06:59,320
+You can kind of think of
+all of that like metadata,
+
+169
+00:06:59,320 --> 00:07:02,069
+the stuff that's not really the
+crux of your message to the human,
+
+170
+00:07:02,069 --> 00:07:03,520
+as being the HTTP headers.
+
+171
+00:07:03,520 --> 00:07:06,040
+But then once you start
+writing your first paragraph
+
+172
+00:07:06,040 --> 00:07:10,600
+and the actual substantive part of your
+letter, that's going to be down here,
+
+173
+00:07:10,600 --> 00:07:11,630
+so to speak.
+
+174
+00:07:11,630 --> 00:07:14,170
+And that's going to be the
+HTML inside of this envelope.
+
+175
+00:07:14,170 --> 00:07:17,920
+So if I'm downloading Facebook's Home
+page via my browser to my computer,
+
+176
+00:07:17,920 --> 00:07:21,860
+and I am seeing Facebook's Home page
+or my news feed, or if I'm logged in,
+
+177
+00:07:21,860 --> 00:07:24,460
+all of that HTML is actually
+inside of this envelope.
+
+178
+00:07:24,460 --> 00:07:27,130
+Now technically, it's all zeros
+and ones at the end of the day.
+
+179
+00:07:27,130 --> 00:07:29,650
+But now that we're not sort
+of at week zero anymore,
+
+180
+00:07:29,650 --> 00:07:33,070
+we're thinking in terms of language,
+there's just a whole bunch of HTML.
+
+181
+00:07:33,070 --> 00:07:34,749
+And what did that HTML look like?
+
+182
+00:07:34,749 --> 00:07:37,165
+Well in the simplest case, it
+might have looked like this.
+
+183
+00:07:37,165 --> 00:07:40,300
+This is a simpler web page
+certainly than Facebook's own.
+
+184
+00:07:40,300 --> 00:07:43,070
+But this would be an example
+of the first paragraph,
+
+185
+00:07:43,070 --> 00:07:47,620
+so to speak, of Facebook's Home
+page coming from server to browser.
+
+186
+00:07:47,620 --> 00:07:53,410
+And so that's the relationship
+among HTTP and HTML and, in turn,
+
+187
+00:07:53,410 --> 00:07:55,420
+CSS, though there's none pictured here.
+
+188
+00:07:55,420 --> 00:07:58,530
+HTTP is that protocol,
+that set of conventions,
+
+189
+00:07:58,530 --> 00:08:01,990
+ala the human handshake that
+ensures that the data is formatted
+
+190
+00:08:01,990 --> 00:08:04,690
+in a certain way and
+gets to me from server
+
+191
+00:08:04,690 --> 00:08:06,700
+to browser, or from browser to server.
+
+192
+00:08:06,700 --> 00:08:09,210
+Below that is a very
+specific language called
+
+193
+00:08:09,210 --> 00:08:11,320
+HTML, which is the actual content.
+
+194
+00:08:11,320 --> 00:08:13,670
+And what does my browser
+do upon receiving this?
+
+195
+00:08:13,670 --> 00:08:16,650
+Well, just like we humans would read
+the first paragraph of the letter,
+
+196
+00:08:16,650 --> 00:08:19,360
+a browser is going to read this
+top to bottom, left to right,
+
+197
+00:08:19,360 --> 00:08:20,560
+and do what it says.
+
+198
+00:08:20,560 --> 00:08:22,210
+Hey, browser, here is a web page.
+
+199
+00:08:22,210 --> 00:08:23,700
+Hey, browser, here is
+the head of the page.
+
+200
+00:08:23,700 --> 00:08:25,033
+Hey, browser, here is the title.
+
+201
+00:08:25,033 --> 00:08:26,140
+Put it in the tab bar.
+
+202
+00:08:26,140 --> 00:08:27,490
+Hey, browser, here's the body.
+
+203
+00:08:27,490 --> 00:08:30,150
+Put it in the big rectangular
+region of the window.
+
+204
+00:08:30,150 --> 00:08:32,690
+Hey, browser, that's
+it for the web page.
+
+205
+00:08:32,690 --> 00:08:36,325
+So you can think of these open tags
+and close tags or start tags and end
+
+206
+00:08:36,325 --> 00:08:37,960
+tags as really being these directives.
+
+207
+00:08:37,960 --> 00:08:39,820
+Do something; stop doing something.
+
+208
+00:08:39,820 --> 00:08:43,090
+And that's literally what the
+browser is doing underneath the hood.
+
+209
+00:08:43,090 --> 00:08:47,290
+So the last time we introduced Python,
+which is unrelated fundamentally
+
+210
+00:08:47,290 --> 00:08:48,100
+to all of this.
+
+211
+00:08:48,100 --> 00:08:50,249
+It is just another programming language.
+
+212
+00:08:50,249 --> 00:08:53,290
+So technically we could have started
+talking about Python in like week 1,
+
+213
+00:08:53,290 --> 00:08:55,960
+right after we looked at
+Scratch instead of looking at C.
+
+214
+00:08:55,960 --> 00:08:58,820
+But instead, we started sort of
+with Scratch, the graphical program.
+
+215
+00:08:58,820 --> 00:09:00,730
+Then we kind of went
+super low level with C,
+
+216
+00:09:00,730 --> 00:09:02,800
+and built, and built,
+and built on top of it,
+
+217
+00:09:02,800 --> 00:09:07,150
+until now we're kind of at Python, where
+we can solve all of those same problems
+
+218
+00:09:07,150 --> 00:09:07,665
+with Python.
+
+219
+00:09:07,665 --> 00:09:09,540
+And in fact, one of the
+challenges of problem
+
+220
+00:09:09,540 --> 00:09:14,560
+set 6 is going to be to rewind a
+few weeks and re-implement Mario,
+
+221
+00:09:14,560 --> 00:09:18,729
+and Cash or Credit, or
+Caesar, or Vigenere in Python,
+
+222
+00:09:18,729 --> 00:09:21,520
+so that you effectively have your
+own solutions handy, or the staff
+
+223
+00:09:21,520 --> 00:09:24,280
+solutions in C. And it'll
+be really kind of a warm-up
+
+224
+00:09:24,280 --> 00:09:27,130
+exercise and a comforting exercise
+to just translate something
+
+225
+00:09:27,130 --> 00:09:29,980
+that you know works or
+should work to a new language
+
+226
+00:09:29,980 --> 00:09:33,220
+and see the mapping from one to
+another, just like we did with Speller,
+
+227
+00:09:33,220 --> 00:09:34,510
+but more powerfully.
+
+228
+00:09:34,510 --> 00:09:37,630
+We're also going to start to
+build applications using Python
+
+229
+00:09:37,630 --> 00:09:38,870
+that we've not built before.
+
+230
+00:09:38,870 --> 00:09:41,470
+And so among them, for
+instance, today will
+
+231
+00:09:41,470 --> 00:09:44,890
+be a handful of examples
+that actually use Python
+
+232
+00:09:44,890 --> 00:09:47,860
+to generate HTML from a server to me.
+
+233
+00:09:47,860 --> 00:09:50,260
+Because you could write
+this on your Mac or PC.
+
+234
+00:09:50,260 --> 00:09:51,010
+You could save it.
+
+235
+00:09:51,010 --> 00:09:53,330
+You could upload it to a server
+in the cloud, so to speak.
+
+236
+00:09:53,330 --> 00:09:54,400
+And people can visit it.
+
+237
+00:09:54,400 --> 00:09:57,776
+But if I visit this page today,
+or tomorrow, or the next day,
+
+238
+00:09:57,776 --> 00:09:59,150
+it's always going to be the same.
+
+239
+00:09:59,150 --> 00:10:01,630
+It's going to say hello
+title, hello body every day.
+
+240
+00:10:01,630 --> 00:10:05,110
+Facebook, and Gmail, and any website out
+there these days is much more dynamic.
+
+241
+00:10:05,110 --> 00:10:07,390
+The content changes based
+on you or other humans,
+
+242
+00:10:07,390 --> 00:10:10,510
+typically, or even the time
+of day, if it's a new site.
+
+243
+00:10:10,510 --> 00:10:13,630
+So today we're going to explore,
+how do you use programming,
+
+244
+00:10:13,630 --> 00:10:17,260
+in Python in particular, to
+generate dynamic content,
+
+245
+00:10:17,260 --> 00:10:19,780
+ultimately based on data in
+your database interactions
+
+246
+00:10:19,780 --> 00:10:22,760
+from the user or any
+number of other things.
+
+247
+00:10:22,760 --> 00:10:24,282
+So how do we go about doing this?
+
+248
+00:10:24,282 --> 00:10:26,740
+Well, let me go ahead and open
+up the IDE for just a moment
+
+249
+00:10:26,740 --> 00:10:31,240
+and open up an example from today's
+source code called serve.py.
+
+250
+00:10:31,240 --> 00:10:34,330
+This is an example, a few of whose
+features might look a little familiar,
+
+251
+00:10:34,330 --> 00:10:35,240
+but not all of them.
+
+252
+00:10:35,240 --> 00:10:37,270
+So let me scroll to the bottom first.
+
+253
+00:10:37,270 --> 00:10:43,630
+This is a program written in Python
+that implements a web server.
+
+254
+00:10:43,630 --> 00:10:44,589
+So remember, a server--
+
+255
+00:10:44,589 --> 00:10:47,379
+even though most of us, at least
+I certainly grew up thinking of it
+
+256
+00:10:47,379 --> 00:10:48,490
+as a physical machine--
+
+257
+00:10:48,490 --> 00:10:51,790
+it's technically a piece of software
+running on a physical machine.
+
+258
+00:10:51,790 --> 00:10:56,110
+So just to be clear, what
+does a web server do?
+
+259
+00:10:56,110 --> 00:10:58,160
+What's its purpose in life?
+
+260
+00:10:58,160 --> 00:11:00,510
+AUDIENCE: Like connects to the internet.
+
+261
+00:11:00,510 --> 00:11:02,820
+DAVID MALAN: Connects--
+a little too grand--
+
+262
+00:11:02,820 --> 00:11:05,850
+its functionality is actually much
+more narrowly defined, I would say.
+
+263
+00:11:05,850 --> 00:11:06,947
+What's a web server?
+
+264
+00:11:06,947 --> 00:11:09,030
+That's kind of like a
+router interconnects things.
+
+265
+00:11:09,030 --> 00:11:09,690
+AUDIENCE: Door?
+
+266
+00:11:09,690 --> 00:11:10,000
+DAVID MALAN: What's that?
+
+267
+00:11:10,000 --> 00:11:11,522
+AUDIENCE: Your door to the internet.
+
+268
+00:11:11,522 --> 00:11:13,230
+DAVID MALAN: Door to
+the-- even too fancy
+
+269
+00:11:13,230 --> 00:11:16,961
+a description-- let's really home
+in on what it does functionally.
+
+270
+00:11:16,961 --> 00:11:19,460
+AUDIENCE: It listens for requests
+and then responds to them?
+
+271
+00:11:19,460 --> 00:11:21,710
+DAVID MALAN: Right, so a
+much less interesting answer,
+
+272
+00:11:21,710 --> 00:11:25,020
+but much more concrete and factual
+as to what the server does.
+
+273
+00:11:25,020 --> 00:11:30,060
+Exactly, it is a piece of software
+that just listens for HTTP requests
+
+274
+00:11:30,060 --> 00:11:33,960
+on the internet coming in what?
+--via wired or wireless connections.
+
+275
+00:11:33,960 --> 00:11:37,470
+As soon as it hears an HTTP
+request, like get slash,
+
+276
+00:11:37,470 --> 00:11:39,750
+it responds to those requests.
+
+277
+00:11:39,750 --> 00:11:41,250
+So that is what the web server does.
+
+278
+00:11:41,250 --> 00:11:44,220
+So Facebook.com, and Google.com,
+and all of these companies
+
+279
+00:11:44,220 --> 00:11:47,339
+have web server software running
+on physical machines that
+
+280
+00:11:47,339 --> 00:11:49,380
+are just constantly
+listening for those requests.
+
+281
+00:11:49,380 --> 00:11:53,970
+And the photo I showed last time of
+that old rack at Google's headquarters
+
+282
+00:11:53,970 --> 00:11:55,680
+is an example of a
+whole bunch of servers
+
+283
+00:11:55,680 --> 00:11:58,290
+that were running the same
+software, all of which
+
+284
+00:11:58,290 --> 00:12:01,725
+had internet connections that were
+just listening for HTTP connections,
+
+285
+00:12:01,725 --> 00:12:04,350
+specifically, if we want to get
+really precise from a few weeks
+
+286
+00:12:04,350 --> 00:12:07,797
+back, on TCP port 80,
+on a certain IP address.
+
+287
+00:12:07,797 --> 00:12:09,880
+But again, we can kind of
+abstract away from that.
+
+288
+00:12:09,880 --> 00:12:12,970
+And as you say, it's listening
+for connections on the internet.
+
+289
+00:12:12,970 --> 00:12:15,780
+So how does this piece of software work?
+
+290
+00:12:15,780 --> 00:12:17,760
+Just to demonstrate
+how relatively easy it
+
+291
+00:12:17,760 --> 00:12:23,914
+is to write a web server, irrespective
+of the content it serves up, line 24,
+
+292
+00:12:23,914 --> 00:12:25,830
+if you could translate
+it into English for me,
+
+293
+00:12:25,830 --> 00:12:31,860
+based only on last week's
+material, what is line 24 doing?
+
+294
+00:12:31,860 --> 00:12:34,840
+And it's not configure server.
+
+295
+00:12:34,840 --> 00:12:38,407
+More technically, what
+does line 24 do in Python?
+
+296
+00:12:38,407 --> 00:12:41,820
+AUDIENCE: It's just assigning
+port the number 8080.
+
+297
+00:12:41,820 --> 00:12:43,080
+DAVID MALAN: To?
+
+298
+00:12:43,080 --> 00:12:44,240
+Oh, yes, OK, to port.
+
+299
+00:12:44,240 --> 00:12:46,317
+So, OK, so what is port exactly?
+
+300
+00:12:46,317 --> 00:12:47,400
+AUDIENCE: Just a variable.
+
+301
+00:12:47,400 --> 00:12:48,900
+DAVID MALAN: Just a variable--
+what is its data type?
+
+302
+00:12:48,900 --> 00:12:49,817
+AUDIENCE: It's an int.
+
+303
+00:12:49,817 --> 00:12:51,233
+DAVID MALAN: How do you know that?
+
+304
+00:12:51,233 --> 00:12:52,122
+I don't see int.
+
+305
+00:12:52,122 --> 00:12:55,074
+AUDIENCE: Or the input
+is given as an int.
+
+306
+00:12:55,074 --> 00:12:57,540
+And Python just dynamically
+figures is out somehow.
+
+307
+00:12:57,540 --> 00:13:00,960
+AUDIENCE: Exactly, so we-- unlike C,
+you don't specify the types anymore,
+
+308
+00:13:00,960 --> 00:13:01,850
+but they do exist--
+
+309
+00:13:01,850 --> 00:13:04,920
+ints, and strings, and
+floats, and so forth.
+
+310
+00:13:04,920 --> 00:13:07,890
+But honestly, why do we
+really need to specify int
+
+311
+00:13:07,890 --> 00:13:11,017
+if it's obvious to the human, let
+alone should be to the computer,
+
+312
+00:13:11,017 --> 00:13:12,600
+that the thing on the right is an int.
+
+313
+00:13:12,600 --> 00:13:13,870
+Just make the thing on the left an int.
+
+314
+00:13:13,870 --> 00:13:16,828
+And this is one of the features you
+get of Python, and in general, more
+
+315
+00:13:16,828 --> 00:13:17,670
+modern languages.
+
+316
+00:13:17,670 --> 00:13:20,010
+Meanwhile, line 25 is similar in spirit.
+
+317
+00:13:20,010 --> 00:13:22,410
+Give me a variable
+called server address.
+
+318
+00:13:22,410 --> 00:13:25,350
+But this we didn't talk
+about too much last time.
+
+319
+00:13:25,350 --> 00:13:27,030
+I mentioned the word only in passing.
+
+320
+00:13:27,030 --> 00:13:28,170
+This is a little funky.
+
+321
+00:13:28,170 --> 00:13:32,250
+We never saw this syntax
+in C in this context--
+
+322
+00:13:32,250 --> 00:13:35,670
+parenthesis something comma
+something close parenthesis.
+
+323
+00:13:35,670 --> 00:13:40,030
+We absolutely saw that syntax when we
+were calling functions and so forth,
+
+324
+00:13:40,030 --> 00:13:43,980
+or when we had if conditions or the
+like, or loops, and while loops,
+
+325
+00:13:43,980 --> 00:13:44,760
+and for loops.
+
+326
+00:13:44,760 --> 00:13:48,090
+But we've never seen, to my
+recollection, a pair of parentheses
+
+327
+00:13:48,090 --> 00:13:50,490
+open and close that have
+nothing next to them
+
+328
+00:13:50,490 --> 00:13:52,600
+other than, in this
+case, the equal sign.
+
+329
+00:13:52,600 --> 00:13:56,460
+But what does this kind of look like
+maybe from other classes you've taken?
+
+330
+00:13:56,460 --> 00:13:59,715
+
+
+331
+00:13:59,715 --> 00:14:01,580
+[INTERPOSING VOICES]
+
+332
+00:14:01,580 --> 00:14:04,200
+DAVID MALAN: Yeah, sorry, say again.
+
+333
+00:14:04,200 --> 00:14:05,585
+You want to go with ordered pair?
+
+334
+00:14:05,585 --> 00:14:08,580
+Yeah, so if you think to any
+math class or graphing class,
+
+335
+00:14:08,580 --> 00:14:12,180
+anytime you dealt with x and y, it's
+kind of common in certain worlds
+
+336
+00:14:12,180 --> 00:14:16,390
+to have pairs of numbers, or triples
+of numbers, or quads of numbers.
+
+337
+00:14:16,390 --> 00:14:18,480
+And so Python actually
+supports that idea.
+
+338
+00:14:18,480 --> 00:14:22,200
+If you have two related values
+that you want to kind of cluster
+
+339
+00:14:22,200 --> 00:14:26,130
+together in your mind, you can simply
+do open parenthesis one value comma
+
+340
+00:14:26,130 --> 00:14:26,730
+the other.
+
+341
+00:14:26,730 --> 00:14:28,680
+And the general term
+for this is a tuple--
+
+342
+00:14:28,680 --> 00:14:33,120
+T-U-P-L-E. So it's kind of
+like a double or a triple.
+
+343
+00:14:33,120 --> 00:14:36,990
+But a tuple is any number of things,
+one or more things in parentheses.
+
+344
+00:14:36,990 --> 00:14:38,700
+So why are these related?
+
+345
+00:14:38,700 --> 00:14:43,300
+Well, in TCP/IP, the protocol
+spoken on the internet,
+
+346
+00:14:43,300 --> 00:14:45,910
+the first thing is the IP address.
+
+347
+00:14:45,910 --> 00:14:47,670
+The second thing is the TCP port.
+
+348
+00:14:47,670 --> 00:14:51,810
+So we have both IP
+and TCP, ergo, TCP/IP.
+
+349
+00:14:51,810 --> 00:14:54,810
+And so we're just storing both
+of those variables in this--
+
+350
+00:14:54,810 --> 00:14:57,360
+both of those values in this
+address called server address.
+
+351
+00:14:57,360 --> 00:15:00,540
+Meanwhile, this kind of code we
+wouldn't really be familiar with yet.
+
+352
+00:15:00,540 --> 00:15:03,450
+But this is declaring another
+variable on the left called httpd,
+
+353
+00:15:03,450 --> 00:15:09,000
+d meaning daemon, which is a synonym for
+server, so HTTP server, aka web server.
+
+354
+00:15:09,000 --> 00:15:11,810
+Give me some kind of HTTP server object.
+
+355
+00:15:11,810 --> 00:15:14,040
+This is like a special
+struct, like a student struct.
+
+356
+00:15:14,040 --> 00:15:16,380
+But this struct actually
+implements a web server,
+
+357
+00:15:16,380 --> 00:15:19,307
+passing in the server address
+and whatever this thing here is.
+
+358
+00:15:19,307 --> 00:15:21,390
+And let me wave my hand
+at that for just a moment.
+
+359
+00:15:21,390 --> 00:15:25,380
+But then the last line of code here
+on 29, says inside of that variable
+
+360
+00:15:25,380 --> 00:15:27,420
+is a function, otherwise
+known as a method,
+
+361
+00:15:27,420 --> 00:15:29,940
+called serve forever
+that literally does that.
+
+362
+00:15:29,940 --> 00:15:33,090
+When you run this program,
+and it gets to line 29,
+
+363
+00:15:33,090 --> 00:15:35,110
+the program never, ever ends.
+
+364
+00:15:35,110 --> 00:15:36,000
+It doesn't exit.
+
+365
+00:15:36,000 --> 00:15:37,380
+It just keeps staying there.
+
+366
+00:15:37,380 --> 00:15:39,300
+Never again do you see a prompt.
+
+367
+00:15:39,300 --> 00:15:44,160
+It literally is serving forever
+by listening for HTTP requests.
+
+368
+00:15:44,160 --> 00:15:47,070
+Now let me just show
+you what this does now.
+
+369
+00:15:47,070 --> 00:15:49,590
+Let me go ahead in my terminal window.
+
+370
+00:15:49,590 --> 00:15:51,720
+And how do I run a Python program?
+
+371
+00:15:51,720 --> 00:15:54,600
+
+
+372
+00:15:54,600 --> 00:15:55,920
+AUDIENCE: Python [INAUDIBLE].
+
+373
+00:15:55,920 --> 00:15:57,420
+DAVID MALAN: Exactly-- so it's this.
+
+374
+00:15:57,420 --> 00:15:59,700
+Unlike C, you literally say
+Python, which is not only
+
+375
+00:15:59,700 --> 00:16:01,450
+the name of the language
+but it's the name
+
+376
+00:16:01,450 --> 00:16:04,910
+of the program, the interpreter
+that can understand this file.
+
+377
+00:16:04,910 --> 00:16:08,790
+And if I go ahead and run that,
+I can't open file serve.py.
+
+378
+00:16:08,790 --> 00:16:11,170
+Up No such file in directory.
+
+379
+00:16:11,170 --> 00:16:12,950
+So technically, I
+didn't mean to do that.
+
+380
+00:16:12,950 --> 00:16:14,742
+But teachable moment,
+what's going wrong?
+
+381
+00:16:14,742 --> 00:16:16,450
+AUDIENCE: You're not
+in the right folder.
+
+382
+00:16:16,450 --> 00:16:17,650
+DAVID MALAN: Yeah, I'm
+not in the right folder.
+
+383
+00:16:17,650 --> 00:16:20,770
+So before I mentioned it's in
+Today's Source Code, Source 9, so let
+
+384
+00:16:20,770 --> 00:16:24,100
+me just cd into the right
+directory, and now do it again.
+
+385
+00:16:24,100 --> 00:16:27,430
+And now nothing seems
+to be happening forever.
+
+386
+00:16:27,430 --> 00:16:29,774
+And so it seems like the
+server is actually running.
+
+387
+00:16:29,774 --> 00:16:31,690
+So I'm actually going
+to go ahead and do this.
+
+388
+00:16:31,690 --> 00:16:36,700
+Let me go ahead and go up to
+Web Server under the Menu here.
+
+389
+00:16:36,700 --> 00:16:38,500
+I just have a little
+warning from Cloud9.
+
+390
+00:16:38,500 --> 00:16:40,060
+I'm going go ahead and click App.
+
+391
+00:16:40,060 --> 00:16:42,550
+And now notice what's happening.
+
+392
+00:16:42,550 --> 00:16:45,340
+My new URL is going to look
+different than your URL might.
+
+393
+00:16:45,340 --> 00:16:51,160
+But in my case here, I just went to
+ide50 dash malan dash Harvard dot edu--
+
+394
+00:16:51,160 --> 00:16:53,112
+because that's my username on Cloud9--
+
+395
+00:16:53,112 --> 00:16:56,320
+dot cs50 dot io colon 8080.
+
+396
+00:16:56,320 --> 00:17:00,490
+Because this program, this server,
+it is listening for TCP connections
+
+397
+00:17:00,490 --> 00:17:03,837
+on port 8080, not the default, but 1880.
+
+398
+00:17:03,837 --> 00:17:05,920
+And as soon as it hears a
+connection, it literally
+
+399
+00:17:05,920 --> 00:17:08,589
+spits out apparently "hello, world."
+
+400
+00:17:08,589 --> 00:17:09,910
+So where is that coming from?
+
+401
+00:17:09,910 --> 00:17:14,599
+Well, if I zoom out and go back to
+my program here and look at the top,
+
+402
+00:17:14,599 --> 00:17:16,510
+we'll see what this thing actually is.
+
+403
+00:17:16,510 --> 00:17:19,359
+And we won't have to get into the
+particulars of why this works.
+
+404
+00:17:19,359 --> 00:17:23,180
+But this is how a web server
+functions at the end of the day.
+
+405
+00:17:23,180 --> 00:17:27,460
+When a web server receives an envelope
+from a user's browser, like this one
+
+406
+00:17:27,460 --> 00:17:31,210
+here, it looks inside and it
+realizes, oh, this is a GET request.
+
+407
+00:17:31,210 --> 00:17:34,120
+Because literally the verb
+GET is inside of the envelope.
+
+408
+00:17:34,120 --> 00:17:37,420
+So here is a function
+called doget, just because.
+
+409
+00:17:37,420 --> 00:17:38,620
+And then what do we do?
+
+410
+00:17:38,620 --> 00:17:45,130
+This line here, 13, is telling
+the server to send 200, OK.
+
+411
+00:17:45,130 --> 00:17:48,970
+It's telling it to send this
+header, content type text HTML.
+
+412
+00:17:48,970 --> 00:17:52,960
+And it's telling it to write the
+following string, "hello, world,"
+
+413
+00:17:52,960 --> 00:17:57,140
+in what's called Unicode or
+UTF-8 out on the internet.
+
+414
+00:17:57,140 --> 00:17:58,190
+And that's it.
+
+415
+00:17:58,190 --> 00:18:00,190
+So this is a very specific example.
+
+416
+00:18:00,190 --> 00:18:04,510
+This web server is not all that useful,
+because no matter who or how often you
+
+417
+00:18:04,510 --> 00:18:07,540
+connect to this web server
+on port 8080 of your domain
+
+418
+00:18:07,540 --> 00:18:09,732
+name, what is it going to show?
+
+419
+00:18:09,732 --> 00:18:10,690
+AUDIENCE: Hello, world.
+
+420
+00:18:10,690 --> 00:18:11,690
+DAVID MALAN: Hello, world--
+
+421
+00:18:11,690 --> 00:18:13,481
+so not interesting--
+you might as well have
+
+422
+00:18:13,481 --> 00:18:16,870
+just save the whole darn thing as
+like index.html and be done with it,
+
+423
+00:18:16,870 --> 00:18:18,470
+and not use Python at all.
+
+424
+00:18:18,470 --> 00:18:25,420
+But what if, what if instead of doing
+this, you have code in your web server
+
+425
+00:18:25,420 --> 00:18:28,090
+that says something like this--
+
+426
+00:18:28,090 --> 00:18:32,992
+figure out what file was
+requested from HTTP headers,
+
+427
+00:18:32,992 --> 00:18:34,450
+because remember it might be slash.
+
+428
+00:18:34,450 --> 00:18:36,880
+It might be slash zuck, for
+Mark Zuckerberg's Home page,
+
+429
+00:18:36,880 --> 00:18:38,620
+or some other request.
+
+430
+00:18:38,620 --> 00:18:42,550
+Check if that file exists.
+
+431
+00:18:42,550 --> 00:18:46,300
+If so, send it back to browser.
+
+432
+00:18:46,300 --> 00:18:49,690
+In other words, suppose we remove this
+hard-coded stuff about "hello, world,"
+
+433
+00:18:49,690 --> 00:18:51,940
+and just start to write some
+code, or at least for now
+
+434
+00:18:51,940 --> 00:18:54,610
+pseudocode, that makes
+the web server dynamic.
+
+435
+00:18:54,610 --> 00:18:58,780
+Upon getting a request on port 8080,
+it checks what the request is for,
+
+436
+00:18:58,780 --> 00:19:00,400
+per this first line 12.
+
+437
+00:19:00,400 --> 00:19:02,770
+If it finds it on the
+hard drive locally,
+
+438
+00:19:02,770 --> 00:19:05,470
+it's going to send it back to the user.
+
+439
+00:19:05,470 --> 00:19:07,960
+And so ultimately, that
+is what a web server does.
+
+440
+00:19:07,960 --> 00:19:10,150
+I hard-coded a simple
+one to just forever say,
+
+441
+00:19:10,150 --> 00:19:12,640
+"hello, world." but that's
+what a web server does.
+
+442
+00:19:12,640 --> 00:19:16,060
+And moving forward, we are not going
+to implement the web server itself
+
+443
+00:19:16,060 --> 00:19:16,960
+in Python.
+
+444
+00:19:16,960 --> 00:19:20,230
+We're instead going to use a tool,
+a pretty popular one called Flask.
+
+445
+00:19:20,230 --> 00:19:22,870
+So there's bunches and bunches
+of different web server software
+
+446
+00:19:22,870 --> 00:19:23,830
+out there in the world.
+
+447
+00:19:23,830 --> 00:19:25,530
+Flask happens to be one of them.
+
+448
+00:19:25,530 --> 00:19:27,280
+It's technically called
+a micro framework,
+
+449
+00:19:27,280 --> 00:19:30,400
+because it's like a small amount of
+code that other people wrote just
+
+450
+00:19:30,400 --> 00:19:32,860
+to make it easier to serve up websites.
+
+451
+00:19:32,860 --> 00:19:36,190
+And so rather than write
+the web server ourselves,
+
+452
+00:19:36,190 --> 00:19:40,060
+we're going to use a web server
+that someone else wrote, Flask,
+
+453
+00:19:40,060 --> 00:19:44,860
+and actually start writing our own
+applications on the web with it.
+
+454
+00:19:44,860 --> 00:19:46,690
+So now what does this mean?
+
+455
+00:19:46,690 --> 00:19:50,690
+Let me go ahead and do the
+following back here in the IDE.
+
+456
+00:19:50,690 --> 00:19:55,310
+Let me ahead and kill this server
+here, close that file here,
+
+457
+00:19:55,310 --> 00:19:58,540
+and let me go ahead
+and let's say do this.
+
+458
+00:19:58,540 --> 00:20:02,240
+I'm going to go ahead
+and create a new file.
+
+459
+00:20:02,240 --> 00:20:04,750
+And if I Google this, Python--
+
+460
+00:20:04,750 --> 00:20:08,080
+Python Flask, the only way I
+would know what I'm about to do
+
+461
+00:20:08,080 --> 00:20:10,930
+is if I had looked up the
+documentation for Flask
+
+462
+00:20:10,930 --> 00:20:14,140
+and I followed the instructions,
+literally read the documentation.
+
+463
+00:20:14,140 --> 00:20:16,840
+And at one point, I kind of read
+through the user guide here.
+
+464
+00:20:16,840 --> 00:20:18,100
+I looked at some examples.
+
+465
+00:20:18,100 --> 00:20:21,400
+I played around with my IDE, saved
+some things and tried them out.
+
+466
+00:20:21,400 --> 00:20:23,620
+And thus was born this kind of example.
+
+467
+00:20:23,620 --> 00:20:28,910
+So if you want to use Flask, it turns
+out you essentially have to do this.
+
+468
+00:20:28,910 --> 00:20:31,420
+You first define an application.
+
+469
+00:20:31,420 --> 00:20:34,360
+And you say, Flask name.
+
+470
+00:20:34,360 --> 00:20:35,390
+Why?
+
+471
+00:20:35,390 --> 00:20:35,890
+Why?
+
+472
+00:20:35,890 --> 00:20:38,950
+It's not all that useful for now
+for us to dive into the weeds here.
+
+473
+00:20:38,950 --> 00:20:41,470
+But this just says, hey,
+Flask, give me a web app.
+
+474
+00:20:41,470 --> 00:20:43,210
+I don't care how it's implemented.
+
+475
+00:20:43,210 --> 00:20:45,460
+You take care of that, so
+I don't have to write code
+
+476
+00:20:45,460 --> 00:20:47,740
+like the previous serve.py file.
+
+477
+00:20:47,740 --> 00:20:52,730
+And then after that, I need to
+tell flask what to do and when.
+
+478
+00:20:52,730 --> 00:20:55,770
+And so the way you do this in
+a lot of modern web software
+
+479
+00:20:55,770 --> 00:20:57,810
+is you define what are called routes.
+
+480
+00:20:57,810 --> 00:21:00,680
+You say to Flask, or your
+web server more generally,
+
+481
+00:21:00,680 --> 00:21:04,380
+hey, server, if you get a
+request for slash, do this.
+
+482
+00:21:04,380 --> 00:21:06,780
+If you get a request
+for slash zuck, do this.
+
+483
+00:21:06,780 --> 00:21:10,290
+If you get a slash for slash
+login, do this other thing.
+
+484
+00:21:10,290 --> 00:21:13,680
+And so the pseudocode in a server
+might be something like this--
+
+485
+00:21:13,680 --> 00:21:20,370
+if request is for slash,
+then send back home page.
+
+486
+00:21:20,370 --> 00:21:25,290
+Else if request is for slash zuck, which
+again was just one of the sample URLs
+
+487
+00:21:25,290 --> 00:21:30,070
+two times ago, then
+send Mark's Home page.
+
+488
+00:21:30,070 --> 00:21:37,360
+Else if the request is for login, then
+prompt user to log in, and so forth.
+
+489
+00:21:37,360 --> 00:21:41,040
+So this is a web-based
+application, albeit in pseudocode.
+
+490
+00:21:41,040 --> 00:21:44,432
+It has nothing to do with TCP/IP per se.
+
+491
+00:21:44,432 --> 00:21:46,890
+That is going to be the job of
+the web server to deal with.
+
+492
+00:21:46,890 --> 00:21:50,010
+I don't want to even know there are
+envelopes virtually on the internet.
+
+493
+00:21:50,010 --> 00:21:52,170
+I just want to start
+writing code in my logic.
+
+494
+00:21:52,170 --> 00:21:55,860
+Just like in C, I want to write my
+main function and my helper functions.
+
+495
+00:21:55,860 --> 00:21:58,920
+Here is what my web
+application is going to do.
+
+496
+00:21:58,920 --> 00:22:00,310
+So how do you do this?
+
+497
+00:22:00,310 --> 00:22:02,710
+Well, suppose that you
+want to do the following.
+
+498
+00:22:02,710 --> 00:22:05,310
+Let me go into--
+
+499
+00:22:05,310 --> 00:22:10,530
+save this as application.py, which
+is just a convention, application.py.
+
+500
+00:22:10,530 --> 00:22:17,820
+And let me create momentarily
+another file called index.html.
+
+501
+00:22:17,820 --> 00:22:19,620
+So I need a really quick web page here.
+
+502
+00:22:19,620 --> 00:22:21,828
+And this will come with
+practice, but let me go ahead
+
+503
+00:22:21,828 --> 00:22:25,050
+and just quickly whip up a
+little web page-- head here,
+
+504
+00:22:25,050 --> 00:22:31,350
+title, hello, title, and then
+down here body, and hello body.
+
+505
+00:22:31,350 --> 00:22:34,950
+OK, so super simple web page, same
+as we did a couple of weeks back.
+
+506
+00:22:34,950 --> 00:22:35,550
+That's all.
+
+507
+00:22:35,550 --> 00:22:38,160
+It's in a file called index.html.
+
+508
+00:22:38,160 --> 00:22:40,500
+How do I now connect these two files?
+
+509
+00:22:40,500 --> 00:22:44,760
+If I have a program written in
+Python, or technically pseudocode,
+
+510
+00:22:44,760 --> 00:22:49,350
+and one of the things I want this
+program to do is this pseudocode here--
+
+511
+00:22:49,350 --> 00:22:53,680
+if request is for slash,
+then send back the Home page.
+
+512
+00:22:53,680 --> 00:22:56,790
+We've branch into, I think,
+briefly a couple times ago
+
+513
+00:22:56,790 --> 00:23:00,750
+that the default Home page
+for a website is often, just
+
+514
+00:23:00,750 --> 00:23:03,540
+by human convention, called index.html.
+
+515
+00:23:03,540 --> 00:23:05,520
+So this pseudocode now is kind of this.
+
+516
+00:23:05,520 --> 00:23:09,870
+If the request is for slash,
+specifically send back index.html.
+
+517
+00:23:09,870 --> 00:23:14,080
+But instead, if the request is for
+slash zuck, then send Mark's Home page.
+
+518
+00:23:14,080 --> 00:23:15,780
+So what might that look like?
+
+519
+00:23:15,780 --> 00:23:19,410
+Let me actually go and
+copy this, make a new file.
+
+520
+00:23:19,410 --> 00:23:27,540
+And just for kicks, I'm going to save
+it as a zuck.html and then hello, world,
+
+521
+00:23:27,540 --> 00:23:28,860
+I am Mark.
+
+522
+00:23:28,860 --> 00:23:31,380
+So suppose this is Mark's Profile page.
+
+523
+00:23:31,380 --> 00:23:32,200
+It's super simple.
+
+524
+00:23:32,200 --> 00:23:34,170
+It's obviously not what
+Facebook looks like.
+
+525
+00:23:34,170 --> 00:23:35,950
+But it is a valid HTML page.
+
+526
+00:23:35,950 --> 00:23:39,660
+So now I have two files
+and one web application.
+
+527
+00:23:39,660 --> 00:23:43,980
+So technically, I should
+really send back zuck.html.
+
+528
+00:23:43,980 --> 00:23:48,390
+And if I continue this sort of imaginary
+example, then prompt user to log in,
+
+529
+00:23:48,390 --> 00:23:52,860
+that probably means then
+show user login.html,
+
+530
+00:23:52,860 --> 00:23:55,980
+which is yet another page
+that has like a form on it.
+
+531
+00:23:55,980 --> 00:23:58,570
+It's just like the form we made
+for our simple Google example.
+
+532
+00:23:58,570 --> 00:24:00,840
+So in short, all a web
+application is, it's
+
+533
+00:24:00,840 --> 00:24:03,270
+a program written in some
+language that respond
+
+534
+00:24:03,270 --> 00:24:05,880
+to requests based on some logic.
+
+535
+00:24:05,880 --> 00:24:09,060
+And this is the logic that we
+did not have in HTML alone.
+
+536
+00:24:09,060 --> 00:24:12,870
+This is why we need Python,
+or Java, or Ruby, or PHP,
+
+537
+00:24:12,870 --> 00:24:15,210
+or any number of other
+languages can do the same thing.
+
+538
+00:24:15,210 --> 00:24:19,620
+C can also do this, but it would
+be an awful, awful nightmare
+
+539
+00:24:19,620 --> 00:24:23,280
+to implement this in C. Because
+just think of how annoying
+
+540
+00:24:23,280 --> 00:24:27,090
+it is to like compare substrings or
+extract something like the HTTP headers
+
+541
+00:24:27,090 --> 00:24:28,920
+from a longer-- it's just a lot of work.
+
+542
+00:24:28,920 --> 00:24:32,010
+A fun fact-- two years ago we had
+problem set, where we did exactly
+
+543
+00:24:32,010 --> 00:24:34,350
+that, but now it's a little different.
+
+544
+00:24:34,350 --> 00:24:39,180
+So here's how we transition to
+making this an actual web app.
+
+545
+00:24:39,180 --> 00:24:42,600
+Let me go ahead and translate
+this to actual code.
+
+546
+00:24:42,600 --> 00:24:43,980
+Let me delete this.
+
+547
+00:24:43,980 --> 00:24:48,702
+And it turns out, in Flask, if you
+want to find a route, so to speak,
+
+548
+00:24:48,702 --> 00:24:50,640
+for slash, you do this.
+
+549
+00:24:50,640 --> 00:24:54,075
+My app shall have a route for slash.
+
+550
+00:24:54,075 --> 00:24:57,090
+And when that route
+is visited by a user,
+
+551
+00:24:57,090 --> 00:24:59,340
+by making a request in
+one of these envelopes,
+
+552
+00:24:59,340 --> 00:25:03,120
+go ahead and call a function
+in Python called index--
+
+553
+00:25:03,120 --> 00:25:04,920
+though I could call it anything I want--
+
+554
+00:25:04,920 --> 00:25:10,890
+that simply returns the result of
+rendering a template called index.html.
+
+555
+00:25:10,890 --> 00:25:13,950
+And we'll see why that is
+called a template in just a bit.
+
+556
+00:25:13,950 --> 00:25:17,700
+But know that Flask gives me this
+special function called Render
+
+557
+00:25:17,700 --> 00:25:20,025
+Template that will spit out a file.
+
+558
+00:25:20,025 --> 00:25:22,650
+But it does more than that, which
+is why it has a fancier name.
+
+559
+00:25:22,650 --> 00:25:25,540
+The file I want it to
+spit out is index.html.
+
+560
+00:25:25,540 --> 00:25:29,310
+Meanwhile, if I want to support
+Mark Zuckerberg's Home page,
+
+561
+00:25:29,310 --> 00:25:32,646
+I'm going to do what then,
+if you just kind of infer?
+
+562
+00:25:32,646 --> 00:25:33,870
+AUDIENCE: Def zuck.
+
+563
+00:25:33,870 --> 00:25:36,553
+DAVID MALAN: Def, OK, zuck.
+
+564
+00:25:36,553 --> 00:25:38,960
+AUDIENCE: And then return
+his-- the rendered template.
+
+565
+00:25:38,960 --> 00:25:41,790
+DAVID MALAN: Yeah, so return
+render template of zuck.html.
+
+566
+00:25:41,790 --> 00:25:42,950
+And one more thing--
+
+567
+00:25:42,950 --> 00:25:46,317
+
+
+568
+00:25:46,317 --> 00:25:48,722
+AUDIENCE: [INAUDIBLE] backslash zuck.
+
+569
+00:25:48,722 --> 00:25:51,070
+DAVID MALAN: Backslash--
+backslash where?
+
+570
+00:25:51,070 --> 00:25:53,630
+
+
+571
+00:25:53,630 --> 00:25:55,700
+No need for backslash
+or escape characters,
+
+572
+00:25:55,700 --> 00:25:59,778
+but there's one-- one of these things
+is not like the other at the moment.
+
+573
+00:25:59,778 --> 00:26:01,690
+AUDIENCE: [INAUDIBLE].
+
+574
+00:26:01,690 --> 00:26:05,120
+DAVID MALAN: Yeah, so we need to
+define this function as being,
+
+575
+00:26:05,120 --> 00:26:09,050
+quite simply, the function that Flask
+should call when the user visits
+
+576
+00:26:09,050 --> 00:26:09,980
+slash zuck.
+
+577
+00:26:09,980 --> 00:26:12,770
+Now again, it seems a little
+stupid that we've written zuck
+
+578
+00:26:12,770 --> 00:26:15,119
+in three places, index in two places.
+
+579
+00:26:15,119 --> 00:26:16,910
+That's just kind of
+the way it is in Flask.
+
+580
+00:26:16,910 --> 00:26:18,320
+Like this could just be Foo.
+
+581
+00:26:18,320 --> 00:26:19,070
+This could be bar.
+
+582
+00:26:19,070 --> 00:26:20,450
+The function names don't matter.
+
+583
+00:26:20,450 --> 00:26:23,480
+But you might as well keep yourself
+sane and use the same names
+
+584
+00:26:23,480 --> 00:26:25,950
+as relate to the routes themselves.
+
+585
+00:26:25,950 --> 00:26:29,420
+So now we've replaced two of
+my conditions in my pseudocode
+
+586
+00:26:29,420 --> 00:26:30,500
+with actual code.
+
+587
+00:26:30,500 --> 00:26:34,730
+And if we take this one step
+further, to do the Login screen.
+
+588
+00:26:34,730 --> 00:26:39,740
+I bet I just need to do something like
+app dot route slash login and then
+
+589
+00:26:39,740 --> 00:26:45,726
+maybe something like def login return
+render template login dot html, which
+
+590
+00:26:45,726 --> 00:26:47,600
+I didn't bother making,
+but I certainly could
+
+591
+00:26:47,600 --> 00:26:49,370
+with some copy/paste and some edits.
+
+592
+00:26:49,370 --> 00:26:54,200
+So now we have a web application
+that supports three routes.
+
+593
+00:26:54,200 --> 00:26:57,270
+When it gets a request in an envelope
+from someone on the internet,
+
+594
+00:26:57,270 --> 00:27:00,560
+it will look inside that envelope
+and check, what are you requesting?
+
+595
+00:27:00,560 --> 00:27:03,102
+Well, if you're requesting slash,
+I'm going to this function.
+
+596
+00:27:03,102 --> 00:27:05,809
+If you're requesting slash zuck,
+I'm going to call this function.
+
+597
+00:27:05,809 --> 00:27:07,910
+Or slash login, I'm going
+to call that function.
+
+598
+00:27:07,910 --> 00:27:09,050
+And that's it.
+
+599
+00:27:09,050 --> 00:27:11,600
+The web app is not
+complete because notice,
+
+600
+00:27:11,600 --> 00:27:15,500
+we seem to have no code that actually
+checks usernames, and passwords,
+
+601
+00:27:15,500 --> 00:27:19,050
+and sort of fancy features that
+you would hope actually exist.
+
+602
+00:27:19,050 --> 00:27:20,660
+But that's more code to come.
+
+603
+00:27:20,660 --> 00:27:24,650
+For now, all we're doing is spitting
+out, conditionally, different files.
+
+604
+00:27:24,650 --> 00:27:26,600
+So how do I now make this work?
+
+605
+00:27:26,600 --> 00:27:30,200
+Well turns out, I need to make
+a directory called templates,
+
+606
+00:27:30,200 --> 00:27:34,340
+so make dir templates-- or I could do
+it with the file browser, with the GUI--
+
+607
+00:27:34,340 --> 00:27:35,060
+Enter.
+
+608
+00:27:35,060 --> 00:27:38,810
+I'm going to move both
+index.html in there with mv.
+
+609
+00:27:38,810 --> 00:27:42,560
+And I'm going to move
+mark into there with mv.
+
+610
+00:27:42,560 --> 00:27:45,020
+And now I need to do one other thing.
+
+611
+00:27:45,020 --> 00:27:49,390
+In my program up here,
+I've deliberately-- whoops,
+
+612
+00:27:49,390 --> 00:27:53,280
+oh, let's close the tabs,
+because I moved the files.
+
+613
+00:27:53,280 --> 00:27:53,780
+That's OK.
+
+614
+00:27:53,780 --> 00:27:56,530
+It's just because I moved the
+files into a subdirectory.
+
+615
+00:27:56,530 --> 00:27:58,610
+So let me re-open those.
+
+616
+00:27:58,610 --> 00:28:02,520
+So I left the room appear
+deliberately for a couple of reasons.
+
+617
+00:28:02,520 --> 00:28:05,300
+One, Flask-- rather Python--
+
+618
+00:28:05,300 --> 00:28:06,650
+has no idea what Flask is.
+
+619
+00:28:06,650 --> 00:28:09,590
+When Python was invented years ago,
+there was no such thing as Flask.
+
+620
+00:28:09,590 --> 00:28:11,464
+That was written more
+recently by a community
+
+621
+00:28:11,464 --> 00:28:14,630
+of people, who have been making
+better web server software since.
+
+622
+00:28:14,630 --> 00:28:19,700
+So if I want to use a package that
+someone else wrote, aka a library,
+
+623
+00:28:19,700 --> 00:28:24,170
+recall that I can do something like
+this from Flask import FLASK, which
+
+624
+00:28:24,170 --> 00:28:25,550
+is a little stupid looking.
+
+625
+00:28:25,550 --> 00:28:27,680
+But this just means
+somewhere on the IDE,
+
+626
+00:28:27,680 --> 00:28:30,200
+we have pre-installed
+a package called Flask.
+
+627
+00:28:30,200 --> 00:28:33,844
+Inside of there is a feature
+called FLASK-- capital letters--
+
+628
+00:28:33,844 --> 00:28:35,510
+which happens to be what I'm using here.
+
+629
+00:28:35,510 --> 00:28:38,310
+And for today's purposes, you
+can think of this as a structure.
+
+630
+00:28:38,310 --> 00:28:41,480
+It's not a student struct, which
+is the go to example thus far.
+
+631
+00:28:41,480 --> 00:28:44,480
+But it's a special web app
+structure that I'm somehow using.
+
+632
+00:28:44,480 --> 00:28:48,020
+But you can just take on faith for
+now that that's what that does.
+
+633
+00:28:48,020 --> 00:28:51,320
+But render template is also not
+a function that I implemented.
+
+634
+00:28:51,320 --> 00:28:55,190
+And indeed, nowhere in the file is
+it actually defined or implemented.
+
+635
+00:28:55,190 --> 00:28:59,210
+Turns out that comes with Flask, so
+I can also import a second function.
+
+636
+00:28:59,210 --> 00:29:02,330
+Just like I imported get int
+or get string or get float,
+
+637
+00:29:02,330 --> 00:29:05,600
+I can import this function
+called render template.
+
+638
+00:29:05,600 --> 00:29:08,610
+And that's all I actually need here.
+
+639
+00:29:08,610 --> 00:29:12,050
+So now I'm going to go ahead,
+and if I didn't make any typos,
+
+640
+00:29:12,050 --> 00:29:14,120
+I'm going to go ahead and now do this--
+
+641
+00:29:14,120 --> 00:29:16,430
+Flask run.
+
+642
+00:29:16,430 --> 00:29:20,450
+So Flask, in addition to being
+like a framework, a way of writing
+
+643
+00:29:20,450 --> 00:29:22,842
+web applications, it is
+also a little program
+
+644
+00:29:22,842 --> 00:29:25,550
+called Flask that takes some
+command line arguments, one of which
+
+645
+00:29:25,550 --> 00:29:29,570
+is Run, which just says run the
+web app in my current directory.
+
+646
+00:29:29,570 --> 00:29:33,050
+And that file, by convention,
+has to be called application.py.
+
+647
+00:29:33,050 --> 00:29:37,270
+So when I hit Enter, I see a
+whole bunch of debugging output.
+
+648
+00:29:37,270 --> 00:29:38,210
+Debugger is active.
+
+649
+00:29:38,210 --> 00:29:39,740
+We'll see what that means some time.
+
+650
+00:29:39,740 --> 00:29:40,970
+And now here is the URL.
+
+651
+00:29:40,970 --> 00:29:44,303
+It's really ugly looking, because I have
+a pretty long user name here on Cloud9,
+
+652
+00:29:44,303 --> 00:29:47,550
+but notice it's the port
+8080 that's important.
+
+653
+00:29:47,550 --> 00:29:49,320
+Let me go ahead and open that.
+
+654
+00:29:49,320 --> 00:29:51,170
+And now I see "hello, body."
+
+655
+00:29:51,170 --> 00:29:54,860
+But up here-- and remember
+that the slash is inferred.
+
+656
+00:29:54,860 --> 00:29:57,020
+Chrome is just being used
+friendly and hiding it.
+
+657
+00:29:57,020 --> 00:29:59,030
+If I change this to zuck--
+
+658
+00:29:59,030 --> 00:30:01,310
+Enter-- "I am Mark."
+
+659
+00:30:01,310 --> 00:30:05,129
+And if I change it to login,
+what's going to happen?
+
+660
+00:30:05,129 --> 00:30:06,420
+AUDIENCE: Nothing, because it--
+
+661
+00:30:06,420 --> 00:30:08,900
+DAVID MALAN: Not found-- so something
+deliberately at this time it's going
+
+662
+00:30:08,900 --> 00:30:10,310
+to go wrong because I didn't--
+
+663
+00:30:10,310 --> 00:30:14,150
+whoa-- OK, so I didn't bother
+making that template yet.
+
+664
+00:30:14,150 --> 00:30:16,890
+And so you'll soon be familiar,
+not with segfaults any more,
+
+665
+00:30:16,890 --> 00:30:18,890
+but probably with something
+called an exception.
+
+666
+00:30:18,890 --> 00:30:20,473
+And we'll see more of these over time.
+
+667
+00:30:20,473 --> 00:30:23,690
+But Python, unlike C, supports
+something called exceptions, which
+
+668
+00:30:23,690 --> 00:30:25,620
+is a type of error that can happen.
+
+669
+00:30:25,620 --> 00:30:29,510
+And essentially, one of the features,
+if a little cryptic, of Flask,
+
+670
+00:30:29,510 --> 00:30:32,990
+is that anytime something really goes
+wrong like a segfault, but in this case
+
+671
+00:30:32,990 --> 00:30:36,530
+called an exception, you'll
+see a somewhat pretty web page
+
+672
+00:30:36,530 --> 00:30:37,490
+that I did not write.
+
+673
+00:30:37,490 --> 00:30:39,480
+I didn't make any of this HTML.
+
+674
+00:30:39,480 --> 00:30:41,480
+Flask generates that
+for me just to show me
+
+675
+00:30:41,480 --> 00:30:43,880
+all of the darn errors
+that somehow ensued,
+
+676
+00:30:43,880 --> 00:30:46,590
+so I can try to wrap my
+mind around what's going on.
+
+677
+00:30:46,590 --> 00:30:49,020
+Fortunately, the most important
+one is usually at the top.
+
+678
+00:30:49,020 --> 00:30:51,990
+And it kind of says what I need
+to know-- "template not found,"
+
+679
+00:30:51,990 --> 00:30:55,140
+even though I'm not sure what
+this means yet, "login.html."
+
+680
+00:30:55,140 --> 00:30:58,140
+So I can infer from that
+what's actually gone wrong.
+
+681
+00:30:58,140 --> 00:31:01,080
+So that might be my very first example.
+
+682
+00:31:01,080 --> 00:31:06,030
+And the key takeaways here are that
+I have written Python code with logic
+
+683
+00:31:06,030 --> 00:31:09,120
+to decide, if the request
+comes in for this, do this.
+
+684
+00:31:09,120 --> 00:31:11,600
+If the request comes in for
+some other thing, do this,
+
+685
+00:31:11,600 --> 00:31:15,180
+else do this other thing, so kind
+of a three-way fork in the road,
+
+686
+00:31:15,180 --> 00:31:17,870
+even though the results
+are just some text files.
+
+687
+00:31:17,870 --> 00:31:24,030
+OK, any questions or
+confusions at this point?
+
+688
+00:31:24,030 --> 00:31:28,520
+OK, so now that we have
+a programming language,
+
+689
+00:31:28,520 --> 00:31:31,090
+we can do much more
+powerful things, kind
+
+690
+00:31:31,090 --> 00:31:33,910
+of sort of like I tried
+to do back in my day
+
+691
+00:31:33,910 --> 00:31:39,250
+when I first learned how
+to write web applications.
+
+692
+00:31:39,250 --> 00:31:41,230
+And one of the first things I did--
+
+693
+00:31:41,230 --> 00:31:43,690
+let me go ahead and
+close all of this up.
+
+694
+00:31:43,690 --> 00:31:48,610
+One of the first things I did was
+to make a website for the Freshmen
+
+695
+00:31:48,610 --> 00:31:50,480
+Intramural Sports Program.
+
+696
+00:31:50,480 --> 00:31:53,950
+And let me go ahead in here to
+Frosh IM0, open up some templates,
+
+697
+00:31:53,950 --> 00:31:55,570
+and we're about to see is this.
+
+698
+00:31:55,570 --> 00:31:58,480
+Here's a little web application
+that I made in advance.
+
+699
+00:31:58,480 --> 00:32:02,394
+It's in a folder called Frosh IM0, which
+has a template subdirectory, inside
+
+700
+00:32:02,394 --> 00:32:04,060
+of which are a whole bunch of web pages.
+
+701
+00:32:04,060 --> 00:32:06,390
+And you can probably infer
+what they are used for.
+
+702
+00:32:06,390 --> 00:32:09,160
+Index is probably the
+default. Success has something
+
+703
+00:32:09,160 --> 00:32:10,660
+to do with things going right.
+
+704
+00:32:10,660 --> 00:32:12,430
+Failure is probably the opposite.
+
+705
+00:32:12,430 --> 00:32:16,330
+And we don't know yet what
+layout.html is, and an application.py.
+
+706
+00:32:16,330 --> 00:32:17,120
+That's it.
+
+707
+00:32:17,120 --> 00:32:21,420
+So let's actually see what
+index.html looks like.
+
+708
+00:32:21,420 --> 00:32:22,790
+And that's the following.
+
+709
+00:32:22,790 --> 00:32:28,487
+In index.html, it looks like
+we have a whole bunch of HTML.
+
+710
+00:32:28,487 --> 00:32:30,820
+And I've cut off deliberately
+the first couple of lines.
+
+711
+00:32:30,820 --> 00:32:32,542
+But what's an H1 tag?
+
+712
+00:32:32,542 --> 00:32:33,250
+AUDIENCE: Header.
+
+713
+00:32:33,250 --> 00:32:35,708
+DAVID MALAN: Header, so it's
+like a big bold piece of text.
+
+714
+00:32:35,708 --> 00:32:40,180
+So "Register for Frosh IMs" looks
+like the main text atop this page.
+
+715
+00:32:40,180 --> 00:32:44,680
+Form, action, register, method, post, we
+saw this briefly when we re-implemented
+
+716
+00:32:44,680 --> 00:32:46,340
+Google a few weeks ago.
+
+717
+00:32:46,340 --> 00:32:49,240
+So here, "action" means
+that when you click Submit,
+
+718
+00:32:49,240 --> 00:32:53,290
+this is going to be submitted to
+the current domain slash register.
+
+719
+00:32:53,290 --> 00:32:55,300
+And it's going to use
+a method called Post.
+
+720
+00:32:55,300 --> 00:32:57,730
+So we didn't talk about this in
+detail last time, but it turns out
+
+721
+00:32:57,730 --> 00:32:59,950
+there's at least two verbs
+to know in the web world--
+
+722
+00:32:59,950 --> 00:33:06,010
+Get, which puts everything you type
+in into the URL, and Post, which,
+
+723
+00:33:06,010 --> 00:33:07,390
+in short, does not.
+
+724
+00:33:07,390 --> 00:33:10,090
+It hides it sort of
+deeper in the envelope.
+
+725
+00:33:10,090 --> 00:33:15,070
+So based only on that definition,
+whereby recall that Google uses Get.
+
+726
+00:33:15,070 --> 00:33:19,390
+If I go to Google dot com slash
+search question mark q equals cats--
+
+727
+00:33:19,390 --> 00:33:23,040
+and hopefully they're doing
+better today than last time.
+
+728
+00:33:23,040 --> 00:33:27,269
+OK, so notice the URL here--
+
+729
+00:33:27,269 --> 00:33:28,810
+I have to stop pulling up Daily News.
+
+730
+00:33:28,810 --> 00:33:34,210
+So notice the URL here
+has my search query.
+
+731
+00:33:34,210 --> 00:33:37,090
+Why might it not always
+be a good thing to put
+
+732
+00:33:37,090 --> 00:33:39,040
+into the URL what the user typed in?
+
+733
+00:33:39,040 --> 00:33:41,339
+
+
+734
+00:33:41,339 --> 00:33:42,880
+AUDIENCE: Cause it's like a password.
+
+735
+00:33:42,880 --> 00:33:43,960
+DAVID MALAN: Yeah, if
+it's your password,
+
+736
+00:33:43,960 --> 00:33:46,190
+you probably don't want
+it showing up in the URL.
+
+737
+00:33:46,190 --> 00:33:48,610
+Because maybe someone
+nosey walks by and can just
+
+738
+00:33:48,610 --> 00:33:50,380
+read your password off the URL.
+
+739
+00:33:50,380 --> 00:33:54,020
+But more compellingly, a lot of
+browsers have autocomplete these days,
+
+740
+00:33:54,020 --> 00:33:55,630
+and they remember your history.
+
+741
+00:33:55,630 --> 00:33:57,730
+So it would be a little lame if
+your little sibling, for instance,
+
+742
+00:33:57,730 --> 00:34:00,310
+could just click the little
+arrow at the end of this window
+
+743
+00:34:00,310 --> 00:34:03,430
+and see every password
+you've typed into websites.
+
+744
+00:34:03,430 --> 00:34:06,490
+You could imagine this not being good
+for uploading content like photos.
+
+745
+00:34:06,490 --> 00:34:08,074
+Like, how do you put a photo in a URL?
+
+746
+00:34:08,074 --> 00:34:10,864
+That doesn't feel like it would
+really work, though technically you
+
+747
+00:34:10,864 --> 00:34:11,980
+can encode it as text.
+
+748
+00:34:11,980 --> 00:34:13,960
+Credit card information
+or anything else,
+
+749
+00:34:13,960 --> 00:34:17,440
+I mean anything resembling
+something private or secure to you,
+
+750
+00:34:17,440 --> 00:34:19,300
+probably don't want
+cluttering the URL bar
+
+751
+00:34:19,300 --> 00:34:22,076
+because it's going to get saved somehow.
+
+752
+00:34:22,076 --> 00:34:24,909
+When you use incognito mode though,
+for instance, that kind of stuff
+
+753
+00:34:24,909 --> 00:34:25,810
+is thrown away.
+
+754
+00:34:25,810 --> 00:34:30,219
+But this is just bad practice to force
+your users to use a mode like that.
+
+755
+00:34:30,219 --> 00:34:32,500
+So Post does not put it in there.
+
+756
+00:34:32,500 --> 00:34:37,090
+And so if Google used Post, which they
+don't for their search page instead,
+
+757
+00:34:37,090 --> 00:34:41,170
+we would appear to be at this URL,
+just slash search, no question
+
+758
+00:34:41,170 --> 00:34:45,159
+mark, no q, and no cats, but the
+query can still be passed in.
+
+759
+00:34:45,159 --> 00:34:48,370
+It's just kind of, again,
+deeper inside of the envelope.
+
+760
+00:34:48,370 --> 00:34:51,485
+So long story short,
+I chose to do exactly
+
+761
+00:34:51,485 --> 00:34:53,860
+that just because with Frosh
+IMs, because we don't really
+
+762
+00:34:53,860 --> 00:34:57,160
+need to be storing all of the
+freshmen's names, and email addresses,
+
+763
+00:34:57,160 --> 00:35:00,010
+and dorms in people's
+URL bars unnecessarily.
+
+764
+00:35:00,010 --> 00:35:03,610
+So input name equals
+name, type equals text.
+
+765
+00:35:03,610 --> 00:35:07,000
+This is going to give me a text box,
+just like q for Google, for someone
+
+766
+00:35:07,000 --> 00:35:07,950
+to type in their name.
+
+767
+00:35:07,950 --> 00:35:12,970
+Select-- it's kind of a weird name,
+but what does a select element give you
+
+768
+00:35:12,970 --> 00:35:14,810
+visually on a screen, if you recall?
+
+769
+00:35:14,810 --> 00:35:15,310
+Yeah?
+
+770
+00:35:15,310 --> 00:35:17,020
+AUDIENCE: It's like a dropdown bar.
+
+771
+00:35:17,020 --> 00:35:17,980
+DAVID MALAN: Yeah, it's a dropdown menu.
+
+772
+00:35:17,980 --> 00:35:21,021
+So all of the items in that menu are
+going to be drawn from these Harvard
+
+773
+00:35:21,021 --> 00:35:22,750
+freshman dorms here.
+
+774
+00:35:22,750 --> 00:35:25,540
+And then down at the bottom of
+this file, if I keep scrolling,
+
+775
+00:35:25,540 --> 00:35:28,510
+notice there's one other
+input whose type is Submit.
+
+776
+00:35:28,510 --> 00:35:31,140
+And what does a input
+whose type is Submit
+
+777
+00:35:31,140 --> 00:35:33,191
+look like on the screen, if you recall?
+
+778
+00:35:33,191 --> 00:35:34,190
+AUDIENCE: It's a button.
+
+779
+00:35:34,190 --> 00:35:35,230
+DAVID MALAN: Yeah, it's just a button.
+
+780
+00:35:35,230 --> 00:35:35,580
+That's it.
+
+781
+00:35:35,580 --> 00:35:37,288
+And you can style it
+to look differently,
+
+782
+00:35:37,288 --> 00:35:41,290
+but it's just a button by default. So
+long story short, this web application
+
+783
+00:35:41,290 --> 00:35:46,060
+gives me a form via which frosh
+can register for intramural sports.
+
+784
+00:35:46,060 --> 00:35:49,360
+And I can see this as follows--
+if I go into Frosh IM0,
+
+785
+00:35:49,360 --> 00:35:53,740
+and I simply do Flask run, I'm
+going to see my same URL as before,
+
+786
+00:35:53,740 --> 00:35:56,737
+but now a different application
+is running on the same port.
+
+787
+00:35:56,737 --> 00:35:57,820
+Here's what it looks like.
+
+788
+00:35:57,820 --> 00:36:01,750
+It's super simple, super ugly, but
+it does, indeed, have a text box.
+
+789
+00:36:01,750 --> 00:36:03,130
+It's got a dropdown.
+
+790
+00:36:03,130 --> 00:36:04,870
+And it's got a Register button.
+
+791
+00:36:04,870 --> 00:36:08,440
+And now with the world
+suddenly got more interesting,
+
+792
+00:36:08,440 --> 00:36:12,730
+because now I have not just static
+content, like "hello, world"
+
+793
+00:36:12,730 --> 00:36:13,960
+or "I am Mark."
+
+794
+00:36:13,960 --> 00:36:16,430
+I actually have something
+interactive for the user to do.
+
+795
+00:36:16,430 --> 00:36:20,125
+And if he or she fills out this
+form now, clicks Submit, two
+
+796
+00:36:20,125 --> 00:36:22,330
+or three weeks ago, we
+just punted completely,
+
+797
+00:36:22,330 --> 00:36:25,200
+and we let Google handle
+the user submission.
+
+798
+00:36:25,200 --> 00:36:28,860
+But now we have Python in a
+programming language that can receive,
+
+799
+00:36:28,860 --> 00:36:32,520
+inside of the same envelope,
+the user's query for cats
+
+800
+00:36:32,520 --> 00:36:34,500
+or the user's name and dorm.
+
+801
+00:36:34,500 --> 00:36:37,120
+And we can actually
+do something with it.
+
+802
+00:36:37,120 --> 00:36:39,630
+So this program doesn't do
+all that much with it yet.
+
+803
+00:36:39,630 --> 00:36:44,340
+If I go in here and zoom in, and I
+register David from Matthews and click
+
+804
+00:36:44,340 --> 00:36:46,980
+Register, notice what happens.
+
+805
+00:36:46,980 --> 00:36:50,094
+I do end up, as promised,
+at slash register.
+
+806
+00:36:50,094 --> 00:36:52,260
+And I'm told "You are
+registered," well, not really.
+
+807
+00:36:52,260 --> 00:36:53,801
+And that's because this is version 0.
+
+808
+00:36:53,801 --> 00:36:55,560
+It actually doesn't do all that much.
+
+809
+00:36:55,560 --> 00:36:57,040
+What does it do?
+
+810
+00:36:57,040 --> 00:36:59,910
+Well, let's go back and
+try to be less cooperative.
+
+811
+00:36:59,910 --> 00:37:01,680
+So I just reloaded the page.
+
+812
+00:37:01,680 --> 00:37:03,830
+It's still asking for my name and dorm.
+
+813
+00:37:03,830 --> 00:37:05,590
+You don't need to know that information.
+
+814
+00:37:05,590 --> 00:37:06,300
+I want to keep it private.
+
+815
+00:37:06,300 --> 00:37:09,510
+I just want to anonymously register
+for a sport, whatever that would mean.
+
+816
+00:37:09,510 --> 00:37:12,550
+Register-- OK, I caught it.
+
+817
+00:37:12,550 --> 00:37:15,480
+Notice that the URL is
+still slash register.
+
+818
+00:37:15,480 --> 00:37:18,111
+But I'm being yelled at for
+not providing my name and dorm.
+
+819
+00:37:18,111 --> 00:37:19,860
+All right, so fine,
+I'll give you my name.
+
+820
+00:37:19,860 --> 00:37:23,850
+But I don't want you to know where I
+live, so I'm just going to say David--
+
+821
+00:37:23,850 --> 00:37:25,170
+Register.
+
+822
+00:37:25,170 --> 00:37:27,060
+And it's still catching that somehow.
+
+823
+00:37:27,060 --> 00:37:31,650
+So only when I actually give it a dorm
+and a name, like David from Matthews,
+
+824
+00:37:31,650 --> 00:37:35,670
+and click Register, does it
+actually pretend to register me.
+
+825
+00:37:35,670 --> 00:37:37,204
+So what does the logic look like?
+
+826
+00:37:37,204 --> 00:37:39,870
+In just English pseudocode, even
+if you've never written Python,
+
+827
+00:37:39,870 --> 00:37:44,334
+what kind of pseudocode would be in
+application.py for this application?
+
+828
+00:37:44,334 --> 00:37:47,085
+AUDIENCE: If there is no
+text, provide error message.
+
+829
+00:37:47,085 --> 00:37:49,210
+DAVID MALAN: Perfect, if
+there is no text provided,
+
+830
+00:37:49,210 --> 00:37:50,865
+provide this error message instead.
+
+831
+00:37:50,865 --> 00:37:52,990
+And so let's take a look
+at how that's implemented.
+
+832
+00:37:52,990 --> 00:37:55,810
+In Frosh IM0, in
+addition to my template,
+
+833
+00:37:55,810 --> 00:37:58,494
+I again had this application.py.
+
+834
+00:37:58,494 --> 00:38:00,410
+And let's see what's new
+and what's different.
+
+835
+00:38:00,410 --> 00:38:04,030
+So first, this is mostly
+the same as before.
+
+836
+00:38:04,030 --> 00:38:06,064
+I just added one other
+thing in here, Request,
+
+837
+00:38:06,064 --> 00:38:07,480
+for reasons we'll see in a moment.
+
+838
+00:38:07,480 --> 00:38:09,480
+Here is the line of code
+that says, hey, Python,
+
+839
+00:38:09,480 --> 00:38:11,770
+give me a web application called app.
+
+840
+00:38:11,770 --> 00:38:18,100
+Hey, Python, when the user visits
+slash, render the template index.html.
+
+841
+00:38:18,100 --> 00:38:19,420
+That's how I got the form.
+
+842
+00:38:19,420 --> 00:38:20,830
+But this is the interesting part.
+
+843
+00:38:20,830 --> 00:38:22,660
+Let me zoom out slightly.
+
+844
+00:38:22,660 --> 00:38:25,390
+These lines of code are
+a little more involved,
+
+845
+00:38:25,390 --> 00:38:26,860
+but let's do the one at a time.
+
+846
+00:38:26,860 --> 00:38:30,490
+This first line, nine,
+is saying, hey, Python--
+
+847
+00:38:30,490 --> 00:38:33,610
+or specifically Flask--
+when the user visits slash
+
+848
+00:38:33,610 --> 00:38:38,727
+register using the post
+method, what do I want to call?
+
+849
+00:38:38,727 --> 00:38:40,060
+Just to be clear, what function?
+
+850
+00:38:40,060 --> 00:38:43,399
+
+
+851
+00:38:43,399 --> 00:38:44,360
+AUDIENCE: Register?
+
+852
+00:38:44,360 --> 00:38:46,880
+DAVID MALAN: Register-- so
+again, the only relationship
+
+853
+00:38:46,880 --> 00:38:50,120
+here, even though the syntax looks
+a little cryptic, is this says,
+
+854
+00:38:50,120 --> 00:38:54,320
+hey, server, when the user
+visits slash register,
+
+855
+00:38:54,320 --> 00:38:57,860
+call the function immediately
+below it called Register.
+
+856
+00:38:57,860 --> 00:38:59,550
+And then what does that function do?
+
+857
+00:38:59,550 --> 00:39:03,260
+Well, here is the logic that you
+proposed verbally a moment ago.
+
+858
+00:39:03,260 --> 00:39:07,345
+If not request dot form dot
+get or not request dot form dot
+
+859
+00:39:07,345 --> 00:39:12,260
+get dorm, name and dorm, then
+return failure.html, else
+
+860
+00:39:12,260 --> 00:39:14,990
+implicitly return success.html.
+
+861
+00:39:14,990 --> 00:39:18,170
+So the only part that's a little new
+and different here is 11, line 11.
+
+862
+00:39:18,170 --> 00:39:20,674
+Because in C, you would have
+to use the exclamation points.
+
+863
+00:39:20,674 --> 00:39:23,090
+You would have to use vertical
+bars for Or So some of that
+
+864
+00:39:23,090 --> 00:39:24,470
+syntax is a little different.
+
+865
+00:39:24,470 --> 00:39:26,310
+But this works as follows--
+
+866
+00:39:26,310 --> 00:39:31,940
+there exists a function called Get that
+is inside a special variable called
+
+867
+00:39:31,940 --> 00:39:38,670
+Form that is inside a special variable
+called Request that I have access to,
+
+868
+00:39:38,670 --> 00:39:42,290
+because I imported it up here.
+
+869
+00:39:42,290 --> 00:39:46,940
+And that function, Get, checks
+inside of the virtual envelope
+
+870
+00:39:46,940 --> 00:39:51,120
+for a field called Name that would
+have been populated in the envelope
+
+871
+00:39:51,120 --> 00:39:53,090
+if a user typed his or her name.
+
+872
+00:39:53,090 --> 00:39:56,420
+And if it exists, it returns it,
+quote-unquote, "David," quote-unquote,
+
+873
+00:39:56,420 --> 00:40:00,260
+"Maria," or whoever it is that's
+registering, but if not, inverts it.
+
+874
+00:40:00,260 --> 00:40:07,430
+So if not a name, or if not a dorm,
+go ahead and spit out failure.html.
+
+875
+00:40:07,430 --> 00:40:10,550
+So what does failure.html look like?
+
+876
+00:40:10,550 --> 00:40:14,450
+Well, failure.html just has
+this hard-coded message,
+
+877
+00:40:14,450 --> 00:40:16,760
+"You must provide your name and dorm."
+
+878
+00:40:16,760 --> 00:40:21,550
+And now at the risk of introducing
+one too many languages at a time here,
+
+879
+00:40:21,550 --> 00:40:23,150
+there is another one in here.
+
+880
+00:40:23,150 --> 00:40:26,840
+These funky curly
+braces and percent signs
+
+881
+00:40:26,840 --> 00:40:28,760
+are what's called a templating language.
+
+882
+00:40:28,760 --> 00:40:32,870
+But before we explain what that
+is, notice at the top of this file
+
+883
+00:40:32,870 --> 00:40:34,580
+is mention of another file, layout.html.
+
+884
+00:40:34,580 --> 00:40:35,300
+That
+
+885
+00:40:35,300 --> 00:40:36,770
+We've not seen this before.
+
+886
+00:40:36,770 --> 00:40:41,930
+In the past, we've just had full
+and complete index.html files
+
+887
+00:40:41,930 --> 00:40:45,140
+or zuck.html files.
+
+888
+00:40:45,140 --> 00:40:51,590
+But what was true a moment ago
+about index.html and zuck.html
+
+889
+00:40:51,590 --> 00:40:52,710
+from our last example?
+
+890
+00:40:52,710 --> 00:40:55,220
+Let me go ahead and
+quickly open those again.
+
+891
+00:40:55,220 --> 00:40:57,980
+Index.html, recall looked like this.
+
+892
+00:40:57,980 --> 00:41:01,610
+And zuck.html looked like that.
+
+893
+00:41:01,610 --> 00:41:06,592
+What do you notice in
+layman's terms about the two?
+
+894
+00:41:06,592 --> 00:41:08,300
+AUDIENCE: [INAUDIBLE]
+is mostly the same.
+
+895
+00:41:08,300 --> 00:41:09,730
+DAVID MALAN: Yeah, they're
+almost identical, right?
+
+896
+00:41:09,730 --> 00:41:11,570
+They seem to differ
+only in their titles,
+
+897
+00:41:11,570 --> 00:41:14,340
+obviously, and in the body's content.
+
+898
+00:41:14,340 --> 00:41:16,905
+But all the other
+structure is identical.
+
+899
+00:41:16,905 --> 00:41:19,030
+And to be fair, there's
+not that much in red there.
+
+900
+00:41:19,030 --> 00:41:20,210
+There's not too many tags.
+
+901
+00:41:20,210 --> 00:41:23,060
+But I mean, I literally, in front
+of you, copied and pasted this.
+
+902
+00:41:23,060 --> 00:41:26,190
+And generally, that is already
+a step in the wrong direction.
+
+903
+00:41:26,190 --> 00:41:28,070
+And so there's an opportunity here.
+
+904
+00:41:28,070 --> 00:41:29,535
+There's a problem to be solved.
+
+905
+00:41:29,535 --> 00:41:31,160
+And we've done this in the past, right?
+
+906
+00:41:31,160 --> 00:41:33,649
+In C, if you were to just
+blindly copy and paste code
+
+907
+00:41:33,649 --> 00:41:35,690
+you need in multiple
+places, that's kind of dumb.
+
+908
+00:41:35,690 --> 00:41:36,481
+It's kind of messy.
+
+909
+00:41:36,481 --> 00:41:37,520
+It's hard to maintain.
+
+910
+00:41:37,520 --> 00:41:39,853
+Rather, you should probably
+be defining it as a function
+
+911
+00:41:39,853 --> 00:41:41,497
+that you call in multiple places.
+
+912
+00:41:41,497 --> 00:41:43,580
+Now this is not a programming
+language, so there's
+
+913
+00:41:43,580 --> 00:41:45,890
+no comparable notion of a function.
+
+914
+00:41:45,890 --> 00:41:50,300
+But because it's a markup language
+that just has hard-coded values,
+
+915
+00:41:50,300 --> 00:41:53,990
+you can think of this as kind
+of being a template or a mold,
+
+916
+00:41:53,990 --> 00:42:01,457
+like put something here, and then
+maybe here, put something else here.
+
+917
+00:42:01,457 --> 00:42:03,290
+So again, if you think
+of the physical world
+
+918
+00:42:03,290 --> 00:42:07,580
+as having templates, or again,
+like a mold into which you
+
+919
+00:42:07,580 --> 00:42:11,390
+pour specific values, this is
+kind of what we're talking about.
+
+920
+00:42:11,390 --> 00:42:15,390
+And that is what layout.html
+is in this Frosh IMs example.
+
+921
+00:42:15,390 --> 00:42:19,880
+I've not opened it until now, but
+here is, somewhat cryptically,
+
+922
+00:42:19,880 --> 00:42:23,930
+an example of layout.html.
+
+923
+00:42:23,930 --> 00:42:25,460
+And notice, it's got the doc type.
+
+924
+00:42:25,460 --> 00:42:29,000
+It's got HTML head, title,
+some other stuff up there body.
+
+925
+00:42:29,000 --> 00:42:30,620
+But then it has this placeholder.
+
+926
+00:42:30,620 --> 00:42:33,770
+And I'll admit it, the syntax
+is sort of annoyingly cryptic,
+
+927
+00:42:33,770 --> 00:42:36,590
+but this is just saying
+put something here.
+
+928
+00:42:36,590 --> 00:42:37,580
+And that's all.
+
+929
+00:42:37,580 --> 00:42:39,350
+What are you putting there?
+
+930
+00:42:39,350 --> 00:42:44,150
+Well, if I go back to failure.html,
+notice that it works as follows.
+
+931
+00:42:44,150 --> 00:42:47,690
+Failure.html conceptually
+extends this template.
+
+932
+00:42:47,690 --> 00:42:51,440
+It borrows that mold,
+called layout.html.
+
+933
+00:42:51,440 --> 00:42:54,800
+And then notice the same keywords
+here, block body and block.
+
+934
+00:42:54,800 --> 00:42:58,880
+This just means plug
+this into that file.
+
+935
+00:42:58,880 --> 00:43:01,972
+And this allowed me to
+break my habit quickly
+
+936
+00:43:01,972 --> 00:43:05,180
+of just copying and pasting everything,
+even though the format of these files
+
+937
+00:43:05,180 --> 00:43:06,840
+is almost identical.
+
+938
+00:43:06,840 --> 00:43:10,010
+So if I go back now to
+application.py, notice
+
+939
+00:43:10,010 --> 00:43:15,650
+that this program does spit out
+either index.html or failure.html,
+
+940
+00:43:15,650 --> 00:43:16,800
+or success.html.
+
+941
+00:43:16,800 --> 00:43:20,340
+So it would have been pretty lame to
+copy and paste my code three times.
+
+942
+00:43:20,340 --> 00:43:24,110
+That's why I took the time to create
+a fourth file, layout.html, just
+
+943
+00:43:24,110 --> 00:43:25,940
+to factor out everything that's common.
+
+944
+00:43:25,940 --> 00:43:28,550
+And the upside of this, too,
+means that all of these pages
+
+945
+00:43:28,550 --> 00:43:29,970
+structurally look the same.
+
+946
+00:43:29,970 --> 00:43:31,960
+And if I had like a
+fancy logo on my website
+
+947
+00:43:31,960 --> 00:43:34,520
+and a nice brand to the
+web site, all of my pages
+
+948
+00:43:34,520 --> 00:43:38,540
+would look the same except for a
+message that changes in the middle,
+
+949
+00:43:38,540 --> 00:43:40,200
+say, of the page.
+
+950
+00:43:40,200 --> 00:43:43,330
+And so this, then, is Frosh IM0.
+
+951
+00:43:43,330 --> 00:43:47,390
+Any questions on how this now looks?
+
+952
+00:43:47,390 --> 00:43:50,340
+All right, so we have a couple
+of other opportunities here.
+
+953
+00:43:50,340 --> 00:43:53,735
+I would propose that it would be kind
+of interesting to actually remember
+
+954
+00:43:53,735 --> 00:43:55,610
+that the user has
+registered, instead of just
+
+955
+00:43:55,610 --> 00:43:58,680
+pretending by spitting out a hard-coded
+value, like "You are registered."
+
+956
+00:43:58,680 --> 00:44:01,884
+Well, not really, because I'm not
+doing anything with their name or dorm.
+
+957
+00:44:01,884 --> 00:44:03,800
+So maybe we could start
+storing that in memory
+
+958
+00:44:03,800 --> 00:44:05,800
+and see who is registered for the site.
+
+959
+00:44:05,800 --> 00:44:09,740
+It would be even cooler if, like in
+my day way back when I implemented
+
+960
+00:44:09,740 --> 00:44:14,102
+the actual Frosh IMs website, you could
+email someone when he or she registers
+
+961
+00:44:14,102 --> 00:44:15,560
+to confirm that they're registered.
+
+962
+00:44:15,560 --> 00:44:18,890
+Or better still, why don't we
+actually save it to a mini database,
+
+963
+00:44:18,890 --> 00:44:22,034
+like a CSV file, that I, like
+the person running Frosh IMs,
+
+964
+00:44:22,034 --> 00:44:25,200
+can actually open in Excel, or Numbers,
+or Google Spreadsheets, or the like.
+
+965
+00:44:25,200 --> 00:44:27,310
+So before we to get to that, let's
+take our five-minute break here.
+
+966
+00:44:27,310 --> 00:44:29,810
+And we'll come back and
+solve exactly those problems.
+
+967
+00:44:29,810 --> 00:44:30,800
+So we are back.
+
+968
+00:44:30,800 --> 00:44:32,720
+And so I thought today
+would be opportune,
+
+969
+00:44:32,720 --> 00:44:34,678
+since you might have been
+wondering who Stelios
+
+970
+00:44:34,678 --> 00:44:37,670
+is who has been our example in
+quite a few of our memory examples.
+
+971
+00:44:37,670 --> 00:44:41,865
+But visiting from Yale University today,
+one of our head TAs there, Stelios.
+
+972
+00:44:41,865 --> 00:44:43,134
+STELIOS: Hi, everyone.
+
+973
+00:44:43,134 --> 00:44:44,610
+AUDIENCE: We love you!
+
+974
+00:44:44,610 --> 00:44:48,546
+[APPLAUSE]
+
+975
+00:44:48,546 --> 00:44:54,610
+STELIOS: Yale is on break,
+so I said, why not come by?
+
+976
+00:44:54,610 --> 00:44:57,060
+Yeah, it's glad to see you.
+
+977
+00:44:57,060 --> 00:44:59,680
+I've been in here before many times.
+
+978
+00:44:59,680 --> 00:45:01,950
+It's a beautiful space.
+
+979
+00:45:01,950 --> 00:45:04,055
+And, yeah, come by and hi after lecture.
+
+980
+00:45:04,055 --> 00:45:05,430
+DAVID MALAN: So glad to have you.
+
+981
+00:45:05,430 --> 00:45:07,140
+Thank you, Stelios.
+
+982
+00:45:07,140 --> 00:45:09,480
+So, it was brought to
+my attention, since I
+
+983
+00:45:09,480 --> 00:45:12,240
+wasn't focusing so much on my
+logs in the terminal window, which
+
+984
+00:45:12,240 --> 00:45:17,087
+record all of the HTTP requests that
+you get during a server running.
+
+985
+00:45:17,087 --> 00:45:20,170
+And this is a screenshot of my terminal
+window from just a little bit ago.
+
+986
+00:45:20,170 --> 00:45:22,980
+And you'll recall that I visited
+slash, and then I tried to register.
+
+987
+00:45:22,980 --> 00:45:24,930
+But in between there,
+someone in the audience,
+
+988
+00:45:24,930 --> 00:45:28,800
+apparently, or on the internet,
+tried to visit slash was up,
+
+989
+00:45:28,800 --> 00:45:31,200
+using Get in their browser.
+
+990
+00:45:31,200 --> 00:45:34,050
+I scrolled past a few other
+inputs from the internet.
+
+991
+00:45:34,050 --> 00:45:36,990
+But the more shareable
+ones were these here--
+
+992
+00:45:36,990 --> 00:45:39,830
+bro slash David and slash nice.
+
+993
+00:45:39,830 --> 00:45:42,490
+So that was the last one before
+I killed the actual server.
+
+994
+00:45:42,490 --> 00:45:46,710
+And this is because, even though I'm
+listening on a nonstandard port, 8080,
+
+995
+00:45:46,710 --> 00:45:49,920
+that domain name, I did share my
+workspace publicly so that anyone could
+
+996
+00:45:49,920 --> 00:45:51,726
+access it while the server is running.
+
+997
+00:45:51,726 --> 00:45:53,850
+And if you happened to be
+here physically or tuning
+
+998
+00:45:53,850 --> 00:45:56,040
+into a live stream,
+it's obvious that I'm
+
+999
+00:45:56,040 --> 00:46:00,570
+advertising now publicly that port 8080
+is where we've been spending our time.
+
+1000
+00:46:00,570 --> 00:46:06,170
+But if we turn back now to Flask and
+maybe minimize our logs moving forward,
+
+1001
+00:46:06,170 --> 00:46:09,910
+let's consider how we can actually
+now remember that users are logged in.
+
+1002
+00:46:09,910 --> 00:46:13,710
+So in fact, let me go ahead and
+demonstrate among today's examples,
+
+1003
+00:46:13,710 --> 00:46:17,430
+Frosh IMs1, by running Flask run.
+
+1004
+00:46:17,430 --> 00:46:21,300
+And then I'm going to go to
+the same URL as before up here.
+
+1005
+00:46:21,300 --> 00:46:23,280
+And we'll see this
+time, that if I go ahead
+
+1006
+00:46:23,280 --> 00:46:25,950
+and register as David from Matthews--
+
+1007
+00:46:25,950 --> 00:46:30,270
+Register, notice now that instead
+of just going to slash register,
+
+1008
+00:46:30,270 --> 00:46:31,680
+I changed things a little bit.
+
+1009
+00:46:31,680 --> 00:46:34,860
+And I'm going to slash
+registrants, because there I
+
+1010
+00:46:34,860 --> 00:46:38,280
+seem to have some HTML that
+generates a bulleted list of whoever
+
+1011
+00:46:38,280 --> 00:46:39,430
+has registered.
+
+1012
+00:46:39,430 --> 00:46:44,400
+And so now let me go ahead here
+and go back, perhaps, and register
+
+1013
+00:46:44,400 --> 00:46:47,220
+let's say Maria from Apley Court--
+
+1014
+00:46:47,220 --> 00:46:48,360
+Register.
+
+1015
+00:46:48,360 --> 00:46:49,650
+And now we have two.
+
+1016
+00:46:49,650 --> 00:46:55,140
+Moreover, if I just reload the page,
+notice that this information persists.
+
+1017
+00:46:55,140 --> 00:46:57,180
+So how is this actually working?
+
+1018
+00:46:57,180 --> 00:47:04,800
+Well, let's go ahead and take a look
+inside of application.py for Frosh IMs1
+
+1019
+00:47:04,800 --> 00:47:06,480
+dot--
+
+1020
+00:47:06,480 --> 00:47:07,810
+for Frosh IMs1.
+
+1021
+00:47:07,810 --> 00:47:09,390
+So what do we have inside here?
+
+1022
+00:47:09,390 --> 00:47:12,750
+So as before, I'm configuring
+my app with a line like this,
+
+1023
+00:47:12,750 --> 00:47:14,610
+like, hey, Flask, give me an app.
+
+1024
+00:47:14,610 --> 00:47:18,150
+And then this, I claim,
+is my registrants.
+
+1025
+00:47:18,150 --> 00:47:21,510
+So this is just a comment in
+Python, the hashtag registrants.
+
+1026
+00:47:21,510 --> 00:47:25,260
+Students equals open bracket close
+bracket represents what, though?
+
+1027
+00:47:25,260 --> 00:47:26,040
+AUDIENCE: List.
+
+1028
+00:47:26,040 --> 00:47:27,630
+DAVID MALAN: A list,
+yeah, it's an empty list.
+
+1029
+00:47:27,630 --> 00:47:28,671
+It's like an empty array.
+
+1030
+00:47:28,671 --> 00:47:31,860
+But unlike in C, where
+arrays can't grow or shrink,
+
+1031
+00:47:31,860 --> 00:47:35,460
+in Python lists, which are
+similar in spirit to an array,
+
+1032
+00:47:35,460 --> 00:47:37,260
+can actually grow and
+shrink dynamically.
+
+1033
+00:47:37,260 --> 00:47:38,790
+So if you want an empty
+one, you literally just
+
+1034
+00:47:38,790 --> 00:47:39,873
+say, give me an empty one.
+
+1035
+00:47:39,873 --> 00:47:42,330
+And then we'll figure out
+the ultimate length later.
+
+1036
+00:47:42,330 --> 00:47:45,030
+And so what's compelling
+about this on line 7,
+
+1037
+00:47:45,030 --> 00:47:47,640
+is that I have a variable
+now called Students,
+
+1038
+00:47:47,640 --> 00:47:50,670
+that's initialized to an empty list.
+
+1039
+00:47:50,670 --> 00:47:55,230
+But it's now in the web
+application's memory.
+
+1040
+00:47:55,230 --> 00:47:57,884
+Because recall that when we
+run Flask, I don't immediately
+
+1041
+00:47:57,884 --> 00:47:58,800
+get back to my prompt.
+
+1042
+00:47:58,800 --> 00:48:00,450
+The program doesn't
+just run and then stop.
+
+1043
+00:48:00,450 --> 00:48:02,533
+It just keeps listening,
+and listening, listening,
+
+1044
+00:48:02,533 --> 00:48:04,740
+waiting for more of these
+envelopes to come in.
+
+1045
+00:48:04,740 --> 00:48:09,150
+As such, as these various
+functions get called--
+
+1046
+00:48:09,150 --> 00:48:12,000
+index, or registrants,
+as we'll see, or others--
+
+1047
+00:48:12,000 --> 00:48:15,480
+they all have access to this global
+variable, in this example, Students.
+
+1048
+00:48:15,480 --> 00:48:18,750
+And so any of them can just put
+more, and more, and more data
+
+1049
+00:48:18,750 --> 00:48:20,340
+inside of Students.
+
+1050
+00:48:20,340 --> 00:48:23,190
+And so here, if I go ahead and do this--
+
+1051
+00:48:23,190 --> 00:48:27,180
+let me go ahead and show that
+in the user visits slash,
+
+1052
+00:48:27,180 --> 00:48:29,830
+we just return index.html.
+
+1053
+00:48:29,830 --> 00:48:33,090
+Otherwise, if they visit
+slash register, notice
+
+1054
+00:48:33,090 --> 00:48:36,100
+that I've actually got some
+interesting logic going on this time.
+
+1055
+00:48:36,100 --> 00:48:39,962
+So if the user visits
+slash register via Post--
+
+1056
+00:48:39,962 --> 00:48:42,420
+and the only way thus far we've
+seen that this could happen
+
+1057
+00:48:42,420 --> 00:48:44,210
+is if the user does what?
+
+1058
+00:48:44,210 --> 00:48:46,826
+How do you do something via Post?
+
+1059
+00:48:46,826 --> 00:48:47,700
+AUDIENCE: You submit.
+
+1060
+00:48:47,700 --> 00:48:48,991
+DAVID MALAN: You submit a form.
+
+1061
+00:48:48,991 --> 00:48:51,337
+So Get, we humans can
+simulate really easily.
+
+1062
+00:48:51,337 --> 00:48:53,670
+If you just go to a URL, by
+typing it into your browser,
+
+1063
+00:48:53,670 --> 00:48:55,470
+you are by default using Get.
+
+1064
+00:48:55,470 --> 00:48:58,800
+You can't do the same
+nearly as easily for Post.
+
+1065
+00:48:58,800 --> 00:49:00,300
+You only have access to the URL bar.
+
+1066
+00:49:00,300 --> 00:49:03,390
+But if you have a web form,
+like the one in index.html
+
+1067
+00:49:03,390 --> 00:49:05,700
+with the Dorm dropdown
+and the Name textbox,
+
+1068
+00:49:05,700 --> 00:49:08,400
+you can submit via Post, which
+is how this route can apply just
+
+1069
+00:49:08,400 --> 00:49:10,740
+to that particular route.
+
+1070
+00:49:10,740 --> 00:49:14,490
+So here on line 21, I'm saying,
+hey, give me a variable called Name,
+
+1071
+00:49:14,490 --> 00:49:17,580
+and put in it whatever the
+user typed into the Name field.
+
+1072
+00:49:17,580 --> 00:49:18,930
+Give me the same for the Dorm.
+
+1073
+00:49:18,930 --> 00:49:21,690
+And so we notice, even if it
+was a big dropdown of items,
+
+1074
+00:49:21,690 --> 00:49:23,980
+the user is only selecting one of those.
+
+1075
+00:49:23,980 --> 00:49:26,160
+And so we're getting
+back just this one value.
+
+1076
+00:49:26,160 --> 00:49:30,060
+And then here is a little
+sort of Pythonic-type logic.
+
+1077
+00:49:30,060 --> 00:49:32,019
+If not Name or not Dorm,
+which is kind of nice.
+
+1078
+00:49:32,019 --> 00:49:34,934
+It's a little terse, and it would
+have looked strange a few weeks ago,
+
+1079
+00:49:34,934 --> 00:49:37,620
+but now it looks better, perhaps,
+than it would have in week one
+
+1080
+00:49:37,620 --> 00:49:40,620
+in C. Then go ahead and
+return failure.html.
+
+1081
+00:49:40,620 --> 00:49:42,690
+If we're missing the name or the dorm.
+
+1082
+00:49:42,690 --> 00:49:46,870
+Meanwhile, if that's not the case,
+and we've not returned a failure,
+
+1083
+00:49:46,870 --> 00:49:50,670
+go to do this, students dot
+append and then this F-string.
+
+1084
+00:49:50,670 --> 00:49:53,530
+So dot append, if you don't recall--
+
+1085
+00:49:53,530 --> 00:49:56,450
+and you might not recall, because
+I don't remember if we showed you--
+
+1086
+00:49:56,450 --> 00:49:59,360
+is a method or function
+built into a list that
+
+1087
+00:49:59,360 --> 00:50:02,910
+allows you to literally append a
+value to a list called Students.
+
+1088
+00:50:02,910 --> 00:50:05,540
+So this is how, in
+Python, you grow an array.
+
+1089
+00:50:05,540 --> 00:50:08,090
+You just append to it and
+the program will figure out
+
+1090
+00:50:08,090 --> 00:50:09,350
+the length of this list.
+
+1091
+00:50:09,350 --> 00:50:12,530
+This F-string just means here comes
+a formatted string, similar in spirit
+
+1092
+00:50:12,530 --> 00:50:14,600
+to print F, but the syntax
+is a little different.
+
+1093
+00:50:14,600 --> 00:50:18,740
+And the string I'm forming here
+is so-and-so from such-and-such,
+
+1094
+00:50:18,740 --> 00:50:20,320
+so Name from Dorm.
+
+1095
+00:50:20,320 --> 00:50:23,690
+And the curly braces inside of
+a format string or an F-string
+
+1096
+00:50:23,690 --> 00:50:27,390
+means that we should plug those
+variables into that F-string.
+
+1097
+00:50:27,390 --> 00:50:29,910
+And then lastly, this is a new feature.
+
+1098
+00:50:29,910 --> 00:50:32,210
+You can return not just
+render template, you
+
+1099
+00:50:32,210 --> 00:50:35,206
+can literally return
+redirect and the path
+
+1100
+00:50:35,206 --> 00:50:36,830
+to which you want to redirect the user.
+
+1101
+00:50:36,830 --> 00:50:37,670
+And take a guess.
+
+1102
+00:50:37,670 --> 00:50:40,220
+If you call redirect
+slash registrants, what
+
+1103
+00:50:40,220 --> 00:50:43,850
+does Flask, because Flask gave
+us this redirect function,
+
+1104
+00:50:43,850 --> 00:50:45,897
+put inside the envelope for us?
+
+1105
+00:50:45,897 --> 00:50:46,954
+AUDIENCE: A new address.
+
+1106
+00:50:46,954 --> 00:50:49,370
+DAVID MALAN: A new address--
+and what kind of status code?
+
+1107
+00:50:49,370 --> 00:50:50,099
+AUDIENCE: 301.
+
+1108
+00:50:50,099 --> 00:50:51,140
+DAVID MALAN: Like a 301--
+
+1109
+00:50:51,140 --> 00:50:52,770
+we saw that a couple of times ago.
+
+1110
+00:50:52,770 --> 00:50:55,040
+301 means redirect the user.
+
+1111
+00:50:55,040 --> 00:50:57,110
+So this function handles
+all of that for us.
+
+1112
+00:50:57,110 --> 00:51:01,460
+We don't have to know or worry about
+how those status codes are actually
+
+1113
+00:51:01,460 --> 00:51:02,420
+generated.
+
+1114
+00:51:02,420 --> 00:51:06,200
+Meanwhile, slash registrants
+is super simple, but it does
+
+1115
+00:51:06,200 --> 00:51:07,760
+have one nice new feature.
+
+1116
+00:51:07,760 --> 00:51:12,350
+So slash register, to which the form
+submit, ultimately does all this stuff
+
+1117
+00:51:12,350 --> 00:51:16,160
+and then redirects the user to
+slash registrants, just because.
+
+1118
+00:51:16,160 --> 00:51:18,980
+And it's kind of better
+designed if this route is only
+
+1119
+00:51:18,980 --> 00:51:20,930
+used for saving
+information, and this route
+
+1120
+00:51:20,930 --> 00:51:23,660
+is only used for seeing
+information, because this way
+
+1121
+00:51:23,660 --> 00:51:25,830
+you can visit it via Get as well.
+
+1122
+00:51:25,830 --> 00:51:27,860
+Notice that I'm returning
+registrants.html.
+
+1123
+00:51:27,860 --> 00:51:30,680
+But I'm doing a little
+something different this time.
+
+1124
+00:51:30,680 --> 00:51:33,780
+What is different about line 16,
+vis-a-vis all of our other render
+
+1125
+00:51:33,780 --> 00:51:34,807
+template calls before?
+
+1126
+00:51:34,807 --> 00:51:35,890
+AUDIENCE: Students equals.
+
+1127
+00:51:35,890 --> 00:51:38,990
+DAVID MALAN: Yeah, students equal
+students, which is a little strange.
+
+1128
+00:51:38,990 --> 00:51:44,190
+But we know that one of those values
+is referring to this list here.
+
+1129
+00:51:44,190 --> 00:51:48,320
+And so this is an example of
+Python supporting named parameters.
+
+1130
+00:51:48,320 --> 00:51:52,160
+It turns out that if you want
+to pass data into a template,
+
+1131
+00:51:52,160 --> 00:51:55,790
+you can put a comma and then the names
+of the values you want to pass in.
+
+1132
+00:51:55,790 --> 00:51:56,810
+Index didn't need this.
+
+1133
+00:51:56,810 --> 00:51:57,620
+Failure didn't need this.
+
+1134
+00:51:57,620 --> 00:51:59,960
+Success didn't need this,
+because it's all hard-coded.
+
+1135
+00:51:59,960 --> 00:52:01,707
+But Registrants does.
+
+1136
+00:52:01,707 --> 00:52:04,790
+Based on what we saw, it's going to
+generate a bulleted list of like David
+
+1137
+00:52:04,790 --> 00:52:06,660
+from Matthews and
+Maria from Apley Court.
+
+1138
+00:52:06,660 --> 00:52:08,990
+So we kind of need to know
+who those students are.
+
+1139
+00:52:08,990 --> 00:52:14,090
+So, OK, registrants.html comma,
+students shall be the named parameter.
+
+1140
+00:52:14,090 --> 00:52:17,780
+And the value of it shall
+be the list up here.
+
+1141
+00:52:17,780 --> 00:52:20,330
+So the right-hand side
+is a variable, or a value
+
+1142
+00:52:20,330 --> 00:52:22,520
+that must exist in the current program.
+
+1143
+00:52:22,520 --> 00:52:25,070
+And the left-hand side
+is a variable that's
+
+1144
+00:52:25,070 --> 00:52:29,900
+going to be inside of,
+we'll see, registrants.html.
+
+1145
+00:52:29,900 --> 00:52:33,581
+So let's open registrants.html,
+because the other templates, honestly,
+
+1146
+00:52:33,581 --> 00:52:34,580
+aren't that interesting.
+
+1147
+00:52:34,580 --> 00:52:38,540
+Index.html is just like the web form
+with the dorms and the name field.
+
+1148
+00:52:38,540 --> 00:52:42,470
+Failure just says, sorry, you
+must provide name and dorm.
+
+1149
+00:52:42,470 --> 00:52:45,180
+Layout is just the similar
+web structure as before.
+
+1150
+00:52:45,180 --> 00:52:48,930
+So the only new file here, besides
+the changes to application.py,
+
+1151
+00:52:48,930 --> 00:52:51,170
+are in registrants.html.
+
+1152
+00:52:51,170 --> 00:52:53,540
+This file, as before, extends a layout.
+
+1153
+00:52:53,540 --> 00:52:55,760
+So that's the mold that it's using.
+
+1154
+00:52:55,760 --> 00:52:59,370
+And it's going to fill in the
+following block for the body.
+
+1155
+00:52:59,370 --> 00:53:02,360
+So again, this is just specific
+to the templating technique,
+
+1156
+00:53:02,360 --> 00:53:03,500
+just to clean up the code.
+
+1157
+00:53:03,500 --> 00:53:05,660
+But the real interesting stuff is here.
+
+1158
+00:53:05,660 --> 00:53:09,950
+This is kind of sort of HTML,
+but kind of sort of not.
+
+1159
+00:53:09,950 --> 00:53:13,234
+So what does this look like?
+
+1160
+00:53:13,234 --> 00:53:14,150
+AUDIENCE: Python code.
+
+1161
+00:53:14,150 --> 00:53:16,358
+DAVID MALAN: Yeah, it kind
+of looks like Python code.
+
+1162
+00:53:16,358 --> 00:53:18,080
+And it's technically not.
+
+1163
+00:53:18,080 --> 00:53:20,810
+And I realize this is this
+awkward part in the semester,
+
+1164
+00:53:20,810 --> 00:53:23,180
+maybe like most of the
+semester, where we introduce
+
+1165
+00:53:23,180 --> 00:53:24,950
+all these darned things at once.
+
+1166
+00:53:24,950 --> 00:53:27,140
+But this is a language called Jinja--
+
+1167
+00:53:27,140 --> 00:53:30,860
+J-I-N-J-A-- that is a
+templating language.
+
+1168
+00:53:30,860 --> 00:53:33,210
+And you'll see that word in
+documentation and so forth.
+
+1169
+00:53:33,210 --> 00:53:37,670
+It's a very lightweight language
+for just displaying information.
+
+1170
+00:53:37,670 --> 00:53:39,012
+It gives you some loops.
+
+1171
+00:53:39,012 --> 00:53:40,220
+It gives you some conditions.
+
+1172
+00:53:40,220 --> 00:53:41,910
+And it pretty much is Python code.
+
+1173
+00:53:41,910 --> 00:53:46,800
+You can think of it that way, but
+it's not necessarily identical.
+
+1174
+00:53:46,800 --> 00:53:49,500
+So for now, you'll see by
+example what we can do with it.
+
+1175
+00:53:49,500 --> 00:53:53,510
+So here, we have a Jinja template
+that says, "For student in students."
+
+1176
+00:53:53,510 --> 00:53:55,070
+This is very Python-like.
+
+1177
+00:53:55,070 --> 00:53:57,860
+So "For student in students"
+means iterate over students,
+
+1178
+00:53:57,860 --> 00:54:01,780
+and call each student
+along the way "student."
+
+1179
+00:54:01,780 --> 00:54:05,660
+So with this, I needed to call students,
+because it's passed into my form.
+
+1180
+00:54:05,660 --> 00:54:07,685
+This could be foo, or
+bar, or S, or whatever.
+
+1181
+00:54:07,685 --> 00:54:09,025
+It's just a loop.
+
+1182
+00:54:09,025 --> 00:54:11,150
+And then you can perhaps
+guess what this line does,
+
+1183
+00:54:11,150 --> 00:54:12,566
+even though it's a little cryptic.
+
+1184
+00:54:12,566 --> 00:54:15,860
+On line 7, I have some
+kind of familiar HTML,
+
+1185
+00:54:15,860 --> 00:54:18,860
+familiar only insofar as for a
+few seconds a couple of weeks ago,
+
+1186
+00:54:18,860 --> 00:54:23,360
+we showed you a bulleted list in HTML,
+which had a bunch of Li-- list items.
+
+1187
+00:54:23,360 --> 00:54:24,170
+But take a guess.
+
+1188
+00:54:24,170 --> 00:54:26,840
+What is line 7 probably
+doing, if you had
+
+1189
+00:54:26,840 --> 00:54:31,678
+to guess, based on what the
+output of this program was?
+
+1190
+00:54:31,678 --> 00:54:33,770
+AUDIENCE: Print [INAUDIBLE].
+
+1191
+00:54:33,770 --> 00:54:34,894
+DAVID MALAN: Printing what?
+
+1192
+00:54:34,894 --> 00:54:36,402
+AUDIENCE: Printing the students.
+
+1193
+00:54:36,402 --> 00:54:38,110
+DAVID MALAN: The
+individual students-- so
+
+1194
+00:54:38,110 --> 00:54:41,860
+remember that the Students list is
+just a list of strings, so-and-so
+
+1195
+00:54:41,860 --> 00:54:45,080
+from such-and-such, so-and-so
+from such-and-such a place.
+
+1196
+00:54:45,080 --> 00:54:49,570
+So, if we induce this kind of
+loop, iterating over that variable.
+
+1197
+00:54:49,570 --> 00:54:53,540
+And on each iteration, we spit out a
+new link list item, a new list item,
+
+1198
+00:54:53,540 --> 00:54:56,740
+like in other words, a new bullet, a
+new bullet, a new bullet, each time
+
+1199
+00:54:56,740 --> 00:54:59,500
+printing out just the
+name of that value,
+
+1200
+00:54:59,500 --> 00:55:01,660
+we're going to get a
+bulleted list of students.
+
+1201
+00:55:01,660 --> 00:55:04,900
+And sure enough, the
+HTML might not be pretty
+
+1202
+00:55:04,900 --> 00:55:07,270
+because it's being generated
+this time by a human.
+
+1203
+00:55:07,270 --> 00:55:08,680
+But this is the HTML.
+
+1204
+00:55:08,680 --> 00:55:12,370
+If I view Chrome Source for
+that page, notice that I've
+
+1205
+00:55:12,370 --> 00:55:15,100
+got all this stuff from my layout.
+
+1206
+00:55:15,100 --> 00:55:17,170
+Down here, meanwhile,
+I've got ul and ul,
+
+1207
+00:55:17,170 --> 00:55:19,630
+which I did hard-code into that file.
+
+1208
+00:55:19,630 --> 00:55:21,820
+But these are not hard-coded anywhere.
+
+1209
+00:55:21,820 --> 00:55:23,720
+They were dynamically generated.
+
+1210
+00:55:23,720 --> 00:55:26,180
+And this is now really the
+first evidence of, not just
+
+1211
+00:55:26,180 --> 00:55:28,930
+the logic within our
+Python-based web application,
+
+1212
+00:55:28,930 --> 00:55:32,740
+but also the ability to generate
+content back to the user.
+
+1213
+00:55:32,740 --> 00:55:34,600
+And if I kept running
+the server and kept
+
+1214
+00:55:34,600 --> 00:55:37,000
+having people submit, and
+register, and register,
+
+1215
+00:55:37,000 --> 00:55:38,830
+that list would just get
+longer, and longer, and longer.
+
+1216
+00:55:38,830 --> 00:55:40,788
+And the proctor or whoever
+is actually managing
+
+1217
+00:55:40,788 --> 00:55:43,570
+the intramural sports can
+actually look at that list
+
+1218
+00:55:43,570 --> 00:55:45,487
+by going to slash
+registrants and know whom
+
+1219
+00:55:45,487 --> 00:55:48,070
+to contact, at least if we asked
+for more personal information
+
+1220
+00:55:48,070 --> 00:55:50,830
+like emails and the like.
+
+1221
+00:55:50,830 --> 00:55:55,125
+So any questions then on this example?
+
+1222
+00:55:55,125 --> 00:56:02,020
+All right, so it's in example 2,
+where now we recreate the website
+
+1223
+00:56:02,020 --> 00:56:06,370
+that pretty much I implemented
+back in 1997 or 1998,
+
+1224
+00:56:06,370 --> 00:56:09,850
+albeit in a different language,
+that actually allowed freshmen
+
+1225
+00:56:09,850 --> 00:56:11,410
+to register for intramurals.
+
+1226
+00:56:11,410 --> 00:56:12,800
+And we can do that as follows.
+
+1227
+00:56:12,800 --> 00:56:18,050
+If I go into Frosh IMs2,
+and I do Flask run--
+
+1228
+00:56:18,050 --> 00:56:19,780
+I'm going to now reload that app.
+
+1229
+00:56:19,780 --> 00:56:21,850
+And now I'm asking for one other thing.
+
+1230
+00:56:21,850 --> 00:56:25,840
+So I made the form a little bigger
+by asking for an email address.
+
+1231
+00:56:25,840 --> 00:56:29,530
+Because this time, I'm actually
+going to try sending an email.
+
+1232
+00:56:29,530 --> 00:56:32,650
+Let me go back over here to the file.
+
+1233
+00:56:32,650 --> 00:56:40,780
+And let me minimize this to make room
+for Frosh IMs2 application.py, which
+
+1234
+00:56:40,780 --> 00:56:42,470
+does the following.
+
+1235
+00:56:42,470 --> 00:56:45,590
+So I have some mention of password
+here, but more on that in just a bit.
+
+1236
+00:56:45,590 --> 00:56:51,160
+And notice that up here I have
+a new import, not to mention OS.
+
+1237
+00:56:51,160 --> 00:56:55,110
+Notice up here-- let's see.
+
+1238
+00:56:55,110 --> 00:57:00,910
+Notice up here, we have import smtplib,
+so SMTP, Simple Mail Transfer Protocol,
+
+1239
+00:57:00,910 --> 00:57:02,530
+which happens to do with email.
+
+1240
+00:57:02,530 --> 00:57:04,900
+And that's because this
+example works as follows.
+
+1241
+00:57:04,900 --> 00:57:09,130
+In slash, we just return
+that template, index.html.
+
+1242
+00:57:09,130 --> 00:57:14,350
+If instead you do register, notice
+what actually happens this time.
+
+1243
+00:57:14,350 --> 00:57:17,320
+And I want to move this up here.
+
+1244
+00:57:17,320 --> 00:57:18,160
+There we go.
+
+1245
+00:57:18,160 --> 00:57:22,300
+So now we have this file
+here-- this method here--
+
+1246
+00:57:22,300 --> 00:57:23,930
+that operates as follows.
+
+1247
+00:57:23,930 --> 00:57:27,555
+If the user tries to register
+via Post, call this function.
+
+1248
+00:57:27,555 --> 00:57:28,180
+Get their name.
+
+1249
+00:57:28,180 --> 00:57:28,750
+Get their email.
+
+1250
+00:57:28,750 --> 00:57:31,249
+Get their dorm, and then just
+a little bit of a sanity check
+
+1251
+00:57:31,249 --> 00:57:33,940
+that's not complete now,
+because I'm just asking,
+
+1252
+00:57:33,940 --> 00:57:37,060
+like before, if not name or not dorm.
+
+1253
+00:57:37,060 --> 00:57:41,254
+But how do I also make sure that this
+user has given me their email address?
+
+1254
+00:57:41,254 --> 00:57:43,489
+AUDIENCE: [INAUDIBLE].
+
+1255
+00:57:43,489 --> 00:57:46,750
+DAVID MALAN: Yeah, so if
+not name, or not email,
+
+1256
+00:57:46,750 --> 00:57:50,230
+or not dorm-- now I've improved
+upon this example versus the last
+
+1257
+00:57:50,230 --> 00:57:52,310
+by also checking for
+their email address.
+
+1258
+00:57:52,310 --> 00:57:55,240
+And if they don't provide
+one of those, we say failure.
+
+1259
+00:57:55,240 --> 00:57:58,446
+Otherwise, what is this line 23 do?
+
+1260
+00:57:58,446 --> 00:57:59,829
+AUDIENCE: Sends its message?
+
+1261
+00:57:59,829 --> 00:58:01,870
+DAVID MALAN: It sets a
+message, a variable called
+
+1262
+00:58:01,870 --> 00:58:03,920
+Message, equal to quote-unquote,
+"You are registered."
+
+1263
+00:58:03,920 --> 00:58:06,170
+The next line here is a
+little cryptic, and you'd only
+
+1264
+00:58:06,170 --> 00:58:08,060
+know this from reading
+the documentation,
+
+1265
+00:58:08,060 --> 00:58:10,340
+like I did when writing this example.
+
+1266
+00:58:10,340 --> 00:58:12,710
+On the left-hand side I have
+a variable called Server.
+
+1267
+00:58:12,710 --> 00:58:15,170
+This time it's not a web
+server, it's an email server,
+
+1268
+00:58:15,170 --> 00:58:16,550
+to which I want to connect.
+
+1269
+00:58:16,550 --> 00:58:20,450
+Specifically, I want to use
+this library, called smtplib.
+
+1270
+00:58:20,450 --> 00:58:23,840
+It's SMTP functionality,
+Simple Mail Transfer Protocol,
+
+1271
+00:58:23,840 --> 00:58:26,960
+to connect to an address that you
+might not have explicitly seen before,
+
+1272
+00:58:26,960 --> 00:58:31,550
+but you can probably guess whose server
+I'm connecting to on TCP port 587.
+
+1273
+00:58:31,550 --> 00:58:34,700
+Long story short, even though
+most of us, if you use Gmail,
+
+1274
+00:58:34,700 --> 00:58:36,680
+just go to Gmail.com,
+and you start using it,
+
+1275
+00:58:36,680 --> 00:58:38,390
+and it appears to be a port 80.
+
+1276
+00:58:38,390 --> 00:58:40,700
+Underneath the hood, anytime
+you compose a message
+
+1277
+00:58:40,700 --> 00:58:44,150
+and click Send or send an
+archive, what is happening
+
+1278
+00:58:44,150 --> 00:58:46,280
+is code like this at Google.
+
+1279
+00:58:46,280 --> 00:58:49,100
+They're connecting to their
+own outgoing mail server,
+
+1280
+00:58:49,100 --> 00:58:51,890
+called an SMTP server, which
+happens to be this address.
+
+1281
+00:58:51,890 --> 00:58:55,970
+They're connecting to it using TCP
+port 587, because it's not a web page.
+
+1282
+00:58:55,970 --> 00:58:57,980
+It's mail, so it has
+its own unique number
+
+1283
+00:58:57,980 --> 00:58:59,930
+that humans decided on years ago.
+
+1284
+00:58:59,930 --> 00:59:03,680
+This line here, 25, start
+tls, this turns on encryption
+
+1285
+00:59:03,680 --> 00:59:06,050
+so that this way, theoretically,
+no one between you
+
+1286
+00:59:06,050 --> 00:59:09,620
+and Google can see the email that
+you're sending out to their server.
+
+1287
+00:59:09,620 --> 00:59:11,544
+And then I hard-coded a
+few values, here which
+
+1288
+00:59:11,544 --> 00:59:13,460
+wouldn't be best practice
+in general, but this
+
+1289
+00:59:13,460 --> 00:59:16,640
+is just for me to register
+some first years for Frosh IMs.
+
+1290
+00:59:16,640 --> 00:59:18,110
+So what happens next?
+
+1291
+00:59:18,110 --> 00:59:22,010
+On line 26, this is the line.
+
+1292
+00:59:22,010 --> 00:59:24,770
+According to this
+library's documentation,
+
+1293
+00:59:24,770 --> 00:59:29,330
+via which I can log in as username
+jharvard@cs50.net, passing
+
+1294
+00:59:29,330 --> 00:59:30,770
+in his password.
+
+1295
+00:59:30,770 --> 00:59:32,614
+So recall a couple of
+times ago, I think I
+
+1296
+00:59:32,614 --> 00:59:35,030
+mentioned that there are these
+environment variables, when
+
+1297
+00:59:35,030 --> 00:59:36,950
+we talked about programs memory space.
+
+1298
+00:59:36,950 --> 00:59:41,340
+Environment variables are like these
+global values that aren't in your code
+
+1299
+00:59:41,340 --> 00:59:42,800
+but you do have access to.
+
+1300
+00:59:42,800 --> 00:59:45,270
+So this just says get
+from the environment,
+
+1301
+00:59:45,270 --> 00:59:47,660
+from somewhere in the
+IDE, JHarvard's password.
+
+1302
+00:59:47,660 --> 00:59:50,450
+So I don't have to hard-code it
+and broadcast it on the internet.
+
+1303
+00:59:50,450 --> 00:59:54,890
+Meanwhile, line 27 does kind
+of what the function says.
+
+1304
+00:59:54,890 --> 01:00:01,880
+This says, using this server, Gmail,
+send mail from jharvard@cs50.net
+
+1305
+01:00:01,880 --> 01:00:05,730
+to this email address with this message.
+
+1306
+01:00:05,730 --> 01:00:10,100
+And this message, as you've noted,
+is just, "You are registered."
+
+1307
+01:00:10,100 --> 01:00:13,400
+And where does this email variable
+come from, just to be clear?
+
+1308
+01:00:13,400 --> 01:00:15,770
+To whom is this email going?
+
+1309
+01:00:15,770 --> 01:00:16,714
+AUDIENCE: To the user.
+
+1310
+01:00:16,714 --> 01:00:17,630
+AUDIENCE: The student.
+
+1311
+01:00:17,630 --> 01:00:19,430
+DAVID MALAN: The student
+who registered via the form,
+
+1312
+01:00:19,430 --> 01:00:21,590
+because we got their
+name, email, and dorm.
+
+1313
+01:00:21,590 --> 01:00:24,500
+Assuming he or she typed in
+a legitimate email address,
+
+1314
+01:00:24,500 --> 01:00:28,310
+it's being passed to the second argument
+to send mail, and then it's being sent.
+
+1315
+01:00:28,310 --> 01:00:32,570
+And then lastly, render template
+success.html, and voila.
+
+1316
+01:00:32,570 --> 01:00:35,660
+So now you are about to experience
+either one of the cooler demos
+
+1317
+01:00:35,660 --> 01:00:40,100
+we've done in class or one of
+the more embarrassing failures.
+
+1318
+01:00:40,100 --> 01:00:46,250
+If you would like to play along at
+home, go to tinyurl.com/fridaycs50.
+
+1319
+01:00:46,250 --> 01:00:48,800
+That's a lot easier to remember.
+
+1320
+01:00:48,800 --> 01:00:56,200
+Tinyurl.com/fridaycs50-- Enter, that
+should redirect you via our old friend
+
+1321
+01:00:56,200 --> 01:01:00,110
+HTTP 301, should put you at this form.
+
+1322
+01:01:00,110 --> 01:01:01,990
+And then I will play along at home, too.
+
+1323
+01:01:01,990 --> 01:01:08,210
+David from Malan, actually, I'm going
+to tell it my address is John Harvard's.
+
+1324
+01:01:08,210 --> 01:01:13,820
+He will be from, let's
+say, Pennypacker--
+
+1325
+01:01:13,820 --> 01:01:19,100
+Register, and registered really, which
+hopefully you shall soon see, too.
+
+1326
+01:01:19,100 --> 01:01:22,010
+
+
+1327
+01:01:22,010 --> 01:01:26,414
+And meanwhile, I get a security
+alert in my Google accounts,
+
+1328
+01:01:26,414 --> 01:01:27,580
+because everyone's using it.
+
+1329
+01:01:27,580 --> 01:01:28,300
+But that's OK.
+
+1330
+01:01:28,300 --> 01:01:33,050
+
+
+1331
+01:01:33,050 --> 01:01:34,520
+I am registered at JHarvard.
+
+1332
+01:01:34,520 --> 01:01:37,460
+And, oh, my goodness,
+all of these examples,
+
+1333
+01:01:37,460 --> 01:01:40,430
+OK, and the errors that we'll soon see--
+
+1334
+01:01:40,430 --> 01:01:42,470
+we'll soon explain--
+so what did I just get?
+
+1335
+01:01:42,470 --> 01:01:46,250
+If you, like me, check your mail
+in some number of seconds from now,
+
+1336
+01:01:46,250 --> 01:01:50,090
+you should see an email from
+jharvard@cs50.net with the message,
+
+1337
+01:01:50,090 --> 01:01:54,310
+"You are registered" that was sent
+directly to me, or hopefully to you.
+
+1338
+01:01:54,310 --> 01:01:56,810
+Now, at least two of you
+will not get this message,
+
+1339
+01:01:56,810 --> 01:01:58,934
+because according to my
+bounced mail, three of you
+
+1340
+01:01:58,934 --> 01:02:01,100
+have mistyped your email
+addresses into the example.
+
+1341
+01:02:01,100 --> 01:02:03,150
+And so they're bouncing back to me.
+
+1342
+01:02:03,150 --> 01:02:05,690
+So if you don't get
+it, simply try again.
+
+1343
+01:02:05,690 --> 01:02:07,280
+So what actually happened here?
+
+1344
+01:02:07,280 --> 01:02:13,760
+So I actually wrote code clearly, in
+this case, that via application.py had
+
+1345
+01:02:13,760 --> 01:02:16,801
+this route slash register that
+didn't just save things in a variable
+
+1346
+01:02:16,801 --> 01:02:17,300
+this time.
+
+1347
+01:02:17,300 --> 01:02:22,070
+It actually tucked them up
+into a special type of library
+
+1348
+01:02:22,070 --> 01:02:23,630
+that actually knows how to send mail.
+
+1349
+01:02:23,630 --> 01:02:25,880
+And this is literally what
+I did back in the day.
+
+1350
+01:02:25,880 --> 01:02:27,006
+It didn't occur to me--
+
+1351
+01:02:27,006 --> 01:02:28,880
+actually, it might have
+occurred to me, but I
+
+1352
+01:02:28,880 --> 01:02:31,910
+didn't know in 1997 what a database
+was or where we could actually
+
+1353
+01:02:31,910 --> 01:02:33,180
+store the information.
+
+1354
+01:02:33,180 --> 01:02:35,690
+So I'm pretty sure, the very
+first version of registrations
+
+1355
+01:02:35,690 --> 01:02:38,570
+online at Harvard for Frosh
+IMs were to literally just send
+
+1356
+01:02:38,570 --> 01:02:41,842
+the proctor an email, who was
+responsible for that intramural sport.
+
+1357
+01:02:41,842 --> 01:02:42,800
+And it was good enough.
+
+1358
+01:02:42,800 --> 01:02:45,170
+They could just use their inbox
+as essentially their database,
+
+1359
+01:02:45,170 --> 01:02:46,490
+and know who had registered.
+
+1360
+01:02:46,490 --> 01:02:50,060
+Eventually though, we were
+able to improve upon this
+
+1361
+01:02:50,060 --> 01:02:52,490
+and actually save things
+in a lightweight database.
+
+1362
+01:02:52,490 --> 01:02:55,850
+I still didn't know SQL, and I didn't
+know how to do things more fancily.
+
+1363
+01:02:55,850 --> 01:02:58,310
+But I didn't know what a CSV file was.
+
+1364
+01:02:58,310 --> 01:03:01,940
+I had Microsoft Excel, or Numbers
+more recently, on my computer,
+
+1365
+01:03:01,940 --> 01:03:03,650
+so I can open up spreadsheets.
+
+1366
+01:03:03,650 --> 01:03:07,100
+And so it turns out, that
+if we instead look up
+
+1367
+01:03:07,100 --> 01:03:11,540
+say Frosh IMs3, which is our
+final version of the Frosh IMs
+
+1368
+01:03:11,540 --> 01:03:15,350
+suite of examples, I actually
+went ahead and did this.
+
+1369
+01:03:15,350 --> 01:03:16,830
+In this version of the program--
+
+1370
+01:03:16,830 --> 01:03:18,890
+it's a little cryptic,
+but I figured this
+
+1371
+01:03:18,890 --> 01:03:23,390
+out just by reading on Python's
+documentation and how to use CSVs.
+
+1372
+01:03:23,390 --> 01:03:24,800
+And I came up with the following.
+
+1373
+01:03:24,800 --> 01:03:28,945
+So as before, on line 12,
+if not name or not dorm--
+
+1374
+01:03:28,945 --> 01:03:31,070
+so I've reverted to the
+old syntax, because I'm not
+
+1375
+01:03:31,070 --> 01:03:32,960
+using email address for this example--
+
+1376
+01:03:32,960 --> 01:03:35,450
+then I go ahead and return failure.htlm.
+
+1377
+01:03:35,450 --> 01:03:40,970
+But the new code here, instead
+of email, is this functionality.
+
+1378
+01:03:40,970 --> 01:03:46,220
+So here I have file, which
+is a variable, gets stored--
+
+1379
+01:03:46,220 --> 01:03:47,810
+gets the return value of Open.
+
+1380
+01:03:47,810 --> 01:03:51,860
+So this is a function in Python that's
+similar to fopen in C. They just
+
+1381
+01:03:51,860 --> 01:03:53,450
+kind of clean up the name here.
+
+1382
+01:03:53,450 --> 01:03:55,790
+It open a file called registrants.csv.
+
+1383
+01:03:55,790 --> 01:03:58,190
+And what do you think the
+quote-unquote "a" means?
+
+1384
+01:03:58,190 --> 01:03:59,930
+We probably-- you didn't use "a."
+
+1385
+01:03:59,930 --> 01:04:02,510
+You used a different letter in p-set 4.
+
+1386
+01:04:02,510 --> 01:04:04,135
+AUDIENCE: [INAUDIBLE].
+
+1387
+01:04:04,135 --> 01:04:05,176
+DAVID MALAN: What's that?
+
+1388
+01:04:05,176 --> 01:04:06,684
+AUDIENCE: R or W?
+
+1389
+01:04:06,684 --> 01:04:08,600
+DAVID MALAN: We used R
+or W for read or write.
+
+1390
+01:04:08,600 --> 01:04:11,450
+Turns out a is a little different,
+which makes sense in this case.
+
+1391
+01:04:11,450 --> 01:04:12,890
+AUDIENCE: Append.
+
+1392
+01:04:12,890 --> 01:04:15,710
+DAVID MALAN: OK, thank you.
+
+1393
+01:04:15,710 --> 01:04:17,600
+OK, it's append.
+
+1394
+01:04:17,600 --> 01:04:20,780
+And append make sense here because
+write, by default, literally
+
+1395
+01:04:20,780 --> 01:04:21,960
+overwrites the file.
+
+1396
+01:04:21,960 --> 01:04:22,910
+It creates a new file.
+
+1397
+01:04:22,910 --> 01:04:24,409
+Whereas, append literally does that.
+
+1398
+01:04:24,409 --> 01:04:26,832
+It adds a line to the file,
+a new line to the file, which
+
+1399
+01:04:26,832 --> 01:04:29,540
+is good if you want to have more
+than one person ultimately saved
+
+1400
+01:04:29,540 --> 01:04:30,039
+in the file.
+
+1401
+01:04:30,039 --> 01:04:32,240
+You want to remember
+everyone else by appending.
+
+1402
+01:04:32,240 --> 01:04:35,480
+So this says, hey, Python,
+open the file in append mode,
+
+1403
+01:04:35,480 --> 01:04:37,520
+and store it in a variable called File.
+
+1404
+01:04:37,520 --> 01:04:42,590
+This is a line of code that uses
+some syntax we didn't quite see in C,
+
+1405
+01:04:42,590 --> 01:04:46,730
+but we're declaring a variable called
+Writer using the CSV library, which
+
+1406
+01:04:46,730 --> 01:04:50,000
+I've imported at the top of this
+file, similar to importing the mail
+
+1407
+01:04:50,000 --> 01:04:51,470
+library in the last one.
+
+1408
+01:04:51,470 --> 01:04:55,860
+And it has a function called Writer
+that I can pass in an open file.
+
+1409
+01:04:55,860 --> 01:04:57,980
+And this is just a
+special library that knows
+
+1410
+01:04:57,980 --> 01:05:00,770
+how to put commas in between
+values, knows how to save things,
+
+1411
+01:05:00,770 --> 01:05:04,640
+knows how to escape things if
+there's actually commas in your file,
+
+1412
+01:05:04,640 --> 01:05:05,790
+and so forth.
+
+1413
+01:05:05,790 --> 01:05:07,670
+And then this line is a little funky.
+
+1414
+01:05:07,670 --> 01:05:10,310
+But it does use some building
+blocks from earlier--
+
+1415
+01:05:10,310 --> 01:05:13,414
+writer dot write row-- writer write row.
+
+1416
+01:05:13,414 --> 01:05:14,830
+So this kind of does what it says.
+
+1417
+01:05:14,830 --> 01:05:19,140
+This says, use the library to
+write a row to the open file.
+
+1418
+01:05:19,140 --> 01:05:20,480
+What you want to write?
+
+1419
+01:05:20,480 --> 01:05:23,750
+Now if there's deliberately these
+additional parentheses here,
+
+1420
+01:05:23,750 --> 01:05:26,060
+turns out this function is
+supposed to take a tuple.
+
+1421
+01:05:26,060 --> 01:05:30,380
+A tuple is zero or more
+values separated by commas,
+
+1422
+01:05:30,380 --> 01:05:33,230
+which is kind of nice because
+it's kind of similar in spirit
+
+1423
+01:05:33,230 --> 01:05:34,790
+to a set of columns.
+
+1424
+01:05:34,790 --> 01:05:37,460
+Like a tuple is something comma
+something comma something.
+
+1425
+01:05:37,460 --> 01:05:40,670
+That is exactly what we want to put in
+a CSV, something comma something comma
+
+1426
+01:05:40,670 --> 01:05:41,270
+something.
+
+1427
+01:05:41,270 --> 01:05:44,630
+Because if you're unfamiliar, a CSV
+is just a file where all of the values
+
+1428
+01:05:44,630 --> 01:05:46,070
+are separated with commas.
+
+1429
+01:05:46,070 --> 01:05:49,160
+And if you open it in Excel, or
+Numbers, or Google Spreadsheets,
+
+1430
+01:05:49,160 --> 01:05:53,750
+each of those commas demarcates a
+barrier between various columns.
+
+1431
+01:05:53,750 --> 01:05:56,990
+So this says, go ahead and
+write a row to the CSV,
+
+1432
+01:05:56,990 --> 01:06:00,350
+containing the student's
+name and the students dorm.
+
+1433
+01:06:00,350 --> 01:06:04,310
+And then close the file
+and return Success.
+
+1434
+01:06:04,310 --> 01:06:06,050
+So at the risk--
+
+1435
+01:06:06,050 --> 01:06:08,060
+there's like a 30-second
+internet delay, which
+
+1436
+01:06:08,060 --> 01:06:10,290
+means we can keep this
+clean for about 30 seconds.
+
+1437
+01:06:10,290 --> 01:06:18,740
+Let me go ahead and run this example
+here in Frosh IMs3 and do Flask run--
+
+1438
+01:06:18,740 --> 01:06:20,690
+Enter.
+
+1439
+01:06:20,690 --> 01:06:27,020
+And if you'd like to go ahead to my
+same URL, tinyurl.com/fridaycs50,
+
+1440
+01:06:27,020 --> 01:06:29,780
+that will take you back to a
+slightly older version of the form,
+
+1441
+01:06:29,780 --> 01:06:32,240
+no email address, so
+make sure you hit reload.
+
+1442
+01:06:32,240 --> 01:06:35,520
+And you should see just
+this version, name and dorm.
+
+1443
+01:06:35,520 --> 01:06:39,890
+And if I wrote the code
+right, we should all
+
+1444
+01:06:39,890 --> 01:06:45,920
+be able to register in a file
+called registrants.csv in my IDE.
+
+1445
+01:06:45,920 --> 01:06:48,170
+You're not going to get an
+email this time, because we
+
+1446
+01:06:48,170 --> 01:06:50,120
+ripped that functionality out.
+
+1447
+01:06:50,120 --> 01:06:53,820
+But this Register page
+claims that it's working.
+
+1448
+01:06:53,820 --> 01:06:57,750
+So if you'd like, take
+a moment to do that.
+
+1449
+01:06:57,750 --> 01:06:59,039
+I'll go back to the IDE here.
+
+1450
+01:06:59,039 --> 01:07:01,830
+Looks like a lot of registrations
+coming in, so that's pretty cool.
+
+1451
+01:07:01,830 --> 01:07:03,290
+These are the logs here.
+
+1452
+01:07:03,290 --> 01:07:06,620
+And so you can see everyone visiting
+the site and hitting Register.
+
+1453
+01:07:06,620 --> 01:07:09,920
+That's actually a lot
+of people registering.
+
+1454
+01:07:09,920 --> 01:07:11,160
+That's pretty cool.
+
+1455
+01:07:11,160 --> 01:07:13,350
+I'm going to briefly turn
+off the screen this time
+
+1456
+01:07:13,350 --> 01:07:20,990
+and see who has registered
+by going into this directory.
+
+1457
+01:07:20,990 --> 01:07:26,810
+This is-- OK, I'm going to go into
+Frosh IMs3 is what I'm doing here.
+
+1458
+01:07:26,810 --> 01:07:30,895
+I see registrants.csv.
+
+1459
+01:07:30,895 --> 01:07:34,094
+OK, let's just scrub this.
+
+1460
+01:07:34,094 --> 01:07:37,540
+[LAUGHTER]
+
+1461
+01:07:37,540 --> 01:07:41,189
+OK, David Malan 2.0 registered, great.
+
+1462
+01:07:41,189 --> 01:07:42,980
+All right, I'm going
+to download this file.
+
+1463
+01:07:42,980 --> 01:07:46,370
+I think it looks pretty clean.
+
+1464
+01:07:46,370 --> 01:07:49,030
+Let me download this.
+
+1465
+01:07:49,030 --> 01:07:52,890
+And I'll show you what I'm
+doing in just a second.
+
+1466
+01:07:52,890 --> 01:07:56,420
+But this is the best demo
+ever, from what I can see.
+
+1467
+01:07:56,420 --> 01:07:58,978
+All right, and let's make
+sure I didn't miss this here.
+
+1468
+01:07:58,978 --> 01:08:03,070
+Uh huh, OK, some of
+you are just hitting--
+
+1469
+01:08:03,070 --> 01:08:07,320
+Brandon was just hitting
+Submit a lot, apparently.
+
+1470
+01:08:07,320 --> 01:08:11,950
+All right, I don't think I'm
+going to regret any of this.
+
+1471
+01:08:11,950 --> 01:08:12,990
+OK, we're good.
+
+1472
+01:08:12,990 --> 01:08:15,260
+All right, so what did I just do?
+
+1473
+01:08:15,260 --> 01:08:16,529
+We're back.
+
+1474
+01:08:16,529 --> 01:08:20,600
+So now that we've run everything
+through the censors, what I've noticed
+
+1475
+01:08:20,600 --> 01:08:23,880
+is that, oh, I have a registrants.csv
+file in the same directory.
+
+1476
+01:08:23,880 --> 01:08:26,550
+And that was what was getting
+appended to each time.
+
+1477
+01:08:26,550 --> 01:08:28,700
+Meanwhile, if I go
+ahead and download this
+
+1478
+01:08:28,700 --> 01:08:32,270
+file by doing registrants.csv
+and then Download.
+
+1479
+01:08:32,270 --> 01:08:35,510
+Or I could just open it in the IDE
+to see the actual rows and columns.
+
+1480
+01:08:35,510 --> 01:08:37,080
+Let me actually do that real quick.
+
+1481
+01:08:37,080 --> 01:08:38,430
+So you'll see this file here.
+
+1482
+01:08:38,430 --> 01:08:39,680
+But it's a little hard to see.
+
+1483
+01:08:39,680 --> 01:08:42,920
+So I'm going to deliberately close
+it, because I downloaded it earlier.
+
+1484
+01:08:42,920 --> 01:08:45,229
+And I can actually open it in Excel.
+
+1485
+01:08:45,229 --> 01:08:48,590
+And if in Excel I just expand my
+columns, each of these columns
+
+1486
+01:08:48,590 --> 01:08:51,979
+represents the gap between a comma.
+
+1487
+01:08:51,979 --> 01:08:55,399
+Brandon was apparently trying to
+make his name very big and bold,
+
+1488
+01:08:55,399 --> 01:08:58,060
+but that doesn't work in CSV files.
+
+1489
+01:08:58,060 --> 01:09:02,390
+Montreal is apparently the best.
+
+1490
+01:09:02,390 --> 01:09:03,729
+A lot of first names--
+
+1491
+01:09:03,729 --> 01:09:08,750
+more Brandon-- unknown, OK--
+
+1492
+01:09:08,750 --> 01:09:11,090
+there is that one I
+mentioned, someone's dad.
+
+1493
+01:09:11,090 --> 01:09:14,126
+Maybe someone's dad is here today, OK.
+
+1494
+01:09:14,126 --> 01:09:24,741
+All right, we, MTL is the Best, John
+Harvard, John, Olivia, Batman, Kyle--
+
+1495
+01:09:24,741 --> 01:09:27,627
+[LAUGHTER]
+
+1496
+01:09:27,627 --> 01:09:29,551
+
+
+1497
+01:09:29,551 --> 01:09:31,790
+DAVID MALAN: OK, there's
+Worthy of Wiggles--
+
+1498
+01:09:31,790 --> 01:09:33,359
+now it's getting a little strange--
+
+1499
+01:09:33,359 --> 01:09:37,724
+faces, buttface, OK,
+that made it through.
+
+1500
+01:09:37,724 --> 01:09:38,390
+I didn't notice.
+
+1501
+01:09:38,390 --> 01:09:40,321
+David, I'm scared, OK.
+
+1502
+01:09:40,321 --> 01:09:42,170
+[LAUGHTER]
+
+1503
+01:09:42,170 --> 01:09:46,529
+So we finally have,
+thanks to programming,
+
+1504
+01:09:46,529 --> 01:09:49,430
+the ability to actually keep
+some of this data around.
+
+1505
+01:09:49,430 --> 01:09:51,770
+And so this ultimately
+allows us to now start
+
+1506
+01:09:51,770 --> 01:09:54,920
+making applications that
+are truly interactive.
+
+1507
+01:09:54,920 --> 01:09:58,220
+And they actually allow us to
+store information and retrieve
+
+1508
+01:09:58,220 --> 01:09:59,607
+that information, ultimately.
+
+1509
+01:09:59,607 --> 01:10:01,815
+And it all reduces to some
+of these simple paradigms.
+
+1510
+01:10:01,815 --> 01:10:05,300
+And now, absolutely, there's a whole
+bunch of cryptic syntax involved.
+
+1511
+01:10:05,300 --> 01:10:08,390
+And there's some new ideas along
+the way, things like tuples
+
+1512
+01:10:08,390 --> 01:10:09,349
+and things like routes.
+
+1513
+01:10:09,349 --> 01:10:12,098
+And I didn't use the word before,
+technically this at sign denotes
+
+1514
+01:10:12,098 --> 01:10:13,400
+something called a decorator.
+
+1515
+01:10:13,400 --> 01:10:16,280
+But as with C, back in those
+early days, keep in mind
+
+1516
+01:10:16,280 --> 01:10:18,170
+that once you start
+noticing these patterns,
+
+1517
+01:10:18,170 --> 01:10:20,836
+even if you don't appreciate
+everything or understand everything
+
+1518
+01:10:20,836 --> 01:10:23,295
+from the get-go, you
+can kind of iteratively
+
+1519
+01:10:23,295 --> 01:10:24,920
+get more comfortable with the material.
+
+1520
+01:10:24,920 --> 01:10:26,920
+If you kind of take on
+faith that I don't really
+
+1521
+01:10:26,920 --> 01:10:30,050
+remember how this works, but I know
+that I have to do it now, that's fine.
+
+1522
+01:10:30,050 --> 01:10:32,210
+Because if you understand
+more of the stuff below it,
+
+1523
+01:10:32,210 --> 01:10:34,543
+that'll solve the problem for
+you and get the work done.
+
+1524
+01:10:34,543 --> 01:10:37,760
+And as you get more at ease with this,
+then can you start, through section,
+
+1525
+01:10:37,760 --> 01:10:39,920
+and office hours, in
+the p-set itself, start
+
+1526
+01:10:39,920 --> 01:10:42,050
+to really understand
+some of the nuances here
+
+1527
+01:10:42,050 --> 01:10:46,820
+and how it relates or doesn't relate to
+things we've seen in the past with C.
+
+1528
+01:10:46,820 --> 01:10:48,300
+So where are we going with this?
+
+1529
+01:10:48,300 --> 01:10:52,860
+Well, with problem set 6, we're going to
+bridge these several worlds of the web,
+
+1530
+01:10:52,860 --> 01:10:56,210
+and of Python, and
+also of edit distance,
+
+1531
+01:10:56,210 --> 01:10:59,570
+and dynamic programming from our
+Yale lecture a couple of weeks back.
+
+1532
+01:10:59,570 --> 01:11:01,820
+And if you're a little behind
+on some of those topics,
+
+1533
+01:11:01,820 --> 01:11:06,470
+or some of today's material wasn't quite
+on the tip of your tongue, that's fine.
+
+1534
+01:11:06,470 --> 01:11:07,280
+Do go back, though.
+
+1535
+01:11:07,280 --> 01:11:11,000
+Because realize the past three lectures
+really now culminate in problem set 6.
+
+1536
+01:11:11,000 --> 01:11:13,480
+You will be challenged to
+go back and re-implement
+
+1537
+01:11:13,480 --> 01:11:17,067
+Mario, either the less or the more
+comfy version, not in C, but in Python.
+
+1538
+01:11:17,067 --> 01:11:19,400
+And odds are, you'll be struck
+for at least two reasons.
+
+1539
+01:11:19,400 --> 01:11:22,619
+One, odds are if you did solve it
+successfully the first time around,
+
+1540
+01:11:22,619 --> 01:11:24,410
+even if you're a little
+rusty, odds are you
+
+1541
+01:11:24,410 --> 01:11:26,617
+will solve it much more
+quickly this time around,
+
+1542
+01:11:26,617 --> 01:11:27,950
+even though it's a new language.
+
+1543
+01:11:27,950 --> 01:11:31,490
+And you'll see what some idea
+from C maps to some other idea
+
+1544
+01:11:31,490 --> 01:11:35,840
+in Python, just like we did from Scratch
+to see that same kind of transition.
+
+1545
+01:11:35,840 --> 01:11:39,200
+Same thing for Cash or Credit,
+same thing for Visionaire,
+
+1546
+01:11:39,200 --> 01:11:41,840
+or Caesar, or Crack as well.
+
+1547
+01:11:41,840 --> 01:11:45,710
+But the icing on the cake is then going
+to be to not just write code in Python,
+
+1548
+01:11:45,710 --> 01:11:49,340
+but write code in Python for a
+web application that actually does
+
+1549
+01:11:49,340 --> 01:11:53,120
+something graphical with a website.
+
+1550
+01:11:53,120 --> 01:11:58,880
+So for instance, here we have the
+more comfortable version of the staff
+
+1551
+01:11:58,880 --> 01:12:02,540
+solution to Similarities,
+one piece of problem set 6.
+
+1552
+01:12:02,540 --> 01:12:04,370
+And you'll notice on
+this web-based form,
+
+1553
+01:12:04,370 --> 01:12:07,551
+I'm currently at
+similarities.cs50.net/more.
+
+1554
+01:12:07,551 --> 01:12:09,800
+Your URL, of course, will
+be different, whether you do
+
+1555
+01:12:09,800 --> 01:12:11,700
+the less comfy or more comfy as well.
+
+1556
+01:12:11,700 --> 01:12:16,460
+But here we have a web form with
+two strings waiting to be typed in,
+
+1557
+01:12:16,460 --> 01:12:17,690
+two textboxes.
+
+1558
+01:12:17,690 --> 01:12:20,974
+And now this form arguably looks
+a lot prettier than the ones
+
+1559
+01:12:20,974 --> 01:12:21,890
+I've been doing today.
+
+1560
+01:12:21,890 --> 01:12:24,514
+And because the ones I've been
+doing today had no what in them?
+
+1561
+01:12:24,514 --> 01:12:25,292
+AUDIENCE: CSS.
+
+1562
+01:12:25,292 --> 01:12:27,000
+DAVID MALAN: There
+was no CSS whatsoever.
+
+1563
+01:12:27,000 --> 01:12:29,000
+So what I was getting
+were the pretty old, ugly,
+
+1564
+01:12:29,000 --> 01:12:33,870
+1990s styles defaults that Chrome,
+and IE, and Edge, and Firefox,
+
+1565
+01:12:33,870 --> 01:12:36,140
+and Safari all give
+me by default. But you
+
+1566
+01:12:36,140 --> 01:12:38,210
+can use libraries out
+there that allow you
+
+1567
+01:12:38,210 --> 01:12:40,204
+to make your websites much prettier.
+
+1568
+01:12:40,204 --> 01:12:42,620
+So long as you just understand
+how to generate the markup,
+
+1569
+01:12:42,620 --> 01:12:45,950
+you can let someone else style it
+and take it that last mile for you.
+
+1570
+01:12:45,950 --> 01:12:49,340
+So most of the aesthetics of what
+you see here, the nice navigation
+
+1571
+01:12:49,340 --> 01:12:52,545
+bar at the top, the font sizes,
+the nice gray highlighting here,
+
+1572
+01:12:52,545 --> 01:12:54,920
+the fact that this goes all
+the way to the edge, the fact
+
+1573
+01:12:54,920 --> 01:12:58,430
+that there's the same margin over
+here as there is over here, the fact
+
+1574
+01:12:58,430 --> 01:13:02,480
+that the button doesn't look as ugly
+as it did before, all of that is CSS.
+
+1575
+01:13:02,480 --> 01:13:04,820
+And we happen to be using
+a library called Bootstrap,
+
+1576
+01:13:04,820 --> 01:13:07,850
+which is a very popular library
+that's got a lot of functionality,
+
+1577
+01:13:07,850 --> 01:13:10,460
+like forms, to help
+you style these things.
+
+1578
+01:13:10,460 --> 01:13:15,230
+And if I, in this application, type
+in a string like Harvard and then type
+
+1579
+01:13:15,230 --> 01:13:18,800
+in a string like Yale and click
+Score, what you will see here,
+
+1580
+01:13:18,800 --> 01:13:22,310
+a little cryptically-- very cryptically
+if you're not fully caught up
+
+1581
+01:13:22,310 --> 01:13:23,780
+on our lecture from Yale--
+
+1582
+01:13:23,780 --> 01:13:25,760
+is you see a matrix at the top here.
+
+1583
+01:13:25,760 --> 01:13:27,860
+This is just a grid of rows and columns.
+
+1584
+01:13:27,860 --> 01:13:31,940
+The top row of this
+matrix says H-A-R-V-A-R-D,
+
+1585
+01:13:31,940 --> 01:13:33,950
+so obviously the first word I typed in.
+
+1586
+01:13:33,950 --> 01:13:39,110
+And on the y-axis it says Yale,
+Y-A-L-E And what each of these numbers
+
+1587
+01:13:39,110 --> 01:13:45,830
+represents is the cost, step-by-step,
+of converting one string into another.
+
+1588
+01:13:45,830 --> 01:13:48,620
+Now that in and of itself is
+kind of a useless exercise,
+
+1589
+01:13:48,620 --> 01:13:51,800
+but the number of steps to
+convert one string into another
+
+1590
+01:13:51,800 --> 01:13:56,480
+rather gives you an estimation of how
+similar or how different strings are.
+
+1591
+01:13:56,480 --> 01:13:59,227
+If there's very low cost to
+change one string to another,
+
+1592
+01:13:59,227 --> 01:14:00,560
+odds are they're really similar.
+
+1593
+01:14:00,560 --> 01:14:03,020
+If it takes one step to
+convert one word into another,
+
+1594
+01:14:03,020 --> 01:14:06,630
+odds are they're identical
+except for one character.
+
+1595
+01:14:06,630 --> 01:14:11,300
+Or if the cost is really high,
+like six, then it takes six steps
+
+1596
+01:14:11,300 --> 01:14:12,860
+to convert Harvard into Yale.
+
+1597
+01:14:12,860 --> 01:14:15,776
+And that kind of makes sense, because
+they are really different words,
+
+1598
+01:14:15,776 --> 01:14:18,860
+except for maybe the fact
+that they have an A in common
+
+1599
+01:14:18,860 --> 01:14:21,950
+that maybe we can reuse without
+having to change that completely.
+
+1600
+01:14:21,950 --> 01:14:27,610
+So edit distance is a technique that
+can be solved very slowly and very
+
+1601
+01:14:27,610 --> 01:14:30,826
+expensively in the naive way, using
+essentially a couple of for loops,
+
+1602
+01:14:30,826 --> 01:14:33,700
+where you iterate over one string,
+you iterate over the other string.
+
+1603
+01:14:33,700 --> 01:14:37,270
+And you just iteratively, or
+rather by a bit of recursion,
+
+1604
+01:14:37,270 --> 01:14:39,734
+try every possible change to the string.
+
+1605
+01:14:39,734 --> 01:14:41,650
+Well, what if I delete
+this and then add this?
+
+1606
+01:14:41,650 --> 01:14:42,730
+What if I add this and delete this?
+
+1607
+01:14:42,730 --> 01:14:45,050
+What if I just change this, and
+then add this, and then delete this?
+
+1608
+01:14:45,050 --> 01:14:47,680
+There are so many permutations
+of adding, and deleting,
+
+1609
+01:14:47,680 --> 01:14:51,580
+and editing characters, that it's
+just a really slow problem, especially
+
+1610
+01:14:51,580 --> 01:14:53,560
+when the strings get longer than these.
+
+1611
+01:14:53,560 --> 01:14:55,900
+And so what you'll do,
+if you choose to do
+
+1612
+01:14:55,900 --> 01:14:57,790
+the more comfy version
+of the problem set,
+
+1613
+01:14:57,790 --> 01:14:59,920
+is you'll implement this
+by a dynamic programming.
+
+1614
+01:14:59,920 --> 01:15:02,020
+And this matrix up here
+just remembers, just
+
+1615
+01:15:02,020 --> 01:15:06,890
+stores, all of the temporary values that
+I've so-called memoized along the way,
+
+1616
+01:15:06,890 --> 01:15:08,980
+such that if you recall
+from Benedict's lecture,
+
+1617
+01:15:08,980 --> 01:15:12,220
+you just kind of work your way
+from top left to bottom right
+
+1618
+01:15:12,220 --> 01:15:13,370
+to get your final answer.
+
+1619
+01:15:13,370 --> 01:15:15,370
+And the fact that that
+number is relatively big,
+
+1620
+01:15:15,370 --> 01:15:18,880
+6, means that Harvard is not very
+similar to Yale, at least in terms
+
+1621
+01:15:18,880 --> 01:15:20,410
+of its string comparison here.
+
+1622
+01:15:20,410 --> 01:15:23,200
+I didn't realize the semantics of
+that until I said that sentence.
+
+1623
+01:15:23,200 --> 01:15:28,030
+So meanwhile-- oh, and then as an
+aside, if you didn't notice already,
+
+1624
+01:15:28,030 --> 01:15:29,770
+at the bottom here is kind of a log.
+
+1625
+01:15:29,770 --> 01:15:33,220
+This just shows you, once
+you've implemented the top here,
+
+1626
+01:15:33,220 --> 01:15:36,550
+what it is that has to happen to
+Harvard in order to turn it into Yale.
+
+1627
+01:15:36,550 --> 01:15:40,330
+We have to delete an h,
+delete this a, delete this r.
+
+1628
+01:15:40,330 --> 01:15:44,260
+Then we have to change a letter
+to y, change another letter to l,
+
+1629
+01:15:44,260 --> 01:15:47,020
+and another letter to
+e, and voila, Yale.
+
+1630
+01:15:47,020 --> 01:15:59,900
+But notice, if we do something more
+similar, like let's say, let's say,
+
+1631
+01:15:59,900 --> 01:16:05,440
+suppose we do Mario from p-set
+one and Maria from the heads team.
+
+1632
+01:16:05,440 --> 01:16:08,710
+This is a much more similar
+string, because it only takes
+
+1633
+01:16:08,710 --> 01:16:10,810
+one step to convert one into the other.
+
+1634
+01:16:10,810 --> 01:16:12,680
+And so the log is much smaller as well.
+
+1635
+01:16:12,680 --> 01:16:14,560
+And so you get an
+estimation of similarity.
+
+1636
+01:16:14,560 --> 01:16:17,650
+But we can take this one step further
+using different algorithms that
+
+1637
+01:16:17,650 --> 01:16:19,430
+may or may not perform as well.
+
+1638
+01:16:19,430 --> 01:16:22,990
+So here's the less comfy version of
+the same problem, whereby now I'm
+
+1639
+01:16:22,990 --> 01:16:25,136
+being asked for two files,
+so not just two strings.
+
+1640
+01:16:25,136 --> 01:16:27,010
+You can you do even
+bigger files in this way,
+
+1641
+01:16:27,010 --> 01:16:29,200
+because it's not quite as
+expensive, and it's a lot easier
+
+1642
+01:16:29,200 --> 01:16:30,310
+to show on the screen.
+
+1643
+01:16:30,310 --> 01:16:33,970
+So I downloaded, or I whipped up a
+couple of examples in advance here.
+
+1644
+01:16:33,970 --> 01:16:38,530
+I have a file called hello.c,
+which looks like this--
+
+1645
+01:16:38,530 --> 01:16:40,490
+a little flashback from week 1.
+
+1646
+01:16:40,490 --> 01:16:43,460
+And then I have another
+file called hey.c,
+
+1647
+01:16:43,460 --> 01:16:47,689
+which is identical except for
+some word, like, hey comma world.
+
+1648
+01:16:47,689 --> 01:16:49,230
+So I'm going to go ahead and do this.
+
+1649
+01:16:49,230 --> 01:16:52,985
+I'm going to go ahead and
+upload hello.c and hey.c.
+
+1650
+01:16:52,985 --> 01:16:56,186
+Or I could just click these, and then
+I could navigate through my hard drive
+
+1651
+01:16:56,186 --> 01:16:57,560
+like you might on your Mac or PC.
+
+1652
+01:16:57,560 --> 01:16:59,357
+But I'm just going to
+drag and drop them.
+
+1653
+01:16:59,357 --> 01:17:01,190
+And then I have three
+choices of algorithms.
+
+1654
+01:17:01,190 --> 01:17:03,560
+Because if you can think
+about what a text file is,
+
+1655
+01:17:03,560 --> 01:17:07,040
+I don't really know off the top of
+my head how best to compare them.
+
+1656
+01:17:07,040 --> 01:17:09,080
+I can probably tell you
+if they're identical.
+
+1657
+01:17:09,080 --> 01:17:11,570
+I can just use like a while
+loop or a for loop in C
+
+1658
+01:17:11,570 --> 01:17:14,750
+and iterate over every character in
+the file and tell you True or False,
+
+1659
+01:17:14,750 --> 01:17:16,130
+these files are identical.
+
+1660
+01:17:16,130 --> 01:17:20,380
+But if there's a little difference, like
+hey and hello, or maybe some spacing,
+
+1661
+01:17:20,380 --> 01:17:21,630
+then I have different options.
+
+1662
+01:17:21,630 --> 01:17:24,980
+So what if we compare
+these files line by line?
+
+1663
+01:17:24,980 --> 01:17:27,477
+Should most of the lines
+in hello.c and hey.c
+
+1664
+01:17:27,477 --> 01:17:29,060
+be similar or different, do you think?
+
+1665
+01:17:29,060 --> 01:17:29,870
+AUDIENCE: Similar.
+
+1666
+01:17:29,870 --> 01:17:31,800
+DAVID MALAN: Similar, except
+for that one printf line.
+
+1667
+01:17:31,800 --> 01:17:32,883
+So let's see what happens.
+
+1668
+01:17:32,883 --> 01:17:36,440
+If I go ahead and choose compare lines
+as my algorithm and click Compare,
+
+1669
+01:17:36,440 --> 01:17:40,040
+I see highlighted in yellow, in the
+user interface, the two programs left
+
+1670
+01:17:40,040 --> 01:17:43,800
+and right, hello and hey, with all
+of the identical lines highlighted.
+
+1671
+01:17:43,800 --> 01:17:47,340
+So the fact that there is so much yellow
+means, OK, these are pretty similar.
+
+1672
+01:17:47,340 --> 01:17:50,160
+I'm not slapping a value on
+it, in this particular case.
+
+1673
+01:17:50,160 --> 01:17:53,510
+But I certainly could say that it's
+all but one of the lines are in common
+
+1674
+01:17:53,510 --> 01:17:55,220
+and ascribe it that kind of score.
+
+1675
+01:17:55,220 --> 01:17:57,999
+Meanwhile, sentences doesn't
+necessarily make sense.
+
+1676
+01:17:57,999 --> 01:18:01,040
+But if this were an essay, or if you're
+familiar with sites like Turnitin
+
+1677
+01:18:01,040 --> 01:18:04,340
+and so forth, like an English essay,
+I could upload two different essays
+
+1678
+01:18:04,340 --> 01:18:06,570
+and see how many sentences
+do they have in common.
+
+1679
+01:18:06,570 --> 01:18:09,050
+So that even if one sentence is
+up here and another is down here,
+
+1680
+01:18:09,050 --> 01:18:11,258
+because the students used
+the same quotes or whatnot,
+
+1681
+01:18:11,258 --> 01:18:13,910
+I can at least find those
+by breaking the text up
+
+1682
+01:18:13,910 --> 01:18:16,340
+based on periods in an
+English sentence, which don't
+
+1683
+01:18:16,340 --> 01:18:18,300
+exist in quite the same way in code.
+
+1684
+01:18:18,300 --> 01:18:19,700
+But what about substrings?
+
+1685
+01:18:19,700 --> 01:18:21,830
+Substrings is a more
+fancy term just to say
+
+1686
+01:18:21,830 --> 01:18:25,100
+a portion of a string of length
+one, or two, or three, or four.
+
+1687
+01:18:25,100 --> 01:18:27,840
+And here I have a textbox
+where I can configure this.
+
+1688
+01:18:27,840 --> 01:18:31,760
+So if I want to look for
+common substrings of length 10,
+
+1689
+01:18:31,760 --> 01:18:34,760
+that would be a pretty long
+string of text that's in both.
+
+1690
+01:18:34,760 --> 01:18:37,340
+Compare, and indeed, there's
+a lot of stretches of 10
+
+1691
+01:18:37,340 --> 01:18:39,410
+because they're all so similar.
+
+1692
+01:18:39,410 --> 01:18:44,120
+If I instead change this to one,
+looking for all the common characters,
+
+1693
+01:18:44,120 --> 01:18:49,050
+you'll see that almost everything is in
+common, except for what missing letter?
+
+1694
+01:18:49,050 --> 01:18:49,550
+AUDIENCE: Y.
+
+1695
+01:18:49,550 --> 01:18:52,460
+DAVID MALAN: Y-- so there's going
+to be a couple of different ways you
+
+1696
+01:18:52,460 --> 01:18:54,440
+can implement this, actually
+many different ways that you
+
+1697
+01:18:54,440 --> 01:18:55,910
+can implement each of these algorithms.
+
+1698
+01:18:55,910 --> 01:18:57,870
+But what's key is that
+by using Python, you're
+
+1699
+01:18:57,870 --> 01:18:59,870
+going to have a lot more
+tools at your disposal.
+
+1700
+01:18:59,870 --> 01:19:02,360
+You're going to have different
+data types like Lists, and Sets,
+
+1701
+01:19:02,360 --> 01:19:03,980
+and Dictionaries, if
+you want to use them.
+
+1702
+01:19:03,980 --> 01:19:06,140
+And what you're not going to have
+to do, as you might have in C,
+
+1703
+01:19:06,140 --> 01:19:08,360
+is actually parse out these
+characters individually.
+
+1704
+01:19:08,360 --> 01:19:11,000
+Rather, if you want to split
+up a file based on its lines,
+
+1705
+01:19:11,000 --> 01:19:12,380
+just call a function for that.
+
+1706
+01:19:12,380 --> 01:19:13,940
+If you want to actually
+grab all of the whitespace,
+
+1707
+01:19:13,940 --> 01:19:15,080
+just call a function for that.
+
+1708
+01:19:15,080 --> 01:19:17,300
+If you want to take a
+substring of a certain length,
+
+1709
+01:19:17,300 --> 01:19:20,240
+just use the right
+Python syntax for that.
+
+1710
+01:19:20,240 --> 01:19:22,760
+And so once you've taken this
+sort of scaffolding approach
+
+1711
+01:19:22,760 --> 01:19:25,250
+of porting some of your
+C problems to Python,
+
+1712
+01:19:25,250 --> 01:19:27,929
+you'll culminate in
+implementing either of these.
+
+1713
+01:19:27,929 --> 01:19:29,220
+We'll wrap a bit earlier today.
+
+1714
+01:19:29,220 --> 01:19:30,553
+I'll stick around for questions.
+
+1715
+01:19:30,553 --> 01:19:33,670
+Best of luck, and see you next time.
+
+1716
+01:19:33,670 --> 01:19:36,599

@@ -1,0 +1,5599 @@
+1
+00:00:00,000 --> 00:00:10,670
+[MUSIC PLAYING]
+
+2
+00:00:10,670 --> 00:00:12,240
+SPEAKER: OK.
+
+3
+00:00:12,240 --> 00:00:13,590
+So what is dynamic programming?
+
+4
+00:00:13,590 --> 00:00:17,190
+Normally, of course, I like
+to ask you to contribute ideas
+
+5
+00:00:17,190 --> 00:00:18,130
+that we can discuss.
+
+6
+00:00:18,130 --> 00:00:21,510
+But in this particular case,
+the point that I want to make
+
+7
+00:00:21,510 --> 00:00:24,150
+is either you already knew
+the answer, or you're wrong.
+
+8
+00:00:24,150 --> 00:00:26,790
+
+
+9
+00:00:26,790 --> 00:00:33,544
+Dynamic programming is designed
+to be buzzword compliant.
+
+10
+00:00:33,544 --> 00:00:35,710
+It's something that was
+invented by Richard Bellman,
+
+11
+00:00:35,710 --> 00:00:38,250
+and he came up with the name.
+
+12
+00:00:38,250 --> 00:00:46,290
+And it's actually-- and this is
+according to his own autobiography--
+
+13
+00:00:46,290 --> 00:00:49,740
+the problem was that Rand
+is a defense contractor,
+
+14
+00:00:49,740 --> 00:00:54,270
+so he was working at Rand,
+working on computer algorithms,
+
+15
+00:00:54,270 --> 00:01:00,330
+and Rand worked for the Air
+Force, and still works for--
+
+16
+00:01:00,330 --> 00:01:03,690
+it's part of the big
+industrial military complex--
+
+17
+00:01:03,690 --> 00:01:09,030
+which meant that their budget depended
+on ultimately the Secretary of Defense.
+
+18
+00:01:09,030 --> 00:01:12,390
+And if the Secretary of Defense
+didn't like what he was doing,
+
+19
+00:01:12,390 --> 00:01:15,450
+or Congress didn't like what he
+was doing, and they got wind of it,
+
+20
+00:01:15,450 --> 00:01:16,616
+that would be the end of it.
+
+21
+00:01:16,616 --> 00:01:18,820
+
+
+22
+00:01:18,820 --> 00:01:25,470
+So apparently, according to Bellman,
+the Secretary of Defense at the time
+
+23
+00:01:25,470 --> 00:01:28,740
+had a pathological aversion to research.
+
+24
+00:01:28,740 --> 00:01:35,010
+The way he described it is that he
+would suffuse and become red in the face
+
+25
+00:01:35,010 --> 00:01:38,100
+if you mentioned the word
+research in his presence.
+
+26
+00:01:38,100 --> 00:01:42,062
+And he really didn't like it if you
+said something like mathematics.
+
+27
+00:01:42,062 --> 00:01:45,270
+And so Bellman wanted to be sure that
+whatever he was doing if this showed up
+
+28
+00:01:45,270 --> 00:01:49,290
+in a Congressional report or in a
+report that landed on the Department
+
+29
+00:01:49,290 --> 00:01:52,230
+of Defense's-- on the
+Secretary of Defense's-- desk,
+
+30
+00:01:52,230 --> 00:01:55,260
+that it wouldn't say
+anything objectionable.
+
+31
+00:01:55,260 --> 00:01:58,530
+So he came up with this term
+programming, which in the math world,
+
+32
+00:01:58,530 --> 00:02:03,150
+means optimization-- find
+the best answer to a problem.
+
+33
+00:02:03,150 --> 00:02:06,900
+And dynamic and the idea
+of dynamic, was this
+
+34
+00:02:06,900 --> 00:02:10,620
+is an adjective that, yes, it sort of
+expresses that things are changing,
+
+35
+00:02:10,620 --> 00:02:15,840
+but mostly it has no
+negative connotations.
+
+36
+00:02:15,840 --> 00:02:17,010
+Dynamic just sounds good.
+
+37
+00:02:17,010 --> 00:02:19,650
+
+
+38
+00:02:19,650 --> 00:02:21,630
+So that's where the name comes from.
+
+39
+00:02:21,630 --> 00:02:24,900
+So dynamic programming
+is basically a name
+
+40
+00:02:24,900 --> 00:02:28,620
+that nobody could possibly
+object to, and therefore
+
+41
+00:02:28,620 --> 00:02:32,270
+decide to cancel the project.
+
+42
+00:02:32,270 --> 00:02:36,760
+
+
+43
+00:02:36,760 --> 00:02:46,190
+There is a term that is much more
+descriptive of what's going on,
+
+44
+00:02:46,190 --> 00:02:48,850
+which is a lookup table.
+
+45
+00:02:48,850 --> 00:02:52,270
+So what dynamic programming really
+is, when it comes down to it,
+
+46
+00:02:52,270 --> 00:02:56,710
+is it's a way of looking at
+certain kinds of problems.
+
+47
+00:02:56,710 --> 00:02:58,570
+With linked data
+structures, linked lists,
+
+48
+00:02:58,570 --> 00:03:03,370
+tries, hash tables, all of these sort of
+fall into a category of data structure
+
+49
+00:03:03,370 --> 00:03:05,290
+that you use when you've
+got data and you want
+
+50
+00:03:05,290 --> 00:03:08,140
+to map the connections between them.
+
+51
+00:03:08,140 --> 00:03:11,110
+And so there's a whole category
+of different data structures
+
+52
+00:03:11,110 --> 00:03:16,480
+that involve using pointers to map
+the connections between things.
+
+53
+00:03:16,480 --> 00:03:20,230
+Dynamic programming is
+a category of algorithms
+
+54
+00:03:20,230 --> 00:03:23,830
+where you say, in my problem,
+when I want to solve it,
+
+55
+00:03:23,830 --> 00:03:28,780
+I end up asking the same question over
+and over again as part of solving it.
+
+56
+00:03:28,780 --> 00:03:31,700
+The same question with the
+same parameters, if you will.
+
+57
+00:03:31,700 --> 00:03:36,730
+And so rather than doing all the
+same work over and over again,
+
+58
+00:03:36,730 --> 00:03:40,741
+let me just remember the answer
+after I figure it out once,
+
+59
+00:03:40,741 --> 00:03:42,490
+and the next time I
+ask the same question,
+
+60
+00:03:42,490 --> 00:03:44,950
+I'll just go look up
+what the answer was.
+
+61
+00:03:44,950 --> 00:03:49,180
+That's the idea of dynamic programming.
+
+62
+00:03:49,180 --> 00:03:53,170
+And of a lookup table.
+
+63
+00:03:53,170 --> 00:03:55,900
+You've already used lookup tables.
+
+64
+00:03:55,900 --> 00:04:13,210
+For example, going way back
+to the beginning of the class,
+
+65
+00:04:13,210 --> 00:04:16,100
+Here's a for loop.
+
+66
+00:04:16,100 --> 00:04:23,360
+for(i=0, i less than strlen of some
+string variable that I've called str,
+
+67
+00:04:23,360 --> 00:04:24,910
+i++.
+
+68
+00:04:24,910 --> 00:04:25,410
+this.
+
+69
+00:04:25,410 --> 00:04:27,480
+Is a loop the loop
+through every character
+
+70
+00:04:27,480 --> 00:04:30,550
+of this string, str, one by one.
+
+71
+00:04:30,550 --> 00:04:33,570
+But the problem is every
+time you go through the loop,
+
+72
+00:04:33,570 --> 00:04:36,180
+you recalculate the
+length of this string.
+
+73
+00:04:36,180 --> 00:04:38,840
+And calculating the
+length of the string in C
+
+74
+00:04:38,840 --> 00:04:42,240
+takes some time because you have to
+walk down the whole string until you
+
+75
+00:04:42,240 --> 00:04:45,750
+reach that null character at the end.
+
+76
+00:04:45,750 --> 00:04:49,470
+So going all the way back again
+to the beginning of the class,
+
+77
+00:04:49,470 --> 00:04:55,260
+remember, we talked about, it would be
+better from a performance perspective
+
+78
+00:04:55,260 --> 00:04:59,010
+not to keep recalculating
+the length of the string.
+
+79
+00:04:59,010 --> 00:05:12,820
+Instead, why not say something
+like int length=strlen(str),
+
+80
+00:05:12,820 --> 00:05:23,380
+and save that value to a variable, and
+just look up that value every time we
+
+81
+00:05:23,380 --> 00:05:27,330
+go through the loop and are checking--
+have we reached the last value of i?
+
+82
+00:05:27,330 --> 00:05:31,900
+
+
+83
+00:05:31,900 --> 00:05:35,905
+There, length you can think of as a
+lookup table that stores one value.
+
+84
+00:05:35,905 --> 00:05:38,860
+
+
+85
+00:05:38,860 --> 00:05:42,080
+There's already an
+example that you've seen.
+
+86
+00:05:42,080 --> 00:05:43,924
+We're going go to
+lookup tables that store
+
+87
+00:05:43,924 --> 00:05:45,340
+the answer to more than one thing.
+
+88
+00:05:45,340 --> 00:05:48,040
+
+
+89
+00:05:48,040 --> 00:05:53,740
+And so I'm going to go through today
+a few different examples of problems
+
+90
+00:05:53,740 --> 00:05:56,950
+that you can solve using
+dynamic programming.
+
+91
+00:05:56,950 --> 00:06:00,910
+So these are problems where you
+can break them down in a way
+
+92
+00:06:00,910 --> 00:06:04,360
+that you keep asking the same
+question over and over again
+
+93
+00:06:04,360 --> 00:06:07,960
+and just look up the answer
+in a table or an array.
+
+94
+00:06:07,960 --> 00:06:11,440
+
+
+95
+00:06:11,440 --> 00:06:16,280
+And the first such problem I want
+to talk about is rod cutting.
+
+96
+00:06:16,280 --> 00:06:20,890
+Now the idea of this is I have
+a rod of something valuable,
+
+97
+00:06:20,890 --> 00:06:28,660
+so maybe it's a Tootsie
+Roll, or plutonium,
+
+98
+00:06:28,660 --> 00:06:31,960
+there's a wide range of things that
+come as sort of like a long cylinder.
+
+99
+00:06:31,960 --> 00:06:35,620
+And you want to chop it up
+into shorter pieces to sell.
+
+100
+00:06:35,620 --> 00:06:39,550
+And what you know is that different
+length pieces, different length rods,
+
+101
+00:06:39,550 --> 00:06:42,310
+sell for different amounts.
+
+102
+00:06:42,310 --> 00:06:45,430
+And the question is, how
+should I cut this long thing up
+
+103
+00:06:45,430 --> 00:06:50,080
+into smaller pieces to maximize
+the money that I can sell it for?
+
+104
+00:06:50,080 --> 00:06:54,880
+
+
+105
+00:06:54,880 --> 00:06:59,865
+So if I know, for example, that a rod
+that's one inch long sells for $1,
+
+106
+00:06:59,865 --> 00:07:02,740
+and a rod that's two inches long
+turns out to be a lot more valuable,
+
+107
+00:07:02,740 --> 00:07:05,500
+I can sell that for $5.
+
+108
+00:07:05,500 --> 00:07:08,259
+And when it's three inches
+long I can sell for $8.
+
+109
+00:07:08,259 --> 00:07:11,050
+Now there's a lot more demand for
+things that are three inches long
+
+110
+00:07:11,050 --> 00:07:12,781
+then things that are four inches long.
+
+111
+00:07:12,781 --> 00:07:14,530
+So if it's four inches
+long, I can sell it
+
+112
+00:07:14,530 --> 00:07:16,780
+for $9, which is a little
+more but not a lot more.
+
+113
+00:07:16,780 --> 00:07:19,780
+
+
+114
+00:07:19,780 --> 00:07:21,020
+And then comes the question--
+
+115
+00:07:21,020 --> 00:07:23,290
+I've got a rod of length 10--
+
+116
+00:07:23,290 --> 00:07:27,970
+how should I chop it down into 1s and
+2s and 3s and 4s to maximize the profit.
+
+117
+00:07:27,970 --> 00:07:30,050
+And there's different
+ways I could do this.
+
+118
+00:07:30,050 --> 00:07:35,140
+I could chop it into 10 little one
+inch rods, and sell each one for $1
+
+119
+00:07:35,140 --> 00:07:38,140
+and I've made $10.
+
+120
+00:07:38,140 --> 00:07:46,000
+I could chop it into five two inch
+rods, and it would get 5 times 5 is $25.
+
+121
+00:07:46,000 --> 00:07:48,580
+That's a lot more money.
+
+122
+00:07:48,580 --> 00:07:53,650
+So being the unabashed capitalist than
+I am, that's what I'm likely to do.
+
+123
+00:07:53,650 --> 00:07:56,530
+
+
+124
+00:07:56,530 --> 00:07:59,920
+And there are some in-between options
+that might make me some money.
+
+125
+00:07:59,920 --> 00:08:03,490
+The question is, how
+to quickly figure out
+
+126
+00:08:03,490 --> 00:08:08,380
+what I should chop this rod
+into to maximize my profit
+
+127
+00:08:08,380 --> 00:08:10,780
+and be sure that that's
+the most that I can sell it
+
+128
+00:08:10,780 --> 00:08:14,860
+for There wasn't some other way to
+chop this up that would be better.
+
+129
+00:08:14,860 --> 00:08:18,190
+
+
+130
+00:08:18,190 --> 00:08:20,970
+And one way to think
+about the problem is,
+
+131
+00:08:20,970 --> 00:08:26,080
+if I've got a rod that's 10 inches
+long and I can chop it once an inch,
+
+132
+00:08:26,080 --> 00:08:35,760
+there are 1, 2, 3, 4, 5, 6, 7, 8, 9
+possible places I could cut the rod.
+
+133
+00:08:35,760 --> 00:08:38,970
+And any one of those places I
+could either decide to make a cut
+
+134
+00:08:38,970 --> 00:08:40,620
+or not make a cut.
+
+135
+00:08:40,620 --> 00:08:44,100
+And that will affect the end result.
+
+136
+00:08:44,100 --> 00:08:45,640
+So that's kind of 9 bits--
+
+137
+00:08:45,640 --> 00:08:46,710
+I either cut or I don't.
+
+138
+00:08:46,710 --> 00:08:49,510
+They're a 1 or a 0.
+
+139
+00:08:49,510 --> 00:08:52,560
+So I end up in terms of the
+possible different combinations
+
+140
+00:08:52,560 --> 00:08:58,890
+of how I could cut this with
+every possible 9-bit number
+
+141
+00:08:58,890 --> 00:09:03,880
+in binary, which has 2 to the 9th
+possible values, which is 512.
+
+142
+00:09:03,880 --> 00:09:10,410
+So I could try 512 possible
+different ways to cut this rod.
+
+143
+00:09:10,410 --> 00:09:14,990
+And I can figure out
+which one does the best.
+
+144
+00:09:14,990 --> 00:09:17,580
+
+
+145
+00:09:17,580 --> 00:09:22,200
+And then I could try having a rod
+that was 20 inches long instead,
+
+146
+00:09:22,200 --> 00:09:25,140
+and discover there's 19 possible
+places to decide I'm going to cut it
+
+147
+00:09:25,140 --> 00:09:28,420
+or I'm not, and there's 2
+to the 19th possibilities
+
+148
+00:09:28,420 --> 00:09:34,430
+now, which is about 500,000.
+
+149
+00:09:34,430 --> 00:09:38,850
+2 to the 10th is about 1,000, 2 to the
+20th is about a million, 2 to the 19th
+
+150
+00:09:38,850 --> 00:09:43,910
+is about a million divided
+by 2, it's about 500,000.
+
+151
+00:09:43,910 --> 00:09:49,580
+So in general, if we said
+this rod is n inches long,
+
+152
+00:09:49,580 --> 00:09:53,810
+so that there's n places or n minus 1
+places where I could make a decision
+
+153
+00:09:53,810 --> 00:09:59,990
+to cut it, there are 2 to the n
+approximately possible different ways
+
+154
+00:09:59,990 --> 00:10:02,420
+of making combinations of cuts.
+
+155
+00:10:02,420 --> 00:10:05,120
+And that's a lot of things to try.
+
+156
+00:10:05,120 --> 00:10:09,770
+At the same time, you can sort of
+see that splitting it into rods
+
+157
+00:10:09,770 --> 00:10:13,590
+of 1, 1 5, 5, and 9 inches long--
+
+158
+00:10:13,590 --> 00:10:19,010
+this is not the only combination
+of cuts that would give me that.
+
+159
+00:10:19,010 --> 00:10:25,670
+There are other combinations that would
+also give me two 1s, two 5s, and--
+
+160
+00:10:25,670 --> 00:10:27,590
+sorry, a 4 inch long.
+
+161
+00:10:27,590 --> 00:10:31,150
+Two 1s, two 2s, and a 4.
+
+162
+00:10:31,150 --> 00:10:34,760
+I could do a 4 and then
+two 2s and then two 1s.
+
+163
+00:10:34,760 --> 00:10:36,364
+I'd get the same value out of it.
+
+164
+00:10:36,364 --> 00:10:38,405
+So a lot of the possible
+ways that we could cut--
+
+165
+00:10:38,405 --> 00:10:41,090
+
+
+166
+00:10:41,090 --> 00:10:46,185
+they would give the same
+result in terms of the value.
+
+167
+00:10:46,185 --> 00:10:48,060
+And so maybe I want to
+reorganize the problem
+
+168
+00:10:48,060 --> 00:10:52,790
+where I don't have to try everything,
+because I realize a lot of times
+
+169
+00:10:52,790 --> 00:10:54,390
+I'm just recalculating the same thing.
+
+170
+00:10:54,390 --> 00:10:58,560
+
+
+171
+00:10:58,560 --> 00:11:01,120
+And one way to do that--
+
+172
+00:11:01,120 --> 00:11:04,410
+and this is where this concept of
+dynamic programming or a lookup table
+
+173
+00:11:04,410 --> 00:11:05,640
+comes in--
+
+174
+00:11:05,640 --> 00:11:15,040
+is to say, let me decide first where
+to cut where the left most cut will be.
+
+175
+00:11:15,040 --> 00:11:17,950
+So instead of deciding, am I
+going to cut it 1 inch or not,
+
+176
+00:11:17,950 --> 00:11:21,300
+am I going to cut it 2 inches or not,
+am I going to cut it 3 inches or not,
+
+177
+00:11:21,300 --> 00:11:25,080
+I'm going to decide what's the
+first place that I'm going to cut?
+
+178
+00:11:25,080 --> 00:11:27,840
+That could be at 1 inches or 2
+inches or 3 inches or 4 inches
+
+179
+00:11:27,840 --> 00:11:31,530
+or 5 inches or 6 or 7
+or 8 or 9 inches, or I
+
+180
+00:11:31,530 --> 00:11:33,870
+could decide I'm not
+going to cut at all,
+
+181
+00:11:33,870 --> 00:11:37,650
+I'm just going to leave the rod whole.
+
+182
+00:11:37,650 --> 00:11:42,420
+So with his rod of length 10, there's 10
+possible places to make the first cut.
+
+183
+00:11:42,420 --> 00:11:49,290
+And the thing that I'm going to decide
+is that that splits the rod into two--
+
+184
+00:11:49,290 --> 00:11:53,430
+the part on the left I'm
+not going to cut again.
+
+185
+00:11:53,430 --> 00:11:57,450
+I'm not going to cut this 2 part--
+
+186
+00:11:57,450 --> 00:11:58,120
+or the 3 part--
+
+187
+00:11:58,120 --> 00:11:59,260
+I'm making that decision.
+
+188
+00:11:59,260 --> 00:12:02,820
+This is the first piece
+that I'm going to sell.
+
+189
+00:12:02,820 --> 00:12:06,150
+So the total value
+that I can get will be
+
+190
+00:12:06,150 --> 00:12:13,410
+whatever I can sell the piece on the
+left for like $1 or $5 or $8 or $9,
+
+191
+00:12:13,410 --> 00:12:18,600
+plus whatever I can get for the right
+part if I chop it into smaller pieces
+
+192
+00:12:18,600 --> 00:12:19,560
+the best possible way.
+
+193
+00:12:19,560 --> 00:12:23,140
+
+
+194
+00:12:23,140 --> 00:12:24,950
+So the part on the
+left I won't cut again.
+
+195
+00:12:24,950 --> 00:12:30,180
+I can just look up what is the value
+of a rod of this length in the table.
+
+196
+00:12:30,180 --> 00:12:33,870
+But I also need to figure out
+for the part on the right, what
+
+197
+00:12:33,870 --> 00:12:35,630
+is the best way to cut this up.
+
+198
+00:12:35,630 --> 00:12:42,090
+
+
+199
+00:12:42,090 --> 00:12:46,320
+And even that, if you draw
+out all the possibilities,
+
+200
+00:12:46,320 --> 00:12:49,290
+you're going to end up
+with the same 2 to the n,
+
+201
+00:12:49,290 --> 00:12:53,230
+except you can start
+seeing some commonalities.
+
+202
+00:12:53,230 --> 00:13:00,750
+So for example, if you decided
+to cut a rod of length 2,
+
+203
+00:13:00,750 --> 00:13:05,010
+you've got eight leftover, and you
+want to find the best way to cut it.
+
+204
+00:13:05,010 --> 00:13:10,980
+Now, if you only chopped off one
+inch first, that was your first cut,
+
+205
+00:13:10,980 --> 00:13:15,300
+and then you did another cut where
+you chopped off another inch,
+
+206
+00:13:15,300 --> 00:13:19,090
+suddenly you're end up with what is the
+best way to cut a rod of length eight.
+
+207
+00:13:19,090 --> 00:13:22,430
+
+
+208
+00:13:22,430 --> 00:13:28,900
+So in the possible ways of
+chopping this thing of length 9,
+
+209
+00:13:28,900 --> 00:13:32,660
+one possibility is, again,
+we take one inch off to sell,
+
+210
+00:13:32,660 --> 00:13:35,630
+and we have eight inches left.
+
+211
+00:13:35,630 --> 00:13:38,450
+If right from the start
+we've taken two inches off,
+
+212
+00:13:38,450 --> 00:13:40,010
+we would also have eight inches left.
+
+213
+00:13:40,010 --> 00:13:42,650
+
+
+214
+00:13:42,650 --> 00:13:46,220
+And so we're asking the
+same question both times.
+
+215
+00:13:46,220 --> 00:13:51,110
+We've said, I've got some stuff I've
+already cut that I'm going to sell,
+
+216
+00:13:51,110 --> 00:13:52,900
+and now I've got an eight inch rod left.
+
+217
+00:13:52,900 --> 00:13:54,560
+How do I cut that?
+
+218
+00:13:54,560 --> 00:13:57,980
+There's no point
+figuring that out twice.
+
+219
+00:13:57,980 --> 00:14:00,920
+We could just keep a little
+array in which we store, what's
+
+220
+00:14:00,920 --> 00:14:03,260
+the best way to cut a rod of length 8?
+
+221
+00:14:03,260 --> 00:14:06,337
+What's the best way to cut around
+of length 9, of 7, 6, of 5,
+
+222
+00:14:06,337 --> 00:14:10,820
+of 4, and for each one of those,
+we just look in the array and say,
+
+223
+00:14:10,820 --> 00:14:13,310
+have we put a value in there yet?
+
+224
+00:14:13,310 --> 00:14:14,690
+If so, we just use it.
+
+225
+00:14:14,690 --> 00:14:15,700
+We don't recompute it.
+
+226
+00:14:15,700 --> 00:14:22,530
+
+
+227
+00:14:22,530 --> 00:14:27,570
+And the result is, if
+you start looking at it,
+
+228
+00:14:27,570 --> 00:14:32,460
+we've got 10 choices for our first
+cut, and then on average we've
+
+229
+00:14:32,460 --> 00:14:35,640
+got something like up to nine
+choices for our second cut,
+
+230
+00:14:35,640 --> 00:14:39,630
+and up to eight choices
+for our third cut.
+
+231
+00:14:39,630 --> 00:14:43,830
+And so for each of the possible
+10 choices the first time,
+
+232
+00:14:43,830 --> 00:14:47,430
+we've got nine choices to make for
+our second cut, we're up to 90.
+
+233
+00:14:47,430 --> 00:14:53,640
+
+
+234
+00:14:53,640 --> 00:14:55,410
+But this would get us exponential.
+
+235
+00:14:55,410 --> 00:14:58,260
+The problem is a lot of these
+cuts end up being the same.
+
+236
+00:14:58,260 --> 00:15:00,210
+And so you end up saying,
+I only have to deal
+
+237
+00:15:00,210 --> 00:15:04,170
+with sort of 10 choices of what to make
+as the first cut for right of length
+
+238
+00:15:04,170 --> 00:15:09,480
+10, and nine choices to make for
+the first cut of a rod of length 9,
+
+239
+00:15:09,480 --> 00:15:13,295
+and eight choices for the first
+cut to make on a lot of length 8,
+
+240
+00:15:13,295 --> 00:15:15,670
+because after that I'm getting
+down to something shorter.
+
+241
+00:15:15,670 --> 00:15:19,350
+I'll figure that out eventually.
+
+242
+00:15:19,350 --> 00:15:21,780
+And you end up with
+something like n squared.
+
+243
+00:15:21,780 --> 00:15:25,830
+So for rod of length 10, I'd
+have roughly 10 times 10 choices
+
+244
+00:15:25,830 --> 00:15:29,070
+that I actually have to do work for.
+
+245
+00:15:29,070 --> 00:15:35,400
+And so you get down to n
+squared as opposed to n cubed.
+
+246
+00:15:35,400 --> 00:15:38,340
+Another way to do this is to say,
+let me start with a rod of length 1.
+
+247
+00:15:38,340 --> 00:15:42,390
+I have no choices for how to
+cut it, so I know the answer
+
+248
+00:15:42,390 --> 00:15:43,920
+for how I'm going to sell that.
+
+249
+00:15:43,920 --> 00:15:49,170
+For a rod of length 2, I can either
+do the cost for rod of length 1,
+
+250
+00:15:49,170 --> 00:15:56,700
+and make a cut, and then have
+a rod of length 1 leftover.
+
+251
+00:15:56,700 --> 00:15:59,370
+I can look up what that costs.
+
+252
+00:15:59,370 --> 00:16:02,480
+And I'll store then which of those was
+the best value for rod of length 2.
+
+253
+00:16:02,480 --> 00:16:06,480
+I'll say, for rod of length 2, I
+can get $5, and the way to do that
+
+254
+00:16:06,480 --> 00:16:07,170
+is to not cut.
+
+255
+00:16:07,170 --> 00:16:09,720
+
+
+256
+00:16:09,720 --> 00:16:14,400
+And now for a rod of length three, well,
+I could decide to cut it after 1 inch,
+
+257
+00:16:14,400 --> 00:16:16,110
+and I've got 2 inches leftover.
+
+258
+00:16:16,110 --> 00:16:19,110
+So we'll look and say, well, the best
+thing to do with a rod of 2 inches
+
+259
+00:16:19,110 --> 00:16:21,750
+is get $5 for it, so great.
+
+260
+00:16:21,750 --> 00:16:27,740
+For something with 3 inches, I can
+get $6 by making a cut after one inch.
+
+261
+00:16:27,740 --> 00:16:31,909
+If I make the cut after 2 inches, I
+get $5 for selling a rod of length 2,
+
+262
+00:16:31,909 --> 00:16:34,200
+and then I look up what do
+I do with a rod of length 1,
+
+263
+00:16:34,200 --> 00:16:38,190
+and the answer is you just sell
+it for $1, that gets me $6.
+
+264
+00:16:38,190 --> 00:16:42,120
+I look up, and what happens if
+I just sell a rod of length 3--
+
+265
+00:16:42,120 --> 00:16:43,470
+and that's $8.
+
+266
+00:16:43,470 --> 00:16:46,890
+So I'll record-- great, for rods
+of length 3, don't chop it up,
+
+267
+00:16:46,890 --> 00:16:48,870
+just sell it.
+
+268
+00:16:48,870 --> 00:16:53,580
+For a rod of length 4, now
+I can chop it after 1 inch.
+
+269
+00:16:53,580 --> 00:16:57,510
+I look up, ah, for a rod
+of length 1, I sell it
+
+270
+00:16:57,510 --> 00:17:03,240
+for $1, plus what do I do
+with a rod of length 3?
+
+271
+00:17:03,240 --> 00:17:06,119
+I just sell it.
+
+272
+00:17:06,119 --> 00:17:07,410
+I'm done.
+
+273
+00:17:07,410 --> 00:17:11,220
+I've found that that gets me $9.
+
+274
+00:17:11,220 --> 00:17:13,560
+What if I cut at 2 inches?
+
+275
+00:17:13,560 --> 00:17:17,430
+Well I've got a two
+inch bar I sell for $5,
+
+276
+00:17:17,430 --> 00:17:21,790
+and then I look up how do I recover
+the right half, it's 2 inches long.
+
+277
+00:17:21,790 --> 00:17:23,280
+I won't bother.
+
+278
+00:17:23,280 --> 00:17:26,520
+My table says just keep it. .
+
+279
+00:17:26,520 --> 00:17:33,750
+And after I've tested all of those,
+I know that cutting 4 into 2 and 2
+
+280
+00:17:33,750 --> 00:17:36,540
+is going to be the best thing to do.
+
+281
+00:17:36,540 --> 00:17:41,180
+
+
+282
+00:17:41,180 --> 00:17:44,810
+So what's going to happen
+is, as you build this up,
+
+283
+00:17:44,810 --> 00:17:49,550
+eventually you get to where you're
+dealing with your rod of length 10.
+
+284
+00:17:49,550 --> 00:17:52,370
+For every cut that
+you make, you can just
+
+285
+00:17:52,370 --> 00:17:54,350
+look up the left half
+you know you're going
+
+286
+00:17:54,350 --> 00:17:57,380
+to say as a single thing, the right
+half you can look up in a table
+
+287
+00:17:57,380 --> 00:18:00,440
+and say, what's the maximum
+value I can get for this?
+
+288
+00:18:00,440 --> 00:18:03,500
+And the table will say, you
+can get this many dollars,
+
+289
+00:18:03,500 --> 00:18:05,274
+and here's where you make the first cut.
+
+290
+00:18:05,274 --> 00:18:07,190
+And then you've got a
+shorter piece left over,
+
+291
+00:18:07,190 --> 00:18:09,148
+and you can look up where
+to make the next cut.
+
+292
+00:18:09,148 --> 00:18:16,910
+
+
+293
+00:18:16,910 --> 00:18:17,510
+Questions?
+
+294
+00:18:17,510 --> 00:18:25,102
+
+
+295
+00:18:25,102 --> 00:18:27,060
+So I'm going to move on
+to some other examples.
+
+296
+00:18:27,060 --> 00:18:30,940
+And the next one I'm going
+go through fairly quickly.
+
+297
+00:18:30,940 --> 00:18:33,750
+And the one after that, I'm
+going to go into more detail
+
+298
+00:18:33,750 --> 00:18:35,130
+even than I did the rod cutting.
+
+299
+00:18:35,130 --> 00:18:37,671
+And we'll draw out that table,
+filling in some of the values.
+
+300
+00:18:37,671 --> 00:18:41,400
+
+
+301
+00:18:41,400 --> 00:18:44,214
+If you remember to
+networking last week, we've
+
+302
+00:18:44,214 --> 00:18:47,130
+got all sorts of computers that are
+connected together-- for instance,
+
+303
+00:18:47,130 --> 00:18:51,300
+my computer, at least
+when I'm in my office,
+
+304
+00:18:51,300 --> 00:18:55,860
+is probably hooked up through
+a department-wide server,
+
+305
+00:18:55,860 --> 00:18:58,020
+or maybe just through
+Yale's University server,
+
+306
+00:18:58,020 --> 00:19:00,330
+and Natalie also has a
+computer that's connected,
+
+307
+00:19:00,330 --> 00:19:03,600
+and because our offices are close,
+they may actually have a connection
+
+308
+00:19:03,600 --> 00:19:06,030
+directly to each other.
+
+309
+00:19:06,030 --> 00:19:11,040
+Now, David and Doug up in the CS50
+office at Harvard, or their computers
+
+310
+00:19:11,040 --> 00:19:13,180
+may also be directly
+connected to each other.
+
+311
+00:19:13,180 --> 00:19:16,860
+So they can send messages
+back and forth directly,
+
+312
+00:19:16,860 --> 00:19:20,650
+and they're also connected
+to Harvard's server.
+
+313
+00:19:20,650 --> 00:19:27,360
+But if I want to send a
+message to David, I will need--
+
+314
+00:19:27,360 --> 00:19:29,950
+and that might be an HTTP
+request, for example,
+
+315
+00:19:29,950 --> 00:19:33,510
+if he's running a web
+server on his computer--
+
+316
+00:19:33,510 --> 00:19:36,360
+I'm going to need to find a way
+to hop from computer to computer.
+
+317
+00:19:36,360 --> 00:19:38,280
+I can't talk directly
+to David's computer,
+
+318
+00:19:38,280 --> 00:19:41,250
+because there's no wire
+running between them.
+
+319
+00:19:41,250 --> 00:19:45,870
+So I need to find some computer where
+I say, I've got a message for David,
+
+320
+00:19:45,870 --> 00:19:47,520
+do you know how to deliver that?
+
+321
+00:19:47,520 --> 00:19:50,315
+And it will say, yeah,
+I can do that for you.
+
+322
+00:19:50,315 --> 00:19:52,440
+And then it will pass it
+on to some other computer,
+
+323
+00:19:52,440 --> 00:19:54,810
+saying this is for David,
+and it keeps getting
+
+324
+00:19:54,810 --> 00:19:58,680
+passed from server to server, until
+it gets to one that is actually
+
+325
+00:19:58,680 --> 00:20:01,770
+connected to David's computer.
+
+326
+00:20:01,770 --> 00:20:07,569
+And the problem of how to find who to
+pass that message to is called routing.
+
+327
+00:20:07,569 --> 00:20:09,360
+And it's one of the
+problems in networking.
+
+328
+00:20:09,360 --> 00:20:12,240
+And it's particularly
+difficult because networking,
+
+329
+00:20:12,240 --> 00:20:14,790
+you have to deal with other people.
+
+330
+00:20:14,790 --> 00:20:19,530
+When you're just writing a program
+of your own on your laptop,
+
+331
+00:20:19,530 --> 00:20:22,530
+if something goes wrong,
+it was probably your fault,
+
+332
+00:20:22,530 --> 00:20:25,689
+and you can probably fix it.
+
+333
+00:20:25,689 --> 00:20:27,480
+If you're talking about
+a network, it could
+
+334
+00:20:27,480 --> 00:20:29,970
+be that somebody turned off
+the lights somewhere else,
+
+335
+00:20:29,970 --> 00:20:33,360
+or unplugged their
+computer without warning.
+
+336
+00:20:33,360 --> 00:20:36,252
+That's completely out of your control.
+
+337
+00:20:36,252 --> 00:20:37,710
+But you still have to deal with it.
+
+338
+00:20:37,710 --> 00:20:41,310
+
+
+339
+00:20:41,310 --> 00:20:44,000
+And so how do you get from my
+computer to David's computer
+
+340
+00:20:44,000 --> 00:20:45,791
+is something that you
+have to keep track of
+
+341
+00:20:45,791 --> 00:20:52,640
+and may keep changing, and to
+get there, we need to find--
+
+342
+00:20:52,640 --> 00:20:57,020
+I need to be able to find not just
+how I could get to David's computer,
+
+343
+00:20:57,020 --> 00:21:02,210
+but essentially who to pass that
+message to to get it there the fastest.
+
+344
+00:21:02,210 --> 00:21:05,440
+I may have more than
+one way of doing it.
+
+345
+00:21:05,440 --> 00:21:07,190
+And one way to do it
+is going pretty fast,
+
+346
+00:21:07,190 --> 00:21:09,564
+and the other way is going to
+go through China and Sierra
+
+347
+00:21:09,564 --> 00:21:13,760
+Leone and a congested undersea cable
+to Africa which has very poor internet
+
+348
+00:21:13,760 --> 00:21:18,830
+links, and it will take a long time
+for the message to get to David.
+
+349
+00:21:18,830 --> 00:21:21,502
+Unless, of course, somebody
+from MIT went and found
+
+350
+00:21:21,502 --> 00:21:23,960
+the cable that connects Harvard
+to Yale and snipped it just
+
+351
+00:21:23,960 --> 00:21:28,340
+for fun, in which case I might be stuck
+taking the longer route for a while
+
+352
+00:21:28,340 --> 00:21:34,229
+because something broke
+outside of my control.
+
+353
+00:21:34,229 --> 00:21:36,020
+And the question I want
+to talk about today
+
+354
+00:21:36,020 --> 00:21:41,219
+is, how do you figure out
+who to pass that message to?
+
+355
+00:21:41,219 --> 00:21:43,760
+And this is another place where
+dynamic programming turns out
+
+356
+00:21:43,760 --> 00:21:44,635
+to be really helpful.
+
+357
+00:21:44,635 --> 00:21:48,000
+
+
+358
+00:21:48,000 --> 00:21:50,400
+So the idea is, it's
+not just that I need
+
+359
+00:21:50,400 --> 00:21:52,310
+to know how to get to
+David's computer, I
+
+360
+00:21:52,310 --> 00:21:55,400
+need to know how to get to
+everywhere on the internet.
+
+361
+00:21:55,400 --> 00:21:57,680
+And everywhere else on
+the internet also needs
+
+362
+00:21:57,680 --> 00:22:00,950
+to know how to get to
+everywhere on the internet.
+
+363
+00:22:00,950 --> 00:22:04,550
+Everybody is trying to solve this
+problem of how to find the quickest
+
+364
+00:22:04,550 --> 00:22:06,310
+way to get to any other computer.
+
+365
+00:22:06,310 --> 00:22:08,870
+
+
+366
+00:22:08,870 --> 00:22:16,570
+And to start out, I'm just plugged in,
+I don't even know who I'm connected to,
+
+367
+00:22:16,570 --> 00:22:18,200
+let alone who else is out there.
+
+368
+00:22:18,200 --> 00:22:21,420
+
+
+369
+00:22:21,420 --> 00:22:27,290
+So the process is, rather than me
+trying to go snooping and exploring
+
+370
+00:22:27,290 --> 00:22:28,826
+the entire internet--
+
+371
+00:22:28,826 --> 00:22:31,700
+and by the time I'm done, somebody
+will have unplugged their computer
+
+372
+00:22:31,700 --> 00:22:35,250
+and the process will need to change--
+
+373
+00:22:35,250 --> 00:22:37,400
+I want to try and make
+sure that we are all
+
+374
+00:22:37,400 --> 00:22:42,330
+doing this work together and sharing
+as much information as possible.
+
+375
+00:22:42,330 --> 00:22:48,800
+So what I will do is I will
+just broadcast a message to all
+
+376
+00:22:48,800 --> 00:22:53,370
+of my neighbors, saying
+haha, I'm here, I'm Benedict,
+
+377
+00:22:53,370 --> 00:22:56,470
+and now Natalie will know,
+and Yale server will know,
+
+378
+00:22:56,470 --> 00:23:01,550
+aha, Benedict's computer is
+connected directly to us.
+
+379
+00:23:01,550 --> 00:23:06,075
+So if we need to get a message to
+Benedict, we can just give it to him.
+
+380
+00:23:06,075 --> 00:23:08,450
+Now at the same time, everybody
+else is going to do that.
+
+381
+00:23:08,450 --> 00:23:10,550
+So I'll get a message
+from Natalie, saying haha,
+
+382
+00:23:10,550 --> 00:23:13,840
+here I am, and I'll get one from
+Yale saying haha, here I am.
+
+383
+00:23:13,840 --> 00:23:17,060
+
+
+384
+00:23:17,060 --> 00:23:23,270
+And now, I know that I'm connected
+directly to Natalie and Yale.
+
+385
+00:23:23,270 --> 00:23:27,060
+This is what we call being one hop away.
+
+386
+00:23:27,060 --> 00:23:31,236
+So if I need to send a message,
+it needs to make one hop,
+
+387
+00:23:31,236 --> 00:23:33,110
+just like an airplane
+makes one hop from city
+
+388
+00:23:33,110 --> 00:23:37,460
+to city, to get to the next computer.
+
+389
+00:23:37,460 --> 00:23:41,720
+And as far as I know, that's
+all there is in the world.
+
+390
+00:23:41,720 --> 00:23:46,259
+But everybody's just done this, so now
+everybody knows all of the computers
+
+391
+00:23:46,259 --> 00:23:47,300
+that they're adjacent to.
+
+392
+00:23:47,300 --> 00:23:49,980
+
+
+393
+00:23:49,980 --> 00:23:54,750
+The next thing is, we can all send
+that information around, and say, here
+
+394
+00:23:54,750 --> 00:23:59,170
+I am, and oh, by the way, here's
+everybody that I'm connected to.
+
+395
+00:23:59,170 --> 00:24:02,880
+So if you give me a message
+for any of those people,
+
+396
+00:24:02,880 --> 00:24:08,040
+I'm saying, anybody who passes a message
+to me that needs to go to Natalie--
+
+397
+00:24:08,040 --> 00:24:09,690
+I can get it to her in one hop.
+
+398
+00:24:09,690 --> 00:24:14,340
+
+
+399
+00:24:14,340 --> 00:24:17,550
+So then you can figure out how many
+hops it takes you one more hop than that
+
+400
+00:24:17,550 --> 00:24:18,830
+if you pass the message to me.
+
+401
+00:24:18,830 --> 00:24:21,960
+
+
+402
+00:24:21,960 --> 00:24:24,900
+So after we share that
+we can update our lists.
+
+403
+00:24:24,900 --> 00:24:30,180
+And what will happen is Yale
+server has learnt from me, hahaha,
+
+404
+00:24:30,180 --> 00:24:33,270
+I can get a message to Natalie for
+you, just give it to me and in one hop,
+
+405
+00:24:33,270 --> 00:24:34,950
+I'll get it to Natalie.
+
+406
+00:24:34,950 --> 00:24:38,580
+And Yale server says, yeah, but I
+can just give it to Natalie myself,
+
+407
+00:24:38,580 --> 00:24:40,860
+so why bother doing that?
+
+408
+00:24:40,860 --> 00:24:45,420
+So Yale server will keep in its list, I
+just found a way to get Natalie in two
+
+409
+00:24:45,420 --> 00:24:47,850
+hops, I don't care.
+
+410
+00:24:47,850 --> 00:24:50,760
+I can get there in one hop by just
+giving it straight to Natalie.
+
+411
+00:24:50,760 --> 00:24:54,180
+
+
+412
+00:24:54,180 --> 00:25:01,420
+However, I will have learned that Yale
+can reach Qwest's server in one hop.
+
+413
+00:25:01,420 --> 00:25:08,670
+And so if I need to pass a message to
+Qwest, I can give the message to Yale
+
+414
+00:25:08,670 --> 00:25:11,430
+and ask it to give it
+to Qwest and that's
+
+415
+00:25:11,430 --> 00:25:12,990
+the fastest way I know to get there.
+
+416
+00:25:12,990 --> 00:25:15,520
+
+
+417
+00:25:15,520 --> 00:25:18,360
+And so each step everybody
+sends a pretty short message
+
+418
+00:25:18,360 --> 00:25:20,730
+to all their neighbors.
+
+419
+00:25:20,730 --> 00:25:23,504
+It takes a fixed amount of time.
+
+420
+00:25:23,504 --> 00:25:25,920
+And we're accumulating this
+information and always keeping
+
+421
+00:25:25,920 --> 00:25:29,310
+track of, what was the shortest--
+
+422
+00:25:29,310 --> 00:25:32,252
+what is the fewest number of hops
+it takes us to get to a server,
+
+423
+00:25:32,252 --> 00:25:34,210
+and who do we give the
+message to to get there?
+
+424
+00:25:34,210 --> 00:25:40,240
+
+
+425
+00:25:40,240 --> 00:25:42,069
+And as long as I give
+the message to Yale,
+
+426
+00:25:42,069 --> 00:25:44,860
+Yale can worry about how it gets
+to Qwest, it's just promised me it
+
+427
+00:25:44,860 --> 00:25:46,600
+takes one hop.
+
+428
+00:25:46,600 --> 00:25:50,680
+If I do this again, now it turns out
+I can get to Google in three hops.
+
+429
+00:25:50,680 --> 00:25:53,057
+I can get to Harvard in three hops.
+
+430
+00:25:53,057 --> 00:25:56,140
+But all I care about is, I can get
+there in three hops and the way I do it
+
+431
+00:25:56,140 --> 00:26:00,010
+is I give the message to Yale's server.
+
+432
+00:26:00,010 --> 00:26:04,510
+Yale's server doesn't even know
+directly how to talk to Harvard's server
+
+433
+00:26:04,510 --> 00:26:07,120
+or to Google's server.
+
+434
+00:26:07,120 --> 00:26:10,220
+It just knows to pass the
+message to Qwest's server.
+
+435
+00:26:10,220 --> 00:26:13,390
+Qwest, by the way, owns a
+lot of the big fibers that
+
+436
+00:26:13,390 --> 00:26:16,420
+connect big data centers and things.
+
+437
+00:26:16,420 --> 00:26:18,940
+So when I traced what
+happens if I try and connect
+
+438
+00:26:18,940 --> 00:26:22,270
+to Google's server from my office,
+it goes up through a departments--
+
+439
+00:26:22,270 --> 00:26:27,010
+CS department-- server, then a
+Yale server, then it goes to Qwest,
+
+440
+00:26:27,010 --> 00:26:28,315
+and then it goes to Google.
+
+441
+00:26:28,315 --> 00:26:31,720
+
+
+442
+00:26:31,720 --> 00:26:35,170
+There are some other
+ones, like Internet2,
+
+443
+00:26:35,170 --> 00:26:42,040
+which connects a lot of
+universities, and America Online
+
+444
+00:26:42,040 --> 00:26:48,040
+used to own a lot of this, I don't
+know if they ever sold it off.
+
+445
+00:26:48,040 --> 00:26:50,290
+There's a few companies that
+own most of those cables.
+
+446
+00:26:50,290 --> 00:26:54,440
+
+
+447
+00:26:54,440 --> 00:26:59,640
+And eventually, after four rounds, I
+find out that I can even reach David
+
+448
+00:26:59,640 --> 00:27:03,050
+and Doug in four hops by
+giving the message to Yale.
+
+449
+00:27:03,050 --> 00:27:04,910
+And Yale knows that
+it needs to just give
+
+450
+00:27:04,910 --> 00:27:11,240
+that message to Qwest, which
+gives that message to Harvard,
+
+451
+00:27:11,240 --> 00:27:15,020
+and then Harvard knows how
+to pass the message on.
+
+452
+00:27:15,020 --> 00:27:18,950
+And this is in fact how the
+major routers on the internet
+
+453
+00:27:18,950 --> 00:27:22,100
+share this information.
+
+454
+00:27:22,100 --> 00:27:24,680
+Now, your computer or my
+computer, what they typically know
+
+455
+00:27:24,680 --> 00:27:28,115
+is any message I need to send, I just
+send it to the server I'm connected to,
+
+456
+00:27:28,115 --> 00:27:30,260
+to the wireless access point.
+
+457
+00:27:30,260 --> 00:27:35,570
+And the wireless access point basically
+says, I send it to Yale's server.
+
+458
+00:27:35,570 --> 00:27:38,690
+Or maybe there's a very small--
+it knows the following laptops are
+
+459
+00:27:38,690 --> 00:27:42,080
+connected directly to me and anything
+else I just send to Yale's server.
+
+460
+00:27:42,080 --> 00:27:49,280
+But when you get up to the level of
+all of Yale University, for example,
+
+461
+00:27:49,280 --> 00:27:55,670
+it may well start to participate in
+this process of sharing this information
+
+462
+00:27:55,670 --> 00:28:00,530
+to know, I could talk to Qwest,
+I could talk to Internet2,
+
+463
+00:28:00,530 --> 00:28:05,090
+I could talk to Comcast, there's
+a bunch of people I could talk to.
+
+464
+00:28:05,090 --> 00:28:07,040
+Which cable should I
+send this message out
+
+465
+00:28:07,040 --> 00:28:11,300
+on to make sure it
+gets where it's going?
+
+466
+00:28:11,300 --> 00:28:17,360
+And the dynamic programming
+aspect of this is, at each step
+
+467
+00:28:17,360 --> 00:28:20,870
+I'm reusing all the information
+that was computed before
+
+468
+00:28:20,870 --> 00:28:22,640
+to just add another layer on top.
+
+469
+00:28:22,640 --> 00:28:25,540
+How do I get to places in three hops?
+
+470
+00:28:25,540 --> 00:28:31,850
+I'm not recomputing the route
+to get from Yale to David,
+
+471
+00:28:31,850 --> 00:28:35,540
+let's say, when I figure out that
+I can get there in four hops.
+
+472
+00:28:35,540 --> 00:28:40,310
+I'm just using the information that I
+know that the Yale server can do it.
+
+473
+00:28:40,310 --> 00:28:44,400
+And so that reduces the amount
+of actual work that I have to do.
+
+474
+00:28:44,400 --> 00:28:50,030
+
+
+475
+00:28:50,030 --> 00:28:51,262
+Any questions?
+
+476
+00:28:51,262 --> 00:29:02,350
+
+
+477
+00:29:02,350 --> 00:29:05,930
+Now, the third category of algorithm
+that I want to talk about--
+
+478
+00:29:05,930 --> 00:29:08,630
+and I'm going to talk about this
+one in a little more detail,
+
+479
+00:29:08,630 --> 00:29:11,810
+and I'm going to talk about a few
+different applications of exactly
+
+480
+00:29:11,810 --> 00:29:15,410
+the same algorithm, so not
+just of dynamic programming
+
+481
+00:29:15,410 --> 00:29:20,450
+but of this specific algorithm, of
+different problems that it can solve.
+
+482
+00:29:20,450 --> 00:29:24,920
+And the one I'm going to start
+with is DNA sequence alignment.
+
+483
+00:29:24,920 --> 00:29:29,420
+You also do this for
+aligning protein sequences.
+
+484
+00:29:29,420 --> 00:29:32,810
+If you have a strand
+of DNA, it's made up
+
+485
+00:29:32,810 --> 00:29:38,030
+of a chain of what are called
+bases, which are chemicals.
+
+486
+00:29:38,030 --> 00:29:38,790
+They're molecules.
+
+487
+00:29:38,790 --> 00:29:42,920
+And there's four of them
+that are used in DNA.
+
+488
+00:29:42,920 --> 00:29:46,770
+There's adenine, and thymine
+and guanine and cytosine.
+
+489
+00:29:46,770 --> 00:29:50,180
+And we'll typically just
+abbreviate each one with a letter.
+
+490
+00:29:50,180 --> 00:29:53,000
+
+
+491
+00:29:53,000 --> 00:29:57,280
+So if you were to
+unroll a strand of DNA,
+
+492
+00:29:57,280 --> 00:30:00,940
+and just write down the list of
+these bases of these molecules
+
+493
+00:30:00,940 --> 00:30:03,790
+that are connected in a
+long chain, you essentially
+
+494
+00:30:03,790 --> 00:30:07,370
+get a string that's
+made up of four letters.
+
+495
+00:30:07,370 --> 00:30:14,770
+So it's a string of some combination
+of the characters A, C, G, and T.
+
+496
+00:30:14,770 --> 00:30:22,690
+Now, it might be that I know by
+heart the entire genome of a mouse
+
+497
+00:30:22,690 --> 00:30:25,360
+and I know what every single gene does.
+
+498
+00:30:25,360 --> 00:30:28,570
+Or at least I know what some of them do.
+
+499
+00:30:28,570 --> 00:30:35,200
+Now, over time we diverged from mice and
+various mutations happened to our DNA,
+
+500
+00:30:35,200 --> 00:30:38,440
+because whenever it gets copied,
+we sometimes make mistakes,
+
+501
+00:30:38,440 --> 00:30:41,290
+and somehow we ended up instead
+of being a proto mouse we ended up
+
+502
+00:30:41,290 --> 00:30:43,600
+being a modern human.
+
+503
+00:30:43,600 --> 00:30:47,080
+And that same proto mouse whatever
+ended up being a modern mouse.
+
+504
+00:30:47,080 --> 00:30:49,370
+through different mutations.
+
+505
+00:30:49,370 --> 00:30:54,190
+So if I start sequencing
+my DNA, I might find
+
+506
+00:30:54,190 --> 00:30:57,190
+a strip of it that corresponds
+to a particular gene,
+
+507
+00:30:57,190 --> 00:31:01,120
+and I don't know what it does,
+but I'd like to find out.
+
+508
+00:31:01,120 --> 00:31:06,640
+One way to do that would be
+to try and match it and find
+
+509
+00:31:06,640 --> 00:31:12,070
+the best possible place for this
+to match which gene of mouse DNA
+
+510
+00:31:12,070 --> 00:31:14,262
+does this match the best?
+
+511
+00:31:14,262 --> 00:31:17,470
+Keeping in mind that there might be some
+gaps, a gene might have disappeared,
+
+512
+00:31:17,470 --> 00:31:21,550
+a gene might have reappeared, or gotten
+added, and sometimes one of these bases
+
+513
+00:31:21,550 --> 00:31:24,314
+might have gotten replaced
+by a different one.
+
+514
+00:31:24,314 --> 00:31:25,480
+So we might have a mismatch.
+
+515
+00:31:25,480 --> 00:31:27,355
+So there's different
+things that could happen
+
+516
+00:31:27,355 --> 00:31:31,282
+in the process-- it won't be a perfect
+identical gene in the mouse to what's
+
+517
+00:31:31,282 --> 00:31:34,000
+in the human, it will
+just be mostly the same.
+
+518
+00:31:34,000 --> 00:31:37,000
+And I could use that to
+say, what's the best match,
+
+519
+00:31:37,000 --> 00:31:43,030
+and then use that to predict
+what this gene codes for,
+
+520
+00:31:43,030 --> 00:31:46,070
+or what the function of the
+protein it codes for is.
+
+521
+00:31:46,070 --> 00:31:49,210
+You can do the same thing with proteins,
+they're made up of amino acids.
+
+522
+00:31:49,210 --> 00:31:53,740
+You can look at that chain and look
+for similar things between one protein
+
+523
+00:31:53,740 --> 00:31:56,466
+and a database of proteins
+where you know what they do
+
+524
+00:31:56,466 --> 00:31:58,090
+to see if you can predict the function.
+
+525
+00:31:58,090 --> 00:32:01,900
+
+
+526
+00:32:01,900 --> 00:32:05,740
+But the problem is there's a lot
+of different ways of doing it.
+
+527
+00:32:05,740 --> 00:32:11,150
+
+
+528
+00:32:11,150 --> 00:32:24,160
+So let me write these on the
+board we've got AAC, AGT, TACC.
+
+529
+00:32:24,160 --> 00:32:28,190
+
+
+530
+00:32:28,190 --> 00:32:32,210
+Now, let me try and come up with
+the worst possible match that I can.
+
+531
+00:32:32,210 --> 00:32:39,250
+
+
+532
+00:32:39,250 --> 00:32:39,750
+TAAGGTCA.
+
+533
+00:32:39,750 --> 00:32:56,000
+
+
+534
+00:32:56,000 --> 00:33:00,960
+So there's different possible ways
+that I could line these strings up.
+
+535
+00:33:00,960 --> 00:33:04,350
+They're not the same length, so I'm
+going to need some gaps somewhere.
+
+536
+00:33:04,350 --> 00:33:07,530
+There's different places I
+could try and put them and see
+
+537
+00:33:07,530 --> 00:33:09,780
+how the characters line up.
+
+538
+00:33:09,780 --> 00:33:12,330
+And the rule is going to be--
+
+539
+00:33:12,330 --> 00:33:16,200
+and this is based, in
+fact, on how common
+
+540
+00:33:16,200 --> 00:33:20,190
+it is for a mutation
+to occur where one base
+
+541
+00:33:20,190 --> 00:33:23,850
+switches to another one, versus a
+base is actually deleted or added
+
+542
+00:33:23,850 --> 00:33:25,710
+in genetic mutations.
+
+543
+00:33:25,710 --> 00:33:29,490
+It turns out that saying, it's roughly
+twice as likely that a base just
+
+544
+00:33:29,490 --> 00:33:36,060
+changes to another base than to have a
+base completely disappear or appear out
+
+545
+00:33:36,060 --> 00:33:37,470
+of nowhere.
+
+546
+00:33:37,470 --> 00:33:38,640
+during mutation.
+
+547
+00:33:38,640 --> 00:33:41,480
+So we will say that when
+we line up the strings,
+
+548
+00:33:41,480 --> 00:33:44,280
+any time we have a mismatch
+between two characters--
+
+549
+00:33:44,280 --> 00:33:46,124
+so two bases that are not the same--
+
+550
+00:33:46,124 --> 00:33:47,790
+we're going to have that a penalty of 1.
+
+551
+00:33:47,790 --> 00:33:50,640
+
+
+552
+00:33:50,640 --> 00:33:53,010
+And we're a cost of one.
+
+553
+00:33:53,010 --> 00:33:57,480
+That's what we pay to force the
+strings to match up that way.
+
+554
+00:33:57,480 --> 00:34:08,020
+And any time we've got a gap, where,
+say, the C from the first string or DNA
+
+555
+00:34:08,020 --> 00:34:11,320
+strand doesn't match
+anything in the second one,
+
+556
+00:34:11,320 --> 00:34:16,090
+so that corresponds to a base
+getting inserted or deleted,
+
+557
+00:34:16,090 --> 00:34:19,630
+we're going to assign that
+a penalty or a cost of 2.
+
+558
+00:34:19,630 --> 00:34:22,810
+So we'd rather have two mutations--
+
+559
+00:34:22,810 --> 00:34:26,090
+two things were base turned
+into something else--
+
+560
+00:34:26,090 --> 00:34:29,170
+that seems about as likely as having
+something just get added or deleted.
+
+561
+00:34:29,170 --> 00:34:31,687
+
+
+562
+00:34:31,687 --> 00:34:33,520
+And then I can add up
+all those costs, and I
+
+563
+00:34:33,520 --> 00:34:38,690
+get the cost of that particular
+way of matching the strings.
+
+564
+00:34:38,690 --> 00:34:43,270
+And I'm looking for the way to do this
+with the lowest cost possible match.
+
+565
+00:34:43,270 --> 00:34:47,530
+This is also called edit
+distance, because it's also
+
+566
+00:34:47,530 --> 00:34:50,165
+measuring how many edits
+would have to make to a text,
+
+567
+00:34:50,165 --> 00:34:53,290
+how many changes would I have to make
+to the text to turn it from one thing
+
+568
+00:34:53,290 --> 00:34:56,480
+into another.
+
+569
+00:34:56,480 --> 00:34:58,500
+This doesn't just have
+to be these four letters.
+
+570
+00:34:58,500 --> 00:34:59,458
+This could be anything.
+
+571
+00:34:59,458 --> 00:35:03,170
+
+
+572
+00:35:03,170 --> 00:35:06,050
+But the thing that I've written on
+the board that I want you to see
+
+573
+00:35:06,050 --> 00:35:09,950
+is the worst possible way I could
+match these would be to say,
+
+574
+00:35:09,950 --> 00:35:16,010
+what if I just deleted the
+entire gene from the mouse
+
+575
+00:35:16,010 --> 00:35:21,470
+and then did a bunch of insertions to
+produce the entire gene from the human?
+
+576
+00:35:21,470 --> 00:35:25,810
+So each one of these characters,
+we say, matches to a Gap.
+
+577
+00:35:25,810 --> 00:35:27,120
+That is one possibility.
+
+578
+00:35:27,120 --> 00:35:28,730
+It's not a very good one.
+
+579
+00:35:28,730 --> 00:35:32,090
+That would be 2 plus 2 plus 2 plus
+2 plus 2 plus 2 blah blah blah blah
+
+580
+00:35:32,090 --> 00:35:33,724
+blah blah blah.
+
+581
+00:35:33,724 --> 00:35:34,640
+That would cost a lot.
+
+582
+00:35:34,640 --> 00:35:38,390
+That's a very unlikely way that we
+would have gotten from this to this,
+
+583
+00:35:38,390 --> 00:35:40,140
+and we're looking for
+the most likely way.
+
+584
+00:35:40,140 --> 00:35:42,890
+
+
+585
+00:35:42,890 --> 00:35:47,720
+But what it does say is that there's
+not really any point inserting yet more
+
+586
+00:35:47,720 --> 00:35:51,290
+gaps in the middle, because
+those things line up perfectly,
+
+587
+00:35:51,290 --> 00:35:54,380
+they won't change the matching score.
+
+588
+00:35:54,380 --> 00:35:55,430
+That's kind of silly.
+
+589
+00:35:55,430 --> 00:35:57,620
+Once this thing is completely
+gone, I might as well
+
+590
+00:35:57,620 --> 00:36:00,750
+start adding the new one in.
+
+591
+00:36:00,750 --> 00:36:04,910
+So the longest possible sequence where
+we try and line the two of these up
+
+592
+00:36:04,910 --> 00:36:08,345
+is the length of 1 plus the length
+of the other which here is about 18.
+
+593
+00:36:08,345 --> 00:36:11,000
+
+
+594
+00:36:11,000 --> 00:36:12,920
+And now if we look at
+each of these columns.
+
+595
+00:36:12,920 --> 00:36:14,750
+We sort of had a choice.
+
+596
+00:36:14,750 --> 00:36:18,560
+The same way with a rod, we had a
+choice-- do we cut or do we not cut?
+
+597
+00:36:18,560 --> 00:36:22,980
+Here we have a choice
+of do we do a deletion--
+
+598
+00:36:22,980 --> 00:36:25,790
+so we had a letter on the
+first string, and we're
+
+599
+00:36:25,790 --> 00:36:30,950
+going to match it to a gap on the second
+string, as if this letter got deleted.
+
+600
+00:36:30,950 --> 00:36:35,180
+Or we could do an insertion, in which
+case it's kind of like this situation
+
+601
+00:36:35,180 --> 00:36:37,670
+where we had nothing
+and we added a letter.
+
+602
+00:36:37,670 --> 00:36:40,040
+We could do that at the
+beginning of the string.
+
+603
+00:36:40,040 --> 00:36:43,760
+Or we could actually try
+and match two letters.
+
+604
+00:36:43,760 --> 00:36:49,180
+So at each point here, we've
+got three choices we can make--
+
+605
+00:36:49,180 --> 00:36:53,450
+an insertion, a deletion, or a match.
+
+606
+00:36:53,450 --> 00:36:57,830
+And if we could make that
+choice independently,
+
+607
+00:36:57,830 --> 00:37:02,510
+between each of the letters we'd have
+three to the 17th possible combinations
+
+608
+00:37:02,510 --> 00:37:05,390
+of things to try.
+
+609
+00:37:05,390 --> 00:37:06,567
+That's a lot.
+
+610
+00:37:06,567 --> 00:37:07,650
+How much is 3 to the 17th?
+
+611
+00:37:07,650 --> 00:37:13,569
+
+
+612
+00:37:13,569 --> 00:37:15,360
+Nobody knows this off
+the top of your head?
+
+613
+00:37:15,360 --> 00:37:19,510
+
+
+614
+00:37:19,510 --> 00:37:22,430
+OK, the technical term is a lot.
+
+615
+00:37:22,430 --> 00:37:23,206
+That's a number.
+
+616
+00:37:23,206 --> 00:37:24,455
+It's defined as 3 of the 17th.
+
+617
+00:37:24,455 --> 00:37:28,480
+
+
+618
+00:37:28,480 --> 00:37:31,360
+So again, we don't want to keep--
+
+619
+00:37:31,360 --> 00:37:34,810
+we don't want to try everything.
+
+620
+00:37:34,810 --> 00:37:36,930
+And we really want to do this.
+
+621
+00:37:36,930 --> 00:37:41,490
+Computational biologists
+really want to figure out, look
+
+622
+00:37:41,490 --> 00:37:45,930
+through a database of
+genes or of proteins
+
+623
+00:37:45,930 --> 00:37:50,370
+and try and match something to
+figure out what it might do.
+
+624
+00:37:50,370 --> 00:37:53,340
+Which parts of the genome
+that we just sequenced
+
+625
+00:37:53,340 --> 00:37:56,550
+or the DNA strand that we just
+sequenced are worth zeroing in on
+
+626
+00:37:56,550 --> 00:38:01,223
+and doing more studies on, because they
+might code for something important?
+
+627
+00:38:01,223 --> 00:38:04,540
+
+
+628
+00:38:04,540 --> 00:38:06,840
+It turns out that we like
+to do this also on occasion,
+
+629
+00:38:06,840 --> 00:38:12,630
+or at least we do do it, when we want
+to look at two people's submissions
+
+630
+00:38:12,630 --> 00:38:13,980
+and see how similar they are.
+
+631
+00:38:13,980 --> 00:38:16,660
+
+
+632
+00:38:16,660 --> 00:38:23,010
+So fundamentally,
+cheat checkers do this.
+
+633
+00:38:23,010 --> 00:38:26,130
+They want to quickly compute
+how many changes would I
+
+634
+00:38:26,130 --> 00:38:36,060
+have to make to one student's program to
+turn it into another student's program?
+
+635
+00:38:36,060 --> 00:38:40,740
+And once we've computed all of that, we
+want to look and find the ones where--
+
+636
+00:38:40,740 --> 00:38:44,250
+for most people maybe
+it took 1,000 edits,
+
+637
+00:38:44,250 --> 00:38:48,070
+but here we've got a pair
+where it only took two.
+
+638
+00:38:48,070 --> 00:38:49,320
+And that's kind of suspicious.
+
+639
+00:38:49,320 --> 00:38:56,780
+
+
+640
+00:38:56,780 --> 00:38:59,840
+So I'm going to sort of
+rephrase the problem.
+
+641
+00:38:59,840 --> 00:39:02,930
+And it's going to be similar to rod
+cutting, where I'm going to say,
+
+642
+00:39:02,930 --> 00:39:09,760
+let's pretend that I already know
+how to match the right portion of two
+
+643
+00:39:09,760 --> 00:39:10,385
+of the strings.
+
+644
+00:39:10,385 --> 00:39:13,170
+
+
+645
+00:39:13,170 --> 00:39:23,217
+So if I already know the best
+way to match from GTTACC to GTCA,
+
+646
+00:39:23,217 --> 00:39:25,550
+then to figure out the best
+way to match the whole thing
+
+647
+00:39:25,550 --> 00:39:29,150
+is I just have to figure out
+how to do the first part.
+
+648
+00:39:29,150 --> 00:39:31,160
+And this is kind of like
+saying, let me decide
+
+649
+00:39:31,160 --> 00:39:37,460
+where I'm going to put the
+first letter of the first word,
+
+650
+00:39:37,460 --> 00:39:41,600
+where I want to put the first gap,
+let's say, or the first insertion,
+
+651
+00:39:41,600 --> 00:39:43,670
+and then figure out the rest of it.
+
+652
+00:39:43,670 --> 00:39:46,533
+But I'm phrasing it going
+from the end to the beginning.
+
+653
+00:39:46,533 --> 00:39:51,122
+
+
+654
+00:39:51,122 --> 00:39:53,330
+And I'm phrasing it going
+to the end to the beginning
+
+655
+00:39:53,330 --> 00:39:57,410
+kind of like I've shown here
+just because when we actually
+
+656
+00:39:57,410 --> 00:40:00,230
+compute the table, that's
+going to end up putting
+
+657
+00:40:00,230 --> 00:40:04,580
+the answer in a more logical place.
+
+658
+00:40:04,580 --> 00:40:11,210
+So we can kind of say, at the
+last position in this match,
+
+659
+00:40:11,210 --> 00:40:15,260
+are we going to have an insertion,
+are we going to have a deletion,
+
+660
+00:40:15,260 --> 00:40:19,160
+or are we going to try
+and match two characters?
+
+661
+00:40:19,160 --> 00:40:21,980
+And that gives us three possibilities.
+
+662
+00:40:21,980 --> 00:40:23,015
+And each one has a cost.
+
+663
+00:40:23,015 --> 00:40:25,850
+
+
+664
+00:40:25,850 --> 00:40:31,190
+And so whatever the best way to
+line up these two strings is,
+
+665
+00:40:31,190 --> 00:40:36,990
+the last thing that happens is going
+to be one of these three things--
+
+666
+00:40:36,990 --> 00:40:42,750
+those are the only three possible
+ways for the last part of the match
+
+667
+00:40:42,750 --> 00:40:43,402
+to happen--
+
+668
+00:40:43,402 --> 00:40:45,360
+has to be an insertion
+or a deletion or a match
+
+669
+00:40:45,360 --> 00:40:46,950
+because they're the only options.
+
+670
+00:40:46,950 --> 00:40:49,622
+
+
+671
+00:40:49,622 --> 00:40:51,330
+So if we know the
+costs of those, then we
+
+672
+00:40:51,330 --> 00:40:57,270
+can say the cost of matching the entire
+string is the cost of doing whichever
+
+673
+00:40:57,270 --> 00:41:04,230
+choice we make here plus the best edit
+distance cost, or the best alignment,
+
+674
+00:41:04,230 --> 00:41:07,440
+of whatever's left.
+
+675
+00:41:07,440 --> 00:41:12,450
+Which is slightly different
+in each of these three cases.
+
+676
+00:41:12,450 --> 00:41:23,100
+Except that if, for instance, we do
+a deletion, and then for this choice
+
+677
+00:41:23,100 --> 00:41:28,080
+where we're got TAAGGTCA at the
+bottom, the next time around we
+
+678
+00:41:28,080 --> 00:41:32,730
+tried to do an insertion, and
+then the best of whatever's left,
+
+679
+00:41:32,730 --> 00:41:39,540
+we would have AACAGTTACC matching
+to TAAGGTC, go figure that out.
+
+680
+00:41:39,540 --> 00:41:44,790
+And then we would have
+insert A then delete C.
+
+681
+00:41:44,790 --> 00:41:47,190
+Sorry, we would we would end
+up with these two strings.
+
+682
+00:41:47,190 --> 00:41:49,140
+But instead of having
+to try to match C to A,
+
+683
+00:41:49,140 --> 00:41:52,320
+we would have modeled one
+insertion and one deletion.
+
+684
+00:41:52,320 --> 00:41:53,890
+We'd have the same thing left here.
+
+685
+00:41:53,890 --> 00:41:56,620
+
+
+686
+00:41:56,620 --> 00:41:59,740
+So as we build these
+things up, we're going
+
+687
+00:41:59,740 --> 00:42:04,020
+to try avoiding finding the best match
+for the same pair of strings twice.
+
+688
+00:42:04,020 --> 00:42:09,430
+
+
+689
+00:42:09,430 --> 00:42:15,430
+And, realistically what's going to
+happen is we can start with, well,
+
+690
+00:42:15,430 --> 00:42:19,390
+what if both strings were empty?
+
+691
+00:42:19,390 --> 00:42:22,220
+Then they match perfectly.
+
+692
+00:42:22,220 --> 00:42:24,980
+No problem.
+
+693
+00:42:24,980 --> 00:42:29,890
+What happens if, at
+the end, I would like
+
+694
+00:42:29,890 --> 00:42:35,980
+to have the string C or the
+character C, be deleted.
+
+695
+00:42:35,980 --> 00:42:44,310
+So I would like to do
+some sort of match here
+
+696
+00:42:44,310 --> 00:42:52,170
+where the very last thing
+that happens is C is deleted,
+
+697
+00:42:52,170 --> 00:42:56,940
+and the rest of that TAA blah blah
+blah blah is somewhere over here.
+
+698
+00:42:56,940 --> 00:43:00,990
+But I'll worry about where later.
+
+699
+00:43:00,990 --> 00:43:12,100
+So in that case, we have a cost
+of 2, and when we were done,
+
+700
+00:43:12,100 --> 00:43:16,090
+we would have used up this
+character C, because we deleted it.
+
+701
+00:43:16,090 --> 00:43:24,430
+And so what we're left with after that
+is what is in the corresponding cell
+
+702
+00:43:24,430 --> 00:43:29,410
+to the right in the table, which is the
+cost of matching nothing to nothing.
+
+703
+00:43:29,410 --> 00:43:32,560
+Similarly, if we said the last thing
+that we want to have in the table
+
+704
+00:43:32,560 --> 00:43:39,040
+is CC matching to
+nothing, the cost of that
+
+705
+00:43:39,040 --> 00:43:46,980
+is 2 for the match, the deletion of
+C, plus the cost of matching nothing,
+
+706
+00:43:46,980 --> 00:43:50,140
+C to nothing, which was
+this cell in the table.
+
+707
+00:43:50,140 --> 00:43:55,267
+So we have 2 plus the cost
+of 2 that's right here is 4.
+
+708
+00:43:55,267 --> 00:43:57,850
+So in general, what's going to
+happen is if I look at the cell
+
+709
+00:43:57,850 --> 00:44:01,950
+where the little hand is right now--
+
+710
+00:44:01,950 --> 00:44:05,530
+that just disappeared-- right
+here, this is the cost--
+
+711
+00:44:05,530 --> 00:44:13,540
+we'll ultimately record the
+cost of matching GTTACC GGTCA.
+
+712
+00:44:13,540 --> 00:44:16,451
+
+
+713
+00:44:16,451 --> 00:44:22,160
+And it will say, in order to get
+the best match between these,
+
+714
+00:44:22,160 --> 00:44:25,700
+so the smallest edit
+distance, if you will,
+
+715
+00:44:25,700 --> 00:44:28,930
+here's what the total cost
+will be, and it will tell you
+
+716
+00:44:28,930 --> 00:44:33,610
+should you try and match those two G's
+to each other, or should you do it as--
+
+717
+00:44:33,610 --> 00:44:36,970
+should you have a
+deletion or an insertion?
+
+718
+00:44:36,970 --> 00:44:39,700
+That's what's going to be stored
+in this cell of the table.
+
+719
+00:44:39,700 --> 00:44:43,870
+And ultimately that means
+in entry 0, 0 of your array
+
+720
+00:44:43,870 --> 00:44:46,390
+at the beginning of the
+table, will tell you the cost
+
+721
+00:44:46,390 --> 00:44:50,030
+of matching AACAGTTACC to TAAGGTCA.
+
+722
+00:44:50,030 --> 00:44:53,125
+
+
+723
+00:44:53,125 --> 00:44:55,360
+It will tell you what
+the total cost is, and it
+
+724
+00:44:55,360 --> 00:44:57,735
+will tell you whether you
+should start with the insertion
+
+725
+00:44:57,735 --> 00:44:59,260
+or deletion or a match.
+
+726
+00:44:59,260 --> 00:45:04,480
+And depending on which one, that's
+going to use up characters from one
+
+727
+00:45:04,480 --> 00:45:07,640
+or both of the strings, which will move
+you to a new cell in the table that
+
+728
+00:45:07,640 --> 00:45:08,890
+will tell you what to do next.
+
+729
+00:45:08,890 --> 00:45:13,800
+
+
+730
+00:45:13,800 --> 00:45:19,070
+So once it's primed, I can say,
+well, at the end, if I just
+
+731
+00:45:19,070 --> 00:45:25,882
+look at the end of each string, I have
+to match the letter C to the letter A.
+
+732
+00:45:25,882 --> 00:45:29,000
+And what is the best way to do that?
+
+733
+00:45:29,000 --> 00:45:32,100
+Well, I've got three options.
+
+734
+00:45:32,100 --> 00:45:42,680
+One option is I could delete the
+C. Oh, there's an error here,
+
+735
+00:45:42,680 --> 00:45:45,170
+this should read i plus 1.
+
+736
+00:45:45,170 --> 00:45:48,110
+So I could say, let me
+go over to cost i plus 1.
+
+737
+00:45:48,110 --> 00:45:53,330
+So I've used up the C.
+But I'm going to stay in--
+
+738
+00:45:53,330 --> 00:45:58,510
+sorry, i plus 1 is this row, but
+I'm going to stay in column j--
+
+739
+00:45:58,510 --> 00:46:02,435
+so I'm going to come down to here,
+which says I've used up the A,
+
+740
+00:46:02,435 --> 00:46:08,670
+so this A right here got matched to
+a gap, which is like an insertion.
+
+741
+00:46:08,670 --> 00:46:12,124
+It says somewhere at
+the end of the table,
+
+742
+00:46:12,124 --> 00:46:14,290
+I'm going to end with that
+A from the second string.
+
+743
+00:46:14,290 --> 00:46:17,550
+
+
+744
+00:46:17,550 --> 00:46:20,120
+And, oh, I still have
+the C floating around.
+
+745
+00:46:20,120 --> 00:46:30,020
+
+
+746
+00:46:30,020 --> 00:46:31,800
+So let me switch back
+to some white chalk.
+
+747
+00:46:31,800 --> 00:46:37,260
+
+
+748
+00:46:37,260 --> 00:46:42,210
+But leftover, we still have a C here.
+
+749
+00:46:42,210 --> 00:46:45,840
+Because we were trying to
+match A to C, and so far we
+
+750
+00:46:45,840 --> 00:46:50,760
+haven't dealt with that
+C. So we would have
+
+751
+00:46:50,760 --> 00:46:53,260
+the cost of matching
+A to a gap, which is
+
+752
+00:46:53,260 --> 00:46:59,040
+2, plus whatever the cost of
+matching C to nothing is, which is 2.
+
+753
+00:46:59,040 --> 00:47:17,770
+Or we could say what if,
+instead of doing that, we did C
+
+754
+00:47:17,770 --> 00:47:22,090
+and we'll delete C as
+opposed to inserting A,
+
+755
+00:47:22,090 --> 00:47:25,900
+but it means we still have an A floating
+around here that we haven't used yet.
+
+756
+00:47:25,900 --> 00:47:30,750
+That was an alternative way of matching
+C and A. So then we have a cost of 2,
+
+757
+00:47:30,750 --> 00:47:34,510
+because we're doing a deletion.
+
+758
+00:47:34,510 --> 00:47:40,930
+Plus we have left over
+the cost from the cell
+
+759
+00:47:40,930 --> 00:47:45,940
+to the right in the table of
+matching the string A to nothing,
+
+760
+00:47:45,940 --> 00:47:47,215
+so that would be a cost of 4.
+
+761
+00:47:47,215 --> 00:47:51,460
+
+
+762
+00:47:51,460 --> 00:48:06,200
+Or we could try and match C and
+A. And when you match C and A,
+
+763
+00:48:06,200 --> 00:48:08,930
+well the cost of this is zero if
+the letters are the same and one
+
+764
+00:48:08,930 --> 00:48:10,950
+if they're different.
+
+765
+00:48:10,950 --> 00:48:15,350
+So in this case it's one, because
+c and A are not the same letter.
+
+766
+00:48:15,350 --> 00:48:19,350
+And we're left with two empty strings,
+because we've used up the C and the A.
+
+767
+00:48:19,350 --> 00:48:23,540
+So we end up with 1 plus the
+cost of whatever's over one
+
+768
+00:48:23,540 --> 00:48:27,590
+and down one in the table, which is 0.
+
+769
+00:48:27,590 --> 00:48:29,900
+So that total cost is 1.
+
+770
+00:48:29,900 --> 00:48:33,700
+And of those three possibilities,
+we just take the smallest one.
+
+771
+00:48:33,700 --> 00:48:38,330
+We say, ah, the smallest one was if I
+went diagonal-- if I matched A to C.
+
+772
+00:48:38,330 --> 00:48:40,730
+So that's what I'll record in the table.
+
+773
+00:48:40,730 --> 00:48:46,040
+Total cost of matching A to C
+is one, and the best thing to do
+
+774
+00:48:46,040 --> 00:48:48,130
+is to actually try and
+match these two characters.
+
+775
+00:48:48,130 --> 00:48:50,180
+It would be a mismatch.
+
+776
+00:48:50,180 --> 00:48:52,880
+And then look up in the table
+what to do with whatever is left.
+
+777
+00:48:52,880 --> 00:48:58,530
+
+
+778
+00:48:58,530 --> 00:49:03,016
+And now I could say, well, what
+about matching the string CC to A?
+
+779
+00:49:03,016 --> 00:49:06,550
+I can do the same question.
+
+780
+00:49:06,550 --> 00:49:10,580
+I could say, I could start by matching
+the letter C and the letter A,
+
+781
+00:49:10,580 --> 00:49:14,230
+and now I've got a C leftover.
+
+782
+00:49:14,230 --> 00:49:17,820
+I could delete the first C and now
+I've got an A and a C leftover.
+
+783
+00:49:17,820 --> 00:49:22,990
+
+
+784
+00:49:22,990 --> 00:49:25,732
+That would be going this way.
+
+785
+00:49:25,732 --> 00:49:26,690
+Sorry, if I match both.
+
+786
+00:49:26,690 --> 00:49:27,773
+I might have a C leftover.
+
+787
+00:49:27,773 --> 00:49:31,930
+If I delete-- if I just first
+start with a C and do a deletion,
+
+788
+00:49:31,930 --> 00:49:34,300
+I end up with a C and A leftover.
+
+789
+00:49:34,300 --> 00:49:39,160
+If the first thing I do is insert
+the A, I've got a CC leftover.
+
+790
+00:49:39,160 --> 00:49:41,920
+So each one of those
+I've got a penalty of 2
+
+791
+00:49:41,920 --> 00:49:45,610
+to go right, 2 to go down, one to go
+diagonal, that I add to whatever's
+
+792
+00:49:45,610 --> 00:49:46,990
+in that table.
+
+793
+00:49:46,990 --> 00:49:50,830
+I discover that if I try and match
+A to C I pay a penalty of one,
+
+794
+00:49:50,830 --> 00:49:53,680
+and I've got a C leftover
+that I have to delete,
+
+795
+00:49:53,680 --> 00:49:56,020
+so there's a total cost of three.
+
+796
+00:49:56,020 --> 00:49:57,940
+And that was as good
+an option as I had, so
+
+797
+00:49:57,940 --> 00:49:59,481
+that's what I filled in to the table.
+
+798
+00:49:59,481 --> 00:50:02,940
+
+
+799
+00:50:02,940 --> 00:50:10,990
+And then I can try and figure
+out for the string ACC to A,
+
+800
+00:50:10,990 --> 00:50:15,480
+and just work backwards through
+this table and up the rows
+
+801
+00:50:15,480 --> 00:50:17,610
+until it's all filled in.
+
+802
+00:50:17,610 --> 00:50:21,930
+And the nice thing about this is
+every time when I look at the table,
+
+803
+00:50:21,930 --> 00:50:24,960
+I need three pieces of information.
+
+804
+00:50:24,960 --> 00:50:28,890
+I need the piece of information
+in the column just to my right.
+
+805
+00:50:28,890 --> 00:50:31,500
+I need the piece of information
+in the column in the row
+
+806
+00:50:31,500 --> 00:50:33,120
+immediately below me--
+
+807
+00:50:33,120 --> 00:50:35,040
+the cell immediately below me--
+
+808
+00:50:35,040 --> 00:50:38,830
+and I need the piece of information
+that's one down and one to the right.
+
+809
+00:50:38,830 --> 00:50:41,440
+And because I'm working
+backwards to the table,
+
+810
+00:50:41,440 --> 00:50:45,240
+it's nice and easy because
+the data's already there.
+
+811
+00:50:45,240 --> 00:50:49,680
+I started filling in the bottom
+row in the last column, which
+
+812
+00:50:49,680 --> 00:50:53,250
+are sort of special
+cases, and now I just
+
+813
+00:50:53,250 --> 00:50:55,570
+have some loops that run
+backwards through this.
+
+814
+00:50:55,570 --> 00:51:01,770
+And if one string is n letters
+long, that's n is in number,
+
+815
+00:51:01,770 --> 00:51:06,360
+and the other string is m,
+which is m as in the mnemonic,
+
+816
+00:51:06,360 --> 00:51:10,900
+then the total is m times n.
+
+817
+00:51:10,900 --> 00:51:13,230
+And I see Doug smiling at mnemonic.
+
+818
+00:51:13,230 --> 00:51:18,600
+I have to attribute that particular joke
+to Professor Mitzenmacher from Harvard,
+
+819
+00:51:18,600 --> 00:51:21,120
+as reported to me by my roommate,
+because I wasn't actually
+
+820
+00:51:21,120 --> 00:51:24,030
+in the class where he made the joke.
+
+821
+00:51:24,030 --> 00:51:26,320
+But I liked it.
+
+822
+00:51:26,320 --> 00:51:30,130
+So you can fill up the table.
+
+823
+00:51:30,130 --> 00:51:35,070
+And now, instead of having 3 to
+the n, essentially, things that you
+
+824
+00:51:35,070 --> 00:51:38,430
+had to try, you only have n squared.
+
+825
+00:51:38,430 --> 00:51:40,820
+So 18 letters.
+
+826
+00:51:40,820 --> 00:51:43,920
+18 squared is a little
+less than 20 squared.
+
+827
+00:51:43,920 --> 00:51:46,810
+And 20 squared is 400.
+
+828
+00:51:46,810 --> 00:51:53,850
+So we've got at the most
+about 400 but in this case
+
+829
+00:51:53,850 --> 00:51:57,514
+it's not even n plus m squared,
+it's really just n squared.
+
+830
+00:51:57,514 --> 00:51:58,680
+It's really like 10 squared.
+
+831
+00:51:58,680 --> 00:52:00,450
+It's like 100.
+
+832
+00:52:00,450 --> 00:52:07,120
+So we've got roughly 100 different
+steps to find the answer.
+
+833
+00:52:07,120 --> 00:52:10,020
+If we tried everything,
+we'd be doing the same work
+
+834
+00:52:10,020 --> 00:52:12,600
+over and over and over again,
+and we'd do more like 3
+
+835
+00:52:12,600 --> 00:52:15,430
+to the 20th, which again,
+is a really big number.
+
+836
+00:52:15,430 --> 00:52:18,410
+2 to the 20th is a million.
+
+837
+00:52:18,410 --> 00:52:22,740
+And 2 to the 3rd is like--
+
+838
+00:52:22,740 --> 00:52:31,710
+3 is like 2 to the 1.2 or something,
+let's say, so it's roughly a million
+
+839
+00:52:31,710 --> 00:52:34,620
+to the 1.2.
+
+840
+00:52:34,620 --> 00:52:36,660
+It's about 130 million, there you go.
+
+841
+00:52:36,660 --> 00:52:38,957
+I knew we had an idiot
+savant in the room somewhere.
+
+842
+00:52:38,957 --> 00:52:44,430
+
+
+843
+00:52:44,430 --> 00:52:46,680
+And again, each one of
+these cells in the table--
+
+844
+00:52:46,680 --> 00:52:49,230
+it tells you essentially what to do.
+
+845
+00:52:49,230 --> 00:52:50,906
+Do you match this first pair of letters?
+
+846
+00:52:50,906 --> 00:52:51,780
+Do you do a deletion?
+
+847
+00:52:51,780 --> 00:52:54,030
+Or do you do an insertion?
+
+848
+00:52:54,030 --> 00:52:58,409
+And from that you can figure out how
+much of each of the strings is left.
+
+849
+00:52:58,409 --> 00:53:01,200
+And then you look up in the next
+cell of the table that corresponds
+
+850
+00:53:01,200 --> 00:53:07,050
+to that what the next thing to do is.
+
+851
+00:53:07,050 --> 00:53:09,980
+And so to figure out exactly
+how these things match up
+
+852
+00:53:09,980 --> 00:53:13,620
+as well as just what is the
+cost of matching them up
+
+853
+00:53:13,620 --> 00:53:18,690
+in the best possible way, you
+work your way through the table.
+
+854
+00:53:18,690 --> 00:53:21,240
+Rather than trying to store all
+that information in each cell
+
+855
+00:53:21,240 --> 00:53:23,790
+and store the same information
+over and over again,
+
+856
+00:53:23,790 --> 00:53:26,280
+you store only one piece
+of the answer in each cell.
+
+857
+00:53:26,280 --> 00:53:29,270
+
+
+858
+00:53:29,270 --> 00:53:30,215
+Questions?
+
+859
+00:53:30,215 --> 00:53:32,830
+
+
+860
+00:53:32,830 --> 00:53:34,272
+Yes.
+
+861
+00:53:34,272 --> 00:53:39,232
+AUDIENCE: In the runtime, it says
+there's omn, is the m a constant,
+
+862
+00:53:39,232 --> 00:53:42,704
+or is it another--
+
+863
+00:53:42,704 --> 00:53:44,562
+what is that [INAUDIBLE]?
+
+864
+00:53:44,562 --> 00:53:47,020
+SPEAKER: Right, so in this
+running time, where it says OMN,
+
+865
+00:53:47,020 --> 00:53:48,500
+and what does that mean?
+
+866
+00:53:48,500 --> 00:53:51,050
+What we're saying is we've
+got two different strings.
+
+867
+00:53:51,050 --> 00:53:57,050
+One of them is n characters long,
+the other one is m characters long.
+
+868
+00:53:57,050 --> 00:54:00,140
+So in terms of the
+function of the input,
+
+869
+00:54:00,140 --> 00:54:02,250
+we're just being slightly
+more precise and saying,
+
+870
+00:54:02,250 --> 00:54:06,050
+we've got two words that
+are each n letters long.
+
+871
+00:54:06,050 --> 00:54:07,937
+And then it's sort of n squared.
+
+872
+00:54:07,937 --> 00:54:09,770
+Saying maybe they're
+very different lengths,
+
+873
+00:54:09,770 --> 00:54:14,550
+and so we can be a little more precise
+as to how many steps they take.
+
+874
+00:54:14,550 --> 00:54:18,620
+But the key thing there is you
+see one thing times another,
+
+875
+00:54:18,620 --> 00:54:21,590
+so that's kind of like
+something squared.
+
+876
+00:54:21,590 --> 00:54:25,940
+As you think about, as these
+strings get longer and longer,
+
+877
+00:54:25,940 --> 00:54:28,610
+how much work is this?
+
+878
+00:54:28,610 --> 00:54:32,090
+So this is not too bad.
+
+879
+00:54:32,090 --> 00:54:37,400
+And it's really actually pretty
+feasible to do this for DNA sequences
+
+880
+00:54:37,400 --> 00:54:41,420
+that might be a few
+hundred base pairs long.
+
+881
+00:54:41,420 --> 00:54:44,540
+It's feasible to do
+this for a source file
+
+882
+00:54:44,540 --> 00:54:49,340
+from homework for cheat checking--
+is maybe a few thousand characters.
+
+883
+00:54:49,340 --> 00:54:54,110
+No big deal, even though
+we've got 1,000 students,
+
+884
+00:54:54,110 --> 00:54:58,340
+and we've got all the past submissions,
+so we've got 10,000 submissions,
+
+885
+00:54:58,340 --> 00:55:03,410
+so we've got roughly a
+million pairs of files.
+
+886
+00:55:03,410 --> 00:55:08,210
+Something like that, and that's
+not a big deal for a computer.
+
+887
+00:55:08,210 --> 00:55:11,630
+And each one of those takes
+somewhere like a million steps,
+
+888
+00:55:11,630 --> 00:55:14,919
+because you've got 1,000
+characters times 1,000 characters.
+
+889
+00:55:14,919 --> 00:55:15,710
+We can manage that.
+
+890
+00:55:15,710 --> 00:55:20,170
+
+
+891
+00:55:20,170 --> 00:55:21,353
+Other questions?
+
+892
+00:55:21,353 --> 00:55:25,290
+
+
+893
+00:55:25,290 --> 00:55:25,790
+Yes.
+
+894
+00:55:25,790 --> 00:55:29,740
+AUDIENCE: Do you have to gain brute
+force to fill out the table intially?
+
+895
+00:55:29,740 --> 00:55:32,950
+SPEAKER: So do you have to do brute
+force to fill up the table initially?
+
+896
+00:55:32,950 --> 00:55:36,250
+That depends on how
+you define brute force.
+
+897
+00:55:36,250 --> 00:55:40,360
+You do have to fill up all
+the cells of the table.
+
+898
+00:55:40,360 --> 00:55:44,630
+Because in order to find
+the answer at the top left,
+
+899
+00:55:44,630 --> 00:55:47,380
+even though you're ultimately only
+going to use the value from one
+
+900
+00:55:47,380 --> 00:55:49,254
+of these three, you need
+to look at all three
+
+901
+00:55:49,254 --> 00:55:53,590
+values-- the one to the
+right and the two below.
+
+902
+00:55:53,590 --> 00:55:55,600
+So in order to find
+the final answer, you
+
+903
+00:55:55,600 --> 00:55:58,420
+have to have filled up the whole table.
+
+904
+00:55:58,420 --> 00:56:02,500
+And there's m by n entries in the table,
+which is where you get to this m times
+
+905
+00:56:02,500 --> 00:56:05,350
+n or n squared-ish kind of thing.
+
+906
+00:56:05,350 --> 00:56:08,140
+But compared to what you might
+think of as brute force of try
+
+907
+00:56:08,140 --> 00:56:12,490
+every possible alignment
+of the two strings
+
+908
+00:56:12,490 --> 00:56:14,410
+which involves lots
+of subalignments, lots
+
+909
+00:56:14,410 --> 00:56:17,657
+of parts that align the same
+way, in lots of different places,
+
+910
+00:56:17,657 --> 00:56:19,240
+we're not redoing those over and over.
+
+911
+00:56:19,240 --> 00:56:22,990
+So we're not doing this
+really brutal brute force that
+
+912
+00:56:22,990 --> 00:56:27,220
+would say there's something
+like 3 to the 2000 steps
+
+913
+00:56:27,220 --> 00:56:32,401
+to compare a single pair of files, and
+then we have to do a million of those.
+
+914
+00:56:32,401 --> 00:56:33,400
+That would be a problem.
+
+915
+00:56:33,400 --> 00:56:35,920
+
+
+916
+00:56:35,920 --> 00:56:37,048
+Other questions?
+
+917
+00:56:37,048 --> 00:56:45,350
+
+
+918
+00:56:45,350 --> 00:56:48,100
+So I've sort of folded
+two applications into one
+
+919
+00:56:48,100 --> 00:56:50,350
+right there with edit distance.
+
+920
+00:56:50,350 --> 00:56:56,260
+One is this computational biology where
+you treat a DNA strand or a protein
+
+921
+00:56:56,260 --> 00:56:58,450
+sequences as a string.
+
+922
+00:56:58,450 --> 00:57:03,730
+And the other was some sort
+of fancy file comparison
+
+923
+00:57:03,730 --> 00:57:05,590
+you might use for search and replace.
+
+924
+00:57:05,590 --> 00:57:07,840
+You might use this for
+spelling checking to figure out
+
+925
+00:57:07,840 --> 00:57:09,640
+the best word in the dictionary.
+
+926
+00:57:09,640 --> 00:57:12,490
+Not just is the word
+there, but of the words
+
+927
+00:57:12,490 --> 00:57:16,720
+that are in the dictionary,
+which one is most likely what
+
+928
+00:57:16,720 --> 00:57:21,620
+I meant to type based on some model of
+how frequent different kinds of errors
+
+929
+00:57:21,620 --> 00:57:22,120
+are.
+
+930
+00:57:22,120 --> 00:57:25,300
+
+
+931
+00:57:25,300 --> 00:57:29,620
+And you could compute the edit distance
+to every word in the dictionary
+
+932
+00:57:29,620 --> 00:57:34,090
+to propose a list of suggestions.
+
+933
+00:57:34,090 --> 00:57:38,900
+But there's another application
+that I want to talk about,
+
+934
+00:57:38,900 --> 00:57:40,960
+which is image stitching.
+
+935
+00:57:40,960 --> 00:57:43,210
+This is what happens when
+you take out your cell phone
+
+936
+00:57:43,210 --> 00:57:44,650
+and you build a panoramic image.
+
+937
+00:57:44,650 --> 00:57:49,020
+So you sweep the camera around
+and it's going to take a video
+
+938
+00:57:49,020 --> 00:57:55,240
+or it might just end up taking a
+series of pictures every second or two.
+
+939
+00:57:55,240 --> 00:57:59,394
+And then it stitches them
+together into one big image.
+
+940
+00:57:59,394 --> 00:58:01,060
+And there's a few parts to that process.
+
+941
+00:58:01,060 --> 00:58:03,910
+One part is each of the pictures
+that got taken, figuring out
+
+942
+00:58:03,910 --> 00:58:06,880
+how your camera moved between each one.
+
+943
+00:58:06,880 --> 00:58:10,390
+So it can sort of transform
+the images as if--
+
+944
+00:58:10,390 --> 00:58:14,090
+to where they overlap in
+just the right places.
+
+945
+00:58:14,090 --> 00:58:19,750
+But even then, they won't line up
+perfectly, because maybe somebody's
+
+946
+00:58:19,750 --> 00:58:22,960
+walking around in the
+scene, or it turns out
+
+947
+00:58:22,960 --> 00:58:27,650
+that if you're actually walking
+along with your camera like this,
+
+948
+00:58:27,650 --> 00:58:31,540
+as opposed to just rotating
+around, you get a parallax effect
+
+949
+00:58:31,540 --> 00:58:34,990
+where things that are closer to
+you appear to be moving faster
+
+950
+00:58:34,990 --> 00:58:37,670
+than things that are further away.
+
+951
+00:58:37,670 --> 00:58:40,900
+So right now I see part
+of the middle chair.
+
+952
+00:58:40,900 --> 00:58:44,650
+The right hand side of it to
+me is hidden behind the tripod.
+
+953
+00:58:44,650 --> 00:58:49,660
+But if I walk over here, that's come
+into view and the left side of the seat
+
+954
+00:58:49,660 --> 00:58:52,300
+is hidden behind the tripod.
+
+955
+00:58:52,300 --> 00:58:57,284
+So within that panorama, maybe there's
+no perfect way to light up the images,
+
+956
+00:58:57,284 --> 00:59:00,450
+because there's different information
+visible even in the overlapping areas.
+
+957
+00:59:00,450 --> 00:59:03,070
+
+
+958
+00:59:03,070 --> 00:59:08,200
+And to resolve that problem,
+the key is once you figure out
+
+959
+00:59:08,200 --> 00:59:13,420
+how the two images overlap,
+you want to figure out and take
+
+960
+00:59:13,420 --> 00:59:17,590
+part of that overlapping area
+from one image and part of it
+
+961
+00:59:17,590 --> 00:59:19,624
+from the other image.
+
+962
+00:59:19,624 --> 00:59:21,040
+So there's a seam between the two.
+
+963
+00:59:21,040 --> 00:59:24,456
+And a seam is just a
+connected line of pixels.
+
+964
+00:59:24,456 --> 00:59:27,580
+And everything on one side comes from
+image A, everything on the other side
+
+965
+00:59:27,580 --> 00:59:33,070
+comes from image B. And the question
+is where should that seam go?
+
+966
+00:59:33,070 --> 00:59:35,600
+
+
+967
+00:59:35,600 --> 00:59:40,850
+Now, that seam should go, ideally,
+somewhere where we won't notice it.
+
+968
+00:59:40,850 --> 00:59:44,030
+So let's switch from one
+image to the other at a place
+
+969
+00:59:44,030 --> 00:59:47,000
+where they are really
+similar, and somewhere
+
+970
+00:59:47,000 --> 00:59:51,260
+where I'm seeing the parallax
+from the tripod moving,
+
+971
+00:59:51,260 --> 00:59:55,340
+or somebody was walking
+along in the scene.
+
+972
+00:59:55,340 --> 01:00:01,970
+I try and make this seam where I
+connect the two images go around that.
+
+973
+01:00:01,970 --> 01:00:08,780
+So it's not picking up sort of a jump
+where the two images were actually
+
+974
+01:00:08,780 --> 01:00:09,572
+different.
+
+975
+01:00:09,572 --> 01:00:12,170
+
+
+976
+01:00:12,170 --> 01:00:14,870
+Well, the simplest way
+to do that is to look
+
+977
+01:00:14,870 --> 01:00:19,670
+at a pair of this overlapping
+rectangle, and say, let's draw this seam
+
+978
+01:00:19,670 --> 01:00:23,580
+where pixels are really similar.
+
+979
+01:00:23,580 --> 01:00:26,900
+And I could do that by looking,
+for instance, at the difference
+
+980
+01:00:26,900 --> 01:00:29,632
+in the pixel color between the two.
+
+981
+01:00:29,632 --> 01:00:32,840
+In this case, it's nice and easy because
+the images are black and white right
+
+982
+01:00:32,840 --> 01:00:36,920
+here, so I just take the
+difference in intensity,
+
+983
+01:00:36,920 --> 01:00:40,340
+which is a number between
+0 and 255, and I'll
+
+984
+01:00:40,340 --> 01:00:44,570
+get a different number that's
+between 255 and negative 255.
+
+985
+01:00:44,570 --> 01:00:46,640
+So I might subtract white from black.
+
+986
+01:00:46,640 --> 01:00:49,070
+I take the absolute value of that.
+
+987
+01:00:49,070 --> 01:00:53,540
+If that's 0, it means that pixel
+was the same color in both images.
+
+988
+01:00:53,540 --> 01:00:59,570
+If it's really big, it means the
+colors were really different.
+
+989
+01:00:59,570 --> 01:01:05,750
+And now, I could say
+the cost of a seam going
+
+990
+01:01:05,750 --> 01:01:14,600
+through a particular pixel is that
+difference in values between the image
+
+991
+01:01:14,600 --> 01:01:15,290
+pixels--
+
+992
+01:01:15,290 --> 01:01:17,752
+the difference in intensity.
+
+993
+01:01:17,752 --> 01:01:20,210
+And so for the total seam, I
+want to figure out from there,
+
+994
+01:01:20,210 --> 01:01:21,560
+should I go right?
+
+995
+01:01:21,560 --> 01:01:23,520
+Should I go down?
+
+996
+01:01:23,520 --> 01:01:26,390
+Or should I go down and to the right?
+
+997
+01:01:26,390 --> 01:01:29,696
+Which I can do by
+looking up in the table
+
+998
+01:01:29,696 --> 01:01:32,820
+the cost of a seam passing through the
+pixel to the right or the pixel down
+
+999
+01:01:32,820 --> 01:01:36,270
+and to the right or
+the pixel to the left.
+
+1000
+01:01:36,270 --> 01:01:42,230
+Here's the table, it's just
+that now, a cell in the table,
+
+1001
+01:01:42,230 --> 01:01:48,260
+instead of saying the cost of
+matching ACCC for example to TCA,
+
+1002
+01:01:48,260 --> 01:01:50,170
+filling in a cell in the table.
+
+1003
+01:01:50,170 --> 01:01:52,910
+What that-- I'm going to
+interpret that cell as is
+
+1004
+01:01:52,910 --> 01:01:56,610
+the cost of having the image seam run
+from here to the lower right corner.
+
+1005
+01:01:56,610 --> 01:02:00,200
+
+
+1006
+01:02:00,200 --> 01:02:03,200
+And so in that sense, if you're
+looking at image stitching,
+
+1007
+01:02:03,200 --> 01:02:06,290
+you can see that matrix.
+
+1008
+01:02:06,290 --> 01:02:12,040
+It's this rectangle of overlapping
+pixels between the two images.
+
+1009
+01:02:12,040 --> 01:02:20,290
+And the algorithm to find the optimal
+seam is identical to edit distance.
+
+1010
+01:02:20,290 --> 01:02:22,100
+Absolutely identical.
+
+1011
+01:02:22,100 --> 01:02:25,490
+The only difference-- even though
+I said it was absolutely identical,
+
+1012
+01:02:25,490 --> 01:02:29,710
+there is of course a difference,
+otherwise it would be no fun--
+
+1013
+01:02:29,710 --> 01:02:32,530
+but the difference and the reason
+I say the algorithm is identical
+
+1014
+01:02:32,530 --> 01:02:38,440
+is this cost function to decide what
+is the total cost of this cell based
+
+1015
+01:02:38,440 --> 01:02:41,260
+on the cost of the thing to the
+right, down and to the right
+
+1016
+01:02:41,260 --> 01:02:43,810
+and down below, is different.
+
+1017
+01:02:43,810 --> 01:02:46,660
+That cost function for edit
+distance was some number
+
+1018
+01:02:46,660 --> 01:02:49,180
+depending on whether they
+matched or mismatched
+
+1019
+01:02:49,180 --> 01:02:55,030
+or it was an insertion or deletion
+plus the cost of the thing to the right
+
+1020
+01:02:55,030 --> 01:02:56,410
+or down or diagonal.
+
+1021
+01:02:56,410 --> 01:02:58,720
+So there was a different
+penalty that you
+
+1022
+01:02:58,720 --> 01:03:03,160
+paid for moving right in this
+table, or down, or diagonal.
+
+1023
+01:03:03,160 --> 01:03:08,140
+With this image stitch right now,
+the way that I've defined it,
+
+1024
+01:03:08,140 --> 01:03:09,220
+the cost is the same.
+
+1025
+01:03:09,220 --> 01:03:12,520
+The penalty that you pay for having
+a seam go through a particular pixel
+
+1026
+01:03:12,520 --> 01:03:16,870
+is the same even if you then go on
+to the right or diagonal or down.
+
+1027
+01:03:16,870 --> 01:03:19,940
+It's just the difference in intensity.
+
+1028
+01:03:19,940 --> 01:03:23,280
+So you would take the minimum of--
+
+1029
+01:03:23,280 --> 01:03:25,660
+you would take difference in
+intensity plus the minimum
+
+1030
+01:03:25,660 --> 01:03:31,480
+of what's to the right, what's down
+below, or what's diagonal to the right.
+
+1031
+01:03:31,480 --> 01:03:36,580
+Slightly different cost function,
+but really the same algorithm.
+
+1032
+01:03:36,580 --> 01:03:40,210
+And there's ways to implement
+this where you can essentially
+
+1033
+01:03:40,210 --> 01:03:42,250
+say to the algorithm, OK,
+go fill in this table.
+
+1034
+01:03:42,250 --> 01:03:48,520
+Use this cost function, so that you
+could use exactly the same code.
+
+1035
+01:03:48,520 --> 01:03:52,300
+You implement this once and
+you can do edit distance
+
+1036
+01:03:52,300 --> 01:03:54,321
+and you can also do image stitching.
+
+1037
+01:03:54,321 --> 01:03:56,735
+
+
+1038
+01:03:56,735 --> 01:03:58,860
+And this is one of the
+respects in which algorithms
+
+1039
+01:03:58,860 --> 01:04:01,590
+and the abstraction of
+computer science becomes
+
+1040
+01:04:01,590 --> 01:04:05,760
+really interesting is when you start
+to see two problems that seem really
+
+1041
+01:04:05,760 --> 01:04:09,992
+unrelated and turn out to be the same.
+
+1042
+01:04:09,992 --> 01:04:11,700
+And it's even more
+fun when you can write
+
+1043
+01:04:11,700 --> 01:04:14,760
+one program that does two
+completely different things for you
+
+1044
+01:04:14,760 --> 01:04:17,970
+and don't even have to re-implement it.
+
+1045
+01:04:17,970 --> 01:04:19,444
+So any questions?
+
+1046
+01:04:19,444 --> 01:04:27,680
+
+
+1047
+01:04:27,680 --> 01:04:33,650
+I'm going to end, then, with a
+demo of one more algorithm that
+
+1048
+01:04:33,650 --> 01:04:36,920
+uses dynamic programming--
+
+1049
+01:04:36,920 --> 01:04:41,840
+and you can find various demos of this
+on the web-- this is just one of them--
+
+1050
+01:04:41,840 --> 01:04:43,280
+called seam carving.
+
+1051
+01:04:43,280 --> 01:04:49,490
+This is very similar to
+image stitching, where
+
+1052
+01:04:49,490 --> 01:04:53,870
+we found that seam going from the upper
+left corner to the lower right corner.
+
+1053
+01:04:53,870 --> 01:05:07,510
+The idea here is that we want to
+resize the image on the right.
+
+1054
+01:05:07,510 --> 01:05:08,730
+And you did this in p set 3.
+
+1055
+01:05:08,730 --> 01:05:11,940
+You resized images--
+or p set 4, excuse me.
+
+1056
+01:05:11,940 --> 01:05:13,440
+You resized images.
+
+1057
+01:05:13,440 --> 01:05:17,310
+And if you made them narrower,
+they got kind of squashed,
+
+1058
+01:05:17,310 --> 01:05:20,374
+and if you made them wider,
+they got kind of stretched,
+
+1059
+01:05:20,374 --> 01:05:21,540
+and everything looked wrong.
+
+1060
+01:05:21,540 --> 01:05:24,100
+Wouldn't it be nice if
+we could resize the image
+
+1061
+01:05:24,100 --> 01:05:25,350
+but have it still look normal?
+
+1062
+01:05:25,350 --> 01:05:28,710
+
+
+1063
+01:05:28,710 --> 01:05:31,200
+So the idea of the
+seam carving algorithm
+
+1064
+01:05:31,200 --> 01:05:34,650
+is essentially to resize the image.
+
+1065
+01:05:34,650 --> 01:05:38,680
+Instead of scaling every pixel to be
+a little narrower than it was before,
+
+1066
+01:05:38,680 --> 01:05:43,710
+let's just take a row
+of pixels and delete it.
+
+1067
+01:05:43,710 --> 01:05:47,400
+And so we might take in this row
+right here, or this column of pixels,
+
+1068
+01:05:47,400 --> 01:05:49,520
+and delete it, and maybe
+nobody would notice.
+
+1069
+01:05:49,520 --> 01:05:52,420
+
+
+1070
+01:05:52,420 --> 01:05:55,030
+The problem is you can only do
+this so many times in an image
+
+1071
+01:05:55,030 --> 01:05:58,150
+before somebody notices.
+
+1072
+01:05:58,150 --> 01:06:03,350
+Because you get some sort of jump,
+where you've deleted useful information.
+
+1073
+01:06:03,350 --> 01:06:12,680
+And one of the reasons for that is that,
+for example, in this column right here,
+
+1074
+01:06:12,680 --> 01:06:15,860
+in the water you could get
+away with deleting a pixel.
+
+1075
+01:06:15,860 --> 01:06:19,417
+In the sky you could get
+away with deleting a pixel.
+
+1076
+01:06:19,417 --> 01:06:21,500
+But in the balloon, you
+better not delete a pixel,
+
+1077
+01:06:21,500 --> 01:06:23,041
+because that would be really obvious.
+
+1078
+01:06:23,041 --> 01:06:26,690
+The balloon will start to
+look really funny really fast.
+
+1079
+01:06:26,690 --> 01:06:31,010
+So instead of finding a straight
+line of pixels to delete,
+
+1080
+01:06:31,010 --> 01:06:34,460
+let's find a wiggly line.
+
+1081
+01:06:34,460 --> 01:06:38,230
+We're still deleting one
+pixel from every row,
+
+1082
+01:06:38,230 --> 01:06:43,920
+so every row will end up being one
+pixel smaller than it was before,
+
+1083
+01:06:43,920 --> 01:06:49,730
+which means the image will still be
+rectangular, but we have a choice.
+
+1084
+01:06:49,730 --> 01:06:54,980
+If we delete a particular pixel at the
+top of the image, on the next row down
+
+1085
+01:06:54,980 --> 01:06:58,070
+we could either delete the
+pixel right below it or the one
+
+1086
+01:06:58,070 --> 01:07:01,690
+to the left or the one to the right.
+
+1087
+01:07:01,690 --> 01:07:04,190
+So this is also pretty much--
+we've got these three choices,
+
+1088
+01:07:04,190 --> 01:07:05,720
+just like we had before--
+
+1089
+01:07:05,720 --> 01:07:08,060
+slightly different cost function.
+
+1090
+01:07:08,060 --> 01:07:12,210
+And then you've got-- you could start
+by deleting any one of the pixels
+
+1091
+01:07:12,210 --> 01:07:12,710
+at the top.
+
+1092
+01:07:12,710 --> 01:07:15,540
+You pick the one that's going
+to have the lowest cost.
+
+1093
+01:07:15,540 --> 01:07:18,290
+And that cost might be how different
+are you than your neighboring
+
+1094
+01:07:18,290 --> 01:07:19,854
+pixels on the left and right.
+
+1095
+01:07:19,854 --> 01:07:22,520
+So if you're pretty much the same
+color as the thing you're left
+
+1096
+01:07:22,520 --> 01:07:25,145
+and the thing to your right,
+nobody will notice if you go away.
+
+1097
+01:07:25,145 --> 01:07:28,020
+
+
+1098
+01:07:28,020 --> 01:07:31,900
+And with just a little
+bit of extra work,
+
+1099
+01:07:31,900 --> 01:07:35,670
+you can then update that
+information, that table,
+
+1100
+01:07:35,670 --> 01:07:39,780
+to reflect the fact that you've
+deleted this one pixel from every row.
+
+1101
+01:07:39,780 --> 01:07:43,710
+You can patch up all
+of the seams that that
+
+1102
+01:07:43,710 --> 01:07:47,600
+would have affected to figure
+out if I need to squashed
+
+1103
+01:07:47,600 --> 01:07:50,220
+by another pixel, what do I throw out.
+
+1104
+01:07:50,220 --> 01:07:53,490
+
+
+1105
+01:07:53,490 --> 01:07:55,680
+And you can start resizing the image.
+
+1106
+01:07:55,680 --> 01:07:58,390
+
+
+1107
+01:07:58,390 --> 01:08:00,680
+And you can see, it's
+deleting a lot of sky.
+
+1108
+01:08:00,680 --> 01:08:02,800
+It's deleting a lot of water.
+
+1109
+01:08:02,800 --> 01:08:06,910
+It's being pretty careful about
+how it thins out these bushes.
+
+1110
+01:08:06,910 --> 01:08:09,910
+And thinning them a lot less
+than it thins some other things,
+
+1111
+01:08:09,910 --> 01:08:12,190
+trying to do them in sensible ways so.
+
+1112
+01:08:12,190 --> 01:08:18,859
+The stuff that we're used to seeing is
+mostly staying normal and empty space
+
+1113
+01:08:18,859 --> 01:08:20,470
+is getting squashed.
+
+1114
+01:08:20,470 --> 01:08:23,410
+But that empty space
+is in different places
+
+1115
+01:08:23,410 --> 01:08:25,510
+depending on where you are in the image.
+
+1116
+01:08:25,510 --> 01:08:29,170
+And down here, for example, we
+don't have a lot of empty space.
+
+1117
+01:08:29,170 --> 01:08:32,179
+It's hard to delete grass
+without you knowing it,
+
+1118
+01:08:32,179 --> 01:08:35,470
+because you're going to get half a blade
+of grass and it's going to look funny.
+
+1119
+01:08:35,470 --> 01:08:38,420
+And there's only so much water you can
+delete before that becomes obvious.
+
+1120
+01:08:38,420 --> 01:08:41,294
+So somewhere we had to start deflating
+the reflection of the balloon.
+
+1121
+01:08:41,294 --> 01:08:44,113
+
+
+1122
+01:08:44,113 --> 01:08:47,029
+So it looks funny, but it looks less
+funny than if everything had just
+
+1123
+01:08:47,029 --> 01:08:48,950
+been squashed by an equal amount.
+
+1124
+01:08:48,950 --> 01:08:57,321
+
+
+1125
+01:08:57,321 --> 01:09:00,029
+As long as you save the information
+about what you were deleting,
+
+1126
+01:09:00,029 --> 01:09:02,840
+you can re-expand it.
+
+1127
+01:09:02,840 --> 01:09:05,870
+So you see, even if we'd
+squashed a whole bunch,
+
+1128
+01:09:05,870 --> 01:09:11,080
+this balloon is still
+whole, because it's
+
+1129
+01:09:11,080 --> 01:09:15,479
+so easy to delete pixels in the sky
+and still have the sky look good
+
+1130
+01:09:15,479 --> 01:09:17,957
+that there's no need
+to shrink the balloon.
+
+1131
+01:09:17,957 --> 01:09:21,040
+The reflection of the balloon-- that
+got harder because we're balancing it
+
+1132
+01:09:21,040 --> 01:09:23,140
+off with deleting stuff in the grass.
+
+1133
+01:09:23,140 --> 01:09:27,490
+
+
+1134
+01:09:27,490 --> 01:09:31,479
+So it takes just a little bit
+of work beyond that image seam
+
+1135
+01:09:31,479 --> 01:09:35,560
+and edit distance problem
+to do this seam carving.
+
+1136
+01:09:35,560 --> 01:09:37,479
+And it takes just a
+little bit more work to be
+
+1137
+01:09:37,479 --> 01:09:44,140
+able to resize both horizontally and
+vertically, which is pretty cool.
+
+1138
+01:09:44,140 --> 01:09:47,560
+And this is something that was published
+at the ACM Siggraph Conference, which
+
+1139
+01:09:47,560 --> 01:09:53,750
+is a giant computer graphics conference
+every August, about 10 years ago,
+
+1140
+01:09:53,750 --> 01:09:54,340
+I want to say.
+
+1141
+01:09:54,340 --> 01:09:57,640
+
+
+1142
+01:09:57,640 --> 01:10:03,730
+I can tell you the exact date
+by looking for the reference--
+
+1143
+01:10:03,730 --> 01:10:04,500
+2007.
+
+1144
+01:10:04,500 --> 01:10:07,000
+So yes, 10 years ago.
+
+1145
+01:10:07,000 --> 01:10:09,460
+And it's actually a pretty short paper.
+
+1146
+01:10:09,460 --> 01:10:13,840
+And it's really easy to understand,
+because it's a pretty simple algorithm.
+
+1147
+01:10:13,840 --> 01:10:16,585
+And it's a really cool idea.
+
+1148
+01:10:16,585 --> 01:10:18,460
+And so it's one of these
+rare papers that you
+
+1149
+01:10:18,460 --> 01:10:20,530
+can sit down and read and understand.
+
+1150
+01:10:20,530 --> 01:10:22,690
+You can go to the talk and understand.
+
+1151
+01:10:22,690 --> 01:10:25,460
+And you can go home afterwards.
+
+1152
+01:10:25,460 --> 01:10:28,750
+And if you've got it a little bit
+of a background in computer science,
+
+1153
+01:10:28,750 --> 01:10:32,740
+and particularly in computer
+graphics, you can understand this.
+
+1154
+01:10:32,740 --> 01:10:36,040
+And you can just sit down and
+in an hour you can implement it.
+
+1155
+01:10:36,040 --> 01:10:38,710
+And so you get these web
+demos that popped up.
+
+1156
+01:10:38,710 --> 01:10:40,937
+Photoshop can do this.
+
+1157
+01:10:40,937 --> 01:10:43,270
+And it started appearing all
+over the place really fast,
+
+1158
+01:10:43,270 --> 01:10:45,790
+because it was a really good idea.
+
+1159
+01:10:45,790 --> 01:10:47,215
+It worked surprisingly well.
+
+1160
+01:10:47,215 --> 01:10:50,110
+
+
+1161
+01:10:50,110 --> 01:10:52,360
+And it does that through
+this dynamic programming.
+
+1162
+01:10:52,360 --> 01:10:58,100
+Let's not recompute information about
+how to get from some particular point,
+
+1163
+01:10:58,100 --> 01:11:00,830
+how to delete a scene from
+there down to the bottom.
+
+1164
+01:11:00,830 --> 01:11:03,910
+It doesn't compute that
+for every possibility
+
+1165
+01:11:03,910 --> 01:11:07,090
+It just sort of figures out, well
+from here, the best thing to do
+
+1166
+01:11:07,090 --> 01:11:10,300
+would be to go down or the best thing
+to do would be to go down and left.
+
+1167
+01:11:10,300 --> 01:11:12,508
+And that pixel worries about
+how to go on from there.
+
+1168
+01:11:12,508 --> 01:11:15,610
+
+
+1169
+01:11:15,610 --> 01:11:16,792
+Any questions?
+
+1170
+01:11:16,792 --> 01:11:21,720
+
+
+1171
+01:11:21,720 --> 01:11:23,610
+OK, well thank you all for coming.
+
+1172
+01:11:23,610 --> 01:11:26,380
+Remember that tomorrow morning
+there will be another lecture
+
+1173
+01:11:26,380 --> 01:11:27,400
+streamed from Harvard.
+
+1174
+01:11:27,400 --> 01:11:31,450
+And if you're at Harvard, you
+can always have fun going.
+
+1175
+01:11:31,450 --> 01:11:33,585
+We'll talk about an
+introduction to Python,
+
+1176
+01:11:33,585 --> 01:11:35,460
+which is another
+programming language like C.
+
+1177
+01:11:35,460 --> 01:11:40,080
+It's got slightly different
+syntax, but the same basic deal.
+
+1178
+01:11:40,080 --> 01:11:43,140
+It tends to get used for
+certain kinds of programs
+
+1179
+01:11:43,140 --> 01:11:46,280
+where its syntax makes it a
+little bit easier to write them.
+
+1180
+01:11:46,280 --> 01:11:50,940
+Then you will be getting instead
+of a programming assignment,
+
+1181
+01:11:50,940 --> 01:11:53,220
+you'll be getting a fun more
+sort of written exercise
+
+1182
+01:11:53,220 --> 01:11:54,930
+to work on over the weekend.
+
+1183
+01:11:54,930 --> 01:11:56,700
+Remember your exam.
+
+1184
+01:11:56,700 --> 01:11:59,730
+So that will come out
+after lecture tomorrow.
+
+1185
+01:11:59,730 --> 01:12:02,690
+And you'll have three days for that.
+
+1186
+01:12:02,690 --> 01:12:08,036
+Then next week at Yale, there are no
+sections because of our fall break.
+
+1187
+01:12:08,036 --> 01:12:11,730
+So there will be no sections
+Tuesday or Wednesday.
+
+1188
+01:12:11,730 --> 01:12:13,107
+You've got some time off.
+
+1189
+01:12:13,107 --> 01:12:14,440
+You've got some time to recover.
+
+1190
+01:12:14,440 --> 01:12:16,800
+You've got some time for sleep.
+
+1191
+01:12:16,800 --> 01:12:20,855
+And next Friday, which
+is during our fall break,
+
+1192
+01:12:20,855 --> 01:12:22,980
+there will be another
+lecture streamed from Harvard
+
+1193
+01:12:22,980 --> 01:12:25,890
+that will be more about Python.
+
+1194
+01:12:25,890 --> 01:12:28,350
+And p set 6 will be coming out.
+
+1195
+01:12:28,350 --> 01:12:31,500
+It's likely to tie a lot of the things
+we've been talking about this week
+
+1196
+01:12:31,500 --> 01:12:35,490
+and next week together into
+a programming assignment.
+
+1197
+01:12:35,490 --> 01:12:39,450
+And you will of course have
+10 days to work on that.
+
+1198
+01:12:39,450 --> 01:12:42,630
+So you can look at it when it
+comes out, but it doesn't have
+
+1199
+01:12:42,630 --> 01:12:44,190
+to ruin the rest of your fall break.
+
+1200
+01:12:44,190 --> 01:12:45,810
+I promise.
+
+1201
+01:12:45,810 --> 01:12:47,970
+And with that, again,
+thank you for coming.
+
+1202
+01:12:47,970 --> 01:12:49,970
+This was CS50.
+
+1203
+01:12:49,970 --> 01:12:51,062
