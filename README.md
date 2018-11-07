@@ -7,7 +7,9 @@ Introduction to the intellectual enterprises of computer science and the art of 
 
 ## lecture videos
 These lectures were produced in Sanders Theatre in Memorial Hall by Dan Coffey, Lauren Scully, Ian Sexton, and Ramon Galvan. Notes were taken by Cheng Gong.
+
 Now you can watch the whole episodes with English subtitle on 网易云课堂
+
 [网易云课堂课程链接](https://study.163.com/course/introduction/1006277003.htm)
 
 ## lecture notes
@@ -17,3 +19,5 @@ I will post all the lecture notes in sequence later on. Be sure to check them in
 Translators are welcomed to commit your Chinese version of subtitles and lecture notes. Let's do it together.
 
 PLEASE ENJOY!
+
+![info](/home/scott/Downloads/未命名@凡科快图[kt.fkw.com] (4).jpg)
