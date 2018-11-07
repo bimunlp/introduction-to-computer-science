@@ -20,4 +20,4 @@ Translators are welcomed to commit your Chinese version of subtitles and lecture
 
 PLEASE ENJOY!
 
-![info](/home/scott/Downloads/未命名@凡科快图[kt.fkw.com] (4).jpg)
+
