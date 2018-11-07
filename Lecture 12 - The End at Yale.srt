@@ -1,0 +1,5325 @@
+1
+00:00:00,000 --> 00:00:00,500
+
+
+2
+00:00:00,500 --> 00:00:03,353
+[MUSIC PLAYING]
+
+3
+00:00:03,353 --> 00:00:10,059
+
+
+4
+00:00:10,059 --> 00:00:14,010
+SPEAKER 1: All right, this
+is CS50, and this is week 11.
+
+5
+00:00:14,010 --> 00:00:17,700
+Before we begin today, I thought
+we'd make some changes in light
+
+6
+00:00:17,700 --> 00:00:19,800
+of the competition on the horizon.
+
+7
+00:00:19,800 --> 00:00:22,560
+First and foremost, this
+is perhaps in order.
+
+8
+00:00:22,560 --> 00:00:26,190
+And I was down the street
+just earlier, and I
+
+9
+00:00:26,190 --> 00:00:30,390
+got my shirt for the weekend,
+which I gather means 900.
+
+10
+00:00:30,390 --> 00:00:33,000
+So good luck this weekend.
+
+11
+00:00:33,000 --> 00:00:36,150
+And before we proceed further, a big
+thanks to the whole team, honestly,
+
+12
+00:00:36,150 --> 00:00:37,599
+that made this semester possible--
+
+13
+00:00:37,599 --> 00:00:39,390
+Natalie, in particular,
+who I'm sure you've
+
+14
+00:00:39,390 --> 00:00:41,765
+gotten to know over time, of
+course, Benedict with whom I
+
+15
+00:00:41,765 --> 00:00:43,290
+went to college some years ago.
+
+16
+00:00:43,290 --> 00:00:46,850
+You recall this picture from week
+0, and then of course [? Stelios ?]
+
+17
+00:00:46,850 --> 00:00:50,220
+and [? Anusery ?] and the
+whole team of TAs and CAs here.
+
+18
+00:00:50,220 --> 00:00:52,380
+And, indeed, this is actually
+a pretty novel thing.
+
+19
+00:00:52,380 --> 00:00:54,213
+If you haven't quite
+realized it, especially
+
+20
+00:00:54,213 --> 00:00:59,568
+if you're first year, having
+undergraduate ULAs [CRASH] or tada.
+
+21
+00:00:59,568 --> 00:01:00,870
+[LAUGHS]
+
+22
+00:01:00,870 --> 00:01:03,170
+That's anticlimactic.
+
+23
+00:01:03,170 --> 00:01:07,650
+OK, so we will tend to this later.
+
+24
+00:01:07,650 --> 00:01:09,480
+So this is actually
+a pretty novel thing,
+
+25
+00:01:09,480 --> 00:01:12,480
+that there are undergraduates teaching
+assistants, that you guys can actually
+
+26
+00:01:12,480 --> 00:01:14,670
+teach your own classes,
+hold office hours, and more.
+
+27
+00:01:14,670 --> 00:01:17,190
+And this was actually initiated
+just a few years ago by way
+
+28
+00:01:17,190 --> 00:01:21,150
+of CS50's first class of TAs and CAs.
+
+29
+00:01:21,150 --> 00:01:24,090
+So here's a [INAUDIBLE]
+article from back in 2015.
+
+30
+00:01:24,090 --> 00:01:26,880
+In fact, this is the very
+first team of undergraduate CAs
+
+31
+00:01:26,880 --> 00:01:29,580
+who first TAed CS50 itself.
+
+32
+00:01:29,580 --> 00:01:33,310
+And in fact, this is now an opportunity
+that has extended beyond CS50 itself.
+
+33
+00:01:33,310 --> 00:01:36,310
+So if you're thinking about computer
+science or really any related field
+
+34
+00:01:36,310 --> 00:01:39,268
+and you might like to start teaching--
+which frankly is by far the best
+
+35
+00:01:39,268 --> 00:01:41,820
+way to actually learn and
+absorb this kind of material--
+
+36
+00:01:41,820 --> 00:01:46,290
+realize that CS50 itself will soon start
+recruiting, and we and the whole team
+
+37
+00:01:46,290 --> 00:01:48,490
+would indeed love to
+have you on the team.
+
+38
+00:01:48,490 --> 00:01:52,200
+And even if you are among or were
+among those less comfortable,
+
+39
+00:01:52,200 --> 00:01:55,140
+keep in mind that's what we
+said in the first lecture still
+
+40
+00:01:55,140 --> 00:01:56,220
+holds true here on out.
+
+41
+00:01:56,220 --> 00:01:58,290
+What really matters
+ultimately in this class,
+
+42
+00:01:58,290 --> 00:02:00,810
+even if it might not quite feel
+like this-- it's just what?
+
+43
+00:02:00,810 --> 00:02:02,690
+Four hours after the quiz was due--
+
+44
+00:02:02,690 --> 00:02:05,400
+that what really matters in
+this course is not so much
+
+45
+00:02:05,400 --> 00:02:06,750
+where you end up relative
+to your classmates,
+
+46
+00:02:06,750 --> 00:02:08,639
+but where you end up
+relative to yourselves.
+
+47
+00:02:08,639 --> 00:02:10,410
+And that's something
+we have and will keep
+
+48
+00:02:10,410 --> 00:02:14,680
+in mind, especially when it comes time
+for final projects, grades, and beyond.
+
+49
+00:02:14,680 --> 00:02:17,610
+And in fact, these were
+the percentages broken down
+
+50
+00:02:17,610 --> 00:02:20,740
+in the very first lecture based
+on problem set zero of this year.
+
+51
+00:02:20,740 --> 00:02:22,680
+So those of you who have
+been feeling that you
+
+52
+00:02:22,680 --> 00:02:26,380
+are among those less comfortable realize
+that it's no longer by definition
+
+53
+00:02:26,380 --> 00:02:26,880
+the case.
+
+54
+00:02:26,880 --> 00:02:29,730
+Everyone's been upgraded to
+somewhere in between or among those
+
+55
+00:02:29,730 --> 00:02:31,950
+more comfortable, and
+realize this is perhaps
+
+56
+00:02:31,950 --> 00:02:34,200
+just the first such stepping stone.
+
+57
+00:02:34,200 --> 00:02:38,910
+So this has been a tradition of having
+undergrads TA the class for years
+
+58
+00:02:38,910 --> 00:02:39,720
+up in Cambridge.
+
+59
+00:02:39,720 --> 00:02:42,840
+And in fact, the team there put
+together with our production team
+
+60
+00:02:42,840 --> 00:02:45,720
+a little invitation for you
+to consider joining us here
+
+61
+00:02:45,720 --> 00:02:49,530
+in New Haven among our CAs
+and TAs for the coming year.
+
+62
+00:02:49,530 --> 00:02:54,324
+So allow me to dim the lights and
+have our team in Cambridge say hello.
+
+63
+00:02:54,324 --> 00:02:54,990
+[VIDEO PLAYBACK]
+
+64
+00:02:54,990 --> 00:02:56,160
+- I'm Elsiah.
+
+65
+00:02:56,160 --> 00:02:57,120
+- My name is Nenia.
+
+66
+00:02:57,120 --> 00:02:58,080
+- I'm Athena Braun.
+
+67
+00:02:58,080 --> 00:02:58,950
+- I'm a sophomore.
+
+68
+00:02:58,950 --> 00:03:00,000
+- I'm a senior.
+
+69
+00:03:00,000 --> 00:03:03,150
+- I'm a junior studying in
+computer science and linguistics.
+
+70
+00:03:03,150 --> 00:03:04,680
+- I'm concentrating in [? CSL. ?]
+
+71
+00:03:04,680 --> 00:03:07,950
+- CS50 is always just
+because it's changed my life.
+
+72
+00:03:07,950 --> 00:03:10,230
+It made me a computer
+science concentrator.
+
+73
+00:03:10,230 --> 00:03:12,090
+- I'm a TF for CS50.
+
+74
+00:03:12,090 --> 00:03:12,930
+- Course assistant.
+
+75
+00:03:12,930 --> 00:03:14,388
+- This is my second year TFing now.
+
+76
+00:03:14,388 --> 00:03:17,610
+- This is my third year being
+a teaching fellow for CS50.
+
+77
+00:03:17,610 --> 00:03:21,510
+- Becoming part of CF's staff
+helped empower me so so so much.
+
+78
+00:03:21,510 --> 00:03:26,650
+- I was a total beginner, never
+anticipated programming beyond CS50.
+
+79
+00:03:26,650 --> 00:03:28,420
+But here I am.
+
+80
+00:03:28,420 --> 00:03:32,320
+This is something I
+never thought I would do.
+
+81
+00:03:32,320 --> 00:03:35,850
+I think it's just been really
+exciting going from being a beginner
+
+82
+00:03:35,850 --> 00:03:39,480
+to being comfortable
+enough to TF this class.
+
+83
+00:03:39,480 --> 00:03:42,050
+- Everything that has
+come out of this has
+
+84
+00:03:42,050 --> 00:03:44,700
+helped me grow so much as
+a teacher, as a student.
+
+85
+00:03:44,700 --> 00:03:47,205
+- Also the culture and the
+environment of it is also pretty.
+
+86
+00:03:47,205 --> 00:03:51,440
+- I've definitely found a community
+of friends within the CS50 staff.
+
+87
+00:03:51,440 --> 00:03:54,099
+- Be prepared to have
+students who look up to you
+
+88
+00:03:54,099 --> 00:03:56,140
+and really appreciate the
+work that you're doing.
+
+89
+00:03:56,140 --> 00:03:58,890
+And just realize that you're
+not just a teaching fellow.
+
+90
+00:03:58,890 --> 00:04:01,950
+You're not just this person
+behind the whiteboard.
+
+91
+00:04:01,950 --> 00:04:04,080
+You're like a student
+who took this, too,
+
+92
+00:04:04,080 --> 00:04:07,320
+and can really level with
+other people in your section
+
+93
+00:04:07,320 --> 00:04:10,330
+and figure out what's going on and
+make it a good experience for them.
+
+94
+00:04:10,330 --> 00:04:12,681
+- I decided that I can get
+the best of both worlds.
+
+95
+00:04:12,681 --> 00:04:14,430
+I can get to teach
+about computer science.
+
+96
+00:04:14,430 --> 00:04:16,320
+And those are two are my passions.
+
+97
+00:04:16,320 --> 00:04:20,099
+- I just really love teaching
+computer science to beginners.
+
+98
+00:04:20,099 --> 00:04:23,780
+CS50 is where all that
+beginner energy is,
+
+99
+00:04:23,780 --> 00:04:29,940
+and it's where I can make a real
+impact on the students' careers in CS.
+
+100
+00:04:29,940 --> 00:04:34,290
+- It's amazing to see how much this
+course can do in just a semester
+
+101
+00:04:34,290 --> 00:04:38,310
+and how, from September until
+December, students learn so much
+
+102
+00:04:38,310 --> 00:04:40,429
+and gain so much
+experience and knowledge.
+
+103
+00:04:40,429 --> 00:04:42,720
+And watching that and working
+with them in that process
+
+104
+00:04:42,720 --> 00:04:44,430
+has always been really,
+really inspiring.
+
+105
+00:04:44,430 --> 00:04:47,520
+- It's been so so wonderful
+getting to see these people grow,
+
+106
+00:04:47,520 --> 00:04:48,720
+just like I did myself.
+
+107
+00:04:48,720 --> 00:04:50,803
+- One of the most rewarding
+things I've done here.
+
+108
+00:04:50,803 --> 00:04:52,770
+So that's why I keep coming back.
+
+109
+00:04:52,770 --> 00:04:56,917
+- Going to office hours and helping
+people out, it makes you feel good.
+
+110
+00:04:56,917 --> 00:04:58,750
+And it makes other
+people feel good as well.
+
+111
+00:04:58,750 --> 00:04:59,541
+- My name is Brian.
+
+112
+00:04:59,541 --> 00:05:00,442
+- I'm Thomas Lively.
+
+113
+00:05:00,442 --> 00:05:01,025
+- I'm Allison.
+
+114
+00:05:01,025 --> 00:05:02,040
+- I'm Maria.
+
+115
+00:05:02,040 --> 00:05:04,770
+And this is CS50.
+
+116
+00:05:04,770 --> 00:05:05,700
+[END PLAYBACK]
+
+117
+00:05:05,700 --> 00:05:08,494
+SPEAKER 1: So realize, here in
+New Haven and also in Cambridge,
+
+118
+00:05:08,494 --> 00:05:10,410
+we're fortunate to have
+quite a few resources,
+
+119
+00:05:10,410 --> 00:05:13,493
+both in terms of the place that we're
+in and the people that we're around.
+
+120
+00:05:13,493 --> 00:05:16,080
+And one of the focuses of CS50
+for years now with its staff
+
+121
+00:05:16,080 --> 00:05:18,746
+has been on something called open
+courseware, whereby we've long
+
+122
+00:05:18,746 --> 00:05:21,982
+made the courses, videos, and problem
+sets and software freely available
+
+123
+00:05:21,982 --> 00:05:23,190
+to everyone around the world.
+
+124
+00:05:23,190 --> 00:05:24,810
+And just a couple of
+years, too, did we start
+
+125
+00:05:24,810 --> 00:05:26,518
+to focus, not just on
+students who wanted
+
+126
+00:05:26,518 --> 00:05:29,340
+to tune in in any country and
+any city, have we also started
+
+127
+00:05:29,340 --> 00:05:33,060
+focusing on teachers as well so that
+they needn't rely only on the textbooks
+
+128
+00:05:33,060 --> 00:05:36,270
+that their schools provide but too
+can get on the internet and tune into
+
+129
+00:05:36,270 --> 00:05:38,910
+and use in their own
+classrooms, adapting or adopting
+
+130
+00:05:38,910 --> 00:05:42,100
+this particular curriculum and
+tools for their own students.
+
+131
+00:05:42,100 --> 00:05:44,580
+And if curious, for instance,
+every red dot on this map
+
+132
+00:05:44,580 --> 00:05:49,260
+actually represents some
+cohort of high school students
+
+133
+00:05:49,260 --> 00:05:52,101
+and high school teachers teaching
+introductory [? CFs ?] via CF50AP
+
+134
+00:05:52,101 --> 00:05:54,600
+as it's called, and every one
+of the blue dots on the screen
+
+135
+00:05:54,600 --> 00:05:57,660
+represents a university with whom
+we've been collaborating in some form,
+
+136
+00:05:57,660 --> 00:05:59,660
+either formally with some
+of the faculty or less
+
+137
+00:05:59,660 --> 00:06:01,618
+formally with some of
+the student groups there.
+
+138
+00:06:01,618 --> 00:06:04,470
+And so if you're interests in
+education and in computer science
+
+139
+00:06:04,470 --> 00:06:06,870
+extend beyond, by all
+means consider applying,
+
+140
+00:06:06,870 --> 00:06:09,900
+not only to TA or SA the
+class, but to get involved
+
+141
+00:06:09,900 --> 00:06:13,320
+in these other outreach efforts
+creating curricula, working on tools,
+
+142
+00:06:13,320 --> 00:06:14,910
+and really making an impact.
+
+143
+00:06:14,910 --> 00:06:17,790
+In fact, the communities
+beyond Cambridge and New Haven
+
+144
+00:06:17,790 --> 00:06:20,160
+include Miami Dade in Florida.
+
+145
+00:06:20,160 --> 00:06:21,330
+This is Chile.
+
+146
+00:06:21,330 --> 00:06:23,760
+This is our team in London.
+
+147
+00:06:23,760 --> 00:06:25,170
+Here in Burma.
+
+148
+00:06:25,170 --> 00:06:27,450
+Here in Ukraine.
+
+149
+00:06:27,450 --> 00:06:29,130
+Here in Cairo.
+
+150
+00:06:29,130 --> 00:06:34,560
+Here in Bolivia and Nicaragua, and
+then lastly back home in Cambridge.
+
+151
+00:06:34,560 --> 00:06:36,810
+This was our very first
+cohort of high school teachers
+
+152
+00:06:36,810 --> 00:06:39,540
+who came to town in order to
+bring a little something back
+
+153
+00:06:39,540 --> 00:06:43,110
+to their own classrooms and
+teach and adapt as well there.
+
+154
+00:06:43,110 --> 00:06:45,270
+And in fact, just a
+few years ago, apropos
+
+155
+00:06:45,270 --> 00:06:49,710
+of the event on our own horizon, this
+was the very first CF50AP hackathon,
+
+156
+00:06:49,710 --> 00:06:52,950
+whereas instead of getting
+together at 7:00 PM To 7:00 AM,
+
+157
+00:06:52,950 --> 00:06:55,980
+we got together like 10 AM to 2 PM
+during the high school schedule.
+
+158
+00:06:55,980 --> 00:06:58,380
+And we had eight public
+and private high schools
+
+159
+00:06:58,380 --> 00:07:01,800
+in the New York City area come together
+to work on their own problems sets
+
+160
+00:07:01,800 --> 00:07:03,510
+and final projects and the like.
+
+161
+00:07:03,510 --> 00:07:06,000
+So again, if of interest, do
+you feel welcome to engage
+
+162
+00:07:06,000 --> 00:07:08,880
+with us and so many people
+around the world in that way.
+
+163
+00:07:08,880 --> 00:07:11,930
+So what have we actually done in the
+classroom and in the problem sets?
+
+164
+00:07:11,930 --> 00:07:14,305
+So at the end of the day, it's
+all about problem solving.
+
+165
+00:07:14,305 --> 00:07:16,230
+And hopefully, if you
+attended CF50 Puzzle Day
+
+166
+00:07:16,230 --> 00:07:18,938
+or certainly engaged in the problems
+over the past several weeks,
+
+167
+00:07:18,938 --> 00:07:23,374
+you realize that the goals of this class
+are not so much to teach you C per se,
+
+168
+00:07:23,374 --> 00:07:25,290
+and it doesn't really
+matter some of the finer
+
+169
+00:07:25,290 --> 00:07:27,456
+implementation details of
+a lot of the problem sets,
+
+170
+00:07:27,456 --> 00:07:29,550
+but how you went about
+solving those problems.
+
+171
+00:07:29,550 --> 00:07:32,126
+And we claimed early on
+that there is a methodology,
+
+172
+00:07:32,126 --> 00:07:34,500
+and there's techniques with
+which you can solve problems.
+
+173
+00:07:34,500 --> 00:07:37,620
+And indeed, we hope what you exit
+the course with is sort of an ability
+
+174
+00:07:37,620 --> 00:07:40,710
+now to recognize patterns and other
+problems you might encounter, not
+
+175
+00:07:40,710 --> 00:07:43,020
+just in CS, but in other fields too.
+
+176
+00:07:43,020 --> 00:07:45,480
+If curious as to how
+some of your classmates
+
+177
+00:07:45,480 --> 00:07:48,270
+perceived this year's problem
+sets, we took a look at the data
+
+178
+00:07:48,270 --> 00:07:50,720
+that you kindly provided
+in problems set eight.
+
+179
+00:07:50,720 --> 00:07:53,670
+This is a bar chart of what
+everyone thought of the problem set.
+
+180
+00:07:53,670 --> 00:07:55,380
+So purple is hate.
+
+181
+00:07:55,380 --> 00:07:56,490
+Blue is love.
+
+182
+00:07:56,490 --> 00:07:59,530
+So it's hate on top down
+to love on the bottom.
+
+183
+00:07:59,530 --> 00:08:05,880
+And so what you can see here is
+that love was kind of invariant,
+
+184
+00:08:05,880 --> 00:08:10,260
+though there was even more liking
+of problem sets 6 over here.
+
+185
+00:08:10,260 --> 00:08:12,630
+No one really hated
+problems set 1, which
+
+186
+00:08:12,630 --> 00:08:14,715
+is fantastic, with Mario and the likes.
+
+187
+00:08:14,715 --> 00:08:16,590
+So perhaps you're
+somewhere in that spectrum.
+
+188
+00:08:16,590 --> 00:08:17,950
+A little more telling was this.
+
+189
+00:08:17,950 --> 00:08:19,500
+How difficult were the problem sets?
+
+190
+00:08:19,500 --> 00:08:21,380
+And these numbers varied a lot more.
+
+191
+00:08:21,380 --> 00:08:24,330
+[? P ?] said 0 and 1 were very
+blue because blue is easy,
+
+192
+00:08:24,330 --> 00:08:26,520
+green meanwhile on the
+top would represent hard.
+
+193
+00:08:26,520 --> 00:08:28,890
+So there's definitely
+some fluctuation based
+
+194
+00:08:28,890 --> 00:08:32,460
+on expectations of the problem sets and
+which one were newer or in progress.
+
+195
+00:08:32,460 --> 00:08:33,937
+But problem set 5--
+
+196
+00:08:33,937 --> 00:08:37,020
+so misspellings, the spellcheckers--
+it's probably pretty fair to say it's
+
+197
+00:08:37,020 --> 00:08:39,450
+pretty orange and a bunch
+of green, whereas pset
+
+198
+00:08:39,450 --> 00:08:42,120
+6 kind of went the other direction,
+where you had the ability
+
+199
+00:08:42,120 --> 00:08:44,910
+to port some of our
+programs from C to Python
+
+200
+00:08:44,910 --> 00:08:47,640
+and implement some document similarity.
+
+201
+00:08:47,640 --> 00:08:49,170
+When did you start problem sets?
+
+202
+00:08:49,170 --> 00:08:51,210
+More telling.
+
+203
+00:08:51,210 --> 00:08:55,710
+So [INAUDIBLE] called that they are
+released way over here on a Friday,
+
+204
+00:08:55,710 --> 00:08:59,550
+but the most common day seems to be
+Wednesday followed by Friday, followed
+
+205
+00:08:59,550 --> 00:09:00,750
+by Thursday.
+
+206
+00:09:00,750 --> 00:09:04,140
+Thankfully zero people said they
+started it the morning of it being due.
+
+207
+00:09:04,140 --> 00:09:05,550
+So that's a little something.
+
+208
+00:09:05,550 --> 00:09:07,827
+And then lastly, when
+did you watch lectures?
+
+209
+00:09:07,827 --> 00:09:09,660
+So it seems that Monday
+was the common case.
+
+210
+00:09:09,660 --> 00:09:12,810
+Some folks tuned in live on Friday
+or watched it on demand thereafter,
+
+211
+00:09:12,810 --> 00:09:14,460
+Saturday, Sunday being common.
+
+212
+00:09:14,460 --> 00:09:17,460
+And then there's perhaps
+correlation between the blue Sunday
+
+213
+00:09:17,460 --> 00:09:20,710
+and the blue Sunday for
+problem sets as well.
+
+214
+00:09:20,710 --> 00:09:24,510
+So just to give you a sense
+of your own patterns as well.
+
+215
+00:09:24,510 --> 00:09:25,740
+So where did we begin?
+
+216
+00:09:25,740 --> 00:09:28,950
+So you recalled that we came
+on up here some 12 weeks ago
+
+217
+00:09:28,950 --> 00:09:32,152
+and played this, IVs hardest game,
+which was a game written in Scratch
+
+218
+00:09:32,152 --> 00:09:34,110
+but was all about trying
+to solve some problem.
+
+219
+00:09:34,110 --> 00:09:37,470
+And we distilled this notion of problem
+solving really into this black box.
+
+220
+00:09:37,470 --> 00:09:41,190
+At the end of the day, all problem
+solving is is you've got some input--
+
+221
+00:09:41,190 --> 00:09:43,980
+and we happen to represent them
+in so many different ways, zeros
+
+222
+00:09:43,980 --> 00:09:47,610
+and ones, letters of the alphabet,
+colors and files, and web requests,
+
+223
+00:09:47,610 --> 00:09:48,330
+and more.
+
+224
+00:09:48,330 --> 00:09:51,060
+But at the end of the day, what
+you care about is the outputs.
+
+225
+00:09:51,060 --> 00:09:53,670
+And the secret sauce in the
+middle, we've kept calling what?
+
+226
+00:09:53,670 --> 00:09:58,060
+
+
+227
+00:09:58,060 --> 00:10:02,390
+OK, you're wearing the I took CF50
+shirt, so you better have an answer.
+
+228
+00:10:02,390 --> 00:10:05,615
+What's inside the box?
+
+229
+00:10:05,615 --> 00:10:07,190
+Grhythms, exactly.
+
+230
+00:10:07,190 --> 00:10:11,781
+Yeah, algorithms is this
+sort of fancy sounding term
+
+231
+00:10:11,781 --> 00:10:15,030
+that really is just these step by step
+instructions for solving some problems.
+
+232
+00:10:15,030 --> 00:10:18,222
+And whether we've solve these problems
+in Scratch or in C or in Python
+
+233
+00:10:18,222 --> 00:10:20,930
+or in [? Secord ?] or in JavaScript,
+these really are just tools.
+
+234
+00:10:20,930 --> 00:10:23,140
+And hopefully you found,
+albeit with deliberately
+
+235
+00:10:23,140 --> 00:10:24,890
+a bit of frustration
+in recent weeks where
+
+236
+00:10:24,890 --> 00:10:28,460
+you had to Google a bit more on your
+own or you had to ask more questions,
+
+237
+00:10:28,460 --> 00:10:29,777
+hopefully you felt--
+
+238
+00:10:29,777 --> 00:10:31,610
+though perhaps not
+pleasurably at the time--
+
+239
+00:10:31,610 --> 00:10:33,980
+that the training wheels were
+really starting to come off
+
+240
+00:10:33,980 --> 00:10:37,010
+and that the expectations were more on
+your end to sort of figure something
+
+241
+00:10:37,010 --> 00:10:37,510
+out.
+
+242
+00:10:37,510 --> 00:10:40,220
+But hopefully, we hope you had
+the right mental model with which
+
+243
+00:10:40,220 --> 00:10:46,170
+to figure out what resources to use and
+how to go about solving those problems.
+
+244
+00:10:46,170 --> 00:10:49,700
+And so indeed, allow us
+to propose to you what you
+
+245
+00:10:49,700 --> 00:10:52,040
+can do after CF50, very pragmatically.
+
+246
+00:10:52,040 --> 00:10:54,650
+If your interest lies specifically
+in software development,
+
+247
+00:10:54,650 --> 00:10:56,400
+you'll hear at the end
+of today's lecture,
+
+248
+00:10:56,400 --> 00:10:59,990
+too, a number of other directions you
+can go, particularly by way of classes
+
+249
+00:10:59,990 --> 00:11:03,005
+but with j term on the horizon
+and summer on the horizon
+
+250
+00:11:03,005 --> 00:11:04,867
+and perhaps jobs on
+some of your minds, we
+
+251
+00:11:04,867 --> 00:11:07,700
+thought we'd give you a glimpse of
+just some of the practical things
+
+252
+00:11:07,700 --> 00:11:09,991
+that you might want to keep
+in mind that will generally
+
+253
+00:11:09,991 --> 00:11:12,750
+be assumed by some other
+high level systems classes.
+
+254
+00:11:12,750 --> 00:11:16,160
+But just how can you write
+code and solve problems
+
+255
+00:11:16,160 --> 00:11:19,810
+without CS50, without CS50 [? ide, ?]
+and certainly without a problem
+
+256
+00:11:19,810 --> 00:11:22,820
+set specification that
+just tells you what to do?
+
+257
+00:11:22,820 --> 00:11:24,087
+So learning git.
+
+258
+00:11:24,087 --> 00:11:27,170
+This is something you've used underneath
+the hood for some amount of time,
+
+259
+00:11:27,170 --> 00:11:28,919
+and there's many
+different implementations
+
+260
+00:11:28,919 --> 00:11:31,460
+of this notion of version control.
+
+261
+00:11:31,460 --> 00:11:32,750
+And git is not the only one.
+
+262
+00:11:32,750 --> 00:11:34,190
+It's perhaps the most
+popular these days.
+
+263
+00:11:34,190 --> 00:11:36,023
+So many of the things
+we'll suggest here you
+
+264
+00:11:36,023 --> 00:11:38,002
+could absolutely sub
+out for something else.
+
+265
+00:11:38,002 --> 00:11:39,710
+But this certainly is
+very much in vogue.
+
+266
+00:11:39,710 --> 00:11:41,960
+And so if you go to this
+URL here at some point,
+
+267
+00:11:41,960 --> 00:11:44,090
+CF50 own Brian or
+[? Hadeie ?] in Cambridge
+
+268
+00:11:44,090 --> 00:11:46,670
+did a fantastic seminar
+on how to learn git.
+
+269
+00:11:46,670 --> 00:11:49,415
+We'll post all these slides on
+the website after today as well.
+
+270
+00:11:49,415 --> 00:11:53,450
+And here's Brian from
+that very same thing.
+
+271
+00:11:53,450 --> 00:11:56,720
+If you want to keep your own projects,
+whether academically or professionally
+
+272
+00:11:56,720 --> 00:11:59,660
+private, GitHub's great about
+giving you free access to this.
+
+273
+00:11:59,660 --> 00:12:03,170
+So even though all your work thus
+far has been in CF50's account,
+
+274
+00:12:03,170 --> 00:12:06,500
+our organization called [INAUDIBLE]
+50, you can head here and actually
+
+275
+00:12:06,500 --> 00:12:08,750
+sign up for free accounts
+to continue using that,
+
+276
+00:12:08,750 --> 00:12:11,450
+and you'll see a little
+screen a bit like this.
+
+277
+00:12:11,450 --> 00:12:13,520
+Installing git on your
+own Mac or PC-- and this
+
+278
+00:12:13,520 --> 00:12:15,770
+is where really you can
+force yourself to take off
+
+279
+00:12:15,770 --> 00:12:16,970
+some of the training wheels.
+
+280
+00:12:16,970 --> 00:12:21,110
+CF50 ide is meant to be pretty
+representative of a real world software
+
+281
+00:12:21,110 --> 00:12:22,177
+development environment.
+
+282
+00:12:22,177 --> 00:12:23,510
+But it's of course, cloud based.
+
+283
+00:12:23,510 --> 00:12:26,630
+And even I get annoyed if I'm taken
+Amtrak down here from Cambridge trying
+
+284
+00:12:26,630 --> 00:12:29,480
+to use it because of the latency
+or weak internet connection,
+
+285
+00:12:29,480 --> 00:12:33,440
+and I don't necessarily have as much
+control as I might on my own Mac or PC.
+
+286
+00:12:33,440 --> 00:12:36,830
+And so among the options, of course, are
+to install these very same tools there,
+
+287
+00:12:36,830 --> 00:12:38,090
+among them a text editor.
+
+288
+00:12:38,090 --> 00:12:40,970
+There's dozens of these if
+not hundreds over the years.
+
+289
+00:12:40,970 --> 00:12:43,640
+One of the most popular perhaps
+is called Sublime Text, which
+
+290
+00:12:43,640 --> 00:12:45,230
+you can download at this URL here.
+
+291
+00:12:45,230 --> 00:12:47,630
+And this would be the equivalent
+of the little tab code
+
+292
+00:12:47,630 --> 00:12:50,000
+windows that just come with CF50 ide.
+
+293
+00:12:50,000 --> 00:12:52,010
+But you can use it on your own computer.
+
+294
+00:12:52,010 --> 00:12:55,100
+And you'll see a little something
+like this with nice and fancy features
+
+295
+00:12:55,100 --> 00:12:56,933
+that are intellectually
+interesting but just
+
+296
+00:12:56,933 --> 00:12:59,210
+save you time at the end of the day.
+
+297
+00:12:59,210 --> 00:13:02,450
+Atom is a very popular one as well,
+which you can take a look at online,
+
+298
+00:13:02,450 --> 00:13:03,170
+too.
+
+299
+00:13:03,170 --> 00:13:04,670
+It, too, is freely available.
+
+300
+00:13:04,670 --> 00:13:06,770
+And then Vim and more
+command line based tools.
+
+301
+00:13:06,770 --> 00:13:08,737
+Actually, to this day
+I still use Vim myself.
+
+302
+00:13:08,737 --> 00:13:11,570
+If you've ever seen me in lecture
+open a black and white window that
+
+303
+00:13:11,570 --> 00:13:14,510
+isn't the tabbed code window
+but via plug-ins and the like,
+
+304
+00:13:14,510 --> 00:13:18,080
+can you make this type of tool and
+others like it, [? EMAX ?] and beyond,
+
+305
+00:13:18,080 --> 00:13:20,900
+ever more versatile as well.
+
+306
+00:13:20,900 --> 00:13:24,800
+Besides that, in FAQ, apropos
+of final projects coming up,
+
+307
+00:13:24,800 --> 00:13:27,290
+is that many students end up
+doing mobile applications,
+
+308
+00:13:27,290 --> 00:13:31,040
+even though we don't teach it per se,
+web applications, which we introduce
+
+309
+00:13:31,040 --> 00:13:33,127
+you to by way of pset 7 and pset 8.
+
+310
+00:13:33,127 --> 00:13:35,960
+So a very common approach as you're
+thinking about over Thanksgiving
+
+311
+00:13:35,960 --> 00:13:39,221
+and beyond your final projects
+is that, if you actually
+
+312
+00:13:39,221 --> 00:13:40,970
+want to put these
+things out there and not
+
+313
+00:13:40,970 --> 00:13:44,094
+think of it as just meeting the
+course's own expectations but something
+
+314
+00:13:44,094 --> 00:13:46,010
+you really want to build
+on and it's something
+
+315
+00:13:46,010 --> 00:13:48,560
+you want to do for your student group
+or your own entrepreneurial effort
+
+316
+00:13:48,560 --> 00:13:51,434
+or for some other class for what
+you want to solve some problem using
+
+317
+00:13:51,434 --> 00:13:55,900
+software, realize you can put these
+things out there using CF50 ide.
+
+318
+00:13:55,900 --> 00:13:58,810
+For instance, if you go to the
+Share button in our own ide,
+
+319
+00:13:58,810 --> 00:14:00,290
+you'll see an interface like this.
+
+320
+00:14:00,290 --> 00:14:02,960
+And so long as you make the
+so-called application public,
+
+321
+00:14:02,960 --> 00:14:05,630
+then anyone on the
+internet can visit that URL
+
+322
+00:14:05,630 --> 00:14:10,102
+and try out your CF50 finance or your
+mashup or now your final project.
+
+323
+00:14:10,102 --> 00:14:11,810
+Of course, with these
+free accounts, they
+
+324
+00:14:11,810 --> 00:14:14,143
+tend to shut off after some
+number of hours of idleness.
+
+325
+00:14:14,143 --> 00:14:16,490
+So it's not the way to run
+a website that you actually
+
+326
+00:14:16,490 --> 00:14:18,450
+want friends to use for some time.
+
+327
+00:14:18,450 --> 00:14:21,080
+So using things like [INAUDIBLE]
+is a very popular service.
+
+328
+00:14:21,080 --> 00:14:23,000
+And ask any of the TAs
+or staff over time,
+
+329
+00:14:23,000 --> 00:14:26,180
+and we'll post some links online
+as well to get started on this.
+
+330
+00:14:26,180 --> 00:14:29,300
+AWS, Amazon's cloud service,
+and Microsoft has one,
+
+331
+00:14:29,300 --> 00:14:30,470
+and Google has one as well.
+
+332
+00:14:30,470 --> 00:14:32,300
+Can you sign up for free accounts there.
+
+333
+00:14:32,300 --> 00:14:34,760
+And you can actually get
+your own free domain names.
+
+334
+00:14:34,760 --> 00:14:36,468
+If this is of interest
+and you don't want
+
+335
+00:14:36,468 --> 00:14:38,300
+it to be some cryptic
+sounding domain name,
+
+336
+00:14:38,300 --> 00:14:41,690
+you can actually get them from free from
+companies like namecheap and the like,
+
+337
+00:14:41,690 --> 00:14:44,390
+leveraging your student
+status for the next few years
+
+338
+00:14:44,390 --> 00:14:48,140
+to take advantage of all
+these resources for free.
+
+339
+00:14:48,140 --> 00:14:50,089
+And this one in particular
+at GitHub's address
+
+340
+00:14:50,089 --> 00:14:52,130
+gives you access to a lot
+of tools that you might
+
+341
+00:14:52,130 --> 00:14:56,000
+want to experiment with and try out.
+
+342
+00:14:56,000 --> 00:14:59,210
+So where will we head
+in the coming days?
+
+343
+00:14:59,210 --> 00:15:03,470
+The sort of hardest parts, perhaps, are
+behind us, with the test and the quiz
+
+344
+00:15:03,470 --> 00:15:06,887
+and all of the problem sets, and all
+that remains now is the final project.
+
+345
+00:15:06,887 --> 00:15:09,470
+And the hope here really is to
+take all of the training wheels
+
+346
+00:15:09,470 --> 00:15:11,330
+off and give you a
+chance to sort of build
+
+347
+00:15:11,330 --> 00:15:12,680
+something that's genuinely of interest.
+
+348
+00:15:12,680 --> 00:15:14,360
+Hopefully it will solve
+some problem of interest
+
+349
+00:15:14,360 --> 00:15:17,317
+to you or, again, your student group,
+or something you're working on.
+
+350
+00:15:17,317 --> 00:15:20,150
+And you'll have 12 hours if you'd
+like to join us in Cambridge, just
+
+351
+00:15:20,150 --> 00:15:23,720
+as your predecessors did last year, to
+hop on a bus in just a couple of weeks
+
+352
+00:15:23,720 --> 00:15:24,230
+time.
+
+353
+00:15:24,230 --> 00:15:27,230
+Come on down to Cambridge
+for a 7:00 PM or so start.
+
+354
+00:15:27,230 --> 00:15:31,700
+Upon arrival, you'll be greeted by
+the staff from Cambridge and New Haven
+
+355
+00:15:31,700 --> 00:15:32,510
+alike.
+
+356
+00:15:32,510 --> 00:15:35,450
+You'll get settled down
+and grab a name tag
+
+357
+00:15:35,450 --> 00:15:39,020
+and find a place to sit
+and work on your laptops
+
+358
+00:15:39,020 --> 00:15:40,580
+for pretty much throughout the night.
+
+359
+00:15:40,580 --> 00:15:42,890
+The goal is to actually
+get something useful done.
+
+360
+00:15:42,890 --> 00:15:45,237
+Ideally it is now to
+start your final project,
+
+361
+00:15:45,237 --> 00:15:47,070
+since starting it at
+the middle of the night
+
+362
+00:15:47,070 --> 00:15:48,486
+is probably not the best strategy.
+
+363
+00:15:48,486 --> 00:15:51,650
+And in fact, if you take nothing
+else away in the way of advice today,
+
+364
+00:15:51,650 --> 00:15:54,320
+get something done over
+Thanksgiving truly,
+
+365
+00:15:54,320 --> 00:15:57,530
+even if it's just hello world,
+if you're making an iOS app,
+
+366
+00:15:57,530 --> 00:16:01,370
+or hello world if you're making
+Android, or copying problem set 7
+
+367
+00:16:01,370 --> 00:16:03,590
+or problem set 8 and
+then building upon it
+
+368
+00:16:03,590 --> 00:16:05,400
+or starting to for your final project.
+
+369
+00:16:05,400 --> 00:16:07,772
+Just like give yourself
+that base layer on top
+
+370
+00:16:07,772 --> 00:16:10,980
+of which you can build when you actually
+arrive at an event like this or dive
+
+371
+00:16:10,980 --> 00:16:12,374
+in on your own.
+
+372
+00:16:12,374 --> 00:16:15,290
+The evening will be punctuated by
+opportunities to ask the staff help.
+
+373
+00:16:15,290 --> 00:16:17,120
+But it won't be like 12
+hours of office hours.
+
+374
+00:16:17,120 --> 00:16:19,730
+The staff will be there, but generally
+working on their own projects
+
+375
+00:16:19,730 --> 00:16:21,688
+and there to advise you
+or point you at things,
+
+376
+00:16:21,688 --> 00:16:24,510
+but not necessarily to solve
+problems in the same way,
+
+377
+00:16:24,510 --> 00:16:28,910
+since your projects will be as
+unfamiliar to us as they are to you.
+
+378
+00:16:28,910 --> 00:16:30,730
+But we'll point you
+at what we might know.
+
+379
+00:16:30,730 --> 00:16:32,690
+And it'll be an opportunity
+really just to have
+
+380
+00:16:32,690 --> 00:16:35,720
+what we hope is a pretty memorable
+collegiate experience, working
+
+381
+00:16:35,720 --> 00:16:42,320
+on final projects, having some Mexican
+food around 9 PM, pizza around 1:00 AM.
+
+382
+00:16:42,320 --> 00:16:45,554
+And then if beyond the photo
+booth and other distractions,
+
+383
+00:16:45,554 --> 00:16:47,720
+if you need a little break
+here and there, including
+
+384
+00:16:47,720 --> 00:16:48,920
+a therapy dog this year--
+
+385
+00:16:48,920 --> 00:16:55,370
+Milo-- and naps throughout the
+evening, as happened last year as well,
+
+386
+00:16:55,370 --> 00:16:57,730
+if you make it all the way
+to 5:00 AM, one of the buses,
+
+387
+00:16:57,730 --> 00:17:00,230
+if you're still up for it, I'm
+on the way back to New Haven.
+
+388
+00:17:00,230 --> 00:17:03,034
+We'll stop off at IHOP for
+breakfast for those still awake.
+
+389
+00:17:03,034 --> 00:17:05,700
+And if you're too tired at that
+point, one of the other shuttles
+
+390
+00:17:05,700 --> 00:17:08,030
+will head back in a different
+direction altogether.
+
+391
+00:17:08,030 --> 00:17:11,780
+And then the CF50 fair, which is here
+in New Haven for all Yale students
+
+392
+00:17:11,780 --> 00:17:13,582
+and faculty and staff to come to.
+
+393
+00:17:13,582 --> 00:17:15,290
+This is meant to be
+an opportunity really
+
+394
+00:17:15,290 --> 00:17:18,194
+to delight in what you pull off over
+the remaining weeks of the class
+
+395
+00:17:18,194 --> 00:17:21,319
+and really what you accomplished over
+the course of the semester since week
+
+396
+00:17:21,319 --> 00:17:21,890
+0.
+
+397
+00:17:21,890 --> 00:17:25,460
+Last year's event was in Commons,
+which is currently offline, but has
+
+398
+00:17:25,460 --> 00:17:28,250
+over 1,000 people of students
+and staff and faculty
+
+399
+00:17:28,250 --> 00:17:30,470
+coming by to really see
+what you've worked on.
+
+400
+00:17:30,470 --> 00:17:31,940
+And it's a very casual environment.
+
+401
+00:17:31,940 --> 00:17:34,398
+There's music, and there's
+friends from industry and alumni
+
+402
+00:17:34,398 --> 00:17:36,449
+there to chat up everyone is well.
+
+403
+00:17:36,449 --> 00:17:38,990
+And here's a group of students
+presenting their final project
+
+404
+00:17:38,990 --> 00:17:42,417
+last year, the same kind
+of thing happening here,
+
+405
+00:17:42,417 --> 00:17:44,750
+and then even some hardware
+demonstrations like this one
+
+406
+00:17:44,750 --> 00:17:45,616
+involving VR.
+
+407
+00:17:45,616 --> 00:17:48,740
+So it's really just a fun opportunity
+to get everyone together before break
+
+408
+00:17:48,740 --> 00:17:51,860
+to see what everyone has accomplished
+over the course of the term.
+
+409
+00:17:51,860 --> 00:17:54,110
+And alumni, indeed, come
+back from Facebook and Google
+
+410
+00:17:54,110 --> 00:17:57,470
+and the like to chat up folks about
+opportunities in the real world
+
+411
+00:17:57,470 --> 00:17:58,254
+as well.
+
+412
+00:17:58,254 --> 00:18:00,920
+And at the end of it all, in
+addition to cotton candy, as you'll
+
+413
+00:18:00,920 --> 00:18:05,330
+see we have we have
+and before then, your I
+
+414
+00:18:05,330 --> 00:18:10,980
+took CF50 t-shirt to claim
+hopefully proudly exactly that.
+
+415
+00:18:10,980 --> 00:18:13,737
+An invitation though
+is certainly warranted.
+
+416
+00:18:13,737 --> 00:18:16,820
+This year's event will be in a fairly
+special place, no longer in Commons,
+
+417
+00:18:16,820 --> 00:18:19,460
+but in the Peabody Museum,
+if you've ever been there.
+
+418
+00:18:19,460 --> 00:18:23,180
+So in addition to the very modern
+things like laptops and apps, well
+
+419
+00:18:23,180 --> 00:18:25,550
+you'll also see some
+things from yesteryear.
+
+420
+00:18:25,550 --> 00:18:27,670
+Let's take a look, in fact, what awaits.
+
+421
+00:18:27,670 --> 00:18:29,583
+Thanks to [? Stelios ?]
+and [? Inusery. ?]
+
+422
+00:18:29,583 --> 00:18:32,541
+[VIDEO PLAYBACK]
+
+423
+00:18:32,541 --> 00:18:53,260
+
+
+424
+00:18:53,260 --> 00:18:55,222
+- Join us at the CF50 fair.
+
+425
+00:18:55,222 --> 00:18:59,190
+
+
+426
+00:18:59,190 --> 00:19:01,670
+[BABY SOUNDS]
+
+427
+00:19:01,670 --> 00:19:03,158
+
+
+428
+00:19:03,158 --> 00:19:04,660
+[END PLAYBACK]
+
+429
+00:19:04,660 --> 00:19:08,170
+SPEAKER 1: So at the very end of today's
+lecture, after we take a look at some
+
+430
+00:19:08,170 --> 00:19:11,350
+follow on classes and CS, you'll
+be joined, as is our tradition,
+
+431
+00:19:11,350 --> 00:19:13,270
+by the staff for some cake in back.
+
+432
+00:19:13,270 --> 00:19:17,567
+So do join us and the faculty you
+were with us today for exactly that.
+
+433
+00:19:17,567 --> 00:19:20,650
+I thought we'd conclude our beginning
+portion of the lecture 2 with a look
+
+434
+00:19:20,650 --> 00:19:24,070
+back at this semester, but again, in
+addition to this very practical advice
+
+435
+00:19:24,070 --> 00:19:28,030
+in these next steps that we've offered,
+do keep in mind that we hope ultimately
+
+436
+00:19:28,030 --> 00:19:31,690
+that, since week 0 now
+here in week 11, you really
+
+437
+00:19:31,690 --> 00:19:33,790
+do feel empowered and
+all the more equipped
+
+438
+00:19:33,790 --> 00:19:37,420
+to explore other fields of
+other areas of computer science.
+
+439
+00:19:37,420 --> 00:19:40,414
+But even if you choose for CS50
+or any other science classes
+
+440
+00:19:40,414 --> 00:19:43,330
+to be your last, that you can now
+bring to bear some of these concepts
+
+441
+00:19:43,330 --> 00:19:45,954
+and these practical skills back
+to the arts and the humanities,
+
+442
+00:19:45,954 --> 00:19:49,960
+social sciences, and beyond to actually
+solve problems using computing and data
+
+443
+00:19:49,960 --> 00:19:52,010
+all the more effectively.
+
+444
+00:19:52,010 --> 00:19:57,550
+So in a final sentimental note, a
+look back at CF50 this past year
+
+445
+00:19:57,550 --> 00:19:58,885
+starring you.
+
+446
+00:19:58,885 --> 00:20:01,360
+[VIDEO PLAYBACK]
+
+447
+00:20:01,360 --> 00:20:05,801
+
+
+448
+00:20:05,801 --> 00:20:07,300
+[MUSIC - BIRDY, "KEEP YOUR HEAD UP"]
+
+449
+00:20:07,300 --> 00:20:14,920
+Times that I've seen you lose your way,
+not in control, and you won't be told.
+
+450
+00:20:14,920 --> 00:20:21,310
+All I can do to keep you safe
+is hold you close, hold you
+
+451
+00:20:21,310 --> 00:20:34,108
+close till you can breath on your
+own, till you can breath on your own.
+
+452
+00:20:34,108 --> 00:20:38,076
+
+
+453
+00:20:38,076 --> 00:20:39,068
+Hold tight.
+
+454
+00:20:39,068 --> 00:20:42,044
+You're slowly coming back to life.
+
+455
+00:20:42,044 --> 00:20:44,028
+I'll be keeping your head up.
+
+456
+00:20:44,028 --> 00:20:46,012
+I'll be keeping your head up, darling.
+
+457
+00:20:46,012 --> 00:20:49,980
+Let go of all your
+haunted dreams tonight.
+
+458
+00:20:49,980 --> 00:20:51,964
+I'll be keeping your head up.
+
+459
+00:20:51,964 --> 00:20:53,948
+I'll be keeping your head up, darling.
+
+460
+00:20:53,948 --> 00:20:54,940
+Hold tight.
+
+461
+00:20:54,940 --> 00:20:57,916
+You're slowly coming back to life.
+
+462
+00:20:57,916 --> 00:20:59,900
+I'll be keeping your head up.
+
+463
+00:20:59,900 --> 00:21:01,884
+I'll be keeping your head up, darling.
+
+464
+00:21:01,884 --> 00:21:05,356
+Let go of all your
+haunted dreams tonight.
+
+465
+00:21:05,356 --> 00:21:07,340
+I'll be keeping your head up.
+
+466
+00:21:07,340 --> 00:21:10,812
+I'll be keeping your head up.
+
+467
+00:21:10,812 --> 00:21:15,767
+And I won't let you down.
+
+468
+00:21:15,767 --> 00:21:16,350
+[END PLAYBACK]
+
+469
+00:21:16,350 --> 00:21:17,558
+SPEAKER 1: Thank you so much.
+
+470
+00:21:17,558 --> 00:21:20,640
+Let me turn things over to Benedict,
+and I'll see you in a bit for cake.
+
+471
+00:21:20,640 --> 00:21:24,120
+BENEDICT: Thank you, of course, to
+David and Doug and the whole CS50
+
+472
+00:21:24,120 --> 00:21:30,240
+team at Harvard for a fabulous semester,
+to all of you for a fabulous semester,
+
+473
+00:21:30,240 --> 00:21:36,270
+to Natalie and the rest
+of our staff here at Yale,
+
+474
+00:21:36,270 --> 00:21:40,050
+and also to Judy Page and Sue
+Hurlburt who you don't see but,
+
+475
+00:21:40,050 --> 00:21:45,180
+Natalie and I work closely
+with, to make this class happen.
+
+476
+00:21:45,180 --> 00:21:48,570
+We're really excited by how well it's
+been going, how well you guys have all
+
+477
+00:21:48,570 --> 00:21:49,800
+been doing.
+
+478
+00:21:49,800 --> 00:21:53,830
+And we really want to see you
+all around the department.
+
+479
+00:21:53,830 --> 00:21:57,132
+So I'm going to talk for a little
+bit about some of the classes
+
+480
+00:21:57,132 --> 00:22:00,090
+that we're offering in the spring
+that we think you should all consider
+
+481
+00:22:00,090 --> 00:22:01,514
+and that you're all ready to take.
+
+482
+00:22:01,514 --> 00:22:03,930
+And then I'm going to pass it
+off to some of my colleagues
+
+483
+00:22:03,930 --> 00:22:07,740
+who are also teaching
+classes this spring, that you
+
+484
+00:22:07,740 --> 00:22:08,940
+may want to consider taking.
+
+485
+00:22:08,940 --> 00:22:12,180
+And again, that you
+can jump right into--
+
+486
+00:22:12,180 --> 00:22:15,990
+great ways to explore different aspects
+of computer science, or to know you
+
+487
+00:22:15,990 --> 00:22:18,960
+love this, and you want to
+dive right into the major.
+
+488
+00:22:18,960 --> 00:22:23,310
+So the list here is the classes
+in the spring that do not
+
+489
+00:22:23,310 --> 00:22:27,755
+have any prerequisites beyond CF50.
+
+490
+00:22:27,755 --> 00:22:29,880
+And we'll talk in just a
+few minutes about each one
+
+491
+00:22:29,880 --> 00:22:36,820
+of those and also about 223, which would
+be the logical thing to take after 201.
+
+492
+00:22:36,820 --> 00:22:39,930
+So two of these o35 and 078.
+
+493
+00:22:39,930 --> 00:22:41,190
+These are freshmen seminars.
+
+494
+00:22:41,190 --> 00:22:44,340
+If you're not a freshmen,
+when we talk about these,
+
+495
+00:22:44,340 --> 00:22:47,370
+you should put your fingers in
+your ears and go la la la la,
+
+496
+00:22:47,370 --> 00:22:50,370
+because the university will
+not allow you to take them,
+
+497
+00:22:50,370 --> 00:22:52,570
+and there's nothing that
+we can do about that.
+
+498
+00:22:52,570 --> 00:22:54,278
+But that doesn't make
+them any less cool.
+
+499
+00:22:54,278 --> 00:22:58,134
+If you are a freshmen, pay attention
+because you get one shot at this
+
+500
+00:22:58,134 --> 00:23:01,050
+and then hopefully you're no longer
+a freshmen and you're out of luck.
+
+501
+00:23:01,050 --> 00:23:04,030
+
+
+502
+00:23:04,030 --> 00:23:12,600
+We have 200 and 201, which
+are some of our core sequence
+
+503
+00:23:12,600 --> 00:23:16,470
+and an entrepreneurship class
+and a digital humanities class,
+
+504
+00:23:16,470 --> 00:23:20,910
+and then of course data structures
+that is kind of, after that,
+
+505
+00:23:20,910 --> 00:23:24,240
+all of our upper level classes open up.
+
+506
+00:23:24,240 --> 00:23:27,030
+So we also have a bunch of majors.
+
+507
+00:23:27,030 --> 00:23:29,280
+And this is something that
+you may or may not realize.
+
+508
+00:23:29,280 --> 00:23:33,360
+We are not just a peer
+computer science major.
+
+509
+00:23:33,360 --> 00:23:34,590
+That's a great thing to do.
+
+510
+00:23:34,590 --> 00:23:35,670
+I did that.
+
+511
+00:23:35,670 --> 00:23:38,230
+I survived I enjoyed it.
+
+512
+00:23:38,230 --> 00:23:45,720
+But there's also ways to do a computer
+science plus math or psychology
+
+513
+00:23:45,720 --> 00:23:50,010
+or engineering major,
+electrical engineering, where
+
+514
+00:23:50,010 --> 00:23:54,750
+you take roughly the same number
+of classes as a single major,
+
+515
+00:23:54,750 --> 00:23:58,620
+but you split them
+between two disciplines.
+
+516
+00:23:58,620 --> 00:24:02,550
+And those ones are pretty
+natural combinations,
+
+517
+00:24:02,550 --> 00:24:05,987
+but we also have a computing
+in the arts major, which is
+
+518
+00:24:05,987 --> 00:24:07,570
+a little different than a joint major.
+
+519
+00:24:07,570 --> 00:24:10,710
+It's its own distinct major, which
+means it has its own distinct director
+
+520
+00:24:10,710 --> 00:24:12,660
+of undergraduate studies.
+
+521
+00:24:12,660 --> 00:24:16,320
+But here you combine about six
+classes in computer science
+
+522
+00:24:16,320 --> 00:24:20,470
+with about six classes in
+one of the arts disciplines.
+
+523
+00:24:20,470 --> 00:24:25,080
+So that could be architecture or
+fine arts or history of art or music
+
+524
+00:24:25,080 --> 00:24:29,070
+or theater, and these are all areas
+where Yale is also really strong.
+
+525
+00:24:29,070 --> 00:24:34,380
+And its a great way to look at ways that
+you can use computer science together
+
+526
+00:24:34,380 --> 00:24:39,150
+with other disciplines and also ways
+that you can pursue multiple interests.
+
+527
+00:24:39,150 --> 00:24:42,690
+Students graduate out of this and go
+on to get all sorts of jobs, including
+
+528
+00:24:42,690 --> 00:24:45,060
+all of the same jobs
+that you typically think
+
+529
+00:24:45,060 --> 00:24:47,310
+of a computer science major getting.
+
+530
+00:24:47,310 --> 00:24:52,590
+But it opens the door to other things as
+well and to exploring other interests.
+
+531
+00:24:52,590 --> 00:24:57,180
+So the computing in the arts major--
+just a little bit more about it.
+
+532
+00:24:57,180 --> 00:24:59,090
+This is an interdepartmental major.
+
+533
+00:24:59,090 --> 00:25:05,760
+We've got these different groups set
+up, where you take six computer science
+
+534
+00:25:05,760 --> 00:25:12,210
+courses, including the core, and
+then you take about six classes
+
+535
+00:25:12,210 --> 00:25:15,960
+from one of the other
+departments, and that way you
+
+536
+00:25:15,960 --> 00:25:21,500
+get the grounding in computer science
+and the experience with that, and then
+
+537
+00:25:21,500 --> 00:25:22,350
+a discipline.
+
+538
+00:25:22,350 --> 00:25:25,100
+And then you start to think about
+how you can apply them together.
+
+539
+00:25:25,100 --> 00:25:27,960
+
+
+540
+00:25:27,960 --> 00:25:29,880
+So architecture of course
+is building things,
+
+541
+00:25:29,880 --> 00:25:33,630
+and that's becoming very
+computational using computer science
+
+542
+00:25:33,630 --> 00:25:35,820
+to develop new structures--
+
+543
+00:25:35,820 --> 00:25:36,750
+art as well.
+
+544
+00:25:36,750 --> 00:25:39,390
+
+
+545
+00:25:39,390 --> 00:25:41,640
+Art history-- this is an area--
+
+546
+00:25:41,640 --> 00:25:43,769
+I work a lot with conservators
+and archaeologists,
+
+547
+00:25:43,769 --> 00:25:45,060
+and I'll be talking about that.
+
+548
+00:25:45,060 --> 00:25:47,850
+
+
+549
+00:25:47,850 --> 00:25:51,030
+And music-- and we'll have
+Scott Peterson talk to you some
+
+550
+00:25:51,030 --> 00:25:53,490
+about computer music.
+
+551
+00:25:53,490 --> 00:25:56,919
+And theater, and again
+these people go off
+
+552
+00:25:56,919 --> 00:25:58,460
+and work at all sorts of cool places.
+
+553
+00:25:58,460 --> 00:26:01,912
+You're not jeopardizing money.
+
+554
+00:26:01,912 --> 00:26:03,870
+You don't have to make
+money you don't want to.
+
+555
+00:26:03,870 --> 00:26:07,350
+I did, after all go into academia.
+
+556
+00:26:07,350 --> 00:26:10,410
+But if you have further
+questions, the person to contact
+
+557
+00:26:10,410 --> 00:26:14,400
+is Professor Dorsey, who is
+unfortunately out of town today.
+
+558
+00:26:14,400 --> 00:26:17,377
+So she couldn't be here.
+
+559
+00:26:17,377 --> 00:26:19,710
+She will also be teaching one
+of these freshmen seminars
+
+560
+00:26:19,710 --> 00:26:26,700
+in the spring on essentially 3D design.
+
+561
+00:26:26,700 --> 00:26:29,520
+In some sense, you don't
+need a technical background.
+
+562
+00:26:29,520 --> 00:26:31,980
+But it is a somewhat technical course.
+
+563
+00:26:31,980 --> 00:26:36,390
+So you guys are well-prepared
+for it, and you'll
+
+564
+00:26:36,390 --> 00:26:41,190
+be talking about 3D scanning, to
+measure shapes of existing objects,
+
+565
+00:26:41,190 --> 00:26:46,440
+how to model on the computer new
+shapes, how to modify 3-D models,
+
+566
+00:26:46,440 --> 00:26:52,715
+how to produce them using things like 3D
+printing and milling and laser cutting.
+
+567
+00:26:52,715 --> 00:26:54,840
+Some of those are things
+we have in the department.
+
+568
+00:26:54,840 --> 00:26:56,070
+We have 3D printers.
+
+569
+00:26:56,070 --> 00:26:58,890
+In CEID, which you can
+also sign up for, there's
+
+570
+00:26:58,890 --> 00:27:02,100
+a whole suite of these
+tools for making things.
+
+571
+00:27:02,100 --> 00:27:04,860
+
+
+572
+00:27:04,860 --> 00:27:08,460
+And, again, you don't need
+any programming experience.
+
+573
+00:27:08,460 --> 00:27:09,900
+All of you have it.
+
+574
+00:27:09,900 --> 00:27:15,660
+You should have essentially high
+school math, high school trigonometry,
+
+575
+00:27:15,660 --> 00:27:18,090
+and you have to be a
+freshmen and you have
+
+576
+00:27:18,090 --> 00:27:22,740
+to pre-register through the freshman
+seminar lottery for which, if you're
+
+577
+00:27:22,740 --> 00:27:26,700
+curious, you may also want
+to talk to your college dean
+
+578
+00:27:26,700 --> 00:27:29,290
+and make sure that you
+understand the process for that.
+
+579
+00:27:29,290 --> 00:27:30,870
+And then it goes into a lottery.
+
+580
+00:27:30,870 --> 00:27:32,640
+And if you're lucky, you get in.
+
+581
+00:27:32,640 --> 00:27:34,930
+So these classes are small.
+
+582
+00:27:34,930 --> 00:27:36,120
+They're limited.
+
+583
+00:27:36,120 --> 00:27:40,860
+The level of math that would
+be involved in this class
+
+584
+00:27:40,860 --> 00:27:43,800
+would be, for example, when
+you're doing 3D scanning,
+
+585
+00:27:43,800 --> 00:27:48,600
+you end up having two cameras, and
+you know the way they're oriented
+
+586
+00:27:48,600 --> 00:27:52,170
+and you know, for instance, that
+they maybe 10 centimeters apart.
+
+587
+00:27:52,170 --> 00:27:55,530
+So if both of them are seeing
+the same point on an object,
+
+588
+00:27:55,530 --> 00:28:00,659
+that forms a triangle and you
+want to know the distance from one
+
+589
+00:28:00,659 --> 00:28:01,950
+of your cameras to the objects.
+
+590
+00:28:01,950 --> 00:28:03,680
+So you can find out how far away it is.
+
+591
+00:28:03,680 --> 00:28:06,810
+And from that, you get shape.
+
+592
+00:28:06,810 --> 00:28:10,680
+And basically, you look at this and
+you say, well, I know the angle alpha,
+
+593
+00:28:10,680 --> 00:28:14,760
+I know the angle beta, I know
+this distance 10 centimeters.
+
+594
+00:28:14,760 --> 00:28:17,280
+I can apply the angle
+side angle theorem to know
+
+595
+00:28:17,280 --> 00:28:19,470
+that I can calculate this point.
+
+596
+00:28:19,470 --> 00:28:24,930
+In particular, there is a law of
+signs that you plug this formula in,
+
+597
+00:28:24,930 --> 00:28:30,540
+and you find out that if these two
+points are 10 centimeters apart,
+
+598
+00:28:30,540 --> 00:28:38,131
+you're looking at something
+that's 13.7 centimeters away.
+
+599
+00:28:38,131 --> 00:28:39,880
+So there's not going
+to be more than that.
+
+600
+00:28:39,880 --> 00:28:41,790
+We're not talking about
+advanced calculus.
+
+601
+00:28:41,790 --> 00:28:45,630
+We're not talking about knowing
+all sorts of programming skills
+
+602
+00:28:45,630 --> 00:28:48,570
+or how 3D models actually work.
+
+603
+00:28:48,570 --> 00:28:52,890
+And it's going to be a combination
+of lectures and labs and discussions.
+
+604
+00:28:52,890 --> 00:28:55,770
+Again, it will be a limited
+size class as a seminar.
+
+605
+00:28:55,770 --> 00:28:57,490
+There will be some guest lectures.
+
+606
+00:28:57,490 --> 00:29:01,320
+You'll take a field trip to blue
+sky that makes the Ice Age movies.
+
+607
+00:29:01,320 --> 00:29:04,335
+They're a big East
+coast animation studio.
+
+608
+00:29:04,335 --> 00:29:06,210
+Again, if you have
+questions about that, talk
+
+609
+00:29:06,210 --> 00:29:09,510
+to Professor Dorsi, who's teaching it.
+
+610
+00:29:09,510 --> 00:29:12,930
+And I definitely encourage you, if
+you're a freshman, to check it out.
+
+611
+00:29:12,930 --> 00:29:15,260
+There's another one
+that all of you can take
+
+612
+00:29:15,260 --> 00:29:19,410
+that I will be teaching which
+is a course on applications
+
+613
+00:29:19,410 --> 00:29:22,400
+in the digital humanities.
+
+614
+00:29:22,400 --> 00:29:25,149
+And this is a brand new course.
+
+615
+00:29:25,149 --> 00:29:26,940
+And so it will adapt
+a little bit depending
+
+616
+00:29:26,940 --> 00:29:30,940
+on exactly who is in the class and
+how many of you are in the class.
+
+617
+00:29:30,940 --> 00:29:33,720
+I hope there's plenty.
+
+618
+00:29:33,720 --> 00:29:35,910
+And the idea is to talk
+about different ways
+
+619
+00:29:35,910 --> 00:29:38,850
+to use computer science
+in the humanities,
+
+620
+00:29:38,850 --> 00:29:43,680
+and then to work in groups on
+projects, on different projects
+
+621
+00:29:43,680 --> 00:29:45,390
+in the digital humanities.
+
+622
+00:29:45,390 --> 00:29:47,610
+And so I'm having discussions
+right now with faculty
+
+623
+00:29:47,610 --> 00:29:53,170
+all over campus about interesting
+projects in their domain
+
+624
+00:29:53,170 --> 00:29:56,580
+so that we'll have a range
+of ideas to start with.
+
+625
+00:29:56,580 --> 00:29:59,460
+But we'll do about half
+the semester talking
+
+626
+00:29:59,460 --> 00:30:02,460
+both about application digital
+humanities, but also about web
+
+627
+00:30:02,460 --> 00:30:04,420
+application development.
+
+628
+00:30:04,420 --> 00:30:08,440
+So these are sort of
+continuing from pset 8--
+
+629
+00:30:08,440 --> 00:30:12,370
+how do you program in JavaScript,
+how do you write Flask applications
+
+630
+00:30:12,370 --> 00:30:16,180
+and go a little more advanced
+than we've done in CS50.
+
+631
+00:30:16,180 --> 00:30:25,090
+How do you write richer web applications
+with richer client side interfaces?
+
+632
+00:30:25,090 --> 00:30:26,620
+And then how do you apply those?
+
+633
+00:30:26,620 --> 00:30:30,790
+It turns out there's all sorts
+of applications in the humanities
+
+634
+00:30:30,790 --> 00:30:32,620
+where you want to
+build databases and can
+
+635
+00:30:32,620 --> 00:30:38,500
+start to ask questions about your data
+and look for connections between things
+
+636
+00:30:38,500 --> 00:30:42,910
+once you have the tools to assemble
+all of that data and to visualize it.
+
+637
+00:30:42,910 --> 00:30:45,680
+And so there will be
+different kinds of things.
+
+638
+00:30:45,680 --> 00:30:47,770
+Some of the ones that
+I have lined up already
+
+639
+00:30:47,770 --> 00:30:53,620
+will be to detect the
+meter in poetry and build
+
+640
+00:30:53,620 --> 00:30:57,550
+a database of meter and different
+poems by different authors
+
+641
+00:30:57,550 --> 00:31:03,850
+and start to look at things like
+is there a particular style of how
+
+642
+00:31:03,850 --> 00:31:09,850
+one poet may play with meter or
+similarities between different poets
+
+643
+00:31:09,850 --> 00:31:17,230
+that you might be able to classify,
+but also as a tool to do this detection
+
+644
+00:31:17,230 --> 00:31:21,500
+and help the process along
+a good interface for it.
+
+645
+00:31:21,500 --> 00:31:25,780
+There is one with the Yale
+Babylonian collection,
+
+646
+00:31:25,780 --> 00:31:29,800
+to build a really good database,
+not just for saying let a search
+
+647
+00:31:29,800 --> 00:31:32,890
+a cylinder seal and see
+a pretty picture of it
+
+648
+00:31:32,890 --> 00:31:35,650
+and see all of the
+data we have about it,
+
+649
+00:31:35,650 --> 00:31:39,010
+but also see context, see
+relationships to other cylinder seals,
+
+650
+00:31:39,010 --> 00:31:42,190
+be able to say, ah, this one
+has a carving of a stag on it.
+
+651
+00:31:42,190 --> 00:31:45,520
+Let me find the other ones that
+have carvings of stags on them
+
+652
+00:31:45,520 --> 00:31:49,047
+and try and find relationships
+and connections between them
+
+653
+00:31:49,047 --> 00:31:50,380
+that can be useful for research.
+
+654
+00:31:50,380 --> 00:31:52,900
+
+
+655
+00:31:52,900 --> 00:31:56,830
+Another interesting one that
+I learned about yesterday is
+
+656
+00:31:56,830 --> 00:32:01,531
+potentially to curator essentially
+the public art on campus--
+
+657
+00:32:01,531 --> 00:32:03,280
+so all of the stone
+carvings on buildings,
+
+658
+00:32:03,280 --> 00:32:05,440
+all of the paintings
+hanging in buildings,
+
+659
+00:32:05,440 --> 00:32:08,050
+and understand what we
+have on campus, what
+
+660
+00:32:08,050 --> 00:32:12,730
+we know about the provenance and
+history and state of preservation,
+
+661
+00:32:12,730 --> 00:32:17,290
+what things we should really take down.
+
+662
+00:32:17,290 --> 00:32:20,680
+And then how do we present
+those and contextualize them?
+
+663
+00:32:20,680 --> 00:32:22,390
+So I took this picture yesterday.
+
+664
+00:32:22,390 --> 00:32:25,240
+You may have seen a similar
+picture in the newspaper.
+
+665
+00:32:25,240 --> 00:32:29,080
+This is a carving that was on
+the outside of Sterling Library
+
+666
+00:32:29,080 --> 00:32:31,690
+right near the entrance to the CTL.
+
+667
+00:32:31,690 --> 00:32:34,660
+And somebody noticed I
+think last summer that there
+
+668
+00:32:34,660 --> 00:32:39,070
+was this carving on a back entrance
+of a pilgrim shooting an Indian.
+
+669
+00:32:39,070 --> 00:32:42,730
+And you stop and scratch
+your head and say,
+
+670
+00:32:42,730 --> 00:32:46,700
+there's nobody that really thinks
+that's in good taste any longer.
+
+671
+00:32:46,700 --> 00:32:49,960
+And so maybe we should
+not put it somewhere
+
+672
+00:32:49,960 --> 00:32:52,900
+that is now becoming a prominent
+entrance to the library.
+
+673
+00:32:52,900 --> 00:32:56,920
+So it's sitting on West Campus in
+the conservation lab at the moment.
+
+674
+00:32:56,920 --> 00:33:02,350
+But these are sorts of questions that
+you might be looking into and asking.
+
+675
+00:33:02,350 --> 00:33:06,580
+Working with me on ways
+to look at potential
+
+676
+00:33:06,580 --> 00:33:09,573
+matches between fragments
+of ancient wall paintings.
+
+677
+00:33:09,573 --> 00:33:12,260
+
+
+678
+00:33:12,260 --> 00:33:14,590
+These are fragments of wall
+paintings from Roman times,
+
+679
+00:33:14,590 --> 00:33:17,960
+from about 2000 years ago for example.
+
+680
+00:33:17,960 --> 00:33:22,360
+So a range of different sorts
+of projects, some with music,
+
+681
+00:33:22,360 --> 00:33:23,350
+and that's what--
+
+682
+00:33:23,350 --> 00:33:27,409
+I'm hoping to then bring in
+some computer scientists,
+
+683
+00:33:27,409 --> 00:33:29,200
+some people interested
+in computer science,
+
+684
+00:33:29,200 --> 00:33:31,075
+some are interested in
+computer and the arts,
+
+685
+00:33:31,075 --> 00:33:34,780
+some interested really in just in
+the applications to their domains
+
+686
+00:33:34,780 --> 00:33:39,580
+to get a dynamic atmosphere where
+you're learning from each other
+
+687
+00:33:39,580 --> 00:33:42,460
+and about the kinds of
+questions you can ask.
+
+688
+00:33:42,460 --> 00:33:44,770
+And again, if you have
+any questions, you
+
+689
+00:33:44,770 --> 00:33:48,790
+can always feel free
+to email me about them.
+
+690
+00:33:48,790 --> 00:33:52,160
+
+
+691
+00:33:52,160 --> 00:33:54,170
+And then I want to move on.
+
+692
+00:33:54,170 --> 00:33:57,050
+Scott is another lecturer in
+the computer science department
+
+693
+00:33:57,050 --> 00:33:58,910
+and specializes in computer music.
+
+694
+00:33:58,910 --> 00:33:59,960
+SCOTT: Awesome, hello.
+
+695
+00:33:59,960 --> 00:34:00,930
+I'm Scott Peterson.
+
+696
+00:34:00,930 --> 00:34:03,290
+I'm a lecturer in computer science.
+
+697
+00:34:03,290 --> 00:34:06,500
+I joined the department
+last year after serving
+
+698
+00:34:06,500 --> 00:34:08,969
+a number of years in
+the music department,
+
+699
+00:34:08,969 --> 00:34:11,690
+doing sort of various
+technological things.
+
+700
+00:34:11,690 --> 00:34:17,110
+I teach four classes, CPSC 035,
+which I'll talk about at some length
+
+701
+00:34:17,110 --> 00:34:21,770
+in a little bit, 134, 431, 432.
+
+702
+00:34:21,770 --> 00:34:26,690
+And I'm also the director of the
+Yale Open Music initiative, which
+
+703
+00:34:26,690 --> 00:34:28,520
+I don't know if you've heard about.
+
+704
+00:34:28,520 --> 00:34:31,670
+But I'll also talked
+about in just a bit.
+
+705
+00:34:31,670 --> 00:34:34,850
+Before I do that, I'll talk very
+briefly about classes that you probably
+
+706
+00:34:34,850 --> 00:34:37,138
+can't take yet, although maybe.
+
+707
+00:34:37,138 --> 00:34:40,699
+And those are 431 and 432.
+
+708
+00:34:40,699 --> 00:34:45,409
+They are algorithmic and heuristic
+composition, and sound synthesis
+
+709
+00:34:45,409 --> 00:34:46,639
+respectively.
+
+710
+00:34:46,639 --> 00:34:53,060
+And they have prerequisites,
+which are 202 and 223, I think.
+
+711
+00:34:53,060 --> 00:34:58,190
+And essentially, they
+are together a sort
+
+712
+00:34:58,190 --> 00:35:04,640
+of complete look at computer
+assisted music composition and sound
+
+713
+00:35:04,640 --> 00:35:07,760
+synthesis together-- so
+using a high level language,
+
+714
+00:35:07,760 --> 00:35:11,990
+and we use supercollider
+for all of these classes,
+
+715
+00:35:11,990 --> 00:35:16,279
+looking at ways that the machine can
+help us both organize notes, think
+
+716
+00:35:16,279 --> 00:35:18,320
+about music in different
+ways, and then also sort
+
+717
+00:35:18,320 --> 00:35:22,790
+of delve into how sound is
+constructed from the very lowest
+
+718
+00:35:22,790 --> 00:35:27,140
+level of digital representations
+inside the machine.
+
+719
+00:35:27,140 --> 00:35:31,520
+Before I talk about 35 and
+134, I'll talk very briefly
+
+720
+00:35:31,520 --> 00:35:33,330
+about the Yale Open Music initiative.
+
+721
+00:35:33,330 --> 00:35:35,870
+So this is not a class.
+
+722
+00:35:35,870 --> 00:35:41,490
+This is just something that you can
+join or attend workshops that we give.
+
+723
+00:35:41,490 --> 00:35:46,190
+So this is a sort of loose group of
+people who are interested in everything
+
+724
+00:35:46,190 --> 00:35:48,890
+at the intersection of
+music and technology.
+
+725
+00:35:48,890 --> 00:35:54,110
+So this might mean computer
+music programming outside
+
+726
+00:35:54,110 --> 00:35:56,030
+of the sort of classroom setting.
+
+727
+00:35:56,030 --> 00:36:00,920
+It could mean putting
+together machines that
+
+728
+00:36:00,920 --> 00:36:05,120
+have arrays of sensors that
+then send sensor data back
+
+729
+00:36:05,120 --> 00:36:09,890
+to a laptop that asks it
+for said data and then does
+
+730
+00:36:09,890 --> 00:36:13,610
+some sort of sonification with it.
+
+731
+00:36:13,610 --> 00:36:15,350
+And it's generally informal.
+
+732
+00:36:15,350 --> 00:36:17,960
+We've been the recipient
+of a couple seed grants
+
+733
+00:36:17,960 --> 00:36:22,490
+that have allowed us to buy some cool
+stuff, our arduinos and Raspberry Pis
+
+734
+00:36:22,490 --> 00:36:24,890
+and put some of these machines together.
+
+735
+00:36:24,890 --> 00:36:30,770
+And we've given at least one of
+these workshops in conjunction
+
+736
+00:36:30,770 --> 00:36:34,040
+with the new center for
+collaborative arts and media,
+
+737
+00:36:34,040 --> 00:36:36,170
+which is another place
+that you should check out
+
+738
+00:36:36,170 --> 00:36:41,540
+if your interests sort of intersect
+computer technology and anything
+
+739
+00:36:41,540 --> 00:36:43,850
+sort of artistic.
+
+740
+00:36:43,850 --> 00:36:48,660
+So 134 also has no prerequisites.
+
+741
+00:36:48,660 --> 00:36:52,250
+It uses the same high level
+language, which is supercollider,
+
+742
+00:36:52,250 --> 00:37:01,520
+to investigate how the machine can
+help us compose music, also sound
+
+743
+00:37:01,520 --> 00:37:03,600
+synthesis, and also interaction.
+
+744
+00:37:03,600 --> 00:37:10,040
+So this is a quick shot from the
+music studio in computer science
+
+745
+00:37:10,040 --> 00:37:14,930
+where students of 134 were just
+working with arduinos and sensor arrays
+
+746
+00:37:14,930 --> 00:37:20,630
+to input incoming sensor data
+into laptops and supercollider
+
+747
+00:37:20,630 --> 00:37:26,960
+and then sonify that data and some
+sort of hopefully meaningful way.
+
+748
+00:37:26,960 --> 00:37:29,490
+The enrollment is generally
+small for these classes.
+
+749
+00:37:29,490 --> 00:37:34,100
+So if you like small classes and
+a lot of time that sort of seminar
+
+750
+00:37:34,100 --> 00:37:37,640
+feel that you might not get
+in a class of this size,
+
+751
+00:37:37,640 --> 00:37:39,890
+then this class may be for you.
+
+752
+00:37:39,890 --> 00:37:42,590
+And this is offered in the fall.
+
+753
+00:37:42,590 --> 00:37:46,310
+So the next course is CPSC 025.
+
+754
+00:37:46,310 --> 00:37:49,370
+So this is a freshmen seminar.
+
+755
+00:37:49,370 --> 00:37:52,220
+This is where you plug yours
+if you're not a freshmen.
+
+756
+00:37:52,220 --> 00:37:56,820
+And this class is divided
+into generally three parts.
+
+757
+00:37:56,820 --> 00:38:00,090
+The first part is music production.
+
+758
+00:38:00,090 --> 00:38:04,010
+And so we spend a lot of time talking
+about how we can capture sound
+
+759
+00:38:04,010 --> 00:38:08,600
+in the real world, represent that
+sound in the machine and software,
+
+760
+00:38:08,600 --> 00:38:14,540
+and then investigating digital audio
+workstations for sound production,
+
+761
+00:38:14,540 --> 00:38:15,980
+processing, etc.
+
+762
+00:38:15,980 --> 00:38:19,640
+The second part of the class is
+programming and supercollider,
+
+763
+00:38:19,640 --> 00:38:22,250
+again-- so sort of all the
+stuff that I talked about.
+
+764
+00:38:22,250 --> 00:38:24,320
+It's a gentle introduction.
+
+765
+00:38:24,320 --> 00:38:29,070
+It doesn't assume that you have any
+programming, but obviously you do.
+
+766
+00:38:29,070 --> 00:38:31,700
+And then the third part--
+
+767
+00:38:31,700 --> 00:38:34,400
+sort of my favorite part--
+is this intersection
+
+768
+00:38:34,400 --> 00:38:36,200
+of the real world and the machine.
+
+769
+00:38:36,200 --> 00:38:39,200
+This is physical computing
+and sensors, and this
+
+770
+00:38:39,200 --> 00:38:44,870
+is where the wheel meets the road.
+
+771
+00:38:44,870 --> 00:38:55,470
+And we have a lot of projects that
+work with real world sensor data, that
+
+772
+00:38:55,470 --> 00:39:01,950
+work with human movement, that can sense
+ambient light, that can sense motion.
+
+773
+00:39:01,950 --> 00:39:06,990
+And then we talk about some of
+the issues of converting that
+
+774
+00:39:06,990 --> 00:39:11,020
+into meaningful musical information.
+
+775
+00:39:11,020 --> 00:39:13,560
+So if you have any questions about--
+
+776
+00:39:13,560 --> 00:39:18,720
+pardon me-- any questions about any
+of these or the Open Music initiative
+
+777
+00:39:18,720 --> 00:39:23,130
+or you want a a tour of the music
+studio in computer science, please
+
+778
+00:39:23,130 --> 00:39:25,920
+feel free to email me.
+
+779
+00:39:25,920 --> 00:39:26,995
+Thanks so much.
+
+780
+00:39:26,995 --> 00:39:29,470
+[APPLAUSE]
+
+781
+00:39:29,470 --> 00:39:39,369
+
+
+782
+00:39:39,369 --> 00:39:42,410
+KYLE JENSEN: Hi, I teach a class that
+helps you use your computer science
+
+783
+00:39:42,410 --> 00:39:44,780
+knowledge from CS50 to build startups.
+
+784
+00:39:44,780 --> 00:39:45,890
+That could be nonprofits.
+
+785
+00:39:45,890 --> 00:39:49,900
+That could be some scalable software
+startup like Facebook or Snapchat.
+
+786
+00:39:49,900 --> 00:39:51,650
+The class is computer science 213.
+
+787
+00:39:51,650 --> 00:39:53,960
+It's also management 659.
+
+788
+00:39:53,960 --> 00:39:55,190
+My name is Kyle Jensen.
+
+789
+00:39:55,190 --> 00:39:57,410
+I'm Associate Dean at the
+Yale School of Management.
+
+790
+00:39:57,410 --> 00:39:59,360
+And this is one of my favorite classes.
+
+791
+00:39:59,360 --> 00:40:02,900
+The class is essentially 50% web
+application development, full stack,
+
+792
+00:40:02,900 --> 00:40:06,320
+and 50% class that you might find
+at the business school teaching
+
+793
+00:40:06,320 --> 00:40:08,360
+an introduction to entrepreneurship.
+
+794
+00:40:08,360 --> 00:40:11,640
+Fundamentally, the
+class helps you identify
+
+795
+00:40:11,640 --> 00:40:15,260
+customers, people whose lives
+you can change in some fashion,
+
+796
+00:40:15,260 --> 00:40:19,370
+to verify to yourself that those
+people have some problem that you think
+
+797
+00:40:19,370 --> 00:40:21,860
+they have, to build a
+business around that,
+
+798
+00:40:21,860 --> 00:40:26,340
+and the technology skills
+you need in order to do that.
+
+799
+00:40:26,340 --> 00:40:28,070
+I think you should take the class.
+
+800
+00:40:28,070 --> 00:40:30,210
+It's fantastic.
+
+801
+00:40:30,210 --> 00:40:31,460
+Again, my name is Kyle Jensen.
+
+802
+00:40:31,460 --> 00:40:33,590
+You can easily find me on the interwebs.
+
+803
+00:40:33,590 --> 00:40:34,848
+Thank you.
+
+804
+00:40:34,848 --> 00:40:37,782
+[APPLAUSE]
+
+805
+00:40:37,782 --> 00:40:52,444
+
+
+806
+00:40:52,444 --> 00:40:54,110
+STEPHEN SLADE: So I think I have slides.
+
+807
+00:40:54,110 --> 00:40:55,200
+Let's see if this works.
+
+808
+00:40:55,200 --> 00:40:57,010
+Yeah, look at that.
+
+809
+00:40:57,010 --> 00:40:58,940
+OK, I'm Stephen Slade.
+
+810
+00:40:58,940 --> 00:41:02,990
+And I teach both CS200 and 201.
+
+811
+00:41:02,990 --> 00:41:03,815
+And who am I?
+
+812
+00:41:03,815 --> 00:41:05,990
+I am a hybrid.
+
+813
+00:41:05,990 --> 00:41:08,000
+I am both theory and practice.
+
+814
+00:41:08,000 --> 00:41:09,350
+So I was a Yale undergraduate.
+
+815
+00:41:09,350 --> 00:41:12,680
+I majored in music, and
+I study computer science.
+
+816
+00:41:12,680 --> 00:41:14,210
+I came back here to graduate school.
+
+817
+00:41:14,210 --> 00:41:16,340
+I got a master's in PhD
+in computer science.
+
+818
+00:41:16,340 --> 00:41:19,370
+In the meantime, I worked
+in presidential campaigns
+
+819
+00:41:19,370 --> 00:41:23,690
+at the White House designing computer
+systems, management information
+
+820
+00:41:23,690 --> 00:41:25,440
+systems.
+
+821
+00:41:25,440 --> 00:41:28,520
+I also taught in the
+business school at NYU.
+
+822
+00:41:28,520 --> 00:41:31,640
+And from there, I
+migrated to Wall Street.
+
+823
+00:41:31,640 --> 00:41:37,280
+I worked in finance and risk
+management for many years.
+
+824
+00:41:37,280 --> 00:41:40,880
+So I've looked the world
+from both sides now,
+
+825
+00:41:40,880 --> 00:41:44,810
+from both the practical
+and the theoretical.
+
+826
+00:41:44,810 --> 00:41:47,690
+And in theory, there's no difference
+between theory and practice.
+
+827
+00:41:47,690 --> 00:41:50,399
+But in practice, there is.
+
+828
+00:41:50,399 --> 00:41:51,440
+I've written three books.
+
+829
+00:41:51,440 --> 00:41:55,040
+They were all dedicated to
+Yale alumni, namely my family.
+
+830
+00:41:55,040 --> 00:41:57,350
+So my wife went to Yale.
+
+831
+00:41:57,350 --> 00:41:59,960
+My three children went to Yale.
+
+832
+00:41:59,960 --> 00:42:02,300
+I have two daughters who
+majored in computer science,
+
+833
+00:42:02,300 --> 00:42:04,770
+and they both work at Google.
+
+834
+00:42:04,770 --> 00:42:10,190
+I'm a big believer in educating
+women to be computer scientists.
+
+835
+00:42:10,190 --> 00:42:16,850
+And when they were growing up, I viewed
+my job as not teaching them to read,
+
+836
+00:42:16,850 --> 00:42:19,250
+but teaching them to love to read.
+
+837
+00:42:19,250 --> 00:42:22,590
+I didn't view my job as
+teaching them to play the piano,
+
+838
+00:42:22,590 --> 00:42:25,530
+but teaching them to
+love to play the piano.
+
+839
+00:42:25,530 --> 00:42:31,640
+And I view my job here in CS200 and 201
+as not teaching you computer science,
+
+840
+00:42:31,640 --> 00:42:34,560
+but teaching you to
+love computer science.
+
+841
+00:42:34,560 --> 00:42:37,270
+And I think that's what
+David tries to do as well.
+
+842
+00:42:37,270 --> 00:42:39,450
+That's my impression.
+
+843
+00:42:39,450 --> 00:42:41,990
+Anyway, so there are two courses--
+
+844
+00:42:41,990 --> 00:42:43,150
+200 and 201.
+
+845
+00:42:43,150 --> 00:42:45,740
+And they're sort of sister
+courses, sibling courses.
+
+846
+00:42:45,740 --> 00:42:48,420
+They're meant to be theory and practice.
+
+847
+00:42:48,420 --> 00:42:52,130
+So 200 is more practice,
+201 is more theory.
+
+848
+00:42:52,130 --> 00:42:57,710
+But they have the Common Core in that
+they both satisfy the prerequisites
+
+849
+00:42:57,710 --> 00:43:00,740
+for a future in computer science.
+
+850
+00:43:00,740 --> 00:43:06,200
+And in particular, if you take either
+course, you will learn recursion.
+
+851
+00:43:06,200 --> 00:43:10,170
+And see what happens when
+you Google recursion.
+
+852
+00:43:10,170 --> 00:43:12,660
+And it's an interesting exercise.
+
+853
+00:43:12,660 --> 00:43:14,360
+You will learn Unix.
+
+854
+00:43:14,360 --> 00:43:17,645
+You will learn computer
+architecture, machine language.
+
+855
+00:43:17,645 --> 00:43:20,300
+There are programming assignments
+about every week or so,
+
+856
+00:43:20,300 --> 00:43:22,760
+much like you had in CS50.
+
+857
+00:43:22,760 --> 00:43:26,360
+And in addition, I introduce
+what I call logical problems.
+
+858
+00:43:26,360 --> 00:43:29,420
+And the idea is to make you
+realize that you make assumptions
+
+859
+00:43:29,420 --> 00:43:32,270
+about the world that often are false.
+
+860
+00:43:32,270 --> 00:43:34,550
+And this is the bane of
+the computer programmer,
+
+861
+00:43:34,550 --> 00:43:36,500
+that when you're writing
+a computer program,
+
+862
+00:43:36,500 --> 00:43:39,590
+you make assumptions about the
+input or the behavior of the user,
+
+863
+00:43:39,590 --> 00:43:41,330
+and often those assumptions are false.
+
+864
+00:43:41,330 --> 00:43:46,100
+So what I try to do is train
+you to think out of the box,
+
+865
+00:43:46,100 --> 00:43:51,260
+to think in terms larger than
+what your normal assumptions are.
+
+866
+00:43:51,260 --> 00:43:54,710
+So for example, here's this a
+representative logical problem.
+
+867
+00:43:54,710 --> 00:43:57,020
+What is the next number in
+the following sequence--
+
+868
+00:43:57,020 --> 00:44:04,040
+1969, 73, 77, 81, 85, 91, 93, 99.
+
+869
+00:44:04,040 --> 00:44:05,990
+What's the next number?
+
+870
+00:44:05,990 --> 00:44:07,884
+Anyone know?
+
+871
+00:44:07,884 --> 00:44:09,050
+All right, let's analyze it.
+
+872
+00:44:09,050 --> 00:44:11,540
+First of all, they're all years.
+
+873
+00:44:11,540 --> 00:44:14,330
+
+
+874
+00:44:14,330 --> 00:44:17,910
+All right, they're all odd years.
+
+875
+00:44:17,910 --> 00:44:19,820
+Am
+
+876
+00:44:19,820 --> 00:44:26,090
+OK, the current year is
+2017, which is an odd year.
+
+877
+00:44:26,090 --> 00:44:32,482
+So that's a plausible
+answer to the question.
+
+878
+00:44:32,482 --> 00:44:34,940
+So anyone want to guess what
+the answer to the question is?
+
+879
+00:44:34,940 --> 00:44:38,490
+
+
+880
+00:44:38,490 --> 00:44:43,980
+OK, good because no one will know the
+answer until at least this weekend,
+
+881
+00:44:43,980 --> 00:44:45,210
+and maybe not even then.
+
+882
+00:44:45,210 --> 00:44:48,186
+
+
+883
+00:44:48,186 --> 00:44:50,670
+[INAUDIBLE]
+
+884
+00:44:50,670 --> 00:44:52,860
+That's almost right.
+
+885
+00:44:52,860 --> 00:44:57,020
+So 1999 was the last time Yale
+beat Harvard in New Haven.
+
+886
+00:44:57,020 --> 00:44:59,820
+
+
+887
+00:44:59,820 --> 00:45:02,580
+So maybe this Saturday we'll
+know the answer to the question.
+
+888
+00:45:02,580 --> 00:45:03,550
+We'll see.
+
+889
+00:45:03,550 --> 00:45:06,660
+It's supposed to rain, I think.
+
+890
+00:45:06,660 --> 00:45:09,390
+Anyway.
+
+891
+00:45:09,390 --> 00:45:16,140
+OK, 201, 201 is a prerequisite
+for the rest of the major,
+
+892
+00:45:16,140 --> 00:45:18,480
+and it's meant to teach you theory.
+
+893
+00:45:18,480 --> 00:45:21,540
+So it teaches you recursion,
+Unix, machine language, computer
+
+894
+00:45:21,540 --> 00:45:22,700
+architecture.
+
+895
+00:45:22,700 --> 00:45:25,710
+The programming language
+you used is Racket,
+
+896
+00:45:25,710 --> 00:45:28,800
+which is a dialect of Scheme and LISP.
+
+897
+00:45:28,800 --> 00:45:33,140
+These were languages that were
+developed maybe 50 years ago,
+
+898
+00:45:33,140 --> 00:45:36,330
+and they've evolved primarily at MIT.
+
+899
+00:45:36,330 --> 00:45:39,420
+But they've been used for artificial
+intelligence for many years.
+
+900
+00:45:39,420 --> 00:45:43,870
+Putting Racket on your resume is
+not going to get you anywhere.
+
+901
+00:45:43,870 --> 00:45:47,520
+It's going to get you odd questions.
+
+902
+00:45:47,520 --> 00:45:49,740
+So that's not the point.
+
+903
+00:45:49,740 --> 00:45:52,395
+We will learn Turing
+machines, Boolean logic.
+
+904
+00:45:52,395 --> 00:45:59,730
+You'll see how to design software that
+emulates digital gates and circuits.
+
+905
+00:45:59,730 --> 00:46:05,340
+You'll write machine language for
+a fictional machine, the TC201.
+
+906
+00:46:05,340 --> 00:46:08,010
+We will look at formal
+languages, regular expressions,
+
+907
+00:46:08,010 --> 00:46:10,750
+deterministic finite automata.
+
+908
+00:46:10,750 --> 00:46:14,130
+We'll look at computational
+complexity and analysis of algorithms.
+
+909
+00:46:14,130 --> 00:46:16,770
+I think you did a little
+bit of that in CS50.
+
+910
+00:46:16,770 --> 00:46:19,980
+I have a link here to the
+syllabus for the current semester
+
+911
+00:46:19,980 --> 00:46:22,200
+in case you want to look.
+
+912
+00:46:22,200 --> 00:46:28,200
+And CS201 satisfies the de
+jure requirement for the major
+
+913
+00:46:28,200 --> 00:46:32,900
+and for courses like 223.
+
+914
+00:46:32,900 --> 00:46:37,960
+200 is meant to be the
+practical alternative to 201.
+
+915
+00:46:37,960 --> 00:46:41,500
+And as I say at the bottom, it
+satisfies the de facto requirements
+
+916
+00:46:41,500 --> 00:46:43,400
+for the higher level courses.
+
+917
+00:46:43,400 --> 00:46:47,080
+So for example, you learn enough about
+computer science and programming,
+
+918
+00:46:47,080 --> 00:46:51,030
+recursion, Unix, machine language
+to take the higher level courses,
+
+919
+00:46:51,030 --> 00:46:53,530
+but sometimes you may need the
+permission of the instructor.
+
+920
+00:46:53,530 --> 00:46:56,230
+But in general, it hasn't been an issue.
+
+921
+00:46:56,230 --> 00:46:58,690
+If you're not a computer
+science major and you merely
+
+922
+00:46:58,690 --> 00:47:04,750
+want to take a course that will
+help you in other areas of life,
+
+923
+00:47:04,750 --> 00:47:07,270
+this is probably a
+reasonable course to take.
+
+924
+00:47:07,270 --> 00:47:09,620
+In particular, the
+programming language we use
+
+925
+00:47:09,620 --> 00:47:13,960
+is Python, which you
+should put on your resume--
+
+926
+00:47:13,960 --> 00:47:15,550
+Python.
+
+927
+00:47:15,550 --> 00:47:19,210
+And we will look at Python in much
+more detail than you had in CS50,
+
+928
+00:47:19,210 --> 00:47:24,560
+but the fact that you've had it
+already is probably beneficial.
+
+929
+00:47:24,560 --> 00:47:28,030
+So we will do object oriented
+programming in Python,
+
+930
+00:47:28,030 --> 00:47:31,630
+which is like object oriented
+programming in C and C++.
+
+931
+00:47:31,630 --> 00:47:34,420
+We'll look at software
+engineering issues.
+
+932
+00:47:34,420 --> 00:47:38,290
+We will look at databases-- and not
+only how to use a database like SQL,
+
+933
+00:47:38,290 --> 00:47:42,790
+but actually how to build a database
+system in an object oriented way.
+
+934
+00:47:42,790 --> 00:47:45,490
+We'll use Python to build
+an object oriented database.
+
+935
+00:47:45,490 --> 00:47:48,130
+
+
+936
+00:47:48,130 --> 00:47:53,110
+We will do machine language but not
+on a theoretical machine, the TC201.
+
+937
+00:47:53,110 --> 00:47:59,740
+We'll see how to interpret machine
+language that's generated by Python.
+
+938
+00:47:59,740 --> 00:48:02,170
+So Python generates
+what's called byte code,
+
+939
+00:48:02,170 --> 00:48:06,120
+and you will write a byte code
+interpreter for Python in the course.
+
+940
+00:48:06,120 --> 00:48:09,640
+We'll also look at practical
+real world problems,
+
+941
+00:48:09,640 --> 00:48:12,970
+not Turing machines,
+not Boolean expressions.
+
+942
+00:48:12,970 --> 00:48:17,830
+But we will look at cryptography
+and information security.
+
+943
+00:48:17,830 --> 00:48:22,930
+We will look at machine learning,
+which is also sort of generally known--
+
+944
+00:48:22,930 --> 00:48:26,350
+it covers things like big
+data and data science.
+
+945
+00:48:26,350 --> 00:48:27,850
+And we'll look at applications.
+
+946
+00:48:27,850 --> 00:48:31,810
+So some practical applications
+of machine learning
+
+947
+00:48:31,810 --> 00:48:36,790
+include driverless cars and
+actually information security.
+
+948
+00:48:36,790 --> 00:48:43,270
+So these days, one interesting
+application of machine learning
+
+949
+00:48:43,270 --> 00:48:47,590
+is using machine learning
+to break encryption codes,
+
+950
+00:48:47,590 --> 00:48:50,050
+or to create encryption codes.
+
+951
+00:48:50,050 --> 00:48:55,852
+And again, I have the address of
+the syllabus from last spring.
+
+952
+00:48:55,852 --> 00:48:58,810
+It'll be a little bit different this
+year based on what I've said here.
+
+953
+00:48:58,810 --> 00:49:03,600
+
+
+954
+00:49:03,600 --> 00:49:06,540
+And I think that's it.
+
+955
+00:49:06,540 --> 00:49:09,420
+[APPLAUSE]
+
+956
+00:49:09,420 --> 00:49:10,390
+
+
+957
+00:49:10,390 --> 00:49:13,580
+I'll be around if people have questions.
+
+958
+00:49:13,580 --> 00:49:15,270
+JIM: So, yes, so I'm Jim [INAUDIBLE].
+
+959
+00:49:15,270 --> 00:49:17,300
+I'm the DUS for computer science.
+
+960
+00:49:17,300 --> 00:49:20,300
+And I also teach computer
+science 223, or at least will
+
+961
+00:49:20,300 --> 00:49:23,420
+be teaching computer
+science 223 in the spring.
+
+962
+00:49:23,420 --> 00:49:27,560
+So what I was asked to come here and
+talk about was both of these-- first,
+
+963
+00:49:27,560 --> 00:49:30,410
+I'm going to talk about
+computer science 223
+
+964
+00:49:30,410 --> 00:49:33,560
+and why you might want
+to or not take that class
+
+965
+00:49:33,560 --> 00:49:36,410
+or not take that class at
+some point in the future
+
+966
+00:49:36,410 --> 00:49:38,080
+and what's involved in doing that.
+
+967
+00:49:38,080 --> 00:49:39,913
+And then I'm going to
+talk a little bit more
+
+968
+00:49:39,913 --> 00:49:42,170
+broadly about the
+computer science major,
+
+969
+00:49:42,170 --> 00:49:44,900
+if that's something that some of
+you might be considering or some
+
+970
+00:49:44,900 --> 00:49:47,358
+of the other options related
+to that, like our joint majors
+
+971
+00:49:47,358 --> 00:49:49,880
+or, in some cases, the
+possibility of double majoring.
+
+972
+00:49:49,880 --> 00:49:51,407
+I did not actually bring any slides.
+
+973
+00:49:51,407 --> 00:49:53,990
+So I'm just going to stand here
+and wave my arms around a bit.
+
+974
+00:49:53,990 --> 00:49:56,150
+Maybe I'll actually stand up.
+
+975
+00:49:56,150 --> 00:49:58,700
+And I suppose if we have
+anything that we need to draw,
+
+976
+00:49:58,700 --> 00:50:00,660
+we do have the blackboard here.
+
+977
+00:50:00,660 --> 00:50:03,800
+So let me start by talking about 223.
+
+978
+00:50:03,800 --> 00:50:08,066
+223 is usually the second
+programming oriented course
+
+979
+00:50:08,066 --> 00:50:10,940
+that people take as part of the
+computer science major, the first one
+
+980
+00:50:10,940 --> 00:50:13,130
+being computer science 201.
+
+981
+00:50:13,130 --> 00:50:15,560
+If you are thinking of being
+a computer science major,
+
+982
+00:50:15,560 --> 00:50:18,890
+you should probably
+go through 201 first.
+
+983
+00:50:18,890 --> 00:50:23,900
+201 is formally a prerequisite for 223,
+but as with all prerequisites at Yale,
+
+984
+00:50:23,900 --> 00:50:26,120
+this is an open negotiating position.
+
+985
+00:50:26,120 --> 00:50:28,460
+And with permission
+of the instructor, you
+
+986
+00:50:28,460 --> 00:50:31,760
+can take 223 without
+previously taking 201.
+
+987
+00:50:31,760 --> 00:50:35,330
+That being said, historically
+students who have come in to 223
+
+988
+00:50:35,330 --> 00:50:38,360
+without taking 201 have
+generally not done as well in 223
+
+989
+00:50:38,360 --> 00:50:42,410
+and then 323 after that as people
+who go through the normal track.
+
+990
+00:50:42,410 --> 00:50:44,270
+If you are doing the
+computer science major,
+
+991
+00:50:44,270 --> 00:50:49,160
+we do not necessarily require you to
+take 201 if you've already done 223.
+
+992
+00:50:49,160 --> 00:50:52,220
+But we do ask you to do an extra
+elective to make up for it.
+
+993
+00:50:52,220 --> 00:50:55,865
+In terms of the actual content
+of the class, the title the class
+
+994
+00:50:55,865 --> 00:50:57,914
+is data structures and
+programming techniques.
+
+995
+00:50:57,914 --> 00:50:59,330
+And that's mostly what it's about.
+
+996
+00:50:59,330 --> 00:51:01,370
+We talk about programming
+from the point of view
+
+997
+00:51:01,370 --> 00:51:05,600
+of how do you organize your code, the
+programming techniques side on the one
+
+998
+00:51:05,600 --> 00:51:07,820
+part, and how do you
+organize your data that's
+
+999
+00:51:07,820 --> 00:51:09,980
+operating on the data structure side.
+
+1000
+00:51:09,980 --> 00:51:14,660
+The thing that people often find odd
+running into it, which was probably
+
+1001
+00:51:14,660 --> 00:51:18,050
+not going to be so much an issue for
+you guys having come through CS50,
+
+1002
+00:51:18,050 --> 00:51:20,681
+is the language of instruction
+is C. So for people
+
+1003
+00:51:20,681 --> 00:51:23,180
+coming into the program who are
+used to languages like Java,
+
+1004
+00:51:23,180 --> 00:51:25,346
+this can be a little bit
+of a shock, given that C is
+
+1005
+00:51:25,346 --> 00:51:28,070
+such a terrible programming language.
+
+1006
+00:51:28,070 --> 00:51:30,650
+We do you C for a reason,
+which is that we're
+
+1007
+00:51:30,650 --> 00:51:34,940
+trying to get you an understanding of
+computers down at a fairly low level,
+
+1008
+00:51:34,940 --> 00:51:37,940
+at the point of individual bits getting
+shoved around, maybe not so much
+
+1009
+00:51:37,940 --> 00:51:41,150
+in 223, but certainly by
+the time you get to 323.
+
+1010
+00:51:41,150 --> 00:51:44,840
+And C is about as close as we can
+get to actual assembly language
+
+1011
+00:51:44,840 --> 00:51:48,590
+and still have it be something
+that's usable by any human beings
+
+1012
+00:51:48,590 --> 00:51:50,090
+at this point pretty much.
+
+1013
+00:51:50,090 --> 00:51:54,860
+And so that's why we
+use that in 223 323.
+
+1014
+00:51:54,860 --> 00:51:57,890
+If you want to come take 223, you
+should feel free to check it out.
+
+1015
+00:51:57,890 --> 00:52:01,220
+And then like I said, I'll
+be teaching it this spring.
+
+1016
+00:52:01,220 --> 00:52:03,860
+We offer it generally
+every semester now.
+
+1017
+00:52:03,860 --> 00:52:05,962
+So if you don't want
+to take it immediately,
+
+1018
+00:52:05,962 --> 00:52:07,670
+if you want to consider
+looking into 201,
+
+1019
+00:52:07,670 --> 00:52:10,870
+which we also offer every semester,
+you can go do that first and then
+
+1020
+00:52:10,870 --> 00:52:11,990
+and then come back.
+
+1021
+00:52:11,990 --> 00:52:14,300
+It's really up to you.
+
+1022
+00:52:14,300 --> 00:52:17,090
+Any questions about 223?
+
+1023
+00:52:17,090 --> 00:52:20,930
+All right, so now I'd like to
+move on to topic two, which
+
+1024
+00:52:20,930 --> 00:52:22,970
+is the computer science major.
+
+1025
+00:52:22,970 --> 00:52:26,420
+Which I don't know how many of you might
+be thinking about the computer science
+
+1026
+00:52:26,420 --> 00:52:27,350
+major.
+
+1027
+00:52:27,350 --> 00:52:29,472
+But so I'm the DUS for
+computer science, which
+
+1028
+00:52:29,472 --> 00:52:32,180
+means that I'm responsible for
+administering the computer science
+
+1029
+00:52:32,180 --> 00:52:32,679
+majors.
+
+1030
+00:52:32,679 --> 00:52:34,970
+Since it's a very large
+major, we actually
+
+1031
+00:52:34,970 --> 00:52:38,460
+have two other people who do
+advising within the major.
+
+1032
+00:52:38,460 --> 00:52:41,450
+We have a sophomore class advisor
+who is currently a professor,
+
+1033
+00:52:41,450 --> 00:52:44,870
+[? Rezeech ?] [? Pizscoch, ?]
+and a junior class advisor,
+
+1034
+00:52:44,870 --> 00:52:49,300
+who is currently Yang Yang, although
+he'll be replaced by [? Brent ?]
+
+1035
+00:52:49,300 --> 00:52:52,670
+[? Schuzuleti ?] next semester
+because he's going to be on leave.
+
+1036
+00:52:52,670 --> 00:52:55,370
+I handle all the seniors
+and freshmen and also handle
+
+1037
+00:52:55,370 --> 00:52:58,580
+issues that come up that are a little
+bit more involved in terms of dealings
+
+1038
+00:52:58,580 --> 00:52:59,770
+with the major.
+
+1039
+00:52:59,770 --> 00:53:03,320
+The major itself is a fairly
+straightforward major.
+
+1040
+00:53:03,320 --> 00:53:06,590
+We have five core classes,
+201 and 223, which
+
+1041
+00:53:06,590 --> 00:53:09,260
+I mentioned already, 201
+being the introduction to kind
+
+1042
+00:53:09,260 --> 00:53:11,240
+of all of computer science
+intended to give you
+
+1043
+00:53:11,240 --> 00:53:13,100
+an idea of what you're getting into.
+
+1044
+00:53:13,100 --> 00:53:16,940
+And then 223 is the
+first of two programming
+
+1045
+00:53:16,940 --> 00:53:21,230
+oriented classes on the kind
+of a track of 223 and 323,
+
+1046
+00:53:21,230 --> 00:53:23,700
+which are basically what
+I mentioned already.
+
+1047
+00:53:23,700 --> 00:53:25,700
+And then 323 is more of
+a systems programming
+
+1048
+00:53:25,700 --> 00:53:28,350
+class and computer
+organization class aimed
+
+1049
+00:53:28,350 --> 00:53:31,220
+at giving you an idea of how
+things work at a fairly low level
+
+1050
+00:53:31,220 --> 00:53:33,360
+and how hardware works and so forth.
+
+1051
+00:53:33,360 --> 00:53:37,490
+We also have a sort of math
+theory track on the other side.
+
+1052
+00:53:37,490 --> 00:53:40,520
+And we now have basically
+two versions of that.
+
+1053
+00:53:40,520 --> 00:53:43,310
+The standard version of that
+is computer science 202,
+
+1054
+00:53:43,310 --> 00:53:47,990
+mathematical tools for computer science
+and computer science 365 algorithms.
+
+1055
+00:53:47,990 --> 00:53:52,250
+The purpose of 202 is to take
+people who don't necessarily
+
+1056
+00:53:52,250 --> 00:53:54,350
+have much background in
+mathematics and give you
+
+1057
+00:53:54,350 --> 00:53:58,910
+what is often called mathematical
+maturity, an idea of how proofs work
+
+1058
+00:53:58,910 --> 00:54:01,820
+and how definitions work and
+how things in mathematics works,
+
+1059
+00:54:01,820 --> 00:54:05,180
+and kind of cover a little bit
+about the various different areas
+
+1060
+00:54:05,180 --> 00:54:08,367
+within mathematics that are
+relevant to computer science, mostly
+
+1061
+00:54:08,367 --> 00:54:10,200
+in order to get you up
+to speed so that when
+
+1062
+00:54:10,200 --> 00:54:12,630
+you hit 365, the algorithms class--
+
+1063
+00:54:12,630 --> 00:54:14,710
+which is a class about
+reasoning, about things
+
+1064
+00:54:14,710 --> 00:54:17,850
+you would be implementing in programs
+without actually implementing them--
+
+1065
+00:54:17,850 --> 00:54:21,300
+you will have the mathematical tools
+to actually be able to do that.
+
+1066
+00:54:21,300 --> 00:54:25,570
+And having gone through the core
+classes, these five classes,
+
+1067
+00:54:25,570 --> 00:54:29,310
+we then ask you to go and do
+six electives on top of that
+
+1068
+00:54:29,310 --> 00:54:32,229
+for the bachelor of science degree
+plus your senior project, four
+
+1069
+00:54:32,229 --> 00:54:34,020
+electives plus the
+senior project if you're
+
+1070
+00:54:34,020 --> 00:54:35,760
+doing the Bachelor of Arts degree.
+
+1071
+00:54:35,760 --> 00:54:37,620
+And these advanced
+electives will typically
+
+1072
+00:54:37,620 --> 00:54:39,840
+be 400 level classes
+in computer science.
+
+1073
+00:54:39,840 --> 00:54:42,360
+These vary in terms of what
+prerequisites they have.
+
+1074
+00:54:42,360 --> 00:54:45,240
+You can actually start taking
+electives pretty much once you
+
+1075
+00:54:45,240 --> 00:54:49,260
+get through to 223, and there even
+one or two that do not have anything
+
+1076
+00:54:49,260 --> 00:54:50,755
+beyond 201 as a prerequisite.
+
+1077
+00:54:50,755 --> 00:54:53,880
+And of course, as you take more and
+more of the core classes, more of those
+
+1078
+00:54:53,880 --> 00:54:54,440
+will open up.
+
+1079
+00:54:54,440 --> 00:54:57,420
+So the typical schedule-- people
+will start by going and doing
+
+1080
+00:54:57,420 --> 00:55:00,250
+201, 202, 223, and so forth.
+
+1081
+00:55:00,250 --> 00:55:03,030
+And as the electives
+become available, you'll
+
+1082
+00:55:03,030 --> 00:55:06,610
+start filling them until the point
+where you get to maybe your senior year,
+
+1083
+00:55:06,610 --> 00:55:09,930
+you will be mostly taking electives
+and doing your senior project.
+
+1084
+00:55:09,930 --> 00:55:13,170
+The other track I should
+mention for the theory side
+
+1085
+00:55:13,170 --> 00:55:15,390
+is that if you were really
+gung ho about mathematics
+
+1086
+00:55:15,390 --> 00:55:17,310
+and the theory end of
+computer science, you
+
+1087
+00:55:17,310 --> 00:55:20,060
+have the option of, instead of
+taking computer science 202,
+
+1088
+00:55:20,060 --> 00:55:24,310
+you can take the discrete math course
+over in mathematics, mathematics 244.
+
+1089
+00:55:24,310 --> 00:55:26,790
+And if you do that, that
+opens up the intensive version
+
+1090
+00:55:26,790 --> 00:55:30,510
+of the algorithms class, computer
+science 366, which is basically
+
+1091
+00:55:30,510 --> 00:55:33,660
+a more advanced version of
+our standard algorithms class,
+
+1092
+00:55:33,660 --> 00:55:37,290
+which some people might like to take.
+
+1093
+00:55:37,290 --> 00:55:40,240
+So any questions about the basic
+major or anything like that?
+
+1094
+00:55:40,240 --> 00:55:42,910
+
+
+1095
+00:55:42,910 --> 00:55:45,310
+We also offer several joint majors.
+
+1096
+00:55:45,310 --> 00:55:49,360
+There is a joint major with mathematics,
+computer science, and mathematics,
+
+1097
+00:55:49,360 --> 00:55:51,699
+a joint major with psychology.
+
+1098
+00:55:51,699 --> 00:55:53,990
+We also have a joint major
+with electrical engineering,
+
+1099
+00:55:53,990 --> 00:55:56,020
+electrical engineering
+and computer science.
+
+1100
+00:55:56,020 --> 00:55:58,450
+These all have more or
+less the same structure.
+
+1101
+00:55:58,450 --> 00:56:02,260
+You have to take essentially
+the core classes in both majors.
+
+1102
+00:56:02,260 --> 00:56:04,240
+But then when you get up
+to the elective level,
+
+1103
+00:56:04,240 --> 00:56:07,935
+instead of making you take a full
+set of electives from both sides,
+
+1104
+00:56:07,935 --> 00:56:10,060
+you generally have an
+abbreviated list of electives
+
+1105
+00:56:10,060 --> 00:56:12,040
+that you're expected to
+take from either side,
+
+1106
+00:56:12,040 --> 00:56:14,590
+typically working out to
+about 14 or 15 credits
+
+1107
+00:56:14,590 --> 00:56:16,510
+total by the time you
+complete the major.
+
+1108
+00:56:16,510 --> 00:56:21,100
+And you do a single senior project
+that is acceptable to both majors.
+
+1109
+00:56:21,100 --> 00:56:24,296
+Some people will also do double
+majors by taking advantage of the fact
+
+1110
+00:56:24,296 --> 00:56:26,920
+that the computer science major,
+particularly if you do the BA,
+
+1111
+00:56:26,920 --> 00:56:28,219
+is a fairly thin major.
+
+1112
+00:56:28,219 --> 00:56:30,010
+So we get a lot of
+people who will do, say,
+
+1113
+00:56:30,010 --> 00:56:33,130
+a BA in computer science, which
+is 10 credits, and then a major
+
+1114
+00:56:33,130 --> 00:56:34,420
+in some other area.
+
+1115
+00:56:34,420 --> 00:56:38,502
+And these can vary for departments
+all the way across Yale.
+
+1116
+00:56:38,502 --> 00:56:41,710
+If you can arrange for something that
+has overlap with computer science, that
+
+1117
+00:56:41,710 --> 00:56:43,450
+has courses in common
+or the courses that
+
+1118
+00:56:43,450 --> 00:56:45,795
+could be counted as
+electives to both majors,
+
+1119
+00:56:45,795 --> 00:56:47,920
+this can also be efficient
+because you can actually
+
+1120
+00:56:47,920 --> 00:56:50,410
+get down to as little
+as eight extra electives
+
+1121
+00:56:50,410 --> 00:56:52,720
+to add on a computer science
+major because we allow up
+
+1122
+00:56:52,720 --> 00:56:54,560
+to two courses of overlap.
+
+1123
+00:56:54,560 --> 00:56:57,310
+I personally don't necessarily
+recommend doing a double major just
+
+1124
+00:56:57,310 --> 00:56:58,750
+for the sake of doing a double major.
+
+1125
+00:56:58,750 --> 00:57:00,580
+But if you're taking a lot
+of these classes anyway,
+
+1126
+00:57:00,580 --> 00:57:02,810
+this might be something
+that you can look into.
+
+1127
+00:57:02,810 --> 00:57:05,654
+
+
+1128
+00:57:05,654 --> 00:57:06,820
+I think that's basically it.
+
+1129
+00:57:06,820 --> 00:57:14,457
+
+
+1130
+00:57:14,457 --> 00:57:15,540
+SPEAKER 1: Thanks so much.
+
+1131
+00:57:15,540 --> 00:57:17,010
+All right, so we are
+officially adjourned.
+
+1132
+00:57:17,010 --> 00:57:18,926
+Please join us and the
+staff in back for cake.
+
+1133
+00:57:18,926 --> 00:57:21,570
+And we'll see you at
+the hackathon and fair.
+
+1134
+00:57:21,570 --> 00:00:00,000
+
+

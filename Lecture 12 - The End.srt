@@ -1,0 +1,6235 @@
+1
+00:00:00,000 --> 00:00:03,465
+[MUSIC PLAYING]
+
+2
+00:00:03,465 --> 00:00:22,275
+
+
+3
+00:00:22,275 --> 00:00:25,740
+[MUSIC - BIRDY, "KEEPING YOUR HEAD UP"]
+
+4
+00:00:25,740 --> 00:00:31,230
+
+
+5
+00:00:31,230 --> 00:00:34,544
+MUSIC: Times that I've
+seen you lose your way
+
+6
+00:00:34,544 --> 00:00:39,020
+You're not in control
+and you won't be told
+
+7
+00:00:39,020 --> 00:00:46,040
+All i can do to keep you safe
+is hold you close hold you close
+
+8
+00:00:46,040 --> 00:00:53,529
+'Til you can breathe on your own
+
+9
+00:00:53,529 --> 00:01:01,513
+'Til you can breathe on your own
+
+10
+00:01:01,513 --> 00:01:05,504
+Hold tight you're slowly
+coming back to life
+
+11
+00:01:05,504 --> 00:01:07,501
+I'll be keeping your head up
+
+12
+00:01:07,501 --> 00:01:09,497
+I'll be keeping your head up darling
+
+13
+00:01:09,497 --> 00:01:13,489
+Let go of all your
+haunted dreams tonight
+
+14
+00:01:13,489 --> 00:01:15,485
+I'll be keeping your head up
+
+15
+00:01:15,485 --> 00:01:17,481
+I'll be keeping your head up darling
+
+16
+00:01:17,481 --> 00:01:21,473
+Hold tight you're slowly
+coming back to life
+
+17
+00:01:21,473 --> 00:01:23,469
+I'll be keeping your head up
+
+18
+00:01:23,469 --> 00:01:25,465
+I'll be keeping your head up darling
+
+19
+00:01:25,465 --> 00:01:29,457
+Let go of all your
+haunted dreams tonight
+
+20
+00:01:29,457 --> 00:01:30,954
+I'll be keeping your head up
+
+21
+00:01:30,954 --> 00:01:34,447
+I'll be keeping your head up
+
+22
+00:01:34,447 --> 00:01:39,437
+And I won't let you down
+
+23
+00:01:39,437 --> 00:01:42,930
+[MUSIC PLAYING]
+
+24
+00:01:42,930 --> 00:02:55,784
+
+
+25
+00:02:55,784 --> 00:03:00,160
+DAVID MALAN: This is CS50,
+week 11, for the final time.
+
+26
+00:03:00,160 --> 00:03:04,270
+And it is of course, this weekend,
+Harvard-Yale, and in full disclosure,
+
+27
+00:03:04,270 --> 00:03:07,900
+we actually spent yesterday at Yale
+wrapping up the course there as well,
+
+28
+00:03:07,900 --> 00:03:12,610
+but we did think this was perhaps an
+opportunity to make a few changes here
+
+29
+00:03:12,610 --> 00:03:13,450
+for today's lecture.
+
+30
+00:03:13,450 --> 00:03:17,140
+
+
+31
+00:03:17,140 --> 00:03:20,090
+Now, now to be fair, we suck.
+
+32
+00:03:20,090 --> 00:03:23,320
+But we thought we'd use
+this as an opportunity
+
+33
+00:03:23,320 --> 00:03:27,250
+to take a closer look at this problem
+that was solved by some of our friends
+
+34
+00:03:27,250 --> 00:03:32,050
+in New Haven just a few years ago
+in honor of this weekend's event.
+
+35
+00:03:32,050 --> 00:03:37,810
+A closer look then at, if
+you will, problem solving,
+
+36
+00:03:37,810 --> 00:03:40,740
+DAVID AULICINO: We're
+headed up to Boston,
+
+37
+00:03:40,740 --> 00:03:45,650
+checking out the stadium for the prank.
+
+38
+00:03:45,650 --> 00:03:48,130
+A few years ago, I was
+at a math conference,
+
+39
+00:03:48,130 --> 00:03:52,930
+and I was sitting around the table at
+dinner with a few other mathematicians.
+
+40
+00:03:52,930 --> 00:03:56,470
+And one of them went
+to Harvard and started
+
+41
+00:03:56,470 --> 00:04:01,630
+telling the story of this amazing
+prank that was against Harvard.
+
+42
+00:04:01,630 --> 00:04:03,760
+And at that point, I
+felt I had to interrupt,
+
+43
+00:04:03,760 --> 00:04:07,970
+and said well, actually I can
+tell you a lot more about that.
+
+44
+00:04:07,970 --> 00:04:08,470
+OK?
+
+45
+00:04:08,470 --> 00:04:09,400
+MIKE KAI: OK.
+
+46
+00:04:09,400 --> 00:04:11,910
+SPEAKER 1: The idea was
+perfected in a dorm room.
+
+47
+00:04:11,910 --> 00:04:13,660
+MIKE KAI: Came up with
+the idea, actually,
+
+48
+00:04:13,660 --> 00:04:15,860
+to prank them with signs
+at the football game.
+
+49
+00:04:15,860 --> 00:04:19,420
+We threw some ideas out there as
+far as what the signs would say.
+
+50
+00:04:19,420 --> 00:04:21,322
+We eventually settled on "We Suck."
+
+51
+00:04:21,322 --> 00:04:24,280
+DAVID AULICINO: And my immediate
+reaction was no, this will never work.
+
+52
+00:04:24,280 --> 00:04:28,910
+, However, the problem solver
+in me started thinking, well,
+
+53
+00:04:28,910 --> 00:04:31,920
+maybe we can make this work.
+
+54
+00:04:31,920 --> 00:04:33,390
+SPEAKER 1: The problem?
+
+55
+00:04:33,390 --> 00:04:36,550
+They had to infiltrate Harvard
+stadium without getting caught,
+
+56
+00:04:36,550 --> 00:04:41,230
+sneak in 1,800 placards, distribute
+them to unsuspecting Harvard fans,
+
+57
+00:04:41,230 --> 00:04:44,682
+and then convince those
+fans to prank themselves.
+
+58
+00:04:44,682 --> 00:04:45,640
+MIKE KAI: That's great.
+
+59
+00:04:45,640 --> 00:04:49,120
+We thought about basically
+every possible thing
+
+60
+00:04:49,120 --> 00:04:52,450
+that could go wrong and try to
+come up with a solution for it.
+
+61
+00:04:52,450 --> 00:04:55,100
+DAVID AULICINO: And then you
+put two reds on top of it.
+
+62
+00:04:55,100 --> 00:04:59,050
+SPEAKER 1: They made fake
+Harvard IDs and fake backstories,
+
+63
+00:04:59,050 --> 00:05:03,232
+fake placard designs, and
+a 28-member fake pep squad.
+
+64
+00:05:03,232 --> 00:05:04,481
+AUDIENCE: I can see the shirt.
+
+65
+00:05:04,481 --> 00:05:08,350
+SPEAKER 1: On November 20th,
+2004, the fake Harvard students
+
+66
+00:05:08,350 --> 00:05:10,396
+smuggled the placards into the game.
+
+67
+00:05:10,396 --> 00:05:12,340
+AUDIENCE: What do you
+think of Yale, sir?
+
+68
+00:05:12,340 --> 00:05:13,312
+AUDIENCE: They suck.
+
+69
+00:05:13,312 --> 00:05:17,200
+[MUSIC PLAYING]
+
+70
+00:05:17,200 --> 00:05:20,845
+AUDIENCE: It's not going to say
+something like Yale Sucks, is it?
+
+71
+00:05:20,845 --> 00:05:24,004
+AUDIENCE: It says Go Harvard!
+
+72
+00:05:24,004 --> 00:05:25,848
+SPEAKER 1: But then, trouble.
+
+73
+00:05:25,848 --> 00:05:26,348
+
+
+74
+00:05:26,348 --> 00:05:28,778
+AUDIENCE: What houses are you guys in?
+
+75
+00:05:28,778 --> 00:05:30,722
+That's not a real house.
+
+76
+00:05:30,722 --> 00:05:33,096
+AUDIENCE: Ho-fo?
+
+77
+00:05:33,096 --> 00:05:35,096
+AUDIENCE: You guys aren't
+from Harvard, are you?
+
+78
+00:05:35,096 --> 00:05:38,085
+Because I really think
+you guys are from Yale.
+
+79
+00:05:38,085 --> 00:05:41,210
+DAVID AULICINO: I just showed him the
+front of this ID, and all of a sudden
+
+80
+00:05:41,210 --> 00:05:44,747
+he just ran away, and
+he felt so embarrassed.
+
+81
+00:05:44,747 --> 00:05:46,580
+SPEAKER 1: Having escaped
+one confrontation,
+
+82
+00:05:46,580 --> 00:05:48,748
+they couldn't risk another.
+
+83
+00:05:48,748 --> 00:05:50,970
+It was time.
+
+84
+00:05:50,970 --> 00:05:53,320
+MIKE KAI: This just
+looks like a total mess.
+
+85
+00:05:53,320 --> 00:05:55,850
+We have absolutely no idea
+if this is going to work.
+
+86
+00:05:55,850 --> 00:05:57,858
+AUDIENCE: Look at them,
+they have the paper.
+
+87
+00:05:57,858 --> 00:05:58,834
+It's gonna happen.
+
+88
+00:05:58,834 --> 00:06:01,274
+It's actually gonna happen!
+
+89
+00:06:01,274 --> 00:06:03,226
+I can't [BLEEP] believe this.
+
+90
+00:06:03,226 --> 00:06:08,594
+SPEAKER 1: What was once
+a prank became a legend.
+
+91
+00:06:08,594 --> 00:06:10,058
+AUDIENCE: We [BLEEP] did it!
+
+92
+00:06:10,058 --> 00:06:13,970
+
+
+93
+00:06:13,970 --> 00:06:17,310
+MIKE KAI: And immediately, we started
+hearing chants from the other side,
+
+94
+00:06:17,310 --> 00:06:18,308
+"You Suck."
+
+95
+00:06:18,308 --> 00:06:19,124
+AUDIENCE: You suck!
+
+96
+00:06:19,124 --> 00:06:19,940
+You suck!
+
+97
+00:06:19,940 --> 00:06:20,797
+You suck!
+
+98
+00:06:20,797 --> 00:06:22,880
+MIKE KAI: And I think it
+was at that point in time
+
+99
+00:06:22,880 --> 00:06:24,370
+that we knew we had pulled it off.
+
+100
+00:06:24,370 --> 00:06:24,870
+
+
+101
+00:06:24,870 --> 00:06:28,684
+AUDIENCE: One more
+time, come on Harvard!
+
+102
+00:06:28,684 --> 00:06:30,163
+AUDIENCE: There it goes again!
+
+103
+00:06:30,163 --> 00:06:33,620
+
+
+104
+00:06:33,620 --> 00:06:36,310
+MIKE KAI: I really think it
+didn't matter that Harvard won.
+
+105
+00:06:36,310 --> 00:06:40,634
+Because of the prank, for a lot
+of Yale students and alumni,
+
+106
+00:06:40,634 --> 00:06:41,800
+we definitely won that year.
+
+107
+00:06:41,800 --> 00:06:47,400
+
+
+108
+00:06:47,400 --> 00:06:50,220
+DAVID MALAN: Best of luck
+to both teams this weekend.
+
+109
+00:06:50,220 --> 00:06:54,240
+We thought that we would
+participate in our own CS50 way.
+
+110
+00:06:54,240 --> 00:06:58,320
+This game was something written in
+scratch some years ago now by one
+
+111
+00:06:58,320 --> 00:07:01,110
+of your predecessors, and
+I thought we would go head
+
+112
+00:07:01,110 --> 00:07:04,640
+to head here with Yale if we
+could, with one volunteer who
+
+113
+00:07:04,640 --> 00:07:08,720
+is willing to come up and
+represent Harvard in this game.
+
+114
+00:07:08,720 --> 00:07:09,900
+Someone?
+
+115
+00:07:09,900 --> 00:07:11,560
+Anyone?
+
+116
+00:07:11,560 --> 00:07:13,930
+Not too many people all at once.
+
+117
+00:07:13,930 --> 00:07:14,530
+No?
+
+118
+00:07:14,530 --> 00:07:20,109
+Actually, would you with the Harvard
+sweatshirt like to play this game?
+
+119
+00:07:20,109 --> 00:07:21,400
+Could we get you to come on up?
+
+120
+00:07:21,400 --> 00:07:22,370
+Are you comfortable?
+
+121
+00:07:22,370 --> 00:07:23,872
+Yeah, all right, come on up.
+
+122
+00:07:23,872 --> 00:07:26,650
+
+
+123
+00:07:26,650 --> 00:07:28,642
+This could not be more perfect.
+
+124
+00:07:28,642 --> 00:07:29,350
+What's your name?
+
+125
+00:07:29,350 --> 00:07:30,210
+DIANA: Diana.
+
+126
+00:07:30,210 --> 00:07:31,001
+DAVID MALAN: Diana.
+
+127
+00:07:31,001 --> 00:07:31,690
+Nice to see you.
+
+128
+00:07:31,690 --> 00:07:33,160
+Come on up, Diana.
+
+129
+00:07:33,160 --> 00:07:35,922
+So here, as you see, we're
+about to hit the space bar,
+
+130
+00:07:35,922 --> 00:07:37,880
+and the instructions will
+appear on the screen,
+
+131
+00:07:37,880 --> 00:07:40,160
+if you'd like to play my keyboard here.
+
+132
+00:07:40,160 --> 00:07:42,910
+And the goal is simply
+to move the Harvard crest
+
+133
+00:07:42,910 --> 00:07:45,850
+to the goal again and again without
+getting hit by the other team.
+
+134
+00:07:45,850 --> 00:07:46,420
+DIANA: OK.
+
+135
+00:07:46,420 --> 00:07:46,930
+DAVID MALAN: Sound good?
+
+136
+00:07:46,930 --> 00:07:47,890
+And just arrow keys.
+
+137
+00:07:47,890 --> 00:07:48,850
+Up, down, left, right.
+
+138
+00:07:48,850 --> 00:07:51,390
+
+
+139
+00:07:51,390 --> 00:07:52,600
+Surprise.
+
+140
+00:07:52,600 --> 00:07:56,050
+Let's actually open up the game.
+
+141
+00:07:56,050 --> 00:07:57,970
+That was a slide.
+
+142
+00:07:57,970 --> 00:07:58,750
+[MUSIC PLAYING]
+
+143
+00:07:58,750 --> 00:07:59,250
+There we go.
+
+144
+00:07:59,250 --> 00:08:00,204
+
+
+145
+00:08:00,204 --> 00:08:01,954
+[MUSIC - MC HAMMER, "U CAN'T TOUCH
+ THIS"]
+
+146
+00:08:01,954 --> 00:08:04,020
+MUSIC: You can't touch this
+
+147
+00:08:04,020 --> 00:08:07,836
+Can't touch this
+
+148
+00:08:07,836 --> 00:08:11,462
+Can't touch this
+
+149
+00:08:11,462 --> 00:08:13,175
+Can't touch this
+
+150
+00:08:13,175 --> 00:08:14,570
+DAVID MALAN: Nice.
+
+151
+00:08:14,570 --> 00:08:15,320
+You have your fan.
+
+152
+00:08:15,320 --> 00:08:17,490
+MUSIC: My music hits me so hard
+
+153
+00:08:17,490 --> 00:08:19,450
+Makes me say oh my lord
+
+154
+00:08:19,450 --> 00:08:22,400
+Thank you for blessing
+me with a mind to rhyme
+
+155
+00:08:22,400 --> 00:08:23,730
+DAVID MALAN: Two Yales now.
+
+156
+00:08:23,730 --> 00:08:24,720
+MUSIC: When you know you're down
+
+157
+00:08:24,720 --> 00:08:26,261
+A super-dope homeboy from the Oaktown
+
+158
+00:08:26,261 --> 00:08:28,185
+And I'm known as such
+
+159
+00:08:28,185 --> 00:08:31,170
+And this is a beat uh, you can't touch
+
+160
+00:08:31,170 --> 00:08:32,940
+I told you homeboy
+
+161
+00:08:32,940 --> 00:08:35,210
+Can't touch this
+
+162
+00:08:35,210 --> 00:08:36,909
+DAVID MALAN: Very nice.
+
+163
+00:08:36,909 --> 00:08:38,225
+Level five.
+
+164
+00:08:38,225 --> 00:08:40,360
+MUSIC: Look at my eyes man
+
+165
+00:08:40,360 --> 00:08:43,710
+Can't touch this
+
+166
+00:08:43,710 --> 00:08:44,460
+DAVID MALAN: Nice.
+
+167
+00:08:44,460 --> 00:08:46,310
+MUSIC: Fresh new kicks and pants
+
+168
+00:08:46,310 --> 00:08:48,380
+You got it like that now
+you know you wanna dance
+
+169
+00:08:48,380 --> 00:08:48,980
+DAVID MALAN: Level six.
+
+170
+00:08:48,980 --> 00:08:49,938
+MUSIC: Out of your seat
+
+171
+00:08:49,938 --> 00:08:53,130
+And get a fly girl and catch
+this beat while it's rolling
+
+172
+00:08:53,130 --> 00:08:56,480
+Hold on pump a little bit and let
+them know it's going on like that
+
+173
+00:08:56,480 --> 00:08:58,940
+Like that cold on a
+mission so fall on back
+
+174
+00:08:58,940 --> 00:09:00,932
+Let them know that you're too much
+
+175
+00:09:00,932 --> 00:09:04,250
+And this is a beat uh, they can't touch
+
+176
+00:09:04,250 --> 00:09:04,980
+DAVID MALAN: Oh!
+
+177
+00:09:04,980 --> 00:09:08,445
+MUSIC: Told you, can't touch this
+
+178
+00:09:08,445 --> 00:09:11,740
+DAVID MALAN: Nice, yes, yes.
+
+179
+00:09:11,740 --> 00:09:12,626
+Level seven.
+
+180
+00:09:12,626 --> 00:09:13,584
+MUSIC: Can't touch this
+
+181
+00:09:13,584 --> 00:09:15,472
+Give me a song or rhythm
+
+182
+00:09:15,472 --> 00:09:18,304
+Making them sweat that's
+what I'm giving them now
+
+183
+00:09:18,304 --> 00:09:20,664
+They know they're
+talking about the Hammer
+
+184
+00:09:20,664 --> 00:09:22,538
+DAVID MALAN: That's level eight.
+
+185
+00:09:22,538 --> 00:09:25,526
+MUSIC: Singers are sweating,
+so pass them a wipe or tape
+
+186
+00:09:25,526 --> 00:09:28,844
+To learn what's it gonna take
+in the 90's to burn the charts
+
+187
+00:09:28,844 --> 00:09:29,510
+DAVID MALAN: Oh!
+
+188
+00:09:29,510 --> 00:09:33,032
+MUSIC: Either work hard
+or you might as well quit
+
+189
+00:09:33,032 --> 00:09:37,815
+DAVID MALAN: Oh, still level eight.
+
+190
+00:09:37,815 --> 00:09:41,294
+MUSIC: You can't touch this
+
+191
+00:09:41,294 --> 00:09:44,280
+Break it down
+
+192
+00:09:44,280 --> 00:09:45,260
+DAVID MALAN: Yes.
+
+193
+00:09:45,260 --> 00:09:47,250
+Level nine, second-to-last level.
+
+194
+00:09:47,250 --> 00:09:55,020
+[MUSIC PLAYING]
+
+195
+00:09:55,020 --> 00:09:56,020
+MUSIC: Stop, Hammer time
+
+196
+00:09:56,020 --> 00:09:57,460
+DAVID MALAN: Death at five.
+
+197
+00:09:57,460 --> 00:10:01,870
+MUSIC: It is said if you can't groove
+to this then you probably are dead
+
+198
+00:10:01,870 --> 00:10:02,905
+DAVID MALAN: That's OK.
+
+199
+00:10:02,905 --> 00:10:03,720
+MUSIC: Run your fingers
+through your hair
+
+200
+00:10:03,720 --> 00:10:04,900
+This is it
+
+201
+00:10:04,900 --> 00:10:05,400
+For a winner
+
+202
+00:10:05,400 --> 00:10:08,140
+DAVID MALAN: One level
+to go after this, yes.
+
+203
+00:10:08,140 --> 00:10:09,084
+MUSIC: Slide your rump
+
+204
+00:10:09,084 --> 00:10:12,860
+Just for a minute let's all do the bump
+
+205
+00:10:12,860 --> 00:10:15,140
+Yeah, can't touch this
+
+206
+00:10:15,140 --> 00:10:16,583
+DAVID MALAN: OK.
+
+207
+00:10:16,583 --> 00:10:17,545
+MUSIC: Look, man
+
+208
+00:10:17,545 --> 00:10:19,376
+Can't touch this
+
+209
+00:10:19,376 --> 00:10:22,190
+DAVID MALAN: Yes!
+
+210
+00:10:22,190 --> 00:10:24,973
+She doesn't want to go
+run the [INAUDIBLE]..
+
+211
+00:10:24,973 --> 00:10:28,384
+MUSIC: Break it down
+
+212
+00:10:28,384 --> 00:10:30,200
+
+
+213
+00:10:30,200 --> 00:10:33,372
+DAVID MALAN: On level nine.
+
+214
+00:10:33,372 --> 00:10:34,590
+I didn't do better.
+
+215
+00:10:34,590 --> 00:10:38,230
+
+
+216
+00:10:38,230 --> 00:10:39,120
+Okay, nice.
+
+217
+00:10:39,120 --> 00:10:41,890
+Yes, oh!
+
+218
+00:10:41,890 --> 00:10:43,198
+Oh, don't give up yet!
+
+219
+00:10:43,198 --> 00:10:48,687
+
+
+220
+00:10:48,687 --> 00:10:49,685
+Yes, yes!
+
+221
+00:10:49,685 --> 00:10:57,670
+
+
+222
+00:10:57,670 --> 00:10:58,550
+Hang in there.
+
+223
+00:10:58,550 --> 00:11:03,900
+Let's give it another
+one or two more deaths?
+
+224
+00:11:03,900 --> 00:11:04,590
+Hang in there.
+
+225
+00:11:04,590 --> 00:11:07,915
+MUSIC: Can't touch this
+
+226
+00:11:07,915 --> 00:11:09,752
+DAVID MALAN: There we go.
+
+227
+00:11:09,752 --> 00:11:12,300
+Come on, Diana, come on, yeah!
+
+228
+00:11:12,300 --> 00:11:14,040
+One more, one more.
+
+229
+00:11:14,040 --> 00:11:22,160
+
+
+230
+00:11:22,160 --> 00:11:23,160
+MUSIC: Stop, Hammer time
+
+231
+00:11:23,160 --> 00:11:24,600
+Every time you see me
+
+232
+00:11:24,600 --> 00:11:26,556
+The Hammer's just so hype
+
+233
+00:11:26,556 --> 00:11:28,022
+I'm dope on the floor
+
+234
+00:11:28,022 --> 00:11:30,349
+DAVID MALAN: Hang in there.
+
+235
+00:11:30,349 --> 00:11:31,768
+MUSIC: Now why would I ever
+
+236
+00:11:31,768 --> 00:11:32,643
+DAVID MALAN: Come on.
+
+237
+00:11:32,643 --> 00:11:33,660
+MUSIC: Stop doing this
+
+238
+00:11:33,660 --> 00:11:35,778
+When others making records that
+
+239
+00:11:35,778 --> 00:11:37,650
+That just don't hit
+
+240
+00:11:37,650 --> 00:11:39,352
+I've toured around the world
+
+241
+00:11:39,352 --> 00:11:40,907
+DAVID MALAN: Try a couple more times.
+
+242
+00:11:40,907 --> 00:11:42,490
+MUSIC: It's Hammer Go Hammer MC Hammer
+
+243
+00:11:42,490 --> 00:11:45,060
+DAVID MALAN: What's that?
+
+244
+00:11:45,060 --> 00:11:47,742
+I think you just-- luck.
+
+245
+00:11:47,742 --> 00:11:48,700
+MUSIC: Can't touch this
+
+246
+00:11:48,700 --> 00:11:50,360
+DAVID MALAN: One more life?
+
+247
+00:11:50,360 --> 00:11:51,600
+Two more lives?
+
+248
+00:11:51,600 --> 00:11:53,568
+MUSIC: You can't touch this
+
+249
+00:11:53,568 --> 00:11:55,044
+Yeah
+
+250
+00:11:55,044 --> 00:11:57,504
+Can't touch this
+
+251
+00:11:57,504 --> 00:12:00,470
+I told you, can't touch this
+
+252
+00:12:00,470 --> 00:12:02,870
+DAVID MALAN: Yes, oh!
+
+253
+00:12:02,870 --> 00:12:04,841
+One more, one more, one more.
+
+254
+00:12:04,841 --> 00:12:05,783
+MUSIC: We outta here
+
+255
+00:12:05,783 --> 00:12:09,080
+Can't touch this
+
+256
+00:12:09,080 --> 00:12:10,300
+DAVID MALAN: Yes!
+
+257
+00:12:10,300 --> 00:12:12,345
+Yes!
+
+258
+00:12:12,345 --> 00:12:14,564
+All right a big round
+of applause for Diana.
+
+259
+00:12:14,564 --> 00:12:16,750
+Congrats.
+
+260
+00:12:16,750 --> 00:12:18,330
+Thank you.
+
+261
+00:12:18,330 --> 00:12:21,630
+All right, so we will post the
+link on the course's web site
+
+262
+00:12:21,630 --> 00:12:23,910
+if you would like to try
+your hand at that as well.
+
+263
+00:12:23,910 --> 00:12:27,810
+Before we forge ahead though, a
+big thanks to CS50 50's whole team.
+
+264
+00:12:27,810 --> 00:12:30,360
+Suffice it to say, with
+office hours and sections
+
+265
+00:12:30,360 --> 00:12:33,540
+and the problem sets and, soon,
+the CS50 hackathon and fair,
+
+266
+00:12:33,540 --> 00:12:35,700
+we truly could not do
+it without all of these
+
+267
+00:12:35,700 --> 00:12:39,643
+faces here, all of the faces behind
+you today, and the whole team online.
+
+268
+00:12:39,643 --> 00:12:41,976
+So if we could, a big round
+of applause for CS50's team.
+
+269
+00:12:41,976 --> 00:12:45,240
+
+
+270
+00:12:45,240 --> 00:12:49,210
+Allow me to call out a
+few folks in particular.
+
+271
+00:12:49,210 --> 00:12:53,250
+One, these are all of the names of
+CS50 50 staff, both here and afar,
+
+272
+00:12:53,250 --> 00:12:54,950
+helping to make this course possible.
+
+273
+00:12:54,950 --> 00:12:57,630
+CS50 50's production team, of
+course, making it possible for you
+
+274
+00:12:57,630 --> 00:13:00,200
+to tune in across campus
+or across the world,
+
+275
+00:13:00,200 --> 00:13:03,114
+and then, some folks too that might
+be more familiar over the course
+
+276
+00:13:03,114 --> 00:13:03,780
+of the semester.
+
+277
+00:13:03,780 --> 00:13:07,590
+CS50'S 50's own Doug Lloyd, who not
+only has been the longest-serving staff
+
+278
+00:13:07,590 --> 00:13:12,870
+member for the past 11 years now, he was
+also here on Jeopardy some years ago,
+
+279
+00:13:12,870 --> 00:13:13,730
+and won.
+
+280
+00:13:13,730 --> 00:13:17,160
+So that was amazing to watch on TV.
+
+281
+00:13:17,160 --> 00:13:20,304
+CS50's own Rob Bowden,
+or that guy in Thayer
+
+282
+00:13:20,304 --> 00:13:22,470
+from whom you might have
+gotten some help over time,
+
+283
+00:13:22,470 --> 00:13:23,940
+since he is a proctor there.
+
+284
+00:13:23,940 --> 00:13:26,280
+And of course, perhaps
+the most familiar face
+
+285
+00:13:26,280 --> 00:13:28,990
+of all, CS50's own Zamaila
+from the problem sets.
+
+286
+00:13:28,990 --> 00:13:32,160
+
+
+287
+00:13:32,160 --> 00:13:35,430
+And then of course, today's
+performer, playing out, if you will,
+
+288
+00:13:35,430 --> 00:13:38,160
+problem set three for us, Brian.
+
+289
+00:13:38,160 --> 00:13:41,320
+A big thanks to him as well.
+
+290
+00:13:41,320 --> 00:13:46,020
+And then a special final thanks
+to someone particularly special.
+
+291
+00:13:46,020 --> 00:13:50,580
+CS50's own Maria, who has been with the
+course now in some way for four years.
+
+292
+00:13:50,580 --> 00:13:53,880
+Sadly but excitingly, Maria is about
+to go off into the real world, working
+
+293
+00:13:53,880 --> 00:13:56,930
+as an engineer at Facebook,
+but she actually took CS50 here
+
+294
+00:13:56,930 --> 00:14:01,110
+as a first year years ago, and
+then is among the longest-serving
+
+295
+00:14:01,110 --> 00:14:04,950
+members of the course's head's
+team in that she's been with us now
+
+296
+00:14:04,950 --> 00:14:06,927
+in some form for the past three years.
+
+297
+00:14:06,927 --> 00:14:08,760
+And in fact we went
+through some old footage
+
+298
+00:14:08,760 --> 00:14:10,830
+and, in fairness, one
+of her friends actually
+
+299
+00:14:10,830 --> 00:14:14,130
+found this, an old video from
+her freshman year years ago.
+
+300
+00:14:14,130 --> 00:14:18,100
+This was Maria like, right here,
+volunteering some years ago.
+
+301
+00:14:18,100 --> 00:14:23,610
+So if we enhance this here, a big
+round of applause especially for Maria.
+
+302
+00:14:23,610 --> 00:14:28,520
+
+
+303
+00:14:28,520 --> 00:14:31,430
+She will be missed,
+as of course will you.
+
+304
+00:14:31,430 --> 00:14:34,610
+This is week 11, and so this is
+where we promised we would get to.
+
+305
+00:14:34,610 --> 00:14:37,550
+And indeed, especially on the
+heels of a little quiz that you
+
+306
+00:14:37,550 --> 00:14:40,410
+might have taken or finished
+yesterday on what is ultimately,
+
+307
+00:14:40,410 --> 00:14:41,750
+what does ultimately
+matter in this course
+
+308
+00:14:41,750 --> 00:14:44,249
+is not so much where you end
+up relative to your classmates,
+
+309
+00:14:44,249 --> 00:14:47,720
+but where you end up relative
+to yourself today and next week
+
+310
+00:14:47,720 --> 00:14:50,720
+and beyond, relative to
+where you were in week zero.
+
+311
+00:14:50,720 --> 00:14:55,130
+So we do hope that you have gotten
+an extraordinary amount of time
+
+312
+00:14:55,130 --> 00:14:58,280
+back now from this class,
+but also a huge return
+
+313
+00:14:58,280 --> 00:15:00,530
+just in terms of the concepts
+and the practical skills
+
+314
+00:15:00,530 --> 00:15:03,020
+we hope you can now bring to
+your future studies in CS,
+
+315
+00:15:03,020 --> 00:15:05,730
+or if you exit CS at this
+point to your own domains
+
+316
+00:15:05,730 --> 00:15:08,660
+and can solve problems
+all the more effectively.
+
+317
+00:15:08,660 --> 00:15:12,250
+And in fact, if you're curious
+as to how some of your classmates
+
+318
+00:15:12,250 --> 00:15:16,220
+have labeled themselves over
+time, this is where, in week zero,
+
+319
+00:15:16,220 --> 00:15:18,280
+you all were with the
+majority of the class
+
+320
+00:15:18,280 --> 00:15:20,030
+describing themselves
+as less comfortable.
+
+321
+00:15:20,030 --> 00:15:22,490
+And if you're still feeling
+a little bit that way,
+
+322
+00:15:22,490 --> 00:15:26,601
+rest assured some 12 weeks later, none
+of you are among those less comfortable
+
+323
+00:15:26,601 --> 00:15:27,100
+anymore.
+
+324
+00:15:27,100 --> 00:15:29,690
+Everyone has been upgraded
+as of today to somewhere
+
+325
+00:15:29,690 --> 00:15:31,280
+in between or more comfortable.
+
+326
+00:15:31,280 --> 00:15:34,950
+So do realize, that too
+has been a stepping stone.
+
+327
+00:15:34,950 --> 00:15:38,510
+And in fact now, even if you
+are currently a first year,
+
+328
+00:15:38,510 --> 00:15:42,560
+or we've had high school students in
+the past or a junior and a rising senior
+
+329
+00:15:42,560 --> 00:15:45,770
+realize that the opportunities ahead,
+not only to study other courses in CS,
+
+330
+00:15:45,770 --> 00:15:49,460
+but to teach computer science,
+TF-ing or CA-ing for CS50.
+
+331
+00:15:49,460 --> 00:15:52,554
+Hands down, the most effective way
+to learn this kind of material,
+
+332
+00:15:52,554 --> 00:15:54,470
+and perhaps any other
+is to actually teach it,
+
+333
+00:15:54,470 --> 00:15:58,580
+and that's certainly true for me and
+for Maria and Brian and Zamaila and Doug
+
+334
+00:15:58,580 --> 00:16:01,430
+and Rob, and the whole
+of CS50's team here.
+
+335
+00:16:01,430 --> 00:16:04,010
+I mean in fact, some of them
+with CS50's production team
+
+336
+00:16:04,010 --> 00:16:06,770
+wanted to share with you
+an invitation to join us
+
+337
+00:16:06,770 --> 00:16:10,280
+in some form on campus this
+coming fall 2018 online.
+
+338
+00:16:10,280 --> 00:16:12,630
+In the meantime, we're in
+any number of other ways.
+
+339
+00:16:12,630 --> 00:16:15,540
+If we could dim the lights for
+this invitation from the staff.
+
+340
+00:16:15,540 --> 00:16:16,607
+ALAISHA: I'm Alaisha.
+
+341
+00:16:16,607 --> 00:16:17,690
+DANIEL: My name is Daniel.
+
+342
+00:16:17,690 --> 00:16:18,650
+ATHENA: I'm Athena Braun.
+
+343
+00:16:18,650 --> 00:16:19,691
+ALAISHA: I'm a sophomore.
+
+344
+00:16:19,691 --> 00:16:20,580
+THOMAS: I'm a senior.
+
+345
+00:16:20,580 --> 00:16:23,720
+BRIAN: I'm a junior studying
+computer science and linguistics.
+
+346
+00:16:23,720 --> 00:16:25,280
+ALAISHA: I'm concentrating on CSO.
+
+347
+00:16:25,280 --> 00:16:28,450
+ALLISON: CS50 is also just
+because it's changed my life.
+
+348
+00:16:28,450 --> 00:16:30,800
+It made me a computer
+science concentrator.
+
+349
+00:16:30,800 --> 00:16:32,137
+ALAISHA: I am a TF for CS50.
+
+350
+00:16:32,137 --> 00:16:33,220
+ALLISON: Course assistant.
+
+351
+00:16:33,220 --> 00:16:34,970
+ATHENA: This is my
+second year TF-ing now.
+
+352
+00:16:34,970 --> 00:16:38,180
+THOMAS: This is my third year
+being a teaching fellow for CS50.
+
+353
+00:16:38,180 --> 00:16:42,080
+ATHENA: Becoming part of CS50
+staff helped empower me so much.
+
+354
+00:16:42,080 --> 00:16:47,334
+ALAISHA: I was a total beginner, never
+anticipated programming beyond CS50,
+
+355
+00:16:47,334 --> 00:16:48,940
+but here I am.
+
+356
+00:16:48,940 --> 00:16:52,880
+It was just something I
+never thought I would do.
+
+357
+00:16:52,880 --> 00:16:56,420
+I think it's just been really
+exciting going from being a beginner
+
+358
+00:16:56,420 --> 00:17:00,050
+to being comfortable
+enough to TF this class.
+
+359
+00:17:00,050 --> 00:17:02,120
+MARIA: Everything that
+has come out of this
+
+360
+00:17:02,120 --> 00:17:04,655
+has helped me grow so much
+as a teacher, as a student.
+
+361
+00:17:04,655 --> 00:17:06,780
+DANIEL: Also, the culture
+and the environment of it
+
+362
+00:17:06,780 --> 00:17:08,079
+is also pretty unique.
+
+363
+00:17:08,079 --> 00:17:11,960
+ALLISON: Definitely found a community
+of friends within the CS50 staff.
+
+364
+00:17:11,960 --> 00:17:14,659
+ATHENA: Be prepared to have
+students who look up to you
+
+365
+00:17:14,659 --> 00:17:16,700
+and really appreciate the
+work that you're doing,
+
+366
+00:17:16,700 --> 00:17:19,460
+and just realize that you're
+not just a teaching fellow.
+
+367
+00:17:19,460 --> 00:17:22,490
+You're not just this person
+behind the whiteboard.
+
+368
+00:17:22,490 --> 00:17:25,880
+You're a student who took
+this too, and can really
+
+369
+00:17:25,880 --> 00:17:29,300
+level with other people in your
+section and figure out what's going on,
+
+370
+00:17:29,300 --> 00:17:30,930
+and make it a good experience for them.
+
+371
+00:17:30,930 --> 00:17:33,450
+DANIEL: I decided that I can
+get the best of both worlds.
+
+372
+00:17:33,450 --> 00:17:35,199
+I can get to teach
+about computer science,
+
+373
+00:17:35,199 --> 00:17:36,890
+and those are two of my passions.
+
+374
+00:17:36,890 --> 00:17:41,090
+THOMAS: I just really love teaching
+computer science to beginners.
+
+375
+00:17:41,090 --> 00:17:44,330
+CS50 is where all that
+beginner energy is,
+
+376
+00:17:44,330 --> 00:17:50,510
+and that's where I can make a real
+impact on the students careers in CS.
+
+377
+00:17:50,510 --> 00:17:54,860
+BRIAN: It's amazing to see how much
+this course can do in just a semester,
+
+378
+00:17:54,860 --> 00:17:58,880
+and how from September until
+December, students learn so much
+
+379
+00:17:58,880 --> 00:18:01,029
+and gain so much
+experience and knowledge.
+
+380
+00:18:01,029 --> 00:18:03,320
+And watching that and working
+with them in that process
+
+381
+00:18:03,320 --> 00:18:05,000
+has always been really,
+really inspiring.
+
+382
+00:18:05,000 --> 00:18:06,708
+MARIA: It's been so,
+so wonderful getting
+
+383
+00:18:06,708 --> 00:18:09,290
+to see these people grow
+just like I did myself.
+
+384
+00:18:09,290 --> 00:18:11,800
+THOMAS: One of the most
+rewarding things I've done here.
+
+385
+00:18:11,800 --> 00:18:13,070
+That's why I keep coming back.
+
+386
+00:18:13,070 --> 00:18:16,100
+DANIEL: Going to office
+hours and helping people out,
+
+387
+00:18:16,100 --> 00:18:19,001
+it makes you feel good, and it makes
+other people feel good as well.
+
+388
+00:18:19,001 --> 00:18:20,000
+BRIAN: My name is Brian.
+
+389
+00:18:20,000 --> 00:18:21,020
+THOMAS: I'm Thomas Lively.
+
+390
+00:18:21,020 --> 00:18:21,894
+ALLISON: I'm Allison.
+
+391
+00:18:21,894 --> 00:18:25,940
+MARIA: I'm Maria, and this is CS50.
+
+392
+00:18:25,940 --> 00:18:29,216
+DAVID MALAN: So in the coming weeks,
+please do feel welcome and encouraged.
+
+393
+00:18:29,216 --> 00:18:32,090
+Even if you were among those less
+comfortable and still kind of think
+
+394
+00:18:32,090 --> 00:18:34,460
+you are, that is
+undoubtedly not the case,
+
+395
+00:18:34,460 --> 00:18:37,880
+because amongst CS50 staff are students
+who have just taken the course a year
+
+396
+00:18:37,880 --> 00:18:41,124
+or two or more prior, you
+potentially among them.
+
+397
+00:18:41,124 --> 00:18:43,790
+And in fact there's other
+opportunities to get involved as well.
+
+398
+00:18:43,790 --> 00:18:45,998
+In addition to the on-campus
+class here, we of course
+
+399
+00:18:45,998 --> 00:18:50,600
+have our friends in New Haven,
+but even beyond, the CS50's team
+
+400
+00:18:50,600 --> 00:18:52,530
+work with communities around the world.
+
+401
+00:18:52,530 --> 00:18:55,310
+In fact, every red dot on
+this map here represents
+
+402
+00:18:55,310 --> 00:18:58,450
+a high school where there's a high
+school teacher and class of students
+
+403
+00:18:58,450 --> 00:19:00,890
+who were taking CS50 in some
+form, where their own teacher
+
+404
+00:19:00,890 --> 00:19:03,540
+has adopted or adapted the
+curriculum, the same tools,
+
+405
+00:19:03,540 --> 00:19:06,957
+the same software that you all use
+here in Cambridge and in New Haven
+
+406
+00:19:06,957 --> 00:19:09,290
+to actually teach introductory
+computer science as well.
+
+407
+00:19:09,290 --> 00:19:12,560
+In blue, similarly, are
+universities around the world
+
+408
+00:19:12,560 --> 00:19:15,770
+as well where we've been working with
+faculty and student groups beyond.
+
+409
+00:19:15,770 --> 00:19:18,860
+In fact, here some of our friends
+in Miami-Dade College in Florida.
+
+410
+00:19:18,860 --> 00:19:23,720
+Some of our friends here in Chile,
+here in London, here in Burma,
+
+411
+00:19:23,720 --> 00:19:29,510
+here in Ukraine, here in Cairo,
+here in Bolivia, here in Nicaragua.
+
+412
+00:19:29,510 --> 00:19:33,080
+And lastly, here on stage, our
+very first cohort, so to speak,
+
+413
+00:19:33,080 --> 00:19:37,130
+of high school teachers teaching CS50
+AP as of a couple of years ago, who then
+
+414
+00:19:37,130 --> 00:19:41,150
+went back through their school
+districts to evangelize computer science
+
+415
+00:19:41,150 --> 00:19:43,060
+and empower students there to teach it.
+
+416
+00:19:43,060 --> 00:19:46,580
+And in fact, even though we ourselves
+have our own hackathon coming up here
+
+417
+00:19:46,580 --> 00:19:48,740
+in just a couple of
+weeks' time, so has there
+
+418
+00:19:48,740 --> 00:19:50,990
+been a CS50 hackathon for high schools.
+
+419
+00:19:50,990 --> 00:19:53,720
+In fact pictured here, was
+our very first CS50 hackathon
+
+420
+00:19:53,720 --> 00:19:58,070
+for AP students, a mix of four public,
+four private schools in Manhattan
+
+421
+00:19:58,070 --> 00:20:01,950
+some months ago, where everyone got
+together to work on their own problems
+
+422
+00:20:01,950 --> 00:20:03,650
+sets, projects and the like.
+
+423
+00:20:03,650 --> 00:20:07,670
+So again, please feel free to engage
+in any number of these ways and more.
+
+424
+00:20:07,670 --> 00:20:09,950
+So what did we do all
+semester, and what will you
+
+425
+00:20:09,950 --> 00:20:11,810
+do if you continue to apply CS?
+
+426
+00:20:11,810 --> 00:20:14,300
+It's really all about
+problem-solving, and we've certainly
+
+427
+00:20:14,300 --> 00:20:18,200
+solved quite a few problems, the last of
+them last week with problem set eight.
+
+428
+00:20:18,200 --> 00:20:22,240
+If you're curious as to what your
+classmates thought of the problem sets,
+
+429
+00:20:22,240 --> 00:20:27,230
+here we have blue means love, and purple
+means hate, and each of these bars
+
+430
+00:20:27,230 --> 00:20:29,720
+represents problem set
+zero through eight.
+
+431
+00:20:29,720 --> 00:20:31,820
+So you can kind of get
+a sense where the love,
+
+432
+00:20:31,820 --> 00:20:35,000
+where the like, where the
+neutral was, here in yellow.
+
+433
+00:20:35,000 --> 00:20:38,990
+And maybe there are some spikes
+of hatred, maybe over down there.
+
+434
+00:20:38,990 --> 00:20:43,700
+But perhaps more revealingly
+too is the difficulty
+
+435
+00:20:43,700 --> 00:20:46,950
+with which folks perceive these, and
+this admittedly is retrospective.
+
+436
+00:20:46,950 --> 00:20:49,640
+So of course scratch was
+pretty fun, pretty easy,
+
+437
+00:20:49,640 --> 00:20:51,455
+as was maybe Mario and so forth.
+
+438
+00:20:51,455 --> 00:20:53,580
+But you can get a sense of
+some of the fluctuation.
+
+439
+00:20:53,580 --> 00:20:57,290
+And apparently, on the
+heels of misspellings here,
+
+440
+00:20:57,290 --> 00:21:01,640
+we suddenly went to a lot of medium
+difficulty when you simply had to port,
+
+441
+00:21:01,640 --> 00:21:05,740
+so to speak, some of your problems
+from P-set one now for problem set six.
+
+442
+00:21:05,740 --> 00:21:08,512
+And in terms of demographically,
+how your classmates
+
+443
+00:21:08,512 --> 00:21:10,970
+are engaging in the class, when
+did you start problem sets?
+
+444
+00:21:10,970 --> 00:21:12,530
+Oh interesting.
+
+445
+00:21:12,530 --> 00:21:17,840
+So recall that problem sets
+are released on Fridays,
+
+446
+00:21:17,840 --> 00:21:20,630
+and here we have Saturday,
+Sunday, Monday, Tuesday.
+
+447
+00:21:20,630 --> 00:21:24,110
+Oh hello, Wednesday is when
+really a plurality of students
+
+448
+00:21:24,110 --> 00:21:25,567
+seem to begin their problem sets.
+
+449
+00:21:25,567 --> 00:21:27,650
+Not though perhaps
+surprisingly, when it coincides
+
+450
+00:21:27,650 --> 00:21:30,740
+with office hours and sections
+in the earlier days of the week.
+
+451
+00:21:30,740 --> 00:21:33,440
+And then in terms of when you
+watch lectures, because indeed,
+
+452
+00:21:33,440 --> 00:21:36,470
+both here and in New Haven, most
+students, they do engage online.
+
+453
+00:21:36,470 --> 00:21:40,250
+You can see that, with the lectures
+live on Friday, many students watch
+
+454
+00:21:40,250 --> 00:21:43,525
+apparently shortly after 10:00
+a.m. on Fridays, but on demand,
+
+455
+00:21:43,525 --> 00:21:45,650
+followed by the weekend,
+and the most popular being
+
+456
+00:21:45,650 --> 00:21:47,840
+Monday before sections presumably.
+
+457
+00:21:47,840 --> 00:21:50,660
+So you too are somewhere
+among those inputs.
+
+458
+00:21:50,660 --> 00:21:53,300
+But what were the problems
+that we actually solved,
+
+459
+00:21:53,300 --> 00:21:55,230
+and what were really
+the goals of the class?
+
+460
+00:21:55,230 --> 00:21:56,660
+It's not to teach C per se.
+
+461
+00:21:56,660 --> 00:21:59,450
+It's not to introduce JavaScript
+or SQL or Python, all of which
+
+462
+00:21:59,450 --> 00:22:01,160
+are really just tools in a toolkit.
+
+463
+00:22:01,160 --> 00:22:05,300
+So that when you exit CS50 and go onto
+some other class or some other field,
+
+464
+00:22:05,300 --> 00:22:08,696
+and want to actually solve problems
+using data and using computation,
+
+465
+00:22:08,696 --> 00:22:11,570
+that you actually just have a mental
+model with which to approach it,
+
+466
+00:22:11,570 --> 00:22:12,950
+and less of a fear factor.
+
+467
+00:22:12,950 --> 00:22:16,190
+So that even if you have absolutely
+no idea how to write code in Ruby,
+
+468
+00:22:16,190 --> 00:22:18,950
+which your lab or your company,
+your friends, happen to be using,
+
+469
+00:22:18,950 --> 00:22:19,700
+well, no big deal.
+
+470
+00:22:19,700 --> 00:22:21,770
+Much like in P-set
+seven and eight, where
+
+471
+00:22:21,770 --> 00:22:25,430
+Google and Stack Overflow and friends
+become your support structure,
+
+472
+00:22:25,430 --> 00:22:28,940
+realize that among the goals has been
+to teach you to teach yourselves.
+
+473
+00:22:28,940 --> 00:22:31,172
+And undoubtedly, that comes
+with some frustration,
+
+474
+00:22:31,172 --> 00:22:33,380
+in especially those recent
+weeks, but the goal really
+
+475
+00:22:33,380 --> 00:22:35,360
+has been to take off
+these training wheels, so
+
+476
+00:22:35,360 --> 00:22:39,110
+that when you're no longer handed a
+spec for P-set zero through eight,
+
+477
+00:22:39,110 --> 00:22:41,660
+you at least have a sense
+of where to go from here.
+
+478
+00:22:41,660 --> 00:22:43,910
+And indeed the final
+project is about taking off
+
+479
+00:22:43,910 --> 00:22:46,010
+the final of those training wheels.
+
+480
+00:22:46,010 --> 00:22:48,107
+Now what does problem
+solving itself mean?
+
+481
+00:22:48,107 --> 00:22:49,940
+We described that back
+in week zero as this.
+
+482
+00:22:49,940 --> 00:22:52,356
+You have inputs to that problem,
+and at the end of the day
+
+483
+00:22:52,356 --> 00:22:57,600
+you care about the outputs, and what was
+inside of this black box, so to speak.
+
+484
+00:22:57,600 --> 00:23:00,140
+So algorithms, just
+step-by-step instructions
+
+485
+00:23:00,140 --> 00:23:03,020
+for solving some problem, and
+that's where the real insight is,
+
+486
+00:23:03,020 --> 00:23:04,880
+the real efficiency and
+the real opportunity
+
+487
+00:23:04,880 --> 00:23:09,080
+to get things not only correct, but also
+well-designed in addition to something
+
+488
+00:23:09,080 --> 00:23:09,920
+like well-styled.
+
+489
+00:23:09,920 --> 00:23:12,060
+And so as you approach
+the solutions to problems,
+
+490
+00:23:12,060 --> 00:23:16,340
+I dare say maybe one of the most
+thematic topics of this class,
+
+491
+00:23:16,340 --> 00:23:19,400
+and perhaps any other introductory
+class, is this theme of trade-offs,
+
+492
+00:23:19,400 --> 00:23:22,190
+whether it's time and space,
+or the computer's time
+
+493
+00:23:22,190 --> 00:23:25,912
+and space versus your time and space and
+so forth when solving these problems.
+
+494
+00:23:25,912 --> 00:23:27,620
+And consider that
+there's not necessarily
+
+495
+00:23:27,620 --> 00:23:30,132
+one right answer to these
+kinds of design questions,
+
+496
+00:23:30,132 --> 00:23:32,090
+but hopefully you'll feel
+all the more that you
+
+497
+00:23:32,090 --> 00:23:34,970
+can hold your own in a conversation
+with someone as or even
+
+498
+00:23:34,970 --> 00:23:38,180
+more technical than you and
+convince them of your perspective
+
+499
+00:23:38,180 --> 00:23:41,390
+and contribute to the solving
+of some of these problems.
+
+500
+00:23:41,390 --> 00:23:44,780
+And among the other topics
+that have been sort of manifest
+
+501
+00:23:44,780 --> 00:23:47,837
+throughout the semester
+is this one, abstraction,
+
+502
+00:23:47,837 --> 00:23:50,420
+which really speaks to this very
+general problem-solving tool.
+
+503
+00:23:50,420 --> 00:23:52,628
+If you've got some problem
+ahead of you, whether it's
+
+504
+00:23:52,628 --> 00:23:54,740
+something software-related
+or real-world,
+
+505
+00:23:54,740 --> 00:23:58,910
+or really anything in between, this
+idea of taking something complicated
+
+506
+00:23:58,910 --> 00:24:01,370
+and breaking it down into
+its constituent parts,
+
+507
+00:24:01,370 --> 00:24:04,550
+so that you only have to
+think about up at this level,
+
+508
+00:24:04,550 --> 00:24:07,640
+and you don't have to worry about
+where the zeros and ones come from,
+
+509
+00:24:07,640 --> 00:24:09,930
+or where the characters on the
+screen come from, and so forth.
+
+510
+00:24:09,930 --> 00:24:12,846
+Like the fact that we've kept layering
+and layering and layering means
+
+511
+00:24:12,846 --> 00:24:15,487
+you could do so much more
+with P-set seven and eight.
+
+512
+00:24:15,487 --> 00:24:17,820
+Even if it didn't feel like
+it at the start of the week,
+
+513
+00:24:17,820 --> 00:24:21,430
+then you could with just C and
+certainly with just binary alone.
+
+514
+00:24:21,430 --> 00:24:23,780
+So realize too, that
+sort of bootstrapping
+
+515
+00:24:23,780 --> 00:24:26,587
+is thematic any time you're
+learning some new topic.
+
+516
+00:24:26,587 --> 00:24:29,420
+And how do you express yourself
+when trying to solve these problems?
+
+517
+00:24:29,420 --> 00:24:30,426
+Of course pseudocode.
+
+518
+00:24:30,426 --> 00:24:32,300
+And indeed, this should
+become habit as well.
+
+519
+00:24:32,300 --> 00:24:34,341
+Doesn't really matter what
+language you write in,
+
+520
+00:24:34,341 --> 00:24:37,827
+but I am still in the habit of
+writing out comments for my programs,
+
+521
+00:24:37,827 --> 00:24:40,910
+and then therefore I kind of know the
+outline, much like an English essay,
+
+522
+00:24:40,910 --> 00:24:43,830
+and then I kind of fill in the gaps
+with the actual code thereafter.
+
+523
+00:24:43,830 --> 00:24:45,830
+Because the hard part,
+and perhaps the fun part,
+
+524
+00:24:45,830 --> 00:24:48,590
+is really just thinking through
+how you might solve something.
+
+525
+00:24:48,590 --> 00:24:51,740
+And in fact this was, this
+feels like an opportune moment
+
+526
+00:24:51,740 --> 00:24:55,717
+to take a moment to see just
+how well this has sunk in,
+
+527
+00:24:55,717 --> 00:24:58,550
+and how well we might apply some
+of these most basic principles that
+
+528
+00:24:58,550 --> 00:25:01,620
+started in week zero and
+then persisted throughout.
+
+529
+00:25:01,620 --> 00:25:05,300
+But for this, we need a
+volunteer to come up on stage
+
+530
+00:25:05,300 --> 00:25:09,300
+and help me program everyone else.
+
+531
+00:25:09,300 --> 00:25:10,540
+Yeah, come on up.
+
+532
+00:25:10,540 --> 00:25:11,040
+All right.
+
+533
+00:25:11,040 --> 00:25:13,770
+
+
+534
+00:25:13,770 --> 00:25:14,663
+What's your name?
+
+535
+00:25:14,663 --> 00:25:15,550
+Sorry?
+
+536
+00:25:15,550 --> 00:25:16,050
+Amy.
+
+537
+00:25:16,050 --> 00:25:17,370
+Amy, come on up.
+
+538
+00:25:17,370 --> 00:25:18,640
+Nice to meet you.
+
+539
+00:25:18,640 --> 00:25:21,150
+Now only Amy is about to
+see what's on my screen,
+
+540
+00:25:21,150 --> 00:25:24,130
+and if the staff could
+help me for just a moment.
+
+541
+00:25:24,130 --> 00:25:25,620
+Let me go ahead and cut to this.
+
+542
+00:25:25,620 --> 00:25:26,710
+I'll be right back.
+
+543
+00:25:26,710 --> 00:25:28,710
+We just need to quickly
+hand out all this paper.
+
+544
+00:25:28,710 --> 00:25:31,290
+You can pull out a piece of
+paper of your own if you have it,
+
+545
+00:25:31,290 --> 00:25:34,440
+but if the staff could kind of
+divvy these up so that everyone
+
+546
+00:25:34,440 --> 00:25:35,370
+has a piece of paper.
+
+547
+00:25:35,370 --> 00:25:37,680
+Ideally, a pencil or pen.
+
+548
+00:25:37,680 --> 00:25:40,800
+If you don't, we have, pardon me, Amy.
+
+549
+00:25:40,800 --> 00:25:43,290
+A solution to that problem.
+
+550
+00:25:43,290 --> 00:25:46,890
+Everyone gets a free CS50
+pen today if you'd like.
+
+551
+00:25:46,890 --> 00:25:49,010
+OK, very popular.
+
+552
+00:25:49,010 --> 00:25:52,860
+OK, so no one has a
+pencil now, apparently.
+
+553
+00:25:52,860 --> 00:25:53,580
+All right.
+
+554
+00:25:53,580 --> 00:25:56,100
+So Amy, as you guys get
+set up up there, I'm
+
+555
+00:25:56,100 --> 00:25:59,730
+about to show Amy something on
+my screen, a picture to draw.
+
+556
+00:25:59,730 --> 00:26:02,085
+And you, much like the
+programmer that you now are,
+
+557
+00:26:02,085 --> 00:26:06,960
+are going to program the audience
+to actually draw what you see.
+
+558
+00:26:06,960 --> 00:26:10,620
+And we'll remember, from very early on,
+that precision is probably important
+
+559
+00:26:10,620 --> 00:26:12,370
+here, but at the same
+time, you don't want
+
+560
+00:26:12,370 --> 00:26:15,330
+to get tangled in the weeds
+of zeros and ones so to speak.
+
+561
+00:26:15,330 --> 00:26:17,250
+You want ultimately
+everyone in this audience,
+
+562
+00:26:17,250 --> 00:26:22,100
+ideally, to draw what it is
+just you and I are seeing.
+
+563
+00:26:22,100 --> 00:26:27,170
+All right, so everyone
+is unwrapping pens.
+
+564
+00:26:27,170 --> 00:26:30,830
+And hopefully you have a piece of paper,
+though any piece of paper suffices.
+
+565
+00:26:30,830 --> 00:26:35,850
+I'm going to go ahead and
+reveal what Amy is seeing here.
+
+566
+00:26:35,850 --> 00:26:43,040
+And the goal is, verbally only, to
+tell the audience here what to draw.
+
+567
+00:26:43,040 --> 00:26:45,330
+And give everyone just a moment.
+
+568
+00:26:45,330 --> 00:26:48,460
+Get your paper in front of you,
+pencil in hand or pen in hand.
+
+569
+00:26:48,460 --> 00:26:51,560
+
+
+570
+00:26:51,560 --> 00:26:53,690
+And feels like we can begin.
+
+571
+00:26:53,690 --> 00:26:56,440
+AMY: OK, so I'm looking at a cube.
+
+572
+00:26:56,440 --> 00:27:00,125
+It's kind of like a Rubik's cube, but
+I can only see three of the faces.
+
+573
+00:27:00,125 --> 00:27:05,030
+
+
+574
+00:27:05,030 --> 00:27:09,070
+So there's a, this, oh.
+
+575
+00:27:09,070 --> 00:27:14,690
+So there is the top of the
+Rubik's cube and two sides.
+
+576
+00:27:14,690 --> 00:27:23,760
+The top looks like a diamond, so you
+want to draw the diamond on the top.
+
+577
+00:27:23,760 --> 00:27:27,960
+And then the two sides
+come down from that,
+
+578
+00:27:27,960 --> 00:27:34,110
+so it looks like you're looking
+at a Rubik's cube from the corner.
+
+579
+00:27:34,110 --> 00:27:37,990
+And it's not actually Rubik's
+cube, so don't draw the lines.
+
+580
+00:27:37,990 --> 00:27:41,280
+It's just like a normal cube.
+
+581
+00:27:41,280 --> 00:27:43,441
+I don't know how else to describe it.
+
+582
+00:27:43,441 --> 00:27:44,190
+DAVID MALAN: Exit?
+
+583
+00:27:44,190 --> 00:27:44,710
+AMY: Exit.
+
+584
+00:27:44,710 --> 00:27:45,540
+DAVID MALAN: OK.
+
+585
+00:27:45,540 --> 00:27:47,110
+So thank you so much to Amy.
+
+586
+00:27:47,110 --> 00:27:50,160
+Round of applause, if we could,
+for getting us to this point.
+
+587
+00:27:50,160 --> 00:27:53,340
+Now comes, feel free to
+partake back down there.
+
+588
+00:27:53,340 --> 00:27:56,940
+Now we just need that staff to help
+grab some of these pieces of paper.
+
+589
+00:27:56,940 --> 00:28:01,110
+We'll do pseudo-random samples and
+we'll take a look at correctness,
+
+590
+00:28:01,110 --> 00:28:03,450
+if not artistic design here.
+
+591
+00:28:03,450 --> 00:28:08,340
+Some folks still going past
+the buzzer, but that's OK.
+
+592
+00:28:08,340 --> 00:28:11,850
+All right, I'm going to go
+ahead and cue up my screen here.
+
+593
+00:28:11,850 --> 00:28:14,550
+
+
+594
+00:28:14,550 --> 00:28:21,810
+In just a moment, we'll actually
+reveal how some of these came out.
+
+595
+00:28:21,810 --> 00:28:28,700
+
+
+596
+00:28:28,700 --> 00:28:30,310
+All right, that's good.
+
+597
+00:28:30,310 --> 00:28:32,320
+Thank you so much.
+
+598
+00:28:32,320 --> 00:28:36,760
+All right, so notice in particular
+though, that what Amy was doing
+
+599
+00:28:36,760 --> 00:28:39,111
+was actually leveraging
+abstraction, as it turned out.
+
+600
+00:28:39,111 --> 00:28:39,610
+Right?
+
+601
+00:28:39,610 --> 00:28:42,490
+She was telling you to draw shapes
+that are hopefully familiar,
+
+602
+00:28:42,490 --> 00:28:45,520
+toys that are hopefully familiar,
+and those of course are abstractions.
+
+603
+00:28:45,520 --> 00:28:47,290
+Because it would get
+pretty mundane and pretty
+
+604
+00:28:47,290 --> 00:28:49,925
+low-level if she had to start
+describing what a Rubik's cube is
+
+605
+00:28:49,925 --> 00:28:50,800
+or what a diamond is.
+
+606
+00:28:50,800 --> 00:28:53,200
+Hopefully these are
+abstractions all of us know,
+
+607
+00:28:53,200 --> 00:28:57,120
+at least the diamond shape and so forth,
+and the cube shape from yesteryear,
+
+608
+00:28:57,120 --> 00:28:59,630
+so at least we have
+that same mental model.
+
+609
+00:28:59,630 --> 00:29:03,080
+So let's take a look at a few
+of the shapes that we have here.
+
+610
+00:29:03,080 --> 00:29:07,720
+Here, we have one, two,
+three attempts to draw,
+
+611
+00:29:07,720 --> 00:29:11,110
+but that perhaps is reminiscent
+of what some of you drew as well.
+
+612
+00:29:11,110 --> 00:29:14,410
+This one here is super small.
+
+613
+00:29:14,410 --> 00:29:18,700
+We didn't really speak to scaling,
+but that does look like a cube.
+
+614
+00:29:18,700 --> 00:29:21,580
+Perhaps not necessarily
+oriented as she intended.
+
+615
+00:29:21,580 --> 00:29:22,580
+This one's kind of cute.
+
+616
+00:29:22,580 --> 00:29:26,560
+
+
+617
+00:29:26,560 --> 00:29:29,290
+But we love them all
+equally, whoever's this is.
+
+618
+00:29:29,290 --> 00:29:33,250
+In fairness, this one's
+sort of Inception-like.
+
+619
+00:29:33,250 --> 00:29:34,360
+Or, oh I see.
+
+620
+00:29:34,360 --> 00:29:37,180
+Diamond on top of the cube, I get it.
+
+621
+00:29:37,180 --> 00:29:40,600
+This one's a little
+bloated at the bottom.
+
+622
+00:29:40,600 --> 00:29:44,350
+OK, this one's actually quite beautiful.
+
+623
+00:29:44,350 --> 00:29:45,760
+Here we have this one here.
+
+624
+00:29:45,760 --> 00:29:46,600
+Very nice.
+
+625
+00:29:46,600 --> 00:29:48,790
+And I think she was
+describing it this way.
+
+626
+00:29:48,790 --> 00:29:53,020
+And in fact, if I go back
+to what Amy was seeing,
+
+627
+00:29:53,020 --> 00:29:55,970
+the answer was this one here.
+
+628
+00:29:55,970 --> 00:29:58,090
+So a big round of applause,
+if we could, for Amy.
+
+629
+00:29:58,090 --> 00:30:01,960
+But now, let's flip things around.
+
+630
+00:30:01,960 --> 00:30:05,260
+Here we need one more volunteer
+to come on up if you could.
+
+631
+00:30:05,260 --> 00:30:06,220
+OK, come on up.
+
+632
+00:30:06,220 --> 00:30:09,320
+
+
+633
+00:30:09,320 --> 00:30:12,080
+And what is your name?
+
+634
+00:30:12,080 --> 00:30:12,580
+Dylan.
+
+635
+00:30:12,580 --> 00:30:13,680
+Dylan, come on up.
+
+636
+00:30:13,680 --> 00:30:16,230
+So here, we'll turn the tables a bit.
+
+637
+00:30:16,230 --> 00:30:17,160
+Thank you so much.
+
+638
+00:30:17,160 --> 00:30:20,520
+Welcome to keep those pens and the
+sheets of paper if you still have them.
+
+639
+00:30:20,520 --> 00:30:24,480
+Let me go ahead here and
+blank the screen again
+
+640
+00:30:24,480 --> 00:30:28,260
+and give Dylan a piece
+of chalk if we could.
+
+641
+00:30:28,260 --> 00:30:31,080
+And so if you could come
+on over here, what we
+
+642
+00:30:31,080 --> 00:30:37,660
+have here is a canvas on which you can
+draw what the audience tells you to do.
+
+643
+00:30:37,660 --> 00:30:40,070
+And in fact, since the
+answer is going to be there,
+
+644
+00:30:40,070 --> 00:30:42,030
+we're going to push this back after all.
+
+645
+00:30:42,030 --> 00:30:44,344
+And the only thing you
+can't do is look up.
+
+646
+00:30:44,344 --> 00:30:45,760
+All right, so look straight ahead.
+
+647
+00:30:45,760 --> 00:30:47,160
+Here's your piece of chalk.
+
+648
+00:30:47,160 --> 00:30:50,380
+And now, what the audience is going
+to see is what you need to draw,
+
+649
+00:30:50,380 --> 00:30:55,290
+and we'll take it one instruction at
+a time to tell Dylan what to draw.
+
+650
+00:30:55,290 --> 00:30:58,430
+All right, the drawing is--
+
+651
+00:30:58,430 --> 00:31:00,800
+Who would like to contribute
+the first instruction?
+
+652
+00:31:00,800 --> 00:31:03,230
+And also don't look to your right,
+because there are answers everywhere.
+
+653
+00:31:03,230 --> 00:31:03,980
+Yes.
+
+654
+00:31:03,980 --> 00:31:06,350
+AUDIENCE: Draw a circle in
+the middle of the board.
+
+655
+00:31:06,350 --> 00:31:08,600
+DAVID MALAN: Draw a circle
+in the middle of the board.
+
+656
+00:31:08,600 --> 00:31:10,594
+
+
+657
+00:31:10,594 --> 00:31:11,760
+AUDIENCE: Smaller than that.
+
+658
+00:31:11,760 --> 00:31:13,065
+DAVID MALAN: Smaller than that.
+
+659
+00:31:13,065 --> 00:31:16,319
+
+
+660
+00:31:16,319 --> 00:31:16,860
+There you go.
+
+661
+00:31:16,860 --> 00:31:18,660
+AUDIENCE: Erase the big circle.
+
+662
+00:31:18,660 --> 00:31:20,100
+DAVID MALAN: Erase the big circle.
+
+663
+00:31:20,100 --> 00:31:22,380
+AUDIENCE: Draw a line
+going down the circle.
+
+664
+00:31:22,380 --> 00:31:25,760
+DAVID MALAN: Draw a line
+going down the circle.
+
+665
+00:31:25,760 --> 00:31:28,010
+OK, wait, we need to buffer, buffer.
+
+666
+00:31:28,010 --> 00:31:29,910
+Hang on.
+
+667
+00:31:29,910 --> 00:31:30,910
+No.
+
+668
+00:31:30,910 --> 00:31:33,830
+Undo.
+
+669
+00:31:33,830 --> 00:31:36,590
+OK, let's restart.
+
+670
+00:31:36,590 --> 00:31:38,575
+Step one, draw a--
+
+671
+00:31:38,575 --> 00:31:40,950
+AUDIENCE: Draw a small circle
+in the middle of the board.
+
+672
+00:31:40,950 --> 00:31:43,410
+DAVID MALAN: Draw a small circle
+in the middle of the board, Dylan.
+
+673
+00:31:43,410 --> 00:31:44,270
+AUDIENCE: Keep it.
+
+674
+00:31:44,270 --> 00:31:44,840
+DAVID MALAN: Keep it.
+
+675
+00:31:44,840 --> 00:31:45,423
+We'll take it.
+
+676
+00:31:45,423 --> 00:31:46,250
+OK, step two.
+
+677
+00:31:46,250 --> 00:31:48,980
+AUDIENCE: Stick figures
+with no arms yet.
+
+678
+00:31:48,980 --> 00:31:51,170
+DAVID MALAN: Draw a stick
+figure with no arms yet.
+
+679
+00:31:51,170 --> 00:31:53,074
+Nice abstraction.
+
+680
+00:31:53,074 --> 00:31:55,002
+AUDIENCE: The head is the circle.
+
+681
+00:31:55,002 --> 00:31:55,966
+The circle's the head.
+
+682
+00:31:55,966 --> 00:32:05,150
+
+
+683
+00:32:05,150 --> 00:32:08,058
+DAVID MALAN: OK, step three.
+
+684
+00:32:08,058 --> 00:32:09,770
+AUDIENCE: The circle is the head.
+
+685
+00:32:09,770 --> 00:32:11,310
+DAVID MALAN: What's that?
+
+686
+00:32:11,310 --> 00:32:13,550
+The circle was supposed to be the head.
+
+687
+00:32:13,550 --> 00:32:29,740
+
+
+688
+00:32:29,740 --> 00:32:32,900
+OK, version two, step four.
+
+689
+00:32:32,900 --> 00:32:33,750
+Step four?
+
+690
+00:32:33,750 --> 00:32:36,690
+
+
+691
+00:32:36,690 --> 00:32:38,210
+Step four?
+
+692
+00:32:38,210 --> 00:32:41,930
+AUDIENCE: From the bottom of
+the circle, draw inverse Y.
+
+693
+00:32:41,930 --> 00:32:49,960
+DAVID MALAN: From the bottom of
+the circle draw an inverse Y.
+
+694
+00:32:49,960 --> 00:32:52,257
+Step five.
+
+695
+00:32:52,257 --> 00:32:58,744
+AUDIENCE: Stemming from the
+head, the body and the legs
+
+696
+00:32:58,744 --> 00:33:01,740
+are the same height or length.
+
+697
+00:33:01,740 --> 00:33:05,176
+DAVID MALAN: Stepping from the head, the
+body and the legs are the same height.
+
+698
+00:33:05,176 --> 00:33:10,780
+AUDIENCE: So, draw the body
+first, and it will look like a Y.
+
+699
+00:33:10,780 --> 00:33:17,906
+DAVID MALAN: So draw the body
+first and it will look like a Y.
+
+700
+00:33:17,906 --> 00:33:19,780
+AUDIENCE: [INAUDIBLE]
+stemming from the body.
+
+701
+00:33:19,780 --> 00:33:21,946
+DAVID MALAN: After erasing
+everything else, I heard.
+
+702
+00:33:21,946 --> 00:33:24,100
+
+
+703
+00:33:24,100 --> 00:33:24,925
+OK, nice.
+
+704
+00:33:24,925 --> 00:33:28,158
+
+
+705
+00:33:28,158 --> 00:33:29,620
+[INTERPOSING VOICES]
+
+706
+00:33:29,620 --> 00:33:31,990
+Erase the mustache.
+
+707
+00:33:31,990 --> 00:33:33,770
+OK, step six.
+
+708
+00:33:33,770 --> 00:33:37,180
+
+
+709
+00:33:37,180 --> 00:33:37,680
+Step six.
+
+710
+00:33:37,680 --> 00:33:39,013
+AUDIENCE: Draw a V the same way.
+
+711
+00:33:39,013 --> 00:33:40,617
+DAVID MALAN: Draw a V the same way.
+
+712
+00:33:40,617 --> 00:33:42,450
+AUDIENCE: From where
+you started with the Y.
+
+713
+00:33:42,450 --> 00:33:44,665
+DAVID MALAN: From where
+you started with the Y.
+
+714
+00:33:44,665 --> 00:33:45,540
+AUDIENCE: Right side.
+
+715
+00:33:45,540 --> 00:33:48,120
+DAVID MALAN: On the right side.
+
+716
+00:33:48,120 --> 00:33:49,620
+No, no.
+
+717
+00:33:49,620 --> 00:33:57,314
+[INTERPOSING VOICES]
+
+718
+00:33:57,314 --> 00:33:59,000
+No.
+
+719
+00:33:59,000 --> 00:34:01,365
+Do the opposite of that.
+
+720
+00:34:01,365 --> 00:34:02,240
+AUDIENCE: Downward V.
+
+721
+00:34:02,240 --> 00:34:03,015
+DAVID MALAN: Downward V.
+
+722
+00:34:03,015 --> 00:34:04,460
+AUDIENCE: It's one of his arms.
+
+723
+00:34:04,460 --> 00:34:07,205
+DAVID MALAN: It's one of his arms,
+
+724
+00:34:07,205 --> 00:34:08,600
+AUDIENCE: His right arm.
+
+725
+00:34:08,600 --> 00:34:10,077
+DAVID MALAN: His right arm.
+
+726
+00:34:10,077 --> 00:34:15,219
+[INTERPOSING VOICES]
+
+727
+00:34:15,219 --> 00:34:15,789
+His arm.
+
+728
+00:34:15,789 --> 00:34:19,290
+
+
+729
+00:34:19,290 --> 00:34:21,652
+OK, step seven?
+
+730
+00:34:21,652 --> 00:34:24,120
+[INTERPOSING VOICES]
+
+731
+00:34:24,120 --> 00:34:24,964
+Draw the what?
+
+732
+00:34:24,964 --> 00:34:26,949
+[INTERPOSING VOICES]
+
+733
+00:34:26,949 --> 00:34:29,710
+Draw the second part of
+the arm from the elbow.
+
+734
+00:34:29,710 --> 00:34:34,310
+AUDIENCE: Continue to
+draw a line from the elbow
+
+735
+00:34:34,310 --> 00:34:37,760
+DAVID MALAN: Elbow, elbow.
+
+736
+00:34:37,760 --> 00:34:39,157
+Elbow, yeah.
+
+737
+00:34:39,157 --> 00:34:42,370
+AUDIENCE: The arm on
+your right, make it a V.
+
+738
+00:34:42,370 --> 00:34:45,280
+DAVID MALAN: On the arm on your
+right, make it a V. OK, yes.
+
+739
+00:34:45,280 --> 00:34:47,330
+OK, we'll take it.
+
+740
+00:34:47,330 --> 00:34:48,699
+AUDIENCE: Yes.
+
+741
+00:34:48,699 --> 00:34:50,350
+DAVID MALAN: Yes, OK.
+
+742
+00:34:50,350 --> 00:34:52,179
+Almost there, almost there.
+
+743
+00:34:52,179 --> 00:34:53,594
+AUDIENCE: And then the other arm--
+
+744
+00:34:53,594 --> 00:34:56,286
+AUDIENCE: Make the other arm
+touch, put his hand on his hip.
+
+745
+00:34:56,286 --> 00:34:58,620
+DAVID MALAN: Make the other
+arm put his hand on his hip.
+
+746
+00:34:58,620 --> 00:35:03,150
+Yes, and last step maybe?
+
+747
+00:35:03,150 --> 00:35:04,320
+Second to last?
+
+748
+00:35:04,320 --> 00:35:06,840
+Yeah.
+
+749
+00:35:06,840 --> 00:35:12,117
+AUDIENCE: Say at 11
+to 10 o'clock, draw--
+
+750
+00:35:12,117 --> 00:35:13,700
+DAVID MALAN: Say at 11 or 10 o'clock--
+
+751
+00:35:13,700 --> 00:35:15,100
+AUDIENCE: Yeah, from the circle.
+
+752
+00:35:15,100 --> 00:35:16,240
+DAVID MALAN: From the circle.
+
+753
+00:35:16,240 --> 00:35:17,560
+AUDIENCE: Look at the circle as a clock.
+
+754
+00:35:17,560 --> 00:35:19,351
+DAVID MALAN: Look at
+the circle as a clock.
+
+755
+00:35:19,351 --> 00:35:26,010
+AUDIENCE: And draw a line
+as big as one of arms.
+
+756
+00:35:26,010 --> 00:35:28,619
+DAVID MALAN: And draw a line
+as big as one of the arms.
+
+757
+00:35:28,619 --> 00:35:29,535
+AUDIENCE: Put a space.
+
+758
+00:35:29,535 --> 00:35:30,576
+DAVID MALAN: Put a space.
+
+759
+00:35:30,576 --> 00:35:33,260
+
+
+760
+00:35:33,260 --> 00:35:34,470
+Yes.
+
+761
+00:35:34,470 --> 00:35:35,900
+Last step.
+
+762
+00:35:35,900 --> 00:35:36,780
+Yes, over here.
+
+763
+00:35:36,780 --> 00:35:38,066
+AUDIENCE: Write hi above it.
+
+764
+00:35:38,066 --> 00:35:39,440
+DAVID MALAN: Write "hi" above it.
+
+765
+00:35:39,440 --> 00:35:40,320
+AUDIENCE: Capital H.
+
+766
+00:35:40,320 --> 00:35:44,780
+DAVID MALAN: Capital H. And
+congratulations to Dylan.
+
+767
+00:35:44,780 --> 00:35:47,360
+
+
+768
+00:35:47,360 --> 00:35:49,340
+That's pretty good.
+
+769
+00:35:49,340 --> 00:35:51,260
+Pretty good, thank you so much.
+
+770
+00:35:51,260 --> 00:35:55,240
+So realize, fun as this is,
+it's actually non-trivial
+
+771
+00:35:55,240 --> 00:35:58,730
+to convert these
+abstractions with which we're
+
+772
+00:35:58,730 --> 00:36:03,050
+familiar to things that computers, or in
+some cases humans, actually understand.
+
+773
+00:36:03,050 --> 00:36:05,060
+So realize here too, there's this trade.
+
+774
+00:36:05,060 --> 00:36:08,480
+Like, saying draw a stick figure
+is a very useful abstraction,
+
+775
+00:36:08,480 --> 00:36:11,870
+but the problem, of course, is that
+the precision isn't necessarily there
+
+776
+00:36:11,870 --> 00:36:14,650
+if you're seeking one particular goal.
+
+777
+00:36:14,650 --> 00:36:17,630
+So beyond problem solving in
+this way and in this class
+
+778
+00:36:17,630 --> 00:36:20,190
+what more can you do after CS50?
+
+779
+00:36:20,190 --> 00:36:22,580
+So if you take a look at
+that unofficial guide to CS
+
+780
+00:36:22,580 --> 00:36:25,380
+that we'll link soon on
+CS50's website as well,
+
+781
+00:36:25,380 --> 00:36:28,670
+you can go off in so many
+other directions from here
+
+782
+00:36:28,670 --> 00:36:33,920
+to the direction of hardware,
+software, graphics, theory, statistics,
+
+783
+00:36:33,920 --> 00:36:35,057
+mathematics, and more.
+
+784
+00:36:35,057 --> 00:36:36,890
+And indeed increasingly,
+to the intersection
+
+785
+00:36:36,890 --> 00:36:40,100
+of computer science with other
+worlds, like economics and now
+
+786
+00:36:40,100 --> 00:36:43,200
+machine learning, which is being
+applied to all sorts of fields as well.
+
+787
+00:36:43,200 --> 00:36:46,490
+And in fact even I years ago have very
+fond memories of some of these classes
+
+788
+00:36:46,490 --> 00:36:49,040
+and only a handful of these
+even existed years ago.
+
+789
+00:36:49,040 --> 00:36:52,406
+I still remember to this day taking
+CS141, which is a hardware class,
+
+790
+00:36:52,406 --> 00:36:55,280
+and even though these days much of
+it's been virtualized in software,
+
+791
+00:36:55,280 --> 00:36:58,155
+back in the day we had tiny little
+wires and tiny little breadboards,
+
+792
+00:36:58,155 --> 00:37:01,190
+and debugging back in
+my day was literally
+
+793
+00:37:01,190 --> 00:37:05,076
+a matter of grabbing all of the wires
+that had just frustrated you to no end
+
+794
+00:37:05,076 --> 00:37:07,700
+and literally ripping them out
+of something called a breadboard
+
+795
+00:37:07,700 --> 00:37:08,930
+and starting over.
+
+796
+00:37:08,930 --> 00:37:10,820
+Nowadays you can do so
+much more in software,
+
+797
+00:37:10,820 --> 00:37:13,460
+and can conceptualize things
+all the more effectively
+
+798
+00:37:13,460 --> 00:37:14,960
+because of enhancements since.
+
+799
+00:37:14,960 --> 00:37:18,539
+And perhaps after CS50,
+one of my favorite classes,
+
+800
+00:37:18,539 --> 00:37:20,330
+probably my favorite
+class as an undergrad,
+
+801
+00:37:20,330 --> 00:37:22,940
+was CS161, an operating systems class.
+
+802
+00:37:22,940 --> 00:37:25,160
+We actually build pieces
+of an operating system
+
+803
+00:37:25,160 --> 00:37:27,440
+which would be akin to
+the features of Mac OS
+
+804
+00:37:27,440 --> 00:37:29,212
+and Windows and Linux and the like.
+
+805
+00:37:29,212 --> 00:37:31,670
+And so realize even if you're
+among those less comfortable,
+
+806
+00:37:31,670 --> 00:37:33,420
+there's so many different
+stepping stones.
+
+807
+00:37:33,420 --> 00:37:37,217
+So do chat with your TF or myself or
+the course's heads or any of the CAs
+
+808
+00:37:37,217 --> 00:37:39,050
+about what directions
+in which you might go.
+
+809
+00:37:39,050 --> 00:37:41,720
+And even if you don't have
+the time or necessarily
+
+810
+00:37:41,720 --> 00:37:44,010
+the interest on campus
+in doing these things,
+
+811
+00:37:44,010 --> 00:37:47,210
+there are so many courses online
+beyond this particular campus
+
+812
+00:37:47,210 --> 00:37:51,680
+too, on EdX and Coursera and the like so
+don't under appreciate the ability now
+
+813
+00:37:51,680 --> 00:37:54,800
+to go teach yourself new things
+albeit with the structure of some
+
+814
+00:37:54,800 --> 00:37:56,900
+of these freely available classes.
+
+815
+00:37:56,900 --> 00:37:59,250
+But how about some
+concrete steps now too,
+
+816
+00:37:59,250 --> 00:38:03,272
+as to what you can do after CS50 to
+actually solve problems and write code?
+
+817
+00:38:03,272 --> 00:38:04,980
+Because at the end of
+the day, you're not
+
+818
+00:38:04,980 --> 00:38:07,646
+going to be handed necessarily
+these problem set specifications.
+
+819
+00:38:07,646 --> 00:38:09,740
+You're not necessarily
+going to have a TF or CA
+
+820
+00:38:09,740 --> 00:38:12,830
+to whom you could ask questions with
+which they themselves are already
+
+821
+00:38:12,830 --> 00:38:13,550
+familiar.
+
+822
+00:38:13,550 --> 00:38:16,580
+You're a bit more on your own in
+terms of teaching yourself new things.
+
+823
+00:38:16,580 --> 00:38:19,580
+So long as, though, you take
+advantage of these resources,
+
+824
+00:38:19,580 --> 00:38:21,230
+can you succeed at exactly that.
+
+825
+00:38:21,230 --> 00:38:24,380
+Now you're welcome to continue using
+something like CS50 IDE for as long
+
+826
+00:38:24,380 --> 00:38:25,130
+as you would like.
+
+827
+00:38:25,130 --> 00:38:26,400
+Your accounts will keep working.
+
+828
+00:38:26,400 --> 00:38:28,250
+And that's meant to be
+pretty representative
+
+829
+00:38:28,250 --> 00:38:29,660
+of a real-world environment.
+
+830
+00:38:29,660 --> 00:38:32,750
+But of course it's cloud-based, and
+so if you're on a plane or a train
+
+831
+00:38:32,750 --> 00:38:35,600
+or in some of the dorms or houses
+where the Wi-Fi isn't so great,
+
+832
+00:38:35,600 --> 00:38:36,980
+might not work so well.
+
+833
+00:38:36,980 --> 00:38:40,160
+And so increasingly, comment
+after taking one class
+
+834
+00:38:40,160 --> 00:38:43,850
+would be to start installing these
+kinds of tools on your own Mac or PC.
+
+835
+00:38:43,850 --> 00:38:45,620
+So we'll put these
+slides up later as well
+
+836
+00:38:45,620 --> 00:38:49,340
+so that you have all of these URLs,
+but if you'd like, on your Mac or PC,
+
+837
+00:38:49,340 --> 00:38:52,820
+whether it's over Thanksgiving or J-term
+or beyond, install some command line
+
+838
+00:38:52,820 --> 00:38:54,647
+tools on your Mac or PC.
+
+839
+00:38:54,647 --> 00:38:56,480
+This means having a
+command line environment
+
+840
+00:38:56,480 --> 00:39:00,200
+on your Mac as suggested here,
+which actually comes with Mac OS.
+
+841
+00:39:00,200 --> 00:39:02,600
+If you install something for
+free called Xcode and more,
+
+842
+00:39:02,600 --> 00:39:04,480
+you get a whole suite of
+command line utilities.
+
+843
+00:39:04,480 --> 00:39:05,840
+In the world of Windows,
+you can actually
+
+844
+00:39:05,840 --> 00:39:07,548
+install a command line
+environment that's
+
+845
+00:39:07,548 --> 00:39:10,400
+much better than the built-in
+command prompt with which
+
+846
+00:39:10,400 --> 00:39:13,900
+you might be familiar, so that
+it behaves just like Linux.
+
+847
+00:39:13,900 --> 00:39:17,360
+It's essentially running Linux
+on your own Windows machine.
+
+848
+00:39:17,360 --> 00:39:20,630
+Now git, this is something you guys
+indirectly use throughout the semester
+
+849
+00:39:20,630 --> 00:39:22,790
+any time you ran Submit 50.
+
+850
+00:39:22,790 --> 00:39:26,120
+But really, all Submit 50 does is run
+a few different commands, all of them
+
+851
+00:39:26,120 --> 00:39:27,290
+called git.
+
+852
+00:39:27,290 --> 00:39:29,517
+This is a version control
+software, and it's
+
+853
+00:39:29,517 --> 00:39:31,850
+just one of several different
+versions, but git probably
+
+854
+00:39:31,850 --> 00:39:33,410
+has the most traction these days.
+
+855
+00:39:33,410 --> 00:39:36,260
+And if you are still in the
+habit, and even occasionally I'm
+
+856
+00:39:36,260 --> 00:39:37,968
+guilty of this too,
+at least in the world
+
+857
+00:39:37,968 --> 00:39:41,870
+of writing essays and letters, if
+you're in the habit of copying a file
+
+858
+00:39:41,870 --> 00:39:45,080
+and then naming it version
+two, or copying a file
+
+859
+00:39:45,080 --> 00:39:48,299
+and naming it Thursday night,
+and then Friday morning,
+
+860
+00:39:48,299 --> 00:39:50,840
+and all of these different
+deltas, that is not a good system,
+
+861
+00:39:50,840 --> 00:39:52,791
+because you're not
+leveraging the computer
+
+862
+00:39:52,791 --> 00:39:55,790
+to keep track of the differences,
+especially so that you can rewind back
+
+863
+00:39:55,790 --> 00:39:56,510
+in time.
+
+864
+00:39:56,510 --> 00:40:00,500
+So a program like git actually lets
+you keep track of all of your changes
+
+865
+00:40:00,500 --> 00:40:03,860
+and you have an Infinite history of
+all of the work you've ever done.
+
+866
+00:40:03,860 --> 00:40:07,430
+Brian here nicely enough has
+given a seminar on how to use git
+
+867
+00:40:07,430 --> 00:40:08,640
+and in turn GitHub.
+
+868
+00:40:08,640 --> 00:40:10,660
+On GitHub itself, if
+you haven't already, you
+
+869
+00:40:10,660 --> 00:40:13,874
+can sign up for free
+private repositories, which
+
+870
+00:40:13,874 --> 00:40:16,540
+means you can store your coursework
+and your own work privately,
+
+871
+00:40:16,540 --> 00:40:19,730
+so they're not in public repos,
+since to date all of your work
+
+872
+00:40:19,730 --> 00:40:22,911
+has been in CS50's account, but you
+yourselves can start using your own.
+
+873
+00:40:22,911 --> 00:40:25,410
+If you do this, you can just
+fill out the prompts like this,
+
+874
+00:40:25,410 --> 00:40:28,170
+saying you're students wanting
+an individual account for free.
+
+875
+00:40:28,170 --> 00:40:31,400
+And then you can install git
+itself on your own Mac or PC
+
+876
+00:40:31,400 --> 00:40:33,250
+as by following instructions here.
+
+877
+00:40:33,250 --> 00:40:34,840
+But what about actually writing code?
+
+878
+00:40:34,840 --> 00:40:37,660
+I mean theoretically, you
+can use most any text editing
+
+879
+00:40:37,660 --> 00:40:42,425
+program on your computer, like TextEdit
+on Mac OS or Notepad on Windows,
+
+880
+00:40:42,425 --> 00:40:44,800
+but these are not very good
+tools in that they don't have
+
+881
+00:40:44,800 --> 00:40:47,140
+any features that are code-friendly.
+
+882
+00:40:47,140 --> 00:40:49,300
+But it's very easy to
+install something like this.
+
+883
+00:40:49,300 --> 00:40:51,299
+This is super popular
+among students these days,
+
+884
+00:40:51,299 --> 00:40:54,310
+Sublime Text, as well as software
+engineers in the real world.
+
+885
+00:40:54,310 --> 00:40:58,210
+It gives you features like syntax
+highlighting and nice indentation
+
+886
+00:40:58,210 --> 00:41:00,710
+features, and even
+auto-complete and more.
+
+887
+00:41:00,710 --> 00:41:02,890
+And so this would be a
+tool much like the IDE
+
+888
+00:41:02,890 --> 00:41:05,140
+that you can use on your own Mac or PC.
+
+889
+00:41:05,140 --> 00:41:09,430
+An alternative that's also
+free for use here is Atom.
+
+890
+00:41:09,430 --> 00:41:13,160
+It behaves very similarly, and that
+too is something you can try as well.
+
+891
+00:41:13,160 --> 00:41:16,180
+If you'd like to go a little deeper
+and use some older school tools that
+
+892
+00:41:16,180 --> 00:41:18,079
+are very much still in
+use, myself included,
+
+893
+00:41:18,079 --> 00:41:20,620
+because they're perhaps all the
+more powerful in that they're
+
+894
+00:41:20,620 --> 00:41:23,380
+much more command-line based,
+Vim is a very popular one.
+
+895
+00:41:23,380 --> 00:41:25,450
+If you add this
+autocomplete plug-in, you'll
+
+896
+00:41:25,450 --> 00:41:29,450
+have very similar capabilities even
+within that environment as well.
+
+897
+00:41:29,450 --> 00:41:33,550
+Now as for final projects, many students
+end up making web-based applications,
+
+898
+00:41:33,550 --> 00:41:35,950
+maybe borrowing P-set
+seven or P-set eight's code
+
+899
+00:41:35,950 --> 00:41:37,960
+and then adding and contributing
+their own when ripping out
+
+900
+00:41:37,960 --> 00:41:40,060
+things that are P-set
+specific, you can certainly
+
+901
+00:41:40,060 --> 00:41:44,167
+use CS50 IDE to host that
+website so that friends
+
+902
+00:41:44,167 --> 00:41:47,000
+at the fair and then friends in the
+houses and dorms can try it out,
+
+903
+00:41:47,000 --> 00:41:47,980
+or friends back home.
+
+904
+00:41:47,980 --> 00:41:49,360
+But of course with these
+free accounts, they
+
+905
+00:41:49,360 --> 00:41:52,060
+tend to turn off just to save
+resources after not using it
+
+906
+00:41:52,060 --> 00:41:53,800
+for a few hours or days.
+
+907
+00:41:53,800 --> 00:41:55,870
+You can at least though,
+in the short term,
+
+908
+00:41:55,870 --> 00:41:59,500
+enable this by going to the
+Share icon, and CS50 IDE,
+
+909
+00:41:59,500 --> 00:42:02,305
+selecting public for the
+application, and then any friends who
+
+910
+00:42:02,305 --> 00:42:04,180
+visit a URL that looks
+like that can actually
+
+911
+00:42:04,180 --> 00:42:07,240
+see your P-set seven,
+your P-set eight, or soon,
+
+912
+00:42:07,240 --> 00:42:09,130
+your final project If it's web based.
+
+913
+00:42:09,130 --> 00:42:11,980
+But a lot cooler ultimately,
+and a lot more practical
+
+914
+00:42:11,980 --> 00:42:16,145
+if you want this thing to survive
+in perpetuity and just run 24/7,
+
+915
+00:42:16,145 --> 00:42:18,520
+would be to use some of these
+third-party cloud services.
+
+916
+00:42:18,520 --> 00:42:21,400
+Heroku is a very
+popular service that has
+
+917
+00:42:21,400 --> 00:42:24,460
+you install a little bit of
+software on your Mac or PC, and then
+
+918
+00:42:24,460 --> 00:42:26,440
+sort of magically
+thereafter, anytime you
+
+919
+00:42:26,440 --> 00:42:30,430
+run a command, any code you've been
+working on your Mac or PC gets pushed
+
+920
+00:42:30,430 --> 00:42:33,190
+to the cloud, so to speak,
+deployed to Heroku servers,
+
+921
+00:42:33,190 --> 00:42:36,456
+and then it can live at your own
+domain name, either a default one
+
+922
+00:42:36,456 --> 00:42:38,830
+you get for free, but if you
+want something a little more
+
+923
+00:42:38,830 --> 00:42:42,430
+custom, can you actually buy or
+for free get your own domain name.
+
+924
+00:42:42,430 --> 00:42:45,760
+Amazon has something called AWS Educate,
+which you can use for free as well,
+
+925
+00:42:45,760 --> 00:42:48,070
+and there's bunches
+of other services too.
+
+926
+00:42:48,070 --> 00:42:50,260
+In fact, there's a
+company called Namecheap,
+
+927
+00:42:50,260 --> 00:42:52,840
+which is not only cheap,
+it's also free for students
+
+928
+00:42:52,840 --> 00:42:56,050
+if you want to buy your own domain
+name for your final project or beyond,
+
+929
+00:42:56,050 --> 00:42:58,490
+head to a URL like this one here.
+
+930
+00:42:58,490 --> 00:43:02,070
+And then lastly, GitHub itself, beyond
+offering version control software,
+
+931
+00:43:02,070 --> 00:43:05,680
+is partnered with bunches of companies
+that just give free levels of service
+
+932
+00:43:05,680 --> 00:43:06,897
+to students as well.
+
+933
+00:43:06,897 --> 00:43:08,980
+So if you go get this
+developer pack, so to speak,
+
+934
+00:43:08,980 --> 00:43:12,730
+you'll see even more options that
+you can use for some amount of time
+
+935
+00:43:12,730 --> 00:43:17,810
+to learn from and actually use
+compellingly these kinds of services.
+
+936
+00:43:17,810 --> 00:43:20,720
+So what remains and what lies ahead?
+
+937
+00:43:20,720 --> 00:43:24,340
+Well of course, we'll be seeing that
+the CS50 hackathon, the CS50 fair.
+
+938
+00:43:24,340 --> 00:43:25,944
+More on those in just a moment.
+
+939
+00:43:25,944 --> 00:43:29,110
+But you're also at the point now where
+you've seen a lot of languages right?
+
+940
+00:43:29,110 --> 00:43:32,980
+Scratch and C, and Python
+and SQL, and JavaScript.
+
+941
+00:43:32,980 --> 00:43:36,320
+And increasingly if you spend time
+in this world of CS and programming,
+
+942
+00:43:36,320 --> 00:43:38,320
+and if you Google and
+read up on Stack Overflow,
+
+943
+00:43:38,320 --> 00:43:40,300
+you're going to find that
+it's a pretty religious world
+
+944
+00:43:40,300 --> 00:43:43,008
+among some people, where everyone
+has these strong opinions, sort
+
+945
+00:43:43,008 --> 00:43:44,210
+of correct or incorrect.
+
+946
+00:43:44,210 --> 00:43:47,860
+And so I would encourage you to be
+as open-minded here on out as to what
+
+947
+00:43:47,860 --> 00:43:49,510
+the right solutions to problems are.
+
+948
+00:43:49,510 --> 00:43:53,290
+It is rarely the case that there is one
+thing only you should use and realize
+
+949
+00:43:53,290 --> 00:43:55,360
+that a lot of programmers,
+myself included,
+
+950
+00:43:55,360 --> 00:43:58,330
+will bring to the table biases
+that you should keep in mind
+
+951
+00:43:58,330 --> 00:44:01,300
+and push back on if you think a
+problem could be solved differently.
+
+952
+00:44:01,300 --> 00:44:03,610
+And realize too it's
+all about trade-offs.
+
+953
+00:44:03,610 --> 00:44:06,940
+And this, to kind of paint this
+picture of the various idiosyncrasies
+
+954
+00:44:06,940 --> 00:44:10,900
+of languages is a wonderful short talk
+that a fellow gave at a conference
+
+955
+00:44:10,900 --> 00:44:15,220
+a few years ago wherein he pointed out
+that all languages, the ones especially
+
+956
+00:44:15,220 --> 00:44:17,380
+that he excerpted, have
+these weird features.
+
+957
+00:44:17,380 --> 00:44:19,254
+And so if you encounter
+someone in life who's
+
+958
+00:44:19,254 --> 00:44:22,281
+like oh, PHP is bad because of this
+or Python is bad because of that,
+
+959
+00:44:22,281 --> 00:44:24,280
+well you could probably
+come up with those kinds
+
+960
+00:44:24,280 --> 00:44:26,030
+of sentences about any language.
+
+961
+00:44:26,030 --> 00:44:28,860
+But what's cool now is that
+we've seen enough languages
+
+962
+00:44:28,860 --> 00:44:32,560
+and perhaps formed enough opinions
+that some of the examples you're
+
+963
+00:44:32,560 --> 00:44:36,580
+about to see should on their face
+be a little nonsensical or weird,
+
+964
+00:44:36,580 --> 00:44:39,880
+and it's more like programming trivia,
+but hopefully now some 12 weeks later,
+
+965
+00:44:39,880 --> 00:44:43,601
+these examples of programming
+idiosyncrasies will make sense.
+
+966
+00:44:43,601 --> 00:44:44,350
+Let's take a look.
+
+967
+00:44:44,350 --> 00:44:48,010
+
+
+968
+00:44:48,010 --> 00:44:49,530
+All right, good.
+
+969
+00:44:49,530 --> 00:44:52,102
+You guys know what WAT means?
+
+970
+00:44:52,102 --> 00:44:56,210
+[INTERPOSING VOICES]
+
+971
+00:44:56,210 --> 00:44:58,600
+Exactly, exactly.
+
+972
+00:44:58,600 --> 00:45:00,730
+Let's talk about JavaScript.
+
+973
+00:45:00,730 --> 00:45:04,690
+
+
+974
+00:45:04,690 --> 00:45:08,367
+Does anyone know in JavaScript
+what array plus array is?
+
+975
+00:45:08,367 --> 00:45:09,700
+Well, let me ask you this first.
+
+976
+00:45:09,700 --> 00:45:11,933
+What should array + array be?
+
+977
+00:45:11,933 --> 00:45:12,880
+AUDIENCE: Empty array.
+
+978
+00:45:12,880 --> 00:45:13,921
+DAVID MALAN: Empty array.
+
+979
+00:45:13,921 --> 00:45:15,430
+I would also accept type error.
+
+980
+00:45:15,430 --> 00:45:17,840
+That is not what array + array is.
+
+981
+00:45:17,840 --> 00:45:18,980
+Wrong.
+
+982
+00:45:18,980 --> 00:45:20,020
+Wrong.
+
+983
+00:45:20,020 --> 00:45:22,420
+Array plus array is empty string.
+
+984
+00:45:22,420 --> 00:45:26,320
+
+
+985
+00:45:26,320 --> 00:45:26,910
+Obviously.
+
+986
+00:45:26,910 --> 00:45:30,010
+I think that's obvious to everyone.
+
+987
+00:45:30,010 --> 00:45:31,780
+Now what would array + object be?
+
+988
+00:45:31,780 --> 00:45:34,404
+This would obviously be TypeError,
+because those are completely
+
+989
+00:45:34,404 --> 00:45:35,630
+disparate types.
+
+990
+00:45:35,630 --> 00:45:36,880
+Does anyone know what this is?
+
+991
+00:45:36,880 --> 00:45:38,860
+AUDIENCE: Default.
+
+992
+00:45:38,860 --> 00:45:39,530
+DAVID MALAN: No.
+
+993
+00:45:39,530 --> 00:45:40,030
+Close.
+
+994
+00:45:40,030 --> 00:45:40,622
+No, far away.
+
+995
+00:45:40,622 --> 00:45:41,330
+AUDIENCE: Object.
+
+996
+00:45:41,330 --> 00:45:43,630
+DAVID MALAN: It's object.
+
+997
+00:45:43,630 --> 00:45:44,920
+Right, nicely done.
+
+998
+00:45:44,920 --> 00:45:48,730
+Now of course, because this is
+plus, so you can flip the operands
+
+999
+00:45:48,730 --> 00:45:50,080
+and the same thing comes out.
+
+1000
+00:45:50,080 --> 00:45:52,840
+So if we do, what?
+
+1001
+00:45:52,840 --> 00:45:54,490
+No that's just an object.
+
+1002
+00:45:54,490 --> 00:45:57,440
+If you do object + arrays, you
+get exactly the same thing,
+
+1003
+00:45:57,440 --> 00:45:58,940
+which as you can see you do.
+
+1004
+00:45:58,940 --> 00:46:03,560
+
+
+1005
+00:46:03,560 --> 00:46:06,920
+And finally, the only one of
+these that's actually true
+
+1006
+00:46:06,920 --> 00:46:08,997
+is, because you know
+you add arrays, you get
+
+1007
+00:46:08,997 --> 00:46:10,580
+empty string, that doesn't make sense.
+
+1008
+00:46:10,580 --> 00:46:16,230
+But an object plus an object is
+actually not a number, technically.
+
+1009
+00:46:16,230 --> 00:46:19,350
+So this one's actually right.
+
+1010
+00:46:19,350 --> 00:46:21,620
+And exactly, right?
+
+1011
+00:46:21,620 --> 00:46:24,070
+Like, what is even
+going on in this last?
+
+1012
+00:46:24,070 --> 00:46:29,117
+I just, I don't even understand what
+person with a brain in their head
+
+1013
+00:46:29,117 --> 00:46:30,950
+would think that any
+of this is a good idea.
+
+1014
+00:46:30,950 --> 00:46:34,630
+
+
+1015
+00:46:34,630 --> 00:46:37,130
+OK, OK, enough making fun
+of languages that suck.
+
+1016
+00:46:37,130 --> 00:46:41,030
+Let's talk about JavaScript.
+
+1017
+00:46:41,030 --> 00:46:45,230
+If I say array.new 16,
+or just array 16, I
+
+1018
+00:46:45,230 --> 00:46:47,125
+get an array of 16 things
+which it represents
+
+1019
+00:46:47,125 --> 00:46:49,720
+as 16 commas, which is obvious.
+
+1020
+00:46:49,720 --> 00:46:56,030
+And if I then join those with a
+string, then I get the string 16 times.
+
+1021
+00:46:56,030 --> 00:47:00,620
+This is actually the only line in this
+entire presentation that's reasonable.
+
+1022
+00:47:00,620 --> 00:47:02,830
+Now if I take that string
+and then add a 1 to it,
+
+1023
+00:47:02,830 --> 00:47:06,260
+it interprets the 1 as, or
+casts the 1 to a string,
+
+1024
+00:47:06,260 --> 00:47:08,210
+and then we get WAT 1 a bunch of times.
+
+1025
+00:47:08,210 --> 00:47:09,260
+Fine.
+
+1026
+00:47:09,260 --> 00:47:12,200
+Does anyone know what will
+happen if I subtract 1 from this?
+
+1027
+00:47:12,200 --> 00:47:14,969
+
+
+1028
+00:47:14,969 --> 00:47:16,010
+I'm assuming no one does.
+
+1029
+00:47:16,010 --> 00:47:17,480
+Let me, I'll give you a hint.
+
+1030
+00:47:17,480 --> 00:47:20,860
+Does this help?
+
+1031
+00:47:20,860 --> 00:47:22,741
+Does anyone know?
+
+1032
+00:47:22,741 --> 00:47:23,324
+AUDIENCE: Yes.
+
+1033
+00:47:23,324 --> 00:47:31,911
+
+
+1034
+00:47:31,911 --> 00:47:32,786
+DAVID MALAN: WAT-man.
+
+1035
+00:47:32,786 --> 00:47:36,790
+
+
+1036
+00:47:36,790 --> 00:47:41,270
+So programmer humor, just a
+little taste of it there as well.
+
+1037
+00:47:41,270 --> 00:47:42,450
+What comes next?
+
+1038
+00:47:42,450 --> 00:47:44,450
+We will wrap a bit early,
+probably in about 10--
+
+1039
+00:47:44,450 --> 00:47:47,270
+AUDIENCE: [INAUDIBLE]
+
+1040
+00:47:47,270 --> 00:47:48,560
+DAVID MALAN: OK.
+
+1041
+00:47:48,560 --> 00:47:50,330
+So we'll wrap in about 10 or so minutes.
+
+1042
+00:47:50,330 --> 00:47:53,690
+Before then, we want to give you a
+teaser of what lies ahead and why.
+
+1043
+00:47:53,690 --> 00:47:56,180
+So the CS50 hackathon of
+course, here on campus,
+
+1044
+00:47:56,180 --> 00:48:00,200
+is about working on, alongside
+classmates final projects,
+
+1045
+00:48:00,200 --> 00:48:03,149
+and having some 12 hours or
+so in which to dive into them,
+
+1046
+00:48:03,149 --> 00:48:05,690
+not only to actually get something
+useful and productive done
+
+1047
+00:48:05,690 --> 00:48:07,898
+and feel good about it, but
+also we hope about having
+
+1048
+00:48:07,898 --> 00:48:11,060
+a particularly memorable experience
+among all of the course's staff
+
+1049
+00:48:11,060 --> 00:48:12,440
+and all of your classmates.
+
+1050
+00:48:12,440 --> 00:48:16,400
+It's not meant to be 12 hours of office
+hours, but really 12 hours of fun
+
+1051
+00:48:16,400 --> 00:48:19,550
+problem-solving with the wonderful
+support structure of everyone around.
+
+1052
+00:48:19,550 --> 00:48:22,030
+Upon arrival, you'll
+check in like this here.
+
+1053
+00:48:22,030 --> 00:48:24,590
+You'll get set up in HBS's
+Hives across the river, where
+
+1054
+00:48:24,590 --> 00:48:25,744
+we had CS50 Puzzle Day.
+
+1055
+00:48:25,744 --> 00:48:28,160
+And throughout the evening,
+well, you work with each other
+
+1056
+00:48:28,160 --> 00:48:30,740
+or on your own projects,
+solving problems
+
+1057
+00:48:30,740 --> 00:48:34,850
+ultimately to get to an end of having
+a project that's either good or better
+
+1058
+00:48:34,850 --> 00:48:36,550
+or best as per your proposals.
+
+1059
+00:48:36,550 --> 00:48:40,470
+Around 9:00 PM, we'll order
+in some Felipe's, quite a bit.
+
+1060
+00:48:40,470 --> 00:48:44,400
+Around 1:00 AM, we'll order
+quite a bit of pizza as well.
+
+1061
+00:48:44,400 --> 00:48:46,340
+And then throughout
+the evening, will there
+
+1062
+00:48:46,340 --> 00:48:49,310
+be not only photo booth
+for some souvenir photos.
+
+1063
+00:48:49,310 --> 00:48:53,360
+One of CS50's own therapy
+dogs will be on display
+
+1064
+00:48:53,360 --> 00:48:55,820
+to chat with and get to know.
+
+1065
+00:48:55,820 --> 00:48:57,860
+Yes, shoutout to Milo here.
+
+1066
+00:48:57,860 --> 00:49:01,140
+And then of course, shortly
+after this, around 2:00,
+
+1067
+00:49:01,140 --> 00:49:03,770
+3:00 AM, such things as this do happen.
+
+1068
+00:49:03,770 --> 00:49:06,680
+But if you can make it through
+the evening, at 5:00 AM,
+
+1069
+00:49:06,680 --> 00:49:08,842
+will literally CS50
+shuttle show up and take
+
+1070
+00:49:08,842 --> 00:49:11,300
+those of you who would like to
+have a culminating breakfast
+
+1071
+00:49:11,300 --> 00:49:12,950
+over down the street to IHOP.
+
+1072
+00:49:12,950 --> 00:49:16,019
+And then just a week or
+so later is the CS50 fair,
+
+1073
+00:49:16,019 --> 00:49:17,810
+an opportunity to show
+off what you've done
+
+1074
+00:49:17,810 --> 00:49:20,240
+and what you've learned
+to all of your classmates
+
+1075
+00:49:20,240 --> 00:49:22,010
+here, but also others across campus.
+
+1076
+00:49:22,010 --> 00:49:24,560
+In attendance every
+year some 2,000 students
+
+1077
+00:49:24,560 --> 00:49:27,020
+and faculty and staff
+from across Harvard,
+
+1078
+00:49:27,020 --> 00:49:30,200
+some from the surrounding area
+high schools as well, all of whom
+
+1079
+00:49:30,200 --> 00:49:32,330
+are here to see what
+you have pulled off.
+
+1080
+00:49:32,330 --> 00:49:35,060
+So here is a glimpse for instance
+of last year's CS50 fair.
+
+1081
+00:49:35,060 --> 00:49:38,240
+We'll set up laptops and
+tables and music and food,
+
+1082
+00:49:38,240 --> 00:49:40,760
+and really just have
+you offer an opportunity
+
+1083
+00:49:40,760 --> 00:49:44,660
+to delight in what everyone here
+has pulled off during the semester
+
+1084
+00:49:44,660 --> 00:49:46,730
+and hardware demonstrations as well.
+
+1085
+00:49:46,730 --> 00:49:50,030
+Also in attendance will be some
+friends and recruiters and alumni
+
+1086
+00:49:50,030 --> 00:49:50,900
+from industry.
+
+1087
+00:49:50,900 --> 00:49:52,850
+Pictured here is one of
+the city's former TFs
+
+1088
+00:49:52,850 --> 00:49:55,160
+who actually turned himself
+into a software engineer
+
+1089
+00:49:55,160 --> 00:49:59,570
+having taken CS50 as a senior
+concentrating in social studies,
+
+1090
+00:49:59,570 --> 00:50:02,750
+and then really bootstrapped himself
+in the few years after graduation
+
+1091
+00:50:02,750 --> 00:50:05,855
+to then have a job at
+Google writing software.
+
+1092
+00:50:05,855 --> 00:50:07,730
+And of course you'll
+receive at the very end,
+
+1093
+00:50:07,730 --> 00:50:12,060
+hopefully, this proud statement
+that you took indeed CS50,
+
+1094
+00:50:12,060 --> 00:50:15,230
+and so that will be presented
+at the CS50 fair as well.
+
+1095
+00:50:15,230 --> 00:50:17,930
+In just a little bit we'll
+adjourn to the pub downstairs,
+
+1096
+00:50:17,930 --> 00:50:20,420
+where Aaron and Brian and
+Maria and the whole team
+
+1097
+00:50:20,420 --> 00:50:23,630
+will be waiting to say hello
+and congratulations with CS50's
+
+1098
+00:50:23,630 --> 00:50:26,660
+traditional cupcakes, but
+before then we thought
+
+1099
+00:50:26,660 --> 00:50:28,520
+we'd invite a few of
+the staff up on stage
+
+1100
+00:50:28,520 --> 00:50:32,240
+to participate in an
+annual CS50 tradition,
+
+1101
+00:50:32,240 --> 00:50:34,860
+especially in the spirit of
+this weekend's competition.
+
+1102
+00:50:34,860 --> 00:50:39,500
+But this one not so much Harvard
+versus Yale, but students versus staff.
+
+1103
+00:50:39,500 --> 00:50:44,172
+If we might get four brave
+volunteers to come on up?
+
+1104
+00:50:44,172 --> 00:50:45,380
+OK, I saw one hand over here.
+
+1105
+00:50:45,380 --> 00:50:46,070
+Come on up.
+
+1106
+00:50:46,070 --> 00:50:47,510
+OK, one hand over here.
+
+1107
+00:50:47,510 --> 00:50:49,880
+One hand over here, and
+a fourth hand over here.
+
+1108
+00:50:49,880 --> 00:50:51,560
+Come on up.
+
+1109
+00:50:51,560 --> 00:50:56,100
+Thank you so much to
+our volunteers here.
+
+1110
+00:50:56,100 --> 00:50:57,802
+Right there, that's fine, yeah.
+
+1111
+00:50:57,802 --> 00:50:58,510
+What's your name?
+
+1112
+00:50:58,510 --> 00:50:59,134
+ANDREA: Andrea.
+
+1113
+00:50:59,134 --> 00:50:59,167
+
+
+1114
+00:50:59,167 --> 00:51:00,000
+DAVID MALAN: Andrea.
+
+1115
+00:51:00,000 --> 00:51:00,290
+David.
+
+1116
+00:51:00,290 --> 00:51:00,998
+Nice to meet you.
+
+1117
+00:51:00,998 --> 00:51:01,740
+Right this way.
+
+1118
+00:51:01,740 --> 00:51:02,527
+We'll get some chairs.
+
+1119
+00:51:02,527 --> 00:51:02,940
+WILL: Will.
+
+1120
+00:51:02,940 --> 00:51:03,200
+DAVID MALAN: Will.
+
+1121
+00:51:03,200 --> 00:51:03,908
+Nice to meet you.
+
+1122
+00:51:03,908 --> 00:51:04,550
+Right this way.
+
+1123
+00:51:04,550 --> 00:51:05,090
+OLIVIA: Olivia.
+
+1124
+00:51:05,090 --> 00:51:05,440
+DAVID MALAN: Olivia.
+
+1125
+00:51:05,440 --> 00:51:06,130
+Nice to see you.
+
+1126
+00:51:06,130 --> 00:51:06,830
+Right this way.
+
+1127
+00:51:06,830 --> 00:51:07,190
+And--
+
+1128
+00:51:07,190 --> 00:51:07,610
+HANNAH: Hannah.
+
+1129
+00:51:07,610 --> 00:51:08,443
+DAVID MALAN: Hannah.
+
+1130
+00:51:08,443 --> 00:51:09,110
+Right this way.
+
+1131
+00:51:09,110 --> 00:51:13,390
+We've got four chairs for
+staff, four chairs for students.
+
+1132
+00:51:13,390 --> 00:51:18,360
+
+
+1133
+00:51:18,360 --> 00:51:20,721
+All right thank you.
+
+1134
+00:51:20,721 --> 00:51:23,020
+Go on, let's put the
+tablecloths up there too.
+
+1135
+00:51:23,020 --> 00:51:25,740
+And Colton, we can spin this around.
+
+1136
+00:51:25,740 --> 00:51:30,965
+Let's have the students
+sit over there on my right.
+
+1137
+00:51:30,965 --> 00:51:32,870
+Thank you.
+
+1138
+00:51:32,870 --> 00:51:36,620
+And the staff will sit
+over to their left.
+
+1139
+00:51:36,620 --> 00:51:38,750
+Thank you.
+
+1140
+00:51:38,750 --> 00:51:41,430
+And here we have, excellent.
+
+1141
+00:51:41,430 --> 00:51:41,930
+Excellent.
+
+1142
+00:51:41,930 --> 00:51:43,957
+And you want to do some
+dramatic flair here.
+
+1143
+00:51:43,957 --> 00:51:46,040
+All right, so you guys are
+in charge of that. one.
+
+1144
+00:51:46,040 --> 00:51:47,498
+You guys are in charge of that one.
+
+1145
+00:51:47,498 --> 00:51:49,490
+Just keep the pen and paper there.
+
+1146
+00:51:49,490 --> 00:51:52,310
+Oh, and even better.
+
+1147
+00:51:52,310 --> 00:51:55,220
+Yes, let's see.
+
+1148
+00:51:55,220 --> 00:51:58,650
+Let's see if we can do a
+dramatic flourish here.
+
+1149
+00:51:58,650 --> 00:52:00,320
+I think we can do better for you guys.
+
+1150
+00:52:00,320 --> 00:52:05,700
+
+
+1151
+00:52:05,700 --> 00:52:08,502
+Yes.
+
+1152
+00:52:08,502 --> 00:52:09,960
+You guys get the better tablecloth.
+
+1153
+00:52:09,960 --> 00:52:12,340
+There we go, OK.
+
+1154
+00:52:12,340 --> 00:52:16,810
+All right, so you may recall,
+as part of problem set eight,
+
+1155
+00:52:16,810 --> 00:52:20,140
+we asked you a few
+quiz review questions.
+
+1156
+00:52:20,140 --> 00:52:23,500
+Not all of them made the
+cut into the actual quiz.
+
+1157
+00:52:23,500 --> 00:52:29,770
+There was a lot of what is HTTP
+stand for and what is HTML stand for?
+
+1158
+00:52:29,770 --> 00:52:30,930
+But that's OK.
+
+1159
+00:52:30,930 --> 00:52:32,770
+We went through the
+list and culled a few
+
+1160
+00:52:32,770 --> 00:52:38,514
+that we'll use here for CS50's
+annual student v. staff Jeopardy.
+
+1161
+00:52:38,514 --> 00:52:41,680
+Because the questions were written in
+the form of questions and not answers,
+
+1162
+00:52:41,680 --> 00:52:43,600
+we'll simply read them as is.
+
+1163
+00:52:43,600 --> 00:52:47,290
+We've excerpted a number of categories
+from which your own classmates wrote
+
+1164
+00:52:47,290 --> 00:52:48,310
+questions.
+
+1165
+00:52:48,310 --> 00:52:53,920
+We don't have buzzers, but we
+do have things that squeak, so.
+
+1166
+00:52:53,920 --> 00:52:55,307
+We have four of these.
+
+1167
+00:52:55,307 --> 00:52:57,640
+So if you just squeak the
+duck if you'd like to buzz in.
+
+1168
+00:52:57,640 --> 00:53:01,940
+Colton will help me adjudicate
+as to whose hand went up first.
+
+1169
+00:53:01,940 --> 00:53:05,630
+And let's go ahead and put a
+microphone, here microphone here,
+
+1170
+00:53:05,630 --> 00:53:10,270
+and before we begin, perhaps some
+quick hellos of name and dorm or house
+
+1171
+00:53:10,270 --> 00:53:11,517
+into the microphones.
+
+1172
+00:53:11,517 --> 00:53:14,151
+
+
+1173
+00:53:14,151 --> 00:53:14,650
+OLIVIA: Hi.
+
+1174
+00:53:14,650 --> 00:53:15,520
+I'm Olivia.
+
+1175
+00:53:15,520 --> 00:53:17,990
+I'm a freshman and I'm in Wigg.
+
+1176
+00:53:17,990 --> 00:53:23,070
+HANNAH: Hi, I'm Hannah, and I'm a first
+year at Graduate School of Design.
+
+1177
+00:53:23,070 --> 00:53:23,735
+WILL: Hi guys.
+
+1178
+00:53:23,735 --> 00:53:24,630
+I'm Will Yao.
+
+1179
+00:53:24,630 --> 00:53:26,900
+I live in Grays.
+
+1180
+00:53:26,900 --> 00:53:27,400
+ANDREA: Hi.
+
+1181
+00:53:27,400 --> 00:53:28,120
+I'm Andrea.
+
+1182
+00:53:28,120 --> 00:53:29,180
+I'm a senior in Mather.
+
+1183
+00:53:29,180 --> 00:53:31,790
+
+
+1184
+00:53:31,790 --> 00:53:34,180
+DAVID MALAN: And let's
+now meet the staff.
+
+1185
+00:53:34,180 --> 00:53:35,822
+ERIN: I'm Erin.
+
+1186
+00:53:35,822 --> 00:53:36,530
+ARMAV: I'm Armav.
+
+1187
+00:53:36,530 --> 00:53:38,609
+I'm a sophomore in Eliot.
+
+1188
+00:53:38,609 --> 00:53:39,400
+THOMAS: I'm Thomas.
+
+1189
+00:53:39,400 --> 00:53:41,280
+I'm a senior in Kirkland.
+
+1190
+00:53:41,280 --> 00:53:43,060
+MARIA: Maria, senior in Cabot.
+
+1191
+00:53:43,060 --> 00:53:45,310
+DAVID MALAN: And so perfect
+that Maria is up here too,
+
+1192
+00:53:45,310 --> 00:53:49,060
+because I went through our archives,
+and if we look back some four years,
+
+1193
+00:53:49,060 --> 00:53:52,009
+there she is as well.
+
+1194
+00:53:52,009 --> 00:53:54,925
+When apparently it was fashionable
+to wear Google Glass around campus.
+
+1195
+00:53:54,925 --> 00:53:57,640
+
+
+1196
+00:53:57,640 --> 00:54:03,700
+So here we have our Jeopardy
+board, implemented in HTML.
+
+1197
+00:54:03,700 --> 00:54:05,252
+And we have single Jeopardy ahead.
+
+1198
+00:54:05,252 --> 00:54:06,460
+We won't run the whole board.
+
+1199
+00:54:06,460 --> 00:54:09,400
+Just a few choice examples
+from each category.
+
+1200
+00:54:09,400 --> 00:54:11,381
+Before we began, students
+won the coin toss,
+
+1201
+00:54:11,381 --> 00:54:13,880
+so you guys will get to pick
+the category and dollar amount.
+
+1202
+00:54:13,880 --> 00:54:14,796
+I'll ask the question.
+
+1203
+00:54:14,796 --> 00:54:16,990
+Colton will kindly keep
+track of the score,
+
+1204
+00:54:16,990 --> 00:54:18,660
+and we'll see how this turns out.
+
+1205
+00:54:18,660 --> 00:54:21,970
+Before we adjourn for cupcakes.
+
+1206
+00:54:21,970 --> 00:54:24,100
+What topic would you guys like?
+
+1207
+00:54:24,100 --> 00:54:26,290
+OK, Scratch for?
+
+1208
+00:54:26,290 --> 00:54:27,160
+AUDIENCE: $200.
+
+1209
+00:54:27,160 --> 00:54:29,230
+DAVID MALAN: Scratch for $200.
+
+1210
+00:54:29,230 --> 00:54:32,200
+First one to squeak gets the answer.
+
+1211
+00:54:32,200 --> 00:54:35,980
+Which puzzle piece starts the program?
+
+1212
+00:54:35,980 --> 00:54:38,431
+I think I heard students.
+
+1213
+00:54:38,431 --> 00:54:41,180
+ANDREA: The flag one?
+
+1214
+00:54:41,180 --> 00:54:43,912
+DAVID MALAN: Yes the one flag clicked.
+
+1215
+00:54:43,912 --> 00:54:44,870
+What color is the flag?
+
+1216
+00:54:44,870 --> 00:54:45,453
+ANDREA: Green?
+
+1217
+00:54:45,453 --> 00:54:48,140
+DAVID MALAN: When green flag
+clicked is correct, for $200.
+
+1218
+00:54:48,140 --> 00:54:50,900
+Very good.
+
+1219
+00:54:50,900 --> 00:54:51,469
+Very nice.
+
+1220
+00:54:51,469 --> 00:54:53,010
+You're still in control of the board.
+
+1221
+00:54:53,010 --> 00:54:58,200
+
+
+1222
+00:54:58,200 --> 00:55:00,582
+OLIVIA: Let's take-- memory?
+
+1223
+00:55:00,582 --> 00:55:02,922
+[INAUDIBLE]
+
+1224
+00:55:02,922 --> 00:55:04,330
+Memory for $400.
+
+1225
+00:55:04,330 --> 00:55:06,190
+DAVID MALAN: Memory for $400.
+
+1226
+00:55:06,190 --> 00:55:07,580
+Stepping it up.
+
+1227
+00:55:07,580 --> 00:55:13,300
+So for Memory, how much
+memory does a byte have?
+
+1228
+00:55:13,300 --> 00:55:14,962
+Also didn't make the quiz.
+
+1229
+00:55:14,962 --> 00:55:15,670
+THOMAS: One byte.
+
+1230
+00:55:15,670 --> 00:55:19,150
+
+
+1231
+00:55:19,150 --> 00:55:20,410
+Eight bits?
+
+1232
+00:55:20,410 --> 00:55:22,880
+DAVID MALAN: I'll take
+eight bits, yes, for $400.
+
+1233
+00:55:22,880 --> 00:55:24,940
+Staff are now in control.
+
+1234
+00:55:24,940 --> 00:55:26,890
+Nicely done, Thomas.
+
+1235
+00:55:26,890 --> 00:55:30,370
+Yes, a byte is a byte.
+
+1236
+00:55:30,370 --> 00:55:33,410
+What category would you all like next?
+
+1237
+00:55:33,410 --> 00:55:34,560
+Whoa, wait.
+
+1238
+00:55:34,560 --> 00:55:38,070
+THOMAS: Algorithms for $400.
+
+1239
+00:55:38,070 --> 00:55:39,220
+DAVID MALAN: What for four?
+
+1240
+00:55:39,220 --> 00:55:40,386
+THOMAS: Algorithms for $400.
+
+1241
+00:55:40,386 --> 00:55:41,890
+DAVID MALAN: Algorithms for $400.
+
+1242
+00:55:41,890 --> 00:55:47,950
+So in Algorithms, we have the
+following question for you.
+
+1243
+00:55:47,950 --> 00:55:49,050
+What is the Big O?
+
+1244
+00:55:49,050 --> 00:55:51,798
+
+
+1245
+00:55:51,798 --> 00:55:53,080
+I heard it over here.
+
+1246
+00:55:53,080 --> 00:55:55,580
+WILL: It's used to
+describe time complexity.
+
+1247
+00:55:55,580 --> 00:55:57,760
+DAVID MALAN: Used to
+describe time complexity.
+
+1248
+00:55:57,760 --> 00:55:59,532
+Correct for $400.
+
+1249
+00:55:59,532 --> 00:56:04,660
+Wonderful Students are in control
+and are currently up to $600.
+
+1250
+00:56:04,660 --> 00:56:06,970
+Still taking the lead again.
+
+1251
+00:56:06,970 --> 00:56:08,854
+What would you like next?
+
+1252
+00:56:08,854 --> 00:56:09,850
+STUDENTS: C.
+
+1253
+00:56:09,850 --> 00:56:14,300
+DAVID MALAN: C. For $400.
+
+1254
+00:56:14,300 --> 00:56:17,200
+C for $400.
+
+1255
+00:56:17,200 --> 00:56:18,850
+We're going to go with--
+
+1256
+00:56:18,850 --> 00:56:23,200
+
+
+1257
+00:56:23,200 --> 00:56:26,650
+why did we start with C?
+
+1258
+00:56:26,650 --> 00:56:29,320
+And there's no answer.
+
+1259
+00:56:29,320 --> 00:56:30,130
+Go ahead.
+
+1260
+00:56:30,130 --> 00:56:33,226
+I heard you squeak first.
+
+1261
+00:56:33,226 --> 00:56:35,833
+WILL: Because if we started
+with something else, going to C
+
+1262
+00:56:35,833 --> 00:56:37,052
+would be terrible.
+
+1263
+00:56:37,052 --> 00:56:40,010
+DAVID MALAN: Starting with something
+else going to C would be terrible.
+
+1264
+00:56:40,010 --> 00:56:41,709
+Staff, what do you think?
+
+1265
+00:56:41,709 --> 00:56:42,250
+THOMAS: Sure.
+
+1266
+00:56:42,250 --> 00:56:44,250
+DAVID MALAN: All right, for $400.
+
+1267
+00:56:44,250 --> 00:56:45,470
+That was C for $400.
+
+1268
+00:56:45,470 --> 00:56:48,830
+We have time for just one or two more
+questions here in Single Jeopardy.
+
+1269
+00:56:48,830 --> 00:56:52,459
+Students are still in control
+and really winning now.
+
+1270
+00:56:52,459 --> 00:56:53,500
+OLIVIA: C for a thousand.
+
+1271
+00:56:53,500 --> 00:56:54,749
+DAVID MALAN: C for a thousand.
+
+1272
+00:56:54,749 --> 00:56:56,760
+Oh my goodness.
+
+1273
+00:56:56,760 --> 00:56:59,130
+All right, remember to buzz in.
+
+1274
+00:56:59,130 --> 00:57:02,900
+
+
+1275
+00:57:02,900 --> 00:57:06,468
+What is the ending punctuation
+to each line of code in order--
+
+1276
+00:57:06,468 --> 00:57:10,870
+
+
+1277
+00:57:10,870 --> 00:57:12,360
+I heard I think the staff first.
+
+1278
+00:57:12,360 --> 00:57:13,200
+Yes?
+
+1279
+00:57:13,200 --> 00:57:15,005
+THOMAS: Semi-colon I hope.
+
+1280
+00:57:15,005 --> 00:57:16,860
+DAVID MALAN: It's the staff's turn.
+
+1281
+00:57:16,860 --> 00:57:18,720
+Semi-colon for $1,000.
+
+1282
+00:57:18,720 --> 00:57:20,070
+Excellent.
+
+1283
+00:57:20,070 --> 00:57:26,030
+I think then it's time for us to move
+to Double Jeopardy here, at which point
+
+1284
+00:57:26,030 --> 00:57:30,090
+the dollar amounts increase
+by a factor of two.
+
+1285
+00:57:30,090 --> 00:57:32,510
+We have time for a few
+questions in this category.
+
+1286
+00:57:32,510 --> 00:57:35,180
+Staff are now in control.
+$1,400 to $1,000.
+
+1287
+00:57:35,180 --> 00:57:38,340
+STAFFER: Data structure, $2,000.
+
+1288
+00:57:38,340 --> 00:57:40,230
+THOMAS: Data structures
+for $2,000, please.
+
+1289
+00:57:40,230 --> 00:57:42,310
+DAVID MALAN: Data structures.
+
+1290
+00:57:42,310 --> 00:57:46,320
+Data structures for $2,000.
+
+1291
+00:57:46,320 --> 00:57:47,981
+Data structures for $2,000.
+
+1292
+00:57:47,981 --> 00:57:48,480
+Here we go.
+
+1293
+00:57:48,480 --> 00:57:51,930
+Data structures for $2,000.
+
+1294
+00:57:51,930 --> 00:57:56,156
+How many children does a
+node have in a binary tree?
+
+1295
+00:57:56,156 --> 00:57:57,030
+Oh I heard over here.
+
+1296
+00:57:57,030 --> 00:57:58,610
+Yours didn't work.
+
+1297
+00:57:58,610 --> 00:58:00,180
+Your duck didn't work.
+
+1298
+00:58:00,180 --> 00:58:01,230
+Two is correct.
+
+1299
+00:58:01,230 --> 00:58:04,340
+
+
+1300
+00:58:04,340 --> 00:58:06,755
+Two is correct for $2,000.
+
+1301
+00:58:06,755 --> 00:58:08,600
+Time for one or two more questions.
+
+1302
+00:58:08,600 --> 00:58:11,230
+Students are back in
+control, $3,000 to $1,400.
+
+1303
+00:58:11,230 --> 00:58:12,860
+WILL: Python for $2,000.
+
+1304
+00:58:12,860 --> 00:58:15,050
+DAVID MALAN: Python for $2,000.
+
+1305
+00:58:15,050 --> 00:58:18,110
+Python for $2,000.
+
+1306
+00:58:18,110 --> 00:58:19,860
+Python for two.
+
+1307
+00:58:19,860 --> 00:58:27,580
+OK, how do you say, for $2,000, else-if?
+
+1308
+00:58:27,580 --> 00:58:28,210
+You think Erin?
+
+1309
+00:58:28,210 --> 00:58:29,793
+All right, your duck worked this time.
+
+1310
+00:58:29,793 --> 00:58:30,440
+ERIN: LF?
+
+1311
+00:58:30,440 --> 00:58:32,900
+DAVID MALAN: LF is correct for $2,000.
+
+1312
+00:58:32,900 --> 00:58:34,750
+You're now at $3,400.
+
+1313
+00:58:34,750 --> 00:58:38,195
+OK, don't have the
+support of the audience.
+
+1314
+00:58:38,195 --> 00:58:43,130
+Time for one more question before
+Final Jeopardy and cupcakes.
+
+1315
+00:58:43,130 --> 00:58:46,334
+What will your category
+and dollar amount be?
+
+1316
+00:58:46,334 --> 00:58:50,360
+MARIA: Let's do HTTP, $2,000.
+
+1317
+00:58:50,360 --> 00:58:53,450
+DAVID MALAN: HTTP for $2,000.
+
+1318
+00:58:53,450 --> 00:58:56,120
+Really going to pull ahead with
+this question, potentially.
+
+1319
+00:58:56,120 --> 00:59:01,110
+HTTP for $2,000.
+
+1320
+00:59:01,110 --> 00:59:05,380
+HTTP for $2,000.
+
+1321
+00:59:05,380 --> 00:59:09,530
+OK, when asked for a
+question about HTTP,
+
+1322
+00:59:09,530 --> 00:59:13,250
+your classmate asked us to
+ask the following question.
+
+1323
+00:59:13,250 --> 00:59:14,170
+Laughing my ass off.
+
+1324
+00:59:14,170 --> 00:59:18,390
+Just use the cat
+questions from the test.
+
+1325
+00:59:18,390 --> 00:59:22,470
+Asked by-- We'll try another.
+
+1326
+00:59:22,470 --> 00:59:25,550
+We'll try another.
+
+1327
+00:59:25,550 --> 00:59:31,530
+We are going to go with get coffee.
+
+1328
+00:59:31,530 --> 00:59:35,360
+HTTP/1.1.
+
+1329
+00:59:35,360 --> 00:59:36,430
+MARIA: What?
+
+1330
+00:59:36,430 --> 00:59:39,260
+OLIVIA: Something I'm a teapot?
+
+1331
+00:59:39,260 --> 00:59:42,340
+DAVID MALAN: Yes, students.
+
+1332
+00:59:42,340 --> 00:59:45,935
+OLIVIA: It's the I'm a teapot error.
+
+1333
+00:59:45,935 --> 00:59:48,910
+Okay, sorry, I'll pass it on to you.
+
+1334
+00:59:48,910 --> 00:59:51,228
+DAVID MALAN: No that
+was correct, though.
+
+1335
+00:59:51,228 --> 00:59:53,090
+Nicely done. $2,000.
+
+1336
+00:59:53,090 --> 00:59:56,950
+So now, this was an
+old April Fool's joke,
+
+1337
+00:59:56,950 --> 01:00:01,870
+where it was introduced
+as a joke, HTTP 418.
+
+1338
+01:00:01,870 --> 01:00:05,890
+So now, we're at time for
+the Final Jeopardy question
+
+1339
+01:00:05,890 --> 01:00:09,040
+where, for this question you
+have a piece of paper and a pen.
+
+1340
+01:00:09,040 --> 01:00:10,630
+The staff have $3,400.
+
+1341
+01:00:10,630 --> 01:00:13,460
+The students have $5,000, so
+there's some strategy here.
+
+1342
+01:00:13,460 --> 01:00:16,840
+You're going to first need to decide
+on a dollar amount knowing only
+
+1343
+01:00:16,840 --> 01:00:18,460
+what the category is.
+
+1344
+01:00:18,460 --> 01:00:22,690
+The category is going
+to be web programming.
+
+1345
+01:00:22,690 --> 01:00:25,390
+How much would you like to
+wager on web programming?
+
+1346
+01:00:25,390 --> 01:00:27,100
+MARIA: All of it.
+
+1347
+01:00:27,100 --> 01:00:30,190
+DAVID MALAN: Oh, I don't think
+you're supposed to tell me yet.
+
+1348
+01:00:30,190 --> 01:00:31,990
+In Jeopardy, yes.
+
+1349
+01:00:31,990 --> 01:00:35,170
+And we also need, let me
+grab just our song here.
+
+1350
+01:00:35,170 --> 01:00:36,182
+Stand by one second.
+
+1351
+01:00:36,182 --> 01:00:38,890
+And students, if you could write
+down how much you want to wager,
+
+1352
+01:00:38,890 --> 01:00:41,140
+strategically not knowing
+what the staff is wagering.
+
+1353
+01:00:41,140 --> 01:00:45,310
+
+
+1354
+01:00:45,310 --> 01:00:47,380
+We need, here we go.
+
+1355
+01:00:47,380 --> 01:00:48,720
+ANDREA: I don't know.
+
+1356
+01:00:48,720 --> 01:00:53,620
+DAVID MALAN: OK, so you
+are wagering some amount.
+
+1357
+01:00:53,620 --> 01:00:55,540
+And you guys are wagering.
+
+1358
+01:00:55,540 --> 01:01:00,190
+OK, so the question is, and you'll have
+34 seconds to come up with your answer.
+
+1359
+01:01:00,190 --> 01:01:03,460
+This is a real question
+by one of your classmates.
+
+1360
+01:01:03,460 --> 01:01:05,140
+Here we go.
+
+1361
+01:01:05,140 --> 01:01:11,290
+The creator of a hybrid language
+allowing users to meld HTML and Python
+
+1362
+01:01:11,290 --> 01:01:14,308
+had what color hair?
+
+1363
+01:01:14,308 --> 01:01:17,780
+[MUSIC - "THINK!"]
+
+1364
+01:01:17,780 --> 01:01:47,120
+
+
+1365
+01:01:47,120 --> 01:01:49,760
+All right, so we're going
+to take a look first
+
+1366
+01:01:49,760 --> 01:01:54,020
+at staff, who were trailing with $3,400.
+
+1367
+01:01:54,020 --> 01:01:57,860
+They wagered, turns out, all of it.
+
+1368
+01:01:57,860 --> 01:02:00,500
+And answered red hair.
+
+1369
+01:02:00,500 --> 01:02:07,880
+The students meanwhile, at $5,000
+wagered $1,900 and went with brown.
+
+1370
+01:02:07,880 --> 01:02:12,560
+I think we're going to need to have
+the audience decide whether or not
+
+1371
+01:02:12,560 --> 01:02:16,610
+the staff's answer is correct, because
+according to your classmate who gave us
+
+1372
+01:02:16,610 --> 01:02:20,180
+the question, the creator of a hybrid
+language allowing users to meld
+
+1373
+01:02:20,180 --> 01:02:23,510
+HTML and Python had what color hair?
+
+1374
+01:02:23,510 --> 01:02:25,135
+The answer is ginger.
+
+1375
+01:02:25,135 --> 01:02:28,480
+
+
+1376
+01:02:28,480 --> 01:02:31,700
+So congratulations to both
+staff and to students.
+
+1377
+01:02:31,700 --> 01:02:36,020
+Thank you so much for
+a wonderful semester.
+
+1378
+01:02:36,020 --> 01:02:38,810
+Cake is now served
+downstairs in the pub.
+
+1379
+01:02:38,810 --> 01:02:41,530
+We'll see you at the hackathon and fair.
+
+1380
+01:02:41,530 --> 00:00:00,000
+
+
